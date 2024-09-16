@@ -2,7 +2,7 @@
 
 ## Your 8 week journey to proficiency starts today
 
-![Voyage](voyage.jpg){width=500}
+![Voyage](voyage.jpg)
 
 I'm so happy you're joining me on this path. We'll be building immensely satisfying projects in the coming weeks. Some will be easy, some will be challenging, many will ASTOUND you! The projects build on each other so you develop deeper and deeper expertise each week. One thing's for sure: you're going to have a lot of fun along the way.
 
