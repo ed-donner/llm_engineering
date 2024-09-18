@@ -6,6 +6,13 @@
 
 I'm so happy you're joining me on this path. We'll be building immensely satisfying projects in the coming weeks. Some will be easy, some will be challenging, many will ASTOUND you! The projects build on each other so you develop deeper and deeper expertise each week. One thing's for sure: you're going to have a lot of fun along the way.
 
+### A note before you begin
+
+I'm here to help you be most successful with your learning! If you hit any snafus, or if you have any ideas on how I can improve the course, please do reach out in the platform or by emailing me direct (ed at edwarddonner dot com). It's always great to connect with people on LinkedIn to build up the community - you'll find me here:  
+https://www.linkedin.com/in/eddonner/
+
+I'm still polishing up the last couple of weeks of code, but it's looking really terrific and I'll push it in the coming days.
+
 ### How this Jupyter Lab is organized
 
 There are folders for each of the "weeks", representing modules of the class.  
@@ -13,7 +20,7 @@ Follow the setup instructions below, then open the Week 1 folder and prepare for
 
 ### The most important part
 
-The matra of the course is: the best way to learn is by **DOING**. You should work along with me, running each cell, inspecting the objects to get a detailed understanding of what's happening. Then tweak the code and make it your own. There are juicy challenges for you throughout the course. I'd love it if you wanted to push your code so I can follow along with your progress, and I can make your solutions available to others so we share in your progress.
+The mantra of the course is: the best way to learn is by **DOING**. You should work along with me, running each cell, inspecting the objects to get a detailed understanding of what's happening. Then tweak the code and make it your own. There are juicy challenges for you throughout the course. I'd love it if you wanted to push your code so I can follow along with your progress, and I can make your solutions available to others so we share in your progress.
 
 ## Setup instructions
 
