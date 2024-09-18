@@ -68,6 +68,15 @@ HF_TOKEN=xxxx
 
 This file is listed in the `.gitignore` file, so it won't get checked in and your keys stay safe.
 
+### Starting in Week 3, we'll also be using Google Colab for running with GPUs
+
+The colab links are in the Week folders and also here:  
+- For week 3 day 1, this Google Colab shows what colab can do [colab](https://colab.research.google.com/drive/1DjcrYDZldAXKJ08x1uYIVCtItoLPk1Wr?usp=sharing)
+- For week 3 day 2, here is a colab for the HuggingFace [pipelines API](https://colab.research.google.com/drive/1aMaEw8A56xs0bRM4lu8z7ou18jqyybGm?usp=sharing)
+- For week 3 day 3, here's the colab on [Tokenizers](https://colab.research.google.com/drive/1WD6Y2N7ctQi1X9wa6rpkg8UfyA4iSVuz?usp=sharing)
+- For week 3 day 4, we go to a colab with HuggingFace [models](https://colab.research.google.com/drive/1hhR9Z-yiqjUe7pJjVQw4c74z_V3VchLy?usp=sharing)
+- For week 3 day 5, we return to colab to make our [Meeting Minutes product](https://colab.research.google.com/drive/1KSMxOCprsl1QRpt_Rq0UqCAyMtPqDQYx?usp=sharing)
+
 ## And that's it! Happy coding!
 
 ### Alternative Setup Instructions if you're a die-hard virtualenv-er
