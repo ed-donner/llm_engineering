@@ -62,7 +62,7 @@ Initially we'll only use OpenAI, so you can start with that, and we'll cover the
 
 Later in the course you'll be using a HuggingFace account, which is available for free at https://huggingface.co - you'll need to create an API token from the Avatar menu >> Settings >> Access Tokens.
 
-When you have these keys, please create a new file called `.env` in your project root directory.
+When you have these keys, please create a new file called `.env` in your project root directory. (For more detailed instructions on creating the `.env` file, I've added a guide at the bottom of this README.)
 
 It should have contents like this:
 
@@ -110,3 +110,57 @@ HF_TOKEN=xxxx
 
 Let me know if you hit problems, and try looking in the environment.yml file to see if there are clues for any other packages that need to be installed in your system.
 Or... try Anaconda!!
+
+### Guide to creating the `.env` file
+
+**For PC users:**
+
+1. Open the Notepad (Windows + R to open the Run box, enter notepad)
+
+2. In the Notepad, type the contents of the file, such as:
+
+```
+OPENAI_API_KEY=xxxx
+GOOGLE_API_KEY=xxxx
+ANTHROPIC_API_KEY=xxxx
+HF_TOKEN=xxxx
+```
+
+3. Go to File > Save As. In the "Save as type" dropdown, select All Files. In the "File name" field, type ".env". Choose the root of the project folder and click Save.
+
+4. Navigate to the foler where you saved the file in Explorer and ensure it was saved as ".env" not ".env.txt" - if necessary rename it to ".env"
+
+**For Mac users:**
+
+1. Open Terminal (Command + Space to open Spotlight, type Terminal and press Enter)
+
+2. cd to your project root directory
+
+cd /path/to/your/project
+
+3. Create the .env file with
+
+nano .env
+
+4. Then type your API keys into nano:
+
+```
+OPENAI_API_KEY=xxxx
+GOOGLE_API_KEY=xxxx
+ANTHROPIC_API_KEY=xxxx
+HF_TOKEN=xxxx
+```
+
+5. Save the file:
+
+Control + O  
+Enter (to confirm save the file)  
+Control + X to exit the editor
+
+6. Use this command to list files in your file
+
+`ls -a`
+
+And confirm that the `.env` file is there.
+
+Please do message me or email me at ed at `edwarddonner dot com` if this doesn't work or if I can help with anything. I can't wait to hear how you get on.
