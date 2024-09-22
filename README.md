@@ -8,10 +8,16 @@ I'm so happy you're joining me on this path. We'll be building immensely satisfy
 
 ### A note before you begin
 
-I'm here to help you be most successful with your learning! If you hit any snafus, or if you have any ideas on how I can improve the course, please do reach out in the platform or by emailing me direct (ed at edwarddonner dot com). It's always great to connect with people on LinkedIn to build up the community - you'll find me here:  
+I'm here to help you be most successful with your learning! If you hit any snafus, or if you have any ideas on how I can improve the course, please do reach out in the platform or by emailing me direct (ed@edwarddonner.com). It's always great to connect with people on LinkedIn to build up the community - you'll find me here:  
 https://www.linkedin.com/in/eddonner/
 
 I'm still polishing up the last couple of weeks of code, but it's looking really terrific and I'll push it in the coming days.
+
+### An important point on API costs
+
+During the course, I'll suggest you try out the leading models at the forefront of progress, known as the Frontier models. I'll also suggest you run open-source models using Google Colab. These services have some charges, but I'll keep cost minimal - like, a few cents at a time.
+
+Please do monitor your API usage to ensure you're comfortable with spend; I've included links below. There's no need to spend anything more than a couple of dollars for the entire course. During Week 7 you have an option to spend a bit more if you're enjoying the process - I spend about $10 myself and the results make me very happy indeed! But it's not necessary in the least; the important part is that you focus on learning.
 
 ### How this Jupyter Lab is organized
 
@@ -52,19 +58,21 @@ https://docs.anaconda.com/anaconda/install/
 
 ### When we get to it, creating your API keys
 
-Particularly during weeks 1 and 2 of the course, you'll be writing code to call the APIs of Frontier models. You'll need to join me in setting up accounts and API keys.
+Particularly during weeks 1 and 2 of the course, you'll be writing code to call the APIs of Frontier models (models at the forefront of progress). You'll need to join me in setting up accounts and API keys.
 
 - [GPT API](https://platform.openai.com/) from OpenAI
 - [Claude API](https://console.anthropic.com/) from Anthropic
 - [Gemini API](https://ai.google.dev/gemini-api) from Google
 
-Initially we'll only use OpenAI, so you can start with that, and we'll cover the others soon afterwards.
+Initially we'll only use OpenAI, so you can start with that, and we'll cover the others soon afterwards. See the extra note on API costs below if that's a concern. One student mentioned to me that OpenAI can take a few minutes to register; if you initially get an error about being out of quota, wait a few minutes and try again. If it's still a problem, message me!
 
-Later in the course you'll be using a HuggingFace account, which is available for free at https://huggingface.co - you'll need to create an API token from the Avatar menu >> Settings >> Access Tokens.
+Later in the course you'll be using the fabulous HuggingFace platform; an account is available for free at [HuggingFace](https://huggingface.co) - you can create an API token from the Avatar menu >> Settings >> Access Tokens.
 
-When you have these keys, please create a new file called `.env` in your project root directory. (For more detailed instructions on creating the `.env` file, I've added a guide at the bottom of this README.)
+And in Week 6/7 you'll be using the terrific [Weights & Biases](https://wandb.ai) platform to watch over your training batches. Accounts are also free, and you can set up a token in a similar way.
 
-It should have contents like this:
+When you have these keys, please create a new file called `.env` in your project root directory. This file won't appear in Jupyter Lab because it's a hidden file; you should create it using something like Notepad (PC) or nano (Mac / Linux). I've put detailed instructions at the end of this README.
+
+It should have contents like this, and to start with you only need the first line:
 
 ```
 OPENAI_API_KEY=xxxx
@@ -74,8 +82,11 @@ HF_TOKEN=xxxx
 ```
 
 This file is listed in the `.gitignore` file, so it won't get checked in and your keys stay safe.
+If you have any problems with this process, there's a simple workaround which I explain in the video.
 
 ### Starting in Week 3, we'll also be using Google Colab for running with GPUs
+
+You should be able to use the free tier or minimal spend to complete all the projects in the class. I personally signed up for Colab Pro+ and I'm loving it - but it's not required.
 
 The colab links are in the Week folders and also here:  
 - For week 3 day 1, this Google Colab shows what [colab can do](https://colab.research.google.com/drive/1DjcrYDZldAXKJ08x1uYIVCtItoLPk1Wr?usp=sharing)
@@ -83,6 +94,15 @@ The colab links are in the Week folders and also here:
 - For week 3 day 3, here's the colab on [Tokenizers](https://colab.research.google.com/drive/1WD6Y2N7ctQi1X9wa6rpkg8UfyA4iSVuz?usp=sharing)
 - For week 3 day 4, we go to a colab with HuggingFace [models](https://colab.research.google.com/drive/1hhR9Z-yiqjUe7pJjVQw4c74z_V3VchLy?usp=sharing)
 - For week 3 day 5, we return to colab to make our [Meeting Minutes product](https://colab.research.google.com/drive/1KSMxOCprsl1QRpt_Rq0UqCAyMtPqDQYx?usp=sharing)
+
+### Monitoring API charges
+
+You can keep your API spend very low throughout this course; you can monitor spend at the dashboards: [here](https://platform.openai.com/usage) for OpenAI, [here](https://console.anthropic.com/settings/cost) for Anthropic and [here](https://console.cloud.google.com/apis/api/generativelanguage.googleapis.com/cost) for Google Gemini.
+
+The charges for the exercsies in this course should always be quite low, but if you'd prefer to keep them minimal, then be sure to always choose the cheapest versions of models:
+1. For OpenAI: Always use model `gpt-4o-mini` in the code instead of `gpt-4o`
+2. For Anthropic: Always use model `claude-3-haiku-20240307` in the code instead of the other Claude models
+3. During week 7, look out for my instructions for using the cheaper dataset
 
 ## And that's it! Happy coding!
 
@@ -163,4 +183,4 @@ Control + X to exit the editor
 
 And confirm that the `.env` file is there.
 
-Please do message me or email me at ed at `edwarddonner dot com` if this doesn't work or if I can help with anything. I can't wait to hear how you get on.
+Please do message me or email me at ed@edwarddonner.com if this doesn't work or if I can help with anything. I can't wait to hear how you get on.
