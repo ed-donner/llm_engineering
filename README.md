@@ -11,7 +11,7 @@ I'm so happy you're joining me on this path. We'll be building immensely satisfy
 I'm here to help you be most successful with your learning! If you hit any snafus, or if you have any ideas on how I can improve the course, please do reach out in the platform or by emailing me direct (ed@edwarddonner.com). It's always great to connect with people on LinkedIn to build up the community - you'll find me here:  
 https://www.linkedin.com/in/eddonner/
 
-I'm still polishing up the last couple of weeks of code, but it's looking really terrific and I'll push it in the coming days.
+I'm still polishing up Week 8's code, but it's looking really terrific and I'll push it in the coming days.
 
 ### An important point on API costs
 
@@ -31,6 +31,8 @@ The mantra of the course is: the best way to learn is by **DOING**. You should w
 ## Setup instructions
 
 By far the recommended approach is to use Anaconda for your environment. Even if you've never used it before, it makes such a difference. Anaconda ensures that you're working with the right version of Python and all your packages are compatible with mine, even if we're on different platforms.
+
+We'll be mostly using Jupyter Lab in this course. For those new to Jupyter Lab / Jupyter Notebook, it's a delightful Data Science environment where you can simply hit shift+enter in any cell to run it; start at the top and work your way down! When we move to Google Colab in Week 3, you'll experience the same interface for Python runtimes in the cloud.
 
 ### For PC Users
 
@@ -79,9 +81,9 @@ You should see `(llms)` in your prompt, which indicates you've activated your ne
 
 6. **Start Jupyter Lab:**
 
-In the Anaconda Prompt, type: `jupyter lab`
+- In the Anaconda Prompt, type: `jupyter lab`
 
-For those new to Jupyter Lab / Jupyter Notebook, it's a wonderful Python DataScience environment where you can simply hit shift+enter in any cell to execute it; start at the top and work your way down! When we move to Google Colab in Week 3, you'll experience the same interface for Python runtimes in the cloud.
+Congratulations! You're now ready to start coding. Enjoy your celebratory cup of coffee!
 
 ### For Mac Users
 
@@ -126,7 +128,7 @@ You should see `(llms)` in your prompt, which indicates you've activated your ne
 
 - In Terminal, type: `jupyter lab`
 
-For those new to Jupyter Lab / Jupyter Notebook, it's a wonderful Python DataScience environment where you can simply hit shift+enter in any cell to execute it; start at the top and work your way down! When we move to Google Colab in Week 3, you'll experience the same interface for Python runtimes in the cloud.
+Congratulations! You're now ready to start coding. Enjoy your celebratory cup of coffee!
 
 ### When we get to it, creating your API keys
 
@@ -136,7 +138,7 @@ Particularly during weeks 1 and 2 of the course, you'll be writing code to call 
 - [Claude API](https://console.anthropic.com/) from Anthropic
 - [Gemini API](https://ai.google.dev/gemini-api) from Google
 
-Initially we'll only use OpenAI, so you can start with that, and we'll cover the others soon afterwards. The webpage where you set up your OpenAI key is [here](https://platform.openai.com/api-keys). See the extra note on API costs below if that's a concern. One student mentioned to me that OpenAI can take a few minutes to register; if you initially get an error about being out of quota, wait a few minutes and try again. If it's still a problem, see more troubleshooting tips in the Week 1 Day 1 colab, and/or message me!
+Initially we'll only use OpenAI, so you can start with that, and we'll cover the others soon afterwards. The webpage where you set up your OpenAI key is [here](https://platform.openai.com/api-keys). See the extra note on API costs below if that's a concern. One student mentioned to me that OpenAI can take a few minutes to register; if you initially get an error about being out of quota, wait a few minutes and try again. If it's still a problem, see more troubleshooting tips in the Week 1 Day 1 notebook, and/or message me!
 
 Later in the course you'll be using the fabulous HuggingFace platform; an account is available for free at [HuggingFace](https://huggingface.co) - you can create an API token from the Avatar menu >> Settings >> Access Tokens.
 
