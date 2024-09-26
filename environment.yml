@@ -30,8 +30,11 @@ dependencies:
   - tiktoken
   - jupyter-dash
   - plotly
+  - twilio
+  - duckdb
   - pip:
     - transformers
+    - sentence-transformers
     - datasets
     - accelerate
     - sentencepiece
@@ -39,3 +42,5 @@ dependencies:
     - openai
     - gradio
     - gensim
+    - modal
+
