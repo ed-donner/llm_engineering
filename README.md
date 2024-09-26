@@ -19,7 +19,7 @@ During the course, I'll suggest you try out the leading models at the forefront 
 
 Please do monitor your API usage to ensure you're comfortable with spend; I've included links below. There's no need to spend anything more than a couple of dollars for the entire course. During Week 7 you have an option to spend a bit more if you're enjoying the process - I spend about $10 myself and the results make me very happy indeed! But it's not necessary in the least; the important part is that you focus on learning.
 
-### How this Jupyter Lab is organized
+### How this Repo is organized
 
 There are folders for each of the "weeks", representing modules of the class.  
 Follow the setup instructions below, then open the Week 1 folder and prepare for joy.
@@ -32,29 +32,101 @@ The mantra of the course is: the best way to learn is by **DOING**. You should w
 
 By far the recommended approach is to use Anaconda for your environment. Even if you've never used it before, it makes such a difference. Anaconda ensures that you're working with the right version of Python and all your packages are compatible with mine, even if we're on different platforms.
 
-### Getting ready to set up
+### For PC Users
 
-Clone this repo by clicking on the dropdown in the green 'Code' button in Github, copying the URL to the clip board, and entering `git clone <url>` in your terminal.
+1. **Install Git** (if not already installed):
 
-Then if you've not used Anaconda before, install it for your platform. You will thank me! It's the best.  
-Link to install Anaconda:  
-https://docs.anaconda.com/anaconda/install/
+- Download Git from https://git-scm.com/download/win
+- Run the installer and follow the prompts, using default options
 
-### Setup instructions in 4 steps
+2. **Open Command Prompt:**
 
-1. Create a new Anaconda environment for this project. It's like virtualenv, only infinitely better.
+- Press Win + R, type `cmd`, and press Enter
 
-`conda env create -f environment.yml`
+3. **Navigate to your projects folder:**
 
-2. Activate the environment:
+If you have a specific folder for projects, navigate to it using the cd command. For example:  
+`cd C:\Users\YourUsername\Documents\Projects`
 
-`conda activate llms`
+If you don't have a projects folder, you can create one:
+```
+mkdir C:\Users\YourUsername\Documents\Projects
+cd C:\Users\YourUsername\Documents\Projects
+```
+(Replace YourUsername with your actual Windows username)
 
-3. Start your Jupyter Lab
+3. **Clone the repository:**
 
-`jupyter lab`
+- Go to the course's GitHub page
+- Click the green 'Code' button and copy the URL
+- In the Command Prompt, type: `git clone <paste-url-here>`
 
-4. Get a celebratory cup of coffee and prepare for coding!
+4. **Install Anaconda:**
+
+- Download Anaconda from https://docs.anaconda.com/anaconda/install/windows/
+- Run the installer and follow the prompts
+- A student mentioned that if you are prompted to upgrade Anaconda to a newer version during the install, you shouldn't do it, as there might be problems with the very latest update for PC. (Thanks for the pro-tip!)
+
+5. **Set up the environment:**
+
+- Open Anaconda Prompt (search for it in the Start menu)
+- Navigate to the cloned repository folder using `cd path\to\repo`
+- Create the environment: `conda env create -f environment.yml`
+- Wait for a few minutes for all packages to be installed
+- Activate the environment: `conda activate llms`  
+
+You should see `(llms)` in your prompt, which indicates you've activated your new environment.
+
+6. **Start Jupyter Lab:**
+
+In the Anaconda Prompt, type: `jupyter lab`
+
+For those new to Jupyter Lab / Jupyter Notebook, it's a wonderful Python DataScience environment where you can simply hit shift+enter in any cell to execute it; start at the top and work your way down! When we move to Google Colab in Week 3, you'll experience the same interface for Python runtimes in the cloud.
+
+### For Mac Users
+
+1. **Install Git** if not already installed (it will be in most cases)
+
+- Open Terminal (Applications > Utilities > Terminal)
+- Type `git --version` If not installed, you'll be prompted to install it
+
+2. **Navigate to your projects folder:**
+
+If you have a specific folder for projects, navigate to it using the cd command. For example:
+`cd ~/Documents/Projects`
+
+If you don't have a projects folder, you can create one:
+```
+mkdir ~/Documents/Projects
+cd ~/Documents/Projects
+```
+
+3. **Clone the repository**
+
+- Go to the course's GitHub page
+- Click the green 'Code' button and copy the URL
+- In Terminal, type: `git clone <paste-url-here>`
+
+4. **Install Anaconda:**
+
+- Download Anaconda from https://docs.anaconda.com/anaconda/install/mac-os/
+- Double-click the downloaded file and follow the installation prompts
+
+5. **Set up the environment:**
+
+- Open Terminal
+- Navigate to the cloned repository folder using `cd path/to/repo`
+- Create the environment: `conda env create -f environment.yml`
+- Wait for a few minutes for all packages to be installed
+- Activate the environment: `conda activate llms`
+
+You should see `(llms)` in your prompt, which indicates you've activated your new environment.
+
+6. **Start Jupyter Lab:**
+
+- In Terminal, type: `jupyter lab`
+
+For those new to Jupyter Lab / Jupyter Notebook, it's a wonderful Python DataScience environment where you can simply hit shift+enter in any cell to execute it; start at the top and work your way down! When we move to Google Colab in Week 3, you'll experience the same interface for Python runtimes in the cloud.
 
 ### When we get to it, creating your API keys
 
@@ -64,7 +136,7 @@ Particularly during weeks 1 and 2 of the course, you'll be writing code to call 
 - [Claude API](https://console.anthropic.com/) from Anthropic
 - [Gemini API](https://ai.google.dev/gemini-api) from Google
 
-Initially we'll only use OpenAI, so you can start with that, and we'll cover the others soon afterwards. See the extra note on API costs below if that's a concern. One student mentioned to me that OpenAI can take a few minutes to register; if you initially get an error about being out of quota, wait a few minutes and try again. If it's still a problem, message me!
+Initially we'll only use OpenAI, so you can start with that, and we'll cover the others soon afterwards. The webpage where you set up your OpenAI key is [here](https://platform.openai.com/api-keys). See the extra note on API costs below if that's a concern. One student mentioned to me that OpenAI can take a few minutes to register; if you initially get an error about being out of quota, wait a few minutes and try again. If it's still a problem, see more troubleshooting tips in the Week 1 Day 1 colab, and/or message me!
 
 Later in the course you'll be using the fabulous HuggingFace platform; an account is available for free at [HuggingFace](https://huggingface.co) - you can create an API token from the Avatar menu >> Settings >> Access Tokens.
 
@@ -87,6 +159,8 @@ If you have any problems with this process, there's a simple workaround which I 
 ### Starting in Week 3, we'll also be using Google Colab for running with GPUs
 
 You should be able to use the free tier or minimal spend to complete all the projects in the class. I personally signed up for Colab Pro+ and I'm loving it - but it's not required.
+
+Learn about Google Colab and set up a Google account (if you don't already have one) [here](https://colab.research.google.com/)
 
 The colab links are in the Week folders and also here:  
 - For week 3 day 1, this Google Colab shows what [colab can do](https://colab.research.google.com/drive/1DjcrYDZldAXKJ08x1uYIVCtItoLPk1Wr?usp=sharing)
