@@ -32,6 +32,7 @@ dependencies:
   - plotly
   - twilio
   - duckdb
+  - feedparser
   - pip:
     - transformers
     - sentence-transformers
