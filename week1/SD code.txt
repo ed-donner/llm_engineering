@@ -1,0 +1,163 @@
+# imports
+
+import os
+import requests
+import json
+from typing import List
+from dotenv import load_dotenv
+from bs4 import BeautifulSoup
+from IPython.display import Markdown, display, update_display
+from openai import OpenAI
+
+
+# Initialize and constants
+
+load_dotenv()
+os.environ['OPENAI_API_KEY'] = os.getenv('OPENAI_API_KEY', 'your-key-if-not-using-env')
+MODEL = 'gpt-4o-mini'
+openai = OpenAI()
+
+
+# A class to represent a Webpage
+
+class Website:
+    url: str
+    title: str
+    body: str
+    links: List[str]
+
+    def __init__(self, url):
+        self.url = url
+        response = requests.get(url)
+        self.body = response.content
+        soup = BeautifulSoup(self.body, 'html.parser')
+        self.title = soup.title.string if soup.title else "No title found"
+        if soup.body:
+            for irrelevant in soup.body(["script", "style", "img", "input"]):
+                irrelevant.decompose()
+            self.text = soup.body.get_text(separator="\n", strip=True)
+        else:
+            self.text = ""
+        links = [link.get('href') for link in soup.find_all('a')]
+        self.links = [link for link in links if link]
+
+    def get_contents(self):
+        return f"Webpage Title:\n{self.title}\nWebpage Contents:\n{self.text}\n\n"
+
+link_system_prompt = """
+You are provided with a list of links found on a webpage. Your task is to first categorize each link into one of the following categories:
+- about page
+- careers page
+- terms of service
+- privacy policy
+- contact page
+- other (please specify).
+
+Once the links are categorized, please choose which links are most relevant to include in a brochure about the company. 
+The brochure should only include links such as About pages, Careers pages, or Company Overview pages. Exclude any links related to Terms of Service, Privacy Policy, or email addresses.
+
+Respond in the following JSON format:
+{
+    "categorized_links": [
+        {"category": "about page", "url": "https://full.url/about"},
+        {"category": "careers page", "url": "https://full.url/careers"},
+        {"category": "terms of service", "url": "https://full.url/terms"},
+        {"category": "privacy policy", "url": "https://full.url/privacy"},
+        {"category": "other", "specify": "contact page", "url": "https://full.url/contact"}
+    ],
+    "brochure_links": [
+        {"type": "about page", "url": "https://full.url/about"},
+        {"type": "careers page", "url": "https://full.url/careers"}
+    ]
+}
+
+Please find the links below and proceed with the task:
+
+Links (some may be relative links):
+[INSERT LINK LIST HERE]
+"""
+
+def get_links_user_prompt(website):
+    user_prompt = f"Here is the list of links on the website of {website.url} - "
+    user_prompt += "please decide which of these are relevant web links for a brochure about the company, respond with the full https URL in JSON format. \
+Do not include Terms of Service, Privacy, email links.\n"
+    user_prompt += "Links (some might be relative links):\n"
+    user_prompt += "\n".join(website.links)
+    return user_prompt
+
+def get_links(url):
+    website = Website(url)
+    completion = openai.chat.completions.create(
+        model=MODEL,
+        messages=[
+            {"role": "system", "content": link_system_prompt},
+            {"role": "user", "content": get_links_user_prompt(website)}
+      ],
+        response_format={"type": "json_object"}
+    )
+    result = completion.choices[0].message.content
+    return json.loads(result)
+
+
+from urllib.parse import urljoin
+
+def get_all_details(url):
+    result = "Landing page:\n"
+    result += Website(url).get_contents()  # Get the landing page content
+
+    links = get_links(url)  # Retrieve the links JSON
+    
+    brochure_links = links.get('brochure_links', [])  # Get the brochure links list (which is already a list)
+    print("Found Brochure links:", brochure_links)  # Debug output to show the brochure links
+    
+    # Iterate over each brochure link
+    for link in brochure_links:
+        result += f"\n\n{link['type']}:\n"  # Add the type of link (about page, careers page, etc.)
+        
+        # Handle relative URLs by converting them to absolute URLs
+        full_url = urljoin(url, link["url"])
+        
+        # Fetch and append the content of the brochure link URL
+        result += Website(full_url).get_contents()  
+    
+    return result
+
+
+system_prompt = "You are an assistant that analyzes the contents of several relevant pages from a company website \
+and creates a brochure about the company for prospective customers, investors and recruits. Respond in markdown.\
+Include details of company culture, customers and careers/jobs if you have the information.\
+Structure the brochure to include specific sections as follows:\
+About Us\
+What we do\
+How We Do It\
+Where We Do It\
+Our People\
+Our Culture\
+Connect with Us.\
+Please provide two versions of the brochure, the first in English, the second in Spanish.  The contents of the brochure are to be the same for both languages."
+
+def get_brochure_user_prompt(company_name, url):
+    user_prompt = f"You are looking at a company called: {company_name}\n"
+    user_prompt += f"Here are the contents of its landing page and other relevant pages; use this information to build a short brochure of the company in markdown.\n"
+    user_prompt += get_all_details(url)
+    user_prompt = user_prompt[:20_000] # Truncate if more than 20,000 characters
+    return user_prompt
+
+def stream_brochure(company_name, url):
+    stream = openai.chat.completions.create(
+        model=MODEL,
+        messages=[
+            {"role": "system", "content": system_prompt},
+            {"role": "user", "content": get_brochure_user_prompt(company_name, url)}
+          ],
+        stream=True
+    )
+    
+    response = ""
+    display_handle = display(Markdown(""), display_id=True)
+    for chunk in stream:
+        response += chunk.choices[0].delta.content or ''
+        response = response.replace("```","").replace("markdown", "")
+        update_display(Markdown(response), display_id=display_handle.display_id)
+
+stream_brochure("Anthropic", "https://anthropic.com")
