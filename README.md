@@ -32,6 +32,8 @@ The mantra of the course is: the best way to learn is by **DOING**. You should w
 
 By far the recommended approach is to use Anaconda for your environment. Even if you've never used it before, it makes such a difference. Anaconda ensures that you're working with the right version of Python and all your packages are compatible with mine, even if we're on different platforms.
 
+**Update** Some people have had problems with Anaconda - horrors! The idea of Anaconda is to make it really smooth and simple to be working with the same environment. If you hit any problems with the instructions below, please skip to near the end of this README for the alternative approach using `pip`, and hopefully you'll be up and running fast. And please do message me if I can help with anything.
+
 We'll be mostly using Jupyter Lab in this course. For those new to Jupyter Lab / Jupyter Notebook, it's a delightful Data Science environment where you can simply hit shift+enter in any cell to run it; start at the top and work your way down! When we move to Google Colab in Week 3, you'll experience the same interface for Python runtimes in the cloud.
 
 ### For PC Users
@@ -183,17 +185,24 @@ The charges for the exercsies in this course should always be quite low, but if 
 
 ## And that's it! Happy coding!
 
-### Alternative Setup Instructions if you're a die-hard virtualenv-er
+### Alternative Setup Instructions if Anaconda is giving you problems
 
-Well if you must! Just be sure to be running python 3.11, or we might hit compatibility snags.
+First please run:
+`python --version`  
+To find out which python you're on. Ideally you'd be using Python 3.11.x, so we're completely in sync. You can download python at  
+https://www.python.org/downloads/
 
 Here are the steps:
 
-After cloning the repo:
+After cloning the repo, cd into the project root directory `llm_engineering`.
+Then:
 
-1. Create a new virtual environment using something like `python3 -m venv /path/to/new/virtual/environment`
-2. Activate the virtual environment with `source /path/to/new/virtual/environment/bin/activate`
-3. Create a file called `.env` in the project root directory (this is .gitignored) and add any private API keys, such as below.
+1. Create a new virtual environment: `python -m venv venv`  
+2. Activate the virtual environment with  
+On a Mac: `source venv/bin/activate`  
+On a PC: `venv\Scripts\activate`
+3. Run `pip install -r requirements.txt`
+4. Create a file called `.env` in the project root directory and add any private API keys, such as below. (The next section has more detailed instructions for this, if you prefer.)
    
 ```
 OPENAI_API_KEY=xxxx
@@ -202,11 +211,9 @@ ANTHROPIC_API_KEY=xxxx
 HF_TOKEN=xxxx
 ```
 
-4. From the repo root directory, run `pip install -r requirements.txt`
 5. Run `jupyter lab` to launch Jupyter and head over to the intro folder to get started.
 
-Let me know if you hit problems, and try looking in the environment.yml file to see if there are clues for any other packages that need to be installed in your system.
-Or... try Anaconda!!
+Let me know if you hit problems.
 
 ### Guide to creating the `.env` file
 
