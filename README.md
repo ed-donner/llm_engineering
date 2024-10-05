@@ -11,7 +11,7 @@ I'm so happy you're joining me on this path. We'll be building immensely satisfy
 I'm here to help you be most successful with your learning! If you hit any snafus, or if you have any ideas on how I can improve the course, please do reach out in the platform or by emailing me direct (ed@edwarddonner.com). It's always great to connect with people on LinkedIn to build up the community - you'll find me here:  
 https://www.linkedin.com/in/eddonner/
 
-I'm still polishing up the last couple of weeks of code, but it's looking really terrific and I'll push it in the coming days.
+I'm still polishing up Week 8's code, but it's looking really terrific and I'll push it in the coming days.
 
 ### An important point on API costs
 
@@ -19,7 +19,7 @@ During the course, I'll suggest you try out the leading models at the forefront 
 
 Please do monitor your API usage to ensure you're comfortable with spend; I've included links below. There's no need to spend anything more than a couple of dollars for the entire course. During Week 7 you have an option to spend a bit more if you're enjoying the process - I spend about $10 myself and the results make me very happy indeed! But it's not necessary in the least; the important part is that you focus on learning.
 
-### How this Jupyter Lab is organized
+### How this Repo is organized
 
 There are folders for each of the "weeks", representing modules of the class.  
 Follow the setup instructions below, then open the Week 1 folder and prepare for joy.
@@ -32,29 +32,105 @@ The mantra of the course is: the best way to learn is by **DOING**. You should w
 
 By far the recommended approach is to use Anaconda for your environment. Even if you've never used it before, it makes such a difference. Anaconda ensures that you're working with the right version of Python and all your packages are compatible with mine, even if we're on different platforms.
 
-### Getting ready to set up
+**Update** Some people have had problems with Anaconda - horrors! The idea of Anaconda is to make it really smooth and simple to be working with the same environment. If you hit any problems with the instructions below, please skip to near the end of this README for the alternative approach using `pip`, and hopefully you'll be up and running fast. And please do message me if I can help with anything.
 
-Clone this repo by clicking on the dropdown in the green 'Code' button in Github, copying the URL to the clip board, and entering `git clone <url>` in your terminal.
+We'll be mostly using Jupyter Lab in this course. For those new to Jupyter Lab / Jupyter Notebook, it's a delightful Data Science environment where you can simply hit shift+enter in any cell to run it; start at the top and work your way down! When we move to Google Colab in Week 3, you'll experience the same interface for Python runtimes in the cloud.
 
-Then if you've not used Anaconda before, install it for your platform. You will thank me! It's the best.  
-Link to install Anaconda:  
-https://docs.anaconda.com/anaconda/install/
+### For PC Users
 
-### Setup instructions in 4 steps
+1. **Install Git** (if not already installed):
 
-1. Create a new Anaconda environment for this project. It's like virtualenv, only infinitely better.
+- Download Git from https://git-scm.com/download/win
+- Run the installer and follow the prompts, using default options
 
-`conda env create -f environment.yml`
+2. **Open Command Prompt:**
 
-2. Activate the environment:
+- Press Win + R, type `cmd`, and press Enter
 
-`conda activate llms`
+3. **Navigate to your projects folder:**
 
-3. Start your Jupyter Lab
+If you have a specific folder for projects, navigate to it using the cd command. For example:  
+`cd C:\Users\YourUsername\Documents\Projects`
 
-`jupyter lab`
+If you don't have a projects folder, you can create one:
+```
+mkdir C:\Users\YourUsername\Documents\Projects
+cd C:\Users\YourUsername\Documents\Projects
+```
+(Replace YourUsername with your actual Windows username)
 
-4. Get a celebratory cup of coffee and prepare for coding!
+3. **Clone the repository:**
+
+- Go to the course's GitHub page
+- Click the green 'Code' button and copy the URL
+- In the Command Prompt, type: `git clone <paste-url-here>`
+
+4. **Install Anaconda:**
+
+- Download Anaconda from https://docs.anaconda.com/anaconda/install/windows/
+- Run the installer and follow the prompts
+- A student mentioned that if you are prompted to upgrade Anaconda to a newer version during the install, you shouldn't do it, as there might be problems with the very latest update for PC. (Thanks for the pro-tip!)
+
+5. **Set up the environment:**
+
+- Open Anaconda Prompt (search for it in the Start menu)
+- Navigate to the cloned repository folder using `cd path\to\repo`
+- Create the environment: `conda env create -f environment.yml`
+- Wait for a few minutes for all packages to be installed
+- Activate the environment: `conda activate llms`  
+
+You should see `(llms)` in your prompt, which indicates you've activated your new environment.
+
+6. **Start Jupyter Lab:**
+
+- In the Anaconda Prompt, type: `jupyter lab`
+
+Congratulations! You're now ready to start coding. Enjoy your celebratory cup of coffee!
+
+### For Mac Users
+
+1. **Install Git** if not already installed (it will be in most cases)
+
+- Open Terminal (Applications > Utilities > Terminal)
+- Type `git --version` If not installed, you'll be prompted to install it
+
+2. **Navigate to your projects folder:**
+
+If you have a specific folder for projects, navigate to it using the cd command. For example:
+`cd ~/Documents/Projects`
+
+If you don't have a projects folder, you can create one:
+```
+mkdir ~/Documents/Projects
+cd ~/Documents/Projects
+```
+
+3. **Clone the repository**
+
+- Go to the course's GitHub page
+- Click the green 'Code' button and copy the URL
+- In Terminal, type: `git clone <paste-url-here>`
+
+4. **Install Anaconda:**
+
+- Download Anaconda from https://docs.anaconda.com/anaconda/install/mac-os/
+- Double-click the downloaded file and follow the installation prompts
+
+5. **Set up the environment:**
+
+- Open Terminal
+- Navigate to the cloned repository folder using `cd path/to/repo`
+- Create the environment: `conda env create -f environment.yml`
+- Wait for a few minutes for all packages to be installed
+- Activate the environment: `conda activate llms`
+
+You should see `(llms)` in your prompt, which indicates you've activated your new environment.
+
+6. **Start Jupyter Lab:**
+
+- In Terminal, type: `jupyter lab`
+
+Congratulations! You're now ready to start coding. Enjoy your celebratory cup of coffee!
 
 ### When we get to it, creating your API keys
 
@@ -64,7 +140,7 @@ Particularly during weeks 1 and 2 of the course, you'll be writing code to call 
 - [Claude API](https://console.anthropic.com/) from Anthropic
 - [Gemini API](https://ai.google.dev/gemini-api) from Google
 
-Initially we'll only use OpenAI, so you can start with that, and we'll cover the others soon afterwards. See the extra note on API costs below if that's a concern. One student mentioned to me that OpenAI can take a few minutes to register; if you initially get an error about being out of quota, wait a few minutes and try again. If it's still a problem, message me!
+Initially we'll only use OpenAI, so you can start with that, and we'll cover the others soon afterwards. The webpage where you set up your OpenAI key is [here](https://platform.openai.com/api-keys). See the extra note on API costs below if that's a concern. One student mentioned to me that OpenAI can take a few minutes to register; if you initially get an error about being out of quota, wait a few minutes and try again. Another reason you might encounter the out of quota error is if you haven't yet added a valid payment method to your OpenAI account. You can do this by clicking your profile picture on the OpenAI website then clicking "Your profile." Once you are redirected to your profile page, choose "Billing" on the left-pane menu. You will need to enter a valid payment method and charge your account with a small advance payment. It is recommended that you **disable** the automatic recharge as an extra failsafe. If it's still a problem, see more troubleshooting tips in the Week 1 Day 1 notebook, and/or message me!
 
 Later in the course you'll be using the fabulous HuggingFace platform; an account is available for free at [HuggingFace](https://huggingface.co) - you can create an API token from the Avatar menu >> Settings >> Access Tokens.
 
@@ -88,6 +164,8 @@ If you have any problems with this process, there's a simple workaround which I 
 
 You should be able to use the free tier or minimal spend to complete all the projects in the class. I personally signed up for Colab Pro+ and I'm loving it - but it's not required.
 
+Learn about Google Colab and set up a Google account (if you don't already have one) [here](https://colab.research.google.com/)
+
 The colab links are in the Week folders and also here:  
 - For week 3 day 1, this Google Colab shows what [colab can do](https://colab.research.google.com/drive/1DjcrYDZldAXKJ08x1uYIVCtItoLPk1Wr?usp=sharing)
 - For week 3 day 2, here is a colab for the HuggingFace [pipelines API](https://colab.research.google.com/drive/1aMaEw8A56xs0bRM4lu8z7ou18jqyybGm?usp=sharing)
@@ -107,17 +185,24 @@ The charges for the exercsies in this course should always be quite low, but if 
 
 ## And that's it! Happy coding!
 
-### Alternative Setup Instructions if you're a die-hard virtualenv-er
+### Alternative Setup Instructions if Anaconda is giving you problems
 
-Well if you must! Just be sure to be running python 3.11, or we might hit compatibility snags.
+First please run:
+`python --version`  
+To find out which python you're on. Ideally you'd be using Python 3.11.x, so we're completely in sync. You can download python at  
+https://www.python.org/downloads/
 
 Here are the steps:
 
-After cloning the repo:
+After cloning the repo, cd into the project root directory `llm_engineering`.
+Then:
 
-1. Create a new virtual environment using something like `python3 -m venv /path/to/new/virtual/environment`
-2. Activate the virtual environment with `source /path/to/new/virtual/environment/bin/activate`
-3. Create a file called `.env` in the project root directory (this is .gitignored) and add any private API keys, such as below.
+1. Create a new virtual environment: `python -m venv venv`  
+2. Activate the virtual environment with  
+On a Mac: `source venv/bin/activate`  
+On a PC: `venv\Scripts\activate`
+3. Run `pip install -r requirements.txt`
+4. Create a file called `.env` in the project root directory and add any private API keys, such as below. (The next section has more detailed instructions for this, if you prefer.)
    
 ```
 OPENAI_API_KEY=xxxx
@@ -126,11 +211,9 @@ ANTHROPIC_API_KEY=xxxx
 HF_TOKEN=xxxx
 ```
 
-4. From the repo root directory, run `pip install -r requirements.txt`
 5. Run `jupyter lab` to launch Jupyter and head over to the intro folder to get started.
 
-Let me know if you hit problems, and try looking in the environment.yml file to see if there are clues for any other packages that need to be installed in your system.
-Or... try Anaconda!!
+Let me know if you hit problems.
 
 ### Guide to creating the `.env` file
 
