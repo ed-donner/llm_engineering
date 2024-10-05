@@ -11,8 +11,6 @@ I'm so happy you're joining me on this path. We'll be building immensely satisfy
 I'm here to help you be most successful with your learning! If you hit any snafus, or if you have any ideas on how I can improve the course, please do reach out in the platform or by emailing me direct (ed@edwarddonner.com). It's always great to connect with people on LinkedIn to build up the community - you'll find me here:  
 https://www.linkedin.com/in/eddonner/
 
-I'm still polishing up Week 8's code, but it's looking really terrific and I'll push it in the coming days.
-
 ### An important point on API costs
 
 During the course, I'll suggest you try out the leading models at the forefront of progress, known as the Frontier models. I'll also suggest you run open-source models using Google Colab. These services have some charges, but I'll keep cost minimal - like, a few cents at a time.
@@ -21,22 +19,22 @@ Please do monitor your API usage to ensure you're comfortable with spend; I've i
 
 ### How this Repo is organized
 
-There are folders for each of the "weeks", representing modules of the class.  
+There are folders for each of the "weeks", representing modules of the class, culminating in a powerful autonomous Agentic AI solution in Week 8 that draws on many of the prior weeks.    
 Follow the setup instructions below, then open the Week 1 folder and prepare for joy.
 
 ### The most important part
 
-The mantra of the course is: the best way to learn is by **DOING**. You should work along with me, running each cell, inspecting the objects to get a detailed understanding of what's happening. Then tweak the code and make it your own. There are juicy challenges for you throughout the course. I'd love it if you wanted to push your code so I can follow along with your progress, and I can make your solutions available to others so we share in your progress.
+The mantra of the course is: the best way to learn is by **DOING**. You should work along with me, running each cell, inspecting the objects to get a detailed understanding of what's happening. Then tweak the code and make it your own. There are juicy challenges for you throughout the course. I'd love it if you wanted to push your code so I can follow along with your progress, and I can make your solutions available to others so we share in your progress. While the projects are enjoyable, they are first and foremost designed to be _educational_, teaching you business skills that can be put into practice in your work.
 
 ## Setup instructions
 
-By far the recommended approach is to use Anaconda for your environment. Even if you've never used it before, it makes such a difference. Anaconda ensures that you're working with the right version of Python and all your packages are compatible with mine, even if we're on different platforms.
+The recommended approach is to use Anaconda for your environment. Even if you've never used it before, it makes such a difference. Anaconda ensures that you're working with the right version of Python and all your packages are compatible with mine, even if we're on different platforms.
 
 **Update** Some people have had problems with Anaconda - horrors! The idea of Anaconda is to make it really smooth and simple to be working with the same environment. If you hit any problems with the instructions below, please skip to near the end of this README for the alternative approach using `pip`, and hopefully you'll be up and running fast. And please do message me if I can help with anything.
 
-We'll be mostly using Jupyter Lab in this course. For those new to Jupyter Lab / Jupyter Notebook, it's a delightful Data Science environment where you can simply hit shift+enter in any cell to run it; start at the top and work your way down! When we move to Google Colab in Week 3, you'll experience the same interface for Python runtimes in the cloud.
+We'll be mostly using Jupyter Lab in this course. For those new to Jupyter Lab / Jupyter Notebook, it's a delightful Data Science environment where you can simply hit shift+return in any cell to run it; start at the top and work your way down! When we move to Google Colab in Week 3, you'll experience the same interface for Python runtimes in the cloud.
 
-### For PC Users
+### For Windows Users
 
 1. **Install Git** (if not already installed):
 
@@ -85,7 +83,7 @@ You should see `(llms)` in your prompt, which indicates you've activated your ne
 
 - In the Anaconda Prompt, type: `jupyter lab`
 
-Congratulations! You're now ready to start coding. Enjoy your celebratory cup of coffee!
+...and Jupyter Lab should open up, ready for you to get started. Open the `week1` folder and double click on `day1.ipnbk`.
 
 ### For Mac Users
 
@@ -130,7 +128,7 @@ You should see `(llms)` in your prompt, which indicates you've activated your ne
 
 - In Terminal, type: `jupyter lab`
 
-Congratulations! You're now ready to start coding. Enjoy your celebratory cup of coffee!
+...and Jupyter Lab should open up, ready for you to get started. Open the `week1` folder and double click on `day1.ipnbk`.
 
 ### When we get to it, creating your API keys
 
