@@ -228,9 +228,9 @@ ANTHROPIC_API_KEY=xxxx
 HF_TOKEN=xxxx
 ```
 
-3. Go to File > Save As. In the "Save as type" dropdown, select All Files. In the "File name" field, type ".env". Choose the root of the project folder and click Save.
+3. Go to File > Save As. In the "Save as type" dropdown, select All Files. In the "File name" field, type ".env". Choose the root of the project folder (the folder called `llm_engineering`) and click Save.  
 
-4. Navigate to the foler where you saved the file in Explorer and ensure it was saved as ".env" not ".env.txt" - if necessary rename it to ".env"
+4. Navigate to the foler where you saved the file in Explorer and ensure it was saved as ".env" not ".env.txt" - if necessary rename it to ".env" -  you might need to ensure that "Show file extensions" is set to "On" so that you see the file extensions. Message or email me if that doesn't make sense!
 
 **For Mac users:**
 
