@@ -82,3 +82,7 @@ class Pricer:
         match = re.search(r"[-+]?\d*\.\d+|\d+", contents)
         return float(match.group()) if match else 0
 
+    @modal.method()
+    def wake_up(self) -> str:
+        return "ok"
+
