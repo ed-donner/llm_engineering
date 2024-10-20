@@ -42,6 +42,11 @@ class App:
     def __init__(self):    
         self.agent_framework = None
 
+    def get_agent_framework(self):
+        if not self.agent_framework:
+            self.agent_framework = DealAgentFramework()
+        return self.agent_framework
+
     def run(self):
         with gr.Blocks(title="The Price is Right", fill_width=True) as ui:
             
@@ -51,16 +56,17 @@ class App:
                 return [[opp.deal.product_description, f"${opp.deal.price:.2f}", f"${opp.estimate:.2f}", f"${opp.discount:.2f}", opp.deal.url] for opp in opps]
 
             def update_output(log_data, log_queue, result_queue):
+                initial_result = table_for(self.get_agent_framework().memory)
                 final_result = None
                 while True:
                     try:
                         message = log_queue.get_nowait()
                         log_data.append(reformat(message))
-                        yield log_data, html_for(log_data), final_result
+                        yield log_data, html_for(log_data), final_result or initial_result
                     except queue.Empty:
                         try:
                             final_result = result_queue.get_nowait()
-                            yield log_data, html_for(log_data), final_result
+                            yield log_data, html_for(log_data), final_result or initial_result
                         except queue.Empty:
                             if final_result is not None:
                                 break
@@ -100,28 +106,18 @@ class App:
 
                 return fig
         
-            def start():
-                self.agent_framework = DealAgentFramework()
-                self.agent_framework.run()
-                opportunities = self.agent_framework.memory
-                table = table_for(opportunities)
-                return table
-        
             def do_run():
-                if not self.agent_framework:
-                    self.agent_framework = DealAgentFramework()
-                self.agent_framework.run()
-                new_opportunities = self.agent_framework.memory
+                new_opportunities = self.get_agent_framework().run()
                 table = table_for(new_opportunities)
                 return table
 
-            def do_with_logging(function, initial_log_data):
+            def run_with_logging(initial_log_data):
                 log_queue = queue.Queue()
                 result_queue = queue.Queue()
                 setup_logging(log_queue)
                 
                 def worker():
-                    result = function()
+                    result = do_run()
                     result_queue.put(result)
                 
                 thread = threading.Thread(target=worker)
@@ -130,19 +126,11 @@ class App:
                 for log_data, output, final_result in update_output(initial_log_data, log_queue, result_queue):
                     yield log_data, output, final_result
 
-            def start_with_logging(initial_log_data):
-                for log_data, output, final_result in do_with_logging(start, initial_log_data):
-                    yield log_data, output, final_result
-
-            def run_with_logging(initial_log_data):
-                for log_data, output, final_result in do_with_logging(do_run, initial_log_data):
-                    yield log_data, output, final_result
-
             def do_select(selected_index: gr.SelectData):
-                opportunities = self.agent_framework.memory
+                opportunities = self.get_agent_framework().memory
                 row = selected_index.index[0]
                 opportunity = opportunities[row]
-                self.agent_framework.planner.messenger.alert(opportunity)
+                self.get_agent_framework().planner.messenger.alert(opportunity)
         
             with gr.Row():
                 gr.Markdown('<div style="text-align: center;font-size:24px"><strong>The Price is Right</strong> - Autonomous Agent Framework that hunts for deals</div>')
@@ -155,7 +143,7 @@ class App:
                     column_widths=[6, 1, 1, 1, 3],
                     row_count=10,
                     col_count=5,
-                    height=400,
+                    max_height=400,
                 )
             with gr.Row():
                 with gr.Column(scale=1):
@@ -163,13 +151,10 @@ class App:
                 with gr.Column(scale=1):
                     plot = gr.Plot(value=get_plot(), show_label=False)
         
-            ui.load(start_with_logging, inputs=[log_data], outputs=[log_data, logs, opportunities_dataframe])
+            ui.load(run_with_logging, inputs=[log_data], outputs=[log_data, logs, opportunities_dataframe])
 
             timer = gr.Timer(value=300, active=True)
             timer.tick(run_with_logging, inputs=[log_data], outputs=[log_data, logs, opportunities_dataframe])
-
-            # timer2 = gr.Timer(value=5, active=True)
-            # timer2.tick(get_plot, inputs=[], outputs=[plot, timer2])
 
             opportunities_dataframe.select(do_select)
         

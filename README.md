@@ -72,7 +72,7 @@ cd C:\Users\YourUsername\Documents\Projects
 5. **Set up the environment:**
 
 - Open Anaconda Prompt (search for it in the Start menu)
-- Navigate to the cloned repository folder using `cd path\to\repo`
+- Navigate to the cloned repository folder using `cd path\to\repo` (replace `path\to\repo` with the actual path to the llm_engineering directory, your locally cloned version of the repo)
 - Create the environment: `conda env create -f environment.yml`
 - Wait for a few minutes for all packages to be installed
 - Activate the environment: `conda activate llms`  
@@ -81,7 +81,7 @@ You should see `(llms)` in your prompt, which indicates you've activated your ne
 
 6. **Start Jupyter Lab:**
 
-- In the Anaconda Prompt, type: `jupyter lab`
+- In the Anaconda Prompt, from within the `llm_engineering` folder, type: `jupyter lab`
 
 ...and Jupyter Lab should open up, ready for you to get started. Open the `week1` folder and double click on `day1.ipnbk`.
 
@@ -117,7 +117,7 @@ cd ~/Documents/Projects
 5. **Set up the environment:**
 
 - Open Terminal
-- Navigate to the cloned repository folder using `cd path/to/repo`
+- Navigate to the cloned repository folder using `cd path/to/repo` (replace `path/to/repo` with the actual path to the llm_engineering directory, your locally cloned version of the repo)
 - Create the environment: `conda env create -f environment.yml`
 - Wait for a few minutes for all packages to be installed
 - Activate the environment: `conda activate llms`
@@ -126,7 +126,7 @@ You should see `(llms)` in your prompt, which indicates you've activated your ne
 
 6. **Start Jupyter Lab:**
 
-- In Terminal, type: `jupyter lab`
+- In Terminal, from within the `llm_engineering` folder, type: `jupyter lab`
 
 ...and Jupyter Lab should open up, ready for you to get started. Open the `week1` folder and double click on `day1.ipnbk`.
 
@@ -227,6 +227,7 @@ GOOGLE_API_KEY=xxxx
 ANTHROPIC_API_KEY=xxxx
 HF_TOKEN=xxxx
 ```
+Double check there are no spaces before or after the `=` sign, and no spaces at the end of the key.
 
 3. Go to File > Save As. In the "Save as type" dropdown, select All Files. In the "File name" field, type ".env". Choose the root of the project folder (the folder called `llm_engineering`) and click Save.  
 
@@ -239,6 +240,8 @@ HF_TOKEN=xxxx
 2. cd to your project root directory
 
 cd /path/to/your/project
+
+(in other words, change to the directory like `/Users/your_name/Projects/llm_engineering`, or wherever you have cloned llm_engineering).
 
 3. Create the .env file with
 
