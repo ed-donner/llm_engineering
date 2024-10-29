@@ -15,7 +15,7 @@ https://www.linkedin.com/in/eddonner/
 
 During the course, I'll suggest you try out the leading models at the forefront of progress, known as the Frontier models. I'll also suggest you run open-source models using Google Colab. These services have some charges, but I'll keep cost minimal - like, a few cents at a time.
 
-Please do monitor your API usage to ensure you're comfortable with spend; I've included links below. There's no need to spend anything more than a couple of dollars for the entire course. During Week 7 you have an option to spend a bit more if you're enjoying the process - I spend about $10 myself and the results make me very happy indeed! But it's not necessary in the least; the important part is that you focus on learning.
+Please do monitor your API usage to ensure you're comfortable with spend; I've included links below. There's no need to spend anything more than a couple of dollars for the entire course. You may find that AI providers such as OpenAI requires a minimum credit like \$5 for your region; we should only spend a fraction of it, but you'll have plenty of opportunity to put it to good use in your own projects. During Week 7 you have an option to spend a bit more if you're enjoying the process - I spend about $10 myself and the results make me very happy indeed! But it's not necessary in the least; the important part is that you focus on learning.
 
 ### How this Repo is organized
 
@@ -28,9 +28,11 @@ The mantra of the course is: the best way to learn is by **DOING**. You should w
 
 ## Setup instructions
 
-The recommended approach is to use Anaconda for your environment. Even if you've never used it before, it makes such a difference. Anaconda ensures that you're working with the right version of Python and all your packages are compatible with mine, even if we're on different platforms.
+I should confess up-front: setting up a powerful environment to work at the forefront of AI is not as simple as I'd like. For most people these instructions will go great; but in some cases, for whatever reason, you'll hit a problem. Please don't hesitate to reach out - I am here to get you up and running quickly. There's nothing worse than feeling _stuck_. Message me, email me or LinkedIn message me and I will unstick you quickly!
 
-**Update** Some people have had problems with Anaconda - horrors! The idea of Anaconda is to make it really smooth and simple to be working with the same environment. If you hit any problems with the instructions below, please skip to near the end of this README for the alternative approach using `pip`, and hopefully you'll be up and running fast. And please do message me if I can help with anything.
+The recommended approach is to use Anaconda for your environment. It's a powerful tool that builds a complete science environment. Anaconda ensures that you're working with the right version of Python and all your packages are compatible with mine, even if we're on different platforms.
+
+**Update** Some people have had problems with Anaconda - horrors! The idea of Anaconda is to make it really smooth and simple to be working with the same environment. If you hit any problems with the instructions below, please skip to near the end of this README for the alternative approach using `pip` with `virtualenv`, and hopefully you'll be up and running fast. And please do message me if I can help with anything.
 
 We'll be mostly using Jupyter Lab in this course. For those new to Jupyter Lab / Jupyter Notebook, it's a delightful Data Science environment where you can simply hit shift+return in any cell to run it; start at the top and work your way down! When we move to Google Colab in Week 3, you'll experience the same interface for Python runtimes in the cloud.
 
@@ -61,7 +63,7 @@ cd C:\Users\YourUsername\Documents\Projects
 
 - Go to the course's GitHub page
 - Click the green 'Code' button and copy the URL
-- In the Command Prompt, type: `git clone <paste-url-here>`
+- In the Command Prompt, type this, replacing everything after the word 'clone' with the copied URL: `git clone <paste-url-here>`
 
 4. **Install Anaconda:**
 
@@ -107,7 +109,7 @@ cd ~/Documents/Projects
 
 - Go to the course's GitHub page
 - Click the green 'Code' button and copy the URL
-- In Terminal, type: `git clone <paste-url-here>`
+- In Terminal, type this, replacing everything after the word 'clone' with the copied URL: `git clone <paste-url-here>`
 
 4. **Install Anaconda:**
 

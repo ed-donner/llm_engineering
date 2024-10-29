@@ -169,3 +169,7 @@ products_vectorstore/
 
 # And ignore any pickle files made during the course
 *.pkl
+
+# ignore gradio private files
+.gradio
+/.gradio
