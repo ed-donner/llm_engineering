@@ -11,6 +11,9 @@ I'm so happy you're joining me on this path. We'll be building immensely satisfy
 I'm here to help you be most successful with your learning! If you hit any snafus, or if you have any ideas on how I can improve the course, please do reach out in the platform or by emailing me direct (ed@edwarddonner.com). It's always great to connect with people on LinkedIn to build up the community - you'll find me here:  
 https://www.linkedin.com/in/eddonner/
 
+Resources to accompany the course, including the slides and useful links, are here:  
+https://edwarddonner.com/2024/11/13/llm-engineering-resources/
+
 ## Setup instructions
 
 - PC people please follow the instructions in [SETUP-PC.md](SETUP-PC.md)
