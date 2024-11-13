@@ -44,4 +44,5 @@ dependencies:
     - gradio
     - gensim
     - modal
+    - ollama
 
