@@ -103,7 +103,7 @@ For week 1, you'll only need OpenAI, and you can add the others if you wish late
 1. Create an OpenAI account if you don't have one by visiting:
 https://platform.openai.com/
 
-2. OpenAI asks for a minimum credit to use the API. For me in the US, it's \$5. The API calls will spend against this \$5. On this course, we'll only use a small portion of this. I do recommend you make the investment as you'll be able to put it to excellent use. But if you'd prefer not to pay for the API, I give you an alternative in the course using Ollama.
+2. OpenAI asks for a minimum credit to use the API. For me in the US, it's \$5. The API calls will spend against this \$5. On this course, we'll only use a small portion of this. I do recommend you make the investment as you'll be able to put it to excellent use. But if you'd prefer not to pay for the API, I give you an alternative in the course using Ollama (coming in the next few days - around Nov 15th).
 
 You can add your credit balance to OpenAI at Settings > Billing:  
 https://platform.openai.com/settings/organization/billing/overview

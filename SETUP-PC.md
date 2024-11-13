@@ -110,7 +110,7 @@ For week 1, you'll only need OpenAI, and you can add the others if you wish late
 1. Create an OpenAI account if you don't have one by visiting:  
 https://platform.openai.com/
 
-2. OpenAI asks for a minimum credit to use the API. For me in the US, it's \$5. The API calls will spend against this \$5. On this course, we'll only use a small portion of this. I do recommend you make the investment as you'll be able to put it to excellent use. But if you'd prefer not to pay for the API, I give you an alternative in the course using Ollama.
+2. OpenAI asks for a minimum credit to use the API. For me in the US, it's \$5. The API calls will spend against this \$5. On this course, we'll only use a small portion of this. I do recommend you make the investment as you'll be able to put it to excellent use. But if you'd prefer not to pay for the API, I give you an alternative in the course using Ollama (coming in the next few days - around Nov 15th).
 
 You can add your credit balance to OpenAI at Settings > Billing:  
 https://platform.openai.com/settings/organization/billing/overview
@@ -152,7 +152,7 @@ Double check there are no spaces before or after the `=` sign, and no spaces at 
 
 3. Go to File > Save As. In the "Save as type" dropdown, select All Files. In the "File name" field, type exactly **.env** as the filename. Choose to save this in the project root directory (the folder called `llm_engineering`) and click Save.
 
-4. Navigate to the foler where you saved the file in Explorer and ensure it was saved as ".env" not ".env.txt" - if necessary rename it to ".env" -  you might need to ensure that "Show file extensions" is set to "On" so that you see the file extensions. Message or email me if that doesn't make sense!
+4. Navigate to the folder where you saved the file in Explorer and ensure it was saved as ".env" not ".env.txt" - if necessary rename it to ".env" -  you might need to ensure that "Show file extensions" is set to "On" so that you see the file extensions. Message or email me if that doesn't make sense!
 
 This file won't appear in Jupyter Lab because jupyter hides files starting with a dot. This file is listed in the `.gitignore` file, so it won't get checked in and your keys stay safe.
 
