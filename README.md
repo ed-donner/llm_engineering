@@ -27,6 +27,10 @@ Any problems, please contact me!
 
 ## Then, Setup instructions
 
+After we do the Ollama quick project, and after I introduce myself and the course, we get to work with the full environment setup.  
+
+Hopefully I've done a decent job of making these guides bulletproof - but please contact me right away if you hit roadblocks:
+
 - PC people please follow the instructions in [SETUP-PC.md](SETUP-PC.md)
 - Mac people please follow the instructions in [SETUP-mac.md](SETUP-mac.md)
 - Linux people, the Mac instructions should be close enough!
