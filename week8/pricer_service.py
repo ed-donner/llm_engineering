@@ -19,7 +19,7 @@ REVISION = "e8d637df551603dc86cd7a1598a8f44af4d7ae36"
 FINETUNED_MODEL = f"{HF_USER}/{PROJECT_RUN_NAME}"
 
 
-@app.function(image=image, secrets=secrets, gpu=GPU)
+@app.function(image=image, secrets=secrets, gpu=GPU, timeout=1800)
 def price(description: str) -> float:
     import os
     import re

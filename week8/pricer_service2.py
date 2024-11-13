@@ -22,7 +22,7 @@ QUESTION = "How much does this cost to the nearest dollar?"
 PREFIX = "Price is $"
 
 
-@app.cls(image=image, secrets=secrets, gpu=GPU)
+@app.cls(image=image, secrets=secrets, gpu=GPU, timeout=1800)
 class Pricer:
     @modal.build()
     def download_model_to_folder(self):
