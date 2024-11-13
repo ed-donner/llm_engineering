@@ -3,8 +3,10 @@ from transformers import AutoTokenizer
 import re
 
 BASE_MODEL = "meta-llama/Meta-Llama-3.1-8B"
-MIN_TOKENS = 150
-MAX_TOKENS = 160
+
+MIN_TOKENS = 150 # Any less than this, and we don't have enough useful content
+MAX_TOKENS = 160 # Truncate after this many tokens. Then after adding in prompt text, we will get to around 180 tokens
+
 MIN_CHARS = 300
 CEILING_CHARS = MAX_TOKENS * 7
 
