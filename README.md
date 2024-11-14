@@ -183,7 +183,7 @@ Los gastos de los ejercicios de este curso deberían ser siempre bastante bajos,
 2. Para Anthropic: Utilice siempre el modelo `claude-3-haiku-20240307` en el código en lugar de los otros modelos Claude
 3. Durante la semana 7, estate atento a mis instrucciones para utilizar el conjunto de datos más barato
 
-## ¡Y eso es todo! ¡Feliz codificación!
+## ¡Y eso es todo! ¡Feliz programación!
 
 ### Instrucciones alternativas si Anaconda te da problemas
 
