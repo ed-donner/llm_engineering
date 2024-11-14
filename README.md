@@ -15,8 +15,7 @@ Estoy aquí para ayudarte a tener más éxito en tu aprendizaje. Si te encuentra
 ](https://www.linkedin.com/in/juan-gabriel-gomila-salas/)
 
 
-Los recursos anexos al curso, incluidas las slides y links de utilidad, los tienes en: ACTUALIZAR A CASTELLANO
-https://edwarddonner.com/2024/11/13/llm-engineering-resources/
+Los recursos anexos al curso, incluidas las slides y links de utilidad, los tienes en: https://cursos.frogamesformacion.com/pages/blog/ingenieria-de-llms-recursos
 
 ## Instrucciones de Gratificación Instantánea para la Semana 1, Día 1
 
