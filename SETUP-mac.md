@@ -1,182 +1,186 @@
-# LLM Engineering - Master AI and LLMs
+# Ingeniería de LLM  - Domina el mundo de la IA y los LLMs
 
-## Setup instructions for Mac
+## Instrucciones de configuración para Mac
 
-Welcome, Mac people!
+Hola, usuarios de Mac!
 
-I should confess up-front: setting up a powerful environment to work at the forefront of AI is not as simple as I'd like. For most people these instructions will go great; but in some cases, for whatever reason, you'll hit a problem. Please don't hesitate to reach out - I am here to get you up and running quickly. There's nothing worse than feeling _stuck_. Message me, email me or LinkedIn message me and I will unstick you quickly!
+Debo confesar por adelantado: configurar un entorno potente para trabajar en la vanguardia de la IA no es tan sencillo como me gustaría. Para la mayoría de la gente estas instrucciones irán genial; pero en algunos casos, por la razón que sea, te encontrarás con un problema. No dudes en ponerte en contacto conmigo: estoy aquí para ayudarte a ponerte en marcha rápidamente. No hay nada peor que sentirse _atrapado_. Envíame un mensaje, un correo electrónico o un mensaje de LinkedIn y te ayudaré a despegarte rápidamente.
 
-Email: ed@edwarddonner.com  
-LinkedIn: https://www.linkedin.com/in/eddonner/  
+Email: juangabriel@frogames.es  
+LinkedIn: https://www.linkedin.com/in/juan-gabriel-gomila-salas/
 
-I use a platform called Anaconda to set up your environment. It's a powerful tool that builds a complete science environment. Anaconda ensures that you're working with the right version of Python and all your packages are compatible with mine, even if our systems are completely different. It takes more time to set up, and it uses more hard drive space (5+ GB) but it's very reliable once its working.
+Utilizo una plataforma llamada Anaconda para configurar tu entorno. Es una herramienta potente que crea un entorno científico completo. Anaconda garantiza que estés trabajando con la versión correcta de Python y que todos tus paquetes sean compatibles con el mío, incluso si nuestros sistemas son completamente diferentes. La configuración lleva más tiempo y utiliza más espacio en el disco duro (más de 5 GB), pero es muy confiable una vez que está funcionando.
 
-Having said that: if you have any problems with Anaconda, I've provided an alternative approach. It's faster and simpler and should have you running quickly, with less of a guarantee around compatibility.
+Dicho esto: si tienes algún problema con Anaconda, te he proporcionado un enfoque alternativo. Es más rápido y más simple y debería permitirte trabajar rápidamente, con menos garantías en cuanto a compatibilidad.
 
-### Part 1: Clone the Repo
+### Parte 1: Clonar el Repo
 
-This gets you a local copy of the code on your box.
+Aquí vas a obtener una copia local del código en tu ordenador.
 
-1. **Install Git** if not already installed (it will be in most cases)
+1. **Instala Git** si no está ya instalado (lo estará en la mayoría de los casos)
 
-- Open Terminal (Applications > Utilities > Terminal)
-- Type `git --version` If not installed, you'll be prompted to install it
+- Abre el Terminal (Aplicaciones > Utilidades > Terminal)
+- Escribe `git --version` Si no está instalado, se te pedirá que lo instales pulsado intro.
 
-2. **Navigate to your projects folder:**
+2. **Navega hasta la carpeta de tus proyectos:**.
 
-If you have a specific folder for projects, navigate to it using the cd command. For example:
-`cd ~/Documents/Projects`
+Si tienes una carpeta específica para proyectos, navega hasta ella usando el comando cd. Por ejemplo
+`cd ~/Documentos/Proyectos`
 
-If you don't have a projects folder, you can create one:
+Si no tienes una carpeta de proyectos, puedes crear una:
 ```
 mkdir ~/Documents/Projects
 cd ~/Documents/Projects
 ```
 
-3. **Clone the repository:**
+3. **Clonar el repositorio**
 
-Enter this in the terminal in the Projects folder:
+- Ve a la página GitHub del curso
+- Haz clic en el botón verde 'Código' y copia la URL
+- En Terminal, escribe esto, sustituyendo todo lo que hay después de la palabra 'clone' por la URL copiada: `git clone <pega-url-aquí>`
 
-`git clone https://github.com/ed-donner/llm_engineering.git`
 
-This creates a new directory `llm_engineering` within your Projects folder and downloads the code for the class. Do `cd llm_engineering` to go into it. This `llm_engineering` directory is known as the "project root directory".
+### Parte 2: Instalar el entorno de Anaconda
 
-### Part 2: Install Anaconda environment
+Existe una alternativa a la Parte 2 si esto te causa problemas.
 
-There is an alternative to Part 2 if this gives you problems.
+1. **Instala Anaconda:**
 
-1. **Install Anaconda:**
+- Descarga Anaconda desde https://docs.anaconda.com/anaconda/install/mac-os/
+- Haz doble clic en el archivo descargado y sigue las instrucciones de instalación. Ten en cuenta que ocupa varios GB y que la instalación demora un poco, pero será una plataforma potente para usar en el futuro.
 
-- Download Anaconda from https://docs.anaconda.com/anaconda/install/mac-os/
-- Double-click the downloaded file and follow the installation prompts. Note that it takes up several GB and take a while to install, but it will be a powerful platform for you to use in the future.
+2. **Configurar el entorno:**
 
-2. **Set up the environment:**
+- Abre una nueva Terminal (Aplicaciones > Utilidades > Terminal)
+- Navega hasta el "directorio raíz del proyecto" usando `cd ~/Documents/Projects/llm_engineering` (reemplaza esta ruta según sea necesario con la ruta real al directorio llm_engineering, tu versión clonada localmente del repositorio). Ejecuta `ls` y verifica que puedes ver los subdirectorios para cada semana del curso.
+- Crea el entorno mediante: `conda env create -f environment.yml`
+- Espera unos minutos a que se instalen todos los paquetes. En algunos casos, esto puede llevar literalmente entre 20 y 30 minutos si no has utilizado Anaconda antes, e incluso más tiempo según tu conexión a Internet. ¡Están sucediendo cosas importantes! Si esto se ejecuta durante más de 1 hora y 15 minutos o te genera otros problemas, ves directamente a la Parte 2B.
+- ¡Ya has creado un entorno de IA aislado y dedicado para ingeniería de LLM, ejecución de almacenes de datos vectoriales y mucho más! Ahora debes **activarlo** con este comando: `conda activate llms`
 
-- Open a new Terminal (Applications > Utilities > Terminal)
-- Navigate to the "project root directory" using `cd ~/Documents/Projects/llm_engineering` (replace this path as needed with the actual path to the llm_engineering directory, your locally cloned version of the repo). Do `ls` and check you can see subdirectories for each week of the course.
-- Create the environment: `conda env create -f environment.yml`
-- Wait for a few minutes for all packages to be installed - in some cases, this can literally take 20-30 minutes if you've not used Anaconda before, and even longer depending on your internet connection. Important stuff is happening! If this runs for more than 1 hour 15 mins, or gives you other problems, please go to Part 2B instead.
-- You have now built an isolated, dedicated AI environment for engineering LLMs, running vector datastores, and so much more! You now need to **activate** it using this command: `conda activate llms`  
+Deberías ver `(llms)` en tu prompt, lo que indica que has activado tu nuevo entorno.
 
-You should see `(llms)` in your prompt, which indicates you've activated your new environment.
+3. **Inicia Jupyter Lab:**
 
-3. **Start Jupyter Lab:**
+- En Terminal, desde la carpeta `llm_engineering`, escribe: `jupyter lab`
 
-- In the Terminal window, from within the `llm_engineering` folder, type: `jupyter lab`
 
-...and Jupyter Lab should open up in a browser. If you've not seen Jupyter Lab before, I'll explain it in a moment! Now close the jupyter lab browser tab, and close the Terminal, and move on to Part 3.
+...y Jupyter Lab debería abrirse, listo para que empieces. Si no has visto Jupyter Lab antes, te lo explicaré en un momento. Ahora cierra la pestaña del navegador de Jupyter Lab, cierra la Terminal y continúa con la Parte 3.
 
-### Part 2B - Alternative to Part 2 if Anaconda gives you trouble
 
-1. **Open a new Terminal** (Applications > Utilities > Terminal)
+### Parte 2B - Alternativa a la Parte 2 si Anaconda te da problemas
 
-Run `python --version` to find out which python you're on. Ideally you'd be using a version of Python 3.11, so we're completely in sync.  
-If not, it's not a big deal, but we might need to come back to this later if you have compatibility issues.  
-You can download python here:  
+
+1. **Abre una nueva Terminal** (Aplicaciones > Utilidades > Terminal)
+
+Primero por favor ejecuta
+`python --version`  
+Para saber en qué python estás. Lo ideal sería que estuvieras usando Python 3.11.x, para que estemos completamente sincronizados. Puedes descargar python en  
 https://www.python.org/downloads/
 
-2. Navigate to the "project root directory" using `cd ~/Documents/Projects/llm_engineering` (replace this path with the actual path to the llm_engineering directory, your locally cloned version of the repo). Do `ls` and check you can see subdirectories for each week of the course.  
+2. Navega hasta el "directorio raíz del proyecto" usando `cd ~/Documents/Projects/llm_engineering` (reemplaza esta ruta según sea necesario con la ruta real al directorio llm_engineering, tu versión clonada localmente del repositorio). Ejecuta `ls` y verifica que puedes ver los subdirectorios para cada semana del curso.
 
-Then, create a new virtual environment with this command:  
+Luego, crea un nuevo entorno virtual con este comando:
 `python -m venv llms`
 
-3. Activate the virtual environment with  
+3. Activa el entorno virtual mediante:  
 `source llms/bin/activate`
-You should see (llms) in your command prompt, which is your sign that things are going well.
+Deberías ver (llms) en el símbolo del sistema, lo cual es señal de que todo va bien.
 
-4. Run `pip install -r requirements.txt`  
-This may take a few minutes to install.
+4. Ejecuta `pip install -r requirements.txt`  
+Esto puede que tarde varios minutos en instalarlo todo.
 
-5. **Start Jupyter Lab:**
+5. **Inicia Jupyter Lab:**
 
-From within the `llm_engineering` folder, type: `jupyter lab`  
-...and Jupyter Lab should open up, ready for you to get started. Open the `week1` folder and double click on `day1.ipynb`. Success! Now close down jupyter lab and move on to Part 3.
+Desde la carpeta `llm_engineering`, escribe: `jupyter lab`  
+...y Jupyter Lab debería abrirse, ya lo tienes todo listo para comenzar. Abre la carpeta `week1` y haz doble clic en `day1.ipynb`. ¡Éxito! Ahora cierra Jupyter Lab y continúa con la Parte 3.
 
-If there are any problems, contact me!
+Si hay algun problema, no dudes en escribirnos por el foro!
 
-### Part 3 - OpenAI key (OPTIONAL but recommended)
 
-Particularly during weeks 1 and 2 of the course, you'll be writing code to call the APIs of Frontier models (models at the forefront of AI).
+### Parte 3 - Clave de OpenAI (OPCIONAL pero recomendado)
 
-For week 1, you'll only need OpenAI, and you can add the others if you wish later on.
+Especialmente durante las semanas 1 y 2 del curso, escribirás código para llamar a las API de los modelos de Frontier (modelos a la vanguardia del progreso). Tendrás que acompañarme en la creación de cuentas y claves API.
 
-1. Create an OpenAI account if you don't have one by visiting:
+Para la semana 1, solo necesitarás OpenAI y podrás agregar los demás si lo deseas más adelante.
+
+1. Crea una cuenta OpenAI si no tienes una visitando:
 https://platform.openai.com/
 
-2. OpenAI asks for a minimum credit to use the API. For me in the US, it's \$5. The API calls will spend against this \$5. On this course, we'll only use a small portion of this. I do recommend you make the investment as you'll be able to put it to excellent use. But if you'd prefer not to pay for the API, I give you an alternative in the course using Ollama.
+2. OpenAI solicita un crédito mínimo para usar la API. Para mí, en España (y en los Estados Unidos para Ed), es de $5. Las llamadas a la API gastarán de este monto $5. En este curso, solo usaremos una pequeña parte de este monto. Te recomiendo que hagas la inversión, ya que podrás darle un excelente uso. Pero si prefieres no pagar por la API, te doy una alternativa en el curso usando Ollama.
 
-You can add your credit balance to OpenAI at Settings > Billing:  
+Puede agregar su saldo de crédito a OpenAI en Settings > Billing:
 https://platform.openai.com/settings/organization/billing/overview
 
-I recommend you disable the automatic recharge!
+¡Te recomiendo que desactives la recarga automática!
 
-3. Create your API key
+3. Crear tu clave de API 
 
-The webpage where you set up your OpenAI key is at https://platform.openai.com/api-keys - press the green 'Create new secret key' button and press 'Create secret key'. Keep a record of the API key somewhere private; you won't be able to retrieve it from the OpenAI screens in the future. It should start `sk-proj-`.
+La página web donde configuras tu clave OpenAI está en https://platform.openai.com/api-keys: presiona el botón verde "Crear nueva clave secreta" y luego "Crear clave secreta". Mantén un registro de la clave API en algún lugar privado; no podrás recuperarla de las pantallas OpenAI en el futuro. Debería iniciar `sk-proj-`.
 
-In week 2 we will also set up keys for Anthropic and Google, which you can do here when we get there.  
-- Claude API at https://console.anthropic.com/ from Anthropic
-- Gemini API at https://ai.google.dev/gemini-api from Google
+En la semana 2 también configuraremos claves para Anthropic y Google, lo cual podrás hacer aquí cuando lleguemos allí.
+- Claude API en https://console.anthropic.com/ de Anthropic
+- Gemini API en https://ai.google.dev/gemini-api de Google
 
-Later in the course you'll be using the fabulous HuggingFace platform; an account is available for free at https://huggingface.co - you can create an API token from the Avatar menu >> Settings >> Access Tokens.
+Más adelante en el curso, utilizarás la fabulosa plataforma HuggingFace; hay una cuenta disponible de forma gratuita en https://huggingface.co; puedes crear un token de API desde el menú Avatar >> Settings >> Access Tokens.
 
-And in Week 6/7 you'll be using the terrific Weights & Biases at https://wandb.ai to watch over your training batches. Accounts are also free, and you can set up a token in a similar way.
+Y en la semana 6/7, usarás la fantástica herramienta Weights & Biases en https://wandb.ai para supervisar tus lotes de entrenamiento. Las cuentas también son gratuitas y puedes configurar un token de manera similar.
 
-### PART 4 - .env file
+### Parte 4 - El fichero .env
 
-When you have these keys, please create a new file called `.env` in your project root directory. The filename needs to be exactly the four characters ".env" rather than "my-keys.env" or ".env.txt". Here's how to do it:
+Cuando tengas todas estas claves, crea un nuevo archivo llamado `.env` en el directorio raíz de tu proyecto. El nombre del archivo debe tener exactamente los cuatro caracteres ".env" en lugar de "my-keys.env" o ".env.txt". A continuación, te indicamos cómo hacerlo:
 
-1. Open Terminal (Applications > Utilities > Terminal)
+1. Abre el Terminal (Aplicaciones > Utilidades > Terminal)
 
-2. Navigate to the "project root directory" using `cd ~/Documents/Projects/llm_engineering` (replace this path with the actual path to the llm_engineering directory, your locally cloned version of the repo).
+2. Navega hasta el "directorio raíz del proyecto" usando `cd ~/Documents/Projects/llm_engineering` (reemplaza esta ruta con la ruta real al directorio llm_engineering, tu versión clonada localmente del repositorio).
 
-3. Create the .env file with
+3. Crea el fichero .env mediante
 
+```
 nano .env
+```
 
-4. Then type your API keys into nano, replacing xxxx with your API key (starting `sk-proj-`).
+4. Luego escribe tus claves API usando nano, reemplazando xxxx con tu clave API (comenzando con `sk-proj-`).
 
 ```
 OPENAI_API_KEY=xxxx
 ```
 
-If you have other keys, you can add them too, or come back to this in future weeks:  
+Si tienes otras claves, puedes agregarlas también o volver a esta sección en las próximas semanas:
+
 ```
 GOOGLE_API_KEY=xxxx
 ANTHROPIC_API_KEY=xxxx
 HF_TOKEN=xxxx
 ```
 
-5. Save the file:
+5. Guarda el fichero pulsando:
 
 Control + O  
-Enter (to confirm save the file)  
-Control + X to exit the editor
+Enter (para confirmar el guardado del file)  
+Control + X para salir del editor
 
-6. Use this command to list files in your project root directory:
+6. Utilice este comando para listar los archivos en el directorio raíz de su proyecto:
 
 `ls -a`
 
-And confirm that the `.env` file is there.
+Y confirma que el archivo `.env` está allí.
 
-This file won't appear in Jupyter Lab because jupyter hides files starting with a dot. This file is listed in the `.gitignore` file, so it won't get checked in and your keys stay safe.
+Este archivo no aparecerá en Jupyter Lab porque Jupyter oculta los archivos que comienzan con un punto. Este archivo se incluye en el archivo `.gitignore`, por lo que no se registrará y sus claves permanecerán seguras.
 
-### Part 5 - Showtime!!
+### Parte 5 - ¡¡Hora del espectáculo!!
 
-- Open Terminal (Applications > Utilities > Terminal)
+- Abre el Terminal (Aplicaciones > Utilidades > Terminal)
   
-- Navigate to the "project root directory" using `cd ~/Documents/Projects/llm_engineering` (replace this path with the actual path to the llm_engineering directory, your locally cloned version of the repo). Do `ls` and check you can see subdirectories for each week of the course.  
+- Navega hasta el "directorio raíz del proyecto" usando `cd ~/Documents/Projects/llm_engineering` (reemplaza esta ruta con la ruta real al directorio llm_engineering, tu versión clonada localmente del repositorio). Ejecuta `ls` y verifica que puedas ver los subdirectorios para cada semana del curso.
 
-- Activate your environment with `conda activate llms` (or `source llms/bin/activate` if you used the alternative approach in Part 2B)
+- Activa tu entorno con `conda activate llms` (o `source llms/bin/activate` si utilizaste el enfoque alternativo en la Parte 2B)
 
-- You should see (llms) in your prompt which is your sign that all is well. And now, type: `jupyter lab` and Jupyter Lab should open up, ready for you to get started. Open the `week1` folder and double click on `day1.ipynb`.
+- Deberías ver (llms) en el mensaje, lo que indica que todo está bien. Ahora, escribe: `jupyter lab` y Jupyter Lab debería abrirse, listo para que puedas comenzar. Abre la carpeta `week1` y haz doble clic en `day1.ipynb`.
 
-And you're off to the races!
+¡Y listo!
 
-Note that any time you start jupyter lab in the future, you'll need to follow these Part 5 instructions to start it from within the `llm_engineering` directory with the `llms` environment activated.
+Ten en cuenta que, cada vez que inicies Jupyter Lab en el futuro, deberás seguir estas instrucciones de la Parte 5 para iniciarlo desde el directorio `llm_engineering` con el entorno `llms` activado.
 
-For those new to Jupyter Lab / Jupyter Notebook, it's a delightful Data Science environment where you can simply hit shift+return in any cell to run it; start at the top and work your way down! I've included a notebook called 'Guide to Jupyter' that shows you more features. When we move to Google Colab in Week 3, you'll experience the same interface for Python runtimes in the cloud. 
+Para aquellos que son nuevos en Jupyter Lab/Jupyter Notebook, es un entorno de ciencia de datos encantador en el que simplemente pueden presionar shift+return en cualquier celda para ejecutarlo; comiencen en la parte superior y avancen hacia abajo. Hay un cuaderno en la carpeta week1 con una [Guía para Jupyter Lab](week1/Guide%20to%20Jupyter.ipynb) y un tutorial de [Python intermedio](week1/Intermediate%20Python.ipynb), si eso te resulta útil. Cuando pasemos a Google Colab en la semana 3, experimentarán la misma interfaz para los entornos de ejecución de Python en la nube.
 
-If you have any problems, I've included a notebook in week1 called [troubleshooting.ipynb](week1/troubleshooting.ipynb) to figure it out.
-
-Please do message me or email me at ed@edwarddonner.com if this doesn't work or if I can help with anything. I can't wait to hear how you get on.
+Si tienes algún problema, he incluido un cuaderno en la semana 1 llamado [troubleshooting.ipynb](week1/troubleshooting.ipynb) para resolverlo.
