@@ -10,9 +10,6 @@ matplotlib
 gensim
 torch
 transformers
-accelerate
-sentencepiece
-bitsandbytes
 tqdm
 openai
 gradio
@@ -35,3 +32,8 @@ plotly
 jupyter-dash
 beautifulsoup4
 pydub
+modal
+ollama
+accelerate
+sentencepiece
+bitsandbytes
