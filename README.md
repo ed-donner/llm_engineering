@@ -15,8 +15,6 @@ Estoy aquí para ayudarte a tener más éxito en tu aprendizaje. Si te encuentra
 ](https://www.linkedin.com/in/juan-gabriel-gomila-salas/)
 
 
-Los recursos anexos al curso, incluidas las slides y links de utilidad, los tienes en: https://cursos.frogamesformacion.com/pages/blog/ingenieria-de-llms-recursos
-
 ## Instrucciones de Gratificación Instantánea para la Semana 1, Día 1
 
 ¡Comenzaremos el curso instalando Ollama para que puedas ver los resultados de inmediato!
@@ -91,3 +89,18 @@ Los gastos de los ejercicios de este curso deberían ser siempre bastante bajos,
 ## ¡Y eso es todo! ¡Feliz programación y nos vemos en clase!
 
 
+
+<table style="margin: 0; text-align: left;">
+    <tr>
+        <td style="width: 150px; height: 150px; vertical-align: middle;">
+            <img src="resources.jpg" width="150" height="150" style="display: block;" />
+        </td>
+        <td>
+            <h2 style="color:#f71;">Other resources</h2>
+            <span style="color:#f71;">He creado esta página web con recursos útiles para el curso. Incluye enlaces a todas las diapositivas.<br/>
+            <a href="https://cursos.frogamesformacion.com/pages/blog/ingenieria-de-llms-recursos">https://cursos.frogamesformacion.com/pages/blog/ingenieria-de-llms-recursos</a><br/>
+                Mantén este artículo en tus favoritos y continuaré agregando más enlaces útiles allí con el tiempo.
+            </span>
+        </td>
+    </tr>
+</table>
