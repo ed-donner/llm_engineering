@@ -345,15 +345,6 @@ class Diagnostics:
     def _step8_environment_variables(self):
         self.log("\n===== Environment Variables Check =====")
         try:
-            # Check OPENAI_API_KEY
-            api_key = os.environ.get('OPENAI_API_KEY')
-            if api_key:
-                self.log("OPENAI_API_KEY is set")
-                if not api_key.startswith(('sk-', 'sk-org-')):
-                    self._log_warning("OPENAI_API_KEY format looks incorrect")
-            else:
-                self._log_warning("OPENAI_API_KEY environment variable is not set")
-
             # Check Python paths
             pythonpath = os.environ.get('PYTHONPATH')
             if pythonpath:
@@ -366,6 +357,17 @@ class Diagnostics:
             self.log("\nPython sys.path:")
             for path in sys.path:
                 self.log(f" - {path}")
+
+            # Check OPENAI_API_KEY
+            from dotenv import load_dotenv
+            load_dotenv()
+            api_key = os.environ.get('OPENAI_API_KEY')
+            if api_key:
+                self.log("OPENAI_API_KEY is set after calling load_dotenv()")
+                if not api_key.startswith('sk-proj-') or len(api_key)<12:
+                    self._log_warning("OPENAI_API_KEY format looks incorrect after calling load_dotenv()")
+            else:
+                self._log_warning("OPENAI_API_KEY environment variable is not set after calling load_dotenv()")
         except Exception as e:
             self._log_error(f"Environment variables check failed: {e}")
 
