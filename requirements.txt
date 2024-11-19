@@ -37,3 +37,6 @@ ollama
 accelerate
 sentencepiece
 bitsandbytes
+psutil
+setuptools
+speedtest-cli
