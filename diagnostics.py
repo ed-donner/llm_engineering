@@ -370,7 +370,7 @@ class Diagnostics:
             self._log_error(f"Environment variables check failed: {e}")
 
     def _step9_additional_diagnostics(self):
-        print("\n===== Additional Diagnostics =====")
+        self.log("\n===== Additional Diagnostics =====")
         try:
             # Get the site-packages directory paths
             import site
@@ -404,46 +404,13 @@ class Diagnostics:
             # Check temp directory
             try:
                 with tempfile.NamedTemporaryFile() as tmp:
-                    print(f"Temp directory is writable: {os.path.dirname(tmp.name)}")
+                    self.log(f"Temp directory is writable: {os.path.dirname(tmp.name)}")
             except Exception as e:
                 self._log_error(f"Cannot write to temp directory: {e}")
     
         except Exception as e:
             self._log_error(f"Additional diagnostics failed: {e}")
 
-
-    def _step9b_additional_diagnostics(self):
-        self.log("\n===== Additional Diagnostics =====")
-        try:
-            # Check for potential name conflicts
-            current_dir = os.getcwd()
-            conflict_names = ['openai.py', 'dotenv.py']
-            conflict_names = [name.lower() for name in conflict_names]
-
-            for root, _, files in os.walk(current_dir):
-                files_lower = [f.lower() for f in files]
-                for name in conflict_names:
-                    if name in files_lower:
-                        file_index = files_lower.index(name)
-                        file_path = os.path.join(root, files[file_index])
-                        if '__file__' in globals() and os.path.abspath(file_path) == os.path.abspath(__file__):
-                            continue  # Ignore this diagnostics script
-                        self._log_warning(f"Potential naming conflict: {file_path}")
-
-            # Check for 'openai.py' in sys.path
-            for path in sys.path:
-                conflict_file = os.path.join(path, 'openai.py')
-                if os.path.isfile(conflict_file):
-                    self._log_warning(f"Potential naming conflict in sys.path: {conflict_file}")
-
-            # Check temp directory
-            try:
-                with tempfile.NamedTemporaryFile() as tmp:
-                    self.log(f"Temp directory is writable: {os.path.dirname(tmp.name)}")
-            except Exception as e:
-                self._log_error(f"Cannot write to temp directory: {e}")
-        except Exception as e:
-            self._log_error(f"Additional diagnostics failed: {e}")
 
 if __name__ == "__main__":
     diagnostics = Diagnostics()
