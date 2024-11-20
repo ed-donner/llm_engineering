@@ -385,7 +385,7 @@ class Diagnostics:
                 return any(os.path.commonpath([path, sp]) == sp for sp in site_packages_paths)
     
             # Check for potential name conflicts in the current directory and sys.path
-            conflict_names = ['openai.py']
+            conflict_names = ['openai.py', 'dotenv.py']
     
             # Check current directory
             current_dir = os.getcwd()
