@@ -45,4 +45,6 @@ dependencies:
     - gensim
     - modal
     - ollama
-
+    - psutil
+    - setuptools
+    - speedtest-cli
