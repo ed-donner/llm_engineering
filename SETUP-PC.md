@@ -48,7 +48,7 @@ This creates a new directory `llm_engineering` within your Projects folder and d
 
 ### Part 2: Install Anaconda environment
 
-There is an alternative to Part 2 if this gives you problems.
+If this Part 2 gives you any problems, there is an alternative Part 2B below that can be used instead.
 
 1. **Install Anaconda:**
 
@@ -158,11 +158,11 @@ This file won't appear in Jupyter Lab because jupyter hides files starting with 
 
 ### Part 5 - Showtime!!
 
-- Open **Anaconda Prompt** (search for it in the Start menu)
+- Open **Anaconda Prompt** (search for it in the Start menu) if you used Anaconda, otherwise open a Powershell if you used the alternative approach in Part 2B
   
 - Navigate to the "project root directory" by entering something like `cd C:\Users\YourUsername\Documents\Projects\llm_engineering` using the actual path to your llm_engineering project root directory. Do a `dir` and check you can see subdirectories for each week of the course.
 
-- Activate your environment with `conda activate llms` (or `llms\Scripts\activate` if you used the alternative approach in Part 2B)
+- Activate your environment with `conda activate llms` if you used Anaconda or `llms\Scripts\activate` if you used the alternative approach in Part 2B
 
 - You should see (llms) in your prompt which is your sign that all is well. And now, type: `jupyter lab` and Jupyter Lab should open up, ready for you to get started. Open the `week1` folder and double click on `day1.ipynb`. 
 
