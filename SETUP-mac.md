@@ -43,7 +43,7 @@ This creates a new directory `llm_engineering` within your Projects folder and d
 
 ### Part 2: Install Anaconda environment
 
-There is an alternative to Part 2 if this gives you problems.
+If this Part 2 gives you any problems, there is an alternative Part 2B below that can be used instead.
 
 1. **Install Anaconda:**
 
