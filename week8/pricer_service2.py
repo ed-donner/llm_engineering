@@ -17,6 +17,9 @@ RUN_NAME = "2024-09-13_13.04.39"
 PROJECT_RUN_NAME = f"{PROJECT_NAME}-{RUN_NAME}"
 REVISION = "e8d637df551603dc86cd7a1598a8f44af4d7ae36"
 FINETUNED_MODEL = f"{HF_USER}/{PROJECT_RUN_NAME}"
+MODEL_DIR = "hf-cache/"
+BASE_DIR = MODEL_DIR + BASE_MODEL
+FINETUNED_DIR = MODEL_DIR + FINETUNED_MODEL
 
 QUESTION = "How much does this cost to the nearest dollar?"
 PREFIX = "Price is $"
@@ -28,10 +31,9 @@ class Pricer:
     def download_model_to_folder(self):
         from huggingface_hub import snapshot_download
         import os
-        MODEL_DIR = "~/.cache/huggingface/hub/"
         os.makedirs(MODEL_DIR, exist_ok=True)
-        snapshot_download(BASE_MODEL, local_dir=MODEL_DIR)
-        snapshot_download(FINETUNED_MODEL, revision=REVISION, local_dir=MODEL_DIR)
+        snapshot_download(BASE_MODEL, local_dir=BASE_DIR)
+        snapshot_download(FINETUNED_MODEL, revision=REVISION, local_dir=FINETUNED_DIR)
 
     @modal.enter()
     def setup(self):
@@ -50,17 +52,17 @@ class Pricer:
     
         # Load model and tokenizer
         
-        self.tokenizer = AutoTokenizer.from_pretrained(BASE_MODEL)
+        self.tokenizer = AutoTokenizer.from_pretrained(BASE_DIR)
         self.tokenizer.pad_token = self.tokenizer.eos_token
         self.tokenizer.padding_side = "right"
         
         self.base_model = AutoModelForCausalLM.from_pretrained(
-            BASE_MODEL, 
+            BASE_DIR, 
             quantization_config=quant_config,
             device_map="auto"
         )
     
-        self.fine_tuned_model = PeftModel.from_pretrained(self.base_model, FINETUNED_MODEL, revision=REVISION)
+        self.fine_tuned_model = PeftModel.from_pretrained(self.base_model, FINETUNED_DIR, revision=REVISION)
 
     @modal.method()
     def price(self, description: str) -> float:
