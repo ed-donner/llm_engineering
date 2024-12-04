@@ -1,49 +1,48 @@
 # Samantha Greene
 
-## Summary
-- **Date of Birth:** October 14, 1990
-- **Job Title:** HR Generalist
-- **Location:** Denver, Colorado
+## Resumen
+- **Fecha de nacimiento:** 14 de octubre de 1990
+- **Puesto:** Generalista de RR. HH.
+- **Ubicación:** Denver, Colorado
 
-## Insurellm Career Progression
-- **2020** - Joined Insurellm as a HR Coordinator
-  - Responsibilities included assisting with recruitment processes and managing employee onboarding.
-- **2021** - Promoted to HR Generalist
-  - Transitioned to a role with expanded responsibilities, including handling employee relations and benefits administration.
-- **2022** - Completed the HR Leadership Development Program
-  - Enhanced skills in conflict resolution and strategic planning.
-- **2023** - Actively involved in initiating the company’s Diversity and Inclusion programs.
-  - Samantha Greene played a key role in launching mentorship initiatives and employee resource groups.
+## Progresión profesional en Insurellm
+- **2020** - Se incorporó a Insurellm como coordinadora de RR. HH.
+- Las responsabilidades incluían ayudar con los procesos de contratación y gestionar la incorporación de empleados.
+- **2021** - Ascendió a Generalista de RR. HH.
+- Pasó a un puesto con responsabilidades ampliadas, que incluían el manejo de las relaciones con los empleados y la administración de los beneficios.
+- **2022** - Completó el Programa de desarrollo de liderazgo de RR. HH.
+- Mejoró sus habilidades en resolución de conflictos y planificación estratégica.
+- **2023** - Participó activamente en la puesta en marcha de los programas de Diversidad e Inclusión de la empresa.
+- Samantha Greene desempeñó un papel clave en el lanzamiento de iniciativas de tutoría y grupos de recursos para empleados.
 
-## Annual Performance History
-- **2020:** Exceeds Expectations  
-  Samantha Greene demonstrated exceptional organizational skills and contributed to a streamlined onboarding process, earning commendations from senior leadership.
+## Historial de desempeño anual
+- **2020:** Supera las expectativas
+Samantha Greene demostró habilidades organizativas excepcionales y contribuyó a un proceso de incorporación optimizado, lo que le valió el reconocimiento de la alta dirección.
 
-- **2021:** Meets Expectations  
-  While proficient in her new role, Samantha Greene struggled with time management during peak recruitment seasons, resulting in occasional missed deadlines. 
+- **2021:** Cumple las expectativas
+Si bien era competente en su nuevo puesto, Samantha Greene tuvo dificultades con la gestión del tiempo durante las temporadas pico de contratación, lo que provocó que ocasionalmente no cumpliera con los plazos.
 
-- **2022:** Below Expectations  
-  Samantha Greene faced challenges in balancing employee relations issues, thereby impacting her performance. Gaps in communication and follow-up led to a push for additional training.
+- **2022:** Por debajo de las expectativas
+Samantha Greene enfrentó desafíos para equilibrar los problemas de relaciones con los empleados, lo que afectó su desempeño. Las brechas en la comunicación y el seguimiento llevaron a un impulso para una capacitación adicional.
 
-- **2023:** Meets Expectations  
-  After attending workshops focused on conflict resolution, Samantha Greene successfully improved her handling of employee grievances, though minor issues still arose in managing multitasking within projects.
+- **2023:** Cumple las expectativas
+Después de asistir a talleres centrados en la resolución de conflictos, Samantha Greene mejoró con éxito su manejo de las quejas de los empleados, aunque aún surgieron problemas menores en la gestión de la multitarea dentro de los proyectos.
 
-## Compensation History
-- **2020:** Base Salary - $55,000  
-  The entry-level salary matched industry standards for HR Coordinators with limited experience.
+## Historial de compensación
+- **2020:** Salario base: $55,000
+El salario inicial coincidía con los estándares de la industria para coordinadores de recursos humanos con experiencia limitada.
 
-- **2021:** Base Salary - $65,000  
-  Following her promotion, Samantha Greene received a raise commensurate with her new responsibilities.
+- **2021:** Salario base: $65,000
+Después de su ascenso, Samantha Greene recibió un aumento acorde con sus nuevas responsabilidades.
 
-- **2022:** Base Salary - $65,000  
-  No increase as a result of performance concerns; however, Samantha Greene continued to receive positive feedback for her participation in diversity initiatives.
+- **2022:** Salario base: $65,000
+No hubo aumento como resultado de inquietudes sobre el desempeño; sin embargo, Samantha Greene continuó recibiendo comentarios positivos por su participación en iniciativas de diversidad.
 
-- **2023:** Base Salary - $70,000  
-  Recognized for substantial improvement in employee relations management and contributions to company culture, leading to a well-deserved increase.
+- **2023:** Salario base: $70,000
+Reconocida por una mejora sustancial en la gestión de las relaciones con los empleados y sus contribuciones a la cultura de la empresa, lo que le valió un aumento bien merecido.
 
-## Other HR Notes
-- Samantha Greene has expressed interest in pursuing an HR certification (SHRM-CP) to further her career growth within Insurellm. 
-- Participated in Insurellm's employee wellness program, promoting mental health resources among staff.
-- Actively volunteers with local nonprofits and encourages staff involvement in community outreach programs, enhancing Insurellm's corporate social responsibility initiatives. 
+## Otras notas de recursos humanos
+- Samantha Greene ha expresado interés en obtener una certificación de recursos humanos (SHRM-CP) para impulsar su crecimiento profesional dentro de Insurellm. - Participó en el programa de bienestar de los empleados de Insurellm, promoviendo recursos de salud mental entre el personal.
+- Colabora activamente con organizaciones sin fines de lucro locales y alienta la participación del personal en programas de extensión comunitaria, mejorando las iniciativas de responsabilidad social corporativa de Insurellm.
 
-Samantha Greene is a valuable asset to Insurellm, continuously working on professional development and contributing to a supportive workplace culture.
+Samantha Greene es un activo valioso para Insurellm, ya que trabaja continuamente en el desarrollo profesional y contribuye a una cultura de apoyo en el lugar de trabajo.

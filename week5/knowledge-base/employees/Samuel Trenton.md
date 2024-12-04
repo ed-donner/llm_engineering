@@ -1,53 +1,53 @@
-# HR Record
+# Registro de RR. HH.
 
 # Samuel Trenton
 
-## Summary
-- **Date of Birth:** April 12, 1989  
-- **Job Title:** Senior Data Scientist  
-- **Location:** Austin, Texas  
+## Resumen
+- **Fecha de nacimiento:** 12 de abril de 1989
+- **Puesto:** Científico de datos sénior
+- **Ubicación:** Austin, Texas
 
-## Insurellm Career Progression
-- **January 2020 - Present:** Senior Data Scientist  
-  *Promoted for demonstrating exceptional analytical skills and leadership potential. Led several projects that improved customer segmentation strategies, resulting in a 15% increase in customer retention.*
+## Progresión profesional en Insurellm
+- **Enero de 2020 - Presente:** Científico de datos sénior
+*Promovido por demostrar habilidades analíticas excepcionales y potencial de liderazgo. Lideró varios proyectos que mejoraron las estrategias de segmentación de clientes, lo que resultó en un aumento del 15 % en la retención de clientes.*
 
-- **June 2018 - December 2019:** Data Scientist  
-  *Joined the Insurellm team and worked on developing predictive modeling techniques to assess risk for both B2B and B2C customers. Received recognition for the success of the "Risk Assessment Model" project.*
+- **Junio ​​de 2018 - Diciembre de 2019:** Científico de datos
+*Se unió al equipo de Insurellm y trabajó en el desarrollo de técnicas de modelado predictivo para evaluar el riesgo de los clientes B2B y B2C. Recibí reconocimiento por el éxito del proyecto "Modelo de evaluación de riesgos".*
 
-- **August 2016 - May 2018:** Junior Data Analyst  
-  *Started at Insurellm as a Junior Data Analyst, focusing on data cleaning and preliminary analysis of customer data. Received training in various data visualization techniques, which aided in the transition to a Data Scientist role.*
+- **Agosto de 2016 - mayo de 2018:** Analista de datos junior
+*Comencé en Insurellm como analista de datos junior, concentrándome en la limpieza de datos y el análisis preliminar de los datos de los clientes. Recibí capacitación en varias técnicas de visualización de datos, lo que ayudó en la transición a un puesto de científico de datos.*
 
-## Annual Performance History
-- **2023:** Rating: 4.5/5  
-  *Samuel exceeded expectations, successfully leading a cross-departmental project on AI-driven underwriting processes.*
+## Historial de desempeño anual
+- **2023:** Calificación: 4.5/5
+*Samuel superó las expectativas y lideró con éxito un proyecto interdepartamental sobre procesos de suscripción impulsados ​​por IA.*
 
-- **2022:** Rating: 3.0/5  
-  *Some challenges in meeting deadlines and collaboration with the engineering team. Received constructive feedback and participated in a team communication workshop.*
+- **2022:** Calificación: 3.0/5
+*Algunos desafíos para cumplir con los plazos y colaborar con el equipo de ingeniería. Recibí comentarios constructivos y participé en un taller de comunicación en equipo.*
 
-- **2021:** Rating: 4.0/5  
-  *There was notable improvement in performance. Worked to enhance model accuracy, leading to improved risk assessment outcomes for B2C customers.*
+- **2021:** Calificación: 4.0/5
+*Hubo una mejora notable en el desempeño. Trabajé para mejorar la precisión del modelo, lo que generó mejores resultados de evaluación de riesgos para clientes B2C.*
 
-- **2020:** Rating: 3.5/5  
-  *Exhibited a solid performance during the initial year as a Senior Data Scientist but had struggles adapting to new leadership expectations.*
+- **2020:** Calificación: 3.5/5
+*Mostré un desempeño sólido durante el año inicial como científico de datos sénior, pero tuve dificultades para adaptarme a las nuevas expectativas de liderazgo.*
 
-## Compensation History
-- **2023:** Base Salary: $115,000 + Bonus: $15,000  
-  *Annual bonus based on successful project completions and performance metrics.*
+## Historial de compensación
+- **2023:** Salario base: $115,000 + Bonificación: $15,000
+*Bonificación anual basada en finalizaciones exitosas de proyectos y métricas de desempeño.*
 
-- **2022:** Base Salary: $110,000 + Bonus: $10,000  
-  *Slight decrease in bonus due to performance challenges during the year.*
+- **2022:** Salario base: $110,000 + Bonificación: $10,000
+*Ligera disminución en la bonificación debido a desafíos de desempeño durante el año.*
 
-- **2021:** Base Salary: $105,000 + Bonus: $12,000  
-  *Merit-based increase, reflecting consistent contributions to the data science team.*
+- **2021:** Salario base: $105,000 + Bonificación: $12,000
+*Aumento basado en mérito, que refleja contribuciones constantes al equipo de ciencia de datos.*
 
-- **2020:** Base Salary: $100,000 + Bonus: $8,000  
-  *Initial compensation as Senior Data Scientist, with a focus on building rapport with cross-functional teams.*
+- **2020:** Salario base Salario: $100,000 + Bono: $8,000
+*Compensación inicial como científico de datos sénior, con un enfoque en la construcción de relaciones con equipos multifuncionales.*
 
-## Other HR Notes
-- **Professional Development:** Completed several workshops on machine learning and AI applications in insurance. Currently pursuing an online certification in deep learning.
+## Otras notas de RR. HH.
+- **Desarrollo profesional:** Completó varios talleres sobre aprendizaje automático y aplicaciones de IA en seguros. Actualmente, está cursando una certificación en línea en aprendizaje profundo.
 
-- **Engagement in Company Culture:** Regularly participates in team-building events and contributes to the internal newsletter, sharing insights on data science trends.
+- **Participación en la cultura de la empresa:** Participa regularmente en eventos de formación de equipos y contribuye al boletín interno, compartiendo conocimientos sobre las tendencias de la ciencia de datos.
 
-- **Areas for Improvement:** Collaboration with engineering teams has been noted as an area needing focus. Samuel has expressed a desire to work closely with tech teams to align data initiatives better.
+- **Áreas de mejora:** La colaboración con los equipos de ingeniería se ha señalado como un área que necesita atención. Samuel ha expresado su deseo de trabajar en estrecha colaboración con los equipos de tecnología para alinear mejor las iniciativas de datos.
 
-- **Personal Interests:** Has a keen interest in hiking and photography, often sharing his photography from weekend hikes with colleagues, fostering positive team relationships.
+- **Intereses personales:** Tiene un gran interés en el senderismo y la fotografía, y a menudo comparte sus fotografías de las caminatas de fin de semana con sus colegas, lo que fomenta relaciones positivas en equipo.

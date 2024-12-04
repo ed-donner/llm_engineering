@@ -1,72 +1,48 @@
-# HR Record
+# Registro de RR.HH.
 
-# Emily Tran
+#Emily Carter
 
-## Summary
-- **Date of Birth:** March 18, 1991  
-- **Job Title:** Digital Marketing Specialist  
-- **Location:** San Francisco, CA  
+## Resumen
+- **Fecha de nacimiento:** 12 de agosto de 1990
+- **Puesto:** Ejecutiva de cuentas
+- **Ubicación:** Austin, Texas
 
----
+## Progresión profesional en seguros
+- **2021-Presente:** Ejecutiva de cuentas
+- Las responsabilidades incluyen la gestión de una cartera de clientes B2B, la realización de presentaciones de ventas y la garantía de la satisfacción del cliente.
+- Logros:
+- Superó el objetivo de ventas anuales en un 30 % en 2022.
+- Fue fundamental para adquirir 15 nuevos clientes corporativos en medio año.
 
-## Insurellm Career Progression
-- **February 2020 - Present**: Digital Marketing Specialist  
-   - Emily Tran has been pivotal in enhancing Insurellm's online presence through targeted social media campaigns and SEO strategies.
-   - Successfully managed a team of interns for the 'Spring Into Safety' initiative, increasing customer engagement by 35%.
+- **2019-2021:** Coordinadora de ventas
+- Apoyó al equipo de ventas con tareas administrativas, generación de clientes potenciales y seguimiento de clientes.
+- Logros:
+- Implementó un nuevo sistema de seguimiento de clientes potenciales que mejoró la eficiencia del flujo de trabajo en un 25 %.
+- Recibí el premio "Empleado del mes" dos veces por mi destacada contribución a los objetivos del equipo.
 
-- **June 2018 - January 2020**: Marketing Coordinator  
-  - Assisted in the development and execution of marketing campaigns to promote Insurellm's products.
-  - Collected and analyzed data on customer demographics to inform Insurellm’s marketing strategies.
+- **2017-2019:** Pasante de marketing
+- Colaboré con la investigación de mercado y el desarrollo de campañas para la difusión en las redes sociales.
+- Logros:
+- Aporté ideas para una campaña en las redes sociales que aumentó el conocimiento de la marca en un 40% en 6 meses.
 
-- **January 2017 - May 2018**: Marketing Intern  
-  - Supported the Marketing team by collaborating on content creation and digital advertising projects.
-  - Gained hands-on experience with marketing automation tools, enriching her skillset for her role in Insurellm.
+## Historial de desempeño anual
+| Año | Calificación de desempeño | Aspectos destacados clave |
+|------|--------------------|----------------|
+| 2023 | 4.8/5 | Reconocido por los comentarios excepcionales de los clientes y el trabajo en equipo durante los lanzamientos de productos. |
+| 2022 | 4,5/5 | Lideré una exitosa iniciativa de venta cruzada que impulsó los ingresos en las cuentas existentes. |
+| 2021 | 4.2/5 | Incorporaré nuevos clientes con éxito y establecí relaciones sólidas que resultaron en renovaciones. |
 
----
+## Historial de compensación
+| Año | Base salarial | Bonificación | Compensación total |
+|------|----------------|-------------------|
+| 2023 | $70,000 | $10,000 | $80.000 |
+| 2022 | $65,000 | $8,000 | $73,000 |
+| 2021 | $60,000 | $5,000 | $65,000 |
 
-## Annual Performance History
-- **2023**:  
-  - Performance Rating: Exceeds Expectations  
-  - Key Achievements: Led the "Tech the Halls" campaign that resulted in a 50% increase in leads during the holiday season. 
-  - Emily Tran's innovative strategies and attention to detail have made her stand out among her peers.
+## Otras notas de RR. S.S.
+- **Desarrollo profesional:** Emily está actualmente inscrita en un programa de capacitación en liderazgo para mejorar sus habilidades de gestión y tiene como objetivo pasar a un puesto de cuenta sénior en los próximos 2 años.
+- **Trabajo voluntario:** Participa activamente en programas de extensión comunitaria, representando a Insurellm en eventos benéficos para promover la responsabilidad social corporativa.
+- **Intereses:** En su tiempo libre, a Emily le gusta hacer caminatas, tomar fotografías y trabajar como voluntaria en refugios de animales locales.
+- **Comentarios del equipo:** Los colegas describieron a Emily como una jugadora del equipo altamente motivada que constantemente anima a todos los que la rodean.
 
-- **2022**:  
-  - Performance Rating: Meets Expectations  
-  - Key Achievements: Enhanced Insurellm's email marketing strategy, achieving a 25% open rate increase.
-
-- **2021**:  
-  - Performance Rating: Meets Expectations  
-  - Key Achievements: Contributed to the launch of a customer referral program that resulted in a 15% growth in B2C customers.
-
----
-
-## Compensation History
-- **2023**:  
-  - Base Salary: $75,000  
-  - Bonus: $10,000 for exceeding annual targets.
-
-- **2022**:  
-  - Base Salary: $70,000  
-  - Bonus: $5,000 for achieving marketing milestones.
-
-- **2021**:  
-  - Base Salary: $67,500  
-  - No bonus due to reallocation of marketing funds during the pandemic.
-
----
-
-## Other HR Notes
-- **Training Completed**:  
-  - Advanced Digital Marketing Workshop (2021)  
-  - Analytics and Reporting in Digital Advertising (2022)
-
-- **Professional Development Goals**:  
-  - Emily Tran aims to become a Marketing Manager within the next two years, focusing on leading larger campaigns and developing junior team members.
-
-- **Hobbies**:  
-  - Emily enjoys photography and regularly contributes to Insurellm's social media content with her own high-quality images.
-  - She is also passionate about sustainability and organizes monthly team volunteer events for environmental awareness. 
-
----
-
-Emily Tran continues to be a valuable asset to Insurellm, driving innovative marketing strategies that resonate with a diverse customer base. Her contributions have significantly enhanced the company's branding and customer outreach efforts.
+Emily Carter ejemplifica el tipo de talento que impulsa el éxito de Insurellm y es un activo invaluable para la empresa.

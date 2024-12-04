@@ -1,73 +1,73 @@
-# Contract with Greenstone Insurance for Homellm
+# Contrato con Greenstone Insurance para Homellm
 
 ---
 
-## Terms
+## Términos
 
-1. **Parties**: This Contract ("Agreement") is entered into on this day, [Insert Date], between Insurellm ("Provider"), located at [Provider Address], and Greenstone Insurance ("Customer"), located at [Customer Address].
+1. **Partes**: Este contrato ("Acuerdo") se celebra el día de hoy, [Insertar fecha], entre Insurellm ("Proveedor"), ubicado en [Dirección del proveedor], y Greenstone Insurance ("Cliente"), ubicado en [Dirección del cliente].
 
-2. **Services Provided**: Provider agrees to deliver the Homellm product, which includes AI-powered risk assessment, dynamic pricing model, instant claim processing, predictive maintenance alerts, multi-channel integration, and access to a customer portal as specified in the provided Product Summary.
+2. **Servicios proporcionados**: El proveedor acepta entregar el producto Homellm, que incluye evaluación de riesgos impulsada por IA, modelo de precios dinámicos, procesamiento instantáneo de reclamos, alertas de mantenimiento predictivo, integración multicanal y acceso a un portal de clientes como se especifica en el Resumen del producto proporcionado.
 
-3. **Contract Duration**: This Agreement shall commence on [Insert Start Date] and continue for a period of [Insert Duration, e.g., 12 months] unless terminated earlier as per the provisions herein.
+3. **Duración del contrato**: Este acuerdo comenzará el [Insertar fecha de inicio] y continuará por un período de [Insertar duración, p. ej., 12 meses] a menos que se rescinda antes según las disposiciones del presente.
 
-4. **Payment Terms**: 
-   - The Customer shall pay an amount of $10,000 per month for the Standard Tier of the Homellm service.
-   - Payments are due within 30 days of invoicing.
+4. **Condiciones de pago**:
+- El cliente deberá pagar un monto de $10,000 por mes por el nivel estándar del servicio Homellm.
+- Los pagos deben realizarse dentro de los 30 días posteriores a la facturación.
 
-5. **Customization**: Any additional customization requests outside the standard offerings will require a separate agreement and associated costs.
-
----
-
-## Renewal
-
-1. **Automatic Renewal**: This Agreement will automatically renew for additional one-year terms unless either party provides written notice of termination at least 60 days prior to the end of the current term.
-
-2. **Renewal Terms Review**: Prior to each renewal, the Provider and Customer will review the terms and pricing. Adjustments may be made based on the current features and market conditions.
+5. **Personalización**: cualquier solicitud de personalización adicional fuera de las ofertas estándar requerirá un acuerdo por separado y costos asociados.
 
 ---
 
-## Features
+## Renovación
 
-- **AI-Powered Risk Assessment**: Customer will have access to enhanced risk evaluation tools, allowing for personalized underwriting based on real-time data analysis.
-  
-- **Dynamic Pricing Model**: The Customer can leverage flexible premiums adjusted according to customer risk profiles.
+1. **Renovación automática**: este acuerdo se renovará automáticamente por períodos adicionales de un año a menos que cualquiera de las partes proporcione un aviso por escrito de terminación al menos 60 días antes del final del período actual.
 
-- **Instant Claim Processing**: Claims submitted by the Customer's clients will be processed through an automated system, with most claims resolved within hours.
-
-- **Predictive Maintenance Alerts**: The Customer will receive alerts regarding potential maintenance needs for insured properties, enhancing client satisfaction and reducing claims.
-
-- **Multi-Channel Integration**: Homellm will integrate with the Customer's existing platforms to create seamless service delivery.
-
-- **Customer Portal**: A dedicated portal will be provided, allowing the Customer's clients to manage their accounts 24/7.
+2. **Revisión de los términos de renovación**: antes de cada renovación, el proveedor y el cliente revisarán los términos y los precios. Se pueden realizar ajustes según las características actuales y las condiciones del mercado.
 
 ---
 
-## Support
+## Características
 
-1. **Training**: Provider will offer a comprehensive training program at the start of the term to ensure the Customer's staff can effectively use the Homellm product.
+- **Evaluación de riesgos impulsada por IA**: el cliente tendrá acceso a herramientas de evaluación de riesgos mejoradas, lo que permite una suscripción personalizada basada en el análisis de datos en tiempo real.
 
-2. **Ongoing Support**: The Provider will supply ongoing technical support via email and phone during business hours (9 am - 5 pm EST) throughout the contract duration.
+- **Modelo de precios dinámicos**: el cliente puede aprovechar primas flexibles ajustadas según los perfiles de riesgo del cliente.
 
-3. **Updates and Improvements**: Customer will receive all software updates and feature enhancements as they become available, without additional charge.
+- **Procesamiento de reclamos instantáneo**: los reclamos presentados por los clientes del cliente se procesarán a través de un sistema automatizado y la mayoría de los reclamos se resolverán en cuestión de horas.
 
---- 
+- **Alertas de mantenimiento predictivo**: el cliente recibirá alertas sobre posibles necesidades de mantenimiento de las propiedades aseguradas, lo que mejorará la satisfacción del cliente y reducirá los reclamos.
 
-**AGREEMENT SIGNATURES**
+- **Integración multicanal**: Homellm se integrará con las plataformas existentes del cliente para crear una prestación de servicios sin inconvenientes.
 
-By signing below, the parties acknowledge their acceptance of the terms of this Agreement.
+- **Portal del cliente**: se proporcionará un portal dedicado que permitirá a los clientes del cliente administrar sus cuentas las 24 horas del día, los 7 días de la semana.
 
-**For Insurellm:**
+---
 
-______________________________  
-[Name], [Title]  
-Date: ______________________
+## Soporte
 
-**For Greenstone Insurance:**
+1. **Capacitación**: el proveedor ofrecerá un programa de capacitación integral al comienzo del período para garantizar que el personal del cliente pueda usar eficazmente el producto Homellm.
 
-______________________________  
-[Name], [Title]  
-Date: ______________________
+2. **Soporte continuo**: El proveedor brindará soporte técnico continuo por correo electrónico y teléfono durante el horario comercial (de 9 a. m. a 5 p. m., hora del este de EE. UU.) durante la duración del contrato.
 
---- 
+3. **Actualizaciones y mejoras**: El cliente recibirá todas las actualizaciones de software y mejoras de funciones a medida que estén disponibles, sin cargo adicional.
 
-*This contract is intended for illustrative purposes only and does not constitute a real legal document.*
+---
+
+**FIRMAS DEL ACUERDO**
+
+Al firmar a continuación, las partes reconocen su aceptación de los términos de este Acuerdo.
+
+**Para Insurellm:**
+
+______________________________
+[Nombre], [Cargo]
+Fecha: ______________________
+
+**Para Greenstone Insurance:**
+
+______________________________
+[Nombre], [Cargo]
+Fecha: ______________________
+
+---
+
+*Este contrato tiene fines ilustrativos únicamente y no constituye un documento legal real.*

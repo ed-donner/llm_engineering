@@ -1,39 +1,77 @@
-# Contract with Pinnacle Insurance Co. for Homellm
+# Contrato con GreenValley Insurance para Homellm
 
-## Terms
-This contract ("Contract") is entered into as of this 1st day of January 2024 ("Effective Date") by and between Insurellm ("Provider"), a Delaware corporation with its principal place of business at 1234 Innovation Drive, San Francisco, CA 94105, and Pinnacle Insurance Co. ("Client"), a Texas corporation with its principal place of business at 4567 Protection Plaza, Houston, TX 77001. 
+**Fecha del contrato:** 6 de octubre de 2023
+**Número de contrato:** HV-2023-0458
+**Partes:**
+- Insurellm, Inc.
+- GreenValley Insurance, LLC
 
-1. **License Grant**: Insurellm hereby grants the Client a non-exclusive, non-transferable license to use Homellm in accordance with the terms of this Contract.
-2. **Payment Terms**: The Client agrees to pay an initial setup fee of $15,000 and a monthly subscription fee of $10,000 for the duration of the Contract.
-3. **Term**: The initial term of this Contract shall last for a period of two (2) years from the Effective Date.
+---
 
-## Renewal
-1. **Renewal Terms**: At the end of the initial term, this Contract shall automatically renew for additional one-year terms unless either party provides written notice of termination at least thirty (30) days prior to the expiration of the current term.
-2. **Adjustment of Fees**: Subscription fees may be adjusted annually based on consumer price index changes, not to exceed 5% per year.
+## Condiciones
 
-## Features
-1. **AI-Powered Risk Assessment**: Utilized for tailored underwriting decisions specific to individual homeowner policies.
-2. **Dynamic Pricing Model**: Monthly premiums adjusted based on real-time risk evaluations, ensuring fair pricing for Pinnacle’s customers.
-3. **Instant Claim Processing**: Claims resolved in hours rather than weeks, significantly improving customer satisfaction and operational efficiency.
-4. **Predictive Maintenance Alerts**: Alerts sent to customers advising them of potential risks unique to their property, supporting proactive maintenance.
-5. **Multi-Channel Integration**: Seamless access to customer data through existing systems in Pinnacle Insurance's infrastructure.
-6. **Customer Portal**: A user-friendly interface allowing policy management, claims submission, and coverage updates at any time.
+1. **Cobertura:** Insurellm acepta brindar a GreenValley Insurance acceso al producto Homellm, lo que permite ofertas de seguros de vivienda personalizadas y adaptadas a los clientes.
 
-## Support
-1. **Technical Support**: Insurellm shall provide 24/7 technical support via an email and phone assistance for the duration of this Contract.
-2. **Training**: Insurellm will conduct an onsite training session for Client employees upon implementation, and quarterly training webinars will be made available thereafter.
-3. **Updates and Maintenance**: Insurellm will provide regular system updates and maintenance, ensuring that the software is operating at peak efficiency.
+2. **Duración:** Este acuerdo tiene vigencia por un período de 12 meses a partir de la fecha del contrato, después del cual se renovará automáticamente a menos que cualquiera de las partes lo rescinda con un aviso por escrito de 30 días.
 
-By signing below, both parties agree to the terms set forth in this Contract for the use of the Homellm product.
+3. **Pago:** GreenValley Insurance pagará una tarifa mensual de $10,000, que vence el día 5 de cada mes para el paquete de nivel estándar.
 
-____  
-**Insurellm Authorized Signature**  
-Name: Sarah Johnson  
-Title: VP of Sales  
-Date: ____________
+4. **Confidencialidad:** Ambas partes acuerdan mantener la confidencialidad de la información confidencial divulgada durante la ejecución de este contrato.
 
-____  
-**Pinnacle Insurance Co. Authorized Signature**  
-Name: Tom Anderson  
-Title: Chief Operating Officer  
-Date: ____________
+5. **Responsabilidad:** La responsabilidad de Insurellm en virtud de este acuerdo se limitará a los daños directos y no excederá las tarifas totales pagadas por GreenValley Insurance en los últimos 12 meses anteriores a la fecha del reclamo.
+
+---
+
+## Renovación
+
+A menos que cualquiera de las partes proporcione un aviso de terminación por escrito al menos 30 días antes del vencimiento del plazo del contrato, este acuerdo se renovará automáticamente por un período adicional de un año bajo los mismos términos y condiciones.
+
+---
+
+## Características
+
+GreenValley Insurance recibirá las siguientes características con Homellm:
+
+1. **Evaluación de riesgos impulsada por IA:** Acceso a algoritmos avanzados de IA para evaluaciones de riesgos en tiempo real.
+
+2. **Modelo de precios dinámicos:** Ajustes de primas flexibles basados ​​en el análisis de riesgos en curso.
+
+3. **Procesamiento instantáneo de reclamaciones:** Gestión automatizada de reclamaciones para acelerar significativamente los tiempos de procesamiento.
+
+4. **Alertas de mantenimiento predictivo:** Alertas de posibles necesidades de mantenimiento para mitigar los riesgos.
+
+5. **Integración multicanal:** Capacidad de integrarse sin problemas con los sistemas existentes para una gestión unificada de clientes.
+
+6. **Portal de clientes:** Un portal fácil de usar para sus clientes para la gestión de pólizas y reclamaciones.
+
+---
+
+## Soporte
+
+Insurellm se compromete a proporcionar soporte integral a GreenValley Insurance, que incluye:
+
+1. **Incorporación:** Un programa de capacitación extenso para el personal de GreenValley para garantizar el uso eficaz de Homellm.
+
+2. **Equipo de soporte dedicado:** Un equipo de soporte dedicado disponible las 24 horas, los 7 días de la semana para abordar cualquier problema técnico o consulta.
+
+3. **Actualizaciones periódicas:** Insurellm ofrecerá actualizaciones y mejoras continuas a la plataforma Homellm, incluidas nuevas funciones y mejoras de seguridad.
+
+4. **Implementación de comentarios:** Insurellm solicitará activamente comentarios de GreenValley Insurance para garantizar que Homellm continúe satisfaciendo sus necesidades cambiantes.
+
+---
+
+**Firmas:**
+
+_________________________________
+**[Nombre]**
+**Título**: Director ejecutivo
+**Insurellm, Inc.**
+
+_________________________________
+**[Nombre]**
+**Título**: Director de operaciones
+**GreenValley Insurance, LLC**
+
+---
+
+Este acuerdo representa el entendimiento completo de ambas partes con respecto al uso del producto Homellm y reemplaza cualquier acuerdo o comunicación anterior.

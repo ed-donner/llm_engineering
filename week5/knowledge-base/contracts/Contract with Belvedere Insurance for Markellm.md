@@ -1,43 +1,43 @@
-# Contract with Belvedere Insurance for Markellm
+# Contrato con Belvedere Insurance para Markellm
 
-## Terms
-This Contract ("Agreement") is made and entered into as of [Date] by and between Insurellm, Inc., a corporation registered in the United States, ("Provider") and Belvedere Insurance, ("Client"). 
+## Términos
+Este Contrato ("Acuerdo") se celebra y se celebra a partir del [Fecha] entre Insurellm, Inc., una corporación registrada en los Estados Unidos, ("Proveedor") y Belvedere Insurance, ("Cliente").
 
-1. **Service Commencement**: The services described herein will commence on [Start Date].
-2. **Contract Duration**: This Agreement shall remain in effect for a period of 1 year from the Commencement Date, unless terminated earlier in accordance with the termination clause of this Agreement.
-3. **Fees**: Client agrees to pay a Basic Listing Fee of $199/month for accessing the Markellm platform along with a performance-based pricing of $25 per lead generated.
-4. **Payment Terms**: Payments shall be made monthly, in advance, with invoices issued on the 1st of each month, payable within 15 days of receipt.
+1. **Inicio del servicio**: Los servicios descritos en este documento comenzarán el [Fecha de inicio].
+2. **Duración del contrato**: Este Acuerdo permanecerá en vigencia durante un período de 1 año a partir de la Fecha de inicio, a menos que se rescinda antes de acuerdo con la cláusula de rescisión de este Acuerdo.
+3. **Tarifas**: El Cliente acepta pagar una Tarifa básica de listado de $199/mes para acceder a la plataforma Markellm junto con un precio basado en el rendimiento de $25 por cliente potencial generado.
+4. **Condiciones de pago**: Los pagos se realizarán mensualmente, por adelantado, con facturas emitidas el 1.° de cada mes, pagaderas dentro de los 15 días posteriores a la recepción.
 
-## Renewal
-1. **Renewal Terms**: This Agreement may be renewed for additional one-year terms upon mutual written consent of both parties no later than 30 days before the end of the current term.
-2. **Fee Adjustments**: Any changes to the fees or terms will be communicated in writing at least 60 days prior to the renewal date.
+## Renovación
+1. **Condiciones de renovación**: Este acuerdo puede renovarse por períodos adicionales de un año mediante consentimiento escrito mutuo de ambas partes a más tardar 30 días antes del final del período actual.
+2. **Ajustes de tarifas**: Cualquier cambio en las tarifas o los términos se comunicará por escrito al menos 60 días antes de la fecha de renovación.
 
-## Features
-1. **AI-Powered Matching**: Belvedere Insurance will benefit from Markellm's AI-powered matching, ensuring the best-fit customers are identified and connected.
-2. **Real-Time Quotes**: Access to real-time quotes will enhance the customer acquisition process, facilitating timely and informed decision-making.
-3. **Data Insights**: Client shall have access to Markellm's analytics dashboard, allowing insights into consumer behavior and market trends.
-4. **Customization Options**: Belvedere Insurance can leverage optional premium features and analytics upon payment of an additional $9.99/month.
-5. **Customer Support**: Insurellm will provide dedicated support to Belvedere Insurance, ensuring any issues or queries are promptly addressed.
+## Características
+1. **Emparejamiento basado en IA**: Belvedere Insurance se beneficiará del emparejamiento basado en IA de Markellm, lo que garantiza que se identifiquen y conecten a los clientes más adecuados.
+2. **Cotizaciones en tiempo real**: El acceso a cotizaciones en tiempo real mejorará el proceso de adquisición de clientes, lo que facilitará la toma de decisiones oportuna e informada.
+3. **Información de datos**: El cliente tendrá acceso al panel de análisis de Markellm, lo que le permitirá obtener información sobre el comportamiento del consumidor y las tendencias del mercado.
+4. **Opciones de personalización**: Belvedere Insurance puede aprovechar las funciones premium y los análisis opcionales mediante el pago de $9,99 adicionales por mes.
+5. **Atención al cliente**: Insurellm brindará asistencia especializada a Belvedere Insurance, asegurándose de que cualquier problema o consulta se resuelva de inmediato.
 
-## Support
-1. **Technical Support**: Technical support will be available from 9 AM to 7 PM EST, Monday through Friday via email and phone.
-2. **Response Times**: Insurellm agrees to respond to all support queries within 24 business hours. Emergency support will be prioritized throughout the contract period.
-3. **Training**: Insurellm will offer a comprehensive training session for the Client’s staff upon beginning the service to ensure effective utilization of the features.
+## Asistencia
+1. **Asistencia técnica**: La asistencia técnica estará disponible de lunes a viernes de 9:00 a 19:00 h (hora del este de EE. UU.) por correo electrónico y teléfono.
+2. **Tiempos de respuesta**: Insurellm se compromete a responder a todas las consultas de asistencia en un plazo de 24 horas hábiles. La asistencia de emergencia se priorizará durante todo el período del contrato.
+3. **Capacitación**: Insurellm ofrecerá una sesión de capacitación integral para el personal del Cliente al comenzar el servicio para garantizar el uso eficaz de las funciones.
 
-## Acceptance
-By signing below, the parties agree to the terms of this Agreement.
+## Aceptación
+Al firmar a continuación, las partes aceptan los términos de este Acuerdo.
 
-**Insurellm, Inc.**  
-Signature: ______________________  
-Name: [Authorized Signatory]  
-Title: [Title]  
-Date: ______________________  
+**Insurellm, Inc.**
+Firma: ______________________
+Nombre: [Firmante autorizado]
+Título: [Título]
+Fecha: ______________________
 
-**Belvedere Insurance**  
-Signature: ______________________  
-Name: [Authorized Signatory]  
-Title: [Title]  
-Date: ______________________  
+**Belvedere Insurance**
+Firma: ______________________
+Nombre: [Firmante autorizado]
+Título: [Título]
+Fecha: ______________________
 
---- 
-This synthetic contract document outlines a fictional agreement between Insurellm and a fictional insurance client, Belvedere Insurance, which engages with the Markellm platform. The contract contains creative yet realistic terms for potential use in training and development in insurance technology scenarios.
+---
+Este documento de contrato sintético describe un acuerdo ficticio entre Insurellm y un cliente de seguros ficticio, Belvedere Insurance, que interactúa con la plataforma Markellm. El contrato contiene términos creativos pero realistas para su posible uso en la capacitación y el desarrollo en escenarios de tecnología de seguros.

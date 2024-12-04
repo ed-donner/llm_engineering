@@ -1,58 +1,58 @@
-# Contract with EverGuard Insurance for Rellm: AI-Powered Enterprise Reinsurance Solution
+# Contrato con EverGuard Insurance para Rellm: solución de reaseguro empresarial impulsada por IA
 
-**Contract Number:** IG-2023-EG  
-**Effective Date:** January 1, 2024  
-**Expiration Date:** December 31, 2026  
+**Número de contrato:** IG-2023-EG
+**Fecha de entrada en vigor:** 1 de enero de 2024
+**Fecha de vencimiento:** 31 de diciembre de 2026
 
-## Terms
+## Condiciones
 
-1. **Parties**: This agreement is made between Insurellm, located at 123 Innovation Drive, Tech City, USA, and EverGuard Insurance, located at 456 Safety Lane, Protectville, USA.
-   
-2. **Product Description**: This contract pertains to the use of the Rellm platform, an AI-powered enterprise reinsurance solution provided by Insurellm. EverGuard Insurance will implement Rellm to enhance its reinsurance operations.
+1. **Partes**: Este acuerdo se celebra entre Insurellm, ubicada en 123 Innovation Drive, Tech City, EE. UU., y EverGuard Insurance, ubicada en 456 Safety Lane, Protectville, EE. UU.
 
-3. **Payment Terms**: EverGuard Insurance agrees to pay Insurellm a monthly fee of $10,000 for the duration of this contract, covering the Professional Plan features of Rellm, which includes all advanced integrations and priority customer support.
+2. **Descripción del producto**: Este contrato se refiere al uso de la plataforma Rellm, una solución de reaseguro empresarial impulsada por IA proporcionada por Insurellm. EverGuard Insurance implementará Rellm para mejorar sus operaciones de reaseguro.
 
-4. **Usage Rights**: EverGuard Insurance is granted a non-exclusive, non-transferable license to access and use Rellm for the duration of this contract. Unauthorized sharing or distribution is strictly prohibited.
+3. **Condiciones de pago**: EverGuard Insurance acepta pagarle a Insurellm una tarifa mensual de $10,000 durante la vigencia de este contrato, que cubre las características del Plan Profesional de Rellm, que incluye todas las integraciones avanzadas y soporte al cliente prioritario.
 
-## Renewal
+4. **Derechos de uso**: EverGuard Insurance recibe una licencia no exclusiva e intransferible para acceder y usar Rellm durante la vigencia de este contrato. Está estrictamente prohibido compartir o distribuir sin autorización.
 
-1. **Automatic Renewal**: This contract will automatically renew for successive one-year terms unless either party provides written notice of termination at least 60 days prior to the expiration date.
+## Renovación
 
-2. **Price Adjustment**: In the event of a renewal, Insurellm reserves the right to adjust the monthly fee based on market conditions and the value of services offered, with a minimum notice of 30 days.
+1. **Renovación automática**: Este contrato se renovará automáticamente por períodos sucesivos de un año a menos que alguna de las partes proporcione un aviso por escrito de terminación al menos 60 días antes de la fecha de vencimiento.
 
-## Features
+2. **Ajuste de precio**: En caso de renovación, Insurellm se reserva el derecho de ajustar la tarifa mensual según las condiciones del mercado y el valor de los servicios ofrecidos, con un aviso mínimo de 30 días.
 
-1. **Core Functionality**: Rellm provides EverGuard Insurance with advanced AI-driven analytics, seamless integrations, and a comprehensive risk assessment module designed to optimize risk management.
+## Características
 
-2. **Customizable Dashboard**: Users at EverGuard Insurance will have access to a customizable dashboard that allows them to tailor their experience based on their specific operational metrics.
+1. **Funcionalidad básica**: Rellm ofrece a EverGuard Insurance análisis avanzados basados ​​en IA, integraciones perfectas y un módulo de evaluación de riesgos integral diseñado para optimizar la gestión de riesgos.
 
-3. **Compliance Tools**: The built-in regulatory compliance tools will ensure that EverGuard Insurance meets industry standards while managing its reinsurance practices.
+2. **Panel personalizable**: los usuarios de EverGuard Insurance tendrán acceso a un panel personalizable que les permitirá personalizar su experiencia en función de sus métricas operativas específicas.
 
-4. **Client Portal Access**: EverGuard Insurance will have access to both client and broker portals, enhancing communication and collaboration with its partners.
+3. **Herramientas de cumplimiento**: las herramientas de cumplimiento normativo integradas garantizarán que EverGuard Insurance cumpla con los estándares de la industria mientras administra sus prácticas de reaseguro.
 
-## Support
+4. **Acceso al portal del cliente**: EverGuard Insurance tendrá acceso a los portales de clientes y corredores, lo que mejorará la comunicación y la colaboración con sus socios.
 
-1. **Customer Support**: Insurellm will provide EverGuard Insurance with 24/7 customer support, including live chat, email, and phone assistance for any technical issues or inquiries regarding Rellm.
+## Soporte
 
-2. **Training Services**: Insurellm will provide initial training for EverGuard Insurance staff to ensure proper utilization of Rellm features. Additional training sessions can be scheduled upon request at an agreed fee.
+1. **Atención al cliente**: Insurellm brindará a EverGuard Insurance soporte al cliente las 24 horas, los 7 días de la semana, que incluye chat en vivo, correo electrónico y asistencia telefónica para cualquier problema técnico o consulta relacionada con Rellm.
 
-3. **Updates and Upgrades**: EverGuard Insurance will receive all platform updates and upgrades at no additional cost during the contract term, including enhancements outlined in Insurellm’s 2025-2026 roadmap.
+2. **Servicios de capacitación**: Insurellm brindará capacitación inicial al personal de EverGuard Insurance para garantizar el uso adecuado de las funciones de Rellm. Se pueden programar sesiones de capacitación adicionales a pedido por una tarifa acordada.
 
-4. **Feedback Mechanisms**: EverGuard Insurance is encouraged to provide feedback regarding Rellm’s functionalities and any desired features, which will be considered for future updates.
+3. **Actualizaciones y mejoras**: EverGuard Insurance recibirá todas las actualizaciones y mejoras de la plataforma sin costo adicional durante el plazo del contrato, incluidas las mejoras descritas en la hoja de ruta 2025-2026 de Insurellm.
+
+4. **Mecanismos de retroalimentación**: Se alienta a EverGuard Insurance a brindar retroalimentación sobre las funcionalidades de Rellm y las características deseadas, que se considerarán para futuras actualizaciones.
 
 ---
 
-**Signatures**  
-**For Insurellm**: __________________________  
-**Name**: John Smith  
-**Title**: Chief Operating Officer  
-**Date**: _________________  
+**Firmas**
+**Para Insurellm**: __________________________
+**Nombre**: John Smith
+**Título**: Director de operaciones
+**Fecha**: _________________
 
-**For EverGuard Insurance**: __________________________  
-**Name**: Sarah Johnson  
-**Title**: Chief Executive Officer  
-**Date**: _________________  
+**Para EverGuard Insurance**: __________________________
+**Nombre**: Sarah Johnson
+**Título**: Directora ejecutiva
+**Fecha**: _________________
 
---- 
+---
 
-This contract seeks to foster a strong partnership between Insurellm and EverGuard Insurance, leveraging Rellm to innovate and enhance reinsurance capabilities while ensuring mutual growth and compliance in the ever-evolving insurance landscape.
+Este contrato busca fomentar una sólida asociación entre Insurellm y EverGuard Insurance, aprovechando Rellm para innovar y mejorar las capacidades de reaseguro, al tiempo que se garantiza el crecimiento mutuo y el cumplimiento en el panorama de seguros en constante evolución.

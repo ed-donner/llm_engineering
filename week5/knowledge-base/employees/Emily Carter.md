@@ -1,48 +1,48 @@
-# HR Record
+# Registro de RR.HH.
 
 # Emily Carter
 
-## Summary
-- **Date of Birth:** August 12, 1990  
-- **Job Title:** Account Executive  
-- **Location:** Austin, Texas  
+## Resumen
+- **Fecha de nacimiento:** 12 de agosto de 1990
+- **Puesto:** Ejecutiva de cuentas
+- **Ubicación:** Austin, Texas
 
-## Insurellm Career Progression
-- **2021-Present:** Account Executive  
-  - Responsibilities include managing a portfolio of B2B clients, conducting sales presentations, and ensuring customer satisfaction.  
-  - Achievements: 
-    - Exceeded annual sales target by 30% in 2022.
-    - Instrumental in acquiring 15 new corporate clients in half a year.
-  
-- **2019-2021:** Sales Coordinator  
-  - Supported the sales team with administrative tasks, lead generation, and customer follow-ups.
-  - Achievements:
-    - Implemented a new lead tracking system that improved workflow efficiency by 25%.  
-    - Received "Employee of the Month" award twice for outstanding contribution to team goals.  
+## Progresión profesional en seguros
+- **2021-Presente:** Ejecutiva de cuentas
+- Las responsabilidades incluyen la gestión de una cartera de clientes B2B, la realización de presentaciones de ventas y la garantía de la satisfacción del cliente.
+- Logros:
+- Superó el objetivo de ventas anual en un 30 % en 2022.
+- Fue fundamental para adquirir 15 nuevos clientes corporativos en medio año.
 
-- **2017-2019:** Marketing Intern  
-  - Assisted with market research and campaign development for social media outreach.  
-  - Achievements:  
-    - Contributed ideas for a social media campaign that increased brand awareness by 40% within 6 months.  
+- **2019-2021:** Coordinadora de ventas
+- Apoyó al equipo de ventas con tareas administrativas, generación de clientes potenciales y seguimiento de clientes.
+- Logros:
+- Implementó un nuevo sistema de seguimiento de clientes potenciales que mejoró la eficiencia del flujo de trabajo en un 25 %.
+- Recibí el premio "Empleado del mes" dos veces por mi destacada contribución a los objetivos del equipo.
 
-## Annual Performance History
-| Year | Performance Rating | Key Highlights |
+- **2017-2019:** Pasante de marketing
+- Colaboré con la investigación de mercado y el desarrollo de campañas para la difusión en las redes sociales.
+- Logros:
+- Aporté ideas para una campaña en las redes sociales que aumentó el conocimiento de la marca en un 40 % en 6 meses.
+
+## Historial de desempeño anual
+| Año | Calificación de desempeño | Aspectos destacados clave |
 |------|--------------------|----------------|
-| 2023 | 4.8/5              | Recognized for exceptional client feedback and teamwork during product launches. |
-| 2022 | 4.5/5              | Led a successful cross-selling initiative that boosted revenue in existing accounts. |
-| 2021 | 4.2/5              | Successfully onboarded new clients and established strong relationships that resulted in renewals. |
+| 2023 | 4.8/5 | Reconocido por los comentarios excepcionales de los clientes y el trabajo en equipo durante los lanzamientos de productos. |
+| 2022 | 4.5/5 | Lideré una exitosa iniciativa de venta cruzada que impulsó los ingresos en las cuentas existentes. |
+| 2021 | 4.2/5 | Incorporé nuevos clientes con éxito y establecí relaciones sólidas que resultaron en renovaciones. |
 
-## Compensation History
-| Year | Base Salary | Bonus         | Total Compensation |
-|------|-------------|---------------|--------------------|
-| 2023 | $70,000     | $10,000       | $80,000            |
-| 2022 | $65,000     | $8,000        | $73,000            |
-| 2021 | $60,000     | $5,000        | $65,000            |
+## Historial de compensación
+| Año | Salario base | Bonificación | Compensación total |
+|------|----------------|-------------------|
+| 2023 | $70,000 | $10,000 | $80,000 |
+| 2022 | $65,000 | $8,000 | $73,000 |
+| 2021 | $60,000 | $5,000 | $65,000 |
 
-## Other HR Notes
-- **Professional Development:** Emily is currently enrolled in a leadership training program to enhance her management skills and aims to move into a senior account role within the next 2 years.  
-- **Volunteer Work:** Actively participates in community outreach programs, representing Insurellm in charity events to promote corporate social responsibility.  
-- **Interests:** In her spare time, Emily enjoys hiking, photography, and volunteering at local animal shelters.  
-- **Team Feedback:** Colleagues describe Emily as a highly motivated team player who consistently uplifts everyone around her.  
+## Otras notas de RR. HH.
+- **Desarrollo profesional:** Emily está actualmente inscrita en un programa de capacitación en liderazgo para mejorar sus habilidades de gestión y tiene como objetivo pasar a un puesto de cuenta sénior en los próximos 2 años.
+- **Trabajo voluntario:** Participa activamente en programas de extensión comunitaria, representando a Insurellm en eventos benéficos para promover la responsabilidad social corporativa.
+- **Intereses:** En su tiempo libre, a Emily le gusta hacer caminatas, tomar fotografías y trabajar como voluntaria en refugios de animales locales.
+- **Comentarios del equipo:** Los colegas describen a Emily como una jugadora de equipo altamente motivada que constantemente anima a todos los que la rodean.
 
-Emily Carter exemplifies the kind of talent that drives Insurellm's success and is an invaluable asset to the company.
+Emily Carter ejemplifica el tipo de talento que impulsa el éxito de Insurellm y es un activo invaluable para la empresa.

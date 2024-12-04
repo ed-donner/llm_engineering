@@ -1,36 +1,36 @@
-# HR Record
+# Registro de RR. HH.
 
 # Alex Thomson
 
-## Summary
-- **Date of Birth:** March 15, 1995  
-- **Job Title:** Sales Development Representative (SDR)  
-- **Location:** Austin, Texas  
+## Resumen
+- **Fecha de nacimiento:** 15 de marzo de 1995
+- **Puesto:** Representante de desarrollo de ventas (SDR)
+- **Ubicación:** Austin, Texas
 
-## Insurellm Career Progression
-- **November 2022** - Joined Insurellm as a Sales Development Representative. Alex Thomson quickly adapted to the team, demonstrating exceptional communication and rapport-building skills.
-- **January 2023** - Promoted to Team Lead for special projects due to Alex's initiative in driving B2B customer outreach programs.  
-- **August 2023** - Developed a training module for new SDRs at Insurellm, enhancing onboarding processes based on feedback and strategies that Alex Thomson pioneered.  
-- **Current** - Continues to excel in the role, leading a small team of 5 SDRs while collaborating closely with the marketing department to identify new lead-generation strategies.  
+## Progresión profesional en Insurellm
+- **Noviembre de 2022** - Se incorporó a Insurellm como representante de desarrollo de ventas. Alex Thomson se adaptó rápidamente al equipo y demostró habilidades excepcionales de comunicación y construcción de relaciones.
+- **Enero de 2023** - Ascendió a líder de equipo para proyectos especiales debido a la iniciativa de Alex de impulsar programas de alcance al cliente B2B.
+- **Agosto de 2023** - Desarrolló un módulo de capacitación para nuevos SDR en Insurellm, mejorando los procesos de incorporación en función de los comentarios y las estrategias que Alex Thomson fue pionero.
+- **Actual** - Sigue destacándose en el puesto, liderando un pequeño equipo de 5 SDR mientras colabora estrechamente con el departamento de marketing para identificar nuevas estrategias de generación de clientes potenciales.
 
-## Annual Performance History  
-- **2022** - Rated as "Exceeds Expectations." Alex Thomson achieved 150% of the sales target within the first three months.  
-- **2023** - Rated "Outstanding." Recognized for innovative lead-generation tactics which contributed to a 30% increase in qualified leads for the sales team.  
+## Historial de desempeño anual
+- **2022** - Calificado como "Supera las expectativas". Alex Thomson logró el 150 % del objetivo de ventas en los primeros tres meses.
+- **2023** - Calificado como "Sobresaliente". Reconocido por tácticas innovadoras de generación de clientes potenciales que contribuyeron a un aumento del 30 % en los clientes potenciales calificados para el equipo de ventas.
 
-### Highlights:
-- Consistently maintained a 30-minute response time to inbound leads.
-- Successfully coordinated webinars for product launches, which attracted over 2,000 potential customers.
+### Aspectos destacados:
+- Mantuvo constantemente un tiempo de respuesta de 30 minutos a los clientes potenciales entrantes.
+- Coordinó con éxito seminarios web para lanzamientos de productos, que atrajeron a más de 2000 clientes potenciales.
 
-## Compensation History
-- **2022**: Base Salary - $55,000 | Bonus - $5,000  
-- **2023**: Base Salary - $65,000 | Bonus - $10,000 (for exceeding sales targets and exceptional teamwork)  
-- **Projected for 2024**: Anticipated salary increase due to Alex Thomson's significant contributions and successful completion of leadership training.
+## Historial de compensación
+- **2022**: Salario base: $55 000 | Bono: $5000
+- **2023**: Salario base: $65 000 | Bono: $10 000 (por superar los objetivos de ventas y un trabajo en equipo excepcional)
+- **Proyectado para 2024**: Aumento salarial anticipado debido a las importantes contribuciones de Alex Thomson y la finalización exitosa de la capacitación en liderazgo.
 
-## Other HR Notes
-- Alex Thomson is an active member of the Diversity and Inclusion committee at Insurellm and has participated in various community outreach programs.  
-- Alex has received external training on advanced CRM usage, which has subsequently improved team efficiency and productivity.
-- Continuous professional development through attending sales conventions and workshops, with plans to pursue certification in Sales Enablement in 2024.
-- Recognized by peers for promoting a supportive and high-energy team environment, often organizing team-building activities to enhance camaraderie within the SDR department. 
+## Otras notas de RR. HH.
+- Alex Thomson es un miembro activo del comité de Diversidad e Inclusión en Insurellm y ha participado en varios programas de extensión comunitaria.
+- Alex ha recibido capacitación externa sobre el uso avanzado de CRM, lo que posteriormente ha mejorado la eficiencia y la productividad del equipo.
+- Desarrollo profesional continuo a través de la asistencia a convenciones y talleres de ventas, con planes de obtener la certificación en Sales Enablement en 2024.
+- Reconocido por sus pares por promover un entorno de equipo de apoyo y alta energía, a menudo organizando actividades de formación de equipos para mejorar la camaradería dentro del departamento de SDR.
 
---- 
-**Comment:** Alex Thomson is considered a cornerstone of Insurellm’s sales team and has a bright future within the organization.
+---
+**Comentario:** Alex Thomson es considerado una piedra angular del equipo de ventas de Insurellm y tiene un futuro brillante dentro de la organización.

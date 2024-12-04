@@ -1,55 +1,55 @@
-# Product Summary
+# Resumen del producto
 
 # Markellm
 
-## Summary
+## Resumen
 
-Markellm is an innovative two-sided marketplace designed to seamlessly connect consumers with insurance companies. Powered by advanced matching AI, Markellm transforms the insurance shopping experience, making it more efficient, personalized, and accessible. Whether you're a homeowner searching for the best rates on home insurance or an insurer looking to reach new customers, Markellm acts as the ultimate bridge, delivering tailored solutions for all parties involved. With a user-friendly interface and powerful algorithms, Markellm not only saves time but also enhances decision-making in the often-complex insurance landscape.
+Markelm es un innovador mercado bilateral diseñado para conectar a los consumidores con las compañías de seguros sin problemas. Impulsado por una inteligencia artificial avanzada, Markellm transforma la experiencia de compra de seguros, haciéndola más eficiente, personalizada y accesible. Ya sea que sea un propietario que busca las mejores tarifas en seguros para el hogar o una aseguradora que busca llegar a nuevos clientes, Markellm actúa como el puente definitivo, brindando soluciones personalizadas para todas las partes involucradas. Con una interfaz fácil de usar y algoritmos potentes, Markellm no solo ahorra tiempo, sino que también mejora la toma de decisiones en el panorama de seguros, a menudo complejo.
 
-## Features
+## Características
 
-- **AI-Powered Matching**: Markellm utilizes sophisticated AI algorithms to match consumers with the most suitable insurance products based on their individual needs and preferences. This ensures that both parties get the best possible options.
+- **Emparejamiento impulsado por IA**: Markellm utiliza sofisticados algoritmos de IA para emparejar a los consumidores con los productos de seguros más adecuados según sus necesidades y preferencias individuales. Esto garantiza que ambas partes obtengan las mejores opciones posibles.
 
-- **User-Friendly Interface**: Designed with user experience in mind, Markellm features an intuitive interface that allows consumers to easily browse and compare various insurance offerings from multiple providers.
+- **Interfaz fácil de usar**: Diseñado teniendo en cuenta la experiencia del usuario, Markellm presenta una interfaz intuitiva que permite a los consumidores explorar y comparar fácilmente varias ofertas de seguros de múltiples proveedores.
 
-- **Real-Time Quotes**: Consumers can receive real-time quotes from different insurance companies, empowering them to make informed decisions quickly without endless back-and-forth communication.
+- **Cotizaciones en tiempo real**: los consumidores pueden recibir cotizaciones en tiempo real de diferentes compañías de seguros, lo que les permite tomar decisiones informadas rápidamente sin una comunicación interminable.
 
-- **Customized Recommendations**: Based on user profiles and preferences, Markellm provides personalized insurance recommendations, ensuring consumers find the right coverage at competitive rates.
+- **Recomendaciones personalizadas**: según los perfiles y las preferencias de los usuarios, Markellm ofrece recomendaciones de seguros personalizadas, lo que garantiza que los consumidores encuentren la cobertura adecuada a tarifas competitivas.
 
-- **Secure Transactions**: Markellm prioritizes security, employing robust encryption methods to ensure that all transactions and data exchanges are safe and secure.
+- **Transacciones seguras**: Markellm prioriza la seguridad y emplea métodos de cifrado sólidos para garantizar que todas las transacciones e intercambios de datos sean seguros.
 
-- **Customer Support**: Our dedicated support team is always available to assist both consumers and insurers throughout the process, providing guidance and answering any questions that may arise.
+- **Atención al cliente**: nuestro equipo de asistencia dedicado siempre está disponible para ayudar tanto a los consumidores como a las aseguradoras durante todo el proceso, brindando orientación y respondiendo cualquier pregunta que pueda surgir.
 
-- **Data Insights**: Insurers gain access to valuable data insights through Markellm's analytics dashboard, helping them understand market trends and consumer behavior to refine their offerings.
+- **Información de datos**: las aseguradoras obtienen acceso a información valiosa a través del panel de análisis de Markellm, lo que las ayuda a comprender las tendencias del mercado y el comportamiento del consumidor para refinar sus ofertas.
 
-## Pricing
+## Precios
 
-At Markellm, we believe in transparency and flexibility. Our pricing structure is designed to accommodate different types of users—whether you're a consumer seeking insurance or an insurance provider seeking customers.
+En Markellm, creemos en la transparencia y la flexibilidad. Nuestra estructura de precios está diseñada para adaptarse a diferentes tipos de usuarios, ya sea un consumidor que busca un seguro o un proveedor de seguros que busca clientes.
 
-### For Consumers:
-- **Free Membership**: Access to the marketplace at no cost, allowing unlimited browsing and comparisons.
-- **Premium Features**: Optional subscription at $9.99/month for advanced analytics on choices, priority customer support, and enhanced customization options.
+### Para consumidores:
+- **Membresía gratuita**: acceso al mercado sin costo, lo que permite una búsqueda y comparaciones ilimitadas.
+- **Funciones premium**: suscripción opcional a $9,99/mes para análisis avanzados sobre opciones, atención al cliente prioritaria y opciones de personalización mejoradas.
 
-### For Insurance Companies:
-- **Basic Listing Fee**: $199/month for a featured listing on the platform, providing exposure to thousands of potential customers.
-- **Performance-Based Pricing**: Option for variable pricing based on successful customer acquisitions— pay $25 per lead generated through Markellm.
+### Para compañías de seguros:
+- **Tarifa básica de listado**: $199/mes para un listado destacado en la plataforma, lo que brinda exposición a miles de clientes potenciales.
+- **Precios basados ​​en el rendimiento**: opción de precios variables basados ​​en adquisiciones exitosas de clientes: pague $25 por cada cliente potencial generado a través de Markellm.
 
-## 2025-2026 Roadmap
+## Hoja de ruta 2025-2026
 
-### Q1 2025
-- Launch a mobile app version of Markellm, making it even easier for consumers and insurers to connect on-the-go.
-- Introduce a referral program that rewards users for promoting Markellm to their network.
+### T1 de 2025
+- Lanzar una versión de aplicación móvil de Markellm, lo que hace que sea aún más fácil para los consumidores y las aseguradoras conectarse sobre la marcha.
+- Presentar un programa de recomendación que recompense a los usuarios por promocionar Markellm en su red.
 
-### Q2 2025
-- Expand the marketplace to include additional insurance products, such as life and health insurance.
-- Partner with third-party data aggregators to enhance the accuracy of our AI matching capabilities.
+### T2 2025
+- Ampliar el mercado para incluir productos de seguros adicionales, como seguros de vida y de salud.
+- Asociarse con agregadores de datos de terceros para mejorar la precisión de nuestras capacidades de emparejamiento de IA.
 
-### Q3 2025
-- Initiate a comprehensive marketing campaign targeting both consumers and insurers to increase user acquisition and brand awareness.
-- Release user testimonials and case studies showcasing successful matches made through Markellm.
+### T3 2025
+- Iniciar una campaña de marketing integral dirigida tanto a consumidores como a aseguradoras para aumentar la adquisición de usuarios y el conocimiento de la marca.
+- Publicar testimonios de usuarios y estudios de casos que muestren emparejamientos exitosos realizados a través de Markellm.
 
-### Q4 2026
-- Implement machine learning enhancements to our AI algorithm, further increasing the precision and personalization of matches.
-- Explore international expansion opportunities, launching in select markets outside the US.
+### T4 2026
+- Implementar mejoras de aprendizaje automático en nuestro algoritmo de IA, aumentando aún más la precisión y la personalización de los emparejamientos.
+- Explorar oportunidades de expansión internacional, lanzándose en mercados selectos fuera de los EE. UU.
 
-Markellm is committed to improving the insurance experience for both consumers and providers. By leveraging technology and user insights, we aim to become the leading platform in the insurance marketplace ecosystem. Join us on this exciting journey towards smarter, more efficient insurance solutions!
+Markellm se compromete a mejorar la experiencia de seguros tanto para los consumidores como para los proveedores. Al aprovechar la tecnología y los conocimientos de los usuarios, nuestro objetivo es convertirnos en la plataforma líder en el ecosistema del mercado de seguros. ¡Únase a nosotros en este emocionante viaje hacia soluciones de seguros más inteligentes y eficientes!

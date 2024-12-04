@@ -1,53 +1,53 @@
-# Contract with Apex Reinsurance for Rellm: AI-Powered Enterprise Reinsurance Solution
+# Contrato con Apex Reinsurance para Rellm: Solución de reaseguro empresarial basada en IA
 
-## Terms
+## Términos
 
-1. **Parties Involved**: This contract (“Agreement”) is entered into between Insurellm, Inc. (“Provider”) and Apex Reinsurance (“Client”) on this [Date].
+1. **Partes involucradas**: Este contrato (“Acuerdo”) se celebra entre Insurellm, Inc. (“Proveedor”) y Apex Reinsurance (“Cliente”) el [fecha].
 
-2. **Scope of Services**: Provider agrees to deliver the Rellm solution, which includes AI-driven analytics, seamless integrations, risk assessment modules, customizable dashboards, regulatory compliance tools, and client and broker portals as described in the product summary.
+2. **Alcance de los servicios**: El proveedor acepta brindar la solución Rellm, que incluye análisis basados ​​en IA, integraciones perfectas, módulos de evaluación de riesgos, paneles personalizables, herramientas de cumplimiento normativo y portales para clientes y corredores, como se describe en el resumen del producto.
 
-3. **Payment Terms**: Client shall pay the Provider the sum of $10,000 per month for the duration of this agreement. Payments are due on the first day of each month and will be processed via electronic funds transfer.
+3. **Condiciones de pago**: El cliente deberá pagarle al proveedor la suma de $10,000 por mes durante la vigencia de este acuerdo. Los pagos vencen el primer día de cada mes y se procesarán mediante transferencia electrónica de fondos.
 
-4. **Contract Duration**: This Agreement shall commence on [Start Date] and shall remain in effect for a period of twelve (12) months unless terminated earlier in accordance with the terms set forth herein.
+4. **Duración del contrato**: este Acuerdo comenzará el [Fecha de inicio] y permanecerá vigente durante un período de doce (12) meses a menos que se rescinda antes de conformidad con los términos establecidos en el presente.
 
-## Renewal
+## Renovación
 
-1. **Automatic Renewal**: This Agreement will automatically renew for successive one-year terms unless either party provides a written notice of intent to terminate at least thirty (30) days prior to the expiration of the current term.
+1. **Renovación automática**: este Acuerdo se renovará automáticamente por períodos sucesivos de un año a menos que cualquiera de las partes proporcione un aviso por escrito de intención de rescindirlo al menos treinta (30) días antes del vencimiento del período actual.
 
-2. **Renewal Pricing**: Upon renewal, the pricing may be subject to adjustment by the Provider. The Provider will give a minimum of sixty (60) days’ notice of any changes in pricing.
+2. **Precio de renovación**: tras la renovación, el precio puede estar sujeto a ajustes por parte del Proveedor. El Proveedor dará un aviso mínimo de sesenta (60) días sobre cualquier cambio en el precio.
 
-## Features
+## Características
 
-1. **AI-Driven Analytics**: The Rellm platform will utilize AI algorithms to provide predictive insights into risk exposures, allowing the Client to make informed decisions with real-time data analysis.
+1. **Análisis impulsado por IA**: la plataforma Rellm utilizará algoritmos de IA para proporcionar información predictiva sobre las exposiciones al riesgo, lo que permitirá al Cliente tomar decisiones informadas con análisis de datos en tiempo real.
 
-2. **Seamless Integrations**: The architecture of Rellm allows for easy integration with existing systems used by the Client, including policy management and claims processing.
+2. **Integraciones sin inconvenientes**: La arquitectura de Rellm permite una fácil integración con los sistemas existentes que utiliza el Cliente, incluida la gestión de pólizas y el procesamiento de reclamos.
 
-3. **Customizable Dashboard**: The dashboard will be tailored to display metrics specific to the Client's operational needs, enhancing productivity and facilitating more efficient data access.
+3. **Panel personalizable**: El panel se adaptará para mostrar métricas específicas para las necesidades operativas del Cliente, mejorando la productividad y facilitando un acceso más eficiente a los datos.
 
-4. **Regulatory Compliance**: The solution will include compliance tracking features to assist the Client in maintaining adherence to relevant regulations.
+4. **Cumplimiento normativo**: La solución incluirá funciones de seguimiento del cumplimiento para ayudar al Cliente a mantener el cumplimiento de las regulaciones pertinentes.
 
-5. **Dedicated Client Portal**: A portal for the Client will facilitate real-time communication and document sharing, ensuring seamless collaboration throughout the partnership.
+5. **Portal exclusivo para clientes**: Un portal para el Cliente facilitará la comunicación en tiempo real y el intercambio de documentos, lo que garantizará una colaboración fluida durante toda la asociación.
 
-## Support
+## Soporte
 
-1. **Technical Support**: Provider shall offer dedicated technical support to the Client via phone, email, and a ticketing system during business hours (Monday to Friday, 9 AM to 5 PM EST).
+1. **Soporte técnico**: El proveedor ofrecerá soporte técnico exclusivo al Cliente por teléfono, correo electrónico y un sistema de tickets durante el horario comercial (de lunes a viernes, de 9 a. m. a 5 p. m., hora estándar del este de EE. UU.).
 
-2. **Training and Onboarding**: Provider will deliver comprehensive onboarding training for up to ten (10) members of the Client's staff to ensure effective use of the Rellm solution.
+2. **Capacitación e incorporación**: el proveedor brindará una capacitación integral de incorporación para hasta diez (10) miembros del personal del cliente para garantizar el uso eficaz de la solución Rellm.
 
-3. **Updates and Maintenance**: Provider is responsible for providing updates to the Rellm platform to improve functionality and security, at no additional cost to the Client.
+3. **Actualizaciones y mantenimiento**: el proveedor es responsable de proporcionar actualizaciones a la plataforma Rellm para mejorar la funcionalidad y la seguridad, sin costo adicional para el cliente.
 
-4. **Escalation Protocol**: Issues that cannot be resolved at the first level of support will be escalated to the senior support team, ensuring that critical concerns are addressed promptly.
+4. **Protocolo de escalamiento**: los problemas que no se puedan resolver en el primer nivel de soporte se escalarán al equipo de soporte sénior, lo que garantiza que las inquietudes críticas se aborden rápidamente.
 
 ---
 
-**Acceptance of Terms**: By signing below, both parties agree to the Terms, Renewal, Features, and Support outlined in this Agreement.
+**Aceptación de los términos**: al firmar a continuación, ambas partes aceptan los términos, la renovación, las características y el soporte descritos en este acuerdo.
 
-**Insurellm, Inc.**  
-_____________________________  
-Authorized Signature   
-Date: ___________________  
+**Insurellm, Inc.**
+_____________________________
+Firma autorizada
+Fecha: ___________________
 
-**Apex Reinsurance**  
-_____________________________  
-Authorized Signature  
-Date: ___________________
+**Apex Reinsurance**
+_____________________________
+Firma autorizada
+Fecha: ___________________

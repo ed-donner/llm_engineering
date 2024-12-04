@@ -1,59 +1,59 @@
-# Contract with TechDrive Insurance for Carllm
+# Contrato con TechDrive Insurance para Carllm
 
-**Contract Date:** October 1, 2024  
-**Contract Duration:** 12 months
-
----
-
-## Terms
-
-1. **Parties Involved**: This contract is entered into between Insurellm (the "Provider") and TechDrive Insurance (the "Customer").
-   
-2. **License Grant**: Insurellm grants TechDrive Insurance a non-exclusive, non-transferable license to use the Carllm product as per the selected pricing tier (Professional Tier at $2,500/month).
-   
-3. **Payment Terms**: TechDrive Insurance agrees to make monthly payments of $2,500 for the duration of this contract, due on the 5th of each month.
-   
-4. **Confidentiality**: Both parties shall maintain confidentiality regarding each other’s proprietary information throughout the duration of this contract and for three years following its termination.
-
-## Renewal
-
-1. **Automatic Renewal**: This contract shall automatically renew for additional one-year terms unless either party provides written notice of non-renewal at least 30 days prior to the contract expiration.
-   
-2. **Pricing Review**: The pricing for any renewal period shall be discussed 60 days prior to the end of the term and agreed upon in writing.
-
-## Features
-
-1. **Included Features**: Under the Professional Tier, TechDrive Insurance will have access to the following features of Carllm:
-   - AI-Powered Risk Assessment
-   - Instant Quoting
-   - Customizable Coverage Plans
-   - Fraud Detection
-   - Customer Insights Dashboard
-   - Mobile Integration
-   - Automated Customer Support
-
-2. **System Requirements**: TechDrive Insurance must ensure that their existing systems meet the technical requirements to integrate with Carllm, as outlined in the onboarding documentation provided by Insurellm.
-
-## Support
-
-1. **Customer Support**: Insurellm will provide 24/7 customer support to TechDrive Insurance via AI-driven chatbots, ensuring timely resolution of inquiries and issues.
-
-2. **Training**: TechDrive Insurance staff will receive onboarding training sessions to ensure effective utilization of the Carllm platform, scheduled within the first two weeks of contract commencement.
-
-3. **System Updates**: The Provider will push regular updates to improve system performance and add new features. TechDrive Insurance will receive prior notification of any significant upgrades that may affect current operations.
+**Fecha del contrato:** 1 de octubre de 2024
+**Duración del contrato:** 12 meses
 
 ---
 
-**Signatures:**
+## Condiciones
 
-**Insurellm Representative:**  
-Name: John Smith  
-Title: Account Manager  
-Date: ____________
+1. **Partes involucradas**: Este contrato se celebra entre Insurellm (el "Proveedor") y TechDrive Insurance (el "Cliente").
 
-**TechDrive Insurance Representative:**  
-Name: Sarah Johnson  
-Title: Operations Director  
-Date: ____________  
+2. **Concesión de licencia**: Insurellm otorga a TechDrive Insurance una licencia no exclusiva e intransferible para usar el producto Carllm según el nivel de precios seleccionado (nivel profesional a $2500/mes).
 
-This contract will serve as the foundational agreement for the ongoing collaboration between Insurellm and TechDrive Insurance in optimizing their auto insurance offerings through the Carllm product.
+3. **Condiciones de pago**: TechDrive Insurance acepta realizar pagos mensuales de $2500 durante la duración de este contrato, con vencimiento el día 5 de cada mes.
+
+4. **Confidencialidad**: Ambas partes mantendrán la confidencialidad de la información de propiedad de la otra durante la duración de este contrato y durante los tres años posteriores a su terminación.
+
+## Renovación
+
+1. **Renovación automática**: este contrato se renovará automáticamente por períodos adicionales de un año a menos que alguna de las partes proporcione un aviso por escrito de no renovación al menos 30 días antes del vencimiento del contrato.
+
+2. **Revisión de precios**: el precio de cualquier período de renovación se discutirá 60 días antes del final del período y se acordará por escrito.
+
+## Características
+
+1. **Características incluidas**: en el nivel Profesional, TechDrive Insurance tendrá acceso a las siguientes características de Carllm:
+- Evaluación de riesgos impulsada por IA
+- Cotización instantánea
+- Planes de cobertura personalizables
+- Detección de fraude
+- Panel de información del cliente
+- Integración móvil
+- Atención al cliente automatizada
+
+2. **Requisitos del sistema**: TechDrive Insurance debe asegurarse de que sus sistemas existentes cumplan con los requisitos técnicos para integrarse con Carllm, como se describe en la documentación de incorporación proporcionada por Insurellm.
+
+## Soporte
+
+1. **Atención al cliente**: Insurellm brindará soporte al cliente las 24 horas, los 7 días de la semana a TechDrive Insurance a través de chatbots impulsados ​​por IA, lo que garantiza la resolución oportuna de consultas y problemas.
+
+2. **Capacitación**: el personal de TechDrive Insurance recibirá sesiones de capacitación de incorporación para garantizar el uso eficaz de la plataforma Carllm, programadas dentro de las primeras dos semanas posteriores al inicio del contrato.
+
+3. **Actualizaciones del sistema**: el proveedor enviará actualizaciones periódicas para mejorar el rendimiento del sistema y agregar nuevas funciones. TechDrive Insurance recibirá una notificación previa de cualquier actualización significativa que pueda afectar las operaciones actuales.
+
+---
+
+**Firmas:**
+
+**Representante de Insurellm:**
+Nombre: John Smith
+Puesto: Gerente de cuentas
+Fecha: ____________
+
+**Representante de TechDrive Insurance:**
+Nombre: Sarah Johnson
+Puesto: Directora de operaciones
+Fecha: ____________
+
+Este contrato servirá como acuerdo fundacional para la colaboración continua entre Insurellm y TechDrive Insurance para optimizar sus ofertas de seguros de automóviles a través del producto Carllm.

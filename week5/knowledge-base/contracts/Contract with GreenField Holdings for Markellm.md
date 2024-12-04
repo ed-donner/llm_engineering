@@ -1,34 +1,34 @@
-# Contract with GreenField Holdings for Markellm
+# Contrato con GreenField Holdings para Markellm
 
-**Effective Date:** November 15, 2023  
-**Contract Duration:** 12 months  
+**Fecha de entrada en vigor:** 15 de noviembre de 2023
+**Duración del contrato:** 12 meses
 
-## Terms
-1. **Parties to the Agreement**: This contract is entered into between Insurellm, hereafter referred to as "Provider," and GreenField Holdings, hereafter referred to as "Client."
-2. **Scope of Services**: Provider agrees to grant the Client access to the Markellm platform, enabling GreenField Holdings to connect with potential insurance customers through the AI-powered marketplace.
-3. **Compliance**: Both parties agree to adhere to applicable laws and regulations that govern information security and consumer data protection.
+## Condiciones
+1. **Partes del acuerdo**: Este contrato se celebra entre Insurellm, en adelante denominado "Proveedor", y GreenField Holdings, en adelante denominado "Cliente".
+2. **Alcance de los servicios**: El proveedor acepta otorgar al Cliente acceso a la plataforma Markellm, lo que permite a GreenField Holdings conectarse con posibles clientes de seguros a través del mercado impulsado por IA.
+3. **Cumplimiento**: Ambas partes aceptan cumplir con las leyes y regulaciones aplicables que rigen la seguridad de la información y la protección de datos del consumidor.
 
-## Renewal
-1. **Automatic Renewal**: This contract will automatically renew for sequential one-year terms unless either party provides a written notice of non-renewal at least 30 days prior to the expiration of the current term.
-2. **Annual Review**: Upon renewal, both parties may review and negotiate the terms, including any modifications to pricing based on performance metrics outlined in Section 4.
+## Renovación
+1. **Renovación automática**: Este contrato se renovará automáticamente por períodos consecutivos de un año a menos que cualquiera de las partes proporcione un aviso por escrito de no renovación al menos 30 días antes del vencimiento del período actual.
+2. **Revisión anual**: tras la renovación, ambas partes pueden revisar y negociar los términos, incluidas las modificaciones de precios en función de las métricas de rendimiento descritas en la Sección 4.
 
-## Features
-1. **AI-Powered Matching**: Access to advanced algorithms that connect GreenField Holdings with tailored insurance leads.
-2. **Real-Time Quotes**: Ability to provide customers with instant quotes from multiple insurance providers, facilitating faster decision-making processes.
-3. **Customized Recommendations**: Utilization of customizable consumer profiles to enhance marketing strategies and optimize customer engagement.
-4. **Data Insights**: Access to analytics dashboards for real-time insights into market trends and consumer behavior, helping GreenField Holdings refine their product offerings.
+## Características
+1. **Coincidencias impulsadas por IA**: acceso a algoritmos avanzados que conectan a GreenField Holdings con clientes potenciales de seguros personalizados.
+2. **Cotizaciones en tiempo real**: capacidad de proporcionar a los clientes cotizaciones instantáneas de varios proveedores de seguros, lo que facilita procesos de toma de decisiones más rápidos.
+3. **Recomendaciones personalizadas**: utilización de perfiles de consumidores personalizables para mejorar las estrategias de marketing y optimizar la interacción con el cliente.
+4. **Información de datos**: acceso a paneles de análisis para obtener información en tiempo real sobre las tendencias del mercado y el comportamiento del consumidor, lo que ayuda a GreenField Holdings a refinar su oferta de productos.
 
-## Support
-1. **Customer Support Access**: The Client will have access to dedicated support through phone and email during normal business hours to address any inquiries or technical issues.
-2. **Training and Resources**: Provider will offer onboarding training resources to ensure GreenField Holdings can effectively utilize the Markellm platform.
-3. **Performance Reviews**: Quarterly performance reviews will be conducted to analyze platform effectiveness, customer acquisition rates, and marketing strategies, ensuring both parties are aligned on objectives.
+## Soporte
+1. **Acceso a soporte al cliente**: el cliente tendrá acceso a soporte dedicado por teléfono y correo electrónico durante el horario comercial normal para abordar cualquier consulta o problema técnico.
+2. **Capacitación y recursos**: el proveedor ofrecerá recursos de capacitación de incorporación para garantizar que GreenField Holdings pueda utilizar eficazmente la plataforma Markellm.
+3. **Revisiones de desempeño**: se realizarán revisiones de desempeño trimestrales para analizar la efectividad de la plataforma, las tasas de adquisición de clientes y las estrategias de marketing, a fin de garantizar que ambas partes estén alineadas con los objetivos.
 
-## Pricing
-- **Basic Listing Fee**: GreenField Holdings agrees to pay a monthly fee of $199 for a featured listing on the Markellm platform.
-- **Performance-Based Pricing**: An additional fee of $25 per acquired customer lead will be charged, reflecting successful connections made through the Markellm platform.
+## Precios
+- **Tarifa básica de listado**: GreenField Holdings acepta pagar una tarifa mensual de $199 por un listado destacado en la plataforma Markellm.
+- **Precios basados ​​en el desempeño**: se cobrará una tarifa adicional de $25 por cada cliente potencial adquirido, lo que reflejará las conexiones exitosas realizadas a través de la plataforma Markellm.
 
-**Signatures:**  
-_________________________                           _________________________  
-**[Name], Title**                                   **[Name], Title**  
-Insurellm                                           GreenField Holdings  
-**Date:** ____________                             **Date:** ____________
+**Firmas:**
+________________________ _________________________
+**[Nombre], cargo** **[Nombre], cargo**
+Insurellm GreenField Holdings
+**Fecha:** ____________ **Fecha:** ____________

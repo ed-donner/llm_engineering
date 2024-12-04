@@ -1,46 +1,45 @@
-# HR Record
+# Registro de RR. HH.
 
 # Alex Chen
 
-## Summary
-- **Date of Birth:** March 15, 1990  
-- **Job Title:** Backend Software Engineer  
-- **Location:** San Francisco, California  
+## Resumen
+- **Fecha de nacimiento:** 15 de marzo de 1990
+- **Puesto:** Ingeniero de software backend
+- **Ubicación:** San Francisco, California
 
-## Insurellm Career Progression
-- **April 2020:** Joined Insurellm as a Junior Backend Developer. Focused on building APIs to enhance customer data security.
-- **October 2021:** Promoted to Backend Software Engineer. Took on leadership for a key project developing a microservices architecture to support the company's growing platform.
-- **March 2023:** Awarded the title of Senior Backend Software Engineer due to exemplary performance in scaling backend services, reducing downtime by 30% over six months.
+## Progresión profesional en Insurellm
+- **Abril de 2020:** Se incorporó a Insurellm como desarrollador backend júnior. Se centró en la creación de API para mejorar la seguridad de los datos de los clientes.
+- **Octubre de 2021:** Ascendió a ingeniero de software backend. Asumió el liderazgo de un proyecto clave para desarrollar una arquitectura de microservicios para respaldar la creciente plataforma de la empresa.
+- **Marzo de 2023:** Se le otorgó el título de ingeniero sénior de software backend debido al desempeño ejemplar en la ampliación de los servicios backend, lo que redujo el tiempo de inactividad en un 30 % en seis meses.
 
-## Annual Performance History
-- **2020:**  
-  - Completed onboarding successfully.  
-  - Met expectations in delivering project milestones.  
-  - Received positive feedback from the team leads.
+## Historial de desempeño anual
+- **2020:**
+- Completó la incorporación con éxito.
+- Cumplió con las expectativas en la entrega de los hitos del proyecto. - Recibí comentarios positivos de los líderes del equipo.
 
-- **2021:**  
-  - Achieved a 95% success rate in project delivery timelines.  
-  - Awarded "Rising Star" at the annual company gala for outstanding contributions.  
+- **2021:**
+- Logré una tasa de éxito del 95 % en los plazos de entrega de proyectos.
+- Recibí el premio "Rising Star" en la gala anual de la empresa por contribuciones sobresalientes.
 
-- **2022:**  
-  - Exceeded goals by optimizing existing backend code, improving system performance by 25%.  
-  - Conducted training sessions for junior developers, fostering knowledge sharing.  
+- **2022:**
+- Superé los objetivos al optimizar el código backend existente, mejorando el rendimiento del sistema en un 25 %.
+- Realicé sesiones de capacitación para desarrolladores junior, fomentando el intercambio de conocimientos.
 
-- **2023:**  
-  - Led a major overhaul of the API internal architecture, enhancing security protocols.  
-  - Contributed to the company’s transition to a cloud-based infrastructure.  
-  - Received an overall performance rating of 4.8/5.
+- **2023:**
+- Lideré una importante revisión de la arquitectura interna de la API, mejorando los protocolos de seguridad.
+- Contribuí a la transición de la empresa a una infraestructura basada en la nube.
+- Recibí una calificación de desempeño general de 4.8/5.
 
-## Compensation History
-- **2020:** Base Salary: $80,000  
-- **2021:** Base Salary Increase to $90,000; Received a performance bonus of $5,000.  
-- **2022:** Base Salary Increase to $100,000; Performance bonus of $7,500 due to exceptional project outcomes.  
-- **2023:** Base Salary Increase to $115,000; Performance bonus of $10,000 for leading pivotal projects.
+## Historial de compensación
+- **2020:** Salario base: $80,000
+- **2021:** Aumento del salario base a $90,000; recibí un bono por desempeño de $5,000.
+- **2022:** Aumento del salario base a $100,000; Bono de desempeño de $7,500 debido a resultados excepcionales del proyecto.
+- **2023:** Aumento del salario base a $115,000; Bono de desempeño de $10,000 por liderar proyectos fundamentales.
 
-## Other HR Notes
-- Participates regularly in Insurellm's Diversity & Inclusion initiatives, championing tech accessibility for underrepresented communities.
-- Completed several certifications in cloud architecture and DevOps, contributing to professional growth.
-- Plans for a professional development course in AI and machine learning to further enhance backend capabilities in Insurellm's offerings.
-- Acknowledged for volunteer efforts in local tech meetups, bringing seasoned engineers to mentor aspiring coders.  
+## Otras notas de RR. HH.
+- Participa regularmente en las iniciativas de Diversidad e Inclusión de Insurellm, promoviendo la accesibilidad tecnológica para comunidades subrepresentadas.
+- Completó varias certificaciones en arquitectura de la nube y DevOps, lo que contribuyó al crecimiento profesional.
+- Planea un curso de desarrollo profesional en IA y aprendizaje automático para mejorar aún más las capacidades de back-end en las ofertas de Insurellm.
+- Reconocido por los esfuerzos voluntarios en reuniones tecnológicas locales, trayendo ingenieros experimentados para asesorar a los aspirantes a codificadores.
 
-Alex Chen continues to be a vital asset at Insurellm, contributing significantly to innovative backend solutions that help shape the future of insurance technology.
+Alex Chen sigue siendo un activo vital en Insurellm, contribuyendo significativamente a soluciones de back-end innovadoras que ayudan a dar forma al futuro de la tecnología de seguros.

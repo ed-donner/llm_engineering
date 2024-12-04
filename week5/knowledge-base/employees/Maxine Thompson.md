@@ -1,53 +1,52 @@
-# HR Record
+# Registro de RR. HH.
 
 # Maxine Thompson
 
-## Summary
-- **Date of Birth:** January 15, 1991  
-- **Job Title:** Data Engineer  
-- **Location:** Austin, Texas  
+## Resumen
+- **Fecha de nacimiento:** 15 de enero de 1991
+- **Puesto:** Ingeniero de datos
+- **Ubicación:** Austin, Texas
 
-## Insurellm Career Progression
-- **January 2017 - October 2018**: **Junior Data Engineer**  
-  * Maxine joined Insurellm as a Junior Data Engineer, focusing primarily on ETL processes and data integration tasks. She quickly learned Insurellm's data architecture, collaborating with other team members to streamline data workflows.  
-- **November 2018 - December 2020**: **Data Engineer**  
-  * In her new role, Maxine expanded her responsibilities to include designing comprehensive data models and improving data quality measures. Though she excelled in technical skills, communication issues with non-technical teams led to some project delays.  
-- **January 2021 - Present**: **Senior Data Engineer**  
-  * Maxine was promoted to Senior Data Engineer after successfully leading a pivotal project that improved data retrieval times by 30%. She now mentors junior engineers and is involved in strategic data initiatives, solidifying her position as a valued asset at Insurellm. She was recognized as Insurellm Innovator of the year in 2023, receiving the prestigious IIOTY 2023 award.  
+## Progresión profesional en Insurellm
+- **Enero de 2017 - Octubre de 2018**: **Ingeniero de datos júnior**
+* Maxine se unió a Insurellm como ingeniera de datos júnior, centrándose principalmente en procesos ETL y tareas de integración de datos. Aprendió rápidamente la arquitectura de datos de Insurellm, colaborando con otros miembros del equipo para optimizar los flujos de trabajo de datos.
+- **Noviembre de 2018 - Diciembre de 2020**: **Ingeniero de datos**
+* En su nuevo puesto, Maxine amplió sus responsabilidades para incluir el diseño de modelos de datos integrales y la mejora de las medidas de calidad de los datos. Aunque se destacó en habilidades técnicas, los problemas de comunicación con equipos no técnicos provocaron algunos retrasos en el proyecto. - **Enero de 2021 - Presente**: **Ingeniera de datos sénior**
+* Maxine fue ascendida a ingeniera de datos sénior después de liderar con éxito un proyecto fundamental que mejoró los tiempos de recuperación de datos en un 30 %. Ahora es mentora de ingenieros junior y participa en iniciativas de datos estratégicos, lo que solidifica su posición como un activo valioso en Insurellm. Fue reconocida como Innovadora del año de Insurellm en 2023 y recibió el prestigioso premio IIOTY 2023.
 
-## Annual Performance History
-- **2017**: *Meets Expectations*  
-  Maxine showed potential in her role but struggled with initial project deadlines. Her adaptability and willingness to learn made positive impacts on her team.  
+## Historial de desempeño anual
+- **2017**: *Cumple con las expectativas*
+Maxine mostró potencial en su función, pero tuvo dificultades con los plazos iniciales del proyecto. Su adaptabilidad y voluntad de aprender tuvieron un impacto positivo en su equipo.
 
-- **2018**: *Exceeds Expectations*  
-  Maxine improved significantly, becoming a reliable team member with strong problem-solving skills. She took on leadership in a project that automated data entry processes.  
+- **2018**: *Supera las expectativas*
+Maxine mejoró significativamente y se convirtió en un miembro confiable del equipo con sólidas habilidades para la resolución de problemas. Asumió el liderazgo en un proyecto que automatizó los procesos de ingreso de datos.
 
-- **2019**: *Needs Improvement*  
-  During this year, difficult personal circumstances affected Maxine's performance. She missed key deadlines and had several communication issues with stakeholders.  
+- **2019**: *Necesita mejorar*
+Durante este año, circunstancias personales difíciles afectaron el desempeño de Maxine. No cumplió con los plazos clave y tuvo varios problemas de comunicación con las partes interesadas.
 
-- **2020**: *Meets Expectations*  
-  Maxine focused on regaining her footing and excelling with technical skills. She was stable, though not standout, in her contributions. Feedback indicated a need for more proactivity.  
+- **2020**: *Cumple con las expectativas*
+Maxine se centró en recuperar su equilibrio y sobresalir con las habilidades técnicas. Fue estable, aunque no sobresaliente, en sus contribuciones. Los comentarios indicaron la necesidad de más proactividad.
 
-- **2021**: *Exceeds Expectations*  
-  Maxine spearheaded the transition to a new data warehousing solution, significantly enhancing Insurellm’s data analytics capabilities. This major achievement bolstered her reputation within the company.  
+- **2021**: *Supera las expectativas*
+Maxine encabezó la transición a una nueva solución de almacenamiento de datos, mejorando significativamente las capacidades de análisis de datos de Insurellm. Este importante logro reforzó su reputación dentro de la empresa.
 
-- **2022**: *Outstanding*  
-  Maxine continued her upward trajectory, successfully implementing machine learning algorithms to predict customer behavior, which was well-received by the leadership team and improved client satisfaction.  
+- **2022**: *Sobresaliente*
+Maxine continuó su trayectoria ascendente, implementando con éxito algoritmos de aprendizaje automático para predecir el comportamiento del cliente, lo que fue bien recibido por el equipo de liderazgo y mejoró la satisfacción del cliente.
 
-- **2023**: *Exceeds Expectations*  
-  Maxine has taken on mentoring responsibilities and is leading a cross-functional team for data governance initiatives, showcasing her leadership and solidifying her role at Insurellm.  
+- **2023**: *Supera las expectativas*
+Maxine asumió responsabilidades de mentoría y lidera un equipo multifuncional para iniciativas de gobernanza de datos, lo que demuestra su liderazgo y consolida su rol en Insurellm.
 
-## Compensation History
-- **2017**: $70,000 (Junior Data Engineer)  
-- **2018**: $75,000 (Junior Data Engineer)  
-- **2019**: $80,000 (Data Engineer)  
-- **2020**: $84,000 (Data Engineer)  
-- **2021**: $95,000 (Senior Data Engineer)  
-- **2022**: $110,000 (Senior Data Engineer)  
-- **2023**: $120,000 (Senior Data Engineer)  
+## Historial de compensación
+- **2017**: $70,000 (Ingeniero de datos júnior)
+- **2018**: $75,000 (Ingeniero de datos júnior)
+- **2019**: $80,000 (Ingeniero de datos)
+- **2020**: $84,000 (Ingeniero de datos)
+- **2021**: $95,000 (Ingeniero de datos sénior)
+- **2022**: $110,000 (Ingeniero de datos sénior)
+- **2023**: $120,000 (Ingeniero de datos sénior)
 
-## Other HR Notes
-- Maxine participated in various company-sponsored trainings related to big data technologies and cloud infrastructure.  
-- She was recognized for her contributions with the “Insurellm Innovator Award” in 2022.  
-- Maxine is currently involved in the women-in-tech initiative and participates in mentorship programs to guide junior employees.  
-- Future development areas include improving her stakeholder communication skills to ensure smoother project transitions and collaboration.  
+## Otras notas de RR. HH.
+- Maxine participó en varias capacitaciones patrocinadas por la empresa relacionadas con tecnologías de big data e infraestructura en la nube.
+- Fue reconocida por sus contribuciones con el premio “Insurellm Innovator Award” en 2022.
+- Maxine actualmente participa en la iniciativa de mujeres en tecnología y participa en programas de tutoría para guiar a los empleados jóvenes.
+- Las áreas de desarrollo futuro incluyen mejorar sus habilidades de comunicación con las partes interesadas para garantizar transiciones y colaboración más fluidas en los proyectos.

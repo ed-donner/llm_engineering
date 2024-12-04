@@ -1,3 +1,3 @@
-# Careers at Insurellm
+# Carreras en Insurellm
 
-Insurellm is hiring! We are looking for talented software engineers, data scientists and account executives to join our growing team. Come be a part of our movement to disrupt the insurance sector.
+¡Insurellm está contratando! Buscamos ingenieros de software, científicos de datos y ejecutivos de cuentas talentosos para que se unan a nuestro equipo en crecimiento. Únase a nuestro movimiento para revolucionar el sector de seguros.

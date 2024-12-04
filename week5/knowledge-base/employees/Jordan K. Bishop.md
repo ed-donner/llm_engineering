@@ -1,37 +1,37 @@
-# HR Record
+# Registro de RR. HH.
 
 # Jordan K. Bishop
 
-## Summary
-- **Date of Birth:** March 15, 1990
-- **Job Title:** Frontend Software Engineer
-- **Location:** Austin, Texas
+## Resumen
+- **Fecha de nacimiento:** 15 de marzo de 1990
+- **Puesto:** Ingeniero de software de interfaz
+- **Ubicación:** Austin, Texas
 
-## Insurellm Career Progression
-- **June 2018:** Hired as a Frontend Software Engineer.
-- **August 2019:** Promoted to Senior Frontend Software Engineer due to outstanding contributions to the Insurellm web application redesign project.
-- **March 2021:** Led a cross-functional team for the launch of Insurellm's customer portal, enhancing user experience and engagement.
-- **January 2022:** Transitioned to a mentorship role, where Jordan K. Bishop began training junior engineers, which affected the focus on personal projects.
-- **August 2023:** Returned to core development tasks but faced challenges adapting to new frameworks, leading to performance reviews reflecting a need for improvement.
+## Progresión profesional en Insurellm
+- **Junio ​​de 2018:** Contratado como ingeniero de software de interfaz.
+- **Agosto de 2019:** Ascendido a ingeniero de software de interfaz sénior debido a contribuciones sobresalientes al proyecto de rediseño de la aplicación web de Insurellm.
+- **Marzo de 2021:** Lideró un equipo multifuncional para el lanzamiento del portal de clientes de Insurellm, mejorando la experiencia y la participación del usuario.
+- **Enero de 2022:** Pasó a un rol de mentor, donde Jordan K. Bishop comenzó a capacitar a ingenieros junior, lo que afectó el enfoque en proyectos personales.
+- **Agosto de 2023:** Volvió a las tareas de desarrollo principales, pero enfrentó desafíos para adaptarse a nuevos marcos, lo que llevó a evaluaciones de desempeño que reflejaron una necesidad de mejora.
 
-## Annual Performance History
-- **2019:** Exceeds Expectations - Continuously delivered high-quality code and participated actively in team meetings.
-- **2020:** Meets Expectations - Jordan K. Bishop maintained steady performance but faced challenges due to a higher workload from multiple projects.
-- **2021:** Exceeds Expectations - Recognized for leadership during the customer portal project; received the “Innovation Award” for creative problem-solving.
-- **2022:** Meets Expectations - While mentoring others, the shift in focus led to fewer contributions to new features, marking a decrease in performance.
-- **2023:** Needs Improvement - Transitioning back to development has resulted in difficulties with recent technologies, prompting a performance improvement plan.
+## Historial de desempeño anual
+- **2019:** Supera las expectativas: entregó código de alta calidad de manera continua y participó activamente en las reuniones de equipo.
+- **2020:** Cumple con las expectativas: Jordan K. Bishop mantuvo un desempeño constante, pero enfrentó desafíos debido a una mayor carga de trabajo de varios proyectos.
+- **2021:** Supera las expectativas: se lo reconoció por su liderazgo durante el proyecto del portal del cliente; recibió el "Premio a la innovación" por la resolución creativa de problemas.
+- **2022:** Cumple con las expectativas: mientras asesoraba a otros, el cambio de enfoque provocó menos contribuciones a nuevas funciones, lo que marcó una disminución en el desempeño.
+- **2023:** Necesita mejorar: la transición de regreso al desarrollo generó dificultades con las tecnologías recientes, lo que impulsó un plan de mejora del desempeño.
 
-## Compensation History
-- **June 2018:** Starting Salary - $85,000
-- **June 2019:** Salary Increase - $95,000 (Promotion to Senior Engineer)
-- **June 2021:** Salary Increase - $105,000 with bonus for project leadership.
-- **June 2022:** Salary Freeze due to company budget adjustments.
-- **June 2023:** Salary Adjustment - $92,000 after performance review; adjustments made in consideration of recent struggles with adaptation.
+## Historial de compensación
+- **Junio ​​de 2018:** Salario inicial: $85 000
+- **Junio ​​de 2019:** Aumento salarial: $95 000 (ascenso a ingeniero sénior)
+- **Junio ​​de 2021:** Aumento salarial: $105 000 con bonificación por liderazgo de proyectos.
+- **Junio ​​de 2022:** Congelación salarial debido a ajustes presupuestarios de la empresa.
+- **Junio ​​de 2023:** Ajuste salarial: $92 000 después de la evaluación de desempeño; los ajustes se realizaron teniendo en cuenta las recientes dificultades de adaptación.
 
-## Other HR Notes
-- Jordan K. Bishop has been an integral part of club initiatives, including the Insurellm Code Reviews and Feedback Group, providing peer support.
-- Active participant in the company's Diversity and Inclusion committee, promoting a positive work culture.
-- Jordan has expressed interest in professional development courses, particularly those focused on modern web technologies, which are being considered for sponsorship by Insurellm.
-- Engaged in a 6-month performance improvement plan as of August 2023, focusing on skill development and consistent performance monitoring. 
+## Otras notas de RR. HH.
+- Jordan K. Bishop ha sido parte integral de las iniciativas del club, incluido el grupo de comentarios y revisiones del código de seguros, brindando apoyo entre pares.
+- Participante activo en el comité de Diversidad e Inclusión de la empresa, promoviendo una cultura laboral positiva.
+- Jordan ha expresado interés en cursos de desarrollo profesional, en particular aquellos centrados en tecnologías web modernas, que Insurellm está considerando patrocinar.
+- Participó en un plan de mejora del desempeño de 6 meses a partir de agosto de 2023, centrado en el desarrollo de habilidades y el seguimiento constante del desempeño.
 
-Jordan K. Bishop is a valued member of the Insurellm family, exhibiting a commitment to growth and development despite recent challenges.
+Jordan K. Bishop es un miembro valioso de la familia Insurellm y demuestra un compromiso con el crecimiento y el desarrollo a pesar de los desafíos recientes.

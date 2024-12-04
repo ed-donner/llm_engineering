@@ -1,34 +1,34 @@
-# HR Record
+# Registro de RR.HH.
 
 # Jordan Blake
 
-## Summary
-- **Date of Birth:** March 15, 1993  
-- **Job Title:** Sales Development Representative (SDR)  
-- **Location:** Austin, Texas  
+## Resumen
+- **Fecha de nacimiento:** 15 de marzo de 1993
+- **Puesto:** Representante de desarrollo de ventas (SDR)
+- **Ubicación:** Austin, Texas
 
-## Insurellm Career Progression
-- **2021-06:** Joined Insurellm as an Entry-Level SDR  
-- **2022-02:** Promoted to Junior SDR after exceeding quarterly targets by 25%  
-- **2022-12:** Recognized as SDR of the Month for three consecutive months  
-- **2023-05:** Participated in the Insurellm Leadership Training Program  
+## Progresión profesional en Insurellm
+- **2021-06:** Se incorporó a Insurellm como SDR de nivel inicial
+- **2022-02:** Ascendió a SDR junior después de superar los objetivos trimestrales en un 25 %
+- **2022-12:** Reconocido como SDR del mes durante tres meses consecutivos
+- **2023-05:** Participó en el programa de capacitación de liderazgo de Insurellm
 
-## Annual Performance History
-- **2021:** First year at Insurellm; achieved 90% of monthly targets.  
-  - **Feedback:** Strong potential shown in lead generation; needs improvement in follow-up techniques.  
-- **2022:** Achieved 120% of targets; pioneered outreach strategies that increased customer engagement.  
-  - **Feedback:** Jordan's innovative approach contributed significantly to team success; recommended for leadership training.  
-- **2023:** Set to exceed annual targets by 30% in Q3; initiated successful partnerships that broadened market reach.  
-  - **Feedback:** Exceptional communicator; exemplifies the values of Insurellm and promotes team collaboration.
+## Historial de desempeño anual
+- **2021:** Primer año en Insurellm; logró el 90 % de los objetivos mensuales.
+- **Comentarios:** Se demostró un gran potencial en la generación de clientes potenciales; necesita mejorar las técnicas de seguimiento.
+- **2022:** Logró el 120 % de los objetivos; fue pionero en estrategias de difusión que aumentaron la participación de los clientes.
+- **Comentarios:** El enfoque innovador de Jordan contribuyó significativamente al éxito del equipo; se lo recomendó para la capacitación en liderazgo.
+- **2023:** Se prevé superar los objetivos anuales en un 30 % en el tercer trimestre; inició asociaciones exitosas que ampliaron el alcance del mercado.
+- **Comentarios:** Comunicador excepcional; ejemplifica los valores de Insurellm y promueve la colaboración en equipo.
 
-## Compensation History
-- **2021-06:** Starting Salary: $50,000  
-- **2022-04:** Merit-based increase: $55,000 (based on performance review)  
-- **2023-06:** Performance bonus awarded: $5,000 (for exceeding goals as recognized in annual review)  
-- **2023-09:** Salary adjustment due to promotion to Senior SDR: $65,000  
+## Historial de compensación
+- **2021-06:** Salario inicial: $50,000
+- **2022-04:** Aumento basado en mérito: $55,000 (según la evaluación de desempeño)
+- **2023-06:** Bono de desempeño otorgado: $5,000 (por superar los objetivos reconocidos en la revisión anual)
+- **2023-09:** Ajuste salarial debido al ascenso a SDR sénior: $65,000
 
-## Other HR Notes
-- Jordan has shown an interest in continuing education, actively participating in company-sponsored sales webinars.  
-- Notable for involvement in the Insurellm volunteer program, assisting local charity events related to financial literacy.  
-- Employee wellness advocate, consistently promotes team bonding activities and stress-relief workshops.  
-- Plans to enroll in a course for advanced sales strategies in Q4 2023, aiming to further enhance his skills at Insurellm.
+## Otras notas de RR. HH.
+- Jordan ha mostrado interés en la educación continua, participando activamente en seminarios web de ventas patrocinados por la empresa.
+- Destacado por su participación en el programa de voluntariado de Insurellm, ayudando a eventos benéficos locales relacionados con la educación financiera.
+- Defensor del bienestar de los empleados, promueve constantemente actividades de unión de equipos y talleres para aliviar el estrés.
+- Planea inscribirse en un curso de estrategias de ventas avanzadas en el cuarto trimestre de 2023, con el objetivo de mejorar aún más sus habilidades en Insurellm.

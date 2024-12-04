@@ -1,57 +1,57 @@
-# HR Record
+# Registro de RR. HH.
 
 # Alex Harper
 
-## Summary
-- **Date of Birth**: March 15, 1993  
-- **Job Title**: Sales Development Representative (SDR)  
-- **Location**: Denver, Colorado  
+## Resumen
+- **Fecha de nacimiento**: 15 de marzo de 1993
+- **Puesto**: Representante de desarrollo de ventas (SDR)
+- **Ubicación**: Denver, Colorado
 
-## Insurellm Career Progression
-- **July 2021**: Joined Insurellm as a Sales Development Representative, focusing on lead generation and nurturing B2B relationships.  
-- **January 2022**: Promoted to Senior Sales Development Representative due to exceptional performance in converting leads into clients.  
-- **October 2022**: Completed an Internal Leadership Training Program, enhancing skills in team collaboration and strategic selling. Currently mentoring junior SDRs.  
-- **April 2023**: Became involved in a cross-departmental project to streamline the customer onboarding process, showcasing initiative and leadership.  
+## Progresión profesional en Insurellm
+- **Julio de 2021**: Se incorporó a Insurellm como representante de desarrollo de ventas, centrándose en la generación de oportunidades de venta y el fomento de las relaciones B2B.
+- **Enero de 2022**: Ascendió a representante sénior de desarrollo de ventas debido a un desempeño excepcional en la conversión de oportunidades de venta en clientes.
+- **Octubre de 2022**: Completó un programa de capacitación en liderazgo interno, mejorando las habilidades en colaboración en equipo y venta estratégica. Actualmente es mentor de representantes de desarrollo de ventas junior.
+- **Abril de 2023**: Participó en un proyecto interdepartamental para agilizar el proceso de incorporación de clientes, mostrando iniciativa y liderazgo.
 
-## Annual Performance History  
-- **2021**:  
-  - **Performance Rating**: 4.5/5  
-  - **Key Achievements**: Exceeded lead generation targets by 30%. Introduced a new CRM analytics tool resulting in improved tracking of customer interactions.  
+## Historial de desempeño anual
+- **2021**:
+- **Calificación de desempeño**: 4.5/5
+- **Logros clave**: Superó los objetivos de generación de clientes potenciales en un 30 %. Introdujo una nueva herramienta de análisis de CRM que mejoró el seguimiento de las interacciones con los clientes.
 
-- **2022**:  
-  - **Performance Rating**: 4.8/5  
-  - **Key Achievements**: Awarded "SDR of the Year" for outstanding contributions. Instrumental in securing 15 new B2B contracts, surpassing targets by 40%.  
+- **2022**:
+- **Calificación de desempeño**: 4.8/5
+- **Logros clave**: Recibí el premio "SDR del año" por contribuciones sobresalientes. Fue fundamental para asegurar 15 nuevos contratos B2B, superando los objetivos en un 40 %.
 
-- **2023**:  
-  - **Performance Rating**: 4.7/5  
-  - **Key Achievements**: Played a key role in the launch of a new product line with a 25% increase in lead-to-conversion rates. Completed advanced sales negotiation training with high marks.  
+- **2023**:
+- **Calificación de desempeño**: 4.7/5
+- **Logros clave**: Desempeñó un papel clave en el lanzamiento de una nueva línea de productos con un aumento del 25 % en las tasas de conversión de clientes potenciales. Completó la capacitación avanzada en negociación de ventas con altas calificaciones.
 
-## Compensation History  
-- **2021**:  
-  - **Base Salary**: $55,000  
-  - **Bonus**: $5,500 (10% of base due to performance)  
+## Historial de compensación
+- **2021**:
+- **Salario base**: $55,000
+- **Bonificación**: $5,500 (10 % del salario base debido al desempeño)
 
-- **2022**:  
-  - **Base Salary**: $65,000 (Promotion to Senior SDR)  
-  - **Bonus**: $13,000 (20% of base due to performance)  
+- **2022**:
+- **Salario base**: $65,000 (promoción a SDR sénior)
+- **Bonificación**: $13,000 (20 % del salario base debido al desempeño)
 
-- **2023**:  
-  - **Base Salary**: $75,000  
-  - **Bonus**: $15,000 (20% of base)  
+- **2023**:
+- **Salario base**: $75,000
+- **Bonificación**: $15,000 (20 % del salario base)
 
-## Other HR Notes  
-- **Training Completed**:  
-  - CRM Analytics & Data Management Workshop (2021)  
-  - Leadership Training Program (2022)  
-  - Advanced Sales Negotiation Course (2023)  
+## Otras notas de RR. HH.
+- **Capacitación completada**:
+- Taller de análisis de CRM y gestión de datos (2021)
+- Programa de capacitación en liderazgo (2022)
+- Curso avanzado de negociación de ventas (2023)
 
-- **Awards**:  
-  - Insurellm "SDR of the Year" Award (2022)  
-  - Monthly MVP Recognition (3 times in 2023)  
+- **Premios**:
+- Premio "SDR del año" de Insurellm (2022)
+- Reconocimiento mensual de MVP (3 veces en 2023)
 
-- **Interests**:  
-  - In Alex's spare time, they enjoy participating in community volunteer programs, particularly those focused on financial literacy.  
-  - Alex is also an avid runner and has participated in several charity marathons.  
+- **Intereses**:
+- En su tiempo libre, Alex disfruta de participar en programas de voluntariado comunitario, en particular aquellos centrados en la educación financiera.
+- Alex también es un corredor ávido y ha participado en varias maratones benéficas.
 
-- **Feedback from HR**:  
-  - Alex Harper is noted for their work ethic, positive attitude, and willingness to go above and beyond for both clients and colleagues. Recognized for fostering a team spirit within the SDR team.  
+- **Comentarios de RR. HH.**:
+- Alex Harper es conocido por su ética de trabajo, actitud positiva y voluntad de ir más allá tanto por los clientes como por los colegas. Reconocido por fomentar un espíritu de equipo dentro del equipo de SDR.

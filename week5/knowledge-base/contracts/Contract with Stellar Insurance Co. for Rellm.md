@@ -1,48 +1,48 @@
-# Contract with Stellar Insurance Co. for Rellm
+# Contrato con Stellar Insurance Co. para Rellm
 
-## Terms
-This contract is made between **Insurellm**, located at 123 Innovation Lane, San Francisco, CA, and **Stellar Insurance Co.**, located at 456 Galaxy Road, Chicago, IL. The effective date of this agreement is **January 1, 2024**. 
+## Condiciones
+Este contrato se celebra entre **Insurellm**, ubicada en 123 Innovation Lane, San Francisco, CA, y **Stellar Insurance Co.**, ubicada en 456 Galaxy Road, Chicago, IL. La fecha de entrada en vigor de este acuerdo es el **1 de enero de 2024**.
 
-### Duration
-The initial term of this agreement shall be for **12 months**, commencing from the effective date. The contract will automatically renew for successive **12-month periods** unless either party provides written notice of non-renewal at least **30 days** prior to the expiration of the current term.
+### Duración
+El plazo inicial de este acuerdo será de **12 meses**, a partir de la fecha de entrada en vigor. El contrato se renovará automáticamente por períodos sucesivos de **12 meses** a menos que alguna de las partes notifique por escrito la no renovación al menos **30 días** antes del vencimiento del plazo actual.
 
-### Payment Terms
-Stellar Insurance Co. agrees to pay Insurellm a monthly subscription fee of **$10,000** for the **Professional Plan** of the Rellm product. Payments are due on the **1st of each month**.
+### Condiciones de pago
+Stellar Insurance Co. acepta pagar a Insurellm una tarifa de suscripción mensual de **$10,000** por el **Plan Profesional** del producto Rellm. Los pagos vencen el **1.° de cada mes**.
 
-### Termination
-Either party may terminate this agreement with a **30-day written notice**. In the event of a material breach, the non-breaching party may terminate immediately, provided a written notice is given.
+### Terminación
+Cualquiera de las partes puede rescindir este acuerdo con un **aviso por escrito de 30 días**. En caso de un incumplimiento sustancial, la parte que no haya incumplido puede rescindirlo de inmediato, siempre que se envíe un aviso por escrito.
 
-## Renewal
-This contract will renew automatically for additional 12-month terms unless written notice is provided by either party 30 days prior to the renewal date. Upon renewal, pricing may be adjusted based on agreed-upon inflation adjustments or additional services requested by Stellar Insurance Co.
+## Renovación
+Este contrato se renovará automáticamente por períodos adicionales de 12 meses a menos que cualquiera de las partes envíe un aviso por escrito 30 días antes de la fecha de renovación. Tras la renovación, el precio puede ajustarse en función de los ajustes por inflación acordados o de los servicios adicionales solicitados por Stellar Insurance Co.
 
-## Features
-Stellar Insurance Co. will receive access to the following features of the Rellm product:
+## Características
+Stellar Insurance Co. recibirá acceso a las siguientes características del producto Rellm:
 
-- **AI-Driven Analytics**: Predictive insights into risk exposures tailored for the reinsurance industry.
-- **Seamless Integrations**: Compatibility with existing systems for policy management and claims processing.
-- **Risk Assessment Module**: Comprehensive evaluation of risk profiles using advanced modeling techniques.
-- **Customizable Dashboard**: Tailored user interface presenting relevant metrics and performance indicators.
-- **Regulatory Compliance Tools**: Features to ensure adherence to local and international regulations.
-- **Client and Broker Portals**: Dedicated portals for enhanced communication and document sharing.
+- **Análisis impulsado por IA**: información predictiva sobre las exposiciones al riesgo adaptada a la industria del reaseguro.
+- **Integraciones perfectas**: compatibilidad con los sistemas existentes para la gestión de pólizas y el procesamiento de reclamaciones.
+- **Módulo de evaluación de riesgos**: evaluación integral de los perfiles de riesgo mediante técnicas de modelado avanzadas.
+- **Panel personalizable**: interfaz de usuario personalizada que presenta métricas relevantes e indicadores de rendimiento.
+- **Herramientas de cumplimiento normativo**: Funciones para garantizar el cumplimiento de las normas locales e internacionales.
+- **Portales para clientes y corredores**: Portales dedicados para mejorar la comunicación y el intercambio de documentos.
 
-## Support
-Insurellm provides Stellar Insurance Co. with the following support services:
+## Soporte
+Insurellm ofrece a Stellar Insurance Co. los siguientes servicios de soporte:
 
-- **24/7 Technical Support**: Access to dedicated support representatives via phone and online chat.
-- **Quarterly Account Review**: Meetings to discuss performance metrics and uncover additional needs.
-- **Training Sessions**: Initial orientation and ongoing training opportunities to maximize the effectiveness of Rellm usage.
-- **Updates and Upgrades**: Regular software updates and enhancements are included as part of the subscription.
+- **Soporte técnico las 24 horas, los 7 días de la semana**: Acceso a representantes de soporte dedicados por teléfono y chat en línea.
+- **Revisión trimestral de la cuenta**: Reuniones para analizar las métricas de rendimiento y descubrir necesidades adicionales.
+- **Sesiones de capacitación**: Orientación inicial y oportunidades de capacitación continua para maximizar la eficacia del uso de Rellm.
+- **Actualizaciones y mejoras**: Las actualizaciones y mejoras periódicas del software se incluyen como parte de la suscripción.
 
-Stellar Insurance Co. acknowledges receipt of the Rellm product summary and agrees to the terms set forth above. By signing below, both parties confirm their acceptance of this contract.
+Stellar Insurance Co. reconoce haber recibido el resumen del producto Rellm y acepta los términos establecidos anteriormente. Al firmar a continuación, ambas partes confirman su aceptación de este contrato.
 
-**For Insurellm**  
-______________________________  
-[Signature]  
-[Name, Title]  
-[Date]  
+**Para Insurellm**
+______________________________
+[Firma]
+[Nombre, cargo]
+[Fecha]
 
-**For Stellar Insurance Co.**  
-______________________________  
-[Signature]  
-[Name, Title]  
-[Date]
+**Para Stellar Insurance Co.**
+______________________________
+[Firma]
+[Nombre, cargo]
+[Fecha]

@@ -1,63 +1,63 @@
-# Contract with BrightWay Solutions for Markellm
+# Contrato con BrightWay Solutions para Markellm
 
-**Contract Date:** October 5, 2023  
-**Contract ID:** INS-2023-0092
+**Fecha del contrato:** 5 de octubre de 2023
+**ID del contrato:** INS-2023-0092
 
-### Terms
-This contract (“Contract”) is made between Insurellm, a company incorporated in the United States, and BrightWay Solutions, a technology provider specializing in insurance services.
+### Condiciones
+Este contrato (“Contrato”) se celebra entre Insurellm, una empresa constituida en los Estados Unidos, y BrightWay Solutions, un proveedor de tecnología especializado en servicios de seguros.
 
-1. **Scope of Services:**  
-   Insurellm shall provide BrightWay Solutions access to the Markellm platform under the agreed pricing structure for a duration of one year from the effective date.
+1. **Alcance de los servicios:**
+Insurellm proporcionará a BrightWay Solutions acceso a la plataforma Markellm según la estructura de precios acordada durante un año a partir de la fecha de entrada en vigor.
 
-2. **Payment Terms:**  
-   BrightWay Solutions agrees to pay an initial setup fee of $1,000 for integration services, followed by the Basic Listing Fee of $199 per month for featured listing on Markellm. Payment shall be made within 30 days of invoice.
+2. **Condiciones de pago:**
+BrightWay Solutions acepta pagar una tarifa de configuración inicial de $1000 por los servicios de integración, seguida de la tarifa básica de publicación de $199 por mes para la publicación destacada en Markellm. El pago se realizará dentro de los 30 días posteriores a la factura.
 
-3. **Service Level Agreement (SLA):**  
-   Insurellm commits to a 99.9% uptime for the platform with dedicated support response times not exceeding 4 business hours.
+3. **Acuerdo de nivel de servicio (SLA):**
+Insurellm se compromete a un tiempo de actividad del 99,9 % para la plataforma con tiempos de respuesta de soporte dedicados que no excedan las 4 horas hábiles.
 
-### Renewal
-1. **Automatic Renewal:**  
-   This Contract will automatically renew for additional one-year terms unless either party provides a written notice of intent to terminate at least 30 days prior to the renewal date.
+### Renovación
+1. **Renovación automática:**
+Este contrato se renovará automáticamente por períodos adicionales de un año a menos que alguna de las partes proporcione un aviso por escrito de intención de rescindirlo al menos 30 días antes de la fecha de renovación.
 
-2. **Review Period:**  
-   Both parties will enter a review period each year, during which they will discuss potential amendments to the pricing or contract terms based on market conditions and performance metrics.
+2. **Período de revisión:**
+Ambas partes ingresarán en un período de revisión cada año, durante el cual discutirán posibles modificaciones a los precios o términos del contrato según las condiciones del mercado y las métricas de rendimiento.
 
-### Features
-1. **Access to AI-Powered Matching:**  
-   BrightWay Solutions will benefit from the AI algorithms for optimal customer matches, helping them connect with consumers looking for their specific insurance offerings.
+### Características
+1. **Acceso a emparejamiento impulsado por IA:**
+BrightWay Solutions se beneficiará de los algoritmos de IA para emparejamientos óptimos de clientes, lo que los ayudará a conectarse con los consumidores que buscan sus ofertas de seguros específicas.
 
-2. **Real-Time Quote Availability:**  
-   Consumers sourced via BrightWay Solutions will receive real-time quotes, allowing for a seamless customer experience.
+2. **Disponibilidad de cotizaciones en tiempo real:**
+Los consumidores obtenidos a través de BrightWay Solutions recibirán cotizaciones en tiempo real, lo que permitirá una experiencia de cliente perfecta.
 
-3. **Analytics Dashboard:**  
-   Access to Markellm’s analytics dashboard will provide BrightWay Solutions with insights into consumer behavior and market trends, assisting them in refining their insurance offerings.
+3. **Panel de análisis:**
+El acceso al panel de análisis de Markellm le proporcionará a BrightWay Solutions información sobre el comportamiento del consumidor y las tendencias del mercado, lo que le ayudará a refinar sus ofertas de seguros.
 
-4. **Customization Options:**  
-   BrightWay Solutions may request customizations to their listing page on Markellm, within the capabilities of the platform.
+4. **Opciones de personalización:**
+BrightWay Solutions puede solicitar personalizaciones en su página de listado en Markellm, dentro de las capacidades de la plataforma.
 
-### Support
-1. **Dedicated Customer Support:**  
-   BrightWay Solutions will have access to a dedicated support team from Insurellm during standard business hours (9 AM - 7 PM EST).
+### Soporte
+1. **Atención al cliente dedicada:**
+BrightWay Solutions tendrá acceso a un equipo de soporte dedicado de Insurellm durante el horario comercial estándar (9 a. m. a 7 p. m., hora estándar del este de EE. UU.).
 
-2. **Additional Support Services:**  
-   Technical support for integration and maintenance will be available. An optional premium support package can be purchased for $49.99/month, which includes 24/7 support and advanced troubleshooting.
+2. **Servicios de soporte adicionales:**
+Se dispondrá de soporte técnico para la integración y el mantenimiento. Se puede adquirir un paquete de soporte premium opcional por $49,99 al mes, que incluye soporte las 24 horas, los 7 días de la semana y resolución avanzada de problemas.
 
-3. **Training and Onboarding:**  
-   Insurellm agrees to provide one free training session on how to utilize the Markellm platform effectively for BrightWay Solutions’ team upon contract signing.
+3. **Capacitación e incorporación:**
+Insurellm acepta brindar una sesión de capacitación gratuita sobre cómo utilizar la plataforma Markellm de manera eficaz para el equipo de BrightWay Solutions al momento de firmar el contrato.
 
-### Signatures
-By signing below, both parties agree to the terms and conditions outlined in this Contract.
+### Firmas
+Al firmar a continuación, ambas partes aceptan los términos y condiciones descritos en este Contrato.
 
-__________________________  
-**[Name], [Title]**  
-**Insurellm**  
-Date: ______________________
+__________________________
+**[Nombre], [Cargo]**
+**Insurellm**
+Fecha: ______________________
 
-__________________________  
-**[Name], [Title]**  
-**BrightWay Solutions**  
-Date: ______________________
+__________________________
+**[Nombre], [Cargo]**
+**BrightWay Solutions**
+Fecha: ______________________
 
 ---
 
-This document serves as a formal agreement between Insurellm and BrightWay Solutions, ensuring a successful partnership focused on enhancing the insurance shopping experience for consumers.
+Este documento sirve como un acuerdo formal entre Insurellm y BrightWay Solutions, que garantiza una asociación exitosa enfocada en mejorar la experiencia de compra de seguros para los consumidores.

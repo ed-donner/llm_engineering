@@ -1,67 +1,67 @@
-# Product Summary
+# Resumen del producto
 
 # Carllm
 
-## Summary
+## Resumen
 
-Carllm is an innovative auto insurance product developed by Insurellm, designed to streamline the way insurance companies offer coverage to their customers. Powered by cutting-edge artificial intelligence, Carllm utilizes advanced algorithms to deliver personalized auto insurance solutions, ensuring optimal coverage while minimizing costs. With a robust infrastructure that supports both B2B and B2C customers, Carllm redefines the auto insurance landscape and empowers insurance providers to enhance customer satisfaction and retention.
+Carllm es un innovador producto de seguros para automóviles desarrollado por Insurellm, diseñado para optimizar la forma en que las compañías de seguros ofrecen cobertura a sus clientes. Impulsado por inteligencia artificial de vanguardia, Carllm utiliza algoritmos avanzados para brindar soluciones de seguros para automóviles personalizadas, lo que garantiza una cobertura óptima y minimiza los costos. Con una infraestructura sólida que respalda a los clientes B2B y B2C, Carllm redefine el panorama de los seguros para automóviles y permite a los proveedores de seguros mejorar la satisfacción y la retención de los clientes.
 
-## Features
+## Características
 
-- **AI-Powered Risk Assessment**: Carllm leverages artificial intelligence to analyze driver behavior, vehicle conditions, and historical claims data. This enables insurers to make informed decisions and set competitive premiums that reflect true risk profiles.
+- **Evaluación de riesgos impulsada por IA**: Carllm aprovecha la inteligencia artificial para analizar el comportamiento del conductor, las condiciones del vehículo y los datos históricos de reclamos. Esto permite a las aseguradoras tomar decisiones informadas y establecer primas competitivas que reflejen los verdaderos perfiles de riesgo.
 
-- **Instant Quoting**: With Carllm, insurance companies can offer near-instant quotes to customers, enhancing the customer experience. The AI engine processes data in real-time, drastically reducing the time it takes to generate quotes.
+- **Cotización instantánea**: con Carllm, las compañías de seguros pueden ofrecer cotizaciones casi instantáneas a los clientes, lo que mejora la experiencia del cliente. El motor de IA procesa los datos en tiempo real, lo que reduce drásticamente el tiempo que lleva generar cotizaciones.
 
-- **Customizable Coverage Plans**: Carllm allows insurers to create flexible and tailored insurance packages based on individual customer needs. This customization improves customer engagement and retention.
+- **Planes de cobertura personalizables**: Carllm permite a las aseguradoras crear paquetes de seguros flexibles y personalizados según las necesidades individuales de los clientes. Esta personalización mejora la participación y la retención de los clientes.
 
-- **Fraud Detection**: The product incorporates advanced analytics to identify potentially fraudulent claims, significantly reducing the risk of losses for insurance providers.
+- **Detección de fraude**: El producto incorpora análisis avanzados para identificar reclamos potencialmente fraudulentos, lo que reduce significativamente el riesgo de pérdidas para los proveedores de seguros.
 
-- **Customer Insights Dashboard**: Carllm provides insurers with a powerful dashboard that offers deep insights into customer behavior, claims patterns, and market trends, enabling informed decision-making and strategic planning.
+- **Panel de información del cliente**: Carllm ofrece a las aseguradoras un potente panel que ofrece información detallada sobre el comportamiento del cliente, los patrones de reclamos y las tendencias del mercado, lo que permite una toma de decisiones informada y una planificación estratégica.
 
-- **Mobile Integration**: Carllm is designed to work seamlessly with mobile applications, providing both insurers and end-users access to policy management and claims reporting on the go.
+- **Integración móvil**: Carllm está diseñado para funcionar sin problemas con aplicaciones móviles, lo que brinda a las aseguradoras y a los usuarios finales acceso a la gestión de pólizas y a los informes de reclamos sobre la marcha.
 
-- **Automated Customer Support**: Leveraging AI chatbots, Carllm offers 24/7 customer support, helping to resolve inquiries quickly and efficiently, thus improving customer satisfaction.
+- **Atención al cliente automatizada**: Aprovechando los chatbots de IA, Carllm ofrece atención al cliente las 24 horas, los 7 días de la semana, lo que ayuda a resolver consultas de manera rápida y eficiente, mejorando así la satisfacción del cliente.
 
-## Pricing
+## Precios
 
-Carllm is offered under a subscription-based pricing model tailored to meet the needs of insurance companies of all sizes. Our pricing tiers are designed to provide maximum flexibility and value:
+Carllm se ofrece bajo un modelo de precios basado en suscripción adaptado a las necesidades de las compañías de seguros de todos los tamaños. Nuestros niveles de precios están diseñados para brindar máxima flexibilidad y valor:
 
-- **Basic Tier**: $1,000/month
-  - Ideal for small insurance firms.
-  - Access to core features and standard reporting.
+- **Nivel básico**: $1000/mes
+- Ideal para pequeñas empresas de seguros.
+- Acceso a funciones básicas e informes estándar.
 
-- **Professional Tier**: $2,500/month
-  - For medium-sized companies.
-  - All Basic Tier features plus advanced analytics and fraud detection.
+- **Nivel profesional**: $2500/mes
+- Para empresas medianas.
+- Todas las funciones del nivel básico más análisis avanzados y detección de fraude.
 
-- **Enterprise Tier**: $5,000/month
-  - Customized solutions for large insurance firms.
-  - Comprehensive support, full feature access, and integration with existing systems.
+- **Nivel empresarial**: $5000/mes
+- Soluciones personalizadas para grandes empresas de seguros.
+- Soporte integral, acceso completo a funciones e integración con sistemas existentes.
 
-Contact our sales team for a personalized quote and discover how Carllm can transform your auto insurance offerings!
+¡Comuníquese con nuestro equipo de ventas para obtener una cotización personalizada y descubra cómo Carllm puede transformar sus ofertas de seguros de automóviles!
 
-## 2025-2026 Roadmap
+## Hoja de ruta 2025-2026
 
-In our commitment to continuous improvement and innovation, Insurellm has outlined the following roadmap for Carllm:
+En nuestro compromiso con la mejora continua y la innovación, Insurellm ha delineado la siguiente hoja de ruta para Carllm:
 
-### Q1 2025: Launch Feature Enhancements
-- **Expanded data integrations** for better risk assessment.
-- **Enhanced fraud detection algorithms** to reduce losses.
+### Primer trimestre de 2025: Lanzamiento de mejoras de funciones
+- **Integraciones de datos ampliadas** para una mejor evaluación de riesgos.
+- **Algoritmos mejorados de detección de fraude** para reducir las pérdidas.
 
-### Q2 2025: Customer Experience Improvements
-- Launch of a new **mobile app** for end-users.
-- Introduction of **telematics-based pricing** to provide even more tailored coverage options.
+### T2 2025: Mejoras en la experiencia del cliente
+- Lanzamiento de una nueva **aplicación móvil** para usuarios finales.
+- Introducción de **precios basados ​​en telemática** para brindar opciones de cobertura aún más personalizadas.
 
-### Q3 2025: Global Expansion
-- Begin pilot programs for international insurance markets.
-- Collaborate with local insurers to offer compliant, localized versions of Carllm.
+### T3 2025: Expansión global
+- Iniciar programas piloto para mercados de seguros internacionales.
+- Colaborar con aseguradoras locales para ofrecer versiones localizadas y compatibles de Carllm.
 
-### Q4 2025: AI and Machine Learning Upgrades
-- Implement next-gen machine learning models for predictive analysis.
-- Roll out customer insights dashboard updates based on user feedback.
+### T4 2025: Actualizaciones de IA y aprendizaje automático
+- Implementar modelos de aprendizaje automático de última generación para análisis predictivo.
+- Implementar actualizaciones del panel de información del cliente en función de los comentarios de los usuarios.
 
-### 2026: Scaling and Partnerships
-- Increase partnerships with automakers for integrated insurance solutions.
-- Enhance the **AI customer support system** to include multi-language support.
+### 2026: Escalabilidad y asociaciones
+- Aumentar las asociaciones con fabricantes de automóviles para soluciones de seguros integradas.
+- Mejorar el **sistema de atención al cliente de IA** para incluir soporte en varios idiomas.
 
-Carllm is not just an auto insurance product; it is a transformative tool for the insurance industry. Join us on this exciting journey as we redefine the future of auto insurance with technology and customer-centric solutions.
+Carllm no es solo un producto de seguro de automóviles; es una herramienta transformadora para la industria de seguros. Únase a nosotros en este emocionante viaje mientras redefinimos el futuro del seguro de automóviles con tecnología y soluciones centradas en el cliente.

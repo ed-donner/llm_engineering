@@ -1,4 +1,4 @@
-# About Insurellm
+# Acerca de Insurellm
 
-Insurellm was founded by Avery Lancaster in 2015 as an insurance tech startup designed to disrupt an industry in need of innovative products. It's first product was Markellm, the marketplace connecting consumers with insurance providers.
-It rapidly expanded, adding new products and clients, reaching 200 emmployees by 2024 with 12 offices across the US.
+Insurellm fue fundada por Avery Lancaster en 2015 como una startup de tecnología de seguros diseñada para revolucionar una industria que necesitaba productos innovadores. Su primer producto fue Markellm, el mercado que conecta a los consumidores con los proveedores de seguros.
+Se expandió rápidamente, incorporando nuevos productos y clientes, y llegó a contar con 200 empleados en 2024 con 12 oficinas en todo Estados Unidos.
