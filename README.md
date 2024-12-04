@@ -96,7 +96,7 @@ Los gastos de los ejercicios de este curso deberían ser siempre bastante bajos,
             <img src="resources.jpg" width="150" height="150" style="display: block;" />
         </td>
         <td>
-            <h2 style="color:#f71;">Other resources</h2>
+            <h2 style="color:#f71;">Otros recursos adicionales</h2>
             <span style="color:#f71;">He creado esta página web con recursos útiles para el curso. Incluye enlaces a todas las diapositivas.<br/>
             <a href="https://cursos.frogamesformacion.com/pages/blog/ingenieria-de-llms-recursos">https://cursos.frogamesformacion.com/pages/blog/ingenieria-de-llms-recursos</a><br/>
                 Mantén este artículo en tus favoritos y continuaré agregando más enlaces útiles allí con el tiempo.
