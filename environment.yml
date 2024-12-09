@@ -7,40 +7,30 @@ dependencies:
   - pip
   - python-dotenv
   - requests
-  - beautifulsoup4
-  - pydub
   - numpy
   - pandas
   - scipy
   - pytorch
   - jupyterlab
   - ipywidgets
-  - pyarrow
-  - anthropic
-  - google-generativeai
   - matplotlib
   - scikit-learn
   - chromadb
-  - langchain
-  - langchain-text-splitters
-  - langchain-openai
-  - langchain-experimental
-  - langchain-chroma
-  - faiss-cpu
-  - tiktoken
   - jupyter-dash
-  - plotly
-  - twilio
-  - duckdb
-  - feedparser
+  - sentencepiece
+  - pyarrow
+  - faiss-cpu
   - pip:
+    - beautifulsoup4
+    - plotly
+    - bitsandbytes
     - transformers
     - sentence-transformers
     - datasets
     - accelerate
-    - sentencepiece
-    - bitsandbytes
     - openai
+    - anthropic
+    - google-generativeai
     - gradio
     - gensim
     - modal
@@ -48,3 +38,13 @@ dependencies:
     - psutil
     - setuptools
     - speedtest-cli
+    - langchain
+    - langchain-core
+    - langchain-text-splitters
+    - langchain-openai
+    - langchain-chroma
+    - langchain-community
+    - faiss-cpu
+    - feedparser
+    - twilio
+    - pydub
