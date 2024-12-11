@@ -23,7 +23,7 @@ langchain[docarray]
 datasets
 sentencepiece
 matplotlib
-google.generativeai
+google-generativeai
 anthropic
 scikit-learn
 unstructured
