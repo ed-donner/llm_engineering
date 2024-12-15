@@ -1,10 +1,11 @@
 import os
-from twilio.rest import Client
+# from twilio.rest import Client
 from agents.deals import Opportunity
 import http.client
 import urllib
 from agents.agent import Agent
 
+# Uncomment the Twilio lines if you wish to use Twilio
 
 DO_TEXT = False
 DO_PUSH = True
@@ -26,7 +27,7 @@ class MessagingAgent(Agent):
             auth_token = os.getenv('TWILIO_AUTH_TOKEN', 'your-auth-if-not-using-env')
             self.me_from = os.getenv('TWILIO_FROM', 'your-phone-number-if-not-using-env')
             self.me_to = os.getenv('MY_PHONE_NUMBER', 'your-phone-number-if-not-using-env')
-            self.client = Client(account_sid, auth_token)
+            # self.client = Client(account_sid, auth_token)
             self.log("Messaging Agent has initialized Twilio")
         if DO_PUSH:
             self.pushover_user = os.getenv('PUSHOVER_USER', 'your-pushover-user-if-not-using-env')
