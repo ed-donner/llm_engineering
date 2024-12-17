@@ -4,26 +4,26 @@ from agents.agent import Agent
 
 class SpecialistAgent(Agent):
     """
-    An Agent that runs our fine-tuned LLM that's running remotely on Modal
+    Un agente que ejecuta nuestro LLM optimizado que se ejecuta de forma remota en Modal
     """
 
-    name = "Specialist Agent"
+    name = "Agente Especialista"
     color = Agent.RED
 
     def __init__(self):
         """
-        Set up this Agent by creating an instance of the modal class
+        Configura este agente creando una instancia de la clase modal
         """
-        self.log("Specialist Agent is initializing - connecting to modal")
+        self.log("El agente especialista se está inicializando: se está conectando al modal")
         Pricer = modal.Cls.lookup("pricer-service", "Pricer")
         self.pricer = Pricer()
-        self.log("Specialist Agent is ready")
+        self.log("El agente especialista está listo")
         
     def price(self, description: str) -> float:
         """
-        Make a remote call to return the estimate of the price of this item
+        Realizar una llamada remota para devolver la estimación del precio de este artículo
         """
-        self.log("Specialist Agent is calling remote fine-tuned model")
+        self.log("El agente especialista está llamando al modelo remoto ajustado")
         result = self.pricer.price.remote(description)
-        self.log(f"Specialist Agent completed - predicting ${result:.2f}")
+        self.log(f"Agente especialista completado - predicción ${result:.2f}")
         return result

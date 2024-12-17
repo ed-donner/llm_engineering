@@ -10,7 +10,7 @@ CEILING_CHARS = MAX_TOKENS * 7
 
 class Item:
     """
-    An Item is a cleaned, curated datapoint of a Product with a Price
+    Un artículo es un punto de datos limpio y curado de un producto con un precio.
     """
     
     tokenizer = AutoTokenizer.from_pretrained(BASE_MODEL, trust_remote_code=True)
@@ -33,7 +33,7 @@ class Item:
 
     def scrub_details(self):
         """
-        Clean up the details string by removing common text that doesn't add value
+        Limpia el string de detalles eliminando el texto común que no agrega valor
         """
         details = self.details
         for remove in self.REMOVALS:
@@ -42,8 +42,9 @@ class Item:
 
     def scrub(self, stuff):
         """
-        Clean up the provided text by removing unnecessary characters and whitespace
-        Also remove words that are 7+ chars and contain numbers, as these are likely irrelevant product numbers
+        Limpia el texto proporcionado eliminando caracteres innecesarios y espacios en blanco.
+        Elimina también palabras que tengan más de 7 caracteres y que contengan números, 
+        ya que es probable que sean números de producto irrelevantes.
         """
         stuff = re.sub(r'[:\[\]"{}【】\s]+', ' ', stuff).strip()
         stuff = stuff.replace(" ,", ",").replace(",,,",",").replace(",,",",")
@@ -53,8 +54,8 @@ class Item:
     
     def parse(self, data):
         """
-        Parse this datapoint and if it fits within the allowed Token range,
-        then set include to True
+        Analiza este punto de datos y, si se ajusta al rango de tokens permitido,
+        configura el parámetro de inclusión como Verdadero
         """
         contents = '\n'.join(data['description'])
         if contents:
@@ -77,7 +78,7 @@ class Item:
 
     def make_prompt(self, text):
         """
-        Set the prompt instance variable to be a prompt appropriate for training
+        Establezca la variable de instancia de solicitud para que sea un prompt apropiado para el entrenamiento
         """
         self.prompt = f"{self.QUESTION}\n\n{text}\n\n"
         self.prompt += f"{self.PREFIX}{str(round(self.price))}.00"
@@ -85,13 +86,13 @@ class Item:
 
     def test_prompt(self):
         """
-        Return a prompt suitable for testing, with the actual price removed
+        Devuelve un prompt adecuado para realizar pruebas, con el precio real eliminado
         """
         return self.prompt.split(self.PREFIX)[0] + self.PREFIX
 
     def __repr__(self):
         """
-        Return a String version of this Item
+        Devuelve la versión a String de este Item
         """
         return f"<{self.title} = ${self.price}>"
 

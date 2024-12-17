@@ -17,8 +17,8 @@ class ItemLoader:
 
     def from_datapoint(self, datapoint):
         """
-        Try to create an Item from this datapoint
-        Return the Item if successful, or None if it shouldn't be included
+        Intenta crear un elemento a partir de este punto de datos
+        Devuelve el elemento si se realiza correctamente o Ninguno si no se debe incluir
         """
         try:
             price_str = datapoint['price']
@@ -32,7 +32,7 @@ class ItemLoader:
 
     def from_chunk(self, chunk):
         """
-        Create a list of Items from this chunk of elements from the Dataset
+        Crea una lista de elementos a partir de este fragmento de elementos del conjunto de datos
         """
         batch = []
         for datapoint in chunk:
@@ -43,7 +43,7 @@ class ItemLoader:
 
     def chunk_generator(self):
         """
-        Iterate over the Dataset, yielding chunks of datapoints at a time
+        Iterar sobre el conjunto de datos, generando fragmentos de puntos de datos a la vez
         """
         size = len(self.dataset)
         for i in range(0, size, CHUNK_SIZE):
@@ -51,8 +51,8 @@ class ItemLoader:
 
     def load_in_parallel(self, workers):
         """
-        Use concurrent.futures to farm out the work to process chunks of datapoints -
-        This speeds up processing significantly, but will tie up your computer while it's doing so!
+        Utiliza concurrent.futures para subcontratar el trabajo de procesamiento de fragmentos de puntos de datos. 
+        Esto acelera significativamente el procesamiento, pero ocupará espacio en su computadora mientras lo hace.
         """
         results = []
         chunk_count = (len(self.dataset) // CHUNK_SIZE) + 1
@@ -65,15 +65,15 @@ class ItemLoader:
             
     def load(self, workers=8):
         """
-        Load in this dataset; the workers parameter specifies how many processes
-        should work on loading and scrubbing the data
+        Cargar en este conjunto de datos; el parámetro de trabajadores especifica cuántos procesos
+        deben trabajar en la carga y limpieza de los datos
         """
         start = datetime.now()
-        print(f"Loading dataset {self.name}", flush=True)
+        print(f"Cargando dataset {self.name}", flush=True)
         self.dataset = load_dataset("McAuley-Lab/Amazon-Reviews-2023", f"raw_meta_{self.name}", split="full", trust_remote_code=True)
         results = self.load_in_parallel(workers)
         finish = datetime.now()
-        print(f"Completed {self.name} with {len(results):,} datapoints in {(finish-start).total_seconds()/60:.1f} mins", flush=True)
+        print(f"Completado {self.name} con {len(results):,} datapoints en {(finish-start).total_seconds()/60:.1f} mins", flush=True)
         return results
         
 

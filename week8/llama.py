@@ -25,7 +25,7 @@ def generate(prompt: str) -> str:
         bnb_4bit_quant_type="nf4"
     )
 
-    # Load model and tokenizer
+    # Cargamos model y tokenizer
     
     tokenizer = AutoTokenizer.from_pretrained(MODEL_NAME)
     tokenizer.pad_token = tokenizer.eos_token

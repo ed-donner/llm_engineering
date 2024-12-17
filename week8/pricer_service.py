@@ -1,18 +1,18 @@
 import modal
 from modal import App, Image
 
-# Setup - define our infrastructure with code!
+# Configuración - define our infrastructure with code!
 
 app = modal.App("pricer-service")
 image = Image.debian_slim().pip_install("torch", "transformers", "bitsandbytes", "accelerate", "peft")
 secrets = [modal.Secret.from_name("hf-secret")]
 
-# Constants
+# Constantes
 
 GPU = "T4"
 BASE_MODEL = "meta-llama/Meta-Llama-3.1-8B"
 PROJECT_NAME = "pricer"
-HF_USER = "ed-donner" # your HF name here! Or use mine if you just want to reproduce my results.
+HF_USER = "ed-donner" # tu nombre de HF debe ir aquí! O bien usa el mío si solo quieres reproducir mis resultados
 RUN_NAME = "2024-09-13_13.04.39"
 PROJECT_RUN_NAME = f"{PROJECT_NAME}-{RUN_NAME}"
 REVISION = "e8d637df551603dc86cd7a1598a8f44af4d7ae36"
