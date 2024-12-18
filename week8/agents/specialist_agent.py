@@ -25,5 +25,5 @@ class SpecialistAgent(Agent):
         """
         self.log("El agente especialista está llamando al modelo remoto ajustado")
         result = self.pricer.price.remote(description)
-        self.log(f"Agente especialista completado - predicción ${result:.2f}")
+        self.log(f"El Agente especialista ha terminado - predicción ${result:.2f}")
         return result

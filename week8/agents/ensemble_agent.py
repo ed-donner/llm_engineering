@@ -9,30 +9,30 @@ from agents.random_forest_agent import RandomForestAgent
 
 class EnsembleAgent(Agent):
 
-    name = "Ensemble Agent"
+    name = "Agente de Conjunto"
     color = Agent.YELLOW
     
     def __init__(self, collection):
         """
-        Create an instance of Ensemble, by creating each of the models
-        And loading the weights of the Ensemble
+        Crea una instancia de Ensemble, creando cada uno de los modelos
+        y cargando los pesos del Ensemble
         """
-        self.log("Initializing Ensemble Agent")
+        self.log("Inicializando Agente de Conjunto")
         self.specialist = SpecialistAgent()
         self.frontier = FrontierAgent(collection)
         self.random_forest = RandomForestAgent()
         self.model = joblib.load('ensemble_model.pkl')
-        self.log("Ensemble Agent is ready")
+        self.log("Agente de Conjunto listo")
 
     def price(self, description: str) -> float:
         """
-        Run this ensemble model
-        Ask each of the models to price the product
-        Then use the Linear Regression model to return the weighted price
-        :param description: the description of a product
-        :return: an estimate of its price
+        Ejecuta este modelo de conjunto
+        Pide a cada uno de los modelos que fije el precio del producto
+        Luego, utiliza el modelo de regresión lineal para obtener el precio ponderado
+        :param description: la descripción de un producto
+        :return: una estimación de su precio
         """
-        self.log("Running Ensemble Agent - collaborating with specialist, frontier and random forest agents")
+        self.log("Ejecutando Agente de Ensemble: colaboración con agentes de bosque aleatorio, especialistas y fronterizos")
         specialist = self.specialist.price(description)
         frontier = self.frontier.price(description)
         random_forest = self.random_forest.price(description)
@@ -44,5 +44,5 @@ class EnsembleAgent(Agent):
             'Max': [max(specialist, frontier, random_forest)],
         })
         y = self.model.predict(X)[0]
-        self.log(f"Ensemble Agent complete - returning ${y:.2f}")
+        self.log(f"El Agente de Conjunto ha terminado - predicción ${y:.2f}")
         return y

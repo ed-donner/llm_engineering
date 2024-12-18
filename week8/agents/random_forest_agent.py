@@ -7,31 +7,30 @@ from sentence_transformers import SentenceTransformer
 import joblib
 from agents.agent import Agent
 
-
-
 class RandomForestAgent(Agent):
 
-    name = "Random Forest Agent"
+    name = "Agente de Bosque Aleatorio"
     color = Agent.MAGENTA
 
     def __init__(self):
         """
-        Initialize this object by loading in the saved model weights
-        and the SentenceTransformer vector encoding model
+        Inicialice este objeto cargando los pesos del modelo guardado
+        y el modelo de codificación vectorial SentenceTransformer
         """
-        self.log("Random Forest Agent is initializing")
+        self.log("El Agente de Bosque Aleatorio se está inicializando")
         self.vectorizer = SentenceTransformer('sentence-transformers/all-MiniLM-L6-v2')
         self.model = joblib.load('random_forest_model.pkl')
-        self.log("Random Forest Agent is ready")
+        self.log("El Agente de Bosque Aleatorio está listo")
 
     def price(self, description: str) -> float:
         """
-        Use a Random Forest model to estimate the price of the described item
-        :param description: the product to be estimated
-        :return: the price as a float
+        Inicializa este objeto cargando los pesos del modelo guardado
+        Usa un modelo de Bosque aleatorio para estimar el precio del artículo descrito
+        :param description: el producto que se va a estimar
+        :return: el precio en coma flotante
         """        
-        self.log("Random Forest Agent is starting a prediction")
+        self.log("El Agente de Bosque aleatorio ha empezado una predicción")
         vector = self.vectorizer.encode([description])
         result = max(0, self.model.predict(vector)[0])
-        self.log(f"Random Forest Agent completed - predicting ${result:.2f}")
+        self.log(f"El agente de Random Forest ha terminado - predicción ${result:.2f}")
         return result
