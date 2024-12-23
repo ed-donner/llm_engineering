@@ -52,9 +52,12 @@ You can use this as a direct replacement:
 Below is a full example:
 
 ```
+# You need to do this one time on your computer
+!ollama pull llama3.2
+
 from openai import OpenAI
 MODEL = "llama3.2"
-openai = OpenAI(base_url='http://localhost:11434/v1';, api_key='ollama')
+openai = OpenAI(base_url="http://localhost:11434/v1", api_key="ollama")
 
 response = openai.chat.completions.create(
  model=MODEL,
