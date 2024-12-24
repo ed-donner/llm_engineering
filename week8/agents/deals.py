@@ -17,7 +17,7 @@ feeds = [
 
 def extract(html_snippet: str) -> str:
     """
-    Use Beautiful Soup to clean up this HTML snippet and extract useful text
+    Utilice Beautiful Soup para limpiar este fragmento de HTML y extraer texto útil
     """
     soup = BeautifulSoup(html_snippet, 'html.parser')
     snippet_div = soup.find('div', class_='snippet summary')
@@ -33,7 +33,7 @@ def extract(html_snippet: str) -> str:
 
 class ScrapedDeal:
     """
-    A class to represent a Deal retrieved from an RSS feed
+    Una clase para representar una oferta recuperada de una fuente RSS
     """
     category: str
     title: str
@@ -44,7 +44,7 @@ class ScrapedDeal:
 
     def __init__(self, entry: Dict[str, str]):
         """
-        Populate this instance based on the provided dict
+        Rellene esta instancia en función del diccionario proporcionado
         """
         self.title = entry['title']
         self.summary = extract(entry['summary'])
@@ -61,20 +61,20 @@ class ScrapedDeal:
 
     def __repr__(self):
         """
-        Return a string to describe this deal
+        Devuelve una cadena para describir esta oferta
         """
         return f"<{self.title}>"
 
     def describe(self):
         """
-        Return a longer string to describe this deal for use in calling a model
+        Devuelve una cadena más larga para describir esta transacción y usarla al llamar a un modelo
         """
-        return f"Title: {self.title}\nDetails: {self.details.strip()}\nFeatures: {self.features.strip()}\nURL: {self.url}"
+        return f"Título: {self.title}\nDetalles: {self.details.strip()}\nCaracterísticas: {self.features.strip()}\nURL: {self.url}"
 
     @classmethod
     def fetch(cls, show_progress : bool = False) -> List[Self]:
         """
-        Retrieve all deals from the selected RSS feeds
+        Recuperar todas las ofertas de los canales RSS seleccionados 
         """
         deals = []
         feed_iter = tqdm(feeds) if show_progress else feeds
@@ -87,7 +87,7 @@ class ScrapedDeal:
 
 class Deal(BaseModel):
     """
-    A class to Represent a Deal with a summary description
+    Una clase para representar un acuerdo con una descripción resumida
     """
     product_description: str
     price: float
@@ -95,14 +95,14 @@ class Deal(BaseModel):
 
 class DealSelection(BaseModel):
     """
-    A class to Represent a list of Deals
+    Una clase para representar una lista de ofertas
     """
     deals: List[Deal]
 
 class Opportunity(BaseModel):
     """
-    A class to represent a possible opportunity: a Deal where we estimate
-    it should cost more than it's being offered
+    Una clase para representar una posible oportunidad: un acuerdo en el que estimamos que
+    debería costar más de lo que se ofrece
     """
     deal: Deal
     estimate: float

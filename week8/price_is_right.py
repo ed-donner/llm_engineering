@@ -8,7 +8,7 @@ class App:
         self.agent_framework = None
 
     def run(self):
-        with gr.Blocks(title="The Price is Right", fill_width=True) as ui:
+        with gr.Blocks(title="El Precio Justo", fill_width=True) as ui:
         
             def table_for(opps):
                 return [[opp.deal.product_description, f"${opp.deal.price:.2f}", f"${opp.estimate:.2f}", f"${opp.discount:.2f}", opp.deal.url] for opp in opps]
@@ -32,14 +32,14 @@ class App:
                 self.agent_framework.planner.messenger.alert(opportunity)
         
             with gr.Row():
-                gr.Markdown('<div style="text-align: center;font-size:24px">"The Price is Right" - Deal Hunting Agentic AI</div>')
+                gr.Markdown('<div style="text-align: center;font-size:24px">El precio justo: agencia de búsqueda de ofertas con IA</div>')
             with gr.Row():
-                gr.Markdown('<div style="text-align: center;font-size:14px">Autonomous agent framework that finds online deals, collaborating with a proprietary fine-tuned LLM deployed on Modal, and a RAG pipeline with a frontier model and Chroma.</div>')
+                gr.Markdown('<div style="text-align: center;font-size:14px">Marco de agente autónomo que encuentra ofertas en línea, colaborando con un LLM patentado y optimizado implementado en Modal, y un pipeline RAG con un modelo de frontera y Chroma.</div>')
             with gr.Row():
-                gr.Markdown('<div style="text-align: center;font-size:14px">Deals surfaced so far:</div>')
+                gr.Markdown('<div style="text-align: center;font-size:14px">Ofertas encontradas hasta el momento:</div>')
             with gr.Row():
                 opportunities_dataframe = gr.Dataframe(
-                    headers=["Description", "Price", "Estimate", "Discount", "URL"],
+                    headers=["Descripción", "Precio", "Estimación", "Descuento", "URL"],
                     wrap=True,
                     column_widths=[4, 1, 1, 1, 2],
                     row_count=10,

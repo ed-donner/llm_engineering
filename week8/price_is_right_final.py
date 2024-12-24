@@ -48,7 +48,7 @@ class App:
         return self.agent_framework
 
     def run(self):
-        with gr.Blocks(title="The Price is Right", fill_width=True) as ui:
+        with gr.Blocks(title="El Precio Justo", fill_width=True) as ui:
             
             log_data = gr.State([])
             
@@ -75,7 +75,7 @@ class App:
             def get_initial_plot():
                 fig = go.Figure()
                 fig.update_layout(
-                    title='Loading vector DB...',
+                    title='Cargando la base de datos de vectores...',
                     height=400,
                 )
                 return fig
@@ -138,7 +138,7 @@ class App:
                 gr.Markdown('<div style="text-align: center;font-size:14px">A proprietary fine-tuned LLM deployed on Modal and a RAG pipeline with a frontier model collaborate to send push notifications with great online deals.</div>')
             with gr.Row():
                 opportunities_dataframe = gr.Dataframe(
-                    headers=["Deals found so far", "Price", "Estimate", "Discount", "URL"],
+                    headers=["Descuentos hasta el momento", "Precio", "Estimación", "Descuento", "URL"],
                     wrap=True,
                     column_widths=[6, 1, 1, 1, 3],
                     row_count=10,

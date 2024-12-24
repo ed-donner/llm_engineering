@@ -49,9 +49,9 @@ class DealAgentFramework:
 
     def init_agents_as_needed(self):
         if not self.planner:
-            self.log("Initializing Agent Framework")
+            self.log("Inicializando el Framework de Agentes")
             self.planner = PlanningAgent(self.collection)
-            self.log("Agent Framework is ready")
+            self.log("El framework de agentes está listo")
         
     def read_memory(self) -> List[Opportunity]:
         if os.path.exists(self.MEMORY_FILENAME):
@@ -67,14 +67,14 @@ class DealAgentFramework:
             json.dump(data, file, indent=2)
 
     def log(self, message: str):
-        text = BG_BLUE + WHITE + "[Agent Framework] " + message + RESET
+        text = BG_BLUE + WHITE + "[Framework de Agentes] " + message + RESET
         logging.info(text)
 
     def run(self) -> List[Opportunity]:
         self.init_agents_as_needed()
-        logging.info("Kicking off Planning Agent")
+        logging.info("Puesta en marcha del agente de planificación")
         result = self.planner.plan(memory=self.memory)
-        logging.info(f"Planning Agent has completed and returned: {result}")
+        logging.info(f"La agente de planificación ha completado y regresado: {result}")
         if result:
             self.memory.append(result)
             self.write_memory()

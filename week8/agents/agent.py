@@ -2,8 +2,8 @@ import logging
 
 class Agent:
     """
-    An abstract superclass for Agents
-    Used to log messages in a way that can identify each Agent
+    Una superclase abstracta para agentes
+    Se utiliza para registrar mensajes de forma que se pueda identificar a cada agente
     """
 
     # Foreground colors
@@ -18,7 +18,7 @@ class Agent:
     # Background color
     BG_BLACK = '\033[40m'
     
-    # Reset code to return to default color
+    # Código de reinicio para volver al color predeterminado
     RESET = '\033[0m'
 
     name: str = ""
@@ -26,7 +26,7 @@ class Agent:
 
     def log(self, message):
         """
-        Log this as an info message, identifying the agent
+        Registre esto como un mensaje de información, identificando al agente
         """
         color_code = self.BG_BLACK + self.color
         message = f"[{self.name}] {message}"
