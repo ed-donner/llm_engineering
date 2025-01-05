@@ -87,7 +87,7 @@ You should see (llms) in your command prompt, which is your sign that things are
 4. Run `python -m pip install --upgrade pip` followed by `pip install -r requirements.txt`  
 This may take a few minutes to install.
 In the very unlikely event that this doesn't go well, you should try the bullet-proof (but slower) version:  
-`pip install --retries 5 --timeout 15 --no-cache-dir --force-reinstall --verbose -r requirements.txt`
+`pip install --retries 5 --timeout 15 --no-cache-dir --force-reinstall -r requirements.txt`
 
 5. **Start Jupyter Lab:**
 

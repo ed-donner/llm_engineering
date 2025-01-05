@@ -101,7 +101,7 @@ Your prompt should now display `(llms)`, indicating the environment is active.
 Run: `python -m pip install --upgrade pip` followed by `pip install -r requirements.txt`.
 
 If issues occur, try the fallback:
-`pip install --retries 5 --timeout 15 --no-cache-dir --force-reinstall --verbose -r requirements.txt`
+`pip install --retries 5 --timeout 15 --no-cache-dir --force-reinstall -r requirements.txt`
 
 6. **Start Jupyter Lab:**
 
