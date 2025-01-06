@@ -61,6 +61,7 @@ If this Part 2 gives you any problems, there is an alternative Part 2B below tha
 - Navigate to the "project root directory" by entering something like `cd C:\Users\YourUsername\Documents\Projects\llm_engineering` using the actual path to your llm_engineering project root directory. Do a `dir` and check you can see subdirectories for each week of the course.
 - Create the environment: `conda env create -f environment.yml`
 - Wait for a few minutes for all packages to be installed - in some cases, this can literally take 20-30 minutes if you've not used Anaconda before, and even longer depending on your internet connection. Important stuff is happening! If this runs for more than 1 hour 15 mins, or gives you other problems, please go to Part 2B instead.
+- If the creation of environment using **Conda** is taking too long, a better alternative is **Mamba** which is faster in terms of installation time and dependency resolution. To use **Mamba** as package manager, please go to Part 2C.
 - You have now built an isolated, dedicated AI environment for engineering LLMs, running vector datastores, and so much more! You now need to **activate** it using this command: `conda activate llms`  
 
 You should see `(llms)` in your prompt, which indicates you've activated your new environment.
@@ -102,6 +103,24 @@ From within the `llm_engineering` folder, type: `jupyter lab`
 ...and Jupyter Lab should open up, ready for you to get started. Open the `week1` folder and double click on `day1.ipynb`. Success! Now close down jupyter lab and move on to Part 3.
 
 If there are any problems, contact me!
+
+### Part 2C - Mamba - Alternative to Conda for faster creation of environment.yml
+
+1. **Install Mamba:**
+
+Open the Anaconda Prompt installed in part 2, run the following to install mamba: `conda install -n base -c conda-forge mamba`
+
+2. **Navigate to Project**
+
+Navigate to the "project root directory" by entering something like `cd C:\Users\YourUsername\Documents\Projects\llm_engineering` using the actual path to your llm_engineering project root directory. Do a dir and check you can see subdirectories for each week of the course.
+
+3. **Create environment.yml**
+
+Use the following command to create the enviroment: `mamba env create -f environment.yml`
+
+4. **Activate Environment**
+
+You can continue using Conda for the subsequent steps, as Mamba is fully compatible with Conda. Therefore, to activate your environmen, use the following command: `conda activate llms`
 
 ### Part 3 - OpenAI key (OPTIONAL but recommended)
 
