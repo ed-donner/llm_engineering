@@ -40,3 +40,5 @@ bitsandbytes
 psutil
 setuptools
 speedtest-cli
+sentence_transformers
+feedparser
