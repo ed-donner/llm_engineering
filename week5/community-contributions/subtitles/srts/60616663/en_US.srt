@@ -1,0 +1,568 @@
+WEBVTT
+
+00:00.140 --> 00:00.500
+Well.
+
+00:00.530 --> 00:04.550
+Hi there, this is time for PC people to get set up.
+
+00:04.550 --> 00:08.060
+So all you Mac people out there, you don't need to be watching this one.
+
+00:08.060 --> 00:12.650
+And now's the time when I tell you guys that I told the Mac people that they were my favorite people
+
+00:12.680 --> 00:15.770
+because I'm a mac user myself, but you know, I am a mac user.
+
+00:15.770 --> 00:18.350
+But I'll have you know that I started out in PCs.
+
+00:18.350 --> 00:20.480
+I in fact worked for IBM for a few years.
+
+00:20.480 --> 00:25.790
+So really, in my heart of hearts, I'm from a IBM from PC blood.
+
+00:25.790 --> 00:26.150
+So.
+
+00:26.150 --> 00:30.290
+So you guys are really my people no matter what I said to the other people.
+
+00:30.290 --> 00:38.060
+Anyways, let's get you set up with a PC to use the environment that we need for this entire course.
+
+00:38.060 --> 00:46.640
+So we start by going to the repository, my repository for this class, LM engineering, which is at
+
+00:46.640 --> 00:50.060
+github.com slash my name LM engineering.
+
+00:50.060 --> 00:56.150
+This link should be all over the place in the course and in the in the notes for the course and resources
+
+00:56.150 --> 00:56.960
+and so on.
+
+00:56.990 --> 00:59.870
+And when you go there, you see this repository on GitHub.
+
+00:59.870 --> 01:05.440
+And if you scroll down you get to see the Readme file that I've written with setup instructions, and
+
+01:05.440 --> 01:11.020
+I hope I've done a decent job in laying out all of the steps required to set up your environment.
+
+01:11.050 --> 01:15.700
+And if you prefer to follow instructions that way, then do it that way rather than watching the video.
+
+01:15.730 --> 01:17.200
+And hopefully I've done it well.
+
+01:17.200 --> 01:21.550
+And if you find a problem with them, please, please let me know so I can update them for everybody
+
+01:21.550 --> 01:22.240
+else.
+
+01:22.570 --> 01:26.740
+Anyway, if you do go through these instructions, what you'll find is that the first thing it says
+
+01:26.770 --> 01:29.890
+is that for PC people, you may need to install git.
+
+01:29.890 --> 01:31.300
+If you've not done it before.
+
+01:31.300 --> 01:36.070
+Git the code control system, something that I imagine most of you who have used some might not.
+
+01:36.100 --> 01:40.480
+It comes installed on Macs by default, but not on windows.
+
+01:40.630 --> 01:47.230
+And so if you follow this link, you get to the git download page, you follow the instructions to download,
+
+01:47.500 --> 01:53.980
+and you then have to say okay about 20 times and just accept the defaults for everything.
+
+01:53.980 --> 01:55.750
+I just went through and did this myself when I was pressing.
+
+01:55.750 --> 02:00.310
+Okay, okay, okay, so go through all of those things, just take the defaults all the way through
+
+02:00.310 --> 02:03.490
+and you will install git on your computer.
+
+02:03.490 --> 02:07.360
+And so once you have done that come back to the repository.
+
+02:07.610 --> 02:12.560
+The next thing to do is at the top here there's this green button code.
+
+02:12.650 --> 02:17.540
+And if you press that green button, it comes up here with the link to the repository.
+
+02:17.540 --> 02:18.980
+And you can pick either of these.
+
+02:18.980 --> 02:21.020
+But we were going to pick this https one.
+
+02:21.020 --> 02:26.000
+And we're going to press um actually you should pick this one and then press the copy button to copy
+
+02:26.030 --> 02:27.500
+it to clipboard.
+
+02:27.770 --> 02:32.690
+What we're now going to do is we're going to go and open a new PowerShell.
+
+02:32.870 --> 02:34.100
+Uh, let me see.
+
+02:34.160 --> 02:35.720
+Type PowerShell in here.
+
+02:35.750 --> 02:39.530
+I'm a little bit clumsy at the PC because it has been a little while since I've done this, so you may
+
+02:39.530 --> 02:41.510
+have to bear with me if I make a fool of myself.
+
+02:41.510 --> 02:42.140
+But there we go.
+
+02:42.170 --> 02:43.640
+Up comes the PowerShell.
+
+02:43.910 --> 02:44.210
+Um.
+
+02:44.210 --> 02:49.910
+And now the first thing you need to do, which you may already have, is create a projects directory,
+
+02:49.910 --> 02:53.000
+something that where your different projects that you work on will go.
+
+02:53.030 --> 02:59.660
+You may already have a projects directory, but if I do CD projects, it turns out I do not.
+
+02:59.660 --> 03:03.200
+So I can make a projects directory by doing this.
+
+03:03.230 --> 03:06.050
+You may also just use the Windows Explorer.
+
+03:06.050 --> 03:08.420
+Uh, the the File Explorer if you prefer.
+
+03:08.450 --> 03:12.570
+You don't need to use the command prompt, but, uh, is he doing that?
+
+03:12.570 --> 03:15.900
+So I've made a new projects directory in my home directory.
+
+03:15.900 --> 03:22.410
+I'm now going to CD into it, and here we are in our projects directory, which of course is empty or
+
+03:22.410 --> 03:24.870
+dir, if you prefer, the windows way.
+
+03:25.050 --> 03:28.470
+Uh, what I now type is very simple.
+
+03:28.620 --> 03:35.730
+Uh, it is git clone, uh, which means I want to make a local copy of this repository, and then you
+
+03:35.730 --> 03:40.980
+put in the name of the repository, the link to it that we copied a second ago.
+
+03:41.310 --> 03:44.970
+Uh, and when we do that, it will immediately download.
+
+03:44.970 --> 03:45.780
+It's already happened.
+
+03:45.780 --> 03:48.480
+All the code has been cloned to my local drive.
+
+03:48.480 --> 03:54.120
+So if I look here, you'll see that there is indeed a folder called LM engineering that we will now
+
+03:54.150 --> 03:55.590
+go into.
+
+03:55.680 --> 04:00.600
+And there is all of the code that will be our playground for the next eight weeks.
+
+04:00.600 --> 04:08.220
+And now it's worth mentioning that sometimes people use the expression the project root directory to
+
+04:08.250 --> 04:10.650
+mean this folder LM engineering.
+
+04:10.650 --> 04:12.810
+It is the root directory of this project.
+
+04:12.810 --> 04:18.380
+So if I ever say verbally, or if it's in the in the readme that it mentions project root.
+
+04:18.380 --> 04:21.620
+I'm talking about this directory LM engineering.
+
+04:21.740 --> 04:22.550
+There we are.
+
+04:22.580 --> 04:29.150
+So the next step is now to install Anaconda, which is as I say, it's a it's a reasonably heavyweight
+
+04:29.180 --> 04:31.190
+tool because it's super powerful.
+
+04:31.430 --> 04:38.810
+And the place to do that is back in the the Readme again, there is a link to where you go to install
+
+04:38.900 --> 04:41.000
+Anaconda and there it is.
+
+04:41.030 --> 04:43.430
+And I have that up over here.
+
+04:43.640 --> 04:45.410
+Um, except the cookies.
+
+04:45.440 --> 04:50.450
+This is the Anaconda documentation for installing on windows, and it tries to get you to give your
+
+04:50.450 --> 04:53.600
+email address and various other things which you can feel free to do if you wish.
+
+04:53.600 --> 04:57.590
+But then at the end, you can also just say what we'll do now press the download.
+
+04:57.590 --> 05:02.360
+It suggests you could you could provide an email, but you can also just say skip registration here
+
+05:02.360 --> 05:03.140
+if you'd prefer.
+
+05:03.140 --> 05:06.080
+And then you get to this Download Now page.
+
+05:06.080 --> 05:08.420
+And this is the download that we will do now.
+
+05:08.870 --> 05:10.550
+Anaconda is quite large.
+
+05:10.550 --> 05:13.670
+This is a five gigabyte download.
+
+05:13.820 --> 05:16.730
+And so it may be something which you don't have the room for.
+
+05:16.730 --> 05:18.740
+And you may also find that this is too heavy weight.
+
+05:18.740 --> 05:24.560
+And there is the alternative approach using virtualenv that I will record after this, which is a simpler
+
+05:24.560 --> 05:27.290
+approach, but it's less guaranteed to be compatible.
+
+05:27.350 --> 05:28.790
+And, you know, it's less hardcore.
+
+05:28.790 --> 05:32.930
+If you want to be a hardcore LM engineer, you should at least try the Anaconda route.
+
+05:32.930 --> 05:36.800
+So you press the download button, which I already did.
+
+05:36.830 --> 05:43.520
+It then brings up a screen to install Anaconda, the usual installation wizard thing, and you have
+
+05:43.520 --> 05:44.930
+to press yes a few times.
+
+05:44.930 --> 05:47.300
+It does prompt you for where you want it to install.
+
+05:47.330 --> 05:53.750
+Some people have selected there to install it to a different drive to make sure that you have capacity.
+
+05:53.900 --> 05:58.310
+Um, and then when that is done, it will complete the installation, take a few minutes to download
+
+05:58.310 --> 06:03.590
+and install, and you will have the Anaconda program on your computer.
+
+06:03.590 --> 06:04.850
+And what does that mean?
+
+06:04.850 --> 06:10.040
+Well, the thing that it means, as far as we're concerned is that whilst we have this PowerShell that
+
+06:10.040 --> 06:17.300
+we are very familiar with, there is also a new thing on our start menu, which is called Anaconda PowerShell
+
+06:17.300 --> 06:22.780
+and that if we open it looks very similar, looks just like a normal PowerShell, but it is in fact
+
+06:22.780 --> 06:25.030
+a special Anaconda one.
+
+06:25.420 --> 06:26.860
+Try and expand this window for you.
+
+06:26.890 --> 06:29.740
+Hold on a second while I fumble fumble, fumble.
+
+06:29.920 --> 06:31.450
+Uh uh.
+
+06:31.480 --> 06:32.350
+Now what have I done?
+
+06:32.380 --> 06:33.250
+There we go.
+
+06:33.580 --> 06:34.630
+I'm hopeless at this.
+
+06:34.660 --> 06:35.590
+There we go.
+
+06:35.620 --> 06:42.490
+So the way that you know that it's an Anaconda PowerShell is that this word base appears to the left,
+
+06:42.490 --> 06:48.070
+which means that we are in a world, uh, a base world, rather than in a world that we have built,
+
+06:48.070 --> 06:49.900
+especially for an environment.
+
+06:50.020 --> 06:50.680
+All right.
+
+06:50.680 --> 06:57.640
+So now I'm going to go into our projects folder that we just made, and I'm going to go into LM engineering.
+
+06:57.670 --> 06:58.570
+There it is.
+
+06:59.020 --> 07:03.880
+So we're now in the project root directory as I explained is the right term for it.
+
+07:03.910 --> 07:10.600
+And I'm now going to run a simple command which is conda which is the name for running anaconda commands.
+
+07:10.660 --> 07:13.390
+Env which means environment create.
+
+07:13.390 --> 07:19.810
+I want to create a new environment minus f means I'm going to specify a file which describes exactly
+
+07:19.810 --> 07:21.940
+everything that I need for this environment.
+
+07:21.940 --> 07:23.920
+And the file is called Environment.
+
+07:23.950 --> 07:25.450
+Environment.
+
+07:25.480 --> 07:26.650
+Dot YAML.
+
+07:26.650 --> 07:29.080
+And you can see Environment.yml right right here.
+
+07:29.080 --> 07:31.810
+So that is what I'm going to do.
+
+07:32.170 --> 07:39.580
+Now at this point you will need to go and get a coffee and maybe even two coffees.
+
+07:39.700 --> 07:45.670
+So it does take a bit of time to install this full environment the first time.
+
+07:45.670 --> 07:50.950
+So when I do it, it's probably takes a few minutes because I've done it before.
+
+07:50.980 --> 07:56.950
+The very first time, it might take somewhere between 10 minutes and 20 minutes depending on your internet
+
+07:56.950 --> 08:00.520
+connection, and that's going to be a thing to look out for.
+
+08:00.520 --> 08:02.260
+So what it's actually doing.
+
+08:02.260 --> 08:08.380
+So it's looking at all of the packages that we say that we need for this data science environment.
+
+08:08.380 --> 08:15.520
+And it then figures out for this particular type of system, whatever chip you've got and for the various
+
+08:15.520 --> 08:21.400
+configurations that you've got, what are the compatible versions of every single package that we need
+
+08:21.430 --> 08:26.050
+to do things like in the future we'll have an object database, we'll be using Lang chain, we'll be
+
+08:26.050 --> 08:28.590
+using gradio all sorts of things.
+
+08:28.590 --> 08:35.010
+It makes sure that we pick the latest versions that are all compatible with each other and also compatible
+
+08:35.010 --> 08:36.810
+with your processor and so on.
+
+08:36.810 --> 08:39.240
+And that's why it now says solving environment.
+
+08:39.240 --> 08:45.330
+That's the equation that it's solving with lots of different decisions to make.
+
+08:45.960 --> 08:48.360
+So it's going to make those decisions.
+
+08:48.360 --> 08:53.790
+And it's then going to install all of those packages on your computer.
+
+08:53.940 --> 08:58.140
+And we're going to I'm going to keep keep going with this sentence for a bit longer to see if it's going
+
+08:58.140 --> 08:59.820
+to get close to wrapping up.
+
+08:59.970 --> 09:04.890
+Otherwise I might have to, uh, to to break and come back in just a second.
+
+09:06.300 --> 09:06.690
+All right.
+
+09:06.690 --> 09:08.820
+It looks like it's going to take just a couple more minutes.
+
+09:08.820 --> 09:13.140
+So I'm going to pause the video and I will return when this is ready.
+
+09:13.320 --> 09:15.690
+Well it's just as well I didn't hang on in there.
+
+09:15.690 --> 09:18.630
+It took another five minutes from that point to finish.
+
+09:18.720 --> 09:23.790
+So that would've been an embarrassing amount of five minutes of my waffle that I've rescued you from.
+
+09:23.940 --> 09:28.140
+So anyway, this can take a few minutes and I've got a fast connection, as I say, so.
+
+09:28.140 --> 09:31.250
+So it could well be 20 30 minutes for you.
+
+09:31.340 --> 09:32.870
+So hang on in there.
+
+09:32.870 --> 09:37.880
+But but obviously if it takes unspeakably long, then abandon and go to the next video where we will
+
+09:37.880 --> 09:38.660
+do it differently.
+
+09:38.660 --> 09:44.120
+But if it's completed, your your Anaconda PowerShell prompt should look something like this.
+
+09:44.420 --> 09:46.490
+It still says base at the end there.
+
+09:46.640 --> 09:48.620
+And we've created an environment that is known.
+
+09:48.650 --> 09:49.880
+It's called LMS.
+
+09:49.880 --> 09:51.110
+That's the name I gave it.
+
+09:51.110 --> 09:59.000
+And to now activate that environment, which means to make that be the live world that that Anaconda
+
+09:59.000 --> 10:00.020
+is working within.
+
+10:00.050 --> 10:05.480
+You simply type conda, activate LMS and you'll need to run that.
+
+10:05.600 --> 10:10.370
+You'll need to any time that you come back to your computer that you want to start everything again
+
+10:10.520 --> 10:16.550
+before you you get started, you will need to remember to open up an anaconda prompt and do conda.
+
+10:16.580 --> 10:23.390
+Activate LMS and your clue that it is now working is that you'll see LMS written over here on the left
+
+10:23.540 --> 10:30.770
+to the left of my prompt, and that is telling me that I have successfully created my Anaconda environment.
+
+10:30.890 --> 10:37.050
+Um, and another way we can do it is that if we type Python minus minus version, it will tell us that
+
+10:37.050 --> 10:43.290
+the version of Python we're on is 3.11.1, which is the version, or at least 3.11 is what I specified
+
+10:43.290 --> 10:44.220
+for this environment.
+
+10:44.220 --> 10:49.500
+So we know that we're on exactly the same version of Python, and everything should be compatible.
+
+10:49.500 --> 10:53.670
+And it just remains for me to type these two words Jupyter Lab.
+
+10:53.670 --> 10:58.860
+And this is going to open up the Jupyter environment, which is this data science environment where
+
+10:58.860 --> 11:02.280
+we can work really effectively together on code.
+
+11:02.280 --> 11:04.290
+Again, some of you probably know this back to front.
+
+11:04.290 --> 11:05.940
+For some people this might be new.
+
+11:05.970 --> 11:07.050
+I press enter.
+
+11:07.050 --> 11:09.630
+It's going to start Jupyter Lab.
+
+11:09.810 --> 11:11.490
+Uh, up it comes.
+
+11:11.880 --> 11:17.310
+The first time it might prompt you for which browser do you want to open, but then it opens up with
+
+11:17.310 --> 11:26.190
+Jupyter Lab on my computer with our eight weeks that lies ahead of us and we are good to go.
+
+11:26.220 --> 11:28.410
+That is the PC instructions.
+
+11:28.410 --> 11:30.060
+Hopefully this has all gone well for you.
+
+11:30.060 --> 11:35.520
+If it hasn't, please, please reach out to me, let me know and I will get you sorted.
+
+11:35.700 --> 11:37.800
+I will see you then for the next video.

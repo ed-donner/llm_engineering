@@ -1,0 +1,529 @@
+WEBVTT
+
+00:00.410 --> 00:06.860
+So here we are on Hugging Face's main landing page at Hugging Face Core.
+
+00:06.890 --> 00:07.790
+A URL you know.
+
+00:07.790 --> 00:11.390
+Well, since we produced the company brochure for Hugging Face a couple of times.
+
+00:11.510 --> 00:14.270
+And, uh, this is this is what you'll see.
+
+00:14.270 --> 00:16.760
+If you're not logged in, you don't have an account.
+
+00:16.760 --> 00:18.530
+You'll see a screen like this.
+
+00:18.530 --> 00:20.870
+And the first thing you need to do is go to sign up.
+
+00:20.870 --> 00:27.470
+If you don't already have a hugging face account, it is free to join email address and a password and
+
+00:27.470 --> 00:29.210
+then you will be in.
+
+00:29.240 --> 00:32.810
+And once you're in, you'll get to see something like this.
+
+00:33.590 --> 00:40.040
+Uh, the main navigation of Hugging Face is up here, and you can see the first three parts of the main
+
+00:40.040 --> 00:42.680
+navigation are models, datasets and spaces.
+
+00:42.680 --> 00:45.050
+And that is what we're going to look at right now.
+
+00:45.350 --> 00:52.820
+So the first tab models, this is where in the hugging face platform or the hub as it's known, you
+
+00:52.820 --> 00:56.690
+can see all of the models that are available to you.
+
+00:56.900 --> 01:02.090
+I said before that it's more than 800,000 is in fact more than 900,000.
+
+01:02.120 --> 01:03.140
+Look at that.
+
+01:03.530 --> 01:10.460
+And this is sorted, I think, by default by trending, which is some combination of recency and popularity.
+
+01:10.490 --> 01:16.580
+You can also turn that into by how popular it is, how many times it's been downloaded and how recently
+
+01:16.580 --> 01:18.320
+it was created or updated.
+
+01:19.310 --> 01:24.920
+As you can see here, the name of each of these models is typically the name of the organization and
+
+01:24.920 --> 01:26.450
+then the name of the model.
+
+01:26.780 --> 01:34.610
+Flux is one of the latest and most exciting text to image models, and I do believe we'll be playing
+
+01:34.610 --> 01:35.780
+with that at some point.
+
+01:36.110 --> 01:42.170
+Quanta, the powerhouse model from Alibaba Cloud that I've mentioned a few times now.
+
+01:42.170 --> 01:48.590
+And you can see typically you have the number of parameters often in the description of a lamb.
+
+01:48.590 --> 01:56.540
+And then instruct at the end tells us that this has been fine tuned to be most applicable during a sort
+
+01:56.540 --> 02:01.980
+of chat and instruct kind of interaction with the input.
+
+02:02.700 --> 02:05.820
+And we can see lots of other models here.
+
+02:05.820 --> 02:07.740
+There's of course a filter up here.
+
+02:07.740 --> 02:16.830
+So we can filter on something like llama to look at the llama model, which was Meta's model, which
+
+02:16.830 --> 02:20.400
+is so very well known, so very popular.
+
+02:20.550 --> 02:21.240
+Here it is.
+
+02:21.270 --> 02:26.550
+These are all various um, times that meta or llama will have been mentioned at some point in these
+
+02:26.550 --> 02:27.000
+descriptions.
+
+02:27.000 --> 02:35.220
+But you can see what we're really looking for is is here this is Meta llama 3.18 billion version model.
+
+02:35.220 --> 02:39.720
+And that's the same one fine tuned for the instruct use case.
+
+02:39.750 --> 02:43.500
+The this kind of uh um chat use case.
+
+02:43.500 --> 02:45.000
+So let's go in here.
+
+02:45.000 --> 02:51.540
+If you go into llama 3.18 billion, you see a ton of information about it.
+
+02:51.540 --> 02:55.170
+You see that it's been downloaded a large number of times.
+
+02:55.320 --> 03:00.450
+Uh, recently we'll be downloading it ourselves, I think, on many occasions over the coming weeks.
+
+03:00.570 --> 03:06.990
+Uh, you get some information about the model architecture, uh, the languages, the family, the how
+
+03:06.990 --> 03:12.270
+it's intended to be used, and then some code examples down at the end.
+
+03:12.420 --> 03:15.420
+Uh, so this is all useful stuff to read about.
+
+03:15.420 --> 03:17.550
+Also information about how it was trained.
+
+03:17.820 --> 03:22.590
+Um, and lots of other things worth reading about.
+
+03:23.100 --> 03:30.330
+There's also this tab here, Files and Versions, which opens up something that looks a bit like a git
+
+03:30.330 --> 03:31.380
+repository.
+
+03:31.380 --> 03:36.480
+And it's funny you should think that because it actually is a git repository.
+
+03:36.510 --> 03:42.930
+A lot of what you can think of the hugging face hub as is a sort of interface on top of a series of
+
+03:42.960 --> 03:44.190
+git repos.
+
+03:44.190 --> 03:51.330
+And often when you're downloading a model or downloading data, what you're really doing is doing a
+
+03:51.360 --> 03:56.830
+sort of a pull from git get and getting these files locally.
+
+03:56.830 --> 04:08.110
+So this is the the the the folder and file structure that sits behind the meta llama 3.18 billion.
+
+04:08.440 --> 04:12.430
+And there are various ways that you can use it.
+
+04:12.520 --> 04:14.020
+There's a button here.
+
+04:14.020 --> 04:18.880
+Use this model that will give you more information if you go into it on what you need to do.
+
+04:18.880 --> 04:21.490
+That gives you actual examples of code.
+
+04:21.490 --> 04:24.370
+We'll be using this code later, so don't worry about it right now.
+
+04:24.670 --> 04:28.780
+You don't need to to read this, but know that you can always go to use this model.
+
+04:28.780 --> 04:34.390
+Select Transformers, which means you want to use it using hugging face Transformers library, and then
+
+04:34.390 --> 04:38.230
+copy code examples directly from the user interface.
+
+04:38.260 --> 04:39.850
+As simple as that.
+
+04:40.480 --> 04:43.270
+And there's other stuff here that we'll look at another day.
+
+04:43.300 --> 04:50.290
+There's some tags of course, which also allows you to filter on different, uh, aspects of models
+
+04:50.290 --> 04:51.940
+very quickly and easily.
+
+04:52.000 --> 04:55.420
+We'll be looking at lots of other models in time.
+
+04:55.420 --> 05:01.750
+We'll be looking at things like the Phi model from Microsoft and which I think I mentioned.
+
+05:01.780 --> 05:08.680
+We'll be looking, of course, at quanta, and that you've actually already seen and plenty of others.
+
+05:08.680 --> 05:14.350
+Maybe I'll mention Google's Gemma that you'll see Gemma will come up when I do this.
+
+05:14.590 --> 05:16.750
+Um, it did come up and then it went away.
+
+05:16.750 --> 05:19.900
+So let's do Google slash Gemma.
+
+05:19.930 --> 05:21.070
+There we go.
+
+05:21.340 --> 05:30.850
+Um, so this, for example, the 2 billion very small on device version of Gemma and it as before has
+
+05:30.850 --> 05:37.990
+the description, the code examples, the files and versions and the ability to use this model just
+
+05:37.990 --> 05:40.360
+by clicking there like so.
+
+05:40.870 --> 05:42.280
+That's models.
+
+05:42.280 --> 05:44.080
+Let's move on to data sets.
+
+05:44.110 --> 05:50.920
+Data sets shows you the vast resource of data that's available on the Hugging Face hub.
+
+05:50.920 --> 05:53.470
+And again, you've got the ability to search.
+
+05:53.500 --> 05:55.600
+It's sorted by default on trending.
+
+05:55.870 --> 06:03.250
+And let me say later on, we're going to be doing some experiments using prices of products.
+
+06:03.250 --> 06:07.810
+And one of the things we'd love to see is some sort of scrape of product data.
+
+06:07.840 --> 06:15.850
+And it turns out there is in fact, there are a bunch of repositories of data related to prices on Amazon.
+
+06:15.850 --> 06:17.170
+Here is some of them.
+
+06:17.200 --> 06:21.220
+You can have a look around the popularity of them and which ones are useful.
+
+06:21.220 --> 06:26.380
+We are in fact going to be using this one here, which is very recent and which is very comprehensive
+
+06:26.380 --> 06:29.830
+indeed and has tons of useful data.
+
+06:29.950 --> 06:32.950
+So it's absolutely phenomenal resource.
+
+06:33.100 --> 06:40.390
+So do take a look at this and you can you can also use things like data set viewers and other tools
+
+06:40.390 --> 06:42.730
+that come with the data sets.
+
+06:42.760 --> 06:50.360
+Part of the Huggingface hub spaces I mentioned is where Gradio radio apps and other kinds of apps can
+
+06:50.360 --> 06:56.960
+run to do things that people in the community want to show off to others, or just get to get people
+
+06:56.960 --> 06:57.470
+using them.
+
+06:57.470 --> 07:02.600
+And you can do the same with your hugging face apps or your radio apps.
+
+07:02.600 --> 07:05.090
+There's a lot of things to try out here.
+
+07:05.240 --> 07:07.850
+Uh, there's uh, there's sort of spaces of the week.
+
+07:07.850 --> 07:12.230
+There's there's things that are trending, and then there's a few types of spaces that we will be looking
+
+07:12.230 --> 07:19.340
+at a lot more in the next few or probably next week, mostly about leaderboards, comparing different
+
+07:19.370 --> 07:20.240
+LMS.
+
+07:20.480 --> 07:28.760
+Um, there's a plenty of fun spaces where you can try out different interesting LMS or generative AI
+
+07:28.760 --> 07:29.870
+applications.
+
+07:30.140 --> 07:35.330
+Um, one of the things I do tend to find is that sometimes because a lot of these are running for free
+
+07:35.330 --> 07:41.120
+on free boxes, it can be a bit flaky in that if it's a popular one, then it's overused and it's quite
+
+07:41.120 --> 07:45.050
+hard to get it to run because it will tell you that it's too busy right now.
+
+07:45.200 --> 07:48.750
+Um, but I think that comes with the territory of free software.
+
+07:49.050 --> 07:51.150
+When it does work, it is wonderful.
+
+07:51.150 --> 07:54.870
+So, for example, I just tried out a couple that were in the top spaces.
+
+07:54.870 --> 08:02.850
+So this one here, the AI Comic Factory, you can give it a style, you can give it a title of your
+
+08:02.850 --> 08:08.340
+comic and give it some something about how you want it to think when it's producing it.
+
+08:08.490 --> 08:15.720
+And I did a super powered data scientist comic, and you get this very cross looking, presumably the
+
+08:15.720 --> 08:21.390
+villain, and then you get presumably the heroine saying data is power, but sometimes it needs a little
+
+08:21.390 --> 08:22.050
+push.
+
+08:22.440 --> 08:24.630
+And so it's great fun.
+
+08:24.630 --> 08:31.740
+This is an imagined created comic strip based on a topic that you choose, and I encourage you to come
+
+08:31.740 --> 08:32.700
+in and give it a try.
+
+08:32.700 --> 08:40.410
+It did take me 2 or 3 tries before I got this because it was too much in demand, but it's for me.
+
+08:40.410 --> 08:44.880
+It's on the first page of Most Popular right now, but if you find this or something like it, give
+
+08:44.880 --> 08:45.590
+it a try.
+
+08:45.620 --> 08:50.480
+Another thing that I tried out that was available was this.
+
+08:50.480 --> 08:51.650
+This is pretty funny.
+
+08:51.710 --> 08:53.360
+You can upload an image of yourself.
+
+08:53.360 --> 08:58.400
+I chose the one with me in front of the plane from before, which I cannot fly.
+
+08:58.790 --> 09:00.800
+But that hasn't stopped me from trying.
+
+09:01.190 --> 09:07.790
+And then you can pick a garment or upload a garment, and then it will show you wearing that garment.
+
+09:07.820 --> 09:08.810
+I mean, it's all right.
+
+09:08.810 --> 09:09.860
+It's not perfect.
+
+09:09.860 --> 09:11.030
+I don't know what's happening.
+
+09:11.240 --> 09:14.720
+I'm sort of hunched up like this a bit, but it gives you the idea.
+
+09:14.720 --> 09:19.760
+It's interesting to see that some sort of strange artifact has happened with the plane behind me.
+
+09:19.940 --> 09:23.570
+Uh, but, um, aside from that, it's fun.
+
+09:23.570 --> 09:29.900
+It's free, it's easy to use, and it's a classic example of people having good ideas about fun things
+
+09:29.900 --> 09:36.050
+you can do with AI, with Llms, and have surfaced it for others to play with.
+
+09:36.080 --> 09:39.590
+You will find many examples of this on spaces.
+
+09:40.190 --> 09:47.460
+Uh, so then the other thing I wanted to show you, is to show you what happens if you go to to the
+
+09:47.460 --> 09:49.260
+avatar menu and look at yourself.
+
+09:49.260 --> 09:54.390
+So here is, um, the, uh, I'm just going to go straight here.
+
+09:54.570 --> 09:57.360
+Uh, I can see my own what I've done.
+
+09:57.360 --> 10:03.330
+I have one space, I've got a bunch of different models, some of which will be playing with ourselves,
+
+10:03.330 --> 10:05.880
+and I've got a bunch of data sets, and they're all private.
+
+10:05.880 --> 10:10.530
+You can make them private if you only want to have access to them, or public if you want the world
+
+10:10.530 --> 10:11.400
+to see them.
+
+10:11.610 --> 10:17.250
+Um, and I've got various data sets that we will be talking about many of these in the next few weeks,
+
+10:17.250 --> 10:18.720
+and I think you'll have fun with them.
+
+10:19.080 --> 10:25.890
+Uh, and this space that I've got, for example, I also will might refer to, um, just just as an
+
+10:25.890 --> 10:28.350
+example of how easy it is to do this stuff.
+
+10:28.440 --> 10:37.050
+But in this case, this is public and this is a game that I built which allows you to have llms compete
+
+10:37.050 --> 10:39.540
+against each other to try to battle.
+
+10:39.540 --> 10:45.360
+It was inspired by the the battle, the leadership battle we had in the first week.
+
+10:45.510 --> 10:53.340
+And I beefed that up a bit to make something where different lambs can fight in a way, to try and outwit
+
+10:53.370 --> 10:57.390
+each other and take money from each other, following some rules.
+
+10:57.390 --> 10:59.340
+And you can play a game and watch it run.
+
+10:59.340 --> 11:04.980
+Maybe we'll do that when we talk about the differences between lambs next week, I'll see if we have
+
+11:04.980 --> 11:05.370
+time.
+
+11:05.370 --> 11:09.570
+If not, by all means come and give this a try yourself to see how I've done, and you can see it as
+
+11:09.570 --> 11:16.500
+an example of how it's easy to take an LLM application with either a gradio front end.
+
+11:16.500 --> 11:21.120
+In this case, this is called Streamlit, a different kind of user interface or others.
+
+11:21.120 --> 11:25.740
+And then publish it to be available to everyone on huggingface spaces.
+
+11:26.490 --> 11:33.300
+One more thing about this menu that's worth mentioning is that if you go to your profile and your,
+
+11:33.300 --> 11:40.840
+uh, sorry, if you go to your settings, I mean, down here to settings, uh, down here is a section
+
+11:40.840 --> 11:42.790
+called Access Tokens.
+
+11:42.790 --> 11:45.910
+This is something you need to do if you haven't done it before.
+
+11:45.940 --> 11:50.950
+You go to access tokens and then there's a simple button create new token.
+
+11:50.950 --> 11:58.060
+You press that to give yourself a new token, a new API token, where you will ask for both read and
+
+11:58.060 --> 11:59.230
+write permissions.
+
+11:59.230 --> 12:07.030
+That is a token that we'll be using in Jupyter in order to get access to the hub, and in order to both
+
+12:07.030 --> 12:09.970
+download and upload models and data.
+
+12:09.970 --> 12:14.260
+So that is a key part of setting up your hugging face account.
+
+12:14.350 --> 12:18.250
+And that concludes our very quick tour of all things hugging face.
+
+12:18.250 --> 12:19.990
+There's so much to explore.
+
+12:20.050 --> 12:22.420
+The to do for you is now go in.
+
+12:22.450 --> 12:26.650
+If you haven't already, set up your account, set up your API key, it's all free.
+
+12:26.650 --> 12:34.300
+And then go hunt up models for datasets and look around some of the spaces and try out some of the cool
+
+12:34.300 --> 12:37.990
+products that people have made available for all of the community to try.
+
+12:38.110 --> 12:39.220
+Enjoy that.

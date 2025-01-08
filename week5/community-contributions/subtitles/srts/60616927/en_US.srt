@@ -1,0 +1,628 @@
+WEBVTT
+
+00:00.050 --> 00:03.890
+It's time for our first LM experiment at this point.
+
+00:03.980 --> 00:08.330
+So some of this you may know well, you may know very well already.
+
+00:08.360 --> 00:11.180
+For some people this might be new, but let me just explain.
+
+00:11.240 --> 00:13.550
+The models that we're going to be using.
+
+00:13.550 --> 00:17.090
+These frontier models have been trained in a particular way.
+
+00:17.090 --> 00:23.090
+That means that they expect two different types of instruction from us the user.
+
+00:23.120 --> 00:27.590
+One of them is known as the system prompt, and one of them is known as the user prompt.
+
+00:27.620 --> 00:33.980
+The system prompt is something which explains the context of this conversation.
+
+00:33.980 --> 00:39.440
+It tells them what kind of task they're performing, what tone they should use, and we'll be experimenting
+
+00:39.440 --> 00:44.780
+with what it means to to change a system prompt and what kind of information that you can include in
+
+00:44.780 --> 00:47.480
+the system prompt throughout this course.
+
+00:47.570 --> 00:51.230
+The user prompt is the actual conversation itself.
+
+00:51.230 --> 00:55.040
+And in our case right now, it's going to just be the the conversation starter.
+
+00:55.040 --> 01:02.790
+And the role of the LM of the large language model is to figure out what is the most likely way that
+
+01:02.790 --> 01:05.730
+it should respond, given this user prompt.
+
+01:05.730 --> 01:11.580
+If it's given this user prompt, and in the context of this system prompt, what is the most likely
+
+01:11.580 --> 01:13.410
+next text that will come after it?
+
+01:13.410 --> 01:17.460
+That would come from an assistant responding to this user.
+
+01:18.000 --> 01:22.950
+So that's the difference between the system prompt that sets the context, the user prompt that is the
+
+01:22.950 --> 01:24.660
+conversation starter.
+
+01:24.810 --> 01:26.790
+So we're going to set a system prompt.
+
+01:26.790 --> 01:27.960
+And this is what it's going to say.
+
+01:27.960 --> 01:33.870
+It's going to say you are an assistant that analyzes the contents of a website and provides a short
+
+01:33.870 --> 01:37.590
+summary, ignoring texts that might be navigation related.
+
+01:37.590 --> 01:39.630
+Respond in markdown.
+
+01:39.660 --> 01:42.660
+You'll see more of what that means in in just a second.
+
+01:42.660 --> 01:46.800
+So that is our system prompt for the user prompt.
+
+01:46.800 --> 01:51.180
+It's going to take as a we're going to write a function user prompt for.
+
+01:51.180 --> 01:54.990
+And it's going to take a website as the argument to the function.
+
+01:54.990 --> 02:00.460
+And it's going to say you are looking at a website titled The Website.
+
+02:01.000 --> 02:03.760
+The contents of this website is as follows.
+
+02:03.760 --> 02:10.240
+Please provide a short summary of the website in markdown if it includes news or announcements.
+
+02:10.240 --> 02:17.020
+Summarize these two and we then take the text from the website object that Beautifulsoup plucked out
+
+02:17.020 --> 02:22.990
+for us, and we add that into the user prompt and we return that user prompt.
+
+02:23.290 --> 02:28.870
+So let's just quickly let's run that cell right now and let's just have a look now.
+
+02:28.870 --> 02:33.520
+So after doing that, if I just look at what system Prompt has.
+
+02:35.560 --> 02:38.470
+It has that text of course that we just said.
+
+02:38.650 --> 02:45.490
+And now if you remember earlier on we created a new website object and we stored it in this variable
+
+02:45.490 --> 02:46.060
+editor.
+
+02:46.060 --> 02:55.540
+So if I come here I should be able to say user prompt for and then pass in the object Ed.
+
+02:56.260 --> 02:58.690
+And what we'll get is a prompt.
+
+02:58.720 --> 03:03.340
+It might be easier if I print this so that it prints out empty lines.
+
+03:05.440 --> 03:09.070
+And here is the user prompt string that we've created.
+
+03:09.070 --> 03:11.440
+It says you're looking at a website titled blah blah blah.
+
+03:11.470 --> 03:13.510
+The contents of this website is as follows.
+
+03:13.510 --> 03:15.220
+Please provide a short summary.
+
+03:15.250 --> 03:18.760
+Look, it looks like we should have a space right here, otherwise it might be confusing.
+
+03:18.760 --> 03:19.810
+Let's try that again.
+
+03:21.670 --> 03:25.960
+That's always why it's worth printing things as you go, because you'll spot little inconsistencies
+
+03:25.960 --> 03:26.770
+like that.
+
+03:28.000 --> 03:30.580
+I think it'll be nicer, actually, now that I look at that.
+
+03:30.580 --> 03:34.540
+If we have a carriage return there like so.
+
+03:38.080 --> 03:39.250
+Let's have a look at this prompt.
+
+03:39.280 --> 03:45.280
+Now you're looking at the website and there we go on a separate line that looks good okay.
+
+03:45.310 --> 03:49.780
+So let's talk about the messages object.
+
+03:49.780 --> 03:55.800
+So OpenAI expects to receive a conversation in a particular format.
+
+03:55.800 --> 04:01.920
+It's a format that OpenAI came up with and they used for their APIs, and it became so well used that
+
+04:01.920 --> 04:07.200
+all of the other major frontier models decided to adopt the same convention.
+
+04:07.200 --> 04:13.140
+So this has gone from being originally OpenAI's way of using the API to being something of a standard
+
+04:13.140 --> 04:16.050
+across many different models to use this approach.
+
+04:16.050 --> 04:17.520
+And here's how it works.
+
+04:17.520 --> 04:25.590
+When you're trying to describe a conversation, you describe it using a list a Python list of dictionaries.
+
+04:25.590 --> 04:29.640
+So it's a list where each element in the list is a dictionary.
+
+04:29.640 --> 04:32.310
+And that dictionary looks like this.
+
+04:32.340 --> 04:35.130
+It's a dictionary with two elements.
+
+04:35.340 --> 04:43.170
+One of them has a key of role, and here the value is either system or user, a key of role.
+
+04:43.170 --> 04:46.500
+And the value is system a key of content.
+
+04:46.500 --> 04:49.770
+And the value is of course the system message.
+
+04:49.800 --> 04:53.760
+There's another Dictionary where there's a key of role.
+
+04:53.760 --> 04:56.700
+The value is user because it's the user message.
+
+04:56.700 --> 05:01.680
+The user prompt content is where the user message goes.
+
+05:02.130 --> 05:05.460
+User message and user prompt are the same thing.
+
+05:06.120 --> 05:11.190
+So hopefully I didn't explain it very well, but it makes sense when you see it visually like this.
+
+05:11.220 --> 05:18.120
+It's just a dictionary which has role and content, system and system, message user and the user message.
+
+05:18.120 --> 05:21.630
+And there are some other roles as well, but we're going to get to them in good time.
+
+05:21.630 --> 05:23.010
+This is all we need for now.
+
+05:23.010 --> 05:26.130
+So this is how messages are built.
+
+05:26.130 --> 05:33.300
+And if you look at this next function def messages for hopefully it's super clear to you that this is
+
+05:33.300 --> 05:34.050
+creating.
+
+05:34.050 --> 05:38.400
+This here is creating exactly this construct using code.
+
+05:38.400 --> 05:42.000
+It's going to do it's going to put in there the generic system prompt we came up with.
+
+05:42.000 --> 05:46.560
+And it's going to create the user prompt for the website.
+
+05:46.980 --> 05:48.570
+So let's run that.
+
+05:49.200 --> 05:58.220
+And now, presumably it's clear that if I say messages for Ed, which is the object for my website,
+
+05:58.220 --> 06:02.300
+let's print it so that we see empty lines and stuff.
+
+06:04.430 --> 06:07.370
+Actually, sorry, in this case it might be better if we don't print it.
+
+06:07.640 --> 06:09.830
+If we just do this, it might look a bit clearer.
+
+06:09.860 --> 06:10.370
+There we go.
+
+06:10.400 --> 06:16.220
+And now you can see that it is it's a list of two things role system.
+
+06:16.220 --> 06:18.170
+And there's a system message role user.
+
+06:18.170 --> 06:20.270
+And there is the user message.
+
+06:20.870 --> 06:21.710
+Okay.
+
+06:21.710 --> 06:23.120
+It's time to bring this together.
+
+06:23.120 --> 06:24.710
+It's time to actually do it.
+
+06:24.710 --> 06:32.750
+The API for OpenAI to make a call to a frontier model to do this for us is super simple, and we're
+
+06:32.750 --> 06:34.610
+going to be using this API all the time.
+
+06:34.610 --> 06:37.700
+So whereas now it might look like it's a few things to remember.
+
+06:37.700 --> 06:42.620
+You're going to get so used to this, but we're going to make a function called summarize.
+
+06:42.620 --> 06:48.020
+And that is that's going to do the business that's going to solve our problem and summarize a URL that's
+
+06:48.020 --> 06:48.860
+passed in.
+
+06:48.860 --> 06:53.720
+It will first create a website for that URL, just like we did for editor.
+
+06:53.720 --> 06:56.300
+And this is where we call OpenAI.
+
+06:56.840 --> 06:59.840
+We say OpenAI, which is the the OpenAI object.
+
+06:59.870 --> 07:05.480
+We created OpenAI dot chat, dot completions, dot create.
+
+07:05.930 --> 07:08.390
+And that for now you can just learn it by rote.
+
+07:08.390 --> 07:10.520
+We'll understand a lot more about that later.
+
+07:10.820 --> 07:16.070
+But as far as OpenAI is concerned, this is known as the completions API because we're asking it to
+
+07:16.100 --> 07:20.750
+complete this conversation, predict what would be most likely to come next.
+
+07:20.900 --> 07:23.780
+We pass in the name of the model we're going to use.
+
+07:23.780 --> 07:27.920
+We're going to use a model called GPT four mini that you'll get very familiar with.
+
+07:27.920 --> 07:36.410
+It is the light, cheap version of GPT four, the the one of the finest models on the planet, and this
+
+07:36.410 --> 07:39.350
+will cost fractions of a cent to use.
+
+07:39.350 --> 07:45.620
+This, um, you pass in the model and then you pass in the messages and the messages we pass in, use
+
+07:45.620 --> 07:49.910
+this structure that we've just created and that is all it takes.
+
+07:50.660 --> 07:54.380
+What comes back we put in this this object response.
+
+07:54.500 --> 08:01.910
+And when we get back the response we call response dot choices zero dot message dot content.
+
+08:02.090 --> 08:05.270
+Now I'm going to explain what this is another day we don't need to know.
+
+08:05.270 --> 08:05.810
+For now.
+
+08:05.810 --> 08:10.820
+We just need to know that we're going to do response dot choices zero dot message dot content.
+
+08:10.820 --> 08:11.930
+That's going to be it.
+
+08:11.930 --> 08:14.330
+That is our summarize function.
+
+08:14.330 --> 08:19.400
+And with that let's try summarizing my website we're running.
+
+08:19.400 --> 08:22.070
+It's now connecting to OpenAI in the cloud.
+
+08:22.070 --> 08:24.080
+It's making the call and back.
+
+08:24.080 --> 08:26.870
+Here is a summary of my website.
+
+08:26.870 --> 08:34.130
+We have just uh, spent a fraction of a cent and we have just summarized my website.
+
+08:34.460 --> 08:39.110
+We can do a little bit better because we can print this in a nice style.
+
+08:39.110 --> 08:44.300
+Uh, GPT four, we've asked to respond in markdown, and that means that it's responded with various
+
+08:44.300 --> 08:48.910
+characters to represent headings, things in bold and so on.
+
+08:49.270 --> 08:57.160
+And we can use a feature of Jupyter Labs that we can ask it to actually show that in a nice markdown
+
+08:57.160 --> 08:57.880
+format.
+
+08:57.910 --> 08:58.990
+So let's do that.
+
+08:58.990 --> 09:02.440
+Let's use this display summary function and try again.
+
+09:02.470 --> 09:05.770
+Again we're going to GPT for a mini in the cloud.
+
+09:05.770 --> 09:08.800
+And here is a summary of my website.
+
+09:08.980 --> 09:11.800
+Uh, it says something about me.
+
+09:12.070 --> 09:17.350
+Uh, and it's uh yeah, very nicely formatted, very nicely structured.
+
+09:17.350 --> 09:18.760
+Pretty impressive.
+
+09:19.360 --> 09:24.970
+And apparently it highlights my work with proprietary LMS, offers resources related to AI and LMS,
+
+09:25.150 --> 09:28.840
+showcasing his commitment to advancing knowledge in this field.
+
+09:28.870 --> 09:30.550
+Good for you, GPT for mini.
+
+09:30.580 --> 09:32.620
+That's a very nice summary.
+
+09:33.070 --> 09:33.910
+Okay.
+
+09:33.910 --> 09:36.490
+And now we can try some more websites.
+
+09:36.520 --> 09:39.490
+Let's try summarizing cnn.com.
+
+09:39.760 --> 09:42.490
+Uh, we'll see what this happens.
+
+09:42.520 --> 09:47.470
+Obviously, CNN is a much bigger, uh, result you've got here.
+
+09:47.650 --> 09:53.350
+Uh, and, uh, we get some information about what's going on.
+
+09:53.440 --> 10:00.370
+I'm actually recording this right now on the 5th of November at, uh, in the evening, which is the
+
+10:00.370 --> 10:02.800
+date of the 2024 elections going on right now.
+
+10:02.800 --> 10:05.920
+So that, of course, is featured on CNN's web page.
+
+10:05.920 --> 10:11.050
+We can also summarize anthropic, which is the website for Claude.
+
+10:11.050 --> 10:12.940
+And they have a nice page.
+
+10:12.940 --> 10:13.990
+And here you go.
+
+10:13.990 --> 10:18.100
+And you can read more about it in this nice little summary of their web page.
+
+10:19.030 --> 10:20.020
+All right.
+
+10:20.020 --> 10:24.010
+And that wraps up our first instant gratification.
+
+10:24.010 --> 10:25.750
+It's it's juicy.
+
+10:25.750 --> 10:27.700
+It's something where we've actually done something useful.
+
+10:27.700 --> 10:28.780
+We've scraped the web.
+
+10:28.780 --> 10:33.640
+We've summarized summarization is one of the most common AI use cases.
+
+10:33.640 --> 10:36.430
+So common it's useful for all sorts of purposes.
+
+10:36.430 --> 10:41.850
+We'll be doing it a few different ways during during this course, even in our week eight a sticky solution
+
+10:41.850 --> 10:44.160
+will be using something that will do some summarization.
+
+10:44.160 --> 10:48.030
+So it's a great, uh, thing to have experimented with already.
+
+10:48.360 --> 10:53.640
+So there are so many other business applications of summarization.
+
+10:53.640 --> 10:56.340
+This is something you should be able to put to good use.
+
+10:56.340 --> 11:01.020
+You should be able to think of some ways you could apply this to your day job right away, or be building
+
+11:01.020 --> 11:05.190
+a couple of example projects in GitHub that show summarization in action.
+
+11:05.190 --> 11:10.710
+You could apply it to summarizing the news, summarizing financial performance from a financial report,
+
+11:10.740 --> 11:12.300
+a resume, and a cover letter.
+
+11:12.300 --> 11:14.820
+You could you could take a resume and generate a cover letter.
+
+11:14.970 --> 11:19.470
+Uh, there are so many different things you can do with summarization of of documents.
+
+11:19.470 --> 11:23.220
+And also adding on to that the scraping the web angle of it.
+
+11:23.220 --> 11:30.030
+So have a think about how you would apply summarization to your business and try extending this to do
+
+11:30.030 --> 11:31.440
+some summarization.
+
+11:32.280 --> 11:37.320
+There's also uh, for for the more technically inclined, uh, one of the things that you'll discover
+
+11:37.350 --> 11:42.480
+quite quickly when you use this is that there are many websites that cannot be summarized with this
+
+11:42.480 --> 11:49.560
+approach, and that's because they use JavaScript to render the web page and are rather simplistic.
+
+11:49.560 --> 11:55.710
+Approach has just taken the the just just made the requests the server call and taken what we get back.
+
+11:55.710 --> 11:56.970
+But there's a solution.
+
+11:56.970 --> 12:03.450
+And the solution is to use a platform like selenium or others like it, or playwright, which would
+
+12:03.450 --> 12:07.230
+allow you to render the page and and do it that way.
+
+12:07.230 --> 12:12.720
+So if you're technically inclined and have some background with that kind of thing, then a really interesting
+
+12:12.720 --> 12:19.200
+challenge is to turn this into something that's a bit beefier and add selenium to the mix.
+
+12:19.380 --> 12:22.470
+Um, as it happens, someone has already done that.
+
+12:22.470 --> 12:24.600
+Uh, one of the students, thank you very much.
+
+12:24.690 --> 12:29.490
+And if you go into this folder community contributions, you'll see a few different solutions.
+
+12:29.490 --> 12:32.520
+And one of them is a selenium based solution.
+
+12:32.520 --> 12:34.860
+So you can always go in and just just look at that yourself.
+
+12:34.860 --> 12:36.840
+Or you can have a shot at doing it too.
+
+12:36.840 --> 12:39.380
+And you'll find the solution in there.
+
+12:40.370 --> 12:44.900
+And if you do come up with a solution to that or to anything, I would love it if you were willing to
+
+12:44.900 --> 12:47.420
+share your code so that others can benefit from it.
+
+12:47.420 --> 12:53.240
+Ideally, put it in the community contributions folder and be sure to clear the output.
+
+12:53.240 --> 12:58.190
+So you go to kernel restart kernel and clear outputs of all cells.
+
+12:58.310 --> 13:03.170
+Otherwise, everything that you've got in your output would also get checked into code which which would
+
+13:03.320 --> 13:04.730
+just clutter things up a bit.
+
+13:04.730 --> 13:06.200
+So so do that.
+
+13:06.470 --> 13:12.440
+And then if you could submit a PR, a pull request, I can then merge that into the code.
+
+13:12.440 --> 13:16.550
+And if that's a new thing for you, it is a bit of a process.
+
+13:16.580 --> 13:21.620
+There is a write up here for exactly what you need to do to make that work.
+
+13:21.830 --> 13:25.700
+Anyways, this was the first project, the first of many.
+
+13:25.730 --> 13:27.920
+It's a simple project, but it's an important one.
+
+13:27.950 --> 13:29.960
+A very important business use case.
+
+13:29.960 --> 13:31.610
+I hope you found it worthwhile.
+
+13:31.610 --> 13:34.700
+I will see you for the next video when we wrap up.
+
+13:34.700 --> 13:35.570
+Week one.
+
+13:35.570 --> 13:36.200
+Day one.

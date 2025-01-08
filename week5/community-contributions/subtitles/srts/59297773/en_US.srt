@@ -1,0 +1,754 @@
+WEBVTT
+
+00:00.620 --> 00:06.080
+Well, I hope you're eager with anticipation for this session in JupyterLab as we finally get to see
+
+00:06.110 --> 00:07.640
+vectors firsthand.
+
+00:07.670 --> 00:13.220
+So hopefully you are in the week five folder, you're in day three, and you're going to be following
+
+00:13.250 --> 00:15.710
+along with me more than ever.
+
+00:15.710 --> 00:19.910
+It's important for this one because it's going to be visual, and you're going to get a real sense of
+
+00:19.910 --> 00:20.960
+what's going on.
+
+00:20.960 --> 00:25.940
+So this is just a duplicate of the previous day with more added.
+
+00:25.940 --> 00:32.690
+So we begin with some imports, and now we've added to the imports to include some special things that
+
+00:32.690 --> 00:33.380
+we'll be working on.
+
+00:33.380 --> 00:33.920
+Today.
+
+00:33.920 --> 00:41.960
+We're going to be importing OpenAI embeddings, which is part of Lang Lang chain OpenAI package.
+
+00:42.230 --> 00:45.860
+We're going to be importing chroma from lang chain chroma.
+
+00:46.130 --> 00:50.690
+Um, and then there's a couple of things we're going to be importing so that we can have some fun and
+
+00:50.690 --> 00:56.180
+actually visualize these vectors, something called t-SNE, which we'll talk about, and then something
+
+00:56.180 --> 00:59.720
+from Plotly that is going to give us some nice diagrams.
+
+00:59.720 --> 01:01.750
+Let's do all of that importing.
+
+01:02.380 --> 01:07.120
+Okay, uh, let's run the constants.
+
+01:07.120 --> 01:09.040
+Bring in our environment variables.
+
+01:09.040 --> 01:11.440
+This, of course, is now super familiar to you.
+
+01:11.470 --> 01:14.440
+We're using the loaders to load in our knowledge base.
+
+01:14.440 --> 01:20.920
+We're using the text splitter to create our chunks, of which there are 123.
+
+01:20.920 --> 01:27.730
+And there's chunks for each of our four folders our contracts, products, employees and company.
+
+01:28.300 --> 01:35.110
+So I wanted to take one more moment to remind you about embeddings and auto encoding LMS that we've
+
+01:35.110 --> 01:40.030
+been talking about auto regressive LMS in most of the of the course so far.
+
+01:40.060 --> 01:46.120
+This is the first time we're going to look at auto encoding LMS that take an entire input and use it
+
+01:46.120 --> 01:49.660
+to create one output, in our case, a vector.
+
+01:50.140 --> 01:53.890
+And an example of an auto encoding alarm is Bert.
+
+01:53.920 --> 01:56.380
+We're going to be using this one here.
+
+01:56.410 --> 01:58.000
+OpenAI embeddings.
+
+01:58.210 --> 01:59.280
+Let's run that.
+
+01:59.520 --> 02:00.420
+Okay.
+
+02:00.420 --> 02:05.010
+So chroma is we're about to create our chroma data store.
+
+02:05.310 --> 02:10.770
+And I've just put in this little section here to delete or empty the database if it's already there.
+
+02:10.800 --> 02:15.480
+Otherwise every time you run this code it adds in the vectors another time a sort of duplicate set of
+
+02:15.480 --> 02:17.520
+vectors and things get confusing.
+
+02:17.520 --> 02:20.760
+So this helps to refresh the database.
+
+02:20.760 --> 02:25.800
+If you've already run this once and you can imagine I've already run this once or twice, so this is
+
+02:25.800 --> 02:27.090
+a useful thing for me.
+
+02:27.360 --> 02:28.890
+We will delete it.
+
+02:29.400 --> 02:37.350
+It's sitting in this folder here vector db um, which is just a db name, a constant that I set at the
+
+02:37.350 --> 02:41.340
+top to show you that I said DB name is vector DB.
+
+02:41.370 --> 02:45.480
+It can be whatever you want and it's based on SQLite.
+
+02:45.510 --> 02:49.440
+So if you go in here you'll see there's some SQLite stuff going on.
+
+02:49.440 --> 02:55.950
+So it's just got a bunch of different files sitting within the name of whatever database name you chose
+
+02:55.950 --> 02:56.730
+to give it.
+
+02:56.730 --> 02:58.730
+In this case vector db.
+
+02:59.660 --> 03:06.170
+Okay, so it's time to create our vector database and populate it with our vectors.
+
+03:06.170 --> 03:08.930
+And I'm going to have another of those gradio moments here.
+
+03:08.930 --> 03:14.870
+You might think that the process of vectorizing a bunch of documents, turning them into vectors and
+
+03:14.870 --> 03:19.670
+storing them in a vector database is something that would be reasonably sophisticated and would be,
+
+03:19.700 --> 03:21.740
+I mean, at least several cells.
+
+03:21.980 --> 03:27.200
+But you'll find, of course, that we can do it in one cell and we can do it in one line of code.
+
+03:27.200 --> 03:34.010
+And that is, of course, thanks to Lang Chain putting a lot of great glue code around this.
+
+03:34.040 --> 03:39.560
+It wouldn't actually be that hard to do it ourselves manually to iterate through, to turn each of these
+
+03:39.560 --> 03:44.900
+embeddings into each of these chunks into vectors, and then store it ourselves in chroma, it would
+
+03:44.900 --> 03:46.970
+perhaps just be 4 or 5 lines.
+
+03:47.060 --> 03:50.870
+Um, but it's that much simpler if we can just do it in one like this.
+
+03:50.870 --> 03:55.490
+And the other great thing about this is that if you try different vector data store, it's the same
+
+03:55.490 --> 04:00.280
+thing just with a different vector store imported from Lang Chain, and you might want to give that
+
+04:00.280 --> 04:01.630
+a try yourself.
+
+04:01.630 --> 04:06.700
+But let me run this one line and it has run.
+
+04:06.700 --> 04:11.200
+And the vector store has been created with 123 documents.
+
+04:11.200 --> 04:14.800
+And that's comforting to know, because 123 was the number of chunks that we had.
+
+04:14.800 --> 04:21.040
+So it's good that there is indeed a same, uh, number of documents in our vector data store.
+
+04:21.520 --> 04:26.950
+Um, and the way that we found that, by the way, is that the vector store object that came back from
+
+04:26.950 --> 04:33.880
+creating Chrome, we passed in, of course, the chunks, the embeddings, which was the OpenAI embeddings,
+
+04:33.880 --> 04:35.860
+and then just simply the name of the database.
+
+04:35.860 --> 04:40.060
+Those were the three things we provided, which makes total sense.
+
+04:40.090 --> 04:42.820
+And that's all that we needed to create our vector store.
+
+04:42.820 --> 04:50.170
+And that vector store we can call underscore collection dot count to get the number of documents in
+
+04:50.170 --> 04:51.220
+the vector store.
+
+04:51.850 --> 05:03.270
+So let's just find out how many dimensions these vectors have so we can get a vector from the collection
+
+05:03.270 --> 05:04.380
+with this.
+
+05:04.410 --> 05:10.650
+So so so the collection is just what you get if you call this underscore collection um uh attribute
+
+05:10.650 --> 05:11.640
+from Vector Store.
+
+05:11.640 --> 05:14.040
+So we can then call dot get.
+
+05:14.070 --> 05:15.300
+We can pass in a limit.
+
+05:15.300 --> 05:16.380
+We only want one.
+
+05:16.380 --> 05:20.550
+We want it to bring back the embeddings which is the vector itself.
+
+05:20.760 --> 05:26.490
+Um, and then we will just have a look at that and let's have a look at how large it is.
+
+05:26.490 --> 05:30.180
+It is 1536 dimensions.
+
+05:30.180 --> 05:34.920
+So 1536 numbers make up this chunk.
+
+05:34.920 --> 05:38.850
+So let's have a look at this ourselves so we can just just print it.
+
+05:38.850 --> 05:43.260
+Let's just print sample embedding see what it looks like.
+
+05:43.890 --> 05:44.430
+Wowza.
+
+05:44.430 --> 05:45.810
+It's a lot of numbers.
+
+05:46.080 --> 05:48.000
+So it's a bunch of numbers.
+
+05:48.030 --> 05:51.360
+It's meaningless to to you and me.
+
+05:51.540 --> 05:54.770
+Uh, but these numbers in some way.
+
+05:55.460 --> 06:02.450
+We see these numbers in some way reflect the meaning of the chunk that they're associated with.
+
+06:02.450 --> 06:03.230
+And we'll see.
+
+06:03.650 --> 06:06.560
+We'll associate it with a chunk in just a second.
+
+06:07.370 --> 06:09.140
+So it's a ton of numbers.
+
+06:09.140 --> 06:17.480
+It's 1536 numbers, which we can interpret as representing a coordinate in 1536 dimensional space.
+
+06:17.720 --> 06:24.830
+Um, and that that coordinate is chosen such that other other vectors that have a similar coordinate
+
+06:24.830 --> 06:28.790
+that are close in vector space should have similar meaning.
+
+06:28.790 --> 06:30.740
+That's the whole idea behind this.
+
+06:30.980 --> 06:34.940
+So let's take a moment to visualize this.
+
+06:34.940 --> 06:37.640
+That's going to be a nice, uh, get rid of some of these comments.
+
+06:37.640 --> 06:44.960
+This will be some nice, uh, um, uh, a nice way to, to be able to really investigate what's going
+
+06:44.960 --> 06:46.070
+on behind the scenes.
+
+06:46.070 --> 06:53.320
+So you can call Collectiongetty and ask for the embeddings, the documents and the metadata, like this.
+
+06:53.320 --> 06:56.320
+And once I've done that, I can put the vectors.
+
+06:56.320 --> 07:03.010
+I can take the embeddings and put them into an array of vectors, and I can take the the doc types and
+
+07:03.010 --> 07:04.720
+put that into something called doc types.
+
+07:04.720 --> 07:07.960
+And then I'm going to make some some colors up as you will see.
+
+07:07.990 --> 07:10.300
+So this is just some pre-work to get ready.
+
+07:10.600 --> 07:18.400
+Now there's one problem that we have is that, uh, as human beings have a deficiency, that we have
+
+07:18.430 --> 07:22.360
+a problem visualizing anything in more than three dimensions.
+
+07:22.360 --> 07:27.610
+So visualizing something in 1536 dimensions is going to be very challenging indeed.
+
+07:27.670 --> 07:34.360
+Um, but luckily there are various techniques we can use to do what they call projecting down or trying
+
+07:34.360 --> 07:41.290
+to, uh, reduce the dimensions to only, let's say, two dimensions in a way that does the best possible
+
+07:41.290 --> 07:47.680
+job at separating things out to stay faithful to the, the, uh, multi-dimensional representation.
+
+07:47.680 --> 07:52.860
+So trying to do it in a way that is going to have things that are further apart in all of these dimensions
+
+07:52.860 --> 07:57.780
+will still be fairly far apart, even when it's projected down to two dimensions.
+
+07:58.290 --> 07:59.340
+That's the idea.
+
+07:59.370 --> 08:03.240
+There are various techniques for doing it that are not going to go into, but the one that we're going
+
+08:03.270 --> 08:04.710
+to use is extremely common.
+
+08:04.710 --> 08:09.660
+It's called t-SNE, which stands for T-distributed Stochastic Neighbor embedding, and is one of those
+
+08:09.660 --> 08:14.670
+ones that you can Google or ask ChatGPT if you want an explanation behind it.
+
+08:15.150 --> 08:19.710
+Um, so we pass into it, how many dimensions do we want?
+
+08:19.740 --> 08:24.630
+We want it projected down from the thousand and whatever to two dimensions.
+
+08:24.630 --> 08:29.790
+And this random state is a way of setting its random seed so that each time we call this, we get the
+
+08:29.790 --> 08:33.210
+same thing so that we can reproduce this.
+
+08:33.450 --> 08:40.440
+Um, and then you can get your reduced vectors just by calling the fit transform method on this t-SNE
+
+08:40.470 --> 08:41.400
+object.
+
+08:41.820 --> 08:49.770
+Um, what I'm then doing is I'm using the fabulous library plotly to make a nice scatter diagram.
+
+08:49.890 --> 08:55.570
+Um, And, you know, this is all sort of this kind of code that you can copy and paste and reuse as
+
+08:55.570 --> 08:56.170
+you wish.
+
+08:56.170 --> 09:01.720
+But I've got some nice things like I'm making the markers have different colors based on the colors
+
+09:01.720 --> 09:08.260
+that we set here for the different document types, and also got some pop up text which is going to
+
+09:08.290 --> 09:14.560
+actually have a fragment, the first 100 characters from the chunk itself.
+
+09:14.560 --> 09:20.050
+So what we're hoping to see here is we're hoping to see how do the documents look in the vector database.
+
+09:20.050 --> 09:25.810
+And then for each of these different vectors, we're going to color it by what kind of document is it.
+
+09:25.810 --> 09:27.850
+And it's going to have hover over text.
+
+09:27.850 --> 09:33.100
+So we can actually read a little bit of the fragment of text that this chunk represents.
+
+09:33.100 --> 09:34.600
+So we'll see if this works.
+
+09:34.600 --> 09:35.800
+That would be quite cool.
+
+09:36.370 --> 09:37.420
+Of course I know it works.
+
+09:37.420 --> 09:38.470
+I've already tried it.
+
+09:38.530 --> 09:39.580
+Here it is.
+
+09:39.610 --> 09:40.420
+Okay.
+
+09:40.420 --> 09:42.040
+So what are we looking at.
+
+09:42.670 --> 09:50.670
+So we're looking at a visualization of the multi-dimensional vectors projected down to 2D for us, there's
+
+09:50.670 --> 09:53.370
+no particular meaning of the x axis and the y axis.
+
+09:53.370 --> 09:59.100
+It's just the best possible way of spreading out the different points.
+
+09:59.190 --> 10:01.560
+Now there's a few things to notice.
+
+10:01.560 --> 10:07.500
+The green dots that you see here are representing employees.
+
+10:07.530 --> 10:10.350
+The red dots are representing.
+
+10:10.530 --> 10:17.730
+And when I say employees I mean they're representing chunks of text plucked out of employee documents.
+
+10:17.760 --> 10:22.020
+The red things are chunks of text coming out of contracts.
+
+10:22.050 --> 10:28.830
+The blue are from product documentation and the yellow is from about documents.
+
+10:29.760 --> 10:36.900
+Now, there's something a bit magical that you have to to appreciate, to realize at this point when
+
+10:36.930 --> 10:44.400
+the OpenAI embeddings, when when it was vectorizing these chunks of text, it did not know the document
+
+10:44.430 --> 10:44.850
+type.
+
+10:44.850 --> 10:46.830
+We didn't tell it the metadata.
+
+10:46.830 --> 10:52.190
+We didn't we didn't tell it that summer employees, summer products and summer contracts.
+
+10:52.190 --> 10:55.580
+We just gave it the chunk of text and said, turn this into a vector.
+
+10:55.580 --> 10:57.500
+And so that's all it had.
+
+10:57.770 --> 11:04.880
+Um, and so it's kind of magical that based on those chunks, these chunks have been separated out in
+
+11:04.880 --> 11:10.730
+vector space and they occupy different distinct regions in space.
+
+11:10.910 --> 11:16.070
+Um, because they're somewhat similar to each other in terms of the content, the meaning of what they
+
+11:16.070 --> 11:20.630
+represent, the employees are all kind of in the same general territory.
+
+11:20.630 --> 11:26.570
+The, the, the contracts are over here and the products are here.
+
+11:26.690 --> 11:34.820
+You may notice that some of the contract information appears to be more a sort of a, uh, in the same
+
+11:34.820 --> 11:37.100
+vicinity as the products.
+
+11:37.100 --> 11:39.290
+And that might be surprising for a moment.
+
+11:39.290 --> 11:41.210
+It might look like maybe something's gone wrong.
+
+11:41.210 --> 11:48.010
+But no, if you hover over these chunks, you'll see that this is the particular chunk of text in a
+
+11:48.010 --> 11:53.170
+contract, which describes the key features that that client has signed up for.
+
+11:53.380 --> 11:56.260
+And you can see there it says type the text in there.
+
+11:56.290 --> 12:02.920
+Sorry if I if I hover for a moment where you see that second line where it says text, that is the extract
+
+12:02.920 --> 12:08.440
+from the chunk that has been put in that location in vector space, and you'll see that it starts features
+
+12:08.440 --> 12:10.420
+one AI powered matching.
+
+12:10.660 --> 12:12.250
+And let's find another one here.
+
+12:12.610 --> 12:17.620
+Uh, AI powered risk assessment features.
+
+12:17.800 --> 12:19.420
+It's the same thing.
+
+12:19.870 --> 12:27.310
+Um, so what we're seeing here is that within contracts, there is some information that is more like
+
+12:27.310 --> 12:28.420
+functionality.
+
+12:28.420 --> 12:35.980
+And that functionality lives in vector space in a similar kind of space to other product information.
+
+12:35.980 --> 12:38.800
+So, uh, hopefully that makes sense.
+
+12:38.830 --> 12:46.890
+It's again, it's almost spooky how good it is at kind of associating the right location in space to
+
+12:46.920 --> 12:49.290
+the meaning behind the document.
+
+12:49.590 --> 12:56.610
+And the final point I'll mention, and I might be I might be putting, uh, putting taking this too
+
+12:56.610 --> 12:59.520
+far, but it really seems to me like this is what's going on.
+
+12:59.550 --> 13:04.260
+You'll notice that the three documents that are about the company.
+
+13:04.440 --> 13:07.380
+Uh, these three here are kind of in the center.
+
+13:07.410 --> 13:10.290
+They're right in the middle between all these different documents.
+
+13:10.290 --> 13:17.580
+And I think that's because it kind of encompasses some information that pertains to the employees and
+
+13:17.580 --> 13:23.370
+the contracts and the, the, the, the product as well.
+
+13:23.580 --> 13:28.080
+Uh, it's kind of central information that that is related to everything.
+
+13:28.080 --> 13:34.950
+And that's why it's somehow in a sort of place that is in the middle of all of the rest of the information.
+
+13:35.400 --> 13:37.350
+Um, so I find that fascinating.
+
+13:37.350 --> 13:41.280
+I might be reading too much into it, but it does seem that way to me.
+
+13:41.400 --> 13:46.730
+Uh, and one of the things that you can do is just experiment with putting any chunks of text that you
+
+13:46.730 --> 13:48.770
+want into the vector database.
+
+13:48.860 --> 13:56.270
+You can just imagine you can just go back and add in other documents, uh, into the documents that
+
+13:56.270 --> 13:57.080
+we load here.
+
+13:57.080 --> 14:02.360
+Either you can just specify a file directly, or you can just put in some more text or just add text
+
+14:02.360 --> 14:08.690
+into the existing documents and then see where they end up in vector space, and use that as a way of
+
+14:08.690 --> 14:16.070
+really getting to appreciate, uh, the the way that OpenAI embeddings is able to understand the meaning
+
+14:16.070 --> 14:24.440
+behind a different chunk of text and position that in a way that is, that is closest to other things
+
+14:24.440 --> 14:25.940
+with similar meaning.
+
+14:26.060 --> 14:28.220
+And that's that's the whole idea.
+
+14:28.730 --> 14:33.140
+Well, this 2D representation was was really cool.
+
+14:33.140 --> 14:35.420
+Uh, is there anything better than a 2D representation?
+
+14:35.450 --> 14:36.320
+Of course there is.
+
+14:36.350 --> 14:40.040
+There's a 3D representation and that's what we're going to do next.
+
+14:40.220 --> 14:46.160
+Uh, we're going to try 3D because it's just as simple as turning that number two into a number three,
+
+14:46.160 --> 14:51.140
+and we will then be able to visualize these vectors in 3D.
+
+14:51.170 --> 14:52.280
+It wasn't quite that simple.
+
+14:52.310 --> 14:57.620
+I also had to put a 3D in here, and I had to mess around with with some other vectors and all of that
+
+14:57.620 --> 14:59.480
+stuff, but it's pretty similar.
+
+14:59.480 --> 15:02.510
+And I had to change the title from 2D to 3D as well.
+
+15:02.690 --> 15:04.910
+Anyway, let's see how this looks.
+
+15:04.910 --> 15:06.170
+Here it is.
+
+15:06.440 --> 15:13.010
+Um, so these are our vectors projected not all the way down to 2D, but now to 3D.
+
+15:13.160 --> 15:17.990
+Um, and the first thing you might notice is that actually, this is one of those rare times, uh,
+
+15:17.990 --> 15:23.090
+a bit like movies that, uh, 3D isn't necessarily better than 2D.
+
+15:23.300 --> 15:27.200
+Uh, that, uh, it does look a little bit more of a of a jumble.
+
+15:27.200 --> 15:28.790
+It's a bit harder to to see.
+
+15:28.820 --> 15:31.100
+It does look again like the yellow is in the middle.
+
+15:31.220 --> 15:34.910
+Uh, and green, red and blue are clearly separated out.
+
+15:34.910 --> 15:40.610
+But there are some, um, that have combined, as you would expect, as we saw before.
+
+15:40.640 --> 15:46.360
+But the nice thing about this is we can, uh, actively, uh, we can interactively play with this.
+
+15:46.390 --> 15:48.310
+We can rotate it like this.
+
+15:49.060 --> 15:50.260
+Isn't that something?
+
+15:50.260 --> 15:55.150
+And we can use this to get a better sense of how they are laid out.
+
+15:55.150 --> 15:59.830
+And it does give you a nice sense that there is a distinction between them.
+
+16:00.130 --> 16:07.540
+Um, but I do have to admit that it's not perhaps as clear as the 2D representation.
+
+16:07.630 --> 16:10.780
+Uh, but nonetheless, it looks great.
+
+16:10.780 --> 16:13.900
+If we hover, you get to see the meaning behind the points.
+
+16:13.900 --> 16:19.870
+Of course, as before, the yellow is the about, which does seem to be somewhat in the middle of everything,
+
+16:19.960 --> 16:26.410
+uh, consistent with the point I was making before, uh, this blue one here is a bit of an outlier.
+
+16:26.800 --> 16:34.270
+Um, and, uh, yeah, you, uh, you can certainly have fun with the 3D representation, although perhaps
+
+16:34.270 --> 16:36.970
+the 2D one is a bit more clear in some ways.
+
+16:37.360 --> 16:43.310
+Anyway, that concludes our playing with vectors, but there's a big takeaway, which is now it's over
+
+16:43.310 --> 16:49.010
+to you, not just about looking at these diagrams and inspecting the different chunks of text, but
+
+16:49.010 --> 16:50.930
+adding your own chunks of text.
+
+16:50.960 --> 16:55.970
+Simple way to do it is just to put things documents into the knowledge, into the knowledge base directory.
+
+16:55.970 --> 16:58.040
+You can just do that and it will just work right away.
+
+16:58.130 --> 17:04.670
+But you can also play around with the text loader classes to add in chunks using lang chains code instead
+
+17:04.670 --> 17:06.260
+of just dropping a document in there.
+
+17:06.260 --> 17:12.230
+But when you've put your chunks in, see where they end up in vector space and get a sense of how that
+
+17:12.230 --> 17:12.800
+works.
+
+17:12.830 --> 17:17.480
+Or you can replace the whole knowledge base directory, rename that to something else, create a new
+
+17:17.480 --> 17:23.840
+directory and just fill it with some some very simple things just so you can experiment with seeing
+
+17:23.840 --> 17:28.430
+how documents get put into different locations in vector space.
+
+17:28.790 --> 17:36.500
+And that's super important homework because it's going to give you a good basis for the next part,
+
+17:36.500 --> 17:39.170
+which is when we get to rag for real.
+
+17:39.200 --> 17:41.000
+First, let's go back to the slides.

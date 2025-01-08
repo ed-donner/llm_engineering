@@ -1,0 +1,328 @@
+WEBVTT
+
+00:01.220 --> 00:04.460
+I welcome to day four of our time together.
+
+00:04.460 --> 00:06.650
+This is a very important day.
+
+00:06.650 --> 00:12.110
+Today we're going to be looking at the rise of the transformer, the architecture that sits behind most
+
+00:12.110 --> 00:14.240
+of the LMS that we'll be working on in this course.
+
+00:14.240 --> 00:18.830
+We're going to be talking about stuff like Copilots and agents, and most importantly, we're going
+
+00:18.860 --> 00:25.610
+to be dealing with some of the basic foundational ingredients behind LMS that we'll be working on tokens,
+
+00:25.610 --> 00:28.040
+contacts, windows, parameters, API costs.
+
+00:28.070 --> 00:32.240
+Now, for some of you, this will be stuff that you're already quite familiar with, but I hope to go
+
+00:32.240 --> 00:37.310
+a bit deeper and show you some more insight, so this will still be a useful use of your time.
+
+00:37.310 --> 00:42.830
+So hang in there and if you're new to it, I hope to give you a really good foundation to this world.
+
+00:43.340 --> 00:49.100
+But first we have to reveal the winner of our leadership battle.
+
+00:49.130 --> 00:54.590
+Hopefully you remember that at the end of the last session, I left you with Alex versus Blake versus
+
+00:54.590 --> 01:01.960
+Charlie, GPT four zero, Claude three, Opus and Gemini and that they were battling together to vote
+
+01:02.080 --> 01:04.990
+for the leader of the pack.
+
+01:05.110 --> 01:06.400
+You remember their.
+
+01:06.430 --> 01:08.830
+Their pithy pitches to each other.
+
+01:08.830 --> 01:11.020
+And now I will reveal the outcome.
+
+01:11.020 --> 01:15.160
+So the first vote came in from Alex from GPT.
+
+01:15.310 --> 01:19.870
+GPT made the vote for Blake to be leader.
+
+01:19.900 --> 01:23.620
+Next up, the next vote coming in was Blake voting.
+
+01:23.620 --> 01:27.250
+And Blake voted for Charlie for Gemini.
+
+01:27.280 --> 01:29.290
+So Claude voted for Gemini.
+
+01:29.320 --> 01:31.030
+Blake voted for Charlie.
+
+01:31.030 --> 01:34.180
+And so it all comes down to Charlie's vote.
+
+01:34.210 --> 01:35.200
+Big drumroll.
+
+01:35.200 --> 01:35.920
+Make your bets.
+
+01:35.920 --> 01:37.810
+Decide who you think is going to be the winner.
+
+01:37.840 --> 01:39.490
+This is the winner.
+
+01:39.520 --> 01:43.330
+Charlie voted for Blake, and therefore Claude.
+
+01:43.360 --> 01:51.040
+Three opus Blake was the winner of our thoroughly unscientific, but quite fun challenge, and I hope
+
+01:51.070 --> 01:54.970
+that that is aligned with your expectations from those pictures.
+
+01:55.180 --> 01:57.100
+And you should try this yourself.
+
+01:57.100 --> 02:01.530
+This is as I say, I ran this a couple of months ago and I'm sure that the results will be different
+
+02:01.560 --> 02:02.220
+now.
+
+02:02.850 --> 02:04.920
+At least you get different different pictures for sure.
+
+02:04.920 --> 02:07.320
+So by all means give this a try yourself.
+
+02:07.320 --> 02:12.060
+You can copy my prompt or try something a bit different and see what you come up with.
+
+02:12.060 --> 02:15.600
+And in fact, I actually wrote a game based on this.
+
+02:15.600 --> 02:22.020
+If you go to my personal web page@edward.com, you'll see that I have a game there called Outsmart,
+
+02:22.080 --> 02:28.860
+which is where I picked the various models against each other to try and do something a little bit more
+
+02:28.860 --> 02:35.940
+quantitative when they have to decide how to steal coins from each other, and it gives you a really
+
+02:35.940 --> 02:40.290
+fun way to see the different capabilities of the different models.
+
+02:40.290 --> 02:42.300
+And maybe we'll look at that a bit later on.
+
+02:42.300 --> 02:42.990
+I'll see.
+
+02:43.620 --> 02:44.430
+All right.
+
+02:44.430 --> 02:49.440
+Well, with that in mind, let's move on to the main material of today.
+
+02:49.440 --> 02:54.660
+We're going to talk about the unbelievable history of the last few years.
+
+02:54.660 --> 02:59.690
+And I have to pinch myself from time to time to remind myself of everything that we've been through.
+
+02:59.690 --> 03:08.240
+In 2017, Google, some scientists from Google released a paper that was called Attention is All You
+
+03:08.240 --> 03:10.700
+Need, and you can take a look at it.
+
+03:10.850 --> 03:16.790
+And this was the paper in which the transformer architecture was invented.
+
+03:16.820 --> 03:21.050
+This new architecture, including these layers called self-attention layers.
+
+03:21.290 --> 03:27.470
+And the thing that's perhaps most remarkable about this paper when you read it, is that it's very clear
+
+03:27.470 --> 03:33.200
+that the inventors themselves did not realize what an extraordinary breakthrough they were making.
+
+03:33.230 --> 03:39.650
+They sort of remark on it as something that seems to be a surprising discovery, but they clearly don't
+
+03:39.650 --> 03:45.170
+realize the door that they are opening and how much progress is going to be made as a result of their
+
+03:45.170 --> 03:46.160
+discoveries.
+
+03:46.190 --> 03:51.170
+In fact, the next year was when GPT one was released also.
+
+03:51.290 --> 03:56.020
+But for those that were, uh, around at that time and had used Bert from Google.
+
+03:56.020 --> 03:59.350
+And then came GPT 2 in 2019.
+
+03:59.620 --> 04:02.140
+GPT 3 in 2020.
+
+04:02.170 --> 04:09.340
+But most of us got the shock when we saw the power in late 2022.
+
+04:09.370 --> 04:13.360
+Was it November or December when ChatGPT came out, came out?
+
+04:13.510 --> 04:21.940
+ChatGPT was essentially GPT three, but also used GPT three and a half, 3.5 and also used this technique
+
+04:21.970 --> 04:28.060
+RL reinforcement learning from human feedback that made it so very powerful.
+
+04:28.630 --> 04:35.590
+Then GPT four came out in 2023, and of course this year we've had GPT four.
+
+04:35.620 --> 04:42.580
+Oh, and we've now, as we've seen, had zero one preview and other things are on the way.
+
+04:43.960 --> 04:48.940
+It was interesting to see how the world responded to this change.
+
+04:48.970 --> 04:54.840
+Initially, ChatGPT was such a surprise to all of us, even practitioners in the field.
+
+04:55.080 --> 05:02.160
+It was really astounding how accurately and with how much nuance it was able to answer questions.
+
+05:02.160 --> 05:04.620
+That was followed by something of a backlash.
+
+05:04.620 --> 05:11.700
+There was a lot of of healthy skepticism when people said, this is really akin to to a conjuring trick.
+
+05:11.820 --> 05:16.560
+This is what we're seeing here is basically really good predictive text.
+
+05:16.560 --> 05:21.930
+If you bring up your, your, your text messages and you and you press the button to predict the next
+
+05:21.930 --> 05:27.600
+word, sometimes it does really, really well, almost by coincidence, just because it's matching patterns
+
+05:27.600 --> 05:28.380
+statistically.
+
+05:28.380 --> 05:30.240
+And that's all you're seeing here.
+
+05:30.240 --> 05:35.940
+And there was a famous paper that's known as the stochastic parrot paper, which talked about the fact
+
+05:35.940 --> 05:42.540
+that what we're seeing here is nothing more than statistics, and that it sort of gives, makes the
+
+05:42.540 --> 05:48.480
+point that we are falsely interpreting this as the model, having some kind of an understanding which
+
+05:48.480 --> 05:50.160
+doesn't really exist.
+
+05:50.160 --> 05:55.850
+And it highlights some of the challenges and even dangers associated with us coming to the to the wrong
+
+05:55.850 --> 05:57.380
+conclusions about that.
+
+05:57.500 --> 06:03.800
+But really, based on the progress since then, the pendulum has swung back a bit now.
+
+06:03.800 --> 06:09.770
+And I would say that where we are as practitioners at this point is explaining this in terms of emergent
+
+06:09.770 --> 06:10.670
+intelligence.
+
+06:10.670 --> 06:16.070
+That's the expression we like to use, which is saying that really what's happening here is that whilst
+
+06:16.070 --> 06:22.160
+it is true that what we're seeing is essentially just statistical prediction, all we're doing when
+
+06:22.160 --> 06:27.890
+we run an LM is we're providing it with some, some words or actually some tokens and saying, given
+
+06:27.890 --> 06:32.570
+all of the patterns you've seen in all of your training data and everything you've learned, what is
+
+06:32.570 --> 06:36.770
+the most likely next token, what is the most likely next token?
+
+06:36.770 --> 06:40.640
+And then we'll feed that in and say, and now what's the most likely next token after that.
+
+06:40.640 --> 06:44.000
+And all it is doing is predicting this next token.
+
+06:44.000 --> 06:45.230
+That is true.
+
+06:45.230 --> 06:53.500
+But nonetheless, as a byproduct of doing this at such massive scale with trillions of different weights
+
+06:53.500 --> 06:58.030
+that are being set internally in the model to control how it will make that prediction.
+
+06:58.060 --> 07:05.740
+A byproduct of this level of scale is that we see this effect that we call emergent intelligence, which
+
+07:05.740 --> 07:07.570
+is an apparent intelligence.
+
+07:07.570 --> 07:12.250
+It is as if the model is really understanding what we're telling it.
+
+07:12.280 --> 07:17.590
+It is, of course, true that this is really something that is imitating understanding.
+
+07:17.590 --> 07:20.230
+It's just seeing the patterns and replicating them.
+
+07:20.230 --> 07:27.340
+But there is this emergent property that it apparently is able to show this level of intelligence that
+
+07:27.340 --> 07:30.820
+we all experience when we use these frontier models every day.
+
+07:31.540 --> 07:31.870
+All right.
+
+07:31.870 --> 07:33.700
+Hopefully that's given you food for thought.
+
+07:33.730 --> 07:36.640
+Interested to hear where you stand on this debate.
+
+07:36.670 --> 07:40.690
+By all means post that or let me know.
+
+07:40.750 --> 07:45.280
+And in the next lecture we will talk more about some of the theory behind this.
+
+07:45.280 --> 07:49.930
+And also look at some of the discoveries that we've had along the way.

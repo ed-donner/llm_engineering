@@ -1,0 +1,196 @@
+WEBVTT
+
+00:00.080 --> 00:07.220
+Well, that's a fantastic result to have now arrived towards the end of week one and having completed
+
+00:07.250 --> 00:09.980
+a substantial and exciting project.
+
+00:10.010 --> 00:12.350
+Now, of course, there are some challenges for you.
+
+00:12.350 --> 00:14.000
+This is where it gets interesting.
+
+00:14.030 --> 00:18.860
+First of all, I have some challenges, which is things that you can do to make this project better,
+
+00:18.860 --> 00:20.990
+similar to things I just mentioned a moment ago.
+
+00:20.990 --> 00:27.350
+And then after that there is an exercise, a proper work through homework assignment for you where you
+
+00:27.350 --> 00:29.180
+have to build something from scratch.
+
+00:29.180 --> 00:33.230
+And of course, I do provide a solution when you're ready for it, but I don't think you'll need it
+
+00:33.230 --> 00:34.610
+because I think you got this.
+
+00:34.610 --> 00:36.230
+Let's start with the challenges.
+
+00:36.230 --> 00:42.650
+So first of all, uh, in the when we built the the brochure maker that we've already got, there are,
+
+00:42.680 --> 00:44.600
+of course, the two calls to the LMS.
+
+00:44.600 --> 00:50.840
+The first call I described as one shot prompting because we give an example of some JSON of how it should
+
+00:50.840 --> 00:51.830
+reply.
+
+00:51.860 --> 00:57.530
+And now I mentioned before that there's also this expression multi-shot prompting, which is when you
+
+00:57.530 --> 01:00.110
+provide multiple examples.
+
+01:00.110 --> 01:05.090
+And so that's what I would like you to do, extend this to have multi shot prompting and really to make
+
+01:05.090 --> 01:06.350
+it true multi-shot prompting.
+
+01:06.350 --> 01:12.770
+The way you would do is you'd say something like, so if I show you these links, you might reply like
+
+01:12.770 --> 01:19.670
+this and give it some JSON, clearly indicating where you've only selected the relevant links and how
+
+01:19.670 --> 01:21.650
+you fully qualified the path.
+
+01:21.650 --> 01:22.880
+So try doing that.
+
+01:22.880 --> 01:29.090
+Put in 1 or 2 more examples, because that will be then making use of Multi-shot prompting.
+
+01:29.090 --> 01:31.610
+And you can add that to your resume that you've done multi-shot prompting.
+
+01:31.640 --> 01:36.920
+I joke, of course, but but it is an important skill to have done and tried.
+
+01:36.920 --> 01:43.700
+But the reason it's useful is that when you do this, you improve the quality and reliability of the
+
+01:43.700 --> 01:44.900
+call to the LLM.
+
+01:44.930 --> 01:53.870
+Adding more uh, examples into the prompt strengthens the its, its ability to reliably predict the
+
+01:53.870 --> 01:56.480
+next tokens and what you want it to be predicting.
+
+01:56.480 --> 01:58.940
+So this is a good exercise to do.
+
+01:58.940 --> 02:03.500
+It's a good way to add more robustness to this LLM call.
+
+02:03.500 --> 02:05.690
+And it's something that we'll be doing along the course.
+
+02:05.690 --> 02:08.810
+And it's something that you'll want to incorporate in your own projects.
+
+02:08.810 --> 02:13.570
+So please do give that a try and say give that a shot, give that a multi shot.
+
+02:14.560 --> 02:18.700
+So and I also I mentioned that towards the end of the course we're going to be using this technique
+
+02:18.700 --> 02:20.050
+called structured outputs.
+
+02:20.050 --> 02:23.620
+That actually forces the LLM to respond in a particular way.
+
+02:23.620 --> 02:30.160
+But still Multi-shot prompting helps giving it that extra context that that extra sort of flavor for
+
+02:30.160 --> 02:31.330
+what you're looking for.
+
+02:32.050 --> 02:37.000
+Um, and then just things you can do for the second call to generate the brochure.
+
+02:37.000 --> 02:41.350
+We already talked, of course, about using the system prompts to make it be snarky or sarcastic or
+
+02:41.350 --> 02:41.740
+whatever.
+
+02:41.740 --> 02:46.900
+And I mentioned that you can use the system prompt to make it generate something in a different language,
+
+02:46.990 --> 02:48.010
+like Spanish.
+
+02:48.010 --> 02:53.290
+There's another thing you could do there which might be more, certainly more interesting.
+
+02:53.290 --> 02:55.450
+I don't know if it will get you a better result or not.
+
+02:55.450 --> 03:00.880
+And that would be generate the brochure in English and then make a second call.
+
+03:01.030 --> 03:08.080
+Actually, of course, it's a third call to the LLM to translate the brochure from English to Spanish.
+
+03:08.140 --> 03:14.020
+Uh, now, in many ways it's probably actually not going to be any better to do it that way in this
+
+03:14.020 --> 03:14.710
+case.
+
+03:14.710 --> 03:20.080
+But by getting into that practice of doing that, you could imagine that we might use a model that is
+
+03:20.080 --> 03:26.440
+actually specially trained for the purposes of translation, and so you could use that model just for
+
+03:26.470 --> 03:31.900
+that purpose, and that would then allow you for sure to get a better outcome using one model that's
+
+03:31.900 --> 03:36.730
+trained for brochure generation and a different model that's trained for translation.
+
+03:36.730 --> 03:41.950
+And so whilst we will in fact probably be using just GPT four or mini for both purposes, it certainly
+
+03:41.950 --> 03:45.970
+gives you that hands on experience of making the multiple calls.
+
+03:45.970 --> 03:50.350
+And again, that's basically a miniature implementation of Agentic AI.
+
+03:50.380 --> 03:55.900
+So again, great thing to get into the habit of doing, even if you could probably just use the system
+
+03:55.900 --> 03:58.210
+prompt to do it all in 1 in 1 bash.
+
+03:58.360 --> 04:00.370
+Anyway, those are the things to do.
+
+04:00.370 --> 04:08.680
+This will really help build your your confidence and your experience with these kinds of techniques,
+
+04:08.710 --> 04:12.970
+which will come in extremely useful in the upcoming weeks.
+
+04:12.970 --> 04:18.130
+And then I have an exercise for you, and this is where you'll be building something from scratch.
+
+04:18.130 --> 04:22.030
+And to show you that, I will take you to the next video back to JupyterLab.

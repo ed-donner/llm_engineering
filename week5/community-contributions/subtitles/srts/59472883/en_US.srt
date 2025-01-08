@@ -1,0 +1,85 @@
+WEBVTT
+
+00:01.490 --> 00:03.500
+Okay, time to reveal the results.
+
+00:03.500 --> 00:04.880
+It has run to completion.
+
+00:04.880 --> 00:07.010
+And here it is.
+
+00:07.940 --> 00:11.060
+So a moment to pause.
+
+00:11.090 --> 00:19.040
+It turns out that it's actually a little bit worse than the previous results before fine tuning.
+
+00:19.490 --> 00:21.560
+Um, I would expect that.
+
+00:21.560 --> 00:23.690
+It's just that it's very similar.
+
+00:23.690 --> 00:26.510
+It's not actually that the model has gotten any worse.
+
+00:26.510 --> 00:32.960
+I would suspect that fine tuning in this case has not helped us, which is obviously disappointing.
+
+00:32.960 --> 00:37.520
+I did warn you at the beginning that there would be a disappointment in this session.
+
+00:37.730 --> 00:42.290
+Uh, now, having said that, there are some things that it's definitely improved upon.
+
+00:42.320 --> 00:45.770
+Unfortunately, they're not reflected in this business metric.
+
+00:45.890 --> 00:50.810
+Uh, but it has improved in terms of the, the, the biggest outliers.
+
+00:50.810 --> 00:56.000
+I don't know if you remember, but when we ran it before, it was guessing some things that were way
+
+00:56.000 --> 00:57.980
+outside the range of a thousand.
+
+00:58.010 --> 01:02.150
+I think I showed you there were points like that were far, far too high.
+
+01:02.150 --> 01:08.960
+And from seeing our data set of 500, it's it's appreciated that there aren't things that are priced
+
+01:08.960 --> 01:09.860
+that much.
+
+01:09.860 --> 01:14.750
+And so that has caused something of a, of a nuanced correction to what it's doing.
+
+01:14.780 --> 01:18.110
+But other than that it hasn't particularly helped it.
+
+01:18.110 --> 01:23.780
+And in fact, unfortunately with this set, this this test set, at least it's actually appears to have
+
+01:23.780 --> 01:30.170
+hindered it according to this business metric, the one that we're really focused on, the total difference.
+
+01:30.350 --> 01:33.500
+So that's a sobering moment for us.
+
+01:33.500 --> 01:38.120
+Uh, and uh, in the next video, I'll explain why.
+
+01:38.120 --> 01:43.040
+And the times when fine tuning frontier models can be very helpful and when they can't.
+
+01:43.040 --> 01:47.060
+And fear not, there is, there is, there is good news ahead.
+
+01:47.060 --> 01:51.260
+Even if this is a is a setback for us, we will we will see more.
+
+01:51.290 --> 01:52.130
+See you next time.

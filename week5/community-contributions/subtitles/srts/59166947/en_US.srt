@@ -1,0 +1,313 @@
+WEBVTT
+
+00:01.040 --> 00:04.340
+Well, thank you for coming along for week two, day four.
+
+00:04.370 --> 00:06.920
+We have lots of good stuff in store today.
+
+00:06.920 --> 00:15.770
+It's another day of levelling up, of building new skills that adds to your capabilities of using Llms
+
+00:15.770 --> 00:19.490
+for generating important business value.
+
+00:19.940 --> 00:26.240
+As always, a quick recap of what you can do already describing Transformers and the terminology involved.
+
+00:26.240 --> 00:27.290
+You know it well.
+
+00:27.290 --> 00:33.920
+Confidently coding with the APIs for the top three frontier models, and now most recently, building
+
+00:33.920 --> 00:37.670
+a chatbot assistant, an AI chatbot including an interactive UI.
+
+00:37.670 --> 00:43.400
+And you're very familiar now with that messages structure going into OpenAI and with the way that the
+
+00:43.400 --> 00:46.130
+chat function works for Gradio.
+
+00:46.310 --> 00:49.880
+So today is about these things called tools.
+
+00:49.880 --> 00:54.080
+By the end, you'll be able to define them, you'll have common use cases for them, and you'll be able
+
+00:54.080 --> 00:57.650
+to code an AI assistant that uses tools.
+
+00:57.650 --> 00:58.910
+Let's get to it.
+
+00:59.570 --> 01:02.420
+So what are tools?
+
+01:02.900 --> 01:11.300
+So it allows frontier models to connect with external functions with functionality outside the frontier
+
+01:11.330 --> 01:11.780
+model.
+
+01:11.810 --> 01:14.570
+In fact, tools can mean something broader than that.
+
+01:14.570 --> 01:15.650
+It can be other things too.
+
+01:15.680 --> 01:21.110
+But most commonly, when you hear people talk about tools, it's in the context of giving frontier models
+
+01:21.140 --> 01:23.870
+access to external functions.
+
+01:23.870 --> 01:32.300
+It allows for a richer replies from an LLM by extending its knowledge, um, it can carry out advanced
+
+01:32.330 --> 01:39.380
+actions within your application, and it can enhance its abilities by, for example, giving it a calculator.
+
+01:39.530 --> 01:44.510
+So as I said at the end of the last time, this might sound very mysterious.
+
+01:44.510 --> 01:47.090
+How exactly what exactly is going on here?
+
+01:47.090 --> 01:52.430
+We're going to build something like a calculator, like a function that can do calculations, uh, even
+
+01:52.430 --> 01:54.860
+go as far as to do a sort of exact of Python code.
+
+01:54.860 --> 01:59.960
+And then we're going to sort of give that to the LLM and say, okay, you can use this.
+
+01:59.960 --> 02:03.140
+You can run this software on my computer in some way.
+
+02:03.140 --> 02:05.210
+It sounds sounds mysterious.
+
+02:05.210 --> 02:06.860
+It sounds a bit spooky, really.
+
+02:06.920 --> 02:09.790
+Uh, but alas, it is not.
+
+02:09.790 --> 02:10.930
+Not that clever.
+
+02:10.930 --> 02:13.840
+It's a pretty simple workflow around it.
+
+02:13.870 --> 02:15.130
+Here's the scoop.
+
+02:15.130 --> 02:24.220
+What we do is we start by defining what functions we have available that the LM is allowed to call.
+
+02:24.220 --> 02:25.900
+So we define these functions.
+
+02:25.900 --> 02:27.100
+Let's say we have a calculator.
+
+02:27.100 --> 02:28.390
+We define the calculator.
+
+02:28.390 --> 02:32.920
+We say what are the inputs, what kind of outputs and when should the LM use it.
+
+02:33.010 --> 02:36.550
+And then we tell the LM about that.
+
+02:36.550 --> 02:42.430
+When we make a call to do something we say to it, hey, can you can you respond to this user.
+
+02:42.430 --> 02:45.760
+And by the way, you have access to this tool.
+
+02:45.790 --> 02:51.970
+When the LM replies to us, it can either just respond with a prompt or it can respond with something
+
+02:51.970 --> 02:57.490
+like, hey, if I'm going to to to generate you a response, first I'm going to need to ask you to run
+
+02:57.490 --> 03:03.310
+that tool you told me about and run it with these inputs and then provide me back with the outputs.
+
+03:03.310 --> 03:12.280
+And then you take that, you run the tool and then you provide the responses back to the LM, and it
+
+03:12.280 --> 03:14.770
+then uses it to generate its response.
+
+03:14.860 --> 03:20.140
+So if you follow my drift there, it's not actually particularly amazing.
+
+03:20.140 --> 03:24.850
+It's that you call an LM and it responds and says, hey, I need you to call the tool that you told
+
+03:24.850 --> 03:25.570
+me you have.
+
+03:25.600 --> 03:31.630
+You do that, you provide it back to the LM, and then it's able to give you richer responses.
+
+03:32.320 --> 03:38.620
+And if you're really following along, you'll realize that that's not massively different to the kind
+
+03:38.650 --> 03:45.970
+of thing we did in the last lab when we just looked for a string and we just inserted extra context
+
+03:45.970 --> 03:52.330
+in the prompt that goes to the LM, it's just about really inserting extra context in prompts.
+
+03:52.360 --> 03:52.930
+All right.
+
+03:52.960 --> 03:56.860
+Anyway, hopefully I didn't muddle you there, but it's going to come together when you see the code,
+
+03:56.860 --> 03:57.820
+I promise you.
+
+03:58.630 --> 04:00.550
+But first, what are the use cases.
+
+04:00.550 --> 04:02.500
+When when do we typically do this.
+
+04:02.500 --> 04:07.150
+There are four ones that really that you come across a lot.
+
+04:07.330 --> 04:15.100
+Um, you can use tools to fetch extra data, like look something up in a database, um, add knowledge.
+
+04:15.100 --> 04:19.720
+Uh, and again, you can think of it that's rather similar to what we did with with belts in the last
+
+04:19.720 --> 04:23.800
+lab, but you can do that using tools instead.
+
+04:24.370 --> 04:30.940
+Uh, you can use it as a way that the LM can take an action, like booking a meeting, so you can tell
+
+04:30.970 --> 04:34.120
+it as part of your, uh, you have access.
+
+04:34.120 --> 04:40.240
+You have the ability to actually, uh, to carry out these, these, these items to buy a plane ticket
+
+04:40.240 --> 04:41.710
+to do, do the following.
+
+04:41.860 --> 04:47.050
+Um, and essentially in its response back, it will tell you that that's the tool that wants to use,
+
+04:48.580 --> 04:51.880
+as I just mentioned, a use case would be a calculator.
+
+04:51.880 --> 04:58.510
+Uh, LMS are famously not great at calculations because all they're trying to do is predict, uh, tokens
+
+04:58.510 --> 04:59.530
+in English language.
+
+04:59.530 --> 05:04.360
+They don't have, like, a calculator built in to a to a deep neural network.
+
+05:04.360 --> 05:07.090
+But you can provide that as a tool.
+
+05:07.270 --> 05:13.240
+And you can notice that, uh, GPT four is very good at calculations these days.
+
+05:13.240 --> 05:17.800
+And one wonders whether something that's going on behind the scenes might be something like this, that
+
+05:17.800 --> 05:22.020
+it might have its own tool made available in order to run calculations.
+
+05:22.020 --> 05:26.010
+Perhaps just speculation, but it seems very reasonable.
+
+05:27.090 --> 05:34.260
+Another thing it can do is modify the UI so you could tell it, hey, here's some tools.
+
+05:34.260 --> 05:39.390
+You can use, some functions you can call that will update different things on my user interface.
+
+05:39.390 --> 05:46.980
+And that would give the LLM the direct ability to trigger changes in the UI, which is a pretty cool
+
+05:46.980 --> 05:51.600
+idea to have sort of tighter integration between the LLM and the UI.
+
+05:52.740 --> 06:00.090
+Again, one thing worth pointing out for the second one here, and for the fourth one for taking actions
+
+06:00.090 --> 06:03.660
+and modifying the UI, there will be another way to achieve this.
+
+06:03.660 --> 06:09.090
+That would be perhaps a simpler approach if that's all you wanted to do.
+
+06:09.210 --> 06:14.460
+See if you can, based on something we've already done before, uh, give you a moment to pause, to
+
+06:14.490 --> 06:16.470
+think about what I might be getting at.
+
+06:17.070 --> 06:24.740
+The answer is, you remember, uh, in one of the earlier labs we had the model respond in JSON to respond
+
+06:24.740 --> 06:29.900
+with a structured response, and its response had JSON to tell us bits of information.
+
+06:29.900 --> 06:35.180
+In our case, it was about links and uh, giving us more information about fully qualified links and
+
+06:35.180 --> 06:36.440
+which links to collect.
+
+06:36.470 --> 06:41.900
+Well, similarly, we could just ask the model to respond in JSON with what actions need to be taken
+
+06:41.900 --> 06:46.790
+to book a meeting or respond in JSON based on how it wants the user interface modified.
+
+06:46.790 --> 06:50.690
+So there are other ways other than using tools to accomplish this.
+
+06:50.690 --> 06:55.430
+But if you want to be able to give it tools in addition to streaming back text, then this is a good
+
+06:55.430 --> 06:55.970
+solution.
+
+06:55.970 --> 07:00.740
+That's the that's the best time to use this when it's in conjunction with a number of other things that
+
+07:00.740 --> 07:01.730
+the LM is doing.
+
+07:01.730 --> 07:05.600
+So these tools are sort of adding to its capabilities.
+
+07:06.800 --> 07:13.250
+So what we're going to do now is build an informed airline customer support agent.
+
+07:13.250 --> 07:19.190
+We're going to want to be able to tell it that we're traveling to Paris and then have it respond with
+
+07:19.190 --> 07:21.170
+a ticket price to Paris.
+
+07:21.170 --> 07:22.310
+That's the idea.
+
+07:22.310 --> 07:26.960
+We're going to do it with tools, and I will see you over in the lab to find out how.

@@ -1,0 +1,70 @@
+WEBVTT
+
+00:01.760 --> 00:02.480
+Friends.
+
+00:02.510 --> 00:05.390
+I am absolutely exhausted.
+
+00:05.390 --> 00:09.620
+I am exhausted and a little tiny bit traumatized.
+
+00:09.950 --> 00:13.520
+And you are somewhat to blame for this, as you will discover.
+
+00:13.550 --> 00:16.760
+You will discover in a moment you will find out why.
+
+00:16.790 --> 00:21.050
+But first, let's talk about what we have in store for today.
+
+00:21.500 --> 00:25.670
+So we are going to be raising the bar on our baselines.
+
+00:25.670 --> 00:29.360
+I'm just going to take a moment to remind you what you can already do.
+
+00:29.390 --> 00:36.230
+Of course, generating text and generating code from combinations of frontier models with AI assistants,
+
+00:36.230 --> 00:44.240
+with tools, and also open source systems using hugging face Transformers library, you can use Lang
+
+00:44.240 --> 00:51.110
+chain to build a rag pipeline, and now you can also curate data and you can curate it.
+
+00:51.110 --> 00:52.700
+Finally, if I may say so.
+
+00:52.700 --> 00:57.740
+And you can also make a baseline model using some rather foolish techniques.
+
+00:57.740 --> 01:04.040
+But then using traditional machine learning linear regression, including both feature engineering and
+
+01:04.040 --> 01:11.030
+bag of words, and then onto more sophisticated techniques using word two vec and then adding in support
+
+01:11.030 --> 01:14.270
+vector machines and then random forests.
+
+01:14.330 --> 01:16.250
+Quite a trek it's been.
+
+01:16.250 --> 01:17.750
+So today.
+
+01:17.780 --> 01:23.510
+Today we are going to now take the framework we put together and put it against frontier models.
+
+01:23.510 --> 01:30.080
+And this will sort of really capture all of the steps it takes to take a proper business problem, um,
+
+01:30.140 --> 01:35.750
+understand the data and then present it to frontier models and compare their performance.
+
+01:35.750 --> 01:41.870
+So it's an exciting moment for us, and we will get right to it.
+
+01:41.930 --> 01:46.130
+And I will see you over at JupyterLab in a moment.

@@ -1,0 +1,889 @@
+WEBVTT
+
+00:00.860 --> 00:05.330
+And here, once more we find ourselves in our favorite place, the Jupyter Lab.
+
+00:05.330 --> 00:07.310
+Ready to go with weeks.
+
+00:07.340 --> 00:09.620
+Week two's exercises.
+
+00:09.620 --> 00:14.930
+So we go into week two folder and we open up week two, day one.
+
+00:15.230 --> 00:18.230
+Uh, and here we go.
+
+00:18.230 --> 00:26.990
+So a reminder that in week one we used uh multiple frontier LMS through the chat user interface, a
+
+00:26.990 --> 00:32.990
+way to use it through the web, uh, and then through the API, we connect it to OpenAI's API.
+
+00:33.020 --> 00:39.890
+So today we're going to add to the mix the APIs for Anthropic and Google to join with our skills of
+
+00:39.890 --> 00:41.090
+using OpenAI.
+
+00:41.960 --> 00:47.630
+Uh, so as a one more reminder, you're going to kill me for keeping going on about this.
+
+00:47.630 --> 00:50.300
+This is where you set up your keys.
+
+00:50.300 --> 00:55.850
+Uh, you can set up keys for OpenAI, which presumably you already did last week, uh, for anthropic
+
+00:55.850 --> 00:58.460
+and for Gemini for Google.
+
+00:58.490 --> 01:04.370
+Uh, but, uh, bearing in mind that there is more of an adventure to be had in setting up your Google
+
+01:04.400 --> 01:05.330
+Keys.
+
+01:05.390 --> 01:09.410
+Once you've set them up, you create.
+
+01:09.470 --> 01:11.330
+You should already have created the file called.
+
+01:11.480 --> 01:15.170
+Env and make sure that your keys are in there in that form.
+
+01:15.560 --> 01:21.500
+If you wish, instead of doing that, you can do it by typing your keys in these cells.
+
+01:21.500 --> 01:24.020
+It's it's possible to do it that way.
+
+01:24.020 --> 01:26.270
+It's not recommended for security reasons.
+
+01:26.270 --> 01:30.350
+In case you one day make this public and then other people will see your keys.
+
+01:30.380 --> 01:32.300
+All right, enough preamble.
+
+01:32.330 --> 01:33.800
+Let's run some imports.
+
+01:33.800 --> 01:37.400
+Let's run this block of code here that sets the environment variables.
+
+01:37.400 --> 01:38.900
+You're pretty familiar with this.
+
+01:38.900 --> 01:46.280
+And now in this cell, you can see that I make the same call to OpenAI to, to establish that connection
+
+01:46.280 --> 01:49.400
+to the OpenAI API that you're familiar with now.
+
+01:49.400 --> 01:55.790
+But then I have something pretty similar for Claude and then something a little bit different for Google
+
+01:55.790 --> 01:56.840
+for Gemini.
+
+01:56.960 --> 02:04.220
+So these are the sort of, uh, semi somewhat analogous commands that we're using for those three.
+
+02:04.730 --> 02:05.510
+Okay.
+
+02:05.510 --> 02:11.420
+So we've seen a bunch of things that Llms are pretty good at, and then just a few things where it tripped
+
+02:11.420 --> 02:13.160
+up, but mostly things that it's very good at.
+
+02:13.190 --> 02:17.600
+One of the things that it's not so good at as it would happen, is telling jokes.
+
+02:17.600 --> 02:24.080
+When you give it a very tight, uh, context in which it has to try and form that joke.
+
+02:24.260 --> 02:28.610
+Uh, and so, you know, this is clearly not a very commercial example, but it's a way of having some
+
+02:28.610 --> 02:30.980
+fun and getting some experience with the APIs.
+
+02:31.040 --> 02:34.850
+Uh, we are going to ask some llms to tell jokes over the API.
+
+02:35.120 --> 02:36.770
+Um, so what information do you do?
+
+02:36.770 --> 02:37.550
+You send over an API.
+
+02:37.580 --> 02:41.750
+Typically, you always specify the name of the model that you want to use.
+
+02:41.750 --> 02:45.380
+You typically give the system message and the user message.
+
+02:45.380 --> 02:48.950
+You're super familiar with this now system message giving the overall context.
+
+02:48.950 --> 02:52.340
+The user message is the actual prompt.
+
+02:52.550 --> 02:54.410
+Um, and there are some other characteristics.
+
+02:54.410 --> 02:55.700
+There are some other things that you can do.
+
+02:55.730 --> 03:00.890
+You can pass in something called the temperature which is between 0 and 1, usually where one means
+
+03:00.890 --> 03:08.430
+I want a more random creative output Outputs, and zero would be the lowest possible focused, deterministic
+
+03:08.430 --> 03:09.960
+repeatable setting.
+
+03:10.320 --> 03:14.250
+So that is another parameter that you can often provide.
+
+03:14.280 --> 03:19.470
+So in this case we're going to set a system message to be you are an assistant that is great at telling
+
+03:19.470 --> 03:20.010
+jokes.
+
+03:20.010 --> 03:26.670
+And the user prompt will be tell a light hearted joke for an audience of data scientists.
+
+03:26.670 --> 03:30.000
+That would be you and also me.
+
+03:30.660 --> 03:35.850
+Okay, so then this structure here is hopefully something very familiar to you.
+
+03:35.850 --> 03:43.410
+This is where we put the prompts into a list to elements you a system and a user as the as the role
+
+03:43.410 --> 03:44.910
+in these two elements.
+
+03:44.940 --> 03:49.860
+Going into this list, I hopefully don't need to explain it because you're now quite familiar with this.
+
+03:50.040 --> 03:55.080
+Uh, as I say, this, this, this, um, value here, the role can be system or user.
+
+03:55.080 --> 03:56.070
+You're going to find out later.
+
+03:56.070 --> 03:57.570
+It can also be assistant.
+
+03:57.570 --> 03:59.760
+So it can be system user or assistant.
+
+03:59.760 --> 04:04.150
+And then later this week you're going to find some other thing that can go in there as well.
+
+04:04.240 --> 04:04.990
+So.
+
+04:05.020 --> 04:09.790
+But for now, all you need to remember is system and user as the two roles we're going to be using.
+
+04:09.790 --> 04:12.610
+So we put that into the list of prompts.
+
+04:13.480 --> 04:16.570
+And I should remember to execute the cell before it.
+
+04:16.570 --> 04:18.790
+Before I do that did I execute the cell here.
+
+04:18.790 --> 04:20.350
+Yes I did all right.
+
+04:20.350 --> 04:20.770
+Here we go.
+
+04:20.800 --> 04:21.790
+Let's try that one again.
+
+04:21.790 --> 04:22.840
+Execute that cell.
+
+04:22.840 --> 04:23.860
+Execute this cell.
+
+04:23.890 --> 04:25.720
+Very good okay.
+
+04:25.750 --> 04:33.280
+Let's start with one of the older GPT models GPT 3.5 turbo, which quite recently was like the the latest
+
+04:33.280 --> 04:34.390
+and greatest frontier model.
+
+04:34.390 --> 04:35.830
+But it's already old news.
+
+04:35.830 --> 04:37.330
+But we will use this.
+
+04:37.330 --> 04:44.680
+And so the API, which now you're quite familiar with for OpenAI is OpenAI dot chat, dot completions,
+
+04:44.680 --> 04:53.500
+dot create completions, um, being the name of this, this API, the one that basically takes an existing
+
+04:53.500 --> 04:59.530
+set of prompts and then tries to complete generate text to complete the conversation.
+
+04:59.800 --> 05:06.960
+Um, and as we call create, we pass in a model and we pass in the messages in the format that you're
+
+05:06.960 --> 05:07.980
+familiar with.
+
+05:08.010 --> 05:09.750
+So let's see.
+
+05:09.780 --> 05:15.870
+And you remember when we get back the response, what we do is we take completion dot choices, which
+
+05:15.870 --> 05:18.030
+is a list of possible choices.
+
+05:18.030 --> 05:19.980
+But there will only be one element in there.
+
+05:19.980 --> 05:23.790
+There is a way that you can specify that you want it to return multiple choices.
+
+05:23.790 --> 05:28.740
+But since we haven't done that, we just get back one and it's in location zero of course.
+
+05:28.740 --> 05:35.550
+So completion dot choices zero dot message gives us back the message and content returns it in a string.
+
+05:35.760 --> 05:37.770
+So that is what we get back and we print it.
+
+05:37.770 --> 05:39.360
+And now let's see what kind of joke.
+
+05:39.360 --> 05:42.690
+For data scientists GPT 3.5 turbo can come up with.
+
+05:42.720 --> 05:43.680
+Here we go.
+
+05:44.010 --> 05:48.000
+Why did the data scientists break up with their computer?
+
+05:48.000 --> 05:52.020
+It just couldn't handle their complex relationship.
+
+05:52.830 --> 05:53.970
+Okay, okay.
+
+05:54.000 --> 05:56.250
+You know, I get it, I see it.
+
+05:56.280 --> 05:58.770
+It's not the world's funniest joke, but it's not terrible.
+
+05:58.800 --> 06:03.540
+You know, the data scientists model relationships between things and couldn't handle their complex
+
+06:03.540 --> 06:04.200
+relationship.
+
+06:04.200 --> 06:04.800
+Fair enough.
+
+06:04.800 --> 06:13.140
+I'd say that's a perfectly acceptable, acceptable joke coming from GPT 3.5 turbo.
+
+06:13.200 --> 06:17.010
+So let's see if GPT four mini can do better.
+
+06:17.160 --> 06:21.450
+This time, we're going to just slightly expand our use of the API.
+
+06:21.600 --> 06:26.340
+I'm including temperature, so this is where you can pass in this number between 0 and 1.
+
+06:26.340 --> 06:29.220
+One for the most creative, zero for the least.
+
+06:29.490 --> 06:34.980
+Um, and uh, out of this I have completion choices zero message content.
+
+06:34.980 --> 06:36.720
+Again, you should be very familiar with this.
+
+06:36.750 --> 06:38.970
+Let's see how it performs.
+
+06:39.570 --> 06:42.060
+Why did the data scientist break up with a statistician?
+
+06:42.060 --> 06:44.670
+Because she found him too mean.
+
+06:44.700 --> 06:46.230
+I'd say that's a pretty good joke.
+
+06:46.230 --> 06:47.490
+I'd say that's fine.
+
+06:47.490 --> 06:49.950
+That's that's, uh, that's an acceptable joke.
+
+06:49.980 --> 06:54.300
+Maybe I was harsh when I said that llms aren't very good at this, because that's a perfectly decent
+
+06:54.300 --> 06:54.990
+joke.
+
+06:55.170 --> 07:02.610
+Uh, and, uh, I think we will give GPT four a mini, uh, a round of applause for that.
+
+07:03.030 --> 07:09.160
+Okay, let's try GPT four Minis, uh, bigger cousin, GPT four.
+
+07:09.190 --> 07:12.130
+Oh, the maxi version of GPT four.
+
+07:12.160 --> 07:14.260
+Oh, the big guy.
+
+07:14.260 --> 07:16.000
+And we will ask it.
+
+07:16.030 --> 07:19.210
+Let's give it the same temperature so we're not messing with things as we go.
+
+07:19.240 --> 07:21.160
+We'll ask it for it for a joke.
+
+07:21.190 --> 07:23.230
+Two and let's see how it does.
+
+07:24.250 --> 07:27.130
+Why did the data scientist go broke?
+
+07:27.130 --> 07:30.850
+Because they couldn't find any cache in their array.
+
+07:32.410 --> 07:35.560
+If it hadn't put on in their array, I might have found that better.
+
+07:35.560 --> 07:38.650
+I don't, uh, couldn't find any cache.
+
+07:38.650 --> 07:39.910
+Would be okay.
+
+07:40.810 --> 07:42.280
+Maybe I'm missing something here.
+
+07:42.310 --> 07:45.280
+I I'm not sure I get it.
+
+07:45.550 --> 07:47.380
+Uh, let's try another one.
+
+07:47.560 --> 07:52.480
+Let's do what I had in there before and start pulling the temperature down a bit, see what we get.
+
+07:52.990 --> 07:56.560
+Why did scientists break up with the logistic regression model?
+
+07:56.590 --> 07:58.390
+Because it couldn't find the right fit.
+
+07:58.600 --> 08:00.130
+Uh, you know, that's perfectly decent.
+
+08:00.130 --> 08:00.970
+That's acceptable.
+
+08:00.970 --> 08:06.160
+That's that's maybe, uh, I'm not sure which I prefer between Mini and Maxi, but, uh, that's a that's
+
+08:06.160 --> 08:08.860
+a pretty solid, solid gag there.
+
+08:08.860 --> 08:12.640
+I think we will we will say that that that's a pass for sure.
+
+08:13.810 --> 08:14.800
+All right.
+
+08:14.830 --> 08:17.050
+Let's move on to clause 3.5.
+
+08:17.080 --> 08:17.680
+Sonnet.
+
+08:17.950 --> 08:21.430
+Uh, so the API looks strikingly similar.
+
+08:21.430 --> 08:22.270
+That's the good news.
+
+08:22.270 --> 08:25.030
+It's basically very, very similar indeed.
+
+08:25.060 --> 08:26.530
+A couple of differences.
+
+08:26.530 --> 08:31.510
+You do have to pass in the system message as its own separate attribute.
+
+08:31.510 --> 08:36.430
+And then the messages is again this this list of decks.
+
+08:36.430 --> 08:41.380
+But of course it doesn't have that first entry for the system message because you've already passed
+
+08:41.380 --> 08:42.550
+that in separately.
+
+08:42.910 --> 08:45.310
+Um, so that's a slight difference.
+
+08:45.340 --> 08:51.670
+Um, also, Max tokens is something which is optional for the OpenAI API to to specify the, the maximum
+
+08:51.670 --> 08:52.360
+number of tokens.
+
+08:52.360 --> 08:55.180
+And I believe it's actually required for Claude.
+
+08:55.180 --> 08:56.860
+So that's why it's in here.
+
+08:56.860 --> 08:59.200
+But otherwise everything should look very similar.
+
+08:59.230 --> 09:03.250
+The API itself is a little bit easier to memorize.
+
+09:03.250 --> 09:05.740
+It's just Claude dot messages dot create.
+
+09:05.740 --> 09:11.470
+It's slightly shorter, but it's otherwise quite similar to OpenAI ChatGPT completions create.
+
+09:11.710 --> 09:13.150
+Uh, so there it is.
+
+09:13.180 --> 09:17.830
+And then when we get back a response, it's message content zero.
+
+09:17.860 --> 09:22.630
+Again, you're asking for the the first one, but we're only going to get back one because we've only
+
+09:22.630 --> 09:28.750
+asked for one dot text gives us that's the equivalent of dot content for OpenAI.
+
+09:28.780 --> 09:30.100
+So let's see.
+
+09:30.100 --> 09:35.020
+This is a useful hopefully for you for for the API framework for Claude.
+
+09:35.020 --> 09:38.080
+Let's see now how Claude does with a joke.
+
+09:39.910 --> 09:40.630
+Sure.
+
+09:40.660 --> 09:43.540
+Here's a lighthearted joke for data scientists.
+
+09:43.570 --> 09:46.210
+Why do data scientists break up with their significant other?
+
+09:46.240 --> 09:50.800
+They just was too much variance in the relationship, and they couldn't find a good way to normalize
+
+09:50.800 --> 09:51.310
+it.
+
+09:51.970 --> 09:53.530
+Uh, yeah, that's all right.
+
+09:53.530 --> 09:59.110
+I'd say it's a nerdier it's a slightly more, uh, um, data sciency.
+
+09:59.110 --> 10:03.640
+It's perhaps just a tiny bit less funny, but it's not bad at all.
+
+10:03.640 --> 10:07.570
+I don't know, I think whether you prefer that to GPT four is probably a matter of taste.
+
+10:07.900 --> 10:10.100
+They're perfectly solid jokes.
+
+10:10.220 --> 10:14.210
+They're not explosively funny, but I'd say perfectly solid.
+
+10:14.210 --> 10:15.440
+Not terrible.
+
+10:15.950 --> 10:16.550
+Um.
+
+10:16.610 --> 10:22.220
+Anyway, the point of this is more about APIs and about jokes, although it always keeps it entertaining.
+
+10:22.250 --> 10:24.800
+What I want to show you now is about streaming.
+
+10:24.890 --> 10:29.090
+Um, you remember we talked briefly about streaming before the streaming example?
+
+10:29.090 --> 10:33.140
+We did before, uh, looked a bit complicated because we had to deal with the fact that we were bringing
+
+10:33.140 --> 10:36.470
+back markdown and we had to to handle that markdown.
+
+10:36.470 --> 10:40.280
+This looks a bit simpler because we're not dealing with with a markdown response.
+
+10:40.280 --> 10:45.980
+We're going to ask the same model, cloud 3.5 again for a joke, but this time we're going to stream
+
+10:45.980 --> 10:46.730
+back results.
+
+10:46.730 --> 10:53.090
+So you may remember when we asked OpenAI to stream the way we did it is we just added another attribute
+
+10:53.090 --> 10:54.470
+stream equals true.
+
+10:54.470 --> 10:56.570
+And that meant that it was in streaming mode.
+
+10:56.570 --> 10:58.490
+For Claude, it's slightly different.
+
+10:58.490 --> 11:00.380
+There is no extra attribute.
+
+11:00.380 --> 11:06.440
+Instead, you call the dot stream method instead of the dot create method.
+
+11:06.440 --> 11:09.020
+So slightly different approach there.
+
+11:09.020 --> 11:13.790
+That's a nuance of difference between anthropic and OpenAI for streaming.
+
+11:13.790 --> 11:16.430
+So we call Claude messages stream.
+
+11:16.460 --> 11:17.840
+Otherwise it's the same.
+
+11:17.840 --> 11:22.430
+And then with what comes back, we use a context manager with results as stream.
+
+11:22.610 --> 11:26.960
+Um, and then it's for text in stream text stream.
+
+11:26.960 --> 11:31.550
+And you remember OpenAI was was for chunk in response.
+
+11:31.550 --> 11:35.990
+So OpenAI was a bit different again in the way that you read back results.
+
+11:35.990 --> 11:37.040
+But there it is.
+
+11:37.040 --> 11:41.420
+We get each little chunk back and just going to print that chunk.
+
+11:41.540 --> 11:46.460
+Um, and the reason for this is to make sure that it doesn't print each chunk on a separate line.
+
+11:46.670 --> 11:48.170
+Otherwise it'd be very hard to read.
+
+11:48.170 --> 11:49.490
+So this should look better.
+
+11:49.490 --> 11:56.510
+Let's see how Claude 3.5 sonnet does with a joke that it will then stream back to us in JupyterLab.
+
+11:57.200 --> 11:57.800
+There we go.
+
+11:57.800 --> 11:58.040
+You see?
+
+11:58.040 --> 11:59.060
+It's streaming.
+
+11:59.330 --> 12:01.580
+Sure, here's a light hearted joke for Data Scientist.
+
+12:01.610 --> 12:03.110
+Why did that same joke?
+
+12:03.110 --> 12:08.690
+It seems exactly the same joke, but it's added in a Brahms little drum.
+
+12:08.840 --> 12:12.000
+Uh, explosion at the end, which is nice.
+
+12:12.000 --> 12:14.670
+I wonder why did I ask for more tokens than before?
+
+12:14.700 --> 12:15.180
+Let's see.
+
+12:15.210 --> 12:15.630
+No.
+
+12:15.630 --> 12:16.350
+The same.
+
+12:16.650 --> 12:17.730
+Um, it's.
+
+12:17.760 --> 12:19.020
+And it gives a little explanation.
+
+12:19.020 --> 12:22.170
+This joke plays on statistical concepts which are common to data science.
+
+12:22.260 --> 12:27.060
+It's a bit nerdy, but should get a chuckle from data savvy audience.
+
+12:27.060 --> 12:32.070
+Well, I would say you guys are a data savvy audience, so you can be the judge of that.
+
+12:32.100 --> 12:34.440
+Did it get a chuckle from you?
+
+12:35.220 --> 12:36.540
+Moving on.
+
+12:36.570 --> 12:39.120
+Gemini has a different structure.
+
+12:39.120 --> 12:41.370
+It's it's quite a bit different, actually.
+
+12:41.400 --> 12:48.780
+Um, and I'd probably say to Google's credit, their ability to set up tokens is much more complicated,
+
+12:48.780 --> 12:50.580
+but the API is a bit simpler.
+
+12:50.670 --> 12:56.850
+Uh, you can see here you create a generative model object and you pass in the name of the model, we'll
+
+12:56.850 --> 12:59.550
+use the Gemini 1.5 flash.
+
+12:59.580 --> 13:03.510
+You remember how many how large the context window is for Gemini 1.5 flash.
+
+13:03.540 --> 13:04.680
+Can you remember that?
+
+13:04.710 --> 13:07.050
+It was top of the table that we had before?
+
+13:07.050 --> 13:10.380
+It was a remarkable 1 million tokens.
+
+13:10.410 --> 13:11.450
+A million tokens.
+
+13:11.480 --> 13:13.310
+750,000 words.
+
+13:13.340 --> 13:15.500
+So, Gemini 1.5 flash.
+
+13:15.950 --> 13:23.270
+We pass in the system instruction when we create this object, and then we call Gemini dot.
+
+13:23.270 --> 13:26.420
+Generate content with the user prompt.
+
+13:26.420 --> 13:28.520
+And it's just response dot text.
+
+13:28.520 --> 13:35.090
+So a little bit less futzing around with both the request and the response here it's a bit of a simpler
+
+13:35.120 --> 13:37.520
+API, but let's see the quality of joke.
+
+13:37.670 --> 13:42.200
+Importantly, why did the data scientists break up with a statistician?
+
+13:42.200 --> 13:45.590
+Because they couldn't see eye to eye on the p value.
+
+13:47.420 --> 13:48.020
+Ah.
+
+13:48.800 --> 13:52.310
+Well, uh, I see the data science side of it.
+
+13:52.310 --> 13:53.810
+I'm not sure I get it.
+
+13:53.900 --> 13:55.070
+Hahaha.
+
+13:55.370 --> 13:57.380
+Uh, maybe you do get it.
+
+13:57.380 --> 13:59.540
+And I'm being being, uh, being dozy.
+
+13:59.540 --> 14:01.310
+Uh, in which case, by all means pointed out to me.
+
+14:01.310 --> 14:05.450
+But I don't particularly get the funny aspect of that joke.
+
+14:05.450 --> 14:11.630
+So for me, I would say that, uh, Gemini certainly lags in terms of its, uh, Gemini 1.5 flash in
+
+14:11.630 --> 14:13.440
+terms of its humor value.
+
+14:14.220 --> 14:15.060
+All right.
+
+14:15.090 --> 14:18.960
+Anyways, to get serious for a moment, let's go back to GPT four.
+
+14:19.170 --> 14:20.910
+Many with the original question.
+
+14:20.910 --> 14:22.410
+You're a helpful assistant.
+
+14:22.440 --> 14:25.950
+How do I decide if a business problem is suitable for an LLM solution?
+
+14:25.950 --> 14:29.790
+Remember, that was the very first question we asked through the chat interface.
+
+14:29.970 --> 14:32.970
+Um, and we can now bring this together again.
+
+14:32.970 --> 14:34.260
+This should be pretty familiar to you.
+
+14:34.290 --> 14:37.320
+We're going to stream back the results in markdown.
+
+14:37.320 --> 14:40.770
+So it's OpenAI chat dot completions dot create.
+
+14:40.770 --> 14:41.880
+We pass in the model.
+
+14:41.880 --> 14:43.350
+We're going to go for the big guy.
+
+14:43.530 --> 14:44.820
+Um we use the prompts.
+
+14:44.820 --> 14:45.840
+We set a temperature.
+
+14:45.840 --> 14:47.250
+We say stream equals true.
+
+14:47.250 --> 14:49.680
+That's the way that you do it with OpenAI.
+
+14:49.830 --> 14:54.750
+Um, and then this is the way that we stream back the results again.
+
+14:54.750 --> 14:57.720
+It's a little bit more involved because we're dealing with markdown.
+
+14:57.720 --> 15:03.390
+And so we have to do some, some sort of, uh, special stuff here to basically refresh the markdown
+
+15:03.390 --> 15:04.950
+with each iteration.
+
+15:04.980 --> 15:08.850
+If you're not sure we have to do it this way, try taking that out and doing it differently, and you'll
+
+15:08.850 --> 15:11.190
+immediately see what what what happens.
+
+15:11.220 --> 15:13.200
+It it won't look good.
+
+15:13.440 --> 15:15.720
+Uh, and let's run that.
+
+15:15.720 --> 15:21.810
+And here we get the results, and you can see that it looks great.
+
+15:22.500 --> 15:28.260
+You can see some of the flicking happening when the markdown has only partially come through.
+
+15:28.260 --> 15:33.600
+And so it's interpreting things like when there's perhaps multiple hashes representing a subheading.
+
+15:33.600 --> 15:37.050
+And it's only received one hash and it thinks there's a big heading coming.
+
+15:37.110 --> 15:41.430
+Uh, at least I think that's what we were seeing there briefly, with some of that flickering as the
+
+15:41.430 --> 15:42.660
+markdown appeared.
+
+15:42.660 --> 15:50.730
+But at the end of it we get back, of course, a very nicely constructed response, well structured,
+
+15:50.730 --> 15:55.020
+and it's formatted perfectly in markdown streams back.
+
+15:55.740 --> 15:56.460
+All right.
+
+15:56.460 --> 16:03.300
+So that has given you a sense of the different APIs and a bit of messing around with some, some fun
+
+16:03.300 --> 16:04.140
+questions.
+
+16:04.170 --> 16:12.150
+And what we're going to do next in the next video is actually have a couple of llms talk to each other,
+
+16:12.150 --> 16:13.200
+which should be fun.
+
+16:13.200 --> 16:14.340
+I will see you then.

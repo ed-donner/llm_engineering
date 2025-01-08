@@ -1,0 +1,373 @@
+WEBVTT
+
+00:00.800 --> 00:02.930
+And here we are back in JupyterLab.
+
+00:02.930 --> 00:03.890
+It's been a minute.
+
+00:03.920 --> 00:10.250
+We've been working in Colab for last week, and now we're back to to Jupyter and running locally, where
+
+00:10.250 --> 00:13.160
+we will be enjoying ourselves today.
+
+00:13.220 --> 00:18.890
+Uh, before we get to the code and looking at what we're going to do, let's remind ourselves the leaderboards,
+
+00:18.890 --> 00:26.300
+which looked at coding abilities of frontier models just to see who is at the in the top of the pack
+
+00:26.300 --> 00:27.860
+when it comes to coding.
+
+00:27.860 --> 00:36.020
+So the vellum leaderboard you might remember from the AI company, vellum uh, has uh, the human eval
+
+00:36.380 --> 00:39.650
+uh, metric, which is the simple Python test.
+
+00:39.860 --> 00:45.110
+Um, and you can see against this metric that GPT four zero leads the way.
+
+00:45.170 --> 00:50.420
+And then if we look down Claude three sonnet not doing so great down here.
+
+00:50.570 --> 00:55.310
+Um, now, for various reasons, I feel like this perhaps isn't the most up to date.
+
+00:55.310 --> 01:02.570
+I notice elsewhere it doesn't have llama 3.1 on this site, so I'm thinking that perhaps this is a bit
+
+01:02.570 --> 01:03.140
+out of date.
+
+01:03.140 --> 01:11.090
+I also know that human eval isn't the best of the tests, and I'm more interested in the seal leaderboard
+
+01:11.090 --> 01:12.230
+for coding.
+
+01:12.290 --> 01:17.090
+And if you come into this and you read their blurb, you'll see that they do a number of different kinds
+
+01:17.090 --> 01:23.660
+of coding tests, including human eval, but also including live codebench, a bunch of programming
+
+01:23.660 --> 01:25.310
+puzzles, and a few others.
+
+01:25.310 --> 01:27.620
+And so I feel like this is super comprehensive.
+
+01:27.650 --> 01:32.330
+I'm also pleased to see that llama 3.1 is on their list, and so I get the impression that this is also
+
+01:32.330 --> 01:33.200
+more recent.
+
+01:33.560 --> 01:41.510
+And top of this leaderboard is Claude 3.5 sonnet, followed by GPT four zero, followed by Mistral large
+
+01:41.510 --> 01:44.720
+and open source model Mistral in third place.
+
+01:44.900 --> 01:47.570
+So this gives us a sense of what's going on.
+
+01:47.600 --> 01:50.120
+Let's see if GPT four are many features.
+
+01:50.120 --> 01:52.130
+Not that I can see.
+
+01:52.220 --> 01:56.510
+Uh, and that might suggest that we're going to need to use GPT four.
+
+01:56.540 --> 02:01.340
+Oh, if we're going to want to, uh, really compare the top models on this front.
+
+02:01.340 --> 02:07.500
+But you can feel free to use GPT two for mini, uh, if you'd rather be, uh, bit more frugal.
+
+02:07.530 --> 02:08.430
+Saved a bit of money.
+
+02:08.610 --> 02:16.140
+Uh, regardless, let's go over to Jupyter Lab and let's go into week four and into day three to see
+
+02:16.140 --> 02:21.090
+the code for this week, when we are going to be doing code generation and building an app around it.
+
+02:21.090 --> 02:25.170
+And as usual, this is a lot of things going on for what we'll be learning today.
+
+02:25.170 --> 02:29.640
+One of them is actually about the problem of generating code.
+
+02:29.790 --> 02:35.190
+Um, but we're also going to be using this as a way of exploring, comparing different models, um,
+
+02:35.190 --> 02:40.920
+looking at leaderboards as we just have, understanding how to solve a business problem with LM solutions.
+
+02:40.920 --> 02:43.650
+And you know what you might notice here?
+
+02:43.650 --> 02:48.210
+There's there's this little thing here, we're going to get another opportunity to play with Gradio
+
+02:48.210 --> 02:53.910
+and to show what it's like to package things up into a prototype, because that is just such a great
+
+02:53.910 --> 02:59.490
+way to collaborate with others on your LM solutions.
+
+02:59.490 --> 03:06.480
+So we're going to embark on this by running some imports, and we're then going to set our environment
+
+03:06.480 --> 03:08.910
+variables using the usual load env.
+
+03:08.910 --> 03:12.330
+And it's a nice time for me to remind you once again to have a EMV file.
+
+03:12.330 --> 03:16.560
+This time we'll be using OpenAI and anthropic.
+
+03:16.560 --> 03:23.670
+So have that set up, uh, in this, uh, cell here, we initialize the OpenAI and the cloud interfaces
+
+03:23.670 --> 03:27.090
+as usual, and we'll use OpenAI and cloud 3.5.
+
+03:27.120 --> 03:27.390
+Sorry.
+
+03:27.420 --> 03:29.520
+We'll use GPT four and cloud 3.5.
+
+03:29.550 --> 03:35.250
+Sonnet uh, which were in the top two positions in that leaderboard.
+
+03:35.520 --> 03:41.160
+So now we have, uh, it's time to develop our system message and our user prompt.
+
+03:41.160 --> 03:44.130
+And I'm using the same approach that we used back in the day.
+
+03:44.130 --> 03:47.370
+It feels like an age ago now where system message we just hard code it.
+
+03:47.370 --> 03:53.370
+And the user prompt we have something where we pass in a variable and generate the user prompt for that
+
+03:53.370 --> 03:54.090
+variable.
+
+03:54.090 --> 04:00.600
+So the system message I've gone with is you're an assistant that re-implements Python code in high performance
+
+04:00.600 --> 04:02.550
+C plus plus four and M1 Mac.
+
+04:02.580 --> 04:05.160
+Obviously I'm using an M1 Mac right here.
+
+04:05.190 --> 04:12.420
+Um, and I suggest that you substitute in here whatever kind of environment you have to make this most
+
+04:12.600 --> 04:19.500
+appropriate for you and you may need to do some some tweaking, particularly with the C plus plus setup
+
+04:19.500 --> 04:21.060
+to make sure that this works for you.
+
+04:21.120 --> 04:23.400
+Respond only with C plus plus code.
+
+04:23.400 --> 04:24.720
+Use comments sparingly.
+
+04:24.750 --> 04:28.710
+Do not provide any explanation other than occasional comments.
+
+04:28.740 --> 04:34.080
+The C plus plus response needs to produce an identical output in the fastest possible time, so this
+
+04:34.080 --> 04:39.570
+is a little bit more wordy than the prompt I showed you in the slide a second ago, but this is what
+
+04:39.570 --> 04:44.370
+I found worked best with some tweaking around, and you'll see that the user prompt is even more wordy.
+
+04:44.400 --> 04:47.280
+Rewrite this Python code to C plus plus fastest possible implementation.
+
+04:47.280 --> 04:48.690
+It's a bit repetitive.
+
+04:49.020 --> 04:54.210
+Um, and then just here you can see I've cheated a little bit from doing some of my experiments.
+
+04:54.210 --> 05:00.300
+I found actually, as you'll discover, uh, maybe this is as suggested by the leaderboards.
+
+05:00.300 --> 05:04.830
+Claude didn't need this extra hinting, but GPT four did need this.
+
+05:04.830 --> 05:08.160
+Otherwise, the C plus plus code it generated didn't work.
+
+05:08.340 --> 05:13.260
+Um, I had to say pay attention to number types to ensure that there are no overflows.
+
+05:13.260 --> 05:20.110
+And remember to Hash include all necessary cplusplus patches such as or packages such as.
+
+05:20.140 --> 05:26.740
+I even had to actually explicitly name a particular package, which if I didn't, uh, GPT four would
+
+05:26.740 --> 05:32.560
+generate the cplusplus code, but not correctly include that package.
+
+05:32.560 --> 05:36.220
+So for whatever reason, that's something that I ended up having to do.
+
+05:36.220 --> 05:38.980
+Uh, maybe when you try this out, you'll find that doesn't happen.
+
+05:39.010 --> 05:43.540
+You'll find a better way to prompt it without needing to be quite so directive.
+
+05:43.540 --> 05:47.620
+Uh, it feels a little bit like that's cheating for GPT four, and we should disqualify it.
+
+05:47.620 --> 05:48.670
+But there we go.
+
+05:48.670 --> 05:54.670
+Anyway, with that in mind, we now, uh, run this function to we've now defined a function to create
+
+05:54.670 --> 05:55.510
+this user prompt.
+
+05:55.540 --> 05:59.440
+And then this section here will be very familiar to you.
+
+05:59.470 --> 06:03.010
+Uh, messages for uh is where we create the list.
+
+06:03.040 --> 06:09.550
+We know so well now, uh, with two elements, uh, the role system for the system message and role
+
+06:09.550 --> 06:11.350
+user for the user prompt.
+
+06:11.500 --> 06:19.930
+Um, so that generates that messages list given Python, uh, and now Little utility function called
+
+06:19.930 --> 06:20.890
+writeoutput.
+
+06:20.890 --> 06:27.490
+That will take some cplusplus code, and it will just strip out anything in there that, uh, shouldn't
+
+06:27.490 --> 06:27.850
+be there.
+
+06:27.880 --> 06:35.350
+There's there's, uh, the models tend to respond with this keep at the top and this at the bottom.
+
+06:35.350 --> 06:41.020
+And so I just replace that with, I just remove that from the, from the text and then save it to a
+
+06:41.020 --> 06:44.290
+cplusplus file called optimized dot cpp.
+
+06:44.380 --> 06:49.510
+So when this runs we will see a file appearing in our directory optimized cpp.
+
+06:49.960 --> 06:51.100
+And when it's called.
+
+06:51.250 --> 06:51.820
+All right.
+
+06:51.820 --> 06:59.140
+And then here is uh function optimized GPT that is going to call the GPT API.
+
+06:59.170 --> 07:03.670
+We're going to call OpenAI dot chat dot completions dot create.
+
+07:03.700 --> 07:11.620
+Why do you know that that call by now, uh, model equals OpenAI model messages is and now we pass in
+
+07:11.620 --> 07:15.700
+the messages for Python and we set that to be streaming.
+
+07:15.700 --> 07:18.520
+And we do for chunk in stream.
+
+07:18.520 --> 07:24.980
+That means that the results come back and we print each little chunk as it comes back.
+
+07:24.980 --> 07:27.830
+And then at the end we write this to a file.
+
+07:28.100 --> 07:31.850
+Hopefully I don't need to go through this because this is super familiar to you.
+
+07:31.880 --> 07:38.390
+Now you've seen this a hundred times and side by side with it, here is the equivalent version for Claude
+
+07:38.420 --> 07:40.040
+doing the same thing.
+
+07:40.100 --> 07:41.390
+We're going to call Claude.
+
+07:41.570 --> 07:45.080
+Messages dot stream for the Claude model.
+
+07:45.230 --> 07:51.590
+Uh, we you remember in Claude's case, we have to provide the system message separately to the user
+
+07:51.590 --> 07:52.100
+prompt.
+
+07:52.100 --> 07:52.970
+So there we go.
+
+07:53.000 --> 07:55.340
+This is, again, a construct you're very familiar with.
+
+07:55.370 --> 07:57.710
+We have to tell it the maximum number of tokens.
+
+07:57.710 --> 08:01.040
+And then this is how we do the streaming back.
+
+08:01.070 --> 08:02.360
+Same kind of thing.
+
+08:02.390 --> 08:04.340
+Printing writing the output.
+
+08:05.060 --> 08:06.020
+All right.
+
+08:06.050 --> 08:11.270
+At this point, because we're getting ready to try this out for reals I will execute these two.
+
+08:11.300 --> 08:14.240
+And then I'm going to to pause for the next video.
+
+08:14.240 --> 08:20.360
+And in the next video you see us, you'll see us giving this a try and seeing how GPT four and Claude
+
+08:20.390 --> 08:23.960
+3.5 sonnet perform when faced with this challenge.
+
+08:23.990 --> 08:24.710
+See you then.

@@ -1,0 +1,238 @@
+WEBVTT
+
+00:00.560 --> 00:02.330
+Well hi there everybody.
+
+00:02.330 --> 00:06.890
+I'm not going to give you my usual song and dance about how excited you are, because I know how excited
+
+00:06.890 --> 00:08.510
+you are, as am I.
+
+00:08.540 --> 00:14.930
+No doubt overnight your run has been running as mine has, and you are eager to see the results.
+
+00:14.930 --> 00:17.030
+But we have some content to do.
+
+00:17.060 --> 00:24.050
+First of all, um, so already you can do so many things, uh, coding against frontier and open source
+
+00:24.050 --> 00:31.550
+models using data set curation, baseline and fine tuning, frontier models, and now running.
+
+00:31.550 --> 00:37.880
+Q Laura, uh, so today I had previously said they were going to be two bullets, but I have put in
+
+00:37.880 --> 00:42.890
+an extra bullet here, beginning here with how training works.
+
+00:42.920 --> 00:48.320
+It occurs to me that I've been quite hand-wavy about the training process itself.
+
+00:48.320 --> 00:53.330
+And at this point, now that you've got some hands on experience running, training, seeing Laura in
+
+00:53.330 --> 00:57.680
+action, it's worth me just taking a minute to explain it properly.
+
+00:57.680 --> 00:59.270
+So you've got that basis.
+
+00:59.300 --> 01:00.560
+You may know it all already.
+
+01:00.560 --> 01:05.300
+It might be something that at this point you've either picked up or you already had had encountered.
+
+01:05.360 --> 01:09.070
+Um, either way, I think it's super important that I do clarify that.
+
+01:09.070 --> 01:11.140
+And so we'll take a couple of minutes to do it.
+
+01:11.260 --> 01:16.300
+Um, and I think it's really nice that you've had some experience first running training so that this
+
+01:16.300 --> 01:20.110
+will hopefully connect the dots and things will click in place.
+
+01:20.140 --> 01:29.200
+We will then run inference for a fine tuned model, and then we will have the conclusion of week seven,
+
+01:29.200 --> 01:31.120
+which is exciting indeed.
+
+01:31.150 --> 01:32.890
+All right let's get started.
+
+01:33.550 --> 01:40.930
+So I want to explain that the training process, the process of improving a model so that it's better
+
+01:40.930 --> 01:46.120
+and better at performing a task, is something that has four steps to it.
+
+01:46.150 --> 01:52.570
+The first step is what's known as the forward pass, which is just another name for a sort of running
+
+01:52.570 --> 01:53.440
+inference.
+
+01:53.440 --> 02:01.480
+You have a data, a point in your data set, you have a particular training data point, and you take
+
+02:01.480 --> 02:07.480
+that that training prompt and you pass it through your neural network to get the prediction for the
+
+02:07.480 --> 02:08.590
+next token.
+
+02:08.590 --> 02:13.510
+And that is called the forward pass, because you're thinking of the input coming in, going through,
+
+02:13.510 --> 02:18.080
+and the output popping out at the end of your transformer.
+
+02:19.100 --> 02:22.700
+There is then what's called the loss calculation.
+
+02:23.240 --> 02:25.340
+And we'll talk a little bit more about this later.
+
+02:25.340 --> 02:26.810
+But this is saying okay.
+
+02:26.810 --> 02:31.010
+So the network predicted that this would be the output.
+
+02:31.010 --> 02:35.750
+And in fact this is the true next token because we're in training.
+
+02:35.750 --> 02:41.030
+And so we've got real examples that include what actually did come next in the data.
+
+02:41.360 --> 02:46.610
+And so now that you've got the prediction and the truth, you can come come up with some way of calculating
+
+02:46.610 --> 02:48.890
+the loss or how wrong were you.
+
+02:48.920 --> 02:53.960
+How bad was it loss being the sort of inverse of of of accuracy.
+
+02:54.590 --> 02:58.340
+So a bigger loss number means things went worse.
+
+02:58.700 --> 02:59.750
+So that's step two.
+
+02:59.780 --> 03:01.160
+The loss calculation.
+
+03:01.160 --> 03:04.580
+Step three is known as the backward pass.
+
+03:04.580 --> 03:06.320
+And you hear different terms for this.
+
+03:06.350 --> 03:08.900
+It's called backprop back propagation.
+
+03:09.230 --> 03:17.840
+Um and the idea is that in in this backward pass you take this loss and you look back through the neural
+
+03:17.840 --> 03:24.100
+network and you ask the question, if I were to tweak each of the parameters in this neural network
+
+03:24.100 --> 03:25.540
+by a little tiny bit.
+
+03:25.570 --> 03:29.140
+Would it have made this loss bigger or smaller?
+
+03:29.170 --> 03:31.300
+How is the loss dependent?
+
+03:31.330 --> 03:33.100
+How is this particular weight?
+
+03:33.100 --> 03:35.980
+Uh, how does that vary the loss?
+
+03:36.130 --> 03:39.700
+Um, what's the difference in loss based on on this weight?
+
+03:39.910 --> 03:43.540
+Um, and that that sensitivity is called a gradient.
+
+03:43.570 --> 03:44.290
+Of course.
+
+03:44.500 --> 03:47.230
+Um, as, as, as it is generally in maths.
+
+03:47.410 --> 03:56.020
+Uh, and so this is about calculating the gradients of all of your weights to see how the loss is affected
+
+03:56.020 --> 04:01.870
+by a small tweak to those weights, so that, that calculating the gradients of all of your weights
+
+04:01.900 --> 04:04.240
+is known as the backward pass.
+
+04:04.570 --> 04:12.970
+Uh, and then finally, the fourth step optimization is, uh, and this is the thing that we selected
+
+04:12.970 --> 04:19.180
+the Adam with weight decay, the Adam W optimizer for our particular training exercise.
+
+04:19.210 --> 04:24.280
+Optimization is saying, okay, so now we've calculated all of our gradients.
+
+04:24.400 --> 04:32.270
+What we now want to do is we want to tweak all of the weights a tiny tiny bit such that next time,
+
+04:32.270 --> 04:37.850
+if it were given the same prompt, it would be more likely to do a little bit better.
+
+04:37.880 --> 04:39.950
+The loss would be a little bit lower.
+
+04:40.400 --> 04:45.200
+So we're going to tweak in the in the direction the opposite direction to the to the gradient so that
+
+04:45.200 --> 04:46.970
+losses would be reduced.
+
+04:47.240 --> 04:52.670
+And that small step which is based on the learning rate, how much of a step you take is based on on
+
+04:52.670 --> 04:56.750
+how big the learning rate is, is designed to make things a little bit better.
+
+04:56.840 --> 05:00.290
+And you always want to try and do it in a way that will generalize well.
+
+05:00.290 --> 05:04.610
+You don't want to just be solving for exactly this input prompt.
+
+05:04.610 --> 05:10.370
+You just want the model to be learning to get a little bit better with those kinds of prompts in the
+
+05:10.370 --> 05:11.090
+future.
+
+05:11.450 --> 05:17.660
+Um, and of course, all of this process happens with mini batches at the same time, and it happens
+
+05:17.690 --> 05:23.780
+again and again and again all the way through your your data is one epoch and then potentially another
+
+05:23.780 --> 05:27.740
+time and another time after that as it goes through multiple epochs.
+
+05:27.740 --> 05:33.050
+So that repeated process is what is known as training.
+
+05:33.380 --> 05:38.600
+And now in the next video, we will just step through a diagram to illustrate that.

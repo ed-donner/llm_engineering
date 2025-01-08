@@ -1,0 +1,253 @@
+WEBVTT
+
+00:01.490 --> 00:06.830
+So we now turn to the parts of the problem, which is perhaps, let's say, not as glamorous as some
+
+00:06.830 --> 00:12.770
+of the rest of it, but it is perhaps the most essential, which is finding and crafting your data.
+
+00:12.770 --> 00:16.850
+And there are a bunch of places that people can go to look for data to hunt data.
+
+00:16.850 --> 00:19.010
+But the first, the first place you go.
+
+00:19.040 --> 00:25.640
+First and foremost, of course, is your own proprietary data that your company has.
+
+00:25.640 --> 00:31.820
+That is something which hopefully is pertains directly to the problem you're solving, and is going
+
+00:31.820 --> 00:34.460
+to be crucial for your fine tuning.
+
+00:34.460 --> 00:41.060
+In the case of the pretend fictitious Rag project, we did.
+
+00:41.090 --> 00:47.120
+We we pretended we had the shared drive of the company that we used then to build our knowledge base.
+
+00:47.150 --> 00:51.260
+That's an example of where we went to find proprietary data.
+
+00:51.260 --> 00:57.740
+In the case of of my business, Nebula, we have information about talent and jobs, careers that we
+
+00:57.740 --> 01:00.800
+can use to train proprietary Models.
+
+01:00.950 --> 01:07.790
+So finding your own company, proprietary data sets that are specific for your problem, that's the
+
+01:07.790 --> 01:09.140
+first place to start.
+
+01:09.170 --> 01:15.380
+Of course, then there is Kaggle, a wonderful resource for data scientists.
+
+01:15.740 --> 01:17.600
+You probably heard of it and used it.
+
+01:17.630 --> 01:19.160
+If not, go and take a look at it.
+
+01:19.280 --> 01:22.400
+It's got, uh, so much, uh, data.
+
+01:22.430 --> 01:29.180
+Data, um, that goes over a long period of time that people have contributed to Kaggle.
+
+01:29.330 --> 01:32.390
+And then there is, of course, hugging face.
+
+01:32.420 --> 01:36.080
+Uh, that is just such a fabulous resource for us.
+
+01:36.110 --> 01:39.170
+And we will be using hugging Face in just a moment.
+
+01:39.740 --> 01:42.290
+There's also synthetic data, as it happens.
+
+01:42.290 --> 01:46.640
+For our Rag project, we didn't use a real company's shared drive.
+
+01:46.640 --> 01:51.350
+We used an LLM to generate synthetic data and that is an option.
+
+01:51.350 --> 01:52.880
+There are pros and cons, of course.
+
+01:52.880 --> 01:59.780
+If you're if you're trying to use the frontier model to actually, uh, learn from the data, then it
+
+01:59.780 --> 02:04.690
+may not make sense to have the frontier model generate the data and then learn from it, but if you're
+
+02:04.690 --> 02:09.130
+trying to build your own model, or you're trying to build a cheaper model, that's that's going to
+
+02:09.160 --> 02:15.400
+be seeded by a frontier model, then you could use the front end model to generate some some data and
+
+02:15.400 --> 02:19.870
+then use that data to train your smaller, cheaper, more lightweight model.
+
+02:19.870 --> 02:24.310
+So the various circumstances where synthetic data makes sense.
+
+02:25.060 --> 02:31.750
+And then I'll mention that there are specialist companies whose task it is to go out there and curate
+
+02:31.780 --> 02:32.890
+a data set for you.
+
+02:32.920 --> 02:37.390
+We actually encountered this company earlier when we were looking at one of the leaderboards, the leaderboard
+
+02:37.390 --> 02:45.340
+called seal, which were business specific leaderboards for Llms that is put together by a company called
+
+02:45.340 --> 02:45.940
+scale.
+
+02:45.940 --> 02:51.040
+And scale specializes in building crafted data sets for your problem.
+
+02:51.040 --> 02:53.500
+So that is another place to go.
+
+02:53.680 --> 02:59.650
+In our case though, we are going to Hugging Face, which is a treasure trove of data and it contains
+
+02:59.680 --> 03:04.090
+much data contributed by the community, including this particular data set.
+
+03:04.240 --> 03:07.600
+Scrape over many years of Amazon reviews.
+
+03:07.600 --> 03:09.940
+That is, uh, enormous.
+
+03:09.940 --> 03:11.500
+It is an absolutely enormous data set.
+
+03:11.500 --> 03:18.580
+And in addition to the reviews that it takes, it also has metadata just associated with the products,
+
+03:18.850 --> 03:22.870
+including the description of the products and their prices.
+
+03:22.870 --> 03:28.360
+And that, of course, is exactly what we're after, product descriptions and prices.
+
+03:28.360 --> 03:33.280
+And this data set has them in large quantities.
+
+03:33.280 --> 03:35.680
+And so it is perfect for us.
+
+03:35.680 --> 03:37.600
+This is where we will be heading.
+
+03:39.370 --> 03:42.640
+So how do you go about digging into the data.
+
+03:42.640 --> 03:44.530
+What are the steps that you take?
+
+03:44.590 --> 03:48.850
+We're going to be doing some of this work today, and we're going to be refining some of it tomorrow.
+
+03:49.000 --> 03:55.900
+Um, but there are these six different stages, perhaps, to getting deep into the data.
+
+03:55.900 --> 04:01.960
+First of all, there's a time when you're Investigating, just understanding the data, what fields
+
+04:01.990 --> 04:02.380
+to have?
+
+04:02.380 --> 04:04.420
+How well populated is the data?
+
+04:04.420 --> 04:07.090
+What kind of data quality issues do you have?
+
+04:07.180 --> 04:13.180
+Then typically at least the way I like to approach this is then parsing in that data into a structure
+
+04:13.180 --> 04:15.490
+which is going to be easier to handle.
+
+04:15.670 --> 04:19.900
+Um, that, that's, that's uh, so that you're no longer working with raw data sets.
+
+04:19.900 --> 04:23.350
+You're working typically with, with objects at that point.
+
+04:23.620 --> 04:32.710
+It's great then to do some visualizations, it's important to see things like the, the how wide, how
+
+04:32.710 --> 04:33.340
+spread out.
+
+04:33.340 --> 04:37.930
+Some of your values are when we're thinking of things like prices of products, what's the range in
+
+04:37.930 --> 04:38.650
+prices?
+
+04:38.650 --> 04:42.940
+Does it turn out that there are a lot of that the distribution is skewed in some way.
+
+04:42.940 --> 04:46.360
+So visualize it so you can get a really good sense of it.
+
+04:46.930 --> 04:49.720
+Now a deeper assessment of data quality.
+
+04:49.720 --> 04:53.710
+Understand what kind of limitations you have with your data.
+
+04:53.830 --> 05:01.290
+Um, that will help you decide how to take action on it and curate is when you then go and decide how
+
+05:01.290 --> 05:03.630
+you're going to craft this data set.
+
+05:03.630 --> 05:12.030
+For example, if it turns out that you discover that a quarter of your data is in has poor data quality
+
+05:12.030 --> 05:16.020
+in some way, you may decide just to exclude that data altogether.
+
+05:16.020 --> 05:20.190
+You may think that you have a big enough sample that you can focus on the three quarters.
+
+05:20.190 --> 05:25.770
+If you find that your data set is very imbalanced in some way, and you're concerned that that as part
+
+05:25.770 --> 05:31.800
+of training, the model will only learn a sort of a particular balance of the data, then this would
+
+05:31.800 --> 05:35.160
+be a time to potentially fix address that balance.
+
+05:35.160 --> 05:43.110
+So curating is about crafting the data set that is most suitable for your training and then saving it.
+
+05:43.110 --> 05:46.200
+In our case, we'll be uploading it to the Huggingface hub.
+
+05:46.500 --> 05:50.430
+That's the final step before you'd be ready for training.
+
+05:50.460 --> 05:55.590
+So with that, we're going to head to JupyterLab for the first time with our new project, and we're
+
+05:55.590 --> 05:58.860
+going to get about curating some data.
+
+05:58.890 --> 05:59.700
+See you there.

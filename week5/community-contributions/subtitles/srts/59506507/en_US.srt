@@ -1,0 +1,70 @@
+WEBVTT
+
+00:00.500 --> 00:05.960
+Well, I realized that was a whole lot of theory, but I hope it gave you a good intuition that will
+
+00:05.960 --> 00:08.030
+be a basis for what we're about to do.
+
+00:08.120 --> 00:14.660
+And it's also very helpful when you encounter problems or if you're exploring hyperparameters, optimizations
+
+00:14.660 --> 00:20.420
+that you have that sense of why we are playing with what we are and what it represents.
+
+00:20.420 --> 00:26.690
+But to summarize, when we started out, we were talking about the smallest variant of Lambda 3.1,
+
+00:26.690 --> 00:33.770
+which is an 8 billion parameter model, a 32GB of Ram that it takes up.
+
+00:33.770 --> 00:39.860
+We realized that you can quantize it down so that the weights are an eight bits, and then it only uses
+
+00:39.860 --> 00:41.720
+up nine gigabytes.
+
+00:41.780 --> 00:44.480
+So only that's still a very big amount of Ram.
+
+00:44.630 --> 00:50.090
+Uh, we could quantize it all the way down to four bits, uh, using the double Quant trick and get
+
+00:50.090 --> 00:52.880
+it down to 5.6GB.
+
+00:52.940 --> 01:00.560
+Uh, and then we also saw that we could use instead of trying to train the big guy, we could instead
+
+01:00.620 --> 01:08.150
+fine tune these separate, uh, Laura matrices that get applied to the big model.
+
+01:08.150 --> 01:17.450
+And if we do so, then we're looking at 100MB or so, 109MB of parameters, a far smaller number, a
+
+01:17.450 --> 01:21.680
+little dot compared to the enormous base model.
+
+01:21.680 --> 01:26.090
+So hopefully that gives you, again, a great sense of how it all fits together.
+
+01:26.090 --> 01:30.620
+And with that, you have built some essential domain expertise.
+
+01:30.680 --> 01:34.550
+Uh, this has been a really important week of knowledge building.
+
+01:34.610 --> 01:37.100
+We're about to put it all into practice.
+
+01:37.100 --> 01:41.330
+We're going to select an open source model that we'll be using for fine tuning.
+
+01:41.330 --> 01:46.880
+We will look at some different variants of it, and then we will evaluate the base model out of the
+
+01:46.910 --> 01:48.560
+box to see how it performs.
+
+01:48.560 --> 01:52.520
+It's going to be a practical week next week and I'm looking forward to it.

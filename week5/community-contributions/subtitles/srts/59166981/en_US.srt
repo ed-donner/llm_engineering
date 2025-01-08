@@ -1,0 +1,211 @@
+WEBVTT
+
+00:00.980 --> 00:04.040
+Welcome to week two, day five.
+
+00:04.070 --> 00:09.050
+The last day of week two where a lot is coming together.
+
+00:09.050 --> 00:16.100
+I am so grateful that you're sticking with it, and I'm going to make it worth your while because today
+
+00:16.100 --> 00:18.620
+is going to be really, really good fun.
+
+00:18.620 --> 00:21.530
+I'm excited to get into this.
+
+00:21.890 --> 00:24.410
+It's the big conclusion of the second week.
+
+00:24.740 --> 00:27.800
+Again, I'm going to keep saying what you can do.
+
+00:27.800 --> 00:32.840
+I think it's so important to celebrate your upskilling, you know, Transformers back to front.
+
+00:32.840 --> 00:38.660
+You can code against the frontier APIs, you can build an AI assistant, and you can add tools to give
+
+00:38.660 --> 00:39.800
+it expertise.
+
+00:39.830 --> 00:42.440
+Today we introduce agents.
+
+00:42.440 --> 00:48.650
+We talk about how agents can carry out more advanced sequential activities.
+
+00:48.650 --> 00:56.450
+And then we do something super fun creating a multimodal AI assistant using agents and tools.
+
+00:57.620 --> 00:59.390
+So what are agents?
+
+00:59.720 --> 01:01.190
+Agents, I should say.
+
+01:01.220 --> 01:02.390
+An agent I.
+
+01:02.420 --> 01:02.900
+An agent.
+
+01:03.530 --> 01:07.790
+It is one of these umbrella terms that people can use in different contexts.
+
+01:07.790 --> 01:12.140
+So it is one of these things that, that that can mean different things to different people.
+
+01:12.140 --> 01:17.660
+But generally speaking, most often people are talking about software entities that are autonomous.
+
+01:17.660 --> 01:25.640
+They can perform tasks not just in the sense of taking an input prompt and generating text.
+
+01:25.820 --> 01:27.530
+Um, typical characteristics.
+
+01:27.530 --> 01:28.700
+Let's say they are autonomous.
+
+01:28.700 --> 01:33.740
+They have some sort of agency, they are goal oriented, that they have some kind of thing that they're
+
+01:33.740 --> 01:37.520
+setting out to do, and that they are task specific.
+
+01:37.520 --> 01:42.620
+They are usually specialized on being good at one thing or another.
+
+01:43.010 --> 01:48.230
+Um, and they're typically designed to be part of something called an agent framework, which is a sort
+
+01:48.230 --> 01:55.190
+of environment in which agents can interact to solve more complex problems and potentially with limited
+
+01:55.190 --> 01:56.450
+human involvement.
+
+01:56.450 --> 02:00.020
+So it's not like it's just a sort of request response situation with a human.
+
+02:00.020 --> 02:06.150
+But you can imagine this sort of environment where multiple software agents that could be combinations
+
+02:06.150 --> 02:12.690
+of llms along with traditional software interacting in order to carry out tasks.
+
+02:12.690 --> 02:19.770
+And so some of the features you might expect is the ability to have memory or persistence that sort
+
+02:19.770 --> 02:26.820
+of goes beyond just a request response, the ability to have some sort of decision making and orchestration
+
+02:26.820 --> 02:30.750
+about what does what are planning abilities.
+
+02:30.930 --> 02:36.240
+And sometimes that is just a matter of the environment as some planning coded into it.
+
+02:36.240 --> 02:40.410
+Sometimes you have an LLM which is responsible for planning.
+
+02:40.410 --> 02:45.840
+It's a model that knows how to take complex problems and break it down into smaller problems for other
+
+02:45.840 --> 02:47.400
+models to take care of.
+
+02:47.880 --> 02:53.310
+And then use of tools is often also an example of a genetic AI.
+
+02:53.310 --> 02:59.370
+This is where, of course, as you are now very familiar, we give models the ability to do things like
+
+02:59.370 --> 03:06.910
+connect to databases or connect to the internet or whatever we want because we are providing it access
+
+03:06.910 --> 03:10.450
+to functions and we know how that works behind under the hood.
+
+03:10.450 --> 03:17.440
+Now we know that it's really just a fancy if statement, but it gives the effect that the Llms are able
+
+03:17.440 --> 03:18.580
+to do this.
+
+03:19.960 --> 03:22.540
+So we're about to do a few things.
+
+03:22.540 --> 03:26.170
+Let me just quickly sort of set the scene for you.
+
+03:26.200 --> 03:34.390
+We're going to first build a function that can generate images, a good multimodal use case.
+
+03:34.390 --> 03:37.990
+We're going to have an LLM call that can do that.
+
+03:37.990 --> 03:39.760
+And it's going to be a function that does it.
+
+03:39.760 --> 03:42.670
+And you can think of that in its own right as being like an agent.
+
+03:42.670 --> 03:49.000
+It's like a piece of software that is able to take this very specific, specialized instruction and
+
+03:49.000 --> 03:49.540
+do it.
+
+03:49.540 --> 03:58.990
+That will be an artist that we will create in code with the help of Dall-E three, the the image generation
+
+03:58.990 --> 04:02.240
+model from uh, OpenAI.
+
+04:02.480 --> 04:07.910
+Uh, and, you know, if you want to to quibble, you could argue that image generation is not in itself
+
+04:07.910 --> 04:09.650
+an LM thing.
+
+04:09.680 --> 04:16.250
+Uh, lm being language models, but these days, generally llms are used interchangeably with the broader
+
+04:16.250 --> 04:18.380
+gen AI context.
+
+04:18.380 --> 04:24.590
+And so one does tend to think of image generation and other kinds of multimodal generation as falling
+
+04:24.590 --> 04:28.100
+within the LM engineer's, uh, toolkit.
+
+04:29.120 --> 04:35.510
+So we're then going to look to, to make agents these sort of, uh, these, these functions that are
+
+04:35.510 --> 04:36.290
+able to do things.
+
+04:36.290 --> 04:43.700
+And we're going to add sound as well as images, and then we're going to have an agent framework in
+
+04:43.730 --> 04:50.000
+that we are going to teach our AI assistant, the same airline assistant that we've been working on
+
+04:50.030 --> 04:52.580
+how to speak and draw.
+
+04:52.760 --> 04:55.820
+All right, without further ado, I hope that sounds fun to you.
+
+04:55.850 --> 04:59.060
+I hope it sounds exciting because it's going to be it's going to be great.
+
+04:59.090 --> 05:00.320
+Uh, I can't wait to do it.
+
+05:00.320 --> 05:01.700
+Let's go and do it right now.
