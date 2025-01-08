@@ -178,3 +178,5 @@ products_vectorstore/
 
 # ignore diagnostics reports
 **/report.txt
+
+git_pull_information.txt
