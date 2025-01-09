@@ -6,6 +6,7 @@ Hola, usuarios de Mac!
 
 Debo confesar por adelantado: configurar un entorno potente para trabajar en la vanguardia de la IA no es tan sencillo como me gustaría. Para la mayoría de la gente estas instrucciones irán genial; pero en algunos casos, por la razón que sea, te encontrarás con un problema. No dudes en ponerte en contacto conmigo: estoy aquí para ayudarte a ponerte en marcha rápidamente. No hay nada peor que sentirse _atrapado_. Envíame un mensaje, un correo electrónico o un mensaje de LinkedIn y te ayudaré a despegarte rápidamente.
 
+
 Email: juangabriel@frogames.es  
 LinkedIn: https://www.linkedin.com/in/juan-gabriel-gomila-salas/
 
