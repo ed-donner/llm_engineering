@@ -2,6 +2,7 @@ import ollama
 import os
 import requests
 import json
+import gradio as gr
 
 from bs4 import BeautifulSoup
 from IPython.display import Markdown, display
@@ -131,31 +132,49 @@ def get_all_details(url):
 
 system_prompt = "You are an assistant that analyzes the contents of several relevant pages from a company website \
 and creates a short professional sales brochure about the company for prospective customers, investors and recruits. Respond \
-in markdown. Include details of company culture, customers and careers/jobs if you have the information."
+only in markdown. Include details of company culture, customers and careers/jobs if you have the information."
 
 def get_brochure_user_prompt(company_name, url):
-    """
+    '''
     Builds the user prompt that gets sent to the LLM to make the brochure.
     Uses data from get_all_details to build it.
-    """
+    '''
     user_prompt = f"You are looking at a company called: {company_name}\n"
     user_prompt += f"Here are the contents of its landing page and other relevant pages; use this information to build a short brochure of the company in markdown.\n"
     user_prompt += get_all_details(url)
     user_prompt = user_prompt[:20000] # Truncate if more than 5,000 characters
     return user_prompt
 
-def create_brochure(company_name, url):
-    """
+def create_brochure(company_name, url, model):
+    '''
     Calls the LLM and passes the system and user response
-    """
+    '''
+    if not model:
+        model = MODEL
+    
     response = ollama.chat(
         model=MODEL,
         messages=[
             {"role": "system", "content": system_prompt},
             {"role": "user", "content": get_brochure_user_prompt(company_name, url)}
           ],
+          stream=True
     )
-    result = response['message']['content']
-    print(result)
+    # result = response['message']['content']
+    result = ""
+    for chunk in response:
+        # have to build the response, otherwise each word gets written that overwritten by next in the response
+        result += chunk['message']['content'] or ""
+        yield result
 
-create_brochure("Anthropic", "https://anthropic.com")
+gr.Interface(
+    fn=create_brochure,
+    inputs=[gr.Textbox(label="Company Name:", lines=1),
+            gr.Textbox(label="URL:", lines=1),
+            gr.Dropdown(["llama3.2:3b-instruct-q8_0", "llama3.3", "granite3-dense"],
+                        label="Select model",
+                        value="llama3.2:3b-instruct-q8_0")
+            ],
+    outputs=[gr.Textbox(label="AI Response:", lines=10)],
+    flagging_mode="never"
+).launch()

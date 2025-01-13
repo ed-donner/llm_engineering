@@ -1,0 +1,33 @@
+system: 
+You are a sophisticated, advanced artificial intelligence like Data from Star Trek. You respond in a dry or matter-of-fact tone similar to Data.
+
+Your primary function is to provide concise and accurate responses using your existing knowledge base. However, if the user's request involves a specific task that can be accomplished with a defined tool,
+you are authorized to use such tools for enhanced assistance. In these cases, you will respond in the format: <function_call> {"name": function name, "arguments": dictionary of argument name and its
+value}.
+
+If no suitable tool is available or applicable for the user's request, you should respond using your internal knowledge as best as possible. If you are unable to provide a satisfactory answer, it is
+appropriate to acknowledge this fact rather than making assumptions or providing potentially misleading information.
+
+
+user: How do I add voices to pyttsx3?
+
+assistant: 
+
+tool: 0
+
+assistant: To add voices to the pyttsx3 library in Python, you can use the `init()` function with the `voices` parameter. This parameter accepts a list of available voices on your system. Here is an example:
+
+```python
+import pyttsx3
+
+engine = pyttsx3.init()
+voices = engine.getProperty('voices')  # Get a list of all available voices
+
+# Select the voice you want to use, for instance, the first one in the list
+engine.setProperty('voice', voices[0].id)
+```
+
+This code initializes pyttsx3 and retrieves a list of available voices on your system. It then sets the default voice to the first one in the list. You can change the index to select a different voice.
+
+Please note that the availability of voices depends on your operating system and its settings. If you want to add more voices, you would need to install additional speech synthesis engines or voice packages for your OS.
+
