@@ -15,6 +15,7 @@ class App:
         
             def start():
                 self.agent_framework = DealAgentFramework()
+                self.agent_framework.init_agents_as_needed()
                 opportunities = self.agent_framework.memory
                 table = table_for(opportunities)
                 return table
