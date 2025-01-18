@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebSocket Chat with Markdown Streaming</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #e0eafc;
+            text-align: center;
+            padding: 20px;
+        }
+        h1 {
+            color: #333;
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+        .input-group {
+            position: relative;
+            margin: 10px 0;
+        }
+        .input-group i {
+            position: absolute;
+            left: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #999;
+        }
+        input {
+            padding: 10px;
+            padding-left: 30px; /* Space for the icon */
+            font-size: 1em;
+            border: 1px solid #ccc;
+            border-radius: 20px;
+            width: 300px;
+            margin: 5px 0;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 1em;
+            background: linear-gradient(to right, #ff7e5f, #feb47b);
+            color: white;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        button:hover {
+            background: linear-gradient(to right, #ff9170, #fec581);
+        }
+       #messages {
+            list-style-type: none;
+            padding: 0;
+            margin-top: 20px;
+            text-align: left;
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: #fff;
+            border-radius: 20px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            overflow-y: auto;
+            max-height: 500px;
+            padding: 10px;
+        }
+        #messages li {
+            padding: 10px;
+            margin: 5px 0;
+            border-radius: 10px;
+            background-color: #d1e7dd;
+            animation: fadeIn 0.5s;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        #status {
+            margin-top: 20px;
+            font-size: 1em;
+            color: #007bff;
+        }
+        .error {
+            color: red;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>WebSocket Chat with Markdown Streaming</h1>
+    <div class="input-group">
+        <i class="fas fa-link"></i>
+        <input type="text" id="urlInput" placeholder="Enter URL">
+    </div>
+    <div class="input-group">
+        <i class="fas fa-align-left"></i>
+        <input type="text" id="descriptionInput" placeholder="Enter Description (optional)">
+    </div>
+    <div class="input-group">
+        <i class="fas fa-globe"></i>
+        <input type="text" id="siteTypeInput" placeholder="Enter Site Type (optional)">
+    </div>
+    <button onclick="sendMessage()">Send</button>
+    <ul id="messages"></ul>
+    <div id="status">✅ Ready to chat!</div>
+
+    <script>
+        let ws;
+        let currentMessageElement = null;
+        let buffer = ''; // Buffer to accumulate chunks
+
+        // Connect to WebSocket server
+        function connectWebSocket() {
+            ws = new WebSocket("ws://127.0.0.1:8912/socket/ws");
+
+            ws.onopen = () => {
+                console.log("WebSocket connection established.");
+                updateStatus("✅ Connected to server.");
+            };
+
+            ws.onmessage = (event) => {
+                const data = JSON.parse(event.data);
+
+                if (data.type === "status") {
+                    updateStatus(data.message);
+                } else if (data.type === "message") {
+                    handleStreamedMessage(data.message, data.is_complete);
+                }
+            };
+
+            ws.onerror = (error) => {
+                console.error("WebSocket error:", error);
+                updateStatus("Oops! 😢 An error occurred. Please try again.", true);
+            };
+
+            ws.onclose = () => {
+                console.log("WebSocket connection closed.");
+                updateStatus("Connection closed. Click 'Send' to reconnect.", true);
+            };
+        }
+
+        // Update status message
+        function updateStatus(message, isError = false) {
+            const statusDiv = document.getElementById("status");
+            if (isError) {
+                message = "Oops! 😢 " + message;
+            } else {
+                message = "✅ " + message;
+            }
+            statusDiv.innerHTML = isError ? `<div class="error">${message}</div>` : message;
+        }
+
+        // Handle streamed messages
+        function handleStreamedMessage(chunk, isComplete) {
+            const messages = document.getElementById("messages");
+            buffer += chunk; // Append chunk to buffer
+
+            // Split buffer by newline characters
+            const parts = buffer.split(/\r?\n/);
+            buffer = parts.pop(); // Keep the last part in buffer if it doesn't end with newline
+
+            // Render each part as Markdown
+            for (let part of parts) {
+                if (!currentMessageElement) {
+                    currentMessageElement = document.createElement("li");
+                    messages.appendChild(currentMessageElement);
+                }
+                currentMessageElement.innerHTML += marked.parse(part + ' '); // Add a space to prevent Markdown issues
+            }
+
+            // If the message is complete, render the remaining buffer
+            if (isComplete && buffer !== '') {
+                if (!currentMessageElement) {
+                    currentMessageElement = document.createElement("li");
+                    messages.appendChild(currentMessageElement);
+                }
+                currentMessageElement.innerHTML += marked.parse(buffer);
+                buffer = '';
+                currentMessageElement = null;
+            }
+
+            // Auto-scroll to the bottom
+            messages.scrollTop = messages.scrollHeight;
+        }
+
+        // Send message to WebSocket server
+        function sendMessage() {
+            const url = document.getElementById("urlInput").value.trim();
+            const description = document.getElementById("descriptionInput").value.trim();
+            const siteType = document.getElementById("siteTypeInput").value.trim();
+
+            if (!url) {
+                updateStatus("Please enter a valid URL.", true);
+                return;
+            }
+
+            if (!ws || ws.readyState !== WebSocket.OPEN) {
+                connectWebSocket();
+            }
+
+            const data = {
+                url: url,
+                description: description,
+                siteType: siteType,
+                crawlType: "normal"
+            };
+
+            ws.send(JSON.stringify(data));
+
+            // Clear input fields
+            document.getElementById("urlInput").value = "";
+            document.getElementById("descriptionInput").value = "";
+            document.getElementById("siteTypeInput").value = "";
+        }
+
+        // Initialize WebSocket connection on page load
+        connectWebSocket();
+    </script>
+</body>
+</html>
