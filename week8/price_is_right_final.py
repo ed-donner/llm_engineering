@@ -45,6 +45,7 @@ class App:
     def get_agent_framework(self):
         if not self.agent_framework:
             self.agent_framework = DealAgentFramework()
+            self.agent_framework.init_agents_as_needed()
         return self.agent_framework
 
     def run(self):
