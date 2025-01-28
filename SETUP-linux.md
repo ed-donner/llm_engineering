@@ -157,6 +157,7 @@ If you have other keys, you can add them too, or come back to this in future wee
 ```
 GOOGLE_API_KEY=xxxx
 ANTHROPIC_API_KEY=xxxx
+DEEPSEEK_API_KEY=xxxx
 HF_TOKEN=xxxx
 ```
 
