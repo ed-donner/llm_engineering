@@ -48,3 +48,6 @@ dependencies:
     - feedparser
     - twilio
     - pydub
+    - jupyterlab-lsp
+    - jedi-language-server
+    - jupyterlab-git
