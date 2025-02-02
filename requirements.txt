@@ -42,3 +42,6 @@ setuptools
 speedtest-cli
 sentence_transformers
 feedparser
+jupyterlab-lsp
+jedi-language-server
+jupyterlab-git
