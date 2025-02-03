@@ -103,6 +103,24 @@ Run: `python -m pip install --upgrade pip` followed by `pip install -r requireme
 If issues occur, try the fallback:
 `pip install --retries 5 --timeout 15 --no-cache-dir --force-reinstall -r requirements.txt`
 
+###### Arch users:
+
+Some updates break dependencies. Most notably, numpy, scipy and gensim. To troubleshoot this, you can try many commands:
+
+`sudo pacman -S python-numpy python-pandas python-scipy` This is not recommended, as pacman has no integration with pip (as far as I know)
+
+Another possible solution if having build conflicts, is to update:
+
+`sudo pacman -S gcc gcc-fortran python-setuptools python-wheel`
+
+*Note:* gensim is broken if you have an updated version of scipy. You can either pin scipy to an older version, or 
+erase gensim from the requirements.txt for the moment. (See: https://aur.archlinux.org/packages/python-gensim)
+
+Lastly, so that the kernel is visible after step (6) in jupyter lab :
+`python -m ipykernel install --user --name=llmenv`
+`ipython kernel install --user --name=llmenv`
+
+
 6. **Start Jupyter Lab:**
 
 From the `llm_engineering` folder, run: `jupyter lab`.
@@ -157,6 +175,7 @@ If you have other keys, you can add them too, or come back to this in future wee
 ```
 GOOGLE_API_KEY=xxxx
 ANTHROPIC_API_KEY=xxxx
+DEEPSEEK_API_KEY=xxxx
 HF_TOKEN=xxxx
 ```
 
