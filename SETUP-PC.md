@@ -92,11 +92,17 @@ Then, create a new virtual environment with this command:
 You should see (llms) in your command prompt, which is your sign that things are going well.
 
 4. Run `python -m pip install --upgrade pip` followed by `pip install -r requirements.txt`  
-This may take a few minutes to install.
-In the very unlikely event that this doesn't go well, you should try the bullet-proof (but slower) version:  
+This may take a few minutes to install.  
+If you see an error like this:
+
+> Microsoft Visual C++ 14.0 or greater is required. Get it with "Microsoft C++ Build Tools": [https://visualstudio.microsoft.com/visual-cpp-build-tools/](https://visualstudio.microsoft.com/visual-cpp-build-tools/)
+
+Then please follow the link and install Microsoft C++ Build Tools.  
+
+In the very unlikely event that this step doesn't go well, you should try the bullet-proof (but slower) version:  
 `pip install --retries 5 --timeout 15 --no-cache-dir --force-reinstall -r requirements.txt`
 
-5. **Start Jupyter Lab:**
+6. **Start Jupyter Lab:**
 
 From within the `llm_engineering` folder, type: `jupyter lab`  
 ...and Jupyter Lab should open up, ready for you to get started. Open the `week1` folder and double click on `day1.ipynb`. Success! Now close down jupyter lab and move on to Part 3.
