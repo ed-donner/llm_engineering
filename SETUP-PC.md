@@ -13,6 +13,17 @@ I use a platform called Anaconda to set up your environment. It's a powerful too
 
 Having said that: if you have any problems with Anaconda, I've provided an alternative approach. It's faster and simpler and should have you running quickly, with less of a guarantee around compatibility.
 
+### Before we begin - Heads up!
+
+If you are relatively new to using the Command Prompt, here is an excellent [guide](https://chatgpt.com/share/67b0acea-ba38-8012-9c34-7a2541052665) with instructions and exercises. I'd suggest you work through this first to build some confidence.
+
+There are 4 common gotchas to developing on Windows to be aware of:   
+
+1. Permissions. Please take a look at this [tutorial](https://chatgpt.com/share/67b0ae58-d1a8-8012-82ca-74762b0408b0) on permissions on Windows  
+2. Anti-virus, Firewall, VPN. These can interfere with installations and network access; try temporarily disabling them as needed  
+3. The evil Windows 260 character limit to filenames - here is a full [explanation and fix](https://chatgpt.com/share/67b0afb9-1b60-8012-a9f7-f968a5a910c7)!  
+4. If you've not worked with Data Science packages on your computer before, you might need to install Microsoft Build Tools. Here are [instructions](https://chatgpt.com/share/67b0b762-327c-8012-b809-b4ec3b9e7be0).  
+
 ### Part 1: Clone the Repo
 
 This gets you a local copy of the code on your box.
