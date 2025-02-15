@@ -77,9 +77,10 @@ You should see `(llms)` in your prompt, which indicates you've activated your ne
 
 Press Win + R, type `cmd`, and press Enter  
 
-Run `python --version` to find out which python you're on. Ideally you'd be using a version of Python 3.11, so we're completely in sync.  
-If not, it's not a big deal, but we might need to come back to this later if you have compatibility issues.  
-You can download python here:  
+Run `python --version` to find out which python you're on.  
+Ideally you'd be using a version of Python 3.11, so we're completely in sync.  
+I believe Python 3.12 works also, but (as of Feb 2025) Python 3.13 does **not** yet work as several Data Science dependencies are not yet ready for Python 3.13.  
+If you need to install Python or install another version, you can download it here:  
 https://www.python.org/downloads/
 
 2. Navigate to the "project root directory" by entering something like `cd C:\Users\YourUsername\Documents\Projects\llm_engineering` using the actual path to your llm_engineering project root directory. Do a `dir` and check you can see subdirectories for each week of the course.  
