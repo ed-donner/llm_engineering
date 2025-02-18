@@ -76,6 +76,13 @@ If this Part 2 gives you any problems, there is an alternative Part 2B below tha
 
 You should see `(llms)` in your prompt, which indicates you've activated your new environment.
 
+**Important**. Before launching Jupyter Lab (section below), it is useful to have the `llms` conda environment just 
+created available as a kernel in Jupyter Lab. To accomplish this:
+
+- Switch to the conda env. just created by typing in `conda activate llms`
+- Once in the environment, execute `python -m ipykernel install --user --name=llms`
+
+
 3. **Start Jupyter Lab:**
 
 - In the Anaconda Prompt, from within the `llm_engineering` folder, type: `jupyter lab`
