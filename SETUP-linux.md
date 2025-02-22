@@ -68,6 +68,11 @@ This may take several minutes (even up to an hour for new Anaconda users). If it
 
 You should see `(llms)` in your prompt, indicating successful activation.
 
+In some distributions this may be required so that the llms environment is visible in jupyter lab:
+
+`conda install ipykernel`  
+`python -m ipykernel install --user --name=llmenv`  
+
 3. **Start Jupyter Lab:**
 
 From the `llm_engineering` folder, run: `jupyter lab`.
@@ -124,6 +129,7 @@ Lastly, so that the kernel is visible after step (6) in jupyter lab :
 6. **Start Jupyter Lab:**
 
 From the `llm_engineering` folder, run: `jupyter lab`.
+
 
 ### Part 3 - OpenAI key (OPTIONAL but recommended)
 
