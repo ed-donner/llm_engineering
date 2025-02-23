@@ -13,6 +13,17 @@ I use a platform called Anaconda to set up your environment. It's a powerful too
 
 Having said that: if you have any problems with Anaconda, I've provided an alternative approach. It's faster and simpler and should have you running quickly, with less of a guarantee around compatibility.
 
+### Before we begin - Heads up!
+
+If you are relatively new to using the Command Prompt, here is an excellent [guide](https://chatgpt.com/share/67b0acea-ba38-8012-9c34-7a2541052665) with instructions and exercises. I'd suggest you work through this first to build some confidence.
+
+There are 4 common gotchas to developing on Windows to be aware of:   
+
+1. Permissions. Please take a look at this [tutorial](https://chatgpt.com/share/67b0ae58-d1a8-8012-82ca-74762b0408b0) on permissions on Windows  
+2. Anti-virus, Firewall, VPN. These can interfere with installations and network access; try temporarily disabling them as needed  
+3. The evil Windows 260 character limit to filenames - here is a full [explanation and fix](https://chatgpt.com/share/67b0afb9-1b60-8012-a9f7-f968a5a910c7)!  
+4. If you've not worked with Data Science packages on your computer before, you might need to install Microsoft Build Tools. Here are [instructions](https://chatgpt.com/share/67b0b762-327c-8012-b809-b4ec3b9e7be0).  
+
 ### Part 1: Clone the Repo
 
 This gets you a local copy of the code on your box.
@@ -77,9 +88,10 @@ You should see `(llms)` in your prompt, which indicates you've activated your ne
 
 Press Win + R, type `cmd`, and press Enter  
 
-Run `python --version` to find out which python you're on. Ideally you'd be using a version of Python 3.11, so we're completely in sync.  
-If not, it's not a big deal, but we might need to come back to this later if you have compatibility issues.  
-You can download python here:  
+Run `python --version` to find out which python you're on.  
+Ideally you'd be using a version of Python 3.11, so we're completely in sync.  
+I believe Python 3.12 works also, but (as of Feb 2025) Python 3.13 does **not** yet work as several Data Science dependencies are not yet ready for Python 3.13.  
+If you need to install Python or install another version, you can download it here:  
 https://www.python.org/downloads/
 
 2. Navigate to the "project root directory" by entering something like `cd C:\Users\YourUsername\Documents\Projects\llm_engineering` using the actual path to your llm_engineering project root directory. Do a `dir` and check you can see subdirectories for each week of the course.  
@@ -92,11 +104,17 @@ Then, create a new virtual environment with this command:
 You should see (llms) in your command prompt, which is your sign that things are going well.
 
 4. Run `python -m pip install --upgrade pip` followed by `pip install -r requirements.txt`  
-This may take a few minutes to install.
-In the very unlikely event that this doesn't go well, you should try the bullet-proof (but slower) version:  
+This may take a few minutes to install.  
+If you see an error like this:
+
+> Microsoft Visual C++ 14.0 or greater is required. Get it with "Microsoft C++ Build Tools": [https://visualstudio.microsoft.com/visual-cpp-build-tools/](https://visualstudio.microsoft.com/visual-cpp-build-tools/)
+
+Then please follow the link and install Microsoft C++ Build Tools.  
+
+In the very unlikely event that this step doesn't go well, you should try the bullet-proof (but slower) version:  
 `pip install --retries 5 --timeout 15 --no-cache-dir --force-reinstall -r requirements.txt`
 
-5. **Start Jupyter Lab:**
+6. **Start Jupyter Lab:**
 
 From within the `llm_engineering` folder, type: `jupyter lab`  
 ...and Jupyter Lab should open up, ready for you to get started. Open the `week1` folder and double click on `day1.ipynb`. Success! Now close down jupyter lab and move on to Part 3.
