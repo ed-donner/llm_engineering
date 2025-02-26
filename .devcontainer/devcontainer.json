@@ -1,0 +1,25 @@
+{
+    "name": "Python Environment",
+    "build": {
+        "dockerfile": "Dockerfile",
+        "args": {
+            "USERNAME": "llm_engineer"
+        }
+    },
+    "remoteUser": "llm_engineer",
+    "features": {},
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "ms-python.python",
+                "ms-toolsai.jupyter"
+            ],
+            "settings": {
+                "python.defaultInterpreterPath": "/opt/conda/envs/llm_engineer/bin/python",
+                "python.linting.enabled": true
+            }
+        }
+    },
+    "forwardPorts": [],
+    "postCreateCommand": "conda init bash && echo 'conda activate llm_engineer' >> ~/.bashrc"
+}
