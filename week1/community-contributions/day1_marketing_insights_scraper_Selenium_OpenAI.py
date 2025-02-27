@@ -151,16 +151,7 @@ def save_to_excel(data_list: list, filename="website_analysis.xlsx"):
 
 # 🔹 LIST OF WEBSITES TO PROCESS
 websites = [
-    "https://www.udacity.com/",
-    "https://www.coursera.org",
-    "https://www.udemy.com",
-    "https://www.edx.org",
-    "https://www.freecodecamp.org/",
-    "https://www.datacamp.com/",
-    "https://www.w3schools.com/",
-    "https://www.futurelearn.com/",
-    "https://codefirstgirls.com/",
-    "https://www.linkedin.com/learning",
+    "https://www.gymshark.com/",
 ]
 
 if __name__ == "__main__":
