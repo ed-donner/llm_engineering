@@ -1,0 +1,19 @@
+Client: Hello. What is the most selling pizza on your menu?
+Restaurant: Hello! Chicken Ranch pizza is our most selling pizza. Also our special pepperoni pizza got some amazing reviews
+Client: Okay. I want to order a pepperoni pizza
+Restaurant: Sure. Do you want it small, medium, or large?
+Client: Large
+Restaurant: Okay. This will be 210 LE. Would you like to order something else?
+Client: Yes. Do you have onion rings?
+Restaurant: Yes
+Client: Okay I would like to add onion rings.
+Restaurant: Sure. This will be 250 LE
+Client: Thanks
+Restaurant: Anytime
+Client: I have been waiting for too long and the order hasn't arrived yet
+Restaurant: Sorry to hear that. But it appears that the order is on its way to you.
+Restaurant: The order is supposed to be arrived by now.
+Client: Yes it is arrived.
+Restaurant: How is your experience?
+Client: Your pizza tastes soooooo good. The order took too long to arrive but when I tasted the pizza, I was really enjoying it and forgot everything about the delay.
+Restaurant: We are so glad to hear that
