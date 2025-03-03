@@ -1,0 +1,235 @@
+WEBVTT
+
+00:00.890 --> 00:04.100
+And welcome back to our challenge again.
+
+00:04.130 --> 00:08.000
+And this time we are working with our beautiful prototype.
+
+00:08.060 --> 00:16.400
+Uh, with this time the default set to the Python Hard challenge rather than the simple pi code.
+
+00:16.400 --> 00:17.750
+We bring this up.
+
+00:17.750 --> 00:18.800
+Here it is.
+
+00:18.800 --> 00:25.910
+We're going to kick off the Python run, which you may remember takes about 2720 eight seconds.
+
+00:25.910 --> 00:27.620
+So we'll be sitting here for a little while.
+
+00:27.620 --> 00:34.430
+While that runs, I am then going to do use GPT to convert the code to C plus plus and run that.
+
+00:34.430 --> 00:40.580
+And then we'll do the same with Claude and see how Claude fares and see if there are any differences
+
+00:40.580 --> 00:42.200
+from last time.
+
+00:42.590 --> 00:44.060
+Uh, almost there.
+
+00:44.060 --> 00:48.080
+You can watch Gradio gives us a little timer, which is very handy in these situations.
+
+00:48.080 --> 00:49.790
+So we'll know that there we go.
+
+00:49.820 --> 00:52.070
+We get the answer that is the right answer.
+
+00:52.070 --> 00:54.530
+And it took about 28 seconds.
+
+00:54.560 --> 00:55.250
+All right.
+
+00:55.250 --> 00:58.370
+We asked GPT to convert this into C plus plus code.
+
+00:58.370 --> 01:00.440
+Here is the C plus plus code.
+
+01:00.560 --> 01:02.420
+There is the result.
+
+01:02.420 --> 01:06.110
+And we will then run that C plus plus code.
+
+01:07.820 --> 01:10.460
+And it has the same problem as before.
+
+01:10.490 --> 01:17.540
+There's I believe it's a number overflow that's resulting in the answer being zero and not even that
+
+01:17.540 --> 01:17.930
+quick.
+
+01:17.930 --> 01:23.870
+Because in giving that answer zero, it also had some nested loops happening.
+
+01:23.870 --> 01:26.090
+Let's see how Claude fares.
+
+01:26.090 --> 01:29.210
+We switch to Claude, we convert the code.
+
+01:34.850 --> 01:35.900
+Here we go.
+
+01:39.650 --> 01:41.690
+Let's see what Claude has done.
+
+01:42.560 --> 01:43.370
+Aha!
+
+01:44.270 --> 01:50.870
+Interestingly, this time Claude has not seen that it can do the single loop.
+
+01:50.870 --> 01:54.230
+So we've got a different answer from Claude this time.
+
+01:54.440 --> 01:54.980
+There we go.
+
+01:55.010 --> 01:58.550
+We'll see how Claude does if its code runs.
+
+01:58.550 --> 02:00.560
+At least let's run that C plus.
+
+02:00.560 --> 02:06.470
+Plus it got the right answer and it took 0.6 seconds.
+
+02:06.470 --> 02:09.770
+So Claude at least gets the right answer.
+
+02:09.770 --> 02:12.260
+But it is not this time.
+
+02:12.260 --> 02:13.730
+This time that we ran with Claude.
+
+02:13.730 --> 02:21.830
+It didn't crush it like last time, because it didn't actually spot that opportunity to to to collapse
+
+02:21.830 --> 02:24.570
+the loop using Canon's algorithm.
+
+02:24.930 --> 02:26.460
+And now remember it's called.
+
+02:26.820 --> 02:33.240
+So I guess we can try one more time converting the code and see if it if it gets it on a second attempt.
+
+02:33.480 --> 02:34.350
+Let's see.
+
+02:34.350 --> 02:35.760
+Let's see, let's see.
+
+02:37.590 --> 02:39.510
+That does look like it's one loop doesn't it.
+
+02:39.510 --> 02:39.870
+All right.
+
+02:39.870 --> 02:43.470
+Let's let's see if it's, uh, that's going to work for us.
+
+02:44.160 --> 02:45.330
+It did work.
+
+02:45.330 --> 02:46.560
+Second time lucky.
+
+02:46.590 --> 02:47.910
+Second time lucky.
+
+02:47.940 --> 02:49.320
+We get the right answer.
+
+02:49.320 --> 02:52.110
+And again we have that breathtaking.
+
+02:52.140 --> 02:52.980
+Oh my goodness.
+
+02:53.010 --> 02:55.200
+It's a whole lot better than last time as well.
+
+02:55.350 --> 02:59.970
+Obviously there's some, uh, dependency on what else is running on on my processor.
+
+02:59.970 --> 03:07.650
+We're probably down to the sort of the noise levels, but that is 0.4 of a, uh, of a millisecond,
+
+03:07.650 --> 03:11.640
+uh, compared to, uh, let's do the maths one more time.
+
+03:11.640 --> 03:16.680
+It's embarrassing that I can't do these sort of orders of magnitude in my head, but I'm too afraid
+
+03:16.680 --> 03:18.750
+that I'll get off by by too much.
+
+03:18.780 --> 03:25.200
+28.3 divided by 0.000446.
+
+03:25.560 --> 03:29.760
+Uh, it's more than 60,000 times faster.
+
+03:29.760 --> 03:33.900
+Uh, which, of course, is not that surprising given that it's found an algorithm that involves a single
+
+03:33.900 --> 03:37.560
+loop rather than a nested loop, but it is great to see that.
+
+03:37.560 --> 03:44.040
+So in summary, Claude managed to to to work where GPT four failed.
+
+03:44.040 --> 03:49.800
+And Claude sometimes not always, is breathtakingly faster.
+
+03:49.800 --> 03:54.390
+Breathtaking, I will say, from doing my experiments that there were a couple of occasions when Claude
+
+03:54.390 --> 03:59.850
+also made a mistake with the number rounding and and both Claude and GPT four zero got zero.
+
+03:59.850 --> 04:02.670
+But GPT four zero seems to consistently make that mistake.
+
+04:02.670 --> 04:09.210
+And more often than not, Claude not only gets it right, but also spots this opportunity to rewrite
+
+04:09.210 --> 04:12.090
+the algorithm and be staggeringly faster.
+
+04:12.090 --> 04:18.030
+So I think, again, I double down and say, this is a victory for Claude.
+
+04:18.180 --> 04:22.890
+Um, and then next week we are going to switch to open source.
+
+04:22.890 --> 04:25.080
+We're going to assess open source models.
+
+04:25.080 --> 04:32.040
+We're going to see how open source models generate code and use a solution with open source Llms.
+
+04:32.040 --> 04:36.630
+The question will be can open source compete with Claude?
+
+04:36.660 --> 04:38.310
+3.5 sonnet.
+
+04:38.370 --> 04:42.840
+Uh, with this astoundingly fast, uh, result.
+
+04:43.290 --> 04:44.010
+See you then.

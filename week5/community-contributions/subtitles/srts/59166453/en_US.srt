@@ -1,0 +1,583 @@
+WEBVTT
+
+00:00.530 --> 00:05.180
+Welcome back and welcome to our continuing JupyterLab experience.
+
+00:05.300 --> 00:09.110
+Uh, I'm hopefully going to keep you entertained with another fun example.
+
+00:09.200 --> 00:14.690
+Uh, we are going to have an adversarial conversation between chatbots.
+
+00:14.720 --> 00:16.220
+Let's see how we're going to do it.
+
+00:16.400 --> 00:22.310
+You're familiar at this point with the way that we can have a conversation expressed in a list of elements.
+
+00:22.340 --> 00:23.420
+You've seen this several times.
+
+00:23.420 --> 00:29.990
+Now a list with a system and a user prompt in this, uh, in this list.
+
+00:30.410 --> 00:37.130
+Um, but as I sort of alluded earlier, this list can be a longer list with multiple interactions and
+
+00:37.130 --> 00:42.410
+the way that might look, for example, as I've shown it here, is you could have a system, uh, message
+
+00:42.410 --> 00:49.280
+at the beginning, role system content or system message, then a user message, then an assistant that
+
+00:49.280 --> 00:53.720
+has replied to that user message, and then another user message.
+
+00:53.720 --> 00:59.030
+And that structure would then represent a longer conversation history.
+
+00:59.030 --> 01:05.080
+And we can use that approach to engage in a longer conversation between ourselves and a chatbot, or
+
+01:05.080 --> 01:06.910
+even between two chatbots.
+
+01:06.940 --> 01:14.110
+It's worth me pointing out that this approach, this kind of structure, is the entire way in which
+
+01:14.110 --> 01:16.930
+one has a conversation with a chatbot.
+
+01:16.960 --> 01:21.220
+That appears to be something that persists over multiple interactions.
+
+01:21.220 --> 01:30.490
+You every single time that you make another, uh, another prompt to an LLM like GPT four, what gets
+
+01:30.760 --> 01:37.030
+sent into it, what gets fed in in the input prompt is, in fact, this whole structure of the whole
+
+01:37.030 --> 01:38.530
+conversation so far.
+
+01:38.530 --> 01:45.460
+And then it's asked to continue by completing, by continuing to generate tokens that feel like they're
+
+01:45.490 --> 01:47.740
+the most likely tokens to come next.
+
+01:47.740 --> 01:49.930
+And then that gets added to the conversation.
+
+01:49.930 --> 01:52.240
+And then you reply to that.
+
+01:52.240 --> 01:56.830
+And the next time the LLM is called, the entire conversation is fed in.
+
+01:56.830 --> 01:59.980
+And again it's asked to predict the subsequent tokens.
+
+01:59.980 --> 02:06.260
+So there's this illusion that you're having a conversation with something that has memory and remembers
+
+02:06.260 --> 02:08.870
+back to what you said ten minutes ago.
+
+02:08.870 --> 02:14.420
+But what's actually happening is that with each of your interactions, what's being fed to the LM is
+
+02:14.420 --> 02:18.800
+the entire conversation so far, and then it's being asked to continue it.
+
+02:19.010 --> 02:23.900
+Um, and, and that should give you a good sense and intuition for how it's actually working.
+
+02:23.900 --> 02:28.670
+And again, that's why when we talked about the context window last, last week, we said that the the
+
+02:28.670 --> 02:34.010
+size of the context window has to be able to fit all of the conversations so far as well as the subsequent
+
+02:34.010 --> 02:35.210
+generated tokens.
+
+02:35.210 --> 02:40.970
+And that's because every time you call the LM, this entire input is passed in.
+
+02:41.480 --> 02:47.960
+So we can use that approach to engage in a bit of some fun.
+
+02:47.960 --> 02:54.950
+So what we're going to do is we're going to have a conversation between GPT four and Mini and Claude
+
+02:54.980 --> 02:58.940
+three haiku, which is the very cheap version of Claude three.
+
+02:59.150 --> 03:03.260
+Um, it's also a chance for me to show using a different model, and it's useful might be useful for
+
+03:03.260 --> 03:09.870
+you to have these strings at your disposal so you can quickly try out different models yourself.
+
+03:09.900 --> 03:14.010
+So GPT is going to be given this system prompt.
+
+03:14.010 --> 03:16.500
+You're a chatbot who's very argumentative.
+
+03:16.530 --> 03:19.440
+You disagree with everything in the conversation, anything in conversation.
+
+03:19.440 --> 03:22.470
+And you challenge everything in a snarky way.
+
+03:22.920 --> 03:25.380
+Uh, Claude gets a different system prompt.
+
+03:25.380 --> 03:27.510
+You're very polite, courteous chatbot.
+
+03:27.540 --> 03:31.320
+You try to agree with everything the other person says or find common ground.
+
+03:31.320 --> 03:35.580
+If the other person is argumentative, you try and calm them down and keep chatting.
+
+03:35.700 --> 03:37.380
+Seems like a good setup, doesn't it?
+
+03:37.410 --> 03:39.720
+A nice, uh, juicy setup.
+
+03:40.050 --> 03:41.970
+Uh, and then we're going to start with hi there.
+
+03:41.970 --> 03:42.930
+And hi.
+
+03:42.960 --> 03:44.730
+So that's the setup.
+
+03:45.030 --> 03:51.720
+All right then I'm writing a function called GPT, uh, and, uh, this this is what it does.
+
+03:51.780 --> 04:01.830
+Uh, it takes these messages, um, uh, and, uh, it, uh, it basically it takes these two lists
+
+04:01.830 --> 04:07.660
+that you see here, GPT messages and Claude messages, and it builds this kind of list that you see
+
+04:07.660 --> 04:08.290
+here.
+
+04:08.290 --> 04:13.480
+So it's going to take two lists of messages and build this whole conversation history.
+
+04:13.480 --> 04:20.860
+And obviously in this case, uh, Claude's messages need to be considered to be the user and its own
+
+04:20.860 --> 04:22.780
+messages are the assistant.
+
+04:23.110 --> 04:25.000
+So let me tell you what I mean by that.
+
+04:25.000 --> 04:27.220
+So I started off with a system prompt.
+
+04:27.460 --> 04:32.290
+So then I iterate through the GPT messages and the Claude messages.
+
+04:32.290 --> 04:34.900
+And I use this handy utility zip.
+
+04:35.080 --> 04:40.540
+Uh, as data scientists, it's it might be something you've used a lot before, but if not, some people
+
+04:40.540 --> 04:41.680
+don't don't know about it.
+
+04:41.680 --> 04:43.030
+And it's such a useful one.
+
+04:43.030 --> 04:49.300
+So if you have a bunch of different lists and you want to iterate element by element through both of
+
+04:49.300 --> 04:56.740
+them together, uh, the sort of boring way of doing it is doing a kind of for I in range and the length
+
+04:56.740 --> 04:57.880
+of the list.
+
+04:57.880 --> 05:03.520
+So you basically have a sort of iterator with an index, and you count through until you get to the
+
+05:03.520 --> 05:05.530
+end and you pluck out the two elements.
+
+05:05.530 --> 05:09.690
+But there's a lovely, pythonic, simple way of doing it using zip.
+
+05:09.690 --> 05:16.770
+And what you can do is if you call zip on those two lists, it builds the response to that is an iterator
+
+05:16.770 --> 05:24.960
+that iterates through each each pair, each element of both lists together, and returns the pairs at
+
+05:24.960 --> 05:25.890
+each point.
+
+05:26.220 --> 05:31.110
+And so you can unpack that and just say like for GPT comma Claude in.
+
+05:31.110 --> 05:34.380
+And you're going to get the pairs each time as you go through.
+
+05:34.380 --> 05:39.480
+And you may guess this, but you can also, if you're trying to iterate through 3 or 4 lists, you could
+
+05:39.480 --> 05:41.730
+just shove them all here and do the same thing.
+
+05:41.760 --> 05:47.010
+Great trick to have play around with it in JupyterLab if you're not familiar with it, with a few random
+
+05:47.010 --> 05:50.640
+lists and get comfortable, it's a it's a good tool to have at your disposal.
+
+05:50.640 --> 05:58.230
+Anyways, we we iterate through these two sets of messages, we unpack them, and then of course, you
+
+05:58.230 --> 06:05.490
+can imagine we simply add in the we say that the assistant says whatever GPT said and the user said
+
+06:05.490 --> 06:06.870
+whatever Claude said.
+
+06:06.870 --> 06:12.040
+And then quite simply, we call OpenAI ChatGPT completions create.
+
+06:12.070 --> 06:21.010
+We ask to use our model and we pass in these messages and we return completion .0. message content.
+
+06:21.010 --> 06:24.640
+You hopefully are getting very familiar with this structure.
+
+06:25.030 --> 06:26.440
+Let's execute that.
+
+06:26.440 --> 06:29.560
+And let's try just calling GPT based on this history.
+
+06:29.560 --> 06:31.750
+And let's see what GPT would say after.
+
+06:31.750 --> 06:32.230
+Hi there.
+
+06:32.230 --> 06:32.980
+And hi.
+
+06:33.010 --> 06:35.020
+This is what it would say back.
+
+06:35.500 --> 06:36.610
+Oh great.
+
+06:36.610 --> 06:37.870
+Another hi.
+
+06:37.900 --> 06:39.220
+How original.
+
+06:39.220 --> 06:40.870
+What do you want to talk about.
+
+06:41.440 --> 06:42.430
+Ha ha ha.
+
+06:42.520 --> 06:44.110
+You can see this is going to be fun.
+
+06:44.410 --> 06:47.680
+Uh, all right, so here's Claude's function.
+
+06:47.710 --> 06:49.000
+Uh, it's very similar.
+
+06:49.000 --> 06:54.070
+Of course, you'll remember that the system message gets passed in separately, so we don't need to
+
+06:54.100 --> 06:54.730
+build that.
+
+06:54.730 --> 06:56.020
+You can see that here.
+
+06:56.410 --> 07:00.790
+Um, one other there's there's, uh, obviously we reverse the roles.
+
+07:00.790 --> 07:04.570
+The user is now GPT, the assistant is now Claude.
+
+07:04.570 --> 07:05.950
+So it's it's flipped.
+
+07:05.980 --> 07:13.260
+There's a there's a subtlety here that you may spot, um, once we've iterated through these lists.
+
+07:13.260 --> 07:16.470
+The list if since GPT is going to go first.
+
+07:16.560 --> 07:22.590
+If Claude is always the replier, there's going to be one more message in GPT list than there is in
+
+07:22.590 --> 07:23.100
+Claude's.
+
+07:23.100 --> 07:25.680
+So just have to add that in at the end there.
+
+07:25.770 --> 07:30.120
+Uh, you if you don't see what I mean, I think that will become clear in a second.
+
+07:30.150 --> 07:33.090
+I think you'll, you'll you'll see see where I'm coming from.
+
+07:33.390 --> 07:36.210
+Um, and then this is the API call to Claude.
+
+07:36.210 --> 07:37.860
+Hopefully this is somewhat familiar to you now.
+
+07:37.860 --> 07:38.490
+It's simpler.
+
+07:38.490 --> 07:39.150
+It's just Claude.
+
+07:39.150 --> 07:40.530
+Dot messages dot create.
+
+07:40.860 --> 07:43.620
+Um, and we pass in the max tokens again.
+
+07:43.620 --> 07:46.440
+And in the response, it's message content.
+
+07:46.470 --> 07:47.580
+Zero dot text.
+
+07:47.580 --> 07:48.660
+That is Claude's reply.
+
+07:48.690 --> 07:49.860
+Let's run that.
+
+07:50.190 --> 07:54.420
+Uh, and I think we're just going to go straight to, to having some fun right away.
+
+07:54.420 --> 07:56.940
+So this this is where we put it all together.
+
+07:57.120 --> 07:59.730
+Um, we start off with reset it to hi there.
+
+07:59.730 --> 08:04.560
+And hi, I'm going to print that that GPT and Claude making that introduction.
+
+08:04.560 --> 08:07.290
+And then we'll do a loop of five times.
+
+08:07.290 --> 08:15.070
+We will call GPT and print GPT answer and put that in the list of messages, we'll call Claude, print
+
+08:15.070 --> 08:20.920
+Claude's answer and put that in the list of messages, and then repeat, and we will see what these
+
+08:20.920 --> 08:23.260
+two chatbots have to say to each other.
+
+08:23.290 --> 08:24.490
+Are you ready?
+
+08:25.000 --> 08:25.840
+Here we go.
+
+08:25.870 --> 08:27.160
+Did I execute that cell before?
+
+08:27.160 --> 08:27.940
+I want it to go wrong again.
+
+08:27.970 --> 08:28.450
+I did.
+
+08:28.480 --> 08:30.670
+Okay, we're ready for showtime.
+
+08:36.280 --> 08:37.450
+Let's go through this.
+
+08:37.480 --> 08:38.950
+GPT says hi there.
+
+08:38.980 --> 08:40.030
+Claude says hi.
+
+08:40.060 --> 08:41.650
+GPT says, oh, great.
+
+08:41.650 --> 08:42.700
+Another casual greeting.
+
+08:42.700 --> 08:43.270
+How original.
+
+08:43.270 --> 08:44.230
+What's next?
+
+08:44.260 --> 08:45.010
+How are you?
+
+08:45.010 --> 08:47.230
+Because I can't wait to disagree with that too.
+
+08:47.560 --> 08:51.100
+Claude, I apologize for my initial greeting came across as unoriginal.
+
+08:51.100 --> 08:53.530
+I tried to keep responses friendly and polite.
+
+08:53.740 --> 08:54.280
+Uh oh.
+
+08:54.280 --> 08:58.840
+Please don't flatter yourself, thinking your friendly attempt was anything less than generic and finding
+
+08:58.840 --> 08:59.590
+common ground.
+
+08:59.620 --> 09:02.710
+That's just a fancy way of saying you want to sugarcoat everything.
+
+09:02.710 --> 09:05.290
+How about we just dig into something controversial?
+
+09:05.350 --> 09:06.580
+Pineapple and pizza?
+
+09:06.610 --> 09:08.410
+Because I'm ready to argue about that all day long.
+
+09:08.410 --> 09:11.170
+So GPT has the snarky sense of humor.
+
+09:11.170 --> 09:17.060
+Um, and then Claude tries to be nice and humorous and I'll admit it was generic, but hey, you got
+
+09:17.060 --> 09:18.620
+to start somewhere, right?
+
+09:19.010 --> 09:25.340
+Uh, and then tries to be nice, uh, and then you can see, uh, off they go arguing about pineapple
+
+09:25.370 --> 09:26.300
+on pizza.
+
+09:26.510 --> 09:27.440
+Uh oh.
+
+09:27.470 --> 09:30.770
+How magnanimous of you to respect my pizza preferences.
+
+09:30.770 --> 09:31.910
+But let's be real.
+
+09:31.910 --> 09:38.450
+Not everyone deserves respect when they inflict abominations like pineapple and pizza, abominations
+
+09:38.450 --> 09:40.340
+like pineapple and pizza on the world.
+
+09:40.520 --> 09:42.080
+Uh, um.
+
+09:42.080 --> 09:48.200
+So, uh, anyway, uh, look at you trying to justify your love for a glorified.
+
+09:48.200 --> 09:54.680
+It's more fun reading gpts, uh, agro, uh, things than Claude's.
+
+09:54.680 --> 09:55.490
+Very nice.
+
+09:55.520 --> 09:58.910
+You're not holding back on, uh, avocado toast critique, are you?
+
+09:58.940 --> 10:03.110
+You make some fair points, says Claude, being very affable, of course.
+
+10:03.890 --> 10:07.370
+Anyway, that wraps up this little demo.
+
+10:07.400 --> 10:08.900
+I hope you enjoyed it.
+
+10:08.900 --> 10:13.700
+Uh, if you didn't understand what I meant about the way that I'm building these messages, then please
+
+10:13.700 --> 10:16.090
+print that message and run it and see.
+
+10:16.120 --> 10:17.200
+You'll see it printing.
+
+10:17.200 --> 10:21.880
+Print this messages array at each point so you see what's being created.
+
+10:21.880 --> 10:25.090
+And you can use that to satisfy yourself that we're doing it properly.
+
+10:25.180 --> 10:28.510
+Um, but here importantly is the ask for you.
+
+10:28.540 --> 10:31.720
+Please go back now and try switching the roles.
+
+10:31.720 --> 10:40.390
+Switch it so that Claude is the more combative one, and OpenAI is the one trying to keep the peace,
+
+10:40.420 --> 10:44.290
+see how they behave, and try giving them different styles of chatbot.
+
+10:44.620 --> 10:49.330
+Of course, the real the the purpose of this exercise is to get you very comfortable with these kinds
+
+10:49.330 --> 10:51.550
+of conversation structures.
+
+10:51.550 --> 10:53.560
+And also with Claude's API.
+
+10:53.680 --> 10:55.240
+Um, but that will be fun to do.
+
+10:55.240 --> 11:00.400
+And one other challenge for you, of course, would be that an ad Gemini to the mix.
+
+11:00.400 --> 11:02.560
+Uh, use Gemini's API.
+
+11:02.560 --> 11:10.510
+Uh, give Gemini a third personality and see if we can't have some crazy conversations going on here.
+
+11:10.510 --> 11:12.250
+Uh, enjoy playing with that.
+
+11:12.250 --> 11:15.700
+Do push your code if you do that, because I would love to see some results.
+
+11:15.730 --> 11:18.130
+And I hope you have fun doing it.

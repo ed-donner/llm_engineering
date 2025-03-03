@@ -1,0 +1,331 @@
+WEBVTT
+
+00:02.030 --> 00:07.640
+Okay, it's time to complete the Rag workflow in our Jupyter Lab on day 2.3.
+
+00:07.670 --> 00:13.490
+We've got this function Getprice that you are very familiar with now, which is the super simple one
+
+00:13.490 --> 00:17.690
+that takes a string and plucks out the floating point number from it.
+
+00:17.690 --> 00:21.620
+And now the function for GPT for mini.
+
+00:21.830 --> 00:26.600
+What we do is we say documents and prices is fine similares of items.
+
+00:26.600 --> 00:27.860
+So it's passed in an item.
+
+00:27.860 --> 00:30.200
+We find what is similar to that item.
+
+00:30.200 --> 00:35.570
+And then we call OpenAI chat dot completions dot create.
+
+00:35.660 --> 00:38.210
+We're going to specify GPT for mini.
+
+00:38.240 --> 00:42.290
+We're going to pass in the messages using the function messages for.
+
+00:42.410 --> 00:43.400
+And we'll give it a seed.
+
+00:43.400 --> 00:45.110
+We want back five tokens.
+
+00:45.110 --> 00:50.690
+And what comes back we say response dot choices zero dot message content.
+
+00:50.690 --> 00:57.050
+And then we call get price on the reply to pluck out the number from that.
+
+00:57.170 --> 00:59.420
+And that's all there should be to it.
+
+00:59.420 --> 01:02.670
+Let's try it out on one before we before we go crazy here.
+
+01:02.970 --> 01:13.650
+Uh, so we're going to say, um, let's see, uh, GPT four mini rag and we will pass in the test one
+
+01:13.650 --> 01:15.810
+that we just looked at that clutch thing.
+
+01:16.110 --> 01:18.360
+Uh, and let's see what we get back.
+
+01:19.470 --> 01:30.000
+Uh, we get back $201 and 45, uh, and let's see what what actually, it should be test one dot price.
+
+01:32.160 --> 01:33.540
+Uh, it's pretty close.
+
+01:33.540 --> 01:34.530
+It's pretty close.
+
+01:34.530 --> 01:35.610
+Look at that.
+
+01:35.910 --> 01:39.930
+Uh, so, uh, it's great the way it's so very quick to run.
+
+01:39.930 --> 01:41.880
+And you can see everything that's happened there.
+
+01:41.880 --> 01:44.610
+It looked up five similar items.
+
+01:44.610 --> 01:53.370
+It constructed a query, uh, for OpenAI that incorporated the context of those five similar items in
+
+01:53.370 --> 01:55.230
+the prompt that it sent to OpenAI.
+
+01:55.230 --> 02:00.120
+And then it made the call, got back the response, and stripped out the price and told us how much
+
+02:00.150 --> 02:00.600
+it cost.
+
+02:00.600 --> 02:02.640
+And it got pretty close.
+
+02:02.650 --> 02:03.700
+So with that.
+
+02:03.730 --> 02:06.610
+Do you remember our tester from before?
+
+02:06.640 --> 02:12.370
+Our framework for testing the 250, uh, top, uh, test results.
+
+02:12.400 --> 02:14.860
+And you remember where we came out with our model?
+
+02:14.890 --> 02:16.810
+Uh, it's definitely scary to think.
+
+02:16.840 --> 02:21.490
+Okay, but but now we've given a huge benefit to the frontier model.
+
+02:21.490 --> 02:23.410
+Uh, how can it do with this?
+
+02:23.410 --> 02:28.000
+So we can run it at this point, and we will see how it does?
+
+02:28.060 --> 02:31.690
+Uh, and off it will go while it's doing that.
+
+02:31.690 --> 02:34.750
+And you can already see a lot of greens in here.
+
+02:34.810 --> 02:38.110
+Uh, it's, of course, getting a lot of information.
+
+02:38.110 --> 02:42.640
+I want to show you what I've done over here in the agents folder.
+
+02:43.120 --> 02:49.390
+Uh, in the agents folder, I have made something called Frontier Agent, and this is now taking exactly
+
+02:49.390 --> 02:54.130
+the code we've just looked through and turning it into production ready code.
+
+02:54.130 --> 03:00.730
+And the way I've done that is that you can see from this sea of red that I've been adding in comments,
+
+03:00.730 --> 03:07.190
+which is an important step and I've been putting in type hints so that we get to see exactly what we're
+
+03:07.190 --> 03:08.660
+doing along the way.
+
+03:08.810 --> 03:13.190
+And you can see as we go through it's it's very simple.
+
+03:13.190 --> 03:14.330
+It's the same stuff.
+
+03:14.330 --> 03:21.410
+Make context creates the context to insert into the prompt messages for creates the message list in
+
+03:21.440 --> 03:23.330
+that open AI format.
+
+03:23.450 --> 03:28.940
+You may be familiar with this way of specifying putting a comment against each of the parameters and
+
+03:28.940 --> 03:30.500
+then what gets returned.
+
+03:30.830 --> 03:37.670
+You can also see some more sophisticated type hints here that specify when we have lists of strings,
+
+03:37.760 --> 03:44.360
+and a list of dictionaries with the key of a string and a value of a string, and then find similares,
+
+03:44.480 --> 03:49.820
+which returns a list of items similar to the given one by looking in chroma get price.
+
+03:49.820 --> 03:50.600
+We know it well.
+
+03:50.600 --> 03:54.410
+And then finally the price method here.
+
+03:54.650 --> 04:02.900
+So all of this is now part of a class called Frontier Agent, which is a subclass of my superclass agent,
+
+04:03.050 --> 04:07.850
+and it's packaged up nicely so that we can use it for production purposes.
+
+04:07.850 --> 04:13.730
+And so again, as part of your learning as you as you see that difference between moving from a Jupyter
+
+04:13.730 --> 04:18.770
+world into more production ready code, this is the kind of jump you would make.
+
+04:18.800 --> 04:25.580
+And typically you'd be building this in a tool like VSCode or in PyCharm or something like that.
+
+04:25.610 --> 04:31.400
+I tend to love PyCharm, but you can also use JupyterLab for this as we've got it right here.
+
+04:31.400 --> 04:36.800
+You can write code in Jupyter Lab, but there are ideas that are designed for this kind of thing and
+
+04:36.800 --> 04:37.580
+make it better.
+
+04:37.580 --> 04:42.680
+And we'll do stuff like filling in your, your, your prompts for your for what comments to write and
+
+04:42.680 --> 04:43.250
+things like that.
+
+04:43.250 --> 04:46.580
+So it's worth using an IDE when you get to this point.
+
+04:47.300 --> 04:48.260
+All right.
+
+04:48.290 --> 04:53.900
+Hopefully I've jabbered away for long enough to see if we're doing well here.
+
+04:55.250 --> 04:56.210
+It's getting close.
+
+04:56.210 --> 04:56.990
+It's getting close.
+
+04:56.990 --> 04:58.670
+And there we have it.
+
+04:58.790 --> 05:02.900
+Okay, so here's what we notice.
+
+05:02.900 --> 05:10.980
+First of all, it is substantially better than GPT four mini and GPT four without Rag.
+
+05:10.980 --> 05:18.000
+We have moved the needle in a big way, but we're still at the point that our fine tuned frontier model
+
+05:18.000 --> 05:21.330
+that we deployed up there is working better.
+
+05:21.420 --> 05:26.610
+So we still managed to beat even a rag pipeline based GPT four.
+
+05:26.880 --> 05:31.860
+But it is great to see that the Rag pipeline does well and gets this close.
+
+05:32.130 --> 05:35.400
+So and you can see what looks like a beautiful chart here.
+
+05:35.700 --> 05:37.740
+Uh, so that was great fun.
+
+05:37.800 --> 05:41.880
+Uh, and I hope you've enjoyed that and see the same thing.
+
+05:41.880 --> 05:46.290
+And do spend time looking through this code, see the prompts that are created, and print out some
+
+05:46.290 --> 05:52.890
+of these prompts and satisfy yourself that we've basically, uh, in a more, more of a manual way.
+
+05:52.890 --> 05:59.340
+We have done what exactly what Lang chain was automating for us before with with its wrapper code.
+
+05:59.340 --> 06:04.440
+We have gone out there, we've taken an item, we've found five similar items.
+
+06:04.440 --> 06:06.760
+We've packaged that up into some context.
+
+06:06.760 --> 06:08.950
+And that's what we've sent to GPT four.
+
+06:09.220 --> 06:14.470
+And that's given us significantly better results than when we didn't do that.
+
+06:14.500 --> 06:16.960
+Another thing to experiment with, of course I tried.
+
+06:16.960 --> 06:18.970
+I was passing in five.
+
+06:19.030 --> 06:20.020
+Results.
+
+06:20.020 --> 06:22.090
+That is what you would call a hyperparameter.
+
+06:22.090 --> 06:24.130
+We can explore what would happen if you make that ten.
+
+06:24.160 --> 06:25.630
+What would happen if you make it two?
+
+06:25.750 --> 06:28.810
+Having it at five means that this is still super cheap.
+
+06:28.810 --> 06:30.820
+It's a cent or two to run all of this.
+
+06:31.120 --> 06:31.750
+Of course you should.
+
+06:31.780 --> 06:34.510
+You should check for yourself in case pricing may vary, but.
+
+06:34.510 --> 06:35.980
+But it's very cheap.
+
+06:36.160 --> 06:38.590
+Um, if you make it ten, then it's going to start to.
+
+06:38.620 --> 06:39.850
+It will cost double that.
+
+06:40.030 --> 06:43.600
+Uh actually not not less than double that, but it will cost a little bit more.
+
+06:43.600 --> 06:50.590
+And so it's worth, uh, um, experimenting with these things within reason and see what you think,
+
+06:50.590 --> 06:51.700
+how it does.
+
+06:51.730 --> 07:01.030
+Anyway, with that, that concludes our rag pipeline, and I will see you for the next part, which
+
+07:01.030 --> 07:06.670
+is when we move to 2.4 and start talking about random forests again and ensemble models.
+
+07:06.700 --> 07:07.600
+See you then.

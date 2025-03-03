@@ -1,0 +1,115 @@
+WEBVTT
+
+00:01.220 --> 00:03.740
+Well, I have to tell you that I'm a little bit sad.
+
+00:03.740 --> 00:07.760
+This is the beginning of the beginning of the end.
+
+00:07.970 --> 00:10.940
+It's the beginning of our last time together.
+
+00:10.970 --> 00:11.780
+The final.
+
+00:11.810 --> 00:13.400
+The end of the finale.
+
+00:13.400 --> 00:17.330
+The conclusion of our eight week voyage.
+
+00:17.330 --> 00:21.860
+To take you from the very beginning to LLM mastery.
+
+00:21.860 --> 00:25.970
+And what a fitting conclusion it should hopefully be.
+
+00:26.000 --> 00:31.940
+I realize I maybe oversold some of the excitement that was in store, but I do hope that you shared
+
+00:31.940 --> 00:37.820
+some of it with me, that you also enjoyed this project and that you're ready for the last stages.
+
+00:37.820 --> 00:43.610
+So what you can do now is so much to it that I couldn't possibly, possibly do it.
+
+00:43.640 --> 00:46.010
+The injustice of squeezing it into three bullets.
+
+00:46.010 --> 00:48.590
+So it now dominates most of this page.
+
+00:48.590 --> 00:56.660
+And obviously what's in store for us today is to get to the top of the mountain and complete the mastering
+
+00:56.690 --> 01:05.990
+of AI and engineering and LLM engineering, the missing piece for us, if we look at our Agentic AI
+
+01:06.020 --> 01:13.040
+solution, we covered each of these different pieces, and perhaps the one that we hadn't yet completely
+
+01:13.040 --> 01:15.590
+ticked the box of was having autonomy.
+
+01:15.620 --> 01:16.520
+We have got memory.
+
+01:16.550 --> 01:21.560
+We've in a sense, although there's not much point in having memory if it doesn't, if it only runs
+
+01:21.560 --> 01:22.310
+once.
+
+01:22.490 --> 01:30.060
+So yeah, we really need to pull all of this together and have it into a process that is running, and
+
+01:30.060 --> 01:35.820
+so that you'll be able to kick something off and then just go away and get on with your daily life and
+
+01:35.820 --> 01:36.900
+get texted.
+
+01:36.900 --> 01:44.160
+Push notified from time to time as deals come up on the internet that seem worthy of your attention.
+
+01:44.460 --> 01:50.760
+Uh, and so this one more time was the agentic workflows that we had put together.
+
+01:50.760 --> 01:58.530
+And of course, we built everything in red in one session when we we built out our, our prices, including
+
+01:58.530 --> 02:05.310
+the specialist pricing that calls out to modal and the frontier processor that uses our chroma lookup.
+
+02:05.550 --> 02:10.260
+Um, and then we built an ensemble that takes the weighted average of them all.
+
+02:10.500 --> 02:16.590
+Uh, and we then assembled it together with our scanner and our messaging and planning so that we'd
+
+02:16.590 --> 02:18.060
+have everything together.
+
+02:18.060 --> 02:24.900
+And then last time we used something that was fancily called an agent framework, but was nothing more
+
+02:24.900 --> 02:27.750
+than a Python script to glue everything together.
+
+02:27.750 --> 02:32.880
+And of course you can, as I say, get agent frameworks through through various off the shelf frameworks.
+
+02:32.880 --> 02:38.670
+But most of what they're doing is exactly what we did ourselves, uh, through simple Python.
+
+02:38.760 --> 02:39.420
+All right.
+
+02:39.420 --> 02:45.660
+So what remains, what remains is for us to go back with one last time to JupyterLab, where we will
+
+02:45.660 --> 02:49.080
+start playing with my old friend Gradio.
+
+02:49.170 --> 02:51.090
+Uh, we will be right there.

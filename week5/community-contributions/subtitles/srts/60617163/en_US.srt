@@ -1,0 +1,40 @@
+WEBVTT
+
+00:00.080 --> 00:02.570
+And already that wraps up day two.
+
+00:02.570 --> 00:04.550
+Now that you have built that solution.
+
+00:04.550 --> 00:05.990
+And congratulations on that.
+
+00:05.990 --> 00:06.830
+And I would love to see it.
+
+00:06.830 --> 00:11.990
+By the way, if you want to share it, uh, you've got some experience with summarization both with
+
+00:11.990 --> 00:14.120
+OpenAI and with llama.
+
+00:14.150 --> 00:19.790
+Next time we're going to have some fun with Frontier models, we're going to look at six of them.
+
+00:19.790 --> 00:25.160
+You're going to get sleeves rolled up, hands on experience with them so that we get a good sense,
+
+00:25.190 --> 00:28.100
+a good intuition to the differences between them.
+
+00:28.190 --> 00:32.780
+We're going to use some of the latest and greatest versions, and we're also going to see some areas
+
+00:32.780 --> 00:33.740
+where they struggle.
+
+00:33.740 --> 00:35.210
+So looking forward to that.
+
+00:35.210 --> 00:36.380
+I will see you then.
