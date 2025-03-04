@@ -24,7 +24,6 @@ FINETUNED_DIR = MODEL_DIR + FINETUNED_MODEL
 QUESTION = "How much does this cost to the nearest dollar?"
 PREFIX = "Price is $"
 
-
 @app.cls(image=image, secrets=secrets, gpu=GPU, timeout=1800)
 class Pricer:
     @modal.build()
