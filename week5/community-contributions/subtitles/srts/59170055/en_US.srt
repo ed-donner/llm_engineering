@@ -1,0 +1,472 @@
+WEBVTT
+
+00:00.740 --> 00:03.140
+Welcome to the world of Google Colab.
+
+00:03.140 --> 00:07.730
+You may already be very familiar with Google Colab, even if so, I hope I'll show you a couple of things
+
+00:07.730 --> 00:08.660
+here and there.
+
+00:08.780 --> 00:13.340
+But if not, uh, prepare for a great tool.
+
+00:13.610 --> 00:17.630
+Um, and as I say, there's other competitors to Google Colab that are pretty similar.
+
+00:17.750 --> 00:25.490
+Um, but this is where I suggest you start or do do the same sort of thing in your, uh, cloud compute
+
+00:25.490 --> 00:26.990
+platform of choice.
+
+00:26.990 --> 00:33.140
+So the first thing you'll need to do is have a Google account if you don't already have one.
+
+00:33.170 --> 00:40.970
+So when you go to this URL colab.research.google.com, uh, if you don't already have a Google account,
+
+00:40.970 --> 00:43.850
+it will prompt you to, to, to to create one.
+
+00:43.850 --> 00:44.840
+And it's worth it.
+
+00:44.840 --> 00:46.880
+There's going to be tons that we can do with it.
+
+00:46.880 --> 00:50.240
+So uh, go ahead and do that if you need to.
+
+00:50.510 --> 00:56.990
+Um, but uh, for everybody else that has one, you will see this, um, which will give you some information
+
+00:56.990 --> 00:58.010
+about Colab.
+
+00:58.010 --> 01:00.650
+There's a free tier and there is a paid tier.
+
+01:00.650 --> 01:02.900
+There's an awful lot you can do just with the free tier.
+
+01:02.960 --> 01:07.320
+Um, and I think in theory, you should be able to do almost everything in our class with the free tier.
+
+01:07.320 --> 01:08.820
+It just might take longer.
+
+01:09.060 --> 01:13.680
+And the paid tier, you can control how much you spend, and it can be relatively small in a matter
+
+01:13.680 --> 01:14.430
+of a few dollars.
+
+01:14.430 --> 01:20.490
+So it's certainly something that I'd recommend you consider because it will allow you to get deeper
+
+01:20.490 --> 01:23.670
+into training and it will be very satisfying.
+
+01:23.760 --> 01:31.980
+So, uh, when you come up with a new Colab notebook, it looks a bit like what gets served up right
+
+01:31.980 --> 01:32.460
+away.
+
+01:32.460 --> 01:34.890
+It looks very much like a Jupyter notebook.
+
+01:34.920 --> 01:41.820
+You have cells that can be code, or they can be text, and you can run code just by clicking in it
+
+01:41.820 --> 01:42.840
+and running it.
+
+01:42.840 --> 01:45.990
+And this is a kind of default one that comes up.
+
+01:46.020 --> 01:49.950
+What we can do is we can go file new notebook in drive.
+
+01:49.950 --> 01:55.650
+And it says in drive like that, because this notebook is created in your Google Drive, which is so
+
+01:55.650 --> 01:56.280
+convenient.
+
+01:56.280 --> 02:03.360
+It has the same kind of construct as making Google Docs, making Google Sheets, and it's done in a
+
+02:03.360 --> 02:06.780
+way that you can share it just as you would share anything else.
+
+02:06.780 --> 02:08.270
+So here we are.
+
+02:09.020 --> 02:14.840
+And the first thing that we see, what looks like a Jupiter notebook over here is a connect button.
+
+02:14.840 --> 02:19.400
+And I'm going to show you we can start with change runtime type because it shows you the different kinds
+
+02:19.400 --> 02:23.690
+of runtime, the different kinds of VM that we can run a CPU.
+
+02:23.690 --> 02:29.480
+In other words, a normal box that doesn't have one of these GPUs, graphics processing units that are
+
+02:29.480 --> 02:35.900
+so good at running, uh, parallel matrix maths that sits behind neural networks.
+
+02:35.900 --> 02:41.300
+So we can just choose a CPU box, which is very much available on the free tier.
+
+02:41.330 --> 02:50.420
+There is a low end GPU box called a T4, which has a smaller GPU attached to it.
+
+02:50.420 --> 02:56.390
+This is available on the free plan with some rate limits in terms of how much you can use it, and it's
+
+02:56.390 --> 02:58.340
+also very cheap on the paid plan.
+
+02:58.550 --> 03:05.630
+Um, there's an L4, which is a bit higher spec, and an A100, which is the strongest one and which
+
+03:05.630 --> 03:08.930
+we will use when we want to do things quickly.
+
+03:08.960 --> 03:12.150
+It does cost a little bit more, but still we're talking about dollars.
+
+03:12.180 --> 03:14.940
+Not not not massive amounts.
+
+03:14.940 --> 03:16.050
+$10 will get you.
+
+03:16.050 --> 03:23.850
+I think it's it's, uh, with $10, you'd be able to to keep training for about 24 to 48 hours, uh,
+
+03:23.850 --> 03:26.580
+using that box constantly.
+
+03:26.580 --> 03:32.370
+So it's, uh, it's not not still not going to break the bank, but it is on the radar when you start
+
+03:32.370 --> 03:34.170
+using a100s a lot.
+
+03:34.830 --> 03:40.020
+Uh, so, um, and of course, you always get to see how much you're spending, and you can always choose
+
+03:40.020 --> 03:43.500
+to to go with the cheaper option or go with a free option as you wish.
+
+03:43.530 --> 03:46.650
+And when you pick a box, you can have a high Ram version of it.
+
+03:46.650 --> 03:48.870
+And that's talking about the CPU, Ram, not the GPU.
+
+03:48.900 --> 03:54.030
+The GPU Ram is associated with which instance you pick, but you can choose whether you want a high
+
+03:54.030 --> 03:55.290
+CPU, Ram, or not.
+
+03:55.290 --> 04:01.770
+So let's just go with a CPU box with normal amount of Ram and connect to that box by pressing the connect
+
+04:01.770 --> 04:02.730
+button.
+
+04:02.790 --> 04:07.320
+It does take a little while to connect, because it has to hunt down a box and connect to it, but there
+
+04:07.320 --> 04:07.680
+we go.
+
+04:07.710 --> 04:09.480
+We are now attached to a box.
+
+04:09.480 --> 04:15.750
+You go to this dropdown and say View Resources to see what you're working with.
+
+04:15.780 --> 04:17.040
+You can see the system Ram.
+
+04:17.040 --> 04:24.840
+We've got like almost 13 gigs on this box, and we've got 225 gigs of disk space there.
+
+04:25.290 --> 04:35.910
+And I can go over here and I can type something like print hello Data Science World and run that.
+
+04:35.910 --> 04:39.150
+And shockingly, we get that message printed.
+
+04:39.330 --> 04:42.990
+Uh, so, uh, hopefully no surprises there.
+
+04:42.990 --> 04:46.530
+It's a Jupyter notebook running in the cloud on a CPU.
+
+04:46.560 --> 04:48.210
+A couple of other things to mention.
+
+04:48.210 --> 04:50.370
+If you look down here, there's some useful stuff.
+
+04:50.370 --> 04:56.520
+This one here opens up your sort of browser, a file browser, onto your local disk.
+
+04:56.550 --> 05:01.380
+This local disk is ephemeral, and then it gets completely wiped once you finished using this box.
+
+05:01.380 --> 05:06.900
+So consider it temporary and you can use it to be writing files there that you maybe are then going
+
+05:06.900 --> 05:13.290
+to upload your model or data to the Huggingface hub, um, which you will later download somewhere else.
+
+05:13.290 --> 05:14.880
+But this is temporary.
+
+05:14.910 --> 05:16.290
+This is very important.
+
+05:16.290 --> 05:21.000
+This key is for what's called the secrets associated with your notebook.
+
+05:21.000 --> 05:26.520
+And this is where you can put in the environment variables that you'll be able to access within your
+
+05:26.520 --> 05:27.090
+notebook.
+
+05:27.120 --> 05:31.020
+That should not be included in the code of the notebook.
+
+05:31.050 --> 05:33.930
+And what you'll see here is I have my anthropic API key.
+
+05:33.960 --> 05:37.530
+I have my OpenAI API key and my hugging face token.
+
+05:37.530 --> 05:43.890
+That's the thing we created in the last video, and I've got them associated with this notebook.
+
+05:43.920 --> 05:46.020
+You can just press Add New Secret to do that.
+
+05:46.020 --> 05:48.270
+And it comes associated with all of my notebooks.
+
+05:48.450 --> 05:51.870
+Um, because I've got that set up as my colab secrets.
+
+05:51.870 --> 05:56.880
+And you can create a new one by pressing Add New Secret there.
+
+05:57.270 --> 06:01.590
+You can switch notebook access on here.
+
+06:01.860 --> 06:05.280
+I've just seen that there's a Create Gemini key option there.
+
+06:05.280 --> 06:10.500
+They're obviously a cross-selling to Gemini, and I know that I that I say that creating Gemini Keys
+
+06:10.530 --> 06:11.370
+is is hard.
+
+06:11.370 --> 06:15.300
+Maybe they've got an easier path to creating Gemini API keys right there.
+
+06:15.300 --> 06:16.740
+So that would be worth trying.
+
+06:16.770 --> 06:20.460
+If you haven't already gone through the rigmarole of setting up a Gemini API key.
+
+06:20.670 --> 06:26.340
+Uh, so, um, and it's even I was going to say later we'll find out how to access your key from within
+
+06:26.340 --> 06:27.180
+the Jupyter notebook.
+
+06:27.180 --> 06:30.540
+But wonderfully, they've given you the little, little scriptlet of code just there.
+
+06:30.540 --> 06:36.690
+That's what we'll be doing later to be accessing our secrets within the code on the right.
+
+06:36.690 --> 06:40.020
+So you should set these up when you get a chance.
+
+06:40.050 --> 06:45.630
+When you're working with an actual notebook in particular, you flip this switch on to make sure that
+
+06:45.630 --> 06:50.820
+when you execute this code in a cell, it will have access to that secret.
+
+06:51.120 --> 06:56.100
+And of course, as you can imagine, the sort of powerful thing about these secrets is that if you share
+
+06:56.100 --> 06:59.490
+this notebook with others, then they get all of your code.
+
+06:59.490 --> 07:02.100
+But of course, they don't get your secrets shared.
+
+07:02.100 --> 07:07.380
+They will have to enter in their own secrets in order to be able to run that code.
+
+07:07.380 --> 07:12.240
+And similarly, of course, when I share notebooks for you to use, the same thing will apply.
+
+07:12.240 --> 07:18.180
+You'll need to put in your own tokens in order to make take advantage of the code and run it against
+
+07:18.180 --> 07:23.850
+the frontier models or use your hugging face hub, um, or whatever.
+
+07:24.600 --> 07:26.700
+Okay, let's close that down.
+
+07:26.700 --> 07:30.930
+So let me just show you some of the more powerful boxes.
+
+07:30.930 --> 07:34.500
+So you remember we can go here and go change runtime type.
+
+07:34.500 --> 07:38.040
+Click on T4 to to use that box.
+
+07:38.040 --> 07:40.080
+And I did that earlier.
+
+07:40.230 --> 07:45.150
+And I did that because uh, it can take a little while to connect to some of these boxes.
+
+07:45.150 --> 07:50.700
+And with the really high spec boxes like A100, sometimes it just won't be available and you'll have
+
+07:50.700 --> 07:54.180
+to come back and try again two minutes later, and then it will be available.
+
+07:54.180 --> 07:58.710
+Invariably it becomes available after a couple of tries, but sometimes they are oversubscribed and
+
+07:58.710 --> 08:00.660
+it takes a few attempts.
+
+08:00.660 --> 08:02.580
+So this is a T4 box.
+
+08:02.580 --> 08:09.210
+If I do view resources, we'll see that we have again 12 and a bit of system Ram.
+
+08:09.210 --> 08:12.780
+We have the same a slightly smaller hard drive, I think.
+
+08:12.960 --> 08:15.690
+I think it was two, two five before, but it's 200 whatever.
+
+08:15.690 --> 08:16.980
+That's plenty of disk space.
+
+08:16.980 --> 08:24.000
+And we have a GPU with 15GB of Ram, and 15GB might sound like a huge amount of Ram to have for a GPU.
+
+08:24.000 --> 08:28.240
+But as you'll quickly discover when it comes to training deep neural networks, that is a kind of puny
+
+08:28.270 --> 08:30.490
+GPU, but it's good enough for our purposes.
+
+08:30.490 --> 08:32.920
+We'll be able to use this for this class.
+
+08:33.130 --> 08:38.110
+Um, uh, but but it just some things might take a long time.
+
+08:38.260 --> 08:45.100
+Uh, this is a bit of code that I just copied from the original colab that Google prompted us with,
+
+08:45.100 --> 08:51.970
+which gives us a nice little, uh, printout of details behind this GPU, including how much memory
+
+08:52.000 --> 08:54.250
+we're using out of the 15GB.
+
+08:54.280 --> 08:57.040
+Although, of course, you can always watch it happening over here.
+
+08:58.000 --> 09:02.110
+Uh, so this is the T4 box.
+
+09:02.110 --> 09:05.410
+I'm now going to show you the A100 box.
+
+09:05.410 --> 09:11.290
+This is the super powered one, and I may splash out and use this from time to time.
+
+09:11.290 --> 09:17.440
+Just in the spirit of keeping this class moving fast and showing you, uh, great results really quickly.
+
+09:17.590 --> 09:21.700
+Uh, if we view the resources, you'll see what's going on.
+
+09:21.700 --> 09:29.380
+Now, we've got a 40 gigabyte Ram, GPU and that that is a beefy GPU.
+
+09:29.380 --> 09:34.240
+That is something which will be able to use to do some hefty training.
+
+09:34.480 --> 09:37.750
+Um, and we can use this to print more details.
+
+09:37.840 --> 09:46.930
+You can see that we are using two megabytes by, uh, when we're not doing anything out of the 40GB
+
+09:46.930 --> 09:49.270
+of available memory.
+
+09:49.870 --> 09:53.200
+So that's the quick tour of what's going on with Colab.
+
+09:53.200 --> 09:57.040
+The one other thing I'll mention is the share button up here.
+
+09:57.070 --> 10:03.880
+Uh, if you press the share button, then you will see a very familiar interface, because if you use
+
+10:03.880 --> 10:07.600
+Google Drive at all, it looks just like everything else in Google Drive.
+
+10:07.630 --> 10:13.600
+You can share these notebooks and with different levels of permission with different groups, and use
+
+10:13.600 --> 10:16.330
+that as a way to collaborate really effectively.
+
+10:16.330 --> 10:25.810
+Uh, with friends, colleagues, coworkers on the, uh, the AI Jen AI projects that you're working
+
+10:25.810 --> 10:26.110
+on.
+
+10:26.110 --> 10:29.380
+And it's a super effective way to collaborate, of course.
+
+10:29.410 --> 10:32.980
+And that's one of the great benefits of using the Google Colab setup.
+
+10:33.220 --> 10:33.910
+All right.
+
+10:33.910 --> 10:35.500
+I'll see you back for the next lecture.

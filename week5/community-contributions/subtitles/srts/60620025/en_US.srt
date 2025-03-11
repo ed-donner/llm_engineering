@@ -1,0 +1,298 @@
+WEBVTT
+
+00:00.050 --> 00:04.520
+And welcome back to Jupyter Lab, one of my very favorite places to be.
+
+00:04.670 --> 00:10.580
+When Jupyter Lab sprung up on your screen, you will probably arrive at this place the root directory
+
+00:10.580 --> 00:12.350
+with all eight weeks of our work.
+
+00:12.380 --> 00:17.150
+You may also already be within week one, which you get to of course by double clicking here.
+
+00:17.150 --> 00:23.450
+We are in week one, and I'd like to ask you to head over to day five, which is where we will be spending
+
+00:23.450 --> 00:25.100
+the next few moments.
+
+00:25.100 --> 00:30.830
+So as I say, the business challenge that I have in store for you is to build on what we already built
+
+00:30.830 --> 00:36.920
+in day one, to create a brochure for a company by scraping the web, finding out more about the company,
+
+00:36.920 --> 00:38.900
+and using that for our brochure.
+
+00:39.230 --> 00:43.820
+Um, and if you do encounter any problems with this, please do reach out to me.
+
+00:43.820 --> 00:47.690
+But if possible, you should be executing this while I speak.
+
+00:47.690 --> 00:49.940
+Or maybe afterwards come back in and go through it.
+
+00:49.940 --> 00:54.710
+And the trick is to come in and add in some print statements and really convince yourself that you're
+
+00:54.710 --> 00:57.140
+confident with what's going on at every point.
+
+00:57.140 --> 00:59.120
+I'm going to start with some imports.
+
+00:59.120 --> 01:04.790
+Remember, you press shift and enter to run that, um, if you have any problems with these imports?
+
+01:04.790 --> 01:10.970
+The most likely explanation is that somehow you're not running in an activated environment.
+
+01:10.970 --> 01:14.150
+JupyterLab was brought up in an activated environment.
+
+01:14.150 --> 01:21.020
+Check to see whether Lmms is in the prompt, in your in your terminal window or in your Anaconda prompt.
+
+01:21.020 --> 01:26.090
+And if not, then start that part again and look at the readme if you need help on that.
+
+01:26.120 --> 01:32.630
+Uh, it's possible you might also, in some situations, need to restart the Python process which sits
+
+01:32.630 --> 01:35.600
+behind this, uh, which is known as the kernel.
+
+01:35.600 --> 01:41.630
+And to do that you go to the kernel menu and you say restart kernel and clear outputs of all cells.
+
+01:41.630 --> 01:45.230
+And you simply start this notebook again and here we go again.
+
+01:45.260 --> 01:47.150
+We'll run the import a second time.
+
+01:47.570 --> 01:48.560
+All right.
+
+01:48.590 --> 01:51.200
+Now we're going to initialize and set things up.
+
+01:51.200 --> 01:53.810
+We're going to load in our dot env file.
+
+01:53.810 --> 01:56.930
+And we're just going to check that the key looks good.
+
+01:57.110 --> 01:58.730
+Uh and it does for me.
+
+01:58.730 --> 02:00.830
+And hopefully it's looked good for you as well.
+
+02:00.830 --> 02:05.000
+Otherwise head over to the troubleshooting notebook to figure out what's going on.
+
+02:05.030 --> 02:10.790
+And we're setting our model to be GPT four mini, the cheap version of GPT four, which is still going
+
+02:10.820 --> 02:12.620
+to be phenomenally good.
+
+02:12.950 --> 02:15.800
+Okay, so this should look familiar to you.
+
+02:15.800 --> 02:20.900
+In the next cell, we're looking at the class website that we created in week one.
+
+02:20.900 --> 02:23.660
+And maybe now take a little bit of a closer look at it.
+
+02:23.660 --> 02:26.120
+It's your second time of playing with this.
+
+02:26.120 --> 02:31.550
+You'll remember that this is a class that we create by passing in a URL.
+
+02:31.550 --> 02:37.100
+It uses the requests package to retrieve that URL.
+
+02:37.400 --> 02:44.570
+It then collects the content, and it uses Beautifulsoup, that wonderful parsing package to parse it.
+
+02:44.600 --> 02:46.520
+There's something different here.
+
+02:46.520 --> 02:52.880
+We not only parse in the title and the contents and strip out some of the junk that we don't need,
+
+02:52.910 --> 03:01.010
+but we also gather any links that are referred to on this page, and we collect those links in something
+
+03:01.010 --> 03:02.450
+called self dot links.
+
+03:02.450 --> 03:06.170
+So we're going to store all of our links in there.
+
+03:07.310 --> 03:14.780
+And this little line here hopefully because we just went through an AST zero one preview for for some,
+
+03:14.780 --> 03:15.560
+uh, no.
+
+03:15.590 --> 03:21.590
+We asked, uh, sorry, uh, GPT four with canvas to explain some of this.
+
+03:21.590 --> 03:24.320
+So maybe this is now very familiar to you.
+
+03:25.010 --> 03:30.080
+Uh, and then we're going to have a method, getcontents, which is going to describe what this web
+
+03:30.110 --> 03:30.920
+page does.
+
+03:30.920 --> 03:32.330
+So let's run that.
+
+03:32.330 --> 03:38.210
+So let's now again do, uh, what we did before editor is website.
+
+03:41.450 --> 03:42.110
+Edward Dunham.
+
+03:42.110 --> 03:46.700
+Com my wonderful website.
+
+03:46.730 --> 03:49.670
+That's very simplistic, but it's a good test for us now.
+
+03:49.670 --> 03:55.460
+And let's print print ad dot get contents.
+
+03:55.640 --> 04:00.680
+Remember last time we printed just the title and the body?
+
+04:00.770 --> 04:02.150
+Let's see what we get.
+
+04:02.150 --> 04:03.230
+So now we do that.
+
+04:03.230 --> 04:07.940
+What we get is again the title and we get the body.
+
+04:07.940 --> 04:10.460
+But hopefully we're going to get something else as well.
+
+04:10.640 --> 04:14.430
+Uh, we're also Uh, can I get.
+
+04:14.460 --> 04:18.900
+Well, we get the title and the contents all in one long string as part of Getcontents.
+
+04:18.900 --> 04:25.350
+But the other thing that I want to look at then is I want to look at what is editor dot links.
+
+04:25.860 --> 04:27.870
+Let's see what this has.
+
+04:28.920 --> 04:36.510
+And now you'll see that in this links variable we now have all of the links that you'll find on my web
+
+04:36.540 --> 04:37.320
+page.
+
+04:37.440 --> 04:39.720
+Uh, it might be easier if I don't have the print.
+
+04:39.750 --> 04:41.310
+If I just do it this way.
+
+04:41.340 --> 04:42.510
+We'll get them listed out there.
+
+04:42.510 --> 04:43.620
+That's easier, isn't it?
+
+04:43.650 --> 04:44.730
+So there they are.
+
+04:44.760 --> 04:47.430
+Here are all of the links that you'll find on my web page.
+
+04:47.430 --> 04:49.800
+And they're now being stored in this variable links.
+
+04:49.830 --> 04:51.750
+Hopefully that's clear to you.
+
+04:52.200 --> 04:53.220
+All right.
+
+04:53.250 --> 05:00.030
+Now if we're building a company brochure and we want to provide a web page and we want it to use that
+
+05:00.030 --> 05:06.690
+to gather more information, we want it to follow some of these links to figure out how it can.
+
+05:06.720 --> 05:08.400
+It can collect more information from them.
+
+05:08.400 --> 05:11.250
+But not all of these links are going to be relevant.
+
+05:11.250 --> 05:15.120
+Some of these links are going to be red herrings, like this thing here, which is probably from from
+
+05:15.120 --> 05:17.950
+one of the, uh, The analytics tags that's included.
+
+05:17.950 --> 05:23.140
+Or there are some other things here like that's going to be irrelevant.
+
+05:23.170 --> 05:30.100
+Now it's going to be really hard for us to write code to figure out whether or not a link is relevant
+
+05:30.100 --> 05:33.220
+for the purposes of generating a sales brochure.
+
+05:33.220 --> 05:34.930
+That's actually really hard.
+
+05:34.960 --> 05:40.960
+The other thing we might want to do is take a link to something like slash about and replace it with
+
+05:40.960 --> 05:43.090
+a full URL as well.
+
+05:43.090 --> 05:47.800
+And maybe that's easier to do with code, but it's still not a not a simple task by any means.
+
+05:47.800 --> 05:53.680
+The combined code to try and figure out which of these links are relevant and what's the full, full
+
+05:53.710 --> 05:56.290
+URL, including the the host.
+
+05:56.290 --> 06:01.600
+That would be a lot of coding, but of course, it turns out that's the kind of thing that GPT four
+
+06:01.810 --> 06:04.240
+mini would be very good at doing for us.
+
+06:04.240 --> 06:06.760
+We could just ask it to do that as a task.
+
+06:06.760 --> 06:12.100
+It's an example of taking a sort of nuanced, complicated task, and rather than trying to hand code
+
+06:12.100 --> 06:17.650
+it, we can just ship it off to a frontier model and say, do this for us, and that's what we're going
+
+06:17.650 --> 06:20.350
+to do, and we're going to do that in the next video.

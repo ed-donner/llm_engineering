@@ -1,0 +1,400 @@
+WEBVTT
+
+00:01.010 --> 00:02.810
+Welcome back to Jupyter Lab.
+
+00:02.810 --> 00:09.050
+Last time, we looked at some silly models for predicting the price of products to make our basic,
+
+00:09.050 --> 00:10.520
+basic baselines.
+
+00:10.550 --> 00:14.270
+Now we're going to look at some more interesting baseline models.
+
+00:14.270 --> 00:20.150
+This of course, again is the diagram showing you that very simple model of predicting a flat average
+
+00:20.150 --> 00:20.900
+price.
+
+00:21.230 --> 00:26.810
+You may notice a tiny, tiny change here, which is that I've changed the color, the yellow color that
+
+00:26.810 --> 00:30.740
+was here into a more pleasing orange color because I think the yellow is harder to see.
+
+00:30.740 --> 00:34.370
+But otherwise this should be a familiar picture for you.
+
+00:34.460 --> 00:39.950
+And you'll notice that on average, it's out by $145.
+
+00:40.010 --> 00:45.470
+I should mention that when we looked at the the prior diagram, I'm not sure if I looked at this if
+
+00:45.470 --> 00:49.610
+I showed this to you, but on average that was out by $340.
+
+00:49.610 --> 00:55.610
+So considerably worse performance, if you guess randomly than if you take an average, for obvious
+
+00:55.610 --> 00:56.420
+reasons.
+
+00:57.170 --> 01:02.980
+Uh, because yeah, obviously, because the data set isn't, uh, evenly distributed.
+
+01:02.980 --> 01:06.220
+It's uh and Nord is it's average 500.
+
+01:06.940 --> 01:08.170
+Uh, okay.
+
+01:08.170 --> 01:15.640
+So now let me at this point, uh, we're going to move to the topic of feature engineering, which is,
+
+01:15.640 --> 01:20.230
+uh, one of the most fundamental of the traditional machine learning techniques.
+
+01:20.230 --> 01:23.470
+And frankly, it's the way that data science used to work.
+
+01:23.470 --> 01:25.060
+This is what we would do.
+
+01:25.060 --> 01:31.120
+Uh, when this kind of problem came up, you would start trying to think about what are the aspects
+
+01:31.120 --> 01:38.560
+of this problem, what are the aspects of each product from Amazon that would be most suitable to use
+
+01:38.560 --> 01:40.570
+to try and predict the price?
+
+01:40.570 --> 01:47.830
+And a lot of time was spent trying to to do what people call feature engineering, which is figure out
+
+01:47.830 --> 01:54.010
+what properties of a particular item are most meaningful to predict its price.
+
+01:54.190 --> 01:59.530
+And people used to spend lots of time working on that before we found that deep neural networks can
+
+01:59.530 --> 02:00.790
+do all of that for you.
+
+02:00.910 --> 02:07.360
+So anyways, uh, what we're going to do now is work on feature engineering and I should say one more
+
+02:07.360 --> 02:12.370
+time that sometimes feature engineering and traditional machine learning will perform great.
+
+02:12.370 --> 02:14.860
+Sometimes that is what your problem needs.
+
+02:14.860 --> 02:19.630
+And you may think that in the case of an Amazon product, we're in that kind of territory.
+
+02:19.690 --> 02:21.970
+Uh, but we'll we'll see how it performs.
+
+02:21.970 --> 02:24.370
+So first of all, let me remind you of something.
+
+02:24.370 --> 02:29.590
+If I look at one of my training data points, uh, you may remember this.
+
+02:29.590 --> 02:31.630
+There is a field called details.
+
+02:31.630 --> 02:36.280
+That was one of the fields that we sucked from our Amazon data set.
+
+02:36.430 --> 02:41.230
+Um, and what this is, it looks a bit like a, like a Python dictionary.
+
+02:41.260 --> 02:42.790
+At first blush.
+
+02:42.910 --> 02:44.800
+You're seeing keys and values.
+
+02:44.860 --> 02:48.280
+Uh, but then you'll notice that the whole thing is, in fact, a string.
+
+02:48.280 --> 02:50.380
+Uh, it's all one big string.
+
+02:50.380 --> 02:53.980
+It's a JSON blob representing a dictionary.
+
+02:54.190 --> 03:00.640
+Uh, so it would be nice if we could read in this details field on every one of our data set points
+
+03:00.640 --> 03:07.040
+in training and in test and convert it from being text into being a Python dictionary.
+
+03:07.040 --> 03:10.160
+And luckily, the standard library gives us a way to do that.
+
+03:10.160 --> 03:19.430
+Using the JSON package, we can do Json.loads or Loadstring and it will convert these strings into objects.
+
+03:19.430 --> 03:22.880
+So we're going to run that and then we'll we'll run that.
+
+03:22.910 --> 03:25.190
+It will just take a few seconds.
+
+03:25.190 --> 03:30.830
+And then now what I can now do is say train zero dot features.
+
+03:30.830 --> 03:36.830
+And we'll expect to see this same string but now converted into a Python dictionary.
+
+03:37.010 --> 03:37.550
+Let's see.
+
+03:37.550 --> 03:38.540
+Let's run that.
+
+03:38.570 --> 03:39.680
+There we go.
+
+03:39.710 --> 03:40.820
+You can see that.
+
+03:40.850 --> 03:41.180
+Sorry.
+
+03:41.210 --> 03:46.220
+As I zoom around a dictionary and you can see that it's the same as that text.
+
+03:46.430 --> 03:50.900
+And in fact we can do dot keys and see its keys are right here.
+
+03:51.380 --> 03:59.120
+Now there's a problem with our data, which is that turns out these dictionaries are populated differently
+
+03:59.120 --> 04:00.320
+for different products.
+
+04:00.320 --> 04:05.320
+Some products don't have any, uh, any features at all.
+
+04:05.440 --> 04:09.700
+Some of them have, um, just, uh, sparse, uh, features.
+
+04:09.700 --> 04:11.950
+So, so it's inconsistently populated.
+
+04:11.950 --> 04:13.630
+Let's get a sense of that.
+
+04:13.720 --> 04:20.590
+We can use another useful Python standard library, uh, tool, the counter, um, in the collections
+
+04:20.590 --> 04:21.520
+package.
+
+04:21.550 --> 04:26.470
+Uh, and what you can do with the counter is you can count things up, and then you can say things like,
+
+04:26.470 --> 04:35.290
+uh, feature count, dot most common and asked to see the most common 40 of these.
+
+04:35.290 --> 04:37.990
+So let's run that and you'll see what comes back.
+
+04:38.200 --> 04:44.740
+So what we're seeing here is what are the most common, uh, 40 features that are populated against
+
+04:44.740 --> 04:46.450
+all of our training data points.
+
+04:46.690 --> 04:51.340
+Uh, and so date first available is populated a lot.
+
+04:51.370 --> 04:52.180
+Uh, almost.
+
+04:52.180 --> 04:52.810
+Uh, yeah.
+
+04:52.840 --> 05:02.260
+90% of our, of our population has that populated, uh, it's, what, 360,000 of the 400,000 that we
+
+05:02.260 --> 05:03.970
+have in the data set.
+
+05:04.090 --> 05:07.190
+Uh, item weight is very well populated.
+
+05:07.220 --> 05:08.990
+Manufacturer brand.
+
+05:09.020 --> 05:10.820
+They're quite similar bestsellers.
+
+05:10.820 --> 05:14.780
+Rank is also well populated and then it starts to tail off.
+
+05:15.050 --> 05:19.910
+So what are good candidates for us to use for features?
+
+05:19.910 --> 05:22.520
+Well, we're really looking for something that's well populated.
+
+05:22.520 --> 05:23.600
+That's a good start.
+
+05:23.630 --> 05:30.110
+We want it to be consistently populated, and we also want it to be something that feels like it's likely
+
+05:30.110 --> 05:33.350
+to be meaningfully related to the price.
+
+05:34.040 --> 05:38.600
+And so looking at these item weights, that feels like it's a pretty solid candidate.
+
+05:38.630 --> 05:44.840
+Like you think that that that I mean, it's not clear, but probably there's some correlation some of
+
+05:44.840 --> 05:47.300
+the time between weight and price.
+
+05:47.510 --> 05:56.180
+Uh, you know, like a bigger, heavier thing, maybe more valuable on average, uh, brand seems like,
+
+05:56.360 --> 06:01.100
+uh, obviously it's not going to, to exactly match with a feature, but maybe there's a way that we
+
+06:01.100 --> 06:03.920
+can make it and maybe best sellers rank.
+
+06:03.950 --> 06:04.880
+That could be something.
+
+06:04.880 --> 06:07.360
+That's something that's a bestseller might do well.
+
+06:07.390 --> 06:08.980
+So we'll start with those.
+
+06:09.010 --> 06:12.430
+Those feel like they are reasonable features to begin with.
+
+06:12.430 --> 06:16.990
+And we'll add on one more thing that just is a throwback to something we talked about a while ago.
+
+06:17.320 --> 06:21.850
+Um, so I'm going to start with something that's a bit janky.
+
+06:21.880 --> 06:25.090
+As I put here, this is a this is a little bit hokey.
+
+06:25.210 --> 06:32.560
+Uh, so it turns out that the weight that's populated in this dictionary is just like, very, uh,
+
+06:32.560 --> 06:34.510
+it's very dirty data.
+
+06:34.510 --> 06:40.450
+In some cases, it's in pounds, in some cases it's in ounces, in some cases it's in hundredths of
+
+06:40.450 --> 06:45.490
+pounds and a milligrams and kilograms and various other things.
+
+06:45.490 --> 06:52.000
+So I've just got a big old if statement here that goes through, figures out what units is this weight
+
+06:52.000 --> 06:58.720
+in, and converts it all to a number of pounds and returns that amount.
+
+06:58.720 --> 07:00.100
+So that's what this is.
+
+07:00.100 --> 07:03.100
+I'm not going to necessarily convince you that this does the job.
+
+07:03.100 --> 07:04.270
+You could take my word for it.
+
+07:04.270 --> 07:09.330
+Or if you distrust me, Then come on in and try it out for some of these.
+
+07:09.510 --> 07:16.170
+Um, and, uh, yeah, I then I'm going to get all of the weights for all of my training items.
+
+07:16.350 --> 07:25.230
+Um, and, uh, this line here, uh, if isn't obvious, filters out any, any nones from there so that
+
+07:25.230 --> 07:31.290
+because I return none if there's something that I, that I don't recognize the units for, um, and
+
+07:31.290 --> 07:36.030
+that allows me to calculate the average weight of all of our training data set.
+
+07:36.030 --> 07:40.800
+The average weight is £13.6.
+
+07:40.950 --> 07:44.430
+Uh, now you may say, why do I need to calculate the average weight?
+
+07:44.430 --> 07:49.350
+Well, it's for a slightly technical reason that when we're dealing with this kind of linear regression,
+
+07:49.350 --> 07:55.290
+you have to make some decisions about how are you going to handle the items which don't have a weight
+
+07:55.290 --> 07:59.880
+populated the 10% of our items of our training set that doesn't have a weight.
+
+07:59.880 --> 08:04.770
+And there are various techniques you can use, uh, people, data scientists amongst you probably know
+
+08:04.770 --> 08:10.550
+that you can do some tricks where you you have a feature which represents whether or not there is a
+
+08:10.550 --> 08:11.180
+weight.
+
+08:11.300 --> 08:16.880
+And then you have to do some, some jiggery pokery with how you incorporate that in your model.
+
+08:16.940 --> 08:22.880
+Um, and one approach that's a perfectly respectable approach is to say if something doesn't have a
+
+08:22.880 --> 08:26.420
+weight, just pick the average and plonk that in there.
+
+08:26.420 --> 08:34.700
+And so I have this function get weight with default, which takes an item, it tries to get its weight,
+
+08:34.700 --> 08:41.360
+and it either returns the weight or if the weight is none or zero, because that's presumably a problem.
+
+08:41.360 --> 08:46.040
+If something has no weight, then we swap it out for an average weight instead.
+
+08:46.580 --> 08:49.940
+Uh, so that is the get weight with default.
+
+08:50.690 --> 08:55.100
+I think this was a fair amount of, uh, grotty work as we do our feature engineering.
+
+08:55.100 --> 08:58.760
+So I'm going to take a break, let you mull over the other features we've got to do.
+
+08:58.790 --> 09:03.830
+And when we come back, we're going to go into best sellers rank before wrapping up feature engineering
+
+09:03.830 --> 09:04.880
+and running our model.
+
+09:04.880 --> 09:06.650
+And seeing how it predicts prices.
+
+09:06.680 --> 09:07.910
+See you in a second.

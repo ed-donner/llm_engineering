@@ -1,0 +1,460 @@
+WEBVTT
+
+00:00.440 --> 00:05.900
+Welcome back to JupyterLab and welcome to your first experiment with the world of Long Chain.
+
+00:05.900 --> 00:10.970
+Let me just remind you one more time how important it is that you are going through these Jupyter notebooks,
+
+00:10.970 --> 00:11.840
+as I do.
+
+00:11.840 --> 00:16.490
+Ideally, at the same time as I'm talking to you, you also are able to have Jupyter Lab up and you
+
+00:16.490 --> 00:23.390
+have it turned to week five and to this day to day two, and you're able to step through this as I step
+
+00:23.390 --> 00:23.870
+through it.
+
+00:23.900 --> 00:29.360
+If that's not possible, then immediately afterwards as soon as you can, then then give this a shot.
+
+00:29.390 --> 00:33.860
+It's so important that you experience this for yourself, particularly as we start talking about concepts
+
+00:33.860 --> 00:36.830
+like text chunks and then later vectors.
+
+00:36.860 --> 00:41.480
+It's going to be super important that you validate what I'm saying, that you experiment with it, that
+
+00:41.480 --> 00:46.790
+you see it for yourself, and try out the code and print out various things to get very comfortable
+
+00:46.790 --> 00:49.010
+with the way it's working behind the scenes.
+
+00:49.010 --> 00:54.080
+So we are, of course, in week five, in the folder we're on day two, and we're looking now at what
+
+00:54.080 --> 00:58.280
+is a bit of a copy of the previous day, but with more to come.
+
+00:58.760 --> 01:01.950
+We do some imports and now we've got some new imports.
+
+01:01.950 --> 01:07.020
+Our first time importing some code from Lang Chain, we're going to import some things called document
+
+01:07.020 --> 01:11.820
+loaders, which are utility classes which help us load in files.
+
+01:11.850 --> 01:17.460
+There's one called directory loader that loads in an entire folder and text loader for loading in an
+
+01:17.460 --> 01:19.320
+individual text file.
+
+01:19.440 --> 01:24.720
+I'm also importing something called character text splitter, which is something that's able to take
+
+01:24.720 --> 01:31.890
+in, uh, and divide a document into chunks of characters, as you will see.
+
+01:31.920 --> 01:34.170
+Let's run those imports.
+
+01:34.530 --> 01:39.060
+Uh, I set some constants that we're not actually going to use today, but we will do next time.
+
+01:39.390 --> 01:42.870
+Uh, and let's get to business.
+
+01:42.870 --> 01:51.360
+So you remember last time we did a hokey thing where we read in documents and put them in a dictionary?
+
+01:51.360 --> 01:52.770
+The key was the name of the document.
+
+01:52.770 --> 01:54.870
+The value was the contents of the document.
+
+01:54.870 --> 01:57.360
+Well, this time we're going to do something a bit smarter.
+
+01:57.360 --> 01:59.370
+Using lang chains help.
+
+01:59.370 --> 02:03.670
+So we first get a list of the different folders in our knowledge base.
+
+02:03.700 --> 02:08.680
+You'll remember those folders are these company contracts employees and products.
+
+02:08.680 --> 02:10.990
+So we put that into folders.
+
+02:11.500 --> 02:20.110
+And now for each of those folders we are going to first get the type of document company contracts employees
+
+02:20.110 --> 02:21.100
+or products.
+
+02:21.370 --> 02:31.300
+And we are then going to load in this directory using the directory loader where you pass in the the
+
+02:31.300 --> 02:35.050
+the handle to it, the directory path.
+
+02:35.050 --> 02:40.210
+And we also pass in something called the text loader loader class, which tells it that we should use
+
+02:40.210 --> 02:45.220
+that to bring in each of these files because they are text files, and it's as simple as that.
+
+02:45.220 --> 02:49.420
+We then just call loader dot load and it will bring in all of those documents.
+
+02:49.510 --> 02:52.600
+Going to iterate through each of those documents.
+
+02:52.630 --> 02:56.920
+I'm going to say can we set the metadata on each document.
+
+02:57.460 --> 03:03.390
+We want to add in something called doc type and set that to be the Doctype, whether it's company contracts,
+
+03:03.390 --> 03:04.740
+employees or products.
+
+03:04.740 --> 03:08.550
+And then add that to a list called documents.
+
+03:09.030 --> 03:10.680
+Hope that made sense.
+
+03:10.920 --> 03:16.590
+I'm going to run it and just show you that as a result of doing that, we now have 31 objects of type
+
+03:16.590 --> 03:21.240
+document and I can show you what one of them looks like.
+
+03:22.740 --> 03:23.940
+Here it is.
+
+03:23.970 --> 03:27.150
+It is in the knowledge base directory.
+
+03:27.300 --> 03:30.210
+The metadata has something called source which tells you where it is.
+
+03:30.240 --> 03:33.360
+And then this is doctype is what we added in products.
+
+03:33.930 --> 03:34.860
+So it's a product.
+
+03:34.860 --> 03:39.990
+It's called realm MD and that is the full contents of the file.
+
+03:40.020 --> 03:46.020
+Let's go and satisfy ourselves that if we go into products there is indeed something called realm.md.
+
+03:46.710 --> 03:52.260
+And if I double click on that, we'll see presumably that it is the same thing that got loaded in.
+
+03:52.290 --> 03:56.010
+We can also look at the first document here.
+
+03:56.130 --> 03:58.410
+And it's also in products.
+
+03:58.410 --> 04:00.370
+And it's called Mark calm.
+
+04:00.730 --> 04:03.580
+And there you can see where that comes from.
+
+04:03.580 --> 04:06.730
+And let's just pick some random number 24.
+
+04:07.360 --> 04:13.870
+The 24th one of our documents is an employee HR record for Maxine Thompson.
+
+04:13.870 --> 04:15.580
+And there is Maxine.
+
+04:15.580 --> 04:19.000
+She's a doc type employee and there is her contents.
+
+04:19.000 --> 04:22.570
+So nothing very complicated.
+
+04:22.720 --> 04:29.890
+We've loaded in the documents and we've given them a doc type, and they are 31 of them sitting in documents.
+
+04:30.250 --> 04:37.180
+Next thing we're going to do is use this text splitter thing, which is going to take the the documents,
+
+04:37.180 --> 04:41.080
+and it's going to divide each document into chunks of characters.
+
+04:41.080 --> 04:44.320
+And you specify two things to lang chain when you do this.
+
+04:44.350 --> 04:50.860
+One is the chunk size, which is roughly how many characters do you want to fit into each chunk?
+
+04:51.220 --> 04:56.410
+And I say roughly, because we're going to give lang chains some discretion to make sure that it that
+
+04:56.410 --> 05:03.500
+it tries to split these chunks in sensible boundaries where there's a space and an empty line or something,
+
+05:03.500 --> 05:06.620
+or a section between different parts of the document.
+
+05:06.620 --> 05:10.460
+So it's not cutting in the middle of a paragraph or in the middle of a word or something.
+
+05:10.460 --> 05:11.780
+That would make no sense.
+
+05:11.930 --> 05:17.870
+And that would result potentially in poor contacts that we'd end up providing to the LM.
+
+05:18.740 --> 05:26.990
+Chunk overlap says that we don't want these chunks of characters to be, uh, to, to be completely
+
+05:26.990 --> 05:28.160
+separate from each other.
+
+05:28.160 --> 05:30.710
+We want to have some level of overlap between them.
+
+05:30.710 --> 05:35.240
+So there's some content of the document that's in common across two chunks.
+
+05:35.390 --> 05:42.290
+Uh, again, so that it's more likely if you put in a query that will will pluck out a bunch of chunks
+
+05:42.290 --> 05:44.090
+that will be relevant to that query.
+
+05:44.120 --> 05:49.550
+We don't want to to risk because of some association, because of some critical word.
+
+05:49.550 --> 05:55.340
+And it only gets included in one chunk that we don't include another chunk that's really close to it.
+
+05:55.340 --> 05:56.630
+That's equally important.
+
+05:56.630 --> 06:02.790
+So the chunk overlap gives us this way of having potentially multiple chunks that contain some of the
+
+06:02.790 --> 06:04.380
+same keywords.
+
+06:05.220 --> 06:07.980
+So that is a text splitter.
+
+06:07.980 --> 06:11.100
+And we just say split documents and we pass in the documents.
+
+06:11.100 --> 06:14.730
+And if I run that it's going to to run.
+
+06:14.730 --> 06:23.100
+And it warns me that one of the chunks that it created, uh, has a size of 1088, which is bigger than
+
+06:23.100 --> 06:24.150
+what we'd asked for.
+
+06:24.150 --> 06:28.710
+And again, that's because it's trying to be smart about how it respects boundaries.
+
+06:28.740 --> 06:32.730
+Um, and so it's this, this is the decision that it has made.
+
+06:32.730 --> 06:40.680
+So if we look at how many chunks we've ended up with, we've ended up with 123, uh, chunks, 123 chunks
+
+06:40.680 --> 06:42.270
+from our 31 documents.
+
+06:42.270 --> 06:47.190
+And what we can now do is we can pick a chunk, which we pick, pick chunk number five and have a look
+
+06:47.220 --> 06:48.240
+at that chunk.
+
+06:48.450 --> 06:53.070
+Uh, the chunk itself has metadata, just like a document had metadata.
+
+06:53.340 --> 06:55.890
+Um, it knows the source where it came from.
+
+06:56.100 --> 06:59.520
+And it has doc type, the doc type that we that we had set.
+
+06:59.650 --> 06:59.830
+up.
+
+06:59.830 --> 07:04.240
+So we know that this particular chunk has been plucked from the products.
+
+07:04.480 --> 07:09.490
+Um, and it's in fact the product summary about Markham.
+
+07:09.490 --> 07:15.400
+And you can see how it just starts with a new section and it ends at the end of that section.
+
+07:15.580 --> 07:18.100
+So it's been careful to respect boundaries.
+
+07:18.100 --> 07:21.460
+It's got a reasonable chunk that's about a thousand characters.
+
+07:21.610 --> 07:25.630
+Um, and there'll be some overlap perhaps with the chunk right before it.
+
+07:25.960 --> 07:28.090
+Uh, see if it chose to.
+
+07:29.470 --> 07:32.530
+Not in this case, the chunk before it is a very small chunk.
+
+07:32.710 --> 07:39.820
+Uh, so anyway, you can you can play around and see if you can find examples of where it's possible
+
+07:39.820 --> 07:46.510
+options where, uh, there are overlaps between chunks.
+
+07:46.660 --> 07:51.910
+Um, and so have a, have that as a quick to do go in and experiment with some of these chunks.
+
+07:51.910 --> 07:57.100
+Find out if you can get an example of where two chunks contain the same information.
+
+07:58.330 --> 08:05.570
+So what we're going to do now is we're going to just inspect the Doctype metadata across these chunks
+
+08:05.570 --> 08:09.260
+and just convince ourselves that we have all the right doc types.
+
+08:09.260 --> 08:13.490
+So let's just see what what we have across all of our chunks.
+
+08:13.490 --> 08:18.230
+We have four doc types employees, contracts, company and products.
+
+08:18.230 --> 08:24.830
+Which is good because that of course, uh, exactly matches the four directories that we read in.
+
+08:24.830 --> 08:26.900
+So that all sounds good.
+
+08:27.440 --> 08:33.740
+Uh, let's now let me just, uh, let's, let's have a look to see if we were to look through each of
+
+08:33.740 --> 08:35.150
+these different chunks.
+
+08:35.150 --> 08:38.540
+Which chunks have the word Lancaster in it?
+
+08:38.570 --> 08:39.590
+Lancaster.
+
+08:39.620 --> 08:45.530
+Hopefully it's familiar to you, because that is the fictitious name of our fictitious CEO of our fictitious
+
+08:45.530 --> 08:46.070
+company.
+
+08:46.070 --> 08:49.250
+So Lancaster is her last name.
+
+08:49.250 --> 08:52.580
+And let's see which chunks have her last name in it.
+
+08:52.580 --> 08:53.600
+So here we go.
+
+08:53.840 --> 09:01.630
+Um, so the about insurance, uh, document Has her name in it, of course, as she was the founder
+
+09:01.630 --> 09:03.100
+of the of the company.
+
+09:03.490 --> 09:10.210
+Um, and then her HR record has Lancaster in it and the bottom of our HR record.
+
+09:10.210 --> 09:16.660
+Also, there's some other HR notes that mentions her, uh, by last name as well.
+
+09:17.110 --> 09:24.070
+So, uh, you probably realize this, but from the cheap and cheerful version of rag that we did last
+
+09:24.070 --> 09:28.930
+time, one of the big problems is that it just looks for the word Lancaster.
+
+09:28.930 --> 09:35.380
+So if there's any information about the CEO that isn't reflected in the worst Lancaster, then that
+
+09:35.380 --> 09:39.100
+would be missed in our in our toy version from last time.
+
+09:39.100 --> 09:45.340
+And you can see that if we do a search for Avery, her first name, you'll see that we get way more
+
+09:45.340 --> 09:49.360
+chunks because she's mentioned by first name all over the place.
+
+09:49.630 --> 09:51.760
+Um, and so, uh, yeah.
+
+09:51.790 --> 09:58.120
+And presumably also if we do CEO, we find that there's a bunch of chunks with with CEO in them as well
+
+09:58.240 --> 10:06.140
+that would potentially be missed if we were just, uh, looking at purely the, uh, those with the
+
+10:06.140 --> 10:07.460
+word Lancaster.
+
+10:07.520 --> 10:13.850
+So it gives you a sense that doing some kind of text based search through the documents is not a great
+
+10:13.850 --> 10:18.410
+way of doing it, and will miss important bits of context that we need to find.
+
+10:18.440 --> 10:25.250
+So what we're looking for in our vector search is something that can be smarter about the way it finds
+
+10:25.250 --> 10:31.850
+chunks that are relevant using not just text, but using some understanding of the meaning behind what
+
+10:31.850 --> 10:32.690
+you're looking for.
+
+10:32.720 --> 10:35.870
+And that, of course, is the big idea behind Rag.
+
+10:35.900 --> 10:43.280
+So at this point, hopefully you are proficient with reading in documents using the text loader and
+
+10:43.280 --> 10:45.710
+directory loader and dividing them into chunks.
+
+10:45.710 --> 10:50.780
+And if you do this exercise, you'll come in and play with the different chunks and convince yourself
+
+10:50.780 --> 10:54.440
+that they're being split in sensible places and that there's some overlap.
+
+10:54.440 --> 10:59.240
+And then we'll be ready to vectorize and put in vector databases.

@@ -1,0 +1,166 @@
+WEBVTT
+
+00:00.560 --> 00:06.710
+It is terrific that you're hanging on in there and making such great progress with this course.
+
+00:06.710 --> 00:17.180
+As we enter the final few days of building really important expertise on the topic for today, for week
+
+00:17.210 --> 00:17.630
+eight.
+
+00:17.660 --> 00:25.910
+Day three is about continuing to strengthen, to upskill, building one more skill, but also resummarize
+
+00:25.970 --> 00:28.700
+revise some of the stuff that we've done in the past.
+
+00:28.700 --> 00:30.620
+So today we're going to look at something new.
+
+00:30.650 --> 00:35.630
+Structured outputs, which is something actually that is quite a recent innovation, a way that you
+
+00:35.630 --> 00:41.000
+can tell frontier models that you want them to respond according to a particular specification.
+
+00:41.000 --> 00:42.500
+So we'll be doing that today.
+
+00:42.500 --> 00:48.950
+And we're also just going to be doing more work experience with frontier models, carrying out something
+
+00:48.950 --> 00:54.140
+which is going to be a throwback, a callback to the first week, because we're going to be doing some
+
+00:54.140 --> 01:01.040
+internet scrappage, as we had done in the past, and using frontier models to help synthesize data.
+
+01:01.070 --> 01:04.220
+You remember we wrote a summarizer A way back.
+
+01:04.250 --> 01:07.610
+The Reader's Digest of the internet was our week.
+
+01:07.610 --> 01:10.310
+One day, one instant gratification.
+
+01:10.460 --> 01:13.070
+Well, we're taking that a couple of notches further.
+
+01:13.400 --> 01:15.980
+Um, so that's the plan for today.
+
+01:15.980 --> 01:21.740
+And a lot of this, again, is going to be about revising and building and experimenting.
+
+01:21.980 --> 01:26.270
+So let me just say a few words about structured outputs.
+
+01:26.300 --> 01:27.590
+So structured outputs.
+
+01:27.590 --> 01:30.710
+You remember in the past we've used JSON generation.
+
+01:30.710 --> 01:35.960
+We've we've said that we want the model to respond with an output format in JSON.
+
+01:35.960 --> 01:40.070
+And then in the prompt we describe exactly what that JSON should look like.
+
+01:40.070 --> 01:43.070
+And it's not 100% reliable.
+
+01:43.100 --> 01:44.600
+It's actually very good.
+
+01:44.600 --> 01:50.270
+It's it's uh, frequently, uh, if not almost all the time will respond with JSON.
+
+01:50.540 --> 01:55.580
+But where it starts to, to go wonky is if you've got really complicated objects that you need it to
+
+01:55.610 --> 02:03.680
+respond in, um, it will after a while, potentially hallucinate in some parts or give back wrong formats.
+
+02:03.680 --> 02:10.620
+So the idea of structured outputs was to be more directive about specifying exactly how the model should
+
+02:10.620 --> 02:11.490
+respond.
+
+02:11.490 --> 02:19.500
+And the way you do that is you define the response with a class, with a Python class, and it's actually
+
+02:19.500 --> 02:24.510
+going to be a class which is going to be a subclass of something called base model from Pydantic, which
+
+02:24.510 --> 02:28.800
+you may have already had experience with if you're from an engineering background, but don't worry.
+
+02:28.800 --> 02:30.240
+If not, I will show you.
+
+02:30.510 --> 02:36.990
+Uh, you make a subclass of base model, and you use that to describe exactly what you're looking for.
+
+02:37.110 --> 02:46.170
+Um, and then you specify that class when you call OpenAI, and it will create an instance of that class
+
+02:46.170 --> 02:47.970
+in what it sends back to you.
+
+02:48.480 --> 02:54.870
+Um, and so that's the, the idea, it's useful, as I say, for generating data in precisely a structure
+
+02:54.870 --> 02:55.980
+that you need.
+
+02:56.010 --> 03:03.210
+It needs to be compared with an alternative approach, which is use of tools function calling that we
+
+03:03.210 --> 03:05.580
+looked at again some time ago.
+
+03:05.760 --> 03:11.980
+Um, and they, they, they both they're quite similar techniques for ensuring that a particular, um,
+
+03:11.980 --> 03:16.840
+uh, type of, of structure comes back in the response from the model.
+
+03:16.840 --> 03:19.060
+And there's pros and cons of both of them.
+
+03:19.390 --> 03:26.020
+Generally speaking, the recommendation is that if you are going to be hooking up your model directly
+
+03:26.020 --> 03:31.930
+to application code so that it's going to be making calls to functions which need to have a particular
+
+03:31.930 --> 03:35.980
+method signature, then it's better to use function calling and tools.
+
+03:35.980 --> 03:41.800
+That is the the better model, because then it will absolutely respond according to that JSON structure
+
+03:41.800 --> 03:46.390
+that you've defined with the right parameters for calling your function.
+
+03:46.420 --> 03:53.140
+If what you're looking at is to try and generate data in a particular format for downstream consumption
+
+03:53.140 --> 03:56.860
+or something, uh, then structured outputs is the way.
+
+03:56.980 --> 04:01.900
+Uh, so those are some of the pros and cons, and it's something that you get a feel for after you've
+
+04:01.930 --> 04:07.060
+tried it for a while and get to appreciate when one performs better than the other.
+
+04:07.150 --> 04:10.480
+But with that introduction, let's head over to JupyterLab.
+
+04:10.480 --> 04:12.700
+We're going to try it out for ourselves.

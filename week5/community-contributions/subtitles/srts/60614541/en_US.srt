@@ -1,0 +1,37 @@
+WEBVTT
+
+00:00.620 --> 00:07.610
+I am delighted to welcome you to the first day of our eight weeks together as you join me on this adventure
+
+00:07.610 --> 00:11.120
+to master AI and LLM engineering.
+
+00:11.150 --> 00:15.560
+Now look, it's customary in these things to start with me giving an introduction about myself.
+
+00:15.590 --> 00:16.520
+Tell you about the course.
+
+00:16.550 --> 00:18.380
+Tell you what you all accomplish over eight weeks.
+
+00:18.410 --> 00:19.700
+ET cetera, et cetera, et cetera.
+
+00:19.700 --> 00:21.650
+But no, this isn't that kind.
+
+00:21.650 --> 00:23.090
+Of course it's not what I'm going to do.
+
+00:23.120 --> 00:25.340
+We have plenty of time to get back to that later.
+
+00:25.340 --> 00:30.380
+What we're going to do now is get right into the thick of it and get you set up and using an LLM on
+
+00:30.380 --> 00:33.710
+your computer right away for a useful purpose.
+
+00:33.800 --> 00:37.520
+So without further ado, go on to the next video and I'll get you set up.

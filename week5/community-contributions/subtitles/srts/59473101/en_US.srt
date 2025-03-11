@@ -1,0 +1,328 @@
+WEBVTT
+
+00:01.400 --> 00:02.420
+Welcome back.
+
+00:02.420 --> 00:06.980
+So about ten minutes later, maybe 15 minutes later, the run has completed.
+
+00:06.980 --> 00:08.090
+And how do I know this?
+
+00:08.120 --> 00:08.900
+A few ways.
+
+00:08.900 --> 00:15.020
+One of them is that I just got an email from OpenAI, as you can see right here in my email, uh, to
+
+00:15.050 --> 00:16.910
+tell me that my fine tuning job.
+
+00:16.940 --> 00:22.490
+Blah blah blah has successfully completed and a new model, blah blah blah has been created.
+
+00:22.490 --> 00:28.040
+And you'll notice in the name of that model there is that word processor, because we specifically asked
+
+00:28.040 --> 00:30.680
+for the suffix processor to be included.
+
+00:30.740 --> 00:32.840
+Uh, just shows you how how it works.
+
+00:32.840 --> 00:38.390
+It's the name of a feat for fine tuning, and then the name of the GPT four mini variant that we've
+
+00:38.390 --> 00:43.850
+been working with colon personal colon processor, and then a code at the end.
+
+00:43.850 --> 00:45.740
+So that's my email.
+
+00:45.770 --> 00:48.110
+Here is the JupyterLab.
+
+00:48.110 --> 00:50.090
+Uh, this was the thing we were running.
+
+00:50.180 --> 00:58.370
+Um, and now we're looking at the final ten messages in the status, and you will see that it completed
+
+00:58.370 --> 00:59.240
+step.
+
+00:59.390 --> 01:01.940
+Um, the last five steps here then.
+
+01:01.940 --> 01:04.110
+Fine tune model created.
+
+01:04.140 --> 01:08.070
+Evaluating model against our usage policies before enabling.
+
+01:08.070 --> 01:11.040
+That was the thing I mentioned to you that it does.
+
+01:11.250 --> 01:17.340
+Um, and then usage policies complete and the job has been successfully completed.
+
+01:17.340 --> 01:24.960
+And that is that I will now show you in weights and biases how this looks.
+
+01:24.960 --> 01:27.690
+This is the final weights and biases chart.
+
+01:27.840 --> 01:33.870
+Um, you can see that the things that really matter are training loss and validation loss uh, that
+
+01:33.870 --> 01:38.880
+you can see that the validation loss of course, is not or didn't happen nearly as regularly as the
+
+01:38.880 --> 01:40.470
+training loss was calculated.
+
+01:40.710 --> 01:45.990
+Um, and as I say, because again, because we only did one epoch that all of the training data was
+
+01:45.990 --> 01:46.530
+new.
+
+01:46.530 --> 01:52.410
+So the training loss, uh, is, is just as useful for us, um, or the validation loss because it's
+
+01:52.410 --> 01:54.000
+always calculating it on the same set.
+
+01:54.030 --> 01:57.960
+It's particularly useful for, for trying to spot trends.
+
+01:58.080 --> 02:02.670
+Um, and at first blush, looking at the validation loss, there doesn't appear to be much of a trend
+
+02:02.700 --> 02:04.500
+there, which again, is concerning.
+
+02:04.500 --> 02:05.520
+We can bring this up.
+
+02:05.520 --> 02:08.510
+We can edit this panel and zoom in.
+
+02:08.510 --> 02:10.940
+We can change the y axis here.
+
+02:10.970 --> 02:12.920
+And the minimum should be zero.
+
+02:12.920 --> 02:15.590
+And let's make the maximum like three.
+
+02:15.590 --> 02:17.600
+So we zoom all the way in.
+
+02:18.620 --> 02:23.240
+And you can see that it doesn't particularly look like it's improving.
+
+02:23.240 --> 02:32.000
+In fact um, you could if you wished, uh, be uh, almost argue that maybe it's increasing slightly.
+
+02:32.120 --> 02:39.080
+Um, but uh, I'm not sure if that we can necessarily say that there is a smoothing function that's
+
+02:39.080 --> 02:46.910
+available in this chart that we can go with, and that is the smoothed version of it.
+
+02:47.450 --> 02:54.080
+Uh, and, uh, yes, I suppose it's, it's certainly not going up, but it appears that it made some
+
+02:54.080 --> 02:57.080
+improvements and then it just kind of stayed flat.
+
+02:57.080 --> 03:00.620
+But it does look like there was some improvement up until the 300 point.
+
+03:01.100 --> 03:07.150
+Um, so these are all things for you to look at and spend more time on yourself.
+
+03:07.150 --> 03:12.950
+But at this point, it's time for us to now go and evaluate this model against our test data.
+
+03:13.340 --> 03:18.260
+So I will kick that off and then flip to a video when it completes.
+
+03:18.380 --> 03:20.960
+So let's go back to the Jupyter Lab.
+
+03:20.960 --> 03:24.020
+So this is our fine tuned model right here.
+
+03:24.260 --> 03:29.060
+Um we can get the job ID and we can collect the fine tuned model.
+
+03:29.060 --> 03:30.830
+Let me just quickly show you what that's going to be.
+
+03:30.860 --> 03:41.450
+If I, um, show you this, you can see when we look in here now that right here there's a new attribute
+
+03:41.450 --> 03:47.810
+fine tuned model, and it contains that same name of the fine tuned model that was in the email as well.
+
+03:47.810 --> 03:52.430
+So you could equally copy and paste it from the email, but we might as well just pluck it out with
+
+03:52.430 --> 03:53.180
+some code.
+
+03:53.180 --> 03:54.380
+So here we do.
+
+03:54.980 --> 04:03.020
+Uh, so just to show you that that's done when I'm suggesting, obviously if I run this, it's got that
+
+04:03.020 --> 04:04.310
+same name.
+
+04:05.540 --> 04:07.100
+All right.
+
+04:07.100 --> 04:13.470
+So we're going to redo this messages for function again.
+
+04:13.530 --> 04:20.400
+Uh, this time, uh, I'm, uh, just using the one that doesn't reveal the answer.
+
+04:20.430 --> 04:24.270
+Obviously, we don't want to give it that information.
+
+04:24.540 --> 04:29.010
+Uh, let's just convince ourselves that that is actually going to work.
+
+04:29.400 --> 04:30.960
+There you go.
+
+04:30.990 --> 04:35.280
+So it gives the question.
+
+04:35.280 --> 04:37.260
+It does not reveal the price.
+
+04:37.260 --> 04:41.190
+And the challenge for our model is going to be to finish this off.
+
+04:41.820 --> 04:47.340
+You will remember from last time a utility function that we that we have that will pluck out the price
+
+04:47.340 --> 04:48.840
+from what comes back.
+
+04:49.260 --> 04:54.960
+Uh, and I remember last time I did this, the price is roughly 99.99 because blah blah, blah.
+
+04:54.990 --> 04:59.610
+And if we run that of course get price function just strips out the price from there.
+
+04:59.820 --> 05:01.920
+Uh, as I think you're familiar.
+
+05:02.370 --> 05:10.020
+So then this is the function, the function that we will be about to test against.
+
+05:10.020 --> 05:18.270
+GPT fine tuned response is OpenAI ChatGPT completions create you call it, just as you would call it,
+
+05:18.270 --> 05:20.010
+for the normal GPT four.
+
+05:20.040 --> 05:21.570
+Oh, same API.
+
+05:21.600 --> 05:22.470
+Exactly.
+
+05:22.470 --> 05:27.000
+There's only one difference, one tiny difference, minute difference.
+
+05:27.030 --> 05:30.330
+That is this we don't pass in GPT four mini.
+
+05:30.360 --> 05:38.190
+We pass in the name of our fine tuned model, this name right here, that is what we will send in to
+
+05:38.220 --> 05:38.850
+OpenAI.
+
+05:38.850 --> 05:44.160
+And it will automatically it will know that that means that we want to use our fine tuned version.
+
+05:44.670 --> 05:47.430
+We take back the response, we get the price.
+
+05:49.080 --> 05:51.510
+So let's just print one example.
+
+05:51.510 --> 05:58.080
+Let's print a test, uh, something from the first thing on our test set, which was that that thing
+
+05:58.080 --> 06:01.380
+that cost 200 and something that was, uh, caught me off guard.
+
+06:01.380 --> 06:04.620
+And then we will call our GPT fine tuned for the first time.
+
+06:04.620 --> 06:06.480
+Let's see what one result looks like.
+
+06:07.410 --> 06:12.780
+Okay, so that is the sorry, the the number we were looking at earlier was a training price.
+
+06:12.780 --> 06:15.120
+This is the price of the first test item.
+
+06:15.280 --> 06:18.010
+Uh, let's see what the first test item actually is.
+
+06:19.120 --> 06:19.330
+So.
+
+06:24.880 --> 06:26.620
+Let's have a look at it.
+
+06:26.710 --> 06:32.290
+It is an AC compressor repair kit for Ford, uh, body parts.
+
+06:32.290 --> 06:38.440
+And, uh, so this is one that I had to do myself and, uh, yeah, obviously it's not done a very good
+
+06:38.440 --> 06:42.130
+job of that first data point, but who cares about one data point?
+
+06:42.130 --> 06:47.560
+What matters is doing it across the lot, at least the 250 that we've been using consistently for all
+
+06:47.560 --> 06:48.490
+of our testing.
+
+06:48.490 --> 06:53.410
+So without further ado, let's run it off it goes.
+
+06:53.410 --> 06:58.540
+So the first couple of results look a bit red, and then it looks a bit better and gets green, but
+
+06:58.540 --> 07:00.160
+then a whole bunch of red.
+
+07:00.160 --> 07:04.630
+So some mixed results here.
+
+07:05.440 --> 07:11.470
+And at this point I'm not going to have you hanging for the 250 of them.
+
+07:11.470 --> 07:13.150
+I'm going to pause.
+
+07:13.150 --> 07:16.510
+And then the next video we will reveal the outcome.
+
+07:16.510 --> 07:17.770
+I will see you there.

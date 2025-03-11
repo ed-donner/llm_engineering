@@ -1,0 +1,205 @@
+WEBVTT
+
+00:00.410 --> 00:01.820
+And welcome back.
+
+00:01.850 --> 00:08.660
+You've just seen GPT four zero spectacularly failed to work on our hard Python conversion problem.
+
+00:08.660 --> 00:12.980
+And now we're going to see how Claude handles the same problem.
+
+00:12.980 --> 00:15.950
+So we run the optimize method.
+
+00:15.950 --> 00:18.740
+We get back a bunch of stuff from Claude.
+
+00:18.740 --> 00:20.030
+Here it is.
+
+00:20.660 --> 00:29.930
+And now we will run the clang optimized, uh, the method to compile and optimize this code and run
+
+00:29.930 --> 00:31.850
+it and see what we get.
+
+00:36.110 --> 00:37.370
+Oh, it was still generating.
+
+00:37.370 --> 00:40.280
+And so a lot happened there.
+
+00:40.310 --> 00:45.320
+And the reason that there was a long pause is that it hadn't yet finished producing the code, as I
+
+00:45.320 --> 00:49.670
+just saw that it was like halfway finished, but it did just finish and then it compiled, and then
+
+00:49.670 --> 00:52.610
+it ran and it got the correct answer.
+
+00:52.610 --> 00:56.570
+And wowzer look at how fast that is.
+
+00:56.570 --> 00:58.010
+Look at the difference.
+
+00:58.040 --> 01:02.990
+Not only did Claude do this, but Claude has just done shockingly well.
+
+01:02.990 --> 01:12.330
+That you will notice, is two milliseconds, two milliseconds Compared to the time that the Python code
+
+01:12.360 --> 01:14.640
+have to go up to the Python code again.
+
+01:14.880 --> 01:18.210
+Uh, and where did we do the Python code?
+
+01:18.210 --> 01:18.630
+Here we go.
+
+01:18.660 --> 01:22.500
+The Python code got the same answer in 27 seconds.
+
+01:22.500 --> 01:30.510
+So, uh, I'm going to need to get a calculator here just to quickly, uh, tell myself 27.
+
+01:33.300 --> 01:37.830
+It's something like 13,000 times faster.
+
+01:37.830 --> 01:40.110
+Wow, wow.
+
+01:40.110 --> 01:43.380
+So you should be blown away by that.
+
+01:43.380 --> 01:47.730
+Uh, sometimes GPT four hasn't failed and has managed to generate some code.
+
+01:47.730 --> 01:53.280
+And when it does, the code that it's generated, for me at least, um, has been faster, but more
+
+01:53.280 --> 01:55.590
+like, uh, 10 or 100 times faster.
+
+01:55.590 --> 01:57.030
+Not like Claude.
+
+01:57.030 --> 02:01.020
+So how on earth has Claude been able to do this?
+
+02:01.050 --> 02:05.490
+Uh, how has it managed to make such highly optimized code?
+
+02:05.490 --> 02:09.480
+Like, is there something wrong with Python that, I mean, there must be something very wrong with
+
+02:09.480 --> 02:12.000
+Python if it can be so, so much faster.
+
+02:12.000 --> 02:15.450
+Well, no, there is a little bit more to the tale.
+
+02:15.540 --> 02:20.610
+Um, if we look at the optimized code that Claude generated.
+
+02:20.730 --> 02:20.970
+Hang on.
+
+02:20.970 --> 02:23.760
+I think I have to close this and double click again to see it.
+
+02:23.760 --> 02:24.690
+Here we go.
+
+02:25.080 --> 02:27.990
+Um, there is a bit more to the tale.
+
+02:27.990 --> 02:29.970
+There is a bit more to the tale.
+
+02:29.970 --> 02:31.590
+What has happened?
+
+02:31.620 --> 02:39.240
+What has happened is that, Claude, the direction that we gave Claude was to make sure that the same
+
+02:39.240 --> 02:44.520
+response was generated, identical response in the fastest possible time.
+
+02:44.520 --> 02:48.510
+And the prompt was very careful to say re-implement in C plus plus.
+
+02:48.510 --> 02:51.240
+And that is exactly what Claude has done.
+
+02:51.240 --> 02:58.500
+Claude, amazingly, has analyzed the code and understood the intent of the code.
+
+02:58.710 --> 03:01.800
+Um, perhaps with a hint by the name of the function.
+
+03:01.800 --> 03:05.310
+Although don't don't, uh, don't give it all away with the name of the function.
+
+03:05.310 --> 03:11.460
+And there's a few things to try and cause it off track, but it has re-implemented this in a completely
+
+03:11.460 --> 03:18.990
+different approach, using a theorem that I think it's called Shannon's, uh, algorithm.
+
+03:19.140 --> 03:20.520
+Uh, I think that's right.
+
+03:20.520 --> 03:22.890
+Yes, it is called Shannon's algorithm.
+
+03:23.070 --> 03:30.760
+Uh, and, uh, it is an approach that allows you to solve this puzzle just with one loop.
+
+03:30.760 --> 03:32.230
+One loop through.
+
+03:32.260 --> 03:33.820
+Uh, sorry, I'm on the wrong loop here.
+
+03:33.820 --> 03:34.570
+This is the loop.
+
+03:34.570 --> 03:38.590
+One loop through, not a nested loop.
+
+03:38.650 --> 03:44.920
+Uh, and as a result, uh, you can see there are there are, in fact, uh, two of them side by side.
+
+03:44.920 --> 03:50.140
+But it's not a, it's not a, uh, a nested loop, a loop within a loop.
+
+03:50.170 --> 03:55.510
+Um, and that allows you to get to the answer in a fraction of the time.
+
+03:55.510 --> 04:01.540
+So what Claude has done, which is so ingenious, is it's understood the intent of the function, it's
+
+04:01.540 --> 04:07.360
+not just translated something from Python to the equivalent C plus plus code, it has reimplemented
+
+04:07.360 --> 04:15.130
+it just as it was prompted to get the same answer in a blazingly, uh, fast amount of time.
+
+04:15.130 --> 04:20.020
+So I would say that is a terrific, terrific result by Claude.
+
+04:20.080 --> 04:23.230
+Uh, and, uh, a round of applause there.
+
+04:23.230 --> 04:26.800
+And it's certainly consistent with what we've seen from the Seal leaderboard.
+
+04:26.800 --> 04:31.000
+Claude 3.5 sonnet, uh, rules the show.
+
+04:31.000 --> 04:32.530
+Uh, Claude for the win.

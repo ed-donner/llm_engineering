@@ -1,0 +1,523 @@
+WEBVTT
+
+00:00.920 --> 00:02.510
+I know that everybody.
+
+00:02.510 --> 00:08.210
+It seems like just the other day that we were embarking on our quest together, and now here we are
+
+00:08.210 --> 00:13.490
+at the beginning of week four, rapidly approaching the halfway point.
+
+00:13.490 --> 00:17.090
+So what is in store for us this time?
+
+00:17.210 --> 00:24.770
+Uh, this week we are getting into an essential period of building core knowledge.
+
+00:24.770 --> 00:30.560
+It's going to be about this very challenging question that hits us all, which is we are spoilt for
+
+00:30.560 --> 00:31.070
+choice.
+
+00:31.070 --> 00:33.140
+There are so many llms out there.
+
+00:33.140 --> 00:36.590
+There are so many decisions to be made, closed source or open source.
+
+00:36.590 --> 00:39.590
+And and then in each category, so many.
+
+00:39.620 --> 00:43.910
+How do you pick the right LLM for a problem at hand.
+
+00:43.910 --> 00:46.610
+And that is the main theme of this week.
+
+00:46.700 --> 00:53.570
+And in addition we'll be going to be generating code building llms that write code for us in open source
+
+00:53.570 --> 00:53.900
+land.
+
+00:53.930 --> 00:55.400
+So that will be some fun.
+
+00:55.910 --> 01:01.970
+Uh, what we're going to be doing today is getting cracking on this subject of how do you pick the right
+
+01:01.980 --> 01:03.450
+model for the task.
+
+01:03.450 --> 01:08.370
+We're going to be talking about attributes and benchmarks, and we're going to be using something called
+
+01:08.370 --> 01:15.840
+the Openml leaderboard, which is an amazing resource from Hugging Face to help you compare open source
+
+01:15.840 --> 01:16.950
+models.
+
+01:17.550 --> 01:21.690
+But first, of course, a moment to look at our eight weeks.
+
+01:21.690 --> 01:23.340
+We started over on the left.
+
+01:23.340 --> 01:25.320
+We're going to finish over on the right.
+
+01:25.320 --> 01:26.490
+In week one.
+
+01:26.490 --> 01:32.070
+We talked about all things frontier model and we compared a bunch of frontier LMS, six of them.
+
+01:32.070 --> 01:39.630
+In week two, we introduced UIs with Gradio agent ization and of course we played with Multi-modality
+
+01:39.660 --> 01:40.410
+week three.
+
+01:40.440 --> 01:43.980
+Last week we got stuck into open source with Hugging face.
+
+01:43.980 --> 01:49.110
+We looked at the hub, we looked at the high level API, the pipelines, and then we looked at Tokenizers
+
+01:49.110 --> 01:54.540
+and models and hopefully a lot came together in terms of really understanding how these chat interfaces
+
+01:54.540 --> 02:01.830
+work and how these sorts of lists of dictionaries end up being tokens, including special tokens fed
+
+02:01.830 --> 02:08.200
+into llms, LMS, resulting in the output the next predicted token.
+
+02:09.190 --> 02:15.820
+We get to week four about selecting LMS, and also the problem of generating code which which is going
+
+02:15.820 --> 02:16.510
+to be very interesting.
+
+02:16.540 --> 02:18.700
+I hope week five is rag.
+
+02:18.700 --> 02:20.620
+Week six is fine tuning.
+
+02:20.650 --> 02:22.090
+It's when we begin training.
+
+02:22.120 --> 02:27.970
+Training on the frontier and then training open source and bringing it all together.
+
+02:28.090 --> 02:30.520
+That is our eight week plan.
+
+02:30.910 --> 02:36.820
+And so for today we're talking about comparing models, comparing LMS.
+
+02:36.820 --> 02:44.140
+And if there's one takeaway from this session, the most important point is that it's not like there's
+
+02:44.170 --> 02:48.340
+a simple answer of like this LLM is better than the others.
+
+02:48.370 --> 02:52.360
+It isn't a a case of of ranking from best to worst.
+
+02:52.390 --> 02:55.690
+It's all about what are you trying to accomplish.
+
+02:55.690 --> 02:59.830
+And it's about picking the right LLM for the task at hand.
+
+02:59.830 --> 03:05.420
+So understanding weighing up different LMS and comparing them with your requirements is the name of
+
+03:05.420 --> 03:10.160
+the game, and there are two different ways that we can pair models.
+
+03:10.160 --> 03:14.810
+The first of them is looking just at the basic facts about the model.
+
+03:14.900 --> 03:18.320
+Um, obvious stuff like the cost of the model.
+
+03:18.410 --> 03:23.630
+Um, and that's going to really cut down your decision space into a smaller number of choices.
+
+03:23.630 --> 03:29.270
+And once you've investigated the sort of basic attributes, the basic aspects of the different models,
+
+03:29.270 --> 03:32.750
+then then you start looking at the detailed results.
+
+03:32.750 --> 03:37.100
+And that involves looking at things like benchmarks, leaderboards and arenas.
+
+03:37.100 --> 03:43.700
+And based on all of this, you should end up with a handful of candidate llms that you will then use
+
+03:43.700 --> 03:50.660
+for prototyping to allow you to finally select the best LLM for your task at hand.
+
+03:51.500 --> 03:54.770
+And so let's talk a bit about the basics.
+
+03:55.610 --> 04:01.880
+So when I say we're comparing the basics, I really do mean the most obvious things about different
+
+04:01.880 --> 04:03.740
+models that you would have to assess.
+
+04:03.740 --> 04:08.960
+And we start with understanding whether or not you're going to be looking at an open source model or
+
+04:08.990 --> 04:10.070
+a closed source model.
+
+04:10.070 --> 04:15.020
+And of course, there are pros and cons, and it will affect a lot of the other basic attributes.
+
+04:15.020 --> 04:20.030
+So as you develop your shortlist, the first thing to note down is is this open or closed source?
+
+04:20.150 --> 04:21.860
+When was it released?
+
+04:21.890 --> 04:26.450
+What is the release date and and presumably the same the same dates.
+
+04:26.450 --> 04:30.170
+But an important thing to note is what is the knowledge cutoff?
+
+04:30.170 --> 04:31.370
+What is the date?
+
+04:31.430 --> 04:38.180
+The last date of its training data, beyond which typically it won't have any knowledge of current events.
+
+04:38.180 --> 04:41.780
+And depending on your use case, that may be important to you or it might not.
+
+04:42.200 --> 04:44.570
+Then the number of parameters.
+
+04:44.600 --> 04:49.190
+This gives you a sense of the the strength of the model.
+
+04:49.190 --> 04:54.440
+It will also give you a strength of costs that will come to, and it will give you a sense of how much
+
+04:54.440 --> 04:55.820
+training data is needed.
+
+04:55.820 --> 04:59.630
+If you want to fine tune that model, which we will also talk about in just a moment.
+
+04:59.630 --> 05:04.760
+So the number of parameters, the size of the model is another of the basic facts that you would note
+
+05:04.760 --> 05:09.000
+down The number of tokens that were used during training.
+
+05:09.000 --> 05:15.120
+The size of the training dataset is an important thing to note, and it will give you a sense again
+
+05:15.150 --> 05:22.620
+of the power of the model, its level, its depth of expertise, and then of course, the context length,
+
+05:22.650 --> 05:24.180
+the size of the context window.
+
+05:24.210 --> 05:27.750
+The thing we spoke about a lot in the past.
+
+05:27.810 --> 05:33.840
+The total amount of tokens that it can keep effectively in its memory while it's predicting the next,
+
+05:33.870 --> 05:38.280
+next token, which needs to include the original system, prompt input prompts.
+
+05:38.280 --> 05:44.820
+And if you're in a in a instruct in a chat use case, then all of the exchanges between the user and
+
+05:44.820 --> 05:47.940
+the assistant all have to fit within the context length.
+
+05:47.940 --> 05:53.970
+If you're dealing with a multi shot prompting case where you're you're providing multiple examples at
+
+05:53.970 --> 05:57.900
+inference time for the model to learn from, then you need to make sure that you're going to have a
+
+05:57.900 --> 06:03.090
+sufficient context length to take all of those examples.
+
+06:03.480 --> 06:06.450
+Can you remember the model with the longest context length today?
+
+06:06.760 --> 06:13.480
+uh, Gemini 1.5 flash with a million size contacts window as of right now, but we'll see in a moment
+
+06:13.480 --> 06:17.410
+where you can go and look up and compare all of the context lengths.
+
+06:17.680 --> 06:19.780
+So that's one set of basics.
+
+06:19.780 --> 06:23.440
+Let's go on to some more basics that you would you would look at.
+
+06:23.440 --> 06:27.850
+So there's a bunch of of costs that you need to be mindful of.
+
+06:27.880 --> 06:32.350
+I've divided them into inference costs, training costs and build costs.
+
+06:32.350 --> 06:38.170
+So inference costs of course is how much is it going to cost you every time you run this model in production
+
+06:38.170 --> 06:40.420
+to generate an output given an input?
+
+06:40.420 --> 06:43.750
+That, put simply, is what we're talking about with inference.
+
+06:43.930 --> 06:49.330
+Um, and there depending on whether you're dealing with open or closed source or and how you're interacting,
+
+06:49.330 --> 06:51.430
+there could be a number of different types of costs.
+
+06:51.460 --> 06:56.500
+We know, of course, with frontier models, we're thinking about API costs, which we also know consists
+
+06:56.500 --> 07:01.840
+of a count of input tokens and output tokens that would need to go into that API cost.
+
+07:02.170 --> 07:08.330
+Uh, if you were talking about using the Pro user interfaces, the chat UIs, you'd be thinking of a
+
+07:08.330 --> 07:11.630
+subscription, a monthly subscription cost.
+
+07:11.630 --> 07:16.820
+And if you're talking about open source models that you would run yourself, then there would be some
+
+07:16.820 --> 07:22.970
+runtime compute cost, which could be like a colab cost, or later we'll be talking in the actually
+
+07:23.000 --> 07:26.960
+in probably the last week of this course about ways to deploy to production.
+
+07:26.990 --> 07:33.170
+Thinking about platforms like modal, which let you run your model in production on a GPU box, and
+
+07:33.170 --> 07:40.430
+then you're paying some, uh, some, some fee to run your compute box in their cloud.
+
+07:40.430 --> 07:44.180
+So that runtime compute for open source is another factor.
+
+07:44.180 --> 07:49.820
+And typically if you're if you're working with an open source model that you've trained yourself, your
+
+07:49.820 --> 07:52.400
+inference costs will be lower because it's your model.
+
+07:52.400 --> 07:55.400
+You're not going to be paying that API charge every time.
+
+07:55.400 --> 07:58.100
+But there's you know, it's not a clear calculus.
+
+07:58.130 --> 07:59.300
+It depends on your use case.
+
+07:59.300 --> 08:03.350
+It depends on your choice of model, how many parameters and so on.
+
+08:04.220 --> 08:06.710
+And then training cost.
+
+08:06.710 --> 08:13.470
+So obviously if you're using out of the box frontier model, then there isn't a training cost.
+
+08:13.470 --> 08:16.770
+If you're not further fine tuning it, as we'll do in week seven.
+
+08:17.010 --> 08:22.380
+But if you're doing, uh, building an open source model that you want to specialize for your domain
+
+08:22.380 --> 08:26.550
+and you're going to be providing it with, with training costs, with, with, with training, then
+
+08:26.550 --> 08:27.810
+there will be a cost associated with that.
+
+08:27.810 --> 08:29.820
+And you need to factor that into the equation.
+
+08:30.000 --> 08:31.680
+Build cost.
+
+08:31.740 --> 08:37.650
+So how much work will it be for you to create this solution.
+
+08:37.770 --> 08:42.240
+Uh, and that's highly related to the next one which is time to market, which is how long is it going
+
+08:42.240 --> 08:42.900
+to take you?
+
+08:43.170 --> 08:47.610
+Uh, the, the one of the selling points of using a frontier model.
+
+08:47.610 --> 08:50.280
+Is that the time to market?
+
+08:50.280 --> 08:52.590
+And the build cost can be very low.
+
+08:52.590 --> 08:59.640
+Uh, it can take very little time to be up and running with a powerful solution using frontier models.
+
+08:59.640 --> 09:04.140
+Typically, if you're looking to fine tune your own open source model, it's going to take longer and
+
+09:04.140 --> 09:05.340
+it's going to be harder.
+
+09:05.490 --> 09:16.150
+Uh, so that's that's a major factor to weigh up rate limits using frontier models, you may run into
+
+09:16.180 --> 09:18.790
+some limits on how frequently you can call them.
+
+09:18.790 --> 09:21.820
+This is typically the case for subscription plans.
+
+09:22.030 --> 09:25.660
+Um, and uh, maybe, maybe with rate limits.
+
+09:25.660 --> 09:30.610
+I point out reliability as well when using the frontier models through the APIs.
+
+09:30.610 --> 09:36.430
+There are times when some of the models I've experienced this with both, uh, GPT four and with Claude
+
+09:36.460 --> 09:43.930
+3.5 sonnet that the the, uh, APIs respond with an error that they are overloaded because they are
+
+09:43.930 --> 09:45.970
+too busy in production at that time.
+
+09:45.970 --> 09:54.460
+So that's sort of related to rate limit, but a sort of stability point, their speed, which is a sort
+
+09:54.460 --> 10:02.740
+of throughput, like how quickly can you generate a whole response, how quickly can new tokens be generated?
+
+10:02.740 --> 10:04.780
+And very similar.
+
+10:05.050 --> 10:11.230
+There's a sort of subtle distinction between speed and latency, which is sort of the request response
+
+10:11.230 --> 10:11.980
+time.
+
+10:12.040 --> 10:17.620
+When you ask how quickly does it first start responding with each token?
+
+10:17.920 --> 10:25.450
+You may remember when we built the AI assistant for our airline, which was multimodal and spoke back
+
+10:25.450 --> 10:25.990
+to us.
+
+10:25.990 --> 10:28.090
+Latency was a bit of a problem there.
+
+10:28.120 --> 10:33.040
+I don't think I mentioned it at the time, but there were some awkward pauses because of course when
+
+10:33.040 --> 10:35.260
+there's some text, it's then going out to the model.
+
+10:35.260 --> 10:39.940
+It's calling out to a frontier model, generating the audio, coming back and playing the audio.
+
+10:39.940 --> 10:45.910
+And it was even more jarring when we were generating images, because those images were taking some
+
+10:45.910 --> 10:49.510
+time to come back and we'd sit there waiting for the image.
+
+10:49.540 --> 10:54.310
+Obviously, there are ways to to handle that more gracefully than we did in our prototype, but that
+
+10:54.310 --> 10:56.200
+is a factor that has to be.
+
+10:56.350 --> 11:01.330
+Bear in mind if you're dealing with your own open source model, it's the sort of thing you have more
+
+11:01.330 --> 11:02.590
+control over.
+
+11:02.890 --> 11:08.800
+And then last of our basics, but definitely not least, is license.
+
+11:09.010 --> 11:12.620
+Whether you're dealing with open source or closed source.
+
+11:12.740 --> 11:19.730
+You need to be fully aware of any license restrictions in terms of where you are, and are not allowed
+
+11:19.730 --> 11:20.660
+to use it.
+
+11:20.810 --> 11:25.130
+Um, many of the open source models have very open licensing.
+
+11:25.160 --> 11:27.380
+Um, some of them do have fine print.
+
+11:27.380 --> 11:32.150
+I think stable diffusion is one that's known that that, uh, um, you are allowed to use it commercially
+
+11:32.150 --> 11:33.200
+up to a point.
+
+11:33.200 --> 11:38.120
+There's a point at which when your revenues are above a certain level, um, that at that point some,
+
+11:38.120 --> 11:43.730
+some kind of an arrangement business arrangement with stable diffusion, uh, is, is needed.
+
+11:43.760 --> 11:51.260
+Um, and we experienced ourselves signing the terms of service with, um, with llama 3.1 with meta.
+
+11:51.290 --> 11:56.090
+Uh, again, which I think is mostly to make sure that we're using it for good purposes, but still,
+
+11:56.090 --> 11:58.490
+it's part of the license that one needs to be aware of.
+
+11:58.520 --> 12:01.310
+So that wraps up the basics.
+
+12:01.310 --> 12:07.790
+These are all things that you would note down before going in to a more detailed analysis of the performance,
+
+12:07.820 --> 12:11.240
+the accuracy of the models for the task at hand.
+
+12:11.240 --> 12:13.880
+And we will continue in the next session.

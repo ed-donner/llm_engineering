@@ -1,0 +1,454 @@
+WEBVTT
+
+00:01.220 --> 00:07.940
+I gotta tell you, I don't like to toot my horn a whole lot, but I do think that I've done a great
+
+00:07.940 --> 00:12.920
+job with the project for this week, and I enjoyed it so much.
+
+00:12.920 --> 00:15.110
+And it's running now and I love it.
+
+00:15.110 --> 00:19.250
+I absolutely love it, and I can't wait to get into it and show it to you.
+
+00:19.520 --> 00:22.790
+And let's start, as always with the introduction.
+
+00:22.790 --> 00:26.870
+But very quickly we're going to get to code because that is where it's at this time.
+
+00:26.870 --> 00:31.250
+So we're going to go deeply into a gigantic I.
+
+00:31.280 --> 00:32.750
+It's such a hot topic.
+
+00:32.750 --> 00:35.630
+It's something that everyone can't get enough of right now.
+
+00:35.720 --> 00:42.410
+And so it's worth it that we really go deep and get into it, and we use it as an opportunity to learn
+
+00:42.410 --> 00:49.070
+more and more about the different components of LMS that we've worked on already over the last seven
+
+00:49.070 --> 00:50.120
+and a half weeks.
+
+00:50.120 --> 00:56.990
+So what we're going to be doing today is talking about agentic workflows, agent frameworks, and then
+
+00:56.990 --> 00:59.720
+we're going to build an agent framework.
+
+00:59.720 --> 01:07.430
+We're going to do it today that is able to send push notifications with information about great deals
+
+01:07.430 --> 01:10.520
+that it finds based on looking at RSS feeds.
+
+01:10.520 --> 01:14.840
+So it's really putting all the pieces together into a solution.
+
+01:15.140 --> 01:23.210
+So before we do that, let's just quickly talk about what what is what exactly is Agentic AI and agent
+
+01:23.210 --> 01:25.370
+workflows and all of this.
+
+01:25.370 --> 01:33.860
+And I think the truthful answer is that it's one of these ambiguous terms that still emerging and somewhat
+
+01:33.890 --> 01:35.870
+overused by different groups.
+
+01:35.870 --> 01:38.240
+So it's used to mean a number of different things.
+
+01:38.240 --> 01:43.640
+But I think if you take a step back and I did mention this when we touched on it briefly in a previous
+
+01:43.640 --> 01:49.850
+week, uh, but if you take a step back, you can think of the hallmarks, the key aspects of Agentic
+
+01:49.850 --> 01:52.580
+AI as having these five pieces to it.
+
+01:52.580 --> 01:56.510
+And no doubt there are some things that some people say it's more than this, and some people will say
+
+01:56.510 --> 01:57.140
+it's less than this.
+
+01:57.140 --> 02:00.130
+But I think that the these are the big five.
+
+02:00.160 --> 02:06.160
+So first of all, an agentic solution is one that is able to take a larger problem, a more complex
+
+02:06.160 --> 02:13.330
+problem, and divide it down into smaller pieces that can be executed potentially by LMS and maybe just
+
+02:13.330 --> 02:15.280
+by normal bits of software.
+
+02:15.460 --> 02:22.960
+But that ability to take a harder task and break it down is certainly a hallmark of agent solutions.
+
+02:23.110 --> 02:28.510
+The use of tools, function calling and structured outputs that we've covered at various points along
+
+02:28.510 --> 02:28.990
+the way.
+
+02:28.990 --> 02:33.250
+That's also something that often falls into the remit of an agent solution.
+
+02:33.250 --> 02:39.160
+Is this idea that you're giving an LMS something that's more than just a conversational here's a prompt,
+
+02:39.190 --> 02:41.350
+give me back a chat response.
+
+02:41.350 --> 02:45.190
+But it's something where it's fitting into a tighter construct.
+
+02:45.190 --> 02:47.830
+We need outputs in this particular JSON format.
+
+02:47.830 --> 02:51.250
+You can call these different functions to carry out different activities.
+
+02:51.250 --> 02:56.860
+So that's how that fits into Agentic AI and environment.
+
+02:56.890 --> 02:58.660
+A framework environment.
+
+02:58.690 --> 02:59.860
+The different words for it.
+
+02:59.860 --> 03:08.920
+But some kind of a of a of a sandbox in which, which provides some functionality which all the different
+
+03:08.920 --> 03:11.260
+agents would be able to take advantage of.
+
+03:11.290 --> 03:14.140
+The classic example of this would be something like memory.
+
+03:14.140 --> 03:19.600
+If there's something where all of the agents can share in some bit of information that reflects what's
+
+03:19.600 --> 03:24.040
+happened in the past or something like that, that would be an agent environment and just something
+
+03:24.040 --> 03:27.820
+which allows different agents to call each other in some way.
+
+03:28.810 --> 03:33.760
+Uh, and then typically and again, this, this one is an example of something which isn't a must have.
+
+03:33.760 --> 03:36.490
+It's not like without this you don't have an agent solution.
+
+03:36.490 --> 03:42.430
+But you often see agent solutions having a planning agent, an agent that's responsible for figuring
+
+03:42.430 --> 03:44.920
+out what tasks to do in what order.
+
+03:44.920 --> 03:49.660
+And again, I think normally when people talk about this, they're thinking of that planning agent being
+
+03:49.660 --> 03:54.310
+itself an LLM that's able to take a task and figure out, all right, I want to do this and then this
+
+03:54.310 --> 03:54.970
+and then this.
+
+03:54.970 --> 03:57.020
+But it doesn't have to be an LLM this.
+
+03:57.050 --> 04:01.820
+If it's a simple problem that just has five steps to it or something, then you can just write some
+
+04:01.820 --> 04:07.190
+Python code that calls those steps, or it can be a JSON configuration file or something.
+
+04:07.460 --> 04:13.550
+But there's got to be something which is considered your, your, your planner to tick this box and
+
+04:13.580 --> 04:19.010
+not that it's necessarily required, but perhaps the last one here, which is the one that we've not
+
+04:19.010 --> 04:22.430
+really done much of to date, is the kind of key.
+
+04:22.460 --> 04:28.820
+It's perhaps a single criterion that does distinguish between something that's agentic and it is not,
+
+04:28.820 --> 04:31.460
+and that is autonomy.
+
+04:31.460 --> 04:42.680
+That is this idea that your agentic AI solution has some kind of a existence that transcends a chat
+
+04:42.710 --> 04:43.610
+with a human.
+
+04:43.610 --> 04:51.680
+So we've we've had memory before because we've had Q&amp;A chats like our Rag solution when we when we had
+
+04:51.680 --> 04:58.770
+a chat that talked about the insurance company and obviously it had memory there, and we've had other
+
+04:58.770 --> 04:59.700
+examples of that too.
+
+04:59.730 --> 05:05.790
+Even our airline chat had memory, but that's not really considered an autonomous AI because that.
+
+05:05.820 --> 05:11.190
+Memory only existed where we had that app running and while the human was interacting with it.
+
+05:11.490 --> 05:15.810
+It didn't really have any kind of a of a presence beyond that.
+
+05:15.810 --> 05:18.360
+So this idea of autonomy is some.
+
+05:18.390 --> 05:24.180
+And some kind of a sense that this, this thing has an existence that is more permanent and.
+
+05:24.210 --> 05:26.100
+Say, is running behind the scenes.
+
+05:26.130 --> 05:29.280
+Now, that might all sound a bit magical, and it's not at all.
+
+05:29.310 --> 05:34.590
+As you'll see, basically, if you've got a process that's running, that's carrying out some activity.
+
+05:34.620 --> 05:39.420
+That doesn't necessarily need human interaction, that in itself is good enough to say, okay.
+
+05:39.450 --> 05:41.550
+That sounds like that's an agent solution.
+
+05:42.090 --> 05:45.720
+So in a nutshell, it's not like there's one super clear.
+
+05:45.750 --> 05:46.740
+Definition.
+
+05:46.740 --> 05:52.920
+And a lot of the times when you're working with an AI solution that is solving a harder problem involving
+
+05:52.920 --> 06:00.750
+multiple models Involving coordination between them and in a way that isn't just a prompt and a response.
+
+06:00.750 --> 06:08.430
+The chat interface that we're so familiar with, anything like that is considered an agentic AI solution.
+
+06:08.970 --> 06:13.020
+Now there are a bunch of frameworks which offer agent capabilities.
+
+06:13.020 --> 06:16.860
+Langshan has a bunch of agent abilities.
+
+06:16.860 --> 06:19.440
+There's agent tools that you get with hugging face.
+
+06:19.680 --> 06:22.560
+Gradio has something and there's many others.
+
+06:22.560 --> 06:25.410
+Some of them are what they call no code.
+
+06:25.410 --> 06:28.230
+So all you're doing is stitching together different, different models.
+
+06:28.230 --> 06:34.140
+Some of them are have more code involved, like like a Lang Chain's offerings.
+
+06:34.140 --> 06:39.450
+But one of the points I wanted to make to you is that many of these platforms are putting on abstractions
+
+06:39.450 --> 06:45.540
+around Llms, much as Lang Chain did for Rag when we came across that before.
+
+06:45.540 --> 06:50.910
+And really to be building these kinds of agentic AI solutions, you don't need those abstractions.
+
+06:50.910 --> 06:54.980
+We know how to call Llms directly and we can just do it ourselves.
+
+06:54.980 --> 06:59.300
+We can have LMS running and we can send the right information to the right.
+
+06:59.360 --> 07:06.500
+LM as now a master of LM engineering, almost 5% away from being a master of LM engineering.
+
+07:06.500 --> 07:08.360
+That's well within your capabilities.
+
+07:08.360 --> 07:14.180
+So actually for for this session, as we get in and build our Agentic AI framework, we're just going
+
+07:14.180 --> 07:19.760
+to be creating these agents, as you already saw those classes and have them operating ourselves using
+
+07:19.760 --> 07:20.510
+Python code.
+
+07:20.510 --> 07:25.610
+We're going to collaborate them, stitch them together with our own code, which is a great way of doing
+
+07:25.610 --> 07:29.030
+it, and which also gives you deeper insight into what's happening.
+
+07:29.030 --> 07:33.740
+And we can actually see what information is being passed between the agents.
+
+07:33.860 --> 07:41.540
+Um, but of course, you can also use one of the more off the shelf, uh, more abstraction layer products.
+
+07:41.540 --> 07:42.440
+If you wish.
+
+07:42.470 --> 07:47.510
+You can you can look up any of the ones that's available from, from Langshan or the others.
+
+07:47.600 --> 07:51.650
+Um, and it might be an interesting exercise to then redo some of what we're doing.
+
+07:51.680 --> 07:56.150
+It was it would probably be quite, quite straightforward to do it using one of those off the shelf
+
+07:56.150 --> 07:56.750
+products.
+
+07:56.750 --> 07:59.270
+But for us, we're going to get to the nitty gritty.
+
+07:59.300 --> 08:05.270
+We're actually going to go and build our own little agent framework and have multiple llms participate
+
+08:05.270 --> 08:12.620
+in solving the problem that, you know, we're setting out to solve, which is scraping for for good
+
+08:12.620 --> 08:15.950
+deals on the internet and messaging us when it finds them.
+
+08:15.980 --> 08:19.100
+Let's remind ourselves quickly of what that framework looks like.
+
+08:19.100 --> 08:20.480
+What is our architecture?
+
+08:20.510 --> 08:25.070
+This is the the the workflows that we're putting together.
+
+08:25.310 --> 08:32.240
+Um, we have the three models that are running and an ensemble agent that calls them.
+
+08:32.420 --> 08:37.670
+This is an example of perhaps a bit of a stretch, because an ensemble model that calls other models
+
+08:37.670 --> 08:39.530
+is something that's been around for donkeys years.
+
+08:39.530 --> 08:46.040
+People haven't called that Agentic AI in the past, but since we do have these running as separate classes
+
+08:46.040 --> 08:51.500
+in their own right that have the same construct and the same ability as you'll see to log and to be
+
+08:51.530 --> 08:56.930
+participating in this framework, it kind of makes sense to think of these as separate agents in their
+
+08:56.930 --> 09:00.410
+own right, and we could be running them in different Python processes if we wish to.
+
+09:00.440 --> 09:05.780
+But for simplicity, I just have it just be being called directly, but we certainly could do.
+
+09:06.140 --> 09:11.420
+Um, so I have chosen to suggest that these are separate agents that carry out these three different
+
+09:11.420 --> 09:16.910
+models, and that we have an ensemble agent that calls each of these agents, collaborates with them,
+
+09:16.910 --> 09:23.600
+and then applies the linear regression weights to give an ensemble of a price of a product.
+
+09:23.690 --> 09:27.260
+The scanner agent is what we looked at last time.
+
+09:27.260 --> 09:28.490
+This is an agent.
+
+09:28.520 --> 09:31.340
+We ended it by by calling the scanner agent.
+
+09:31.340 --> 09:41.480
+It's able to go out, collect feeds, and then call Gpt4 zero as its way of finding out the good pithy
+
+09:41.510 --> 09:45.140
+description of each deal and the price point associated with it.
+
+09:45.140 --> 09:46.340
+And it collects that together.
+
+09:46.340 --> 09:51.160
+And you may remember that it had an input memory, which is part of the glue of how we're going to glue
+
+09:51.160 --> 09:52.270
+everything together.
+
+09:52.600 --> 09:58.540
+The memory is where we tell it not to surface a deal, that it's already surfaced in the past.
+
+09:59.800 --> 10:04.990
+And what we're going to look at today are these boxes in yellow that bring it all together, that we're
+
+10:04.990 --> 10:09.730
+going to look at a messaging agent, a very simple thing that's going to send push notifications to
+
+10:09.730 --> 10:11.650
+your phone, which is going to be delightful.
+
+10:11.680 --> 10:15.520
+A planning agent which is able to coordinate activities.
+
+10:15.520 --> 10:20.500
+And it's not going to be an LM, it's going to be a simple Python script, but it easily could be an
+
+10:20.500 --> 10:21.190
+LM.
+
+10:21.850 --> 10:26.170
+And then the agent framework, which sounds super fancy.
+
+10:26.170 --> 10:28.090
+Uh, it's not fancy in the least.
+
+10:28.090 --> 10:32.800
+It's just simply something which has all of these agents and which can allow messaging to go on.
+
+10:32.800 --> 10:36.520
+And that's going to be our agent framework creation today.
+
+10:36.520 --> 10:41.860
+And then tomorrow we're going to build the user interface that that wraps it all together and makes
+
+10:41.860 --> 10:43.390
+it look fabulous.
+
+10:43.690 --> 10:48.520
+But I hopefully have motivated you enough to be ready to go.
+
+10:48.550 --> 10:50.440
+I will see you in JupyterLab.

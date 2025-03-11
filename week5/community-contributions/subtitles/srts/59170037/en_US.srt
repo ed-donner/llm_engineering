@@ -1,0 +1,70 @@
+WEBVTT
+
+00:00.410 --> 00:06.830
+So how does it feel to be 30% of the way down the journey to being a proficient LLM engineer?
+
+00:06.860 --> 00:12.020
+Take a moment to congratulate yourself on a big accomplishment and a lot of progress.
+
+00:12.110 --> 00:13.850
+And hopefully you have that sense.
+
+00:13.850 --> 00:19.310
+You have that feeling that you are up skilling, that you can do so much more than you could just a
+
+00:19.310 --> 00:22.160
+matter of days ago, and it's going to keep being that way.
+
+00:22.160 --> 00:26.120
+We're going to keep building and building on the skills and knowledge that you're acquiring.
+
+00:26.120 --> 00:28.790
+So you're able to do more and more.
+
+00:28.820 --> 00:32.780
+But again, what you can already do, you can already confidently code with frontiers.
+
+00:32.780 --> 00:36.410
+You can build multimodal AI assistants using tools.
+
+00:36.410 --> 00:40.670
+And now and now you're familiar with hugging face pipelines.
+
+00:40.670 --> 00:49.310
+And you can use pipelines to run inference tasks across a wide variety of different common machine learning
+
+00:49.340 --> 00:50.390
+tasks.
+
+00:50.840 --> 01:00.620
+Next time, next time we get below into the lower level Transformers API as we start to work with Tokenizers,
+
+01:00.650 --> 01:05.690
+we've of course already spent some time talking about tokens, and we looked at Gpts tokenizer through
+
+01:05.690 --> 01:06.800
+the web user interface.
+
+01:06.830 --> 01:13.190
+Now we're going to actually use code to translate text to tokens and back again.
+
+01:13.190 --> 01:16.550
+And as part of that we're going to understand things like special tokens.
+
+01:16.550 --> 01:22.550
+I remember I had a sidebar, uh, ramble about some time ago now, but it's going to all come together.
+
+01:22.550 --> 01:23.450
+It's going to be worth it.
+
+01:23.450 --> 01:26.060
+That seed I planted is going to come together.
+
+01:26.060 --> 01:31.070
+When we look at what tokens look like for what gets passed into an LLM.
+
+01:31.070 --> 01:37.610
+And then also when we look at these things called chat templates, all of this is going to be extremely
+
+01:37.610 --> 01:41.660
+important foundation material, and I look forward to going through it with you next time.
