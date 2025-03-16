@@ -22,7 +22,7 @@ There are 4 common gotchas to developing on Windows to be aware of:
 1. Permissions. Please take a look at this [tutorial](https://chatgpt.com/share/67b0ae58-d1a8-8012-82ca-74762b0408b0) on permissions on Windows  
 2. Anti-virus, Firewall, VPN. These can interfere with installations and network access; try temporarily disabling them as needed  
 3. The evil Windows 260 character limit to filenames - here is a full [explanation and fix](https://chatgpt.com/share/67b0afb9-1b60-8012-a9f7-f968a5a910c7)!  
-4. If you've not worked with Data Science packages on your computer before, you might need to install Microsoft Build Tools. Here are [instructions](https://chatgpt.com/share/67b0b762-327c-8012-b809-b4ec3b9e7be0).  
+4. If you've not worked with Data Science packages on your computer before, you might need to install Microsoft Build Tools. Here are [instructions](https://chatgpt.com/share/67b0b762-327c-8012-b809-b4ec3b9e7be0). A student also mentioned that [these instructions](https://github.com/bycloudai/InstallVSBuildToolsWindows) might be helpful for people on Windows 11.    
 
 ### Part 1: Clone the Repo
 
@@ -109,7 +109,7 @@ If you see an error like this:
 
 > Microsoft Visual C++ 14.0 or greater is required. Get it with "Microsoft C++ Build Tools": [https://visualstudio.microsoft.com/visual-cpp-build-tools/](https://visualstudio.microsoft.com/visual-cpp-build-tools/)
 
-Then please follow the link and install Microsoft C++ Build Tools.  
+Then please follow the link and install Microsoft C++ Build Tools. A student also mentioned that [these instructions](https://github.com/bycloudai/InstallVSBuildToolsWindows) might be helpful for people on Windows 11.   
 
 In the very unlikely event that this step doesn't go well, you should try the bullet-proof (but slower) version:  
 `pip install --retries 5 --timeout 15 --no-cache-dir --force-reinstall -r requirements.txt`
