@@ -3,17 +3,20 @@ from pathlib import PurePosixPath
 
 # Setup - define our infrastructure with code!
 app = modal.App("pricer-service")
+secrets = [modal.Secret.from_name("huggingface-secret")]
 
 image = modal.Image.debian_slim().pip_install(
     "huggingface", "torch", "transformers", "bitsandbytes", 
     "accelerate", "peft", "huggingface_hub[hf_transfer]"
 ).env({"HF_HUB_ENABLE_HF_TRANSFER": "1"})
 
+# This is where we cache model files to avoid redownloading each time a container is started
 hf_cache_vol = modal.Volume.from_name("hf-cache", create_if_missing=True)
-secrets = [modal.Secret.from_name("huggingface-secret")]
 
-# Constants
 GPU = "T4"
+# Keep N containers active to avoid cold starts
+MIN_CONTAINERS = 0
+
 BASE_MODEL = "meta-llama/Meta-Llama-3.1-8B"
 PROJECT_NAME = "pricer"
 HF_USER = "ed-donner" # your HF name here! Or use mine if you just want to reproduce my results.
@@ -22,7 +25,7 @@ PROJECT_RUN_NAME = f"{PROJECT_NAME}-{RUN_NAME}"
 REVISION = "e8d637df551603dc86cd7a1598a8f44af4d7ae36"
 FINETUNED_MODEL = f"{HF_USER}/{PROJECT_RUN_NAME}"
 
-# Define cache locations - this will map to the volume created
+# Mount for cache location
 MODEL_DIR = PurePosixPath("/models")
 BASE_DIR = MODEL_DIR / BASE_MODEL
 FINETUNED_DIR = MODEL_DIR / FINETUNED_MODEL
@@ -30,7 +33,7 @@ FINETUNED_DIR = MODEL_DIR / FINETUNED_MODEL
 QUESTION = "How much does this cost to the nearest dollar?"
 PREFIX = "Price is $"
 
-@app.cls(image=image, secrets=secrets, gpu=GPU, timeout=1800, volumes={MODEL_DIR: hf_cache_vol})
+@app.cls(image=image, secrets=secrets, gpu=GPU, timeout=1800, min_containers=MIN_CONTAINERS, volumes={MODEL_DIR: hf_cache_vol})
 class Pricer:
     @modal.enter()
     def setup(self):
@@ -80,14 +83,4 @@ class Pricer:
         contents = contents.replace(',','')
         match = re.search(r"[-+]?\d*\.\d+|\d+", contents)
         return float(match.group()) if match else 0
-
-    @modal.method()
-    def wake_up(self) -> str:
-        return "ok"
-
-## Keep Pricer warm so it's faster to respond to requests
-@app.function(schedule=modal.Period(seconds=50))
-def pricer_wake_up() -> str:
-	Pricer = modal.Cls.from_name("pricer-service", "Pricer")
-	return Pricer().wake_up.remote()
 
