@@ -13,6 +13,14 @@ I use a platform called Anaconda to set up your environment. It's a powerful too
 
 Having said that: if you have any problems with Anaconda, I've provided an alternative approach. It's faster and simpler and should have you running quickly, with less of a guarantee around compatibility.
 
+### Before we begin
+
+If you're less familiar with using the Terminal, please review this excellent [guide](https://chatgpt.com/canvas/shared/67b0b10c93a081918210723867525d2b) for some details and exercises.
+
+If you're new to developing on your Mac, you may need to install XCode developer tools. Here are [instructions](https://chatgpt.com/share/67b0b8d7-8eec-8012-9a37-6973b9db11f5).
+
+One "gotcha" to keep in mind: if you run anti-virus software, VPN or a Firewall, it might interfere with installations or network access. Please temporarily disable if you have problems.
+
 ### Part 1: Clone the Repo
 
 This gets you a local copy of the code on your box.
@@ -49,10 +57,11 @@ If this Part 2 gives you any problems, there is an alternative Part 2B below tha
 
 - Download Anaconda from https://docs.anaconda.com/anaconda/install/mac-os/
 - Double-click the downloaded file and follow the installation prompts. Note that it takes up several GB and take a while to install, but it will be a powerful platform for you to use in the future.
+- After installing, you'll need to open a fresh, new Terminal to be able to use it (and you might even need to restart).
 
 2. **Set up the environment:**
 
-- Open a new Terminal (Applications > Utilities > Terminal)
+- Open a **new** Terminal (Applications > Utilities > Terminal)
 - Navigate to the "project root directory" using `cd ~/Documents/Projects/llm_engineering` (replace this path as needed with the actual path to the llm_engineering directory, your locally cloned version of the repo). Do `ls` and check you can see subdirectories for each week of the course.
 - Create the environment: `conda env create -f environment.yml`
 - Wait for a few minutes for all packages to be installed - in some cases, this can literally take 20-30 minutes if you've not used Anaconda before, and even longer depending on your internet connection. Important stuff is happening! If this runs for more than 1 hour 15 mins, or gives you other problems, please go to Part 2B instead.
@@ -70,9 +79,10 @@ You should see `(llms)` in your prompt, which indicates you've activated your ne
 
 1. **Open a new Terminal** (Applications > Utilities > Terminal)
 
-Run `python --version` to find out which python you're on. Ideally you'd be using a version of Python 3.11, so we're completely in sync.  
-If not, it's not a big deal, but we might need to come back to this later if you have compatibility issues.  
-You can download python here:  
+Run `python --version` to find out which python you're on.  
+Ideally you'd be using a version of Python 3.11, so we're completely in sync.  
+I believe Python 3.12 works also, but (as of Feb 2025) Python 3.13 does **not** yet work as several Data Science dependencies are not yet ready for Python 3.13.  
+If you need to install Python or install another version, you can download it here:  
 https://www.python.org/downloads/
 
 2. Navigate to the "project root directory" using `cd ~/Documents/Projects/llm_engineering` (replace this path with the actual path to the llm_engineering directory, your locally cloned version of the repo). Do `ls` and check you can see subdirectories for each week of the course.  
