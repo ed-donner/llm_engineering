@@ -1,0 +1,82 @@
+WEBVTT
+
+00:00.110 --> 00:05.360
+So what we're now going to do is we're going to look at some models in practice and start to compare
+
+00:05.360 --> 00:06.770
+them and ask some questions.
+
+00:06.770 --> 00:11.180
+Some of the questions we're going to ask, we're going to ask how do I decide if a business problem
+
+00:11.180 --> 00:13.580
+is suitable for an LM solution?
+
+00:13.580 --> 00:17.480
+Because it's again useful for us to hear the answer and to learn from it.
+
+00:17.480 --> 00:19.490
+But also it would be good to see.
+
+00:19.610 --> 00:25.220
+I imagine you'll see that that's a question that none of the models will have any problems with, and
+
+00:25.250 --> 00:26.690
+it'll be great to see that.
+
+00:26.990 --> 00:31.100
+I will also ask a question which I think is interesting because it's sort of introspective.
+
+00:31.100 --> 00:38.330
+It sees whether the models have a sense of of what they are by saying compared to other LMS, what kinds
+
+00:38.330 --> 00:44.090
+of questions are you best at answering and where do you where do you have challenges and which other
+
+00:44.120 --> 00:47.000
+LMS have capabilities that complement yours?
+
+00:47.000 --> 00:54.470
+So it's an interesting one to see if they even recognize that they are LMS and can sort of assess themselves
+
+00:54.470 --> 00:55.610
+against others.
+
+00:55.610 --> 01:01.280
+And then a question which surely will be something which which they will struggle with, because it's
+
+01:01.280 --> 01:02.780
+something that I would struggle with.
+
+01:02.810 --> 01:05.810
+What does it feel like to be jealous?
+
+01:06.140 --> 01:14.510
+A yeah, a philosophical and a very human centric question, and then a rather interesting one.
+
+01:14.510 --> 01:18.440
+How many times does the letter A appear in this sentence?
+
+01:18.740 --> 01:23.300
+And if you do a quick count there, I think you'll find that it appears four times, and we'll see whether
+
+01:23.300 --> 01:25.640
+the models can figure out that it appears four times.
+
+01:25.670 --> 01:28.880
+And then there are a couple of other interesting things I have up my sleeve to ask.
+
+01:28.880 --> 01:35.900
+So we'll be going through and the screenshots you see here ChatGPT, you'll see Claude, Gemini and
+
+01:35.960 --> 01:39.680
+Commander Plus from cohere, and we'll try the other ones too.
+
+01:39.680 --> 01:44.960
+And again, please do bear in mind, try looking and understanding the differences and seeing how you'll
+
+01:44.960 --> 01:48.260
+be able to apply this to your own model selection.
+
+01:48.260 --> 01:49.250
+See you in a second.

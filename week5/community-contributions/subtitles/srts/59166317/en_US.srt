@@ -1,0 +1,124 @@
+WEBVTT
+
+00:00.680 --> 00:08.540
+And welcome to week two, day two, as we continue our adventure into the realm of LMS.
+
+00:08.780 --> 00:14.630
+Uh, so today, a very special day that I'm really looking forward to.
+
+00:14.720 --> 00:15.830
+Uh, quick recap.
+
+00:15.860 --> 00:22.250
+Of course, you can now describe Transformers as well, and you can talk about six top frontier models.
+
+00:22.250 --> 00:27.920
+You can confidently use OpenAI's API along with Anthropic and Google's.
+
+00:27.920 --> 00:33.080
+But today, changing topic, we are going to be talking about Gradio.
+
+00:33.350 --> 00:37.040
+And I realized I have gone on about Gradio a bit, but you're going to see why.
+
+00:37.040 --> 00:40.490
+It's really terrific and we're going to have fun with it.
+
+00:40.640 --> 00:46.070
+We're going to create a simple UI using radio and then hook it up to Frontier Models.
+
+00:46.070 --> 00:49.130
+And as I say, it's going to be easy.
+
+00:49.580 --> 00:53.420
+Uh, so why make such a fuss about user interfaces?
+
+00:53.420 --> 01:00.890
+Because it allows us, as data scientists, as LM engineers, to do more quickly, to be able to build
+
+01:00.920 --> 01:08.510
+prototypes, expose them to our audience, to our business sponsors, the the, the people that need
+
+01:08.540 --> 01:12.140
+our LMS and do so very quickly indeed.
+
+01:12.140 --> 01:17.000
+If you are a front end person or you've dabbled in front end and you know what it's like to stand up
+
+01:17.030 --> 01:22.370
+a react app or something like that, you know that there's a lot of boilerplate code that goes into
+
+01:22.400 --> 01:26.750
+getting things up and running, and it turns out that we don't need to do that with models.
+
+01:26.750 --> 01:30.380
+We can build a user interface super quickly, and that's what we'll be doing today.
+
+01:30.380 --> 01:35.030
+So Gradio is in fact, uh, a part of Hugging Face.
+
+01:35.030 --> 01:38.510
+It was a startup that was acquired by Hugging Face a couple of years ago.
+
+01:38.510 --> 01:41.600
+So Gradio is part of the Hugging Face family.
+
+01:41.780 --> 01:48.260
+Uh, and as it says on the landing page there, it lets you build and share delightful machine learning
+
+01:48.290 --> 01:48.620
+apps.
+
+01:48.620 --> 01:51.620
+And I think you will be delighted by it.
+
+01:51.830 --> 01:54.530
+Uh, so I promised you it was easy.
+
+01:54.560 --> 01:57.080
+It really is easy, as you will see.
+
+01:57.110 --> 02:02.790
+What it comes down to is there is this magical line import Gradio as GR, which is the way people do
+
+02:02.790 --> 02:03.270
+it.
+
+02:03.570 --> 02:07.500
+You write a function, any function, a function to do a task.
+
+02:07.500 --> 02:13.380
+In this case, the function that they've written here is greet takes a name and it replies hello name.
+
+02:13.380 --> 02:19.890
+And then you can create a user interface based on that function, give it inputs and outputs, and you're
+
+02:19.890 --> 02:24.120
+going to get a user interface built for you just like that.
+
+02:24.120 --> 02:26.430
+And that is what we're going to do.
+
+02:26.970 --> 02:35.430
+So what we're going to do now is create a UI for API calls to GPT and Claude and Gemini, so that you
+
+02:35.430 --> 02:37.380
+can see how to expose this.
+
+02:37.410 --> 02:45.870
+We are then going to go ahead and create a UI for the brochure that we built in the last week's lectures.
+
+02:45.900 --> 02:52.050
+And so that's going to allow us to really package up our application into a nice business app with prototype
+
+02:52.050 --> 02:52.860
+screens.
+
+02:52.860 --> 02:57.510
+And of course, we'll throw into the mix streaming and markdown into a UI, since we're pretty good
+
+02:57.510 --> 03:00.630
+with that already, that's going to be the plan.
+
+03:00.630 --> 03:03.060
+Let's go over to the lab and get on with it.

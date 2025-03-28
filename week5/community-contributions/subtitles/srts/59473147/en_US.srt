@@ -1,0 +1,466 @@
+WEBVTT
+
+00:00.770 --> 00:01.910
+Well, I'm very relieved.
+
+00:01.910 --> 00:03.050
+I've got that behind me.
+
+00:03.080 --> 00:05.120
+No more human testing for me.
+
+00:05.150 --> 00:09.500
+We'll have one final look at my abysmal results and move swiftly on.
+
+00:09.530 --> 00:13.760
+The time has come for us to be working with the frontier.
+
+00:13.910 --> 00:18.560
+And we're going to start with GPT four mini, the miniature version.
+
+00:18.650 --> 00:20.810
+Um, but it's not so many.
+
+00:20.840 --> 00:22.400
+It's still a mighty frontier.
+
+00:22.430 --> 00:23.210
+LLM.
+
+00:23.420 --> 00:28.310
+Um, and it's going to be exciting to see how it fares compared to the other models we've worked with.
+
+00:28.490 --> 00:33.380
+So first of all, we need to work on our prompt for GPT four.
+
+00:33.680 --> 00:39.950
+And um, this is I mean, this is an extremely important part of your learning because this is where
+
+00:39.950 --> 00:46.070
+we see how we will solve real commercial problems like this using a frontier model.
+
+00:46.100 --> 00:51.500
+But a lot of this should again be pretty much second nature to you, because it's so similar to many
+
+00:51.500 --> 00:53.210
+of the tasks we've done before.
+
+00:53.240 --> 00:57.590
+The first thing we're going to do is write a function messages for item.
+
+00:57.590 --> 01:03.680
+Given our data point, we're going to want to turn that into a prompt for GPT four, which comes in
+
+01:03.680 --> 01:10.490
+the form of one of these messages lists, which you remember is a list of dictionaries.
+
+01:10.670 --> 01:13.880
+So this is how we build up that list of dictionaries.
+
+01:13.880 --> 01:21.170
+It starts with a system message, which is going to be in our case you estimate prices of items, reply
+
+01:21.200 --> 01:24.350
+only with the price, no explanation.
+
+01:24.500 --> 01:31.760
+And then for the user prompt, we are going to take the test prompt from this item, which you've seen
+
+01:31.760 --> 01:32.900
+many times.
+
+01:33.140 --> 01:36.500
+But we are going to do a little bit of data munging to it.
+
+01:36.500 --> 01:41.090
+So first of all, I'm going to strip out this text to the nearest dollar.
+
+01:41.120 --> 01:46.250
+The reason I'm doing that well actually the reason I should say the reason I put that in in the first
+
+01:46.250 --> 01:52.430
+place is that later when we work with open source models, um, we'll be we'll be wanting to give those
+
+01:52.430 --> 01:57.860
+open source models, make the problem as easy as it possibly can be, because they've got a lot to learn
+
+01:57.860 --> 02:01.890
+and they've only got the humble 8 billion parameters to do it in.
+
+02:01.920 --> 02:07.170
+When it comes to these frontier models, they are obviously much more capable, much more powerful,
+
+02:07.170 --> 02:09.750
+and they don't need the same kind of guardrails.
+
+02:09.840 --> 02:15.870
+GPT four or mini is going to be very happy, uh, predicting prices, including cents, and it knows
+
+02:15.870 --> 02:17.280
+exactly what it's working with.
+
+02:17.280 --> 02:20.790
+So this was an unnecessary guardrail in this case.
+
+02:20.790 --> 02:21.990
+So I took it out.
+
+02:22.440 --> 02:27.540
+I also take out the very end of the prompt, which is where it says price is dollars.
+
+02:27.570 --> 02:34.350
+The reason I take that out is you will see when it comes to building this list of messages, I first
+
+02:34.350 --> 02:38.100
+put in the system prompt under the system role.
+
+02:38.130 --> 02:45.840
+I then add user and I put in the user prompt, and then I put in one more message which comes from assistant.
+
+02:45.840 --> 02:50.070
+In other words, it's like it's the reply from GPT four mini.
+
+02:50.310 --> 02:50.610
+Uh.
+
+02:50.610 --> 02:56.700
+And that reply is price is dollars and then nothing.
+
+02:57.300 --> 03:04.530
+Uh, and that makes it unbearably desperate to fill in that next token with the price, because this
+
+03:04.530 --> 03:08.550
+is apparently the response coming back from the assistant from it.
+
+03:08.610 --> 03:15.630
+Uh, and so you've really we've, we've we've teed it up so that it feels, uh, like it absolutely
+
+03:15.630 --> 03:23.010
+has to fill that in with the most plausible next token, which is the most likely price of this product.
+
+03:23.010 --> 03:28.590
+So that that trick of sort of having it be the assistant's response and filling it in that way is,
+
+03:28.590 --> 03:31.890
+uh, is a good one to experiment with.
+
+03:32.280 --> 03:35.430
+Um, so that's what we do.
+
+03:35.460 --> 03:38.850
+Let's just quickly, uh, try this out and have a look at this.
+
+03:38.880 --> 03:47.430
+So, so if we say, like, messages for and put in the first test data point just to see what this looks
+
+03:47.430 --> 03:52.890
+like, what we get is, uh, roll system and then this is the system prompt.
+
+03:52.980 --> 03:55.320
+Hopefully that makes total sense.
+
+03:55.380 --> 04:00.120
+Then roll user and the content is how much does this cost.
+
+04:00.120 --> 04:08.310
+And then an item and, uh, yeah, I'm guessing, uh, some kind of, uh, horrible memory of having
+
+04:08.310 --> 04:11.310
+to go through and guess the prices of all of these things.
+
+04:11.310 --> 04:13.740
+Just looking at it fills me with dread.
+
+04:13.800 --> 04:15.780
+Uh, but it won't be my problem this time.
+
+04:15.780 --> 04:17.760
+It's going to be GPT four or Mini's problem.
+
+04:17.760 --> 04:23.910
+So it gets given that as part of the user prompt, and then it's given the assistance response.
+
+04:23.910 --> 04:26.850
+It's own response price is dollars.
+
+04:27.390 --> 04:31.620
+And then it will try and continue this conversation.
+
+04:31.890 --> 04:36.810
+Um, so this is a great, uh, prompt for us to be sending GPT four.
+
+04:36.840 --> 04:43.410
+Oh, then next, just one more little quick function, a utility called Get Price that I've written
+
+04:43.410 --> 04:51.330
+here, which takes a string s, uh, and, uh, extracts from that string a floating point number within
+
+04:51.330 --> 04:51.840
+it.
+
+04:51.930 --> 05:00.670
+Um, so that if, for example, we get a string back from GPT four, like, like, um, the price is
+
+05:00.670 --> 05:04.840
+roughly dollar 99.99.
+
+05:05.290 --> 05:08.110
+Um, because blah blah.
+
+05:09.610 --> 05:15.730
+If it doesn't obey my instructions and it decides to just be talkative about it, we will still strip
+
+05:15.730 --> 05:16.120
+out.
+
+05:16.150 --> 05:16.420
+Oops.
+
+05:16.420 --> 05:17.680
+Don't reveal.
+
+05:17.740 --> 05:23.260
+We will still strip out the 99.99 there.
+
+05:23.560 --> 05:24.250
+So it will.
+
+05:24.280 --> 05:25.390
+It will work.
+
+05:26.290 --> 05:27.280
+Uh, okay.
+
+05:27.280 --> 05:30.520
+That brings us I will carefully scroll down.
+
+05:30.550 --> 05:33.880
+That brings us to the big, uh, function.
+
+05:33.910 --> 05:34.930
+This is.
+
+05:34.930 --> 05:36.280
+This is the real deal.
+
+05:36.310 --> 05:42.970
+Uh, we are going to call GPT four mini with an item, and this is how we're going to do it.
+
+05:43.000 --> 05:47.830
+Of course, we say OpenAI ChatGPT completions dot create.
+
+05:48.190 --> 05:51.940
+Uh, we pass in a model, uh, GPT four mini.
+
+05:52.150 --> 05:59.290
+Uh, we, uh, pass in the messages for that item, which we use the function that we just talked about,
+
+05:59.480 --> 06:07.580
+this seed is a way to tell GPT four that we want to try and have this be reproducible, so that it gives
+
+06:07.580 --> 06:11.060
+the same answer with the same inputs.
+
+06:11.420 --> 06:16.250
+Now, our GPT, OpenAI can't always honour this because they make changes to their model.
+
+06:16.250 --> 06:19.310
+And so sometimes the model will change.
+
+06:19.310 --> 06:21.710
+And so so this number will change.
+
+06:21.830 --> 06:24.200
+But it does its best, all else being equal.
+
+06:24.200 --> 06:27.860
+Then if you call this twice with the same seed you should get the same answer.
+
+06:28.220 --> 06:29.630
+So that's good to know.
+
+06:30.110 --> 06:36.890
+And then max tokens I keep that number small because you know we've given it such a great tee up, we
+
+06:36.890 --> 06:40.400
+can expect it really will fill in the price as indeed it does.
+
+06:40.550 --> 06:44.690
+And so we don't need to waste our money, uh, bringing back more tokens than that.
+
+06:44.690 --> 06:51.350
+And I should say, because we do this, uh, this whole operation is very, very cheap across all 250
+
+06:51.380 --> 06:52.520
+data points.
+
+06:52.610 --> 06:55.760
+Um, it's still for me in the US anyway.
+
+06:55.790 --> 06:58.870
+Costs way less than a than a, um.
+
+06:58.870 --> 07:03.470
+Well, less that's that's an ascent less than so little that it won't show up in the user interface.
+
+07:03.470 --> 07:05.300
+It's less than a fraction of a cent.
+
+07:05.480 --> 07:14.120
+So it's very cheap indeed to use because it's a short input tokens and a and a five output tokens.
+
+07:14.690 --> 07:18.140
+And just before I want to be careful not to reveal what goes on.
+
+07:18.260 --> 07:22.280
+Uh, uh, just before let's just quickly try this out.
+
+07:22.280 --> 07:24.470
+Let's run GPT four.
+
+07:24.470 --> 07:32.510
+Oh, mini, and let's call it with Test of Zero to see how it performs.
+
+07:32.570 --> 07:38.210
+Uh, we run that and it gets back the answer 260.0.
+
+07:38.360 --> 07:42.140
+Uh, so you can see it went through it called GPT four mini.
+
+07:42.170 --> 07:44.480
+It then got back, it sent in something.
+
+07:44.510 --> 07:49.880
+It sent in exactly this uh, and then with what it got back, it put it through this function and stripped
+
+07:49.880 --> 07:53.870
+out 260 as the price for the first item.
+
+07:54.140 --> 07:59.060
+Uh, we might as well find out what is the price of the first item?
+
+07:59.060 --> 07:59.810
+Some, uh.
+
+08:02.000 --> 08:05.360
+So it gets to 60 and the number is three, seven, four.
+
+08:05.360 --> 08:07.220
+So it was quite far out with that one.
+
+08:07.580 --> 08:08.030
+Um.
+
+08:08.060 --> 08:14.690
+All right, well, the time has come to call tester dot test passing in GPT for a mini and test.
+
+08:14.690 --> 08:20.720
+And you've seen a few times now that I have already run this because it comes pretty fast, but it still
+
+08:20.720 --> 08:22.910
+takes maybe 2 or 3 minutes to do the whole lot.
+
+08:22.940 --> 08:27.620
+So I didn't want you to have to sit there while it was happening and so I can scroll through the outcome.
+
+08:27.620 --> 08:33.410
+But before I do so, uh, have your guess about how GPT four mini will perform.
+
+08:33.410 --> 08:36.380
+How will it fare against, uh, original?
+
+08:36.410 --> 08:37.730
+Against the average number?
+
+08:37.730 --> 08:42.440
+How will it fare against humanity as represented by by yours truly?
+
+08:42.440 --> 08:49.190
+And how will it fare against the most advanced traditional models, which had the benefit of 400,000
+
+08:49.220 --> 08:50.990
+examples to train on?
+
+08:50.990 --> 08:51.860
+Let's see.
+
+08:51.860 --> 08:55.580
+So I executed this and this is what I got.
+
+08:55.580 --> 09:02.690
+So some yellows and reds we see indeed the reproducibility you can see was I it gave identical guess
+
+09:02.690 --> 09:07.640
+of 260 um against the the truth there.
+
+09:08.210 --> 09:12.680
+Um so you can see some greens and some reds.
+
+09:12.710 --> 09:17.480
+Lots of greens, lots of greens but still yellows and reds as well.
+
+09:18.710 --> 09:20.240
+Uh, I'm going to speed up.
+
+09:20.270 --> 09:22.400
+Wow, a big bunch of greens there.
+
+09:23.360 --> 09:24.710
+Some more reds, some more greens.
+
+09:24.710 --> 09:33.320
+And here is the answer I give you the GPT four mini frontier model results.
+
+09:33.740 --> 09:36.110
+It has crushed the others.
+
+09:36.110 --> 09:37.250
+Crushed them.
+
+09:37.250 --> 09:42.770
+You can see that, uh, it has come in at $79.58.
+
+09:42.920 --> 09:52.400
+Uh, definitely doing better than humanity, doing better than the, um, the other, uh, um, all
+
+09:52.400 --> 09:58.550
+of the other models, including, uh, random forest by far, and without having any training data at
+
+09:58.550 --> 10:03.540
+all Based purely on getting the description and continuing that token sequence.
+
+10:03.540 --> 10:09.360
+And as I say, whereas there is some risk of test of training data contamination, I think it's unlikely
+
+10:09.360 --> 10:13.650
+because there are almost no cases of it getting it exactly right.
+
+10:13.650 --> 10:17.730
+So it's not as if it was regurgitating something it already knew.
+
+10:17.880 --> 10:25.560
+Um, it's just got such a significant, uh, worldly knowledge that it's been trained on that.
+
+10:25.560 --> 10:32.970
+It has a great viewpoint as to how much a tire costs, how much a headlamp costs, how much a shower
+
+10:32.970 --> 10:34.860
+faucet costs, and all the other things.
+
+10:34.860 --> 10:37.620
+That gave me tremendous problem because I have no clue.
+
+10:37.710 --> 10:40.260
+Uh, but it had a very good clue indeed.
+
+10:40.350 --> 10:46.260
+Um, and so much of a clue that it beat all of the models that had worked on this.
+
+10:46.260 --> 10:47.910
+So that's pretty cool.
+
+10:47.910 --> 10:50.940
+I did enjoy seeing this a lot.
+
+10:51.060 --> 10:59.370
+And, uh, in the next video, we will take it up a notch and see how it's it's bigger cousin fares.

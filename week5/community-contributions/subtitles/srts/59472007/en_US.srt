@@ -1,0 +1,367 @@
+WEBVTT
+
+00:00.620 --> 00:07.460
+So I hope you enjoyed our first bash at Scrubbing Data, and that you are now looking through the code,
+
+00:07.460 --> 00:13.310
+convincing yourself that I've done good things when I have cleansed the data and I haven't thrown out
+
+00:13.310 --> 00:15.380
+anything that we should be including for the model.
+
+00:15.470 --> 00:21.200
+If you do find something like that, please let me know right away, because I love squeezing a bit
+
+00:21.200 --> 00:26.360
+more juice out of the model and making the results a little bit better, and changing the data.
+
+00:26.390 --> 00:32.270
+Improving the quality of the data that goes into the model has had by far the most profound impact on
+
+00:32.270 --> 00:33.830
+the performance of the model.
+
+00:33.950 --> 00:39.980
+You can spend huge amounts of time doing what they call hyperparameter tuning, which we will all be
+
+00:39.980 --> 00:44.690
+doing for for a while to try and squeeze a little tiny bit of juice out of your model and make it a
+
+00:44.690 --> 00:49.310
+little bit better at predicting outcomes as we try and go head to head against frontier models, which
+
+00:49.310 --> 00:50.450
+is going to be hard.
+
+00:50.540 --> 00:57.560
+Um, but it turns out that improving the data quality of what goes in is the easiest and most effective
+
+00:57.560 --> 00:58.850
+way to move the needle.
+
+00:58.850 --> 01:01.640
+So that's why it's worth spending the time doing it.
+
+01:01.640 --> 01:06.950
+And in that last Jupyter notebook, we we really worked on numbers one, two and three on this list,
+
+01:06.950 --> 01:08.600
+and some of four and five.
+
+01:08.630 --> 01:13.790
+We've got more of four and five to go, but most important is that you look through that Isom class
+
+01:13.790 --> 01:16.460
+and see how it's doing its thing yourself.
+
+01:17.690 --> 01:26.780
+Now just before we we we wrap up, I do want to measure and mention again the topic of performance evaluation,
+
+01:26.810 --> 01:33.710
+how we're going to decide whether or not we have actually succeeded in our goals with this model.
+
+01:33.950 --> 01:40.520
+Uh, there are, as I mentioned a while back, these two kinds of of metrics that you can use to evaluate
+
+01:40.520 --> 01:41.150
+performance.
+
+01:41.150 --> 01:48.020
+There are model centric metrics which are more in the sort of data scientist's domain of understanding
+
+01:48.020 --> 01:52.310
+how how well your model is performing mathematically.
+
+01:52.430 --> 01:59.030
+Uh, and then there are outcome business centric metrics, which are the ones that will resonate with
+
+01:59.030 --> 02:03.650
+the, the the user, the sponsor, the the CEO.
+
+02:03.680 --> 02:07.430
+They're the ultimate goals of the project.
+
+02:07.460 --> 02:13.310
+The model centric ones are much more directly measurable by the model, and can usually be measured
+
+02:13.310 --> 02:15.620
+while it's training and optimized.
+
+02:15.650 --> 02:22.520
+The business centric ones are the ones that matter the most, but not necessarily as immediately tied
+
+02:22.550 --> 02:23.540
+to the model.
+
+02:24.080 --> 02:30.680
+Although in our case, we have this wonderful luxury of having business centric metrics which are going
+
+02:30.710 --> 02:34.760
+to be tied to the model and are going to be great first on the model centric metrics.
+
+02:34.760 --> 02:41.120
+So you'll often hear talk of training loss and validation loss that training losses is is the loss with
+
+02:41.120 --> 02:41.720
+the training set.
+
+02:41.750 --> 02:46.430
+Validation loss is with the validation set, which is a part of the data that you've held back.
+
+02:46.880 --> 02:53.300
+And this is going to be a metric that the model will calculate that we'll talk more about later, and
+
+02:53.300 --> 02:54.620
+we'll see it happening.
+
+02:54.620 --> 02:59.540
+And during the course of training you will see your training loss hopefully gradually going down and
+
+02:59.540 --> 03:05.120
+down and down, which means that the model is getting more and more accurate at doing its task.
+
+03:05.510 --> 03:13.890
+Um uh, and there are some more sophisticated data science metrics that uh, we will also be looking
+
+03:13.890 --> 03:15.240
+at at various points.
+
+03:15.240 --> 03:19.230
+There's one called the root mean squared log error.
+
+03:19.260 --> 03:20.190
+RMSE l.
+
+03:20.490 --> 03:27.690
+And the benefit of this particular error is that it's something that will both penalize the model if
+
+03:27.690 --> 03:33.390
+it's if it's wrong on an, on an absolute basis and on a, on a percentage basis in different ways.
+
+03:33.390 --> 03:38.910
+And it's not going to unfairly penalize the model if it's out by a few dollars on a low priced item.
+
+03:38.910 --> 03:47.460
+So it's a it's a good balanced metric that weighs up absolute differences and relative percentage differences.
+
+03:47.640 --> 03:48.990
+Um, appropriately.
+
+03:48.990 --> 03:51.450
+So that's something that we'll be looking at too.
+
+03:51.480 --> 03:56.790
+Another one that people often look at is much simpler is just mean squared error, which is the the
+
+03:56.790 --> 04:00.900
+square of the difference between the prediction and the actual price.
+
+04:00.990 --> 04:06.270
+The challenge with mean squared error is that it blows up for larger prices.
+
+04:06.270 --> 04:14.100
+So if we have something that costs $800 and we predict $900, then there's a difference of $100 there.
+
+04:14.100 --> 04:20.610
+And if you square that, you get 10,000, which is a big number and which will dwarf all of your other
+
+04:20.610 --> 04:21.330
+errors.
+
+04:21.420 --> 04:26.460
+So mean squared error can be more troubling for our kind of problem.
+
+04:26.850 --> 04:29.340
+So those are the model centric metrics.
+
+04:29.340 --> 04:32.040
+But now let's talk about the business metrics.
+
+04:32.040 --> 04:36.960
+So the wonderful thing about our problem is that there is this metric which is really it's really belongs
+
+04:36.960 --> 04:37.890
+in both camps.
+
+04:37.890 --> 04:42.480
+It's just the the average absolute price difference.
+
+04:42.480 --> 04:45.210
+Basically how wrong was the model.
+
+04:45.210 --> 04:49.560
+It said that the fridge cost 100 bucks and it actually cost 120 bucks.
+
+04:49.560 --> 04:51.060
+So it was out by 20.
+
+04:51.090 --> 04:56.220
+That average price difference is so simple, so human, understandable.
+
+04:56.460 --> 05:00.240
+And that is a great business outcome metric.
+
+05:00.240 --> 05:01.710
+It has some flaws.
+
+05:01.710 --> 05:10.050
+It's sort of unfair that that more expensive things like something again that costs like $800 if you're
+
+05:10.050 --> 05:14.670
+out, if you if you guess that it costs $850, you didn't do badly.
+
+05:14.670 --> 05:18.990
+But that's going to count as a $50 error, which is quite significant.
+
+05:19.230 --> 05:24.720
+Whereas if something costs $10, $10, then you would want to do much better than be out by $50.
+
+05:24.720 --> 05:26.100
+So it's not ideal.
+
+05:26.100 --> 05:29.460
+It has some some problems, but it's it's pretty good.
+
+05:29.460 --> 05:34.110
+And it's going to give us such a human understandable way of telling whether our model is doing any
+
+05:34.110 --> 05:34.710
+good.
+
+05:34.890 --> 05:39.990
+In conjunction with that, we could look at the percentage price difference, uh, you know, which
+
+05:39.990 --> 05:41.970
+which has the opposite problem.
+
+05:41.970 --> 05:47.610
+That's sort of more makes more sense, more reasonable for high priced items, but seems a bit unfair
+
+05:47.610 --> 05:48.990
+for cheap items.
+
+05:49.200 --> 05:51.540
+Something costs ten bucks and you get 12.
+
+05:51.570 --> 05:56.370
+Then saying that that's 20% out seems a bit a bit harsh.
+
+05:57.120 --> 06:03.690
+Um, and then another way to do it is to have some criteria that you will use to judge that an estimate
+
+06:03.690 --> 06:09.000
+is good quality, and that criteria could combine an absolute difference and a percentage difference.
+
+06:09.000 --> 06:18.120
+You might say, look, if something is, is, um, either within $40 or it's within 20%, then I consider
+
+06:18.120 --> 06:18.780
+that a hit.
+
+06:18.780 --> 06:20.370
+I consider that a good estimate.
+
+06:20.400 --> 06:22.530
+Good enough, good enough estimate.
+
+06:22.680 --> 06:28.830
+Um, and so then you could just measure what percentage of the model's predictions meet that criteria
+
+06:28.830 --> 06:30.870
+and are considered good.
+
+06:30.900 --> 06:36.030
+So that's another business metric that we could use and that we will use.
+
+06:36.180 --> 06:40.860
+Uh, and so these these are ways that we can assess the performance.
+
+06:40.860 --> 06:46.110
+And as I say, the delight with our project is that they're going to be so human.
+
+06:46.110 --> 06:47.070
+Understandable.
+
+06:47.070 --> 06:53.340
+So we're going to be able to do things like try different model, different hyperparameters.
+
+06:53.370 --> 06:54.510
+We're going to try different models.
+
+06:54.510 --> 06:56.790
+We're going to try frontier and open source.
+
+06:56.790 --> 07:03.360
+And we'll simply be able to see which ones are better able to predict product prices.
+
+07:04.920 --> 07:13.620
+And so we are very nearly ready to roll our sleeves up and get coding and get assessing how this performs,
+
+07:13.620 --> 07:14.820
+how we can predict prices.
+
+07:14.820 --> 07:16.740
+And it's going to be such a lot of fun.
+
+07:16.830 --> 07:20.970
+Uh, but there are just a couple of housekeeping things we have to do first.
+
+07:21.000 --> 07:29.230
+I want to talk to you a bit about, uh, the sort of business This strategy for how you go about solving
+
+07:29.230 --> 07:30.340
+a problem like this.
+
+07:30.370 --> 07:36.010
+And I realize that if you're like me, you are itching to get into it, itching to get in, to actually
+
+07:36.040 --> 07:40.810
+finally building training our model and seeing how good are these different models out there.
+
+07:40.900 --> 07:48.010
+Um, but I just want to give you this, this grounding, this foundation, so that you have this context
+
+07:48.100 --> 07:52.060
+that's going to be reinforced when we then do go and solve the business problem.
+
+07:52.690 --> 07:59.410
+I'm going to contrast the different techniques for improving performance and explain, like what's the
+
+07:59.410 --> 08:00.130
+difference between them?
+
+08:00.130 --> 08:04.990
+I really want to to clarify, in what circumstances do you use Rag?
+
+08:04.990 --> 08:07.570
+In what circumstances do you use fine tuning?
+
+08:07.570 --> 08:09.340
+It's a question I get asked a lot.
+
+08:09.370 --> 08:12.250
+Um, and I think it's helpful to clarify that before we get into it.
+
+08:12.250 --> 08:17.410
+So you've got that, that, that context, and then we still have some, some homework to do with the
+
+08:17.410 --> 08:18.040
+data set.
+
+08:18.070 --> 08:21.640
+We've still got to curate and upload our final data set.
+
+08:21.640 --> 08:22.570
+It's going to be big.
+
+08:22.570 --> 08:25.690
+It's going to be a big data set, because we're going to want to do a lot of training.
+
+08:25.810 --> 08:27.430
+So we have some more to do there.
+
+08:27.460 --> 08:30.580
+All of that, all of that coming tomorrow.
+
+08:30.610 --> 08:31.420
+See you then.

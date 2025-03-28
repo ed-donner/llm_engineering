@@ -1,0 +1,190 @@
+WEBVTT
+
+00:00.290 --> 00:05.120
+So I'm now going to talk about five important hyperparameters for the training process.
+
+00:05.120 --> 00:07.460
+And some of these we've talked about briefly before.
+
+00:07.460 --> 00:12.860
+But many of these will be somewhat new to you unless you've worked in other data science projects of
+
+00:12.860 --> 00:13.670
+this sort.
+
+00:13.700 --> 00:18.890
+And the first one I'll mention is epochs, which we did briefly mention some some time ago.
+
+00:18.890 --> 00:27.830
+So epochs are referring to how many times are you going to go through your entire data set, uh, as
+
+00:27.830 --> 00:29.300
+part of the training process.
+
+00:29.300 --> 00:34.370
+So you might imagine that when you're training, you take each of your training data points and you
+
+00:34.370 --> 00:37.670
+go through the set once and then you're done.
+
+00:37.670 --> 00:42.620
+But in fact, it turns out that you can get more mileage by going back a second time and going through
+
+00:42.620 --> 00:45.200
+all of your training data again with your model.
+
+00:45.230 --> 00:46.820
+Now you might think, why?
+
+00:46.820 --> 00:50.240
+Why does it help to go through a second time when the model already saw it once?
+
+00:50.240 --> 00:52.520
+So you're just giving it the same data a second time?
+
+00:52.520 --> 00:58.160
+Well, remember when we go through the training optimization process involves going through each of
+
+00:58.160 --> 01:04.250
+these points and then making a very small step in the direction of making the model a little bit better,
+
+01:04.250 --> 01:10.770
+shifting the weights in our in our Laura matrices a little tiny bit so that next time it does a bit
+
+01:10.770 --> 01:11.490
+better.
+
+01:11.640 --> 01:16.380
+Um, so every time we go through all of the training data set, we have an opportunity to get a little
+
+01:16.380 --> 01:17.700
+tiny bit better.
+
+01:17.880 --> 01:22.860
+Um, and presumably once it's gone through, once the model is now in a bit of a different state.
+
+01:22.950 --> 01:27.930
+So when it sees it again, it can allow it to refine and do a little bit better.
+
+01:28.560 --> 01:34.980
+There is another reason why it often makes sense to have multiple epochs, and that comes down to batch
+
+01:34.980 --> 01:35.550
+size.
+
+01:35.580 --> 01:43.950
+The next hyperparameter batch size, is saying that often we don't take one data point and put it through
+
+01:43.980 --> 01:49.410
+the forward pass of the model to predict the next token, calculate the loss, and then go backwards
+
+01:49.410 --> 01:52.380
+and figure out the gradients of how much does that loss?
+
+01:52.410 --> 01:56.610
+Is that affected by the different weights in the parameter in the model?
+
+01:56.610 --> 02:00.540
+And then optimize the model by doing a little step in the right direction?
+
+02:00.630 --> 02:06.240
+Uh, it sometimes makes sense to do that at the same time with a bunch of data points together.
+
+02:06.240 --> 02:13.410
+Like often you pick a four or 8 or 16 and you do it together for for all 16.
+
+02:13.930 --> 02:17.950
+One reason for doing that is, is performance, that it means that you can just get through everything
+
+02:17.980 --> 02:18.460
+faster.
+
+02:18.460 --> 02:19.630
+You can do it all together.
+
+02:19.660 --> 02:23.920
+If you can fit 16 data points on your GPU, then that's a good thing to do.
+
+02:23.950 --> 02:29.830
+There are some other reasons why it might actually be better to do it in batches, than to do it step
+
+02:29.830 --> 02:30.670
+by step.
+
+02:30.760 --> 02:35.920
+Um, uh, but but, uh, but the basic reason is for performance.
+
+02:36.100 --> 02:44.200
+When you do multiple epochs with each epoch, it's typical that you resort or you juggle up all of the
+
+02:44.200 --> 02:44.710
+batches.
+
+02:44.710 --> 02:52.030
+So they're different batches, different sets of these 16 data points that the model sees with each
+
+02:52.030 --> 02:52.870
+of your epochs.
+
+02:52.870 --> 02:58.660
+So actually in some ways the data is different for each of these epochs because it's seeing a different
+
+02:58.660 --> 03:02.890
+sample of your data points as it goes through them.
+
+03:02.890 --> 03:06.250
+And that's another reason why multiple epochs can be good.
+
+03:06.880 --> 03:13.120
+Now there's one very common technique which is to at the end of each epoch, you typically save your
+
+03:13.120 --> 03:13.630
+model.
+
+03:13.630 --> 03:20.040
+And it's quite common to run a bunch of epochs and then test how your model performed at the end of
+
+03:20.040 --> 03:27.270
+each of those epochs, and what you often find is that the model was getting better and better as it
+
+03:27.270 --> 03:33.570
+learned more and more in each epoch, but then you reach a certain point where the model starts to overfit,
+
+03:33.570 --> 03:38.070
+which we talked about last time, where it starts to get so used to seeing this training data that it
+
+03:38.070 --> 03:41.220
+starts to solve just for exactly that training data.
+
+03:41.220 --> 03:48.480
+And then when you test it, the performance gets worse because it's not expecting points outside its
+
+03:48.480 --> 03:49.740
+training data set.
+
+03:49.740 --> 03:54.690
+So you start to see like better, better, better, better, worse, worse, worse.
+
+03:54.690 --> 03:57.450
+And then the results get continually worse.
+
+03:57.450 --> 04:04.410
+And what you do is you run this and you quite simply pick the epoch which gave you the best model,
+
+04:04.410 --> 04:05.550
+the best outcome.
+
+04:05.550 --> 04:08.460
+And that's the one that you consider the results of your training.
+
+04:08.460 --> 04:12.570
+That's the version of the fine tuned model and that's what you take forwards.
+
+04:12.570 --> 04:18.990
+So it's common to run a larger number of epochs and then use that kind of testing to pick which one
+
+04:18.990 --> 04:20.490
+was your best model.
+
+04:21.870 --> 04:26.910
+With that, I will pause and continue with these parameters in the next video.

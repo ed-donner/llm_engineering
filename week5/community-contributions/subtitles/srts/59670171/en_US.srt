@@ -1,0 +1,409 @@
+WEBVTT
+
+00:00.470 --> 00:07.640
+So as the very final step on this part four of day two of week eight, we are now going to build an
+
+00:07.670 --> 00:10.220
+ensemble model that brings all of this together.
+
+00:10.220 --> 00:16.040
+And first, I just wanted to show you that if I take a product like my microphone right here, the Quadcast
+
+00:16.040 --> 00:23.630
+HyperX condenser mic, we've got these three objects now, Specialist Frontier and Random Forest, and
+
+00:23.630 --> 00:26.330
+we can ask each of them to price this product.
+
+00:26.330 --> 00:28.670
+And you'll see we get these three numbers.
+
+00:28.670 --> 00:33.080
+In this case, I think the frontier model is closest to the truth.
+
+00:33.080 --> 00:37.730
+I seem to remember when we and maybe I must have had slightly different text when we called the specialist
+
+00:37.730 --> 00:38.780
+model last time.
+
+00:38.780 --> 00:40.100
+I think we got even better.
+
+00:40.100 --> 00:43.940
+We got like 129, I think, which is even closer.
+
+00:44.120 --> 00:45.740
+Uh, but yes.
+
+00:45.740 --> 00:50.900
+Anyways, you can see that the random forest didn't do so great, but the other two were, uh, were
+
+00:50.900 --> 00:51.830
+reasonable.
+
+00:52.070 --> 00:55.280
+So what we do right now is quite simple.
+
+00:55.280 --> 01:02.450
+I take, uh, the first, I take a selected 250 test data points.
+
+01:02.510 --> 01:08.460
+Uh, I actually picked the ones from 1000 to 150 to keep it separate from the ones we've been using
+
+01:08.460 --> 01:10.170
+for actually testing.
+
+01:10.410 --> 01:18.630
+Um, and basically I take each of those items, I find its description and I add in, what price do
+
+01:18.630 --> 01:24.930
+we get from the specialist model, from the frontier model, and from the random forest model?
+
+01:24.930 --> 01:29.700
+And then I also have a list of prices where I put the actual true price of that item.
+
+01:29.700 --> 01:37.890
+So we will end up with these four lists a list of specialist results from our proprietary LLM frontier
+
+01:37.920 --> 01:45.090
+Rag based results that come from GPT four, with our extra context and the random forest results, and
+
+01:45.090 --> 01:47.310
+then the ground truth, the real numbers.
+
+01:47.310 --> 01:49.410
+And so we build all of that.
+
+01:50.160 --> 01:52.770
+I'm going to do a trick now which which is fairly common.
+
+01:52.770 --> 01:54.630
+It's the kind of thing you can really play with.
+
+01:54.630 --> 01:57.480
+I'm going to add two more, uh, into this.
+
+01:57.510 --> 02:04.830
+One of them is called mins and is the minimum of those three, and the other is called Max's and it's
+
+02:04.830 --> 02:06.750
+the maximum of those three.
+
+02:06.960 --> 02:13.250
+It's just it's another Um, fact that might might have some signal in there.
+
+02:13.250 --> 02:18.470
+It might be useful to also look at what is the lowest estimate that the three models had, and what
+
+02:18.470 --> 02:22.520
+is the highest estimate that they had for any one product.
+
+02:22.520 --> 02:30.140
+So now at this point we now have five results for each each of the 250 products, the specialist one,
+
+02:30.140 --> 02:35.630
+the frontier one, the random forest one, the minimum of those three, and the maximum of those three.
+
+02:35.660 --> 02:44.840
+They are sitting in five collections and I make a pandas dataframe out of those five specialist frontier,
+
+02:44.870 --> 02:47.240
+random forest, min and max.
+
+02:47.330 --> 02:52.340
+And I take the prices, the ground truth, and I convert that into a series.
+
+02:52.340 --> 03:00.350
+And I call this x and I call this y, which will be familiar to anyone from a traditional machine learning
+
+03:00.350 --> 03:01.010
+background.
+
+03:01.010 --> 03:07.670
+And I can then do exactly what we also did during week six, which is I can say, uh, let's train a
+
+03:07.670 --> 03:14.240
+linear regression model, a simple linear regression that says what weighted average of these different
+
+03:14.250 --> 03:20.190
+series gives you the best fit, the best result for this data.
+
+03:20.520 --> 03:22.800
+And so we do that.
+
+03:22.950 --> 03:25.140
+Um, and this is what we get.
+
+03:25.140 --> 03:26.820
+These are the coefficients.
+
+03:27.570 --> 03:31.980
+So both the min's and the Max's get pretty high weighting.
+
+03:32.070 --> 03:39.120
+Uh, so generally speaking it's taking its most, uh, been looking at some combination of the minimum
+
+03:39.120 --> 03:42.690
+and the maximum as what it has latched onto.
+
+03:42.750 --> 03:49.020
+Um, then it's taken a healthy share of the specialist proprietary LM and a much smaller share of the
+
+03:49.020 --> 03:49.980
+frontier model.
+
+03:49.980 --> 03:53.280
+And somewhat bizarrely, it's actually said the frontier.
+
+03:53.310 --> 04:00.990
+There is there is some signal in Random Forest, but it's going to subtract out that, uh, you'll see
+
+04:00.990 --> 04:06.180
+it's given a pretty large intercept and subtracted out a portion of the random forest numbers.
+
+04:06.300 --> 04:10.950
+So that's a curious result, which indicates that maybe the random forest numbers weren't weren't that
+
+04:10.950 --> 04:11.220
+good.
+
+04:11.250 --> 04:15.210
+But it it does think it's useful to incorporate that in the overall puzzle.
+
+04:15.240 --> 04:17.790
+Now you're probably you're going to thinking in your mind.
+
+04:17.790 --> 04:21.960
+You point out to me that random forest is already baked into these two, so I can't.
+
+04:21.990 --> 04:27.030
+You can't read too much into the fact that it's got a negative number there, because it's already factored
+
+04:27.030 --> 04:28.860
+into the min and the max numbers.
+
+04:28.860 --> 04:33.780
+So you can run this again, taking out min and Max to probably get a better assessment of how it weighs
+
+04:33.780 --> 04:35.280
+up those three models.
+
+04:35.880 --> 04:44.880
+Um, so that that's all it takes to build an ensemble model, because now we can use this model to take
+
+04:44.880 --> 04:51.870
+in these different factors and predict a price, taking the best linear combination of the models that
+
+04:51.870 --> 04:52.830
+we feed it.
+
+04:53.160 --> 04:58.890
+So first I save that to ensemble model so that we've got that captured for the future.
+
+04:58.890 --> 05:00.720
+We don't have to run it every time.
+
+05:00.720 --> 05:05.130
+And I have made a new agent called Ensemble Agent.
+
+05:05.160 --> 05:08.130
+Let's go and take a look at Ensemble Agent right now.
+
+05:08.820 --> 05:09.630
+Here it is.
+
+05:09.630 --> 05:11.610
+This is the code for ensemble agent.
+
+05:11.610 --> 05:13.230
+And it's very simple.
+
+05:13.500 --> 05:16.590
+Uh, it looks like I need to add some comments in here, which I will do.
+
+05:16.590 --> 05:20.550
+So before you get to see this yourself, uh, it needs comments.
+
+05:20.550 --> 05:21.450
+Bad meat.
+
+05:21.720 --> 05:23.700
+Uh, so sorry about that.
+
+05:24.060 --> 05:31.680
+In the init, we set it up by creating the three agents that it will be using for the different, uh,
+
+05:31.680 --> 05:33.480
+parts of its pricing.
+
+05:33.840 --> 05:40.380
+Uh, and we also load in its model weights the weighted combination when it comes to running the ensemble
+
+05:40.380 --> 05:46.560
+agent to do a price, uh, we calculate the price of the specialist by calling price.
+
+05:46.560 --> 05:48.270
+We call price for the frontier.
+
+05:48.270 --> 05:50.700
+We call price for the random forest.
+
+05:50.730 --> 05:55.830
+We build a data frame for X, including the min and the max.
+
+05:55.860 --> 06:03.600
+And finally we call Model.predict to predict why that should really be Y hat if we're using data science
+
+06:03.600 --> 06:07.560
+speak and we return that the prediction.
+
+06:08.310 --> 06:11.040
+Uh, so it's hopefully crystal clear for you.
+
+06:11.040 --> 06:16.830
+It's simply a way of packaging up the call to our linear regression model that gives a linear combination
+
+06:16.830 --> 06:19.860
+of the different models that we've built before.
+
+06:20.010 --> 06:28.280
+And so with that of course, the next thing that you can imagine I tried out pricing the same, uh,
+
+06:28.310 --> 06:30.710
+the the the microphone I've got right here.
+
+06:30.710 --> 06:34.880
+And it came up with a number that's somewhere in the middle, which is exactly what we were expecting.
+
+06:34.880 --> 06:44.120
+I package it into a function ensemble processor, and then of course, I call the tester dot test with
+
+06:44.120 --> 06:45.020
+the ensemble.
+
+06:45.020 --> 06:49.490
+Now, this takes a while to run because it's calling all these different models and modal takes a while.
+
+06:49.490 --> 06:50.810
+So I've run it in advance.
+
+06:50.810 --> 06:55.310
+And if you're watching this, remember it will take a few minutes for the first one while modal warms
+
+06:55.310 --> 06:59.270
+up, and then it's a few seconds for each of these.
+
+06:59.450 --> 07:05.750
+Out they come and as you will see, there's a few reds in there.
+
+07:05.750 --> 07:06.650
+I will tell you.
+
+07:06.680 --> 07:14.030
+Somewhat disappointingly, I was really hoping this would move the needle and beat, uh, the, the,
+
+07:14.030 --> 07:20.450
+the amazing proprietary model that we've got, somewhat disappointingly, using this, uh, approach
+
+07:20.450 --> 07:27.710
+of Ensembling multiple models seems to have moved us a hair poorer, a hair worse for this test data
+
+07:27.740 --> 07:30.590
+set, uh, than than we were at before.
+
+07:30.590 --> 07:35.320
+But you've got to imagine that that's that's more an artifact to the fact that it's fairly noisy.
+
+07:35.590 --> 07:36.970
+It's very, very close.
+
+07:36.970 --> 07:42.280
+It has to be an improvement that we're carrying out this ensemble of different models.
+
+07:42.490 --> 07:46.240
+Um, but there's clearly some more work that needs to be done here.
+
+07:46.270 --> 07:51.430
+Uh, the chart looks looks very nice, but there's some intercept problem there that might be that that
+
+07:51.430 --> 07:53.350
+intercept number was too high.
+
+07:53.380 --> 07:55.240
+Uh, on on what it did.
+
+07:55.450 --> 08:01.120
+Uh, and rather than spending a lot of time iterating over this, I think this is the time to say it's
+
+08:01.120 --> 08:01.930
+over to you.
+
+08:01.930 --> 08:07.090
+Now, I've spent a fair amount of time on this, but not so much on the ensembling technique and on
+
+08:07.090 --> 08:08.020
+some of these others.
+
+08:08.020 --> 08:15.700
+And it's wonderful to experiment with this because it's so easy to add on more terms, more serieses,
+
+08:15.700 --> 08:19.960
+and pass that into the linear regression as you build the ensemble.
+
+08:19.990 --> 08:22.120
+And this is a data scientist's dream.
+
+08:22.120 --> 08:22.960
+You've got data.
+
+08:22.990 --> 08:28.390
+You've got a clear, measurable, a clear way of determining success.
+
+08:28.540 --> 08:34.330
+And lots to experiment on, lots of hyperparameters and quite quick gratification.
+
+08:34.330 --> 08:37.520
+You can make the change and see the response very quickly.
+
+08:37.670 --> 08:39.920
+So you can do better than me.
+
+08:39.950 --> 08:41.540
+This is very much a challenge.
+
+08:41.540 --> 08:43.550
+You're now armed with lots of good tools.
+
+08:43.550 --> 08:47.000
+You may have already built a proprietary model that beats me.
+
+08:47.120 --> 08:53.720
+And even if not, you can, I'm sure use this ensembling technique to get ahead.
+
+08:53.780 --> 09:00.200
+So with that, that concludes the lab work for this part before we return to the slides.
+
+09:00.230 --> 09:08.660
+The just to say remember that whilst this the key objective for this was not necessarily to get super
+
+09:08.660 --> 09:15.890
+deep on how you price products, it was to solidify your understanding of things like vector embeddings,
+
+09:15.890 --> 09:24.080
+rag the running different models and go from a stage of being fairly confident with this kind of material
+
+09:24.110 --> 09:26.720
+to being advanced and super confident with it.
+
+09:26.720 --> 09:28.160
+And I hope you've got there now.
+
+09:28.160 --> 09:33.590
+And if you haven't, go back through these notebooks and go through each cell by cell and inspect the
+
+09:33.590 --> 09:38.180
+outcomes and convince yourself until you are very, very confident.
+
+09:38.180 --> 09:41.600
+And I will see you back in the slides in the next video.
