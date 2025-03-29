@@ -1,0 +1,48 @@
+ai_converter_v2/
+├── README.md              # Project documentation
+├── requirements.txt       # Python dependencies
+├── setup.py              # Package installation configuration
+├── run.py                # Application entry point
+├── Makefile              # Build and development commands
+├── .env.example          # Example environment variables
+├── .gitignore            # Git ignore patterns
+└── src/
+    └── ai_code_converter/
+        ├── __init__.py
+        ├── main.py       # Main application initialization
+        ├── app.py        # Gradio interface and core app logic
+        ├── config.py     # Configuration settings
+        ├── template.j2   # Code conversion prompt template
+        ├── core/         # Core functionality modules
+        │   ├── __init__.py
+        │   ├── code_execution.py    # Code execution logic
+        │   ├── language_detection.py # Language detection
+        │   └── file_utils.py        # File operations
+        ├── models/       # AI model interfaces
+        │   ├── __init__.py
+        │   └── ai_streaming.py      # Streaming implementations
+        └── utils/        # Utility functions
+            ├── __init__.py
+            └── logger.py            # Logging configuration
+
+Key Components:
+- core/: Core functionality modules
+  - code_execution.py: Handles code execution in different languages
+  - language_detection.py: Detects and validates programming languages
+  - file_utils.py: Handles file operations and downloads
+
+- models/: AI model implementations
+  - ai_streaming.py: Streaming implementations for different AI models
+
+- utils/: Utility modules
+  - logger.py: Logging configuration and setup
+
+- Configuration:
+  - config.py: Central configuration settings
+  - template.j2: Prompt template for code conversion
+  - .env: Environment variables (API keys)
+
+- Entry Points:
+  - run.py: Main entry point
+  - main.py: Application initialization
+  - app.py: Gradio interface implementation 
