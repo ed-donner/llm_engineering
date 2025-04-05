@@ -10,7 +10,6 @@ dependencies:
   - numpy
   - pandas
   - scipy
-  - pytorch
   - jupyterlab
   - ipywidgets
   - matplotlib
@@ -48,3 +47,6 @@ dependencies:
     - feedparser
     - twilio
     - pydub
+    - torch
+    - torchvision
+    - torchaudio
