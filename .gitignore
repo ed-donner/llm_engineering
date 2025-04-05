@@ -182,3 +182,4 @@ products_vectorstore/
 # ignore optimized C++ code from being checked into repo
 week4/optimized
 week4/simple
+.env.txt
