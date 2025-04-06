@@ -1,0 +1,97 @@
+WEBVTT
+
+00:01.400 --> 00:02.960
+What more is there to say, really?
+
+00:02.990 --> 00:04.820
+Tomorrow is the day for results.
+
+00:04.850 --> 00:07.610
+A day that very excited indeed about.
+
+00:07.850 --> 00:08.570
+Uh.
+
+00:08.570 --> 00:15.920
+But I will mention everything that you can do at this point generating text and code with frontier models
+
+00:15.920 --> 00:22.550
+and their APIs, open source models through hugging faces, various libraries, tools, assistance,
+
+00:22.580 --> 00:23.420
+rag.
+
+00:23.540 --> 00:25.460
+It's all part of your skill set.
+
+00:25.550 --> 00:32.420
+You can follow the five step strategy I went through to solve problems including curating data, building
+
+00:32.420 --> 00:39.320
+a baseline model, and fine tuning frontier model with example training sets in those jsonl the JSON
+
+00:39.320 --> 00:48.530
+lines files that we uploaded, and now and now you can run Q Laura fine tuning for open source models,
+
+00:48.560 --> 00:52.250
+including defining and selecting your hyperparameters.
+
+00:52.250 --> 00:56.270
+And then you can run training and you can monitor training.
+
+00:56.270 --> 01:05.900
+And a great joy it is to uh, so tomorrow, you will be able to run inference on a fine tuned model,
+
+01:05.900 --> 01:10.340
+which isn't as simple as it sounds, because you can't just load it in.
+
+01:10.370 --> 01:15.710
+You have to know how to load in the base model and apply these chullora weights on top of it.
+
+01:15.890 --> 01:16.730
+But it's not that difficult.
+
+01:16.730 --> 01:17.810
+But but it is.
+
+01:17.840 --> 01:19.400
+There are a couple of steps to it.
+
+01:19.850 --> 01:23.480
+Uh, and then, of course, we'll take a moment to look at the results.
+
+01:23.630 --> 01:31.220
+Um, but most importantly, at that point, you will be able to carry out the end to end process from
+
+01:31.220 --> 01:37.760
+first idea and thought and definition of the commercial problem through to having a trained model,
+
+01:37.850 --> 01:45.050
+uh, to build your own proprietary verticalized LLM to solve a business problem.
+
+01:45.650 --> 01:50.450
+And I was going to try and put a third bullet in there, because I've normally had three bullets against
+
+01:50.450 --> 01:52.100
+the what you'll be able to do tomorrow.
+
+01:52.100 --> 01:57.320
+But it seems to me like that second bullet is enough of a mic drop that it's like you don't need a third
+
+01:57.320 --> 01:57.740
+bullet.
+
+01:57.740 --> 01:58.820
+That's all you need.
+
+01:58.820 --> 02:00.830
+That second bullet, it says it all.
+
+02:00.830 --> 02:02.150
+That's what you're going to be able to do.
+
+02:02.150 --> 02:03.560
+And it's huge.
+
+02:03.590 --> 02:04.520
+I'll see you then.

@@ -1,0 +1,160 @@
+WEBVTT
+
+00:00.620 --> 00:07.340
+So we're now going to look at four bit quantization, the rather remarkable effect of reducing the precision
+
+00:07.340 --> 00:08.330
+all the way down.
+
+00:08.330 --> 00:13.460
+So very similar to before we create a quant config using bits and bytes.
+
+00:13.700 --> 00:17.150
+But this time we asked to load in four bit equals.
+
+00:17.150 --> 00:17.750
+True.
+
+00:17.780 --> 00:19.370
+There are some other settings here too.
+
+00:19.370 --> 00:24.710
+This time there's one called use double Quant, which again is slightly mysterious.
+
+00:24.710 --> 00:30.710
+The idea here is that it does a pass through quantizing all of the weights, and then it does a second
+
+00:30.710 --> 00:32.270
+pass through again.
+
+00:32.270 --> 00:36.830
+And in doing so it's able to reduce memory by I think about 10 to 20% more.
+
+00:36.860 --> 00:38.990
+It squeezes a bit more out of this.
+
+00:39.080 --> 00:46.100
+And this is, uh, experimentally shown to make it very, very small difference to the power of the
+
+00:46.100 --> 00:46.940
+neural network.
+
+00:46.940 --> 00:48.470
+So it's almost a freebie.
+
+00:48.500 --> 00:51.020
+It's again cake and eat it situation.
+
+00:51.020 --> 00:54.980
+So recommended to use Double Quant as true.
+
+00:55.130 --> 01:01.280
+This here compute dtype is about the data type that's used during computation.
+
+01:01.490 --> 01:06.350
+And there generally you could work with 32 bit floats here.
+
+01:06.350 --> 01:14.240
+But using the Bfloat16 data type binary float 16 is seen as something which improves the speed of training
+
+01:14.240 --> 01:20.480
+and makes it faster, with only a tiny sacrifice to quality of the of the training.
+
+01:20.630 --> 01:26.450
+Certainly when I've tried this, I've seen it run faster and I've not been able to detect any actual
+
+01:26.450 --> 01:30.470
+change in the rate of of of optimization.
+
+01:30.710 --> 01:32.750
+So this is recommended for sure.
+
+01:32.750 --> 01:35.750
+But again, it's a hyper parameter that you can experiment with.
+
+01:35.750 --> 01:40.220
+And then this here the the four bit quant type.
+
+01:40.220 --> 01:45.800
+This is saying when we reduce the precision down to a four bit number, how should we interpret that
+
+01:45.800 --> 01:46.730
+four bit number.
+
+01:46.760 --> 01:54.350
+You might think okay, so if it's four bits 0000 through to 1111, then that represents an integer from
+
+01:54.350 --> 01:55.790
+0 to 15.
+
+01:55.820 --> 01:57.800
+That might be one way of doing it.
+
+01:57.830 --> 02:02.690
+Um it's more common to interpret it, map it to a sort of a floating point number.
+
+02:02.810 --> 02:08.750
+Um, and this nf4 approach maps it to something which has a normal distribution to it.
+
+02:08.780 --> 02:11.540
+And so again, this is very common setting.
+
+02:11.540 --> 02:13.550
+Uh, it's what I've used.
+
+02:13.580 --> 02:16.010
+I tried something else and it wasn't as good.
+
+02:16.040 --> 02:18.620
+So so this is the generally the recommended one.
+
+02:18.620 --> 02:23.090
+But it is a hyper parameter which means it is yours for trial and error.
+
+02:23.600 --> 02:31.370
+With that in mind, we create this quant config, which is very standard quant config for four bit quantization.
+
+02:31.370 --> 02:38.570
+And we create a base model with that which I have done and will now print the memory footprint.
+
+02:38.570 --> 02:43.010
+And remarkably, we are down to 5.6GB.
+
+02:43.040 --> 02:48.770
+You may have already spotted that over here in my resources, but when you remember that the base model,
+
+02:48.770 --> 02:54.470
+the real thing was 32GB in size, it's really come a long way down.
+
+02:54.470 --> 03:01.580
+So this is now something which will comfortably fit in our GPU's memory for this cheap T4 box.
+
+03:01.580 --> 03:04.940
+And if we look at the base model, we'll see the architecture.
+
+03:04.970 --> 03:07.580
+I'm not going to try and make that stupid joke again.
+
+03:07.670 --> 03:15.920
+It is, of course, identical to the architecture of the original, beefier 8 billion llama model.
+
+03:16.280 --> 03:22.130
+Just that within this deep within this, the precision of the weights is lower.
+
+03:22.130 --> 03:23.150
+It's four bit.
+
+03:23.960 --> 03:24.740
+Okay.
+
+03:24.740 --> 03:28.160
+In the next video, at this point, you should not restart your session.
+
+03:28.160 --> 03:34.490
+We need to keep this session as it is, and in the next video we're going to go in and load in our example
+
+03:34.490 --> 03:40.160
+of a fine tuned model and see how the Laura adaptations apply to this architecture.
+
+03:40.190 --> 03:41.030
+I'll see you there.

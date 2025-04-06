@@ -1,0 +1,463 @@
+WEBVTT
+
+00:00.800 --> 00:09.230
+And welcome back to us continuing our journey through the model class in Hugging Face Transformers library.
+
+00:09.260 --> 00:14.960
+We were just looking at the architecture of the llama model that you get when you simply write it,
+
+00:14.960 --> 00:17.690
+and saying that you should look at it for the others.
+
+00:17.690 --> 00:22.010
+One other thing to point out is to always look at the dimensionality.
+
+00:22.010 --> 00:28.490
+As I briefly mentioned, look at the number of input dimensions representing the vocab, and see that
+
+00:28.490 --> 00:32.120
+that matches the output down here.
+
+00:32.300 --> 00:39.080
+And you can follow the dimensions through the architecture and get a sense of what's going on.
+
+00:40.010 --> 00:41.060
+All right.
+
+00:41.060 --> 00:48.170
+But now that we have done all of this and we've talked through what's going on and we've built our inputs,
+
+00:48.200 --> 00:51.320
+it is time for business.
+
+00:51.320 --> 00:53.990
+This is the method model dot generate.
+
+00:53.990 --> 00:58.220
+It takes our inputs which are sitting on our GPU, ready for this.
+
+00:58.460 --> 01:02.100
+Um, and we can say we want up to 80 new tokens.
+
+01:02.340 --> 01:06.150
+Um, a reminder, in case you forgot that what we asked for was a joke.
+
+01:06.180 --> 01:08.970
+A joke for a room of data scientists.
+
+01:09.000 --> 01:11.460
+Our favorite little experiment.
+
+01:11.700 --> 01:16.110
+Uh, and then we take the the outputs.
+
+01:16.110 --> 01:20.490
+We take the the first in the list of outputs, there will only be one.
+
+01:20.760 --> 01:28.770
+Um, and we then call tokenizer dot decode to turn it from tokens back into letters to text again.
+
+01:28.770 --> 01:30.690
+And we print the result.
+
+01:30.720 --> 01:32.340
+Let's do it.
+
+01:32.520 --> 01:34.560
+So it starts to run.
+
+01:34.710 --> 01:41.070
+I like to to watch what's going on by looking down here and seeing it do a forward pass.
+
+01:41.070 --> 01:45.810
+And there comes our answer to a lighthearted joke.
+
+01:45.810 --> 01:49.590
+Why did the regression model break up with the neural network?
+
+01:49.620 --> 01:54.900
+Because it was a bad fit and the neural network was overfitting its emotions.
+
+01:55.230 --> 01:56.610
+Ah, you know, it's okay.
+
+01:56.610 --> 01:57.830
+It's not terrible.
+
+01:57.830 --> 01:58.880
+It's, uh.
+
+01:58.910 --> 02:02.990
+Yeah, it's it's a perfectly plausible joke.
+
+02:02.990 --> 02:05.870
+It's not the funniest that I've heard, but it's, uh.
+
+02:05.900 --> 02:07.370
+It's not bad.
+
+02:09.290 --> 02:12.350
+Why did the logistic regression model go to therapy?
+
+02:12.350 --> 02:15.410
+Because it was struggling to classify its emotions.
+
+02:15.410 --> 02:17.120
+I think that's really good, actually.
+
+02:17.120 --> 02:18.560
+I think that's great.
+
+02:19.520 --> 02:23.810
+It's simpler and it's, uh, spot on for a data science audience.
+
+02:23.810 --> 02:30.410
+I think that's a better gag than, uh, than some of the ones at the frontier models came up with.
+
+02:30.830 --> 02:33.320
+Uh, so good job.
+
+02:33.320 --> 02:34.520
+Llama 3.1.
+
+02:34.730 --> 02:38.630
+Uh, the thing to bear in mind again, of course, is that we're dealing here with the 8 billion parameter
+
+02:38.630 --> 02:45.320
+version of llama 3.1, the smallest version of it, and we've quantized it down to four bits, and then
+
+02:45.320 --> 02:46.730
+we double quantized it.
+
+02:46.910 --> 02:54.740
+Uh, so it's a this super slim version of the model, and it just told a perfectly respectable joke.
+
+02:55.710 --> 02:57.840
+Uh, so I hope you enjoyed that.
+
+02:57.990 --> 03:01.500
+The next thing we do is we do some cleanup to free up some memory.
+
+03:01.500 --> 03:06.570
+Otherwise, if we keep running, different models will very quickly run out of GPU.
+
+03:06.660 --> 03:13.320
+You may find this happens to you, in which case you can always restart your session by going runtime
+
+03:13.320 --> 03:19.110
+restart session and then continue from where you left off after doing the, uh, the imports.
+
+03:19.620 --> 03:25.770
+So the next thing I'm going to do is take everything we've just done and package it up into a nice little
+
+03:25.770 --> 03:27.450
+function that does all of it.
+
+03:27.450 --> 03:34.770
+The function will take the name of a model and messages a usual list of dictionaries.
+
+03:34.770 --> 03:38.970
+And let's just go through this line by line as a way of revising what we just did.
+
+03:39.000 --> 03:47.430
+We start by using the auto tokenizer class to create a new tokenizer based on the model that we're working
+
+03:47.430 --> 03:48.060
+with.
+
+03:48.990 --> 03:54.860
+This line is the thing that sets the padding token to be the same as the end of sentence token.
+
+03:54.890 --> 03:57.710
+This sort of standard boilerplate thing to do.
+
+03:57.950 --> 03:58.970
+And then this.
+
+03:58.970 --> 04:00.890
+We know and know it well.
+
+04:01.130 --> 04:08.900
+This is where we apply the chat template that's suitable for this tokenizer to the messages the list.
+
+04:08.900 --> 04:13.220
+And it will return back a series of tokens.
+
+04:13.220 --> 04:20.240
+We then put that onto the GPU and that we assign to inputs.
+
+04:20.510 --> 04:21.590
+This is new.
+
+04:21.590 --> 04:29.120
+So just as another little little skill to add I'm going to say let's stream back the results.
+
+04:29.240 --> 04:33.320
+And the Huggingface library supports that as well.
+
+04:33.320 --> 04:36.290
+You do you create this thing called a text streamer.
+
+04:36.320 --> 04:41.360
+You need to give it the tokenizer because as it streams back tokens, it's going to need to convert
+
+04:41.360 --> 04:43.190
+them back into, into text.
+
+04:43.220 --> 04:46.130
+Uh, so it needs to know what tokenizer you're using.
+
+04:46.130 --> 04:50.240
+So you provide that and then action.
+
+04:50.450 --> 04:52.400
+Uh, we first of all get the model.
+
+04:52.400 --> 04:55.200
+This is auto model for causal lm.
+
+04:55.200 --> 04:58.770
+This is the equivalent to the auto tokenizer.
+
+04:58.770 --> 05:04.350
+But to load the model we say from pre-trained, we tell it the name of the model.
+
+05:04.470 --> 05:07.590
+We say device map is auto, meaning user GPU.
+
+05:07.590 --> 05:16.260
+If you've got one and we pass in our quant config that we set way up there somewhere, uh, to be four
+
+05:16.260 --> 05:22.650
+bit double quantized NF for uh, type of four bit numbers.
+
+05:22.650 --> 05:28.710
+And the bfloat16 is the calculation, uh data type.
+
+05:29.010 --> 05:34.170
+And it's now time for business model dot generate.
+
+05:34.170 --> 05:35.460
+That's the big method.
+
+05:35.460 --> 05:42.540
+And we pass in the inputs we'll generate up to 80 new tokens and we'll give it our streamer.
+
+05:42.570 --> 05:49.020
+That's this is the piece that means that it will then stream the output and then we'll do our cleanup.
+
+05:49.530 --> 05:55.550
+So that is the function which kind of wraps everything that we did before, but also adds in streaming.
+
+05:55.550 --> 06:02.810
+And with that, let's quite simply call Phi three with our messages, uh, using the function we just
+
+06:02.810 --> 06:03.350
+wrote.
+
+06:03.350 --> 06:06.380
+So Phi three will now load in again.
+
+06:06.410 --> 06:12.920
+This will take a little bit longer for you because you will, uh, be loading it for the first time.
+
+06:12.980 --> 06:16.370
+Uh, I have already loaded it, so it's cached on disk.
+
+06:16.460 --> 06:20.660
+Uh, so it doesn't need to redownload the whole thing from hugging faces.
+
+06:20.690 --> 06:21.380
+Hub.
+
+06:21.710 --> 06:25.730
+Um, there's still a little bit to do to load it in while it's doing that.
+
+06:25.730 --> 06:27.140
+We could, uh.
+
+06:27.170 --> 06:32.180
+Oh, I was going to say we could look at the resources, but I think it's going to be so quick that
+
+06:32.180 --> 06:34.580
+I want you to see it streaming back.
+
+06:34.610 --> 06:39.050
+And I think, uh, I should prepare you for the fact that you may be disappointed.
+
+06:39.560 --> 06:49.010
+Um, so I found that from using at least the prompt that I've got there, I was not able to get Phi
+
+06:49.040 --> 06:50.400
+three to tell a joke.
+
+06:50.400 --> 06:57.540
+Rather, it gives some sort of general stuff that a data scientist might be talking about and sort of
+
+06:57.540 --> 06:59.010
+rambles away.
+
+06:59.040 --> 07:04.320
+Now, I don't know whether I can improve the prompt to be something that's a bit more assertive for
+
+07:04.320 --> 07:08.700
+53, or whether it's simply not something that 53 is willing to do.
+
+07:08.970 --> 07:14.040
+53 will do a lot of things very admirably indeed, but not this particular task.
+
+07:14.040 --> 07:19.680
+So I also leave that as an exercise for you as as well as trying some other models.
+
+07:19.680 --> 07:27.000
+Also see whether you can improve the prompting to get 53 to tell a joke or if it's not a jokester,
+
+07:27.000 --> 07:28.860
+you can find some of the things it's good at.
+
+07:28.860 --> 07:34.200
+It will answer some of the other questions that we've asked llms about things like use of Llms very
+
+07:34.200 --> 07:35.130
+well indeed.
+
+07:35.700 --> 07:41.070
+Um, so that is the the 53 outcome.
+
+07:41.070 --> 07:43.410
+Now let's see how Gemma does.
+
+07:43.410 --> 07:51.290
+So the same approach, we can use our utility function for Info Google's Gemma two model, and it's
+
+07:51.320 --> 07:57.650
+worth noting that Gemma doesn't support a system prompt, so you have to just pass in the user prompt
+
+07:57.650 --> 08:02.270
+like this, which is fine because the system prompt didn't say anything special anyway.
+
+08:02.540 --> 08:06.500
+And let's give Gemma a whirl.
+
+08:06.500 --> 08:08.780
+It is, of course, a 2 billion model.
+
+08:08.780 --> 08:10.130
+It's a very small model.
+
+08:10.130 --> 08:15.980
+In addition to being a very small model, we are also quantizing it down to four bits and then quantizing
+
+08:15.980 --> 08:16.850
+it again.
+
+08:16.850 --> 08:25.520
+So we are really, uh, dealing with a very slim model at this point, which shouldn't use up much memory
+
+08:25.520 --> 08:29.270
+and also should load nice and quickly and tell a joke quickly.
+
+08:32.330 --> 08:34.130
+And there is its joke.
+
+08:34.130 --> 08:37.400
+Why did the data scientists break up with the statistician?
+
+08:37.400 --> 08:41.240
+Because they had too many disagreements about the p value.
+
+08:41.270 --> 08:44.540
+It's, uh, another nerdy joke about p value.
+
+08:44.570 --> 08:46.130
+I don't get it.
+
+08:46.140 --> 08:49.470
+But maybe there's something obvious that I'm missing.
+
+08:49.620 --> 08:50.790
+Uh, welcome.
+
+08:50.790 --> 08:53.040
+Anyone to tell me if it is.
+
+08:53.370 --> 08:53.760
+Uh.
+
+08:53.760 --> 08:56.820
+But still, I like the way it's nice and friendly.
+
+08:56.820 --> 08:57.540
+It's got another.
+
+08:57.540 --> 08:59.490
+Let me know if you'd like to hear another joke.
+
+08:59.640 --> 09:02.970
+Uh, maybe when you run this, you're going to get a better joke, I don't know.
+
+09:03.120 --> 09:07.890
+Uh, but, uh, it's certainly, uh, an enjoyable, uh, tone.
+
+09:07.890 --> 09:14.340
+And I think that that, uh, Gemma two has done a laudable job of, uh, certainly it's data science
+
+09:14.340 --> 09:15.180
+relevant.
+
+09:15.480 --> 09:21.780
+Um, and, uh, particularly when you remember that this is a tiny model that we are further quantizing.
+
+09:21.780 --> 09:28.440
+I think it's a fine showing from Gemma two, but certainly I fully expect when you use quantum, which
+
+09:28.440 --> 09:35.100
+I have used uh, that you'll see, uh, superior results and, uh, you maybe you'll get something better
+
+09:35.100 --> 09:36.150
+from Pi three as well.
+
+09:36.150 --> 09:41.310
+And then whatever, whether you pick the mixed trial model or something a bit slimmer that you can also
+
+09:41.340 --> 09:44.370
+use, I imagine you'll be able to get some good results.
+
+09:44.510 --> 09:49.580
+You could also try asking maths questions, something which they can struggle with.
+
+09:49.610 --> 09:52.640
+If you're dealing with difficult maths.
+
+09:52.790 --> 09:59.360
+But I tried asking a fairly difficult question to llama 3.1 earlier, and it had no difficulties at
+
+09:59.360 --> 10:02.840
+all to see if you can have the same experience.
+
+10:03.200 --> 10:09.050
+Regardless, now is a moment for you to explore using these models, trying out different things.
+
+10:09.080 --> 10:11.450
+You're working with open source models.
+
+10:11.540 --> 10:13.490
+There's no API cost going on.
+
+10:13.520 --> 10:16.610
+The only cost you you pay is if you're using up.
+
+10:16.610 --> 10:23.840
+If you're not using Free Colab, but you're using up some of your, uh, units from the, uh, the Google
+
+10:23.840 --> 10:25.850
+Colab, uh, costs.
+
+10:26.030 --> 10:32.240
+Um, the I'm using 1.76 units per hour.
+
+10:32.240 --> 10:40.250
+So there's really plenty of time to be, uh, to be working with this and enjoying inference on open
+
+10:40.250 --> 10:43.790
+source models using the hugging face Transformers library.

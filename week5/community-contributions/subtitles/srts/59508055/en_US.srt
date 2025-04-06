@@ -1,0 +1,82 @@
+WEBVTT
+
+00:00.980 --> 00:06.620
+I'm so very happy that you've reached this epic moment in the course and that you're hanging in there.
+
+00:06.620 --> 00:12.110
+This is where things have gotten really crucial, and we're learning some of the most important things
+
+00:12.110 --> 00:13.640
+about building an LMS.
+
+00:13.760 --> 00:20.930
+And I'm I'm just very grateful that you've been staying along and hopefully enjoying it as much as I
+
+00:20.960 --> 00:21.530
+am.
+
+00:21.770 --> 00:24.590
+And yeah, the best is yet to come.
+
+00:24.590 --> 00:28.490
+So, uh, for today, it's going to be few slides.
+
+00:28.490 --> 00:30.320
+It's going to be all action.
+
+00:30.410 --> 00:35.360
+Uh, you're going to be looking at the actual run happening and weights and biases, and I'll be showing
+
+00:35.360 --> 00:40.070
+you the sorts of things to look for and how we can use weights and biases to get some intelligence about
+
+00:40.070 --> 00:40.970
+what's happening.
+
+00:41.270 --> 00:46.610
+Uh, I'm going to show you the Huggingface hub with models in it, and you get a sense of what's going
+
+00:46.610 --> 00:47.210
+on.
+
+00:47.420 --> 00:54.050
+Um, there's also one thing that's been on my mind that I mentioned last time that I, I don't want
+
+00:54.050 --> 00:58.220
+to be flippant about the importance of keeping costs low.
+
+00:58.310 --> 01:04.190
+The idea of this class is not to build up a big bill for you from, uh, from Google, who will happily
+
+01:04.190 --> 01:07.190
+take your, your money for for running their boxes.
+
+01:07.310 --> 01:10.010
+Um, I have a lot of fun running this training.
+
+01:10.010 --> 01:12.740
+It's, um, running the training process.
+
+01:12.800 --> 01:19.820
+Um, it's perfectly achievable to do that and get good results with the spending a matter of cents.
+
+01:19.820 --> 01:23.810
+And I did want to take just a quick moment to talk about that, because it's very important.
+
+01:23.840 --> 01:28.340
+And I don't want to, uh, lead you down the wrong path of thinking you have to spend lots of money
+
+01:28.340 --> 01:32.180
+to get good results and to learn particularly, which is the main objective here.
+
+01:32.480 --> 01:35.540
+Um, and so, in fact, we're going to start with that.
+
+01:35.600 --> 01:42.530
+Um, and I want to, uh, take you straight over to JupyterLab, not not to Google Colab, but JupyterLab,
+
+01:42.530 --> 01:47.780
+where I'm going to show you something to illustrate my point and to help set you up should you wish
+
+01:47.780 --> 01:50.090
+to be training at a lower cost.

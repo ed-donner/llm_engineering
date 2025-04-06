@@ -1,0 +1,55 @@
+WEBVTT
+
+00:00.800 --> 00:08.990
+And with that, amazingly, you completed day one of week two already and that gets you to the 15% point
+
+00:08.990 --> 00:14.300
+towards your goal of being an LM Engineering Master.
+
+00:14.540 --> 00:17.810
+So congratulations on getting to the 15% point.
+
+00:17.840 --> 00:20.630
+Let's talk about what you're already able to do.
+
+00:20.810 --> 00:23.750
+As you know, you can describe Transformers.
+
+00:23.750 --> 00:30.050
+And that includes all of the context window tokens, API costs and the like.
+
+00:30.080 --> 00:32.330
+You can talk about the six leading frontier LMS.
+
+00:32.330 --> 00:37.430
+You can now confidently use OpenAI's API with streaming, with markdown, with JSON.
+
+00:37.430 --> 00:45.320
+And now in addition, you can use the Anthropic and Google APIs, and you've hopefully got even deeper
+
+00:45.320 --> 00:52.160
+insights into that structure of messages, that list of dicts that is going to feature from time to
+
+00:52.190 --> 00:55.490
+time, as you will see tomorrow.
+
+00:55.520 --> 00:58.730
+Tomorrow is a day that I've been looking forward to for a long time.
+
+00:58.730 --> 01:05.570
+I am going to be gushing gushing about Gradio, which I think is an absolutely fabulous platform and
+
+01:05.570 --> 01:07.610
+you are going to see why yourself.
+
+01:07.610 --> 01:11.390
+You're going to see why I love it so much, and I'm hoping that you're going to love it too.
+
+01:11.420 --> 01:16.970
+We're going to create a simple UI with Gradio, and we're going to hook it up to Frontier Models, and
+
+01:16.970 --> 01:19.100
+it's going to be really, really easy.
+
+01:19.100 --> 01:20.360
+And I will see you then.

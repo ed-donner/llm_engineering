@@ -1,0 +1,226 @@
+WEBVTT
+
+00:00.530 --> 00:01.130
+Well.
+
+00:01.130 --> 00:01.730
+Hi there.
+
+00:01.730 --> 00:07.520
+So you've made it to day two of week eight, and I am super grateful that you've been hanging on, and
+
+00:07.520 --> 00:11.090
+that you're now at the point where there are four more days to go.
+
+00:11.090 --> 00:17.450
+And let me tell you something this day, this is probably the toughest day of the lot of the entire
+
+00:17.450 --> 00:18.050
+course.
+
+00:18.050 --> 00:22.250
+So if you survive through this day and you're on top of it and you're getting it and you're running
+
+00:22.250 --> 00:27.860
+the code and it's all making sense, then you you're already basically mastering LM engineering.
+
+00:27.860 --> 00:29.060
+This is what it's about.
+
+00:29.090 --> 00:30.530
+Today is going to be tough.
+
+00:30.710 --> 00:31.940
+Be prepared.
+
+00:32.060 --> 00:35.780
+But as it happens it's going to be really interesting.
+
+00:35.780 --> 00:38.600
+And we're going to get some great achievements done.
+
+00:38.600 --> 00:45.020
+So four days to go of the eight week journey to LM mastery.
+
+00:45.050 --> 00:46.610
+We're in the home stretch.
+
+00:46.610 --> 00:52.070
+You can already, of course generate text and code with frontier models, with open source, with hugging
+
+00:52.100 --> 00:58.610
+face back to front, you can follow a strategy to solve problems with curating data sets, which is
+
+00:58.610 --> 01:04.340
+hard making baseline models and fine tuning frontier models, and then carrying out a full end to end
+
+01:04.410 --> 01:07.770
+process to fine tune open source LMS.
+
+01:07.860 --> 01:14.640
+And finally, what we did last time is taking our fine tuned LMS and deploying it to production.
+
+01:14.670 --> 01:15.750
+We use modal.
+
+01:15.750 --> 01:20.400
+There are many others, but modal is great, and we use it in such a way that you can just write a simple
+
+01:20.400 --> 01:23.220
+piece of Python code that can run locally.
+
+01:23.220 --> 01:28.470
+Apparently it looks like it's running locally, but it in fact it is calling out to your model running
+
+01:28.470 --> 01:30.270
+on the cloud in modal.
+
+01:30.300 --> 01:32.910
+Paying only for what you use.
+
+01:33.360 --> 01:43.770
+So today we take a side step to look at more pricing models as we build our final final pricing model.
+
+01:43.770 --> 01:48.330
+That will be what's called an ensemble, a combination of multiple models.
+
+01:48.330 --> 01:55.230
+We're going to go back to Rag, and we're going to use Rag to build a frontier model solution that will
+
+01:55.260 --> 01:58.110
+operate against a massive Chrome data store.
+
+01:58.140 --> 02:00.870
+And to make things different to last time, we're not going to use Lang chain.
+
+02:00.870 --> 02:06.390
+We're just going to directly look up in the vector store and use that to build our prompt ourselves,
+
+02:06.390 --> 02:07.380
+which is good.
+
+02:07.380 --> 02:11.320
+Good to understand exactly how it works under the covers.
+
+02:11.650 --> 02:17.380
+We're going to then build this ensemble model with a high level of expertise and be able to deliver
+
+02:17.380 --> 02:21.370
+production ready code, calling a number of models.
+
+02:21.370 --> 02:26.680
+And I think perhaps the most important thing to say here is that whilst a lot of what we'll be doing
+
+02:26.680 --> 02:31.090
+is something of a repeat of things we've done before, just in a bit more of an industrial strength
+
+02:31.120 --> 02:35.290
+way, this is about solidifying what you've learned.
+
+02:35.290 --> 02:41.020
+This is about going from the point of being fairly confident with different aspects of LM engineering
+
+02:41.020 --> 02:47.290
+into being advanced, and so do take the time to go through the code and take this as an opportunity
+
+02:47.290 --> 02:54.100
+to practice, practice, practice, and get to the point of feeling like you've built true expertise.
+
+02:54.850 --> 02:55.390
+All right.
+
+02:55.390 --> 02:59.530
+So quick, a reminder on what is the project we're working on here.
+
+02:59.560 --> 03:07.000
+Project called The Price is Right building this autonomous Agentic framework agent workflows that will
+
+03:07.000 --> 03:14.080
+watch for when deals get published online, estimate their prices and send a push notification if it
+
+03:14.080 --> 03:20.410
+looks like this is a bargain and we are going to have these different agents collaborating to solve
+
+03:20.410 --> 03:28.660
+the problem, including our frontier busting model, our fine tuned model that significantly outperformed
+
+03:28.690 --> 03:30.670
+GPT four and Claude.
+
+03:30.700 --> 03:37.390
+All right, so you may remember last time I showed you this diagram that showed our agent workflows,
+
+03:37.390 --> 03:43.960
+the user interface on the left, the framework that we'll be using, planning agents to coordinate activities.
+
+03:43.960 --> 03:50.830
+And then the three the scanning agent looking for promising deals, ensemble estimating prices and a
+
+03:50.830 --> 03:54.640
+messaging agent that will send us push notifications.
+
+03:54.760 --> 04:01.150
+So I wanted to mention that this was a bit of a simplification, because the ensemble agent itself will
+
+04:01.150 --> 04:03.520
+be calling out to three different models.
+
+04:03.520 --> 04:11.710
+It's going to be calling a frontier agent, which is going to be a Rag workflow to price products based
+
+04:11.710 --> 04:15.430
+on an inventory of lots of existing products that it can look up.
+
+04:15.440 --> 04:18.170
+It's a perfect use case for rag.
+
+04:18.200 --> 04:23.090
+Of course, you may have already thought of it as I say, so you may have already been wondering why
+
+04:23.090 --> 04:24.050
+we didn't even try this.
+
+04:24.080 --> 04:24.800
+Well, we're going to.
+
+04:24.830 --> 04:31.430
+Today, the ensemble agent will use the specialist agent that we already have and built and have like
+
+04:31.460 --> 04:38.330
+a specialist agent class to represent, and it's going to use a random forest agent, which will be
+
+04:38.330 --> 04:42.800
+an agent using a random forest traditional machine learning approach.
+
+04:42.830 --> 04:44.690
+Except there's going to be a twist.
+
+04:44.720 --> 04:49.910
+It's going to be using vector embeddings that will use a transformer architecture.
+
+04:49.910 --> 04:54.110
+So it is a sort of modern take on traditional ML.
+
+04:54.290 --> 05:00.320
+So basically today we are going to be working on all of the icons there in red.
+
+05:00.320 --> 05:02.060
+We're going to be working on the ensemble agent.
+
+05:02.060 --> 05:03.740
+We've already built the specialist agent.
+
+05:03.740 --> 05:09.050
+So the other two will be part of our conquest today.
+
+05:09.050 --> 05:15.290
+And we will end today with an ensemble agent that is able to calculate prices, drawing on multiple
+
+05:15.290 --> 05:16.910
+other estimators.
+
+05:16.940 --> 05:18.230
+That's the challenge.
+
+05:18.230 --> 05:20.150
+Let's get over to JupyterLab.

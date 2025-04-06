@@ -1,0 +1,418 @@
+WEBVTT
+
+00:00.260 --> 00:02.930
+Now it's time to talk for a minute about tokens.
+
+00:02.960 --> 00:07.700
+Tokens are the individual units which get passed into a model.
+
+00:07.880 --> 00:13.550
+In the early days of building neural networks, one of the things that you'd see quite often is neural
+
+00:13.550 --> 00:16.790
+networks that were trained character by character.
+
+00:16.790 --> 00:22.400
+So you would have a model which would take a series of individual characters, and it would be trained
+
+00:22.400 --> 00:28.250
+such that it would predict the most likely next character, given the characters that have come before.
+
+00:28.280 --> 00:33.020
+That was a particular technique, and in some ways it had a lot of benefits.
+
+00:33.020 --> 00:38.210
+It meant that the number of possible inputs was a limited number, just the number of possible letters
+
+00:38.210 --> 00:39.950
+of the alphabet and some symbols.
+
+00:39.950 --> 00:43.760
+And so that meant that it had a very manageable vocab size.
+
+00:43.760 --> 00:48.470
+And it needed to its weights could didn't didn't need to worry about too many different possibilities
+
+00:48.470 --> 00:49.910
+for the inputs.
+
+00:49.940 --> 00:57.200
+But the challenge with it was that it meant that there was so much required from the model in terms
+
+00:57.200 --> 01:05.830
+of understanding how a series of different characters becomes a word, and all of the intelligence associated
+
+01:05.830 --> 01:12.280
+with the meaning behind a word had to be captured within the weights of the model, and that was expecting
+
+01:12.310 --> 01:15.550
+too much from the model itself.
+
+01:15.550 --> 01:22.720
+And so we then went to almost the other extreme where neural networks, these models were trained of
+
+01:22.720 --> 01:25.270
+each individual possible word.
+
+01:25.270 --> 01:29.680
+So you would build something called the vocab, which is like like the sort of the dictionary, the
+
+01:29.680 --> 01:31.840
+index of all the possible words.
+
+01:31.840 --> 01:37.420
+And then each possible word a token could be any one of these possible words.
+
+01:37.420 --> 01:44.470
+So that meant that the the model itself could start to understand that each individual word had a different
+
+01:44.470 --> 01:49.600
+meaning, rather than having to to appreciate how a sequence of characters would have a meaning.
+
+01:49.600 --> 01:51.040
+So that was a good thing.
+
+01:51.040 --> 01:55.210
+But the trouble was that it resulted in an enormous vocab.
+
+01:55.240 --> 01:58.740
+You needed to have a vocab the size of all of the possible words.
+
+01:58.740 --> 02:04.140
+And of course, there are so many possible words because there are also names of places and people.
+
+02:04.140 --> 02:07.800
+And so there had to be special tokens for unknown words.
+
+02:07.800 --> 02:10.650
+And that that caused some limitations.
+
+02:10.830 --> 02:13.860
+Rare words had to be omitted, special places had to be omitted.
+
+02:13.860 --> 02:17.370
+And so that caused some some some some oddness.
+
+02:17.550 --> 02:25.860
+Um, and then around the time of the of GPT uh, a discovery was made a breakthrough that that there
+
+02:25.860 --> 02:31.170
+was a sort of happy medium between these two extremes, rather than trying to train a model based on
+
+02:31.170 --> 02:36.360
+individual characters and need it to learn how to combine them to form a word.
+
+02:36.360 --> 02:43.350
+And rather than trying to say that each word is a different token, you could take chunks of letters,
+
+02:43.350 --> 02:48.600
+chunks that would that would sometimes form a complete word and sometimes part of a word, and call
+
+02:48.600 --> 02:56.720
+it a token, and train the model to take a series of tokens and output tokens based on the tokens that
+
+02:56.720 --> 02:57.740
+are passed in.
+
+02:57.740 --> 03:01.250
+And this had a number of interesting benefits.
+
+03:01.250 --> 03:05.630
+One of them is that because you're breaking things down into tokens, you could also handle things like
+
+03:05.630 --> 03:07.880
+names of places and proper names.
+
+03:07.880 --> 03:10.040
+They would just be more fragments of tokens.
+
+03:10.040 --> 03:15.800
+And then there was a second interesting effect, which is that it meant that it was good at handling
+
+03:15.950 --> 03:23.090
+word stems, or times when you'd have the same beginning of a word and multiple potential endings that
+
+03:23.090 --> 03:27.950
+would be encoded into one token, followed by a few second tokens.
+
+03:27.950 --> 03:34.310
+And that meant that the sort of underlying meaning of what you're trying to say could be easily represented
+
+03:34.310 --> 03:40.400
+inside the model, because the tokens had the same kind of structure that might have sounded a bit abstract.
+
+03:40.400 --> 03:42.380
+Let me make that a bit more real for you.
+
+03:43.100 --> 03:51.530
+So GPT, OpenAI actually provides a tool which is a platform openai.com slash tokenizer, and it lets
+
+03:51.530 --> 03:58.240
+you put in some text and see visually how that text is turned into tokens.
+
+03:58.390 --> 04:05.080
+And so I took a particular sentence, an important sentence for my class of AI engineers.
+
+04:05.350 --> 04:08.650
+And you can see that GPT tokenized that.
+
+04:08.650 --> 04:12.700
+That's the verb that we use when we're turning from words into tokens.
+
+04:12.700 --> 04:17.080
+And it highlights in colors how it turned that into tokens.
+
+04:17.080 --> 04:24.730
+And in this case, because these are all common words, every one of these words mapped precisely to
+
+04:24.760 --> 04:26.320
+one token.
+
+04:26.590 --> 04:28.480
+So this is a clear example.
+
+04:28.480 --> 04:29.860
+You can see from the colors.
+
+04:29.860 --> 04:34.060
+One other slightly interesting point to make that's that's important.
+
+04:34.060 --> 04:40.030
+You see the way that some of these colored boxes, like the word for has a space in front of it.
+
+04:40.060 --> 04:41.200
+It's like space.
+
+04:41.200 --> 04:43.570
+And then for is what's been tokenized.
+
+04:43.660 --> 04:49.330
+That's because the break between words is also meaningful when tokenizing.
+
+04:49.330 --> 04:55.440
+That token represents the word for in isolation, like that beginning of word followed by the letters
+
+04:55.530 --> 05:03.780
+for that is mapped to one token, the beginning of word for token, and so that that will maybe become
+
+05:03.780 --> 05:05.010
+a bit more important in a moment.
+
+05:05.010 --> 05:05.250
+But.
+
+05:05.250 --> 05:11.970
+But it's worth noting that the gap between words is included as part of a token.
+
+05:12.780 --> 05:15.120
+So let's take another example.
+
+05:15.150 --> 05:22.320
+Now in this example, I'm coming up with a slightly more interesting sentence, an exquisitely handcrafted
+
+05:22.320 --> 05:26.880
+quip for my musterers of LM witchcraft.
+
+05:26.910 --> 05:30.060
+Now Musterers is, I believe, an invented word.
+
+05:30.060 --> 05:34.950
+As you'll see, the red squiggly underline shows that it's not a true word.
+
+05:34.950 --> 05:38.010
+And let's see how the tokenization has happened down here.
+
+05:38.010 --> 05:47.790
+So you'll see that that four is still here as one word, uh, with a beginning of token at the beginning
+
+05:47.790 --> 05:48.330
+of it.
+
+05:48.330 --> 05:54.920
+But and so is an Anne at the start, but exquisitely has been broken up into multiple tokens.
+
+05:54.950 --> 05:56.690
+Exquisitely.
+
+05:57.380 --> 06:04.130
+And that shows how when you've got a rare word, it doesn't have that word as a single word in its vocab.
+
+06:04.130 --> 06:08.630
+And so it had to break it into multiple tokens, but it's still able to pass it in.
+
+06:08.750 --> 06:11.570
+And now look at that word handcrafted.
+
+06:11.570 --> 06:17.000
+You can see that it also doesn't have that in its vocab as a single token, but it's able to break that
+
+06:17.000 --> 06:19.280
+into hand and craft it.
+
+06:19.280 --> 06:25.640
+And that does kind of reflect the, the, the, the meaning in a way it does get across that it can.
+
+06:25.670 --> 06:28.280
+It's combined from these two hand and crafted.
+
+06:28.280 --> 06:33.320
+And you can see as well that the crafted token does not include a beginning of sentence.
+
+06:33.320 --> 06:38.810
+So it's a token that represents a word that that has crafted in the middle of it.
+
+06:38.810 --> 06:41.000
+That's what that token reflects.
+
+06:41.090 --> 06:43.430
+You'll see that quip isn't there at all.
+
+06:43.430 --> 06:48.700
+It got broken into and it uh, and then you'll see Masteries.
+
+06:48.700 --> 06:52.300
+And this is a good example of what I was saying about word stems.
+
+06:52.300 --> 06:58.900
+Masteries has been broken into master, which is after all, the the, the verb that we're going for
+
+06:58.900 --> 07:04.720
+here, someone who masters and then errs at the end as an extension to that word.
+
+07:05.020 --> 07:12.160
+Um, and so you can see that it's, it's able to reflect the meaning of what we're trying to say by
+
+07:12.160 --> 07:15.820
+breaking it into those two tokens, even though it's not a real word.
+
+07:16.390 --> 07:22.600
+And you can also see that witchcraft got broken into witch and craft, uh, which is also interesting.
+
+07:23.170 --> 07:25.540
+Uh, and so, yeah, handcrafted.
+
+07:25.540 --> 07:29.740
+And master, as I say, you can see how the meaning is reflected there by the tokens.
+
+07:29.740 --> 07:35.980
+And hopefully this gives you some real insight into what it means to break something into tokens.
+
+07:37.150 --> 07:42.250
+So an interesting one here is to now show you this slightly more sophisticated example.
+
+07:42.280 --> 07:48.130
+Uh, my favorite number, apparently 6534589793238462643383.
+
+07:48.160 --> 07:49.030
+Blah blah blah.
+
+07:49.180 --> 07:58.810
+Uh, so, uh, it shows you that when you have something like this, of course, long numbers like pi
+
+07:58.840 --> 08:01.750
+are not going to map to one token.
+
+08:01.930 --> 08:09.550
+And in fact, what you see is happening here is that every series of three digit numbers is being mapped
+
+08:09.550 --> 08:11.020
+to one token.
+
+08:11.260 --> 08:13.030
+And that's an interesting property.
+
+08:13.030 --> 08:19.000
+It's actually a property of GPT two tokenizer, but many others don't have that many other cases.
+
+08:19.000 --> 08:23.170
+You'll see that things map to multiple tokens.
+
+08:24.220 --> 08:32.170
+Uh, so the generally speaking, there's a rule of thumb which is helpful to know to bear in mind when
+
+08:32.170 --> 08:33.670
+you're looking at tokens.
+
+08:33.670 --> 08:41.560
+The rule of thumb generally is that on average, one token typically maps to about four characters.
+
+08:41.860 --> 08:49.430
+And that means that a token is on average for normal English writing, it's about three quarters of
+
+08:49.430 --> 08:50.060
+a word.
+
+08:50.060 --> 08:53.210
+One token maps to about 0.75 words.
+
+08:53.210 --> 08:54.950
+And an easier way to think about that.
+
+08:54.950 --> 09:00.260
+A better way to put it is that a thousand tokens is about 750 words.
+
+09:00.260 --> 09:01.880
+So that's the mapping to have in your mind.
+
+09:01.910 --> 09:04.820
+A thousand tokens is 750 words.
+
+09:04.820 --> 09:11.300
+And that means that the complete works of Shakespeare, for example, to make this real, to give a
+
+09:11.300 --> 09:16.460
+real example, that's about 900,000 words, apparently in the complete works of Shakespeare.
+
+09:16.460 --> 09:23.510
+So about 1.2 million tokens, that is the size of the complete works of Shakespeare.
+
+09:23.540 --> 09:26.270
+Now, that refers to English.
+
+09:26.270 --> 09:33.920
+If you're looking at things like math formulas, scientific terms and also code, then the token count
+
+09:33.920 --> 09:39.530
+is much higher because obviously, as we saw here with numbers, things need to be broken into many
+
+09:39.530 --> 09:43.990
+more tokens to incorporate Right symbols and stuff like that.
+
+09:44.290 --> 09:48.790
+And the other point to make here is that this is showing you GPT tokenizer.
+
+09:48.820 --> 09:52.930
+There are no hard and fast rules about how Tokenizers should work.
+
+09:52.960 --> 09:57.340
+In fact, we saw a minute ago that in the early days you used to have tokenizer, that every letter
+
+09:57.340 --> 10:02.770
+would map to one token, and you'll see that different models have different approaches to tokenization.
+
+10:02.770 --> 10:07.660
+And when we look later at open source, we're going to be getting hands on with a bunch of different
+
+10:07.690 --> 10:08.440
+tokenizers.
+
+10:08.470 --> 10:12.280
+And we're going to explore an interesting property of Llama's tokenizer too.
+
+10:12.310 --> 10:15.280
+So different tokenizers work can work differently.
+
+10:15.280 --> 10:20.170
+There are pros and cons for having fewer tokens or more tokens.
+
+10:20.380 --> 10:26.350
+There's not a single answer that depends on the how many parameters are in the model and how it was
+
+10:26.350 --> 10:27.640
+trained, and so on.
+
+10:27.820 --> 10:34.930
+But this is a more detailed look at GPT tokenizer, and I hope this has given you some clarity and intuition
+
+10:34.930 --> 10:41.230
+on what it means to to go from words and characters into the world of tokens.

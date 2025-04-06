@@ -1,0 +1,442 @@
+WEBVTT
+
+00:00.350 --> 00:10.850
+And here we are back in the Jupyter Lab for the fast approaching conclusion with a really great project.
+
+00:10.880 --> 00:12.020
+Super satisfying.
+
+00:12.050 --> 00:13.130
+Wait till you see.
+
+00:13.160 --> 00:19.250
+So this time we're going to start by looking at two more of our simple agents.
+
+00:19.250 --> 00:20.900
+Probably the simplest we've got.
+
+00:20.930 --> 00:26.270
+There's one called the Messaging Agent, which we will use to be sending messages, and one called the
+
+00:26.270 --> 00:28.700
+planning agent, which will coordinate activities.
+
+00:28.700 --> 00:32.600
+And both of these agents are ones which are just Python code.
+
+00:32.630 --> 00:38.660
+They're not using Llms, and there's no reason why they can't be beefed up to use Llms.
+
+00:38.660 --> 00:44.120
+The messaging agent sends a notification, but of course, it could first make a quick call to a frontier
+
+00:44.150 --> 00:51.260
+model to improve that, to make it something that's juicier and that that is, is relevant to that particular
+
+00:51.260 --> 00:51.830
+deal.
+
+00:51.830 --> 00:53.690
+So there's plenty that can be done here.
+
+00:53.780 --> 00:56.270
+And the planning agent, it's written in code.
+
+00:56.270 --> 00:58.820
+You could experiment with turning that into an LLM.
+
+00:58.820 --> 01:01.010
+Getting to plan out what happens itself.
+
+01:01.010 --> 01:04.320
+But we'll at least see them and use them both in a second.
+
+01:04.740 --> 01:11.670
+Uh, and um, we're going to then afterwards put all of that into our agent framework.
+
+01:11.670 --> 01:16.620
+But you can imagine, because we've put all of the building blocks together, the final part of having
+
+01:16.620 --> 01:18.630
+an agent framework is a cinch.
+
+01:18.630 --> 01:21.150
+It's going to be just very straightforward.
+
+01:21.180 --> 01:24.720
+So let's start by talking about the messaging agent.
+
+01:24.720 --> 01:30.240
+This is the agent that's able to send us alerts when it finds a great deal.
+
+01:30.390 --> 01:33.780
+Um, and originally my plan was to send text messages for this.
+
+01:33.780 --> 01:41.100
+And I was going to use Twilio, which is a lovely framework that I've used in the past, but there's
+
+01:41.100 --> 01:46.740
+been a lot of regulations recently that makes it really quite hard to set up a Twilio account to send
+
+01:46.740 --> 01:52.170
+text messages, even to yourself, even when you've validated your own phone number and you want to
+
+01:52.170 --> 01:55.380
+send yourself text messages, you have to fill in a fair bit of paperwork.
+
+01:55.380 --> 01:59.280
+If you're in the US now, that might be a lot easier in other countries.
+
+01:59.280 --> 02:05.480
+It does seem to suggest on the website that that it's just a US restriction that makes it so hard.
+
+02:05.510 --> 02:07.730
+And Twilio has a free plan.
+
+02:07.850 --> 02:11.150
+Twilio is also free to make WhatsApp messages as well.
+
+02:11.150 --> 02:11.660
+So you can have it.
+
+02:11.690 --> 02:16.190
+WhatsApp and I did have it working whatsapping myself, but there are some constraints that you just,
+
+02:16.190 --> 02:21.530
+um, you can only use the free thing if you're using a sandbox which has some limitations, and you
+
+02:21.530 --> 02:23.420
+can only do it between certain hours of the day.
+
+02:23.420 --> 02:24.950
+So it wasn't ideal.
+
+02:24.950 --> 02:26.330
+So it was okay.
+
+02:26.330 --> 02:29.270
+And I've kept the code here so you can use it if you wish.
+
+02:29.270 --> 02:34.910
+But then I discovered something really, as I say, nifty called pushover.
+
+02:35.000 --> 02:39.680
+Uh, there's a few things like pushover, but pushover was was the one that I found to be the nicest
+
+02:39.710 --> 02:40.850
+of the ones I tried.
+
+02:41.030 --> 02:41.300
+Um.
+
+02:41.300 --> 02:46.910
+And pushover is a simple website where you can go and you set up an account.
+
+02:46.910 --> 02:48.140
+It's free.
+
+02:48.170 --> 02:50.120
+Uh, and you then download an app.
+
+02:50.120 --> 02:51.470
+In fact, you don't need to go to the website.
+
+02:51.470 --> 02:51.800
+You can.
+
+02:51.830 --> 02:54.890
+The website is pushover dot net, not.com.
+
+02:54.920 --> 02:57.080
+Uh, they weren't obviously weren't able to afford.com.
+
+02:57.080 --> 02:58.310
+It's still up for grabs.
+
+02:58.430 --> 03:00.470
+But pushover dot net is their website.
+
+03:00.470 --> 03:02.510
+And then there's an app called pushover.
+
+03:02.630 --> 03:04.650
+Uh And it's free to set up.
+
+03:04.650 --> 03:08.520
+At least it's free for up to 10,000 messages.
+
+03:08.790 --> 03:14.670
+And I think we're not likely for this particular project to get close to that.
+
+03:14.670 --> 03:19.380
+You can see I've managed to get to 35 messages of my allowance so far.
+
+03:19.620 --> 03:24.990
+Um, and now the reason this page looks a bit janky is that I've scrolled down because it shows above
+
+03:24.990 --> 03:30.480
+here my tokens in big letters, and I didn't particularly want to reveal all of my tokens to all of
+
+03:30.480 --> 03:30.600
+you.
+
+03:30.600 --> 03:33.990
+Or you might be constantly notifying me all through the day.
+
+03:34.290 --> 03:40.590
+So yeah, it's hard not to miss the tokens as soon as you sign up for your free pushover account.
+
+03:40.590 --> 03:46.140
+I promise I'm not affiliated, but it's, uh, seems to be really, really helpful.
+
+03:46.230 --> 03:53.280
+Um, once you've signed up, you then take your tokens and you can then easily send push notifications
+
+03:53.280 --> 03:58.920
+so you'll end up with two tokens a pushover user, which is a token that applies to, uh, to you.
+
+03:58.920 --> 04:02.820
+And then you have to set up each of your applications, and you just choose one.
+
+04:02.820 --> 04:07.780
+And I called it preserve for me and you can give it a token.
+
+04:08.080 --> 04:09.340
+Um, and sorry, you can't.
+
+04:09.340 --> 04:14.080
+You get given a token once you've set up your application for that.
+
+04:14.140 --> 04:18.070
+Uh, and these two things you should add to the EMV file.
+
+04:18.130 --> 04:18.850
+Wonderfully.
+
+04:18.850 --> 04:24.400
+You can also upload a, um, an image, uh, associated with your application.
+
+04:24.400 --> 04:28.570
+And I found an image, uh, looking around of a stack of coins.
+
+04:28.570 --> 04:30.820
+And so I uploaded that because it's great.
+
+04:30.820 --> 04:34.990
+When I get a push notification, there's a little image comes up and it comes up on my Apple Watch as
+
+04:34.990 --> 04:35.230
+well.
+
+04:35.230 --> 04:39.160
+The whole screen turns into this stack of coins, uh, which is really good fun.
+
+04:39.160 --> 04:40.960
+So you might want to do the same thing.
+
+04:40.990 --> 04:43.480
+Find a find a cute image to go with.
+
+04:43.510 --> 04:45.100
+Push over if you use that.
+
+04:45.340 --> 04:51.850
+Um, as I say, if you if you are able to, if you either already have a Twilio account or if you go
+
+04:51.880 --> 04:57.550
+there and you see that it is straightforward in whatever country you're joining from, then by all means
+
+04:57.550 --> 05:04.060
+you can do that instead and get a text, a bona fide, uh, SMS text message instead of a push notification.
+
+05:04.090 --> 05:06.750
+But push notifications are all we need for this.
+
+05:06.870 --> 05:07.500
+Okay.
+
+05:07.500 --> 05:14.760
+So I'm going to go straight to this this class messaging agent under agents.
+
+05:15.120 --> 05:17.430
+Messaging agent is one of our agents.
+
+05:17.430 --> 05:18.090
+Here it is.
+
+05:18.090 --> 05:19.410
+It's very straightforward.
+
+05:19.410 --> 05:24.930
+It is basically a wrapper around the Twilio API and around the pushover API.
+
+05:24.960 --> 05:32.580
+And I've got at the top do text and do push as two constants that you can set, because if you wish,
+
+05:32.580 --> 05:37.920
+I didn't want to make it a either or because you can have both, you can have it text you and push notify
+
+05:37.920 --> 05:41.040
+you if that is what you desire.
+
+05:41.040 --> 05:49.920
+So there's an init, uh, constructor which sets up, um, the, the various, uh, criteria.
+
+05:49.920 --> 05:55.920
+If you're doing push notification, like me, as I say, you need pushover user and pushover token,
+
+05:55.920 --> 06:01.230
+and you can always just type it straight in here if you don't want to faff around with env files, um,
+
+06:01.380 --> 06:03.930
+obviously, then don't push this code.
+
+06:03.930 --> 06:10.930
+Uh, and if you're using Twilio, then you need to have an account Sid and auth token.
+
+06:10.990 --> 06:16.630
+A Twilio from, which is the number that Twilio will give you, is the number that it's coming from.
+
+06:16.630 --> 06:20.260
+And then the phone number that you want it to text message to.
+
+06:20.290 --> 06:23.770
+And so I have these four in my env file.
+
+06:23.770 --> 06:27.760
+But I'm not using it because I filled in the paperwork just to have done it.
+
+06:27.760 --> 06:32.890
+But I haven't yet been granted authorization to send a text message to myself.
+
+06:32.980 --> 06:35.680
+Uh, but hopefully that's going to come one of these days.
+
+06:35.680 --> 06:38.950
+In the meantime, the push notifications are great.
+
+06:38.950 --> 06:45.820
+So I've then got two, uh, methods here message, which is simply a wrapper around the Twilio API,
+
+06:45.820 --> 06:48.370
+which as you can see, it's really simple.
+
+06:48.370 --> 06:51.370
+It's it's the Twilio client dot messages dot create.
+
+06:51.370 --> 06:55.330
+And you say who it's coming from and the text and who it's going to, and that's it.
+
+06:55.330 --> 06:56.740
+And it will send a text message.
+
+06:56.740 --> 06:57.580
+I've used it before.
+
+06:57.610 --> 06:58.750
+It just works.
+
+06:58.900 --> 07:01.210
+Receiving text messages is pretty easy too.
+
+07:01.240 --> 07:04.720
+You just have to have an endpoint that gets called a webhook.
+
+07:04.840 --> 07:07.640
+Um, and but obviously we don't need to do that.
+
+07:07.940 --> 07:11.600
+Uh, the push notification is also very simple.
+
+07:11.780 --> 07:17.930
+Um, we but it doesn't have it doesn't use an API because they, they, they're sort of keen to point
+
+07:17.960 --> 07:20.600
+out, I think, on their website that it's intentional.
+
+07:20.600 --> 07:23.150
+They just want to keep it as straightforward as possible.
+
+07:23.150 --> 07:27.710
+They don't even use the requests library in their example code because they wanted to say, you don't
+
+07:27.710 --> 07:29.180
+need to import anything.
+
+07:29.330 --> 07:35.060
+You can just simply use out of the box Python to send a push notification.
+
+07:35.180 --> 07:39.950
+Uh, and you simply pass in the token, uh, the message.
+
+07:39.950 --> 07:42.680
+And optionally you can include a sound.
+
+07:42.680 --> 07:48.320
+And I one of the ones that they suggest as being available is called cash Register.
+
+07:48.320 --> 07:54.080
+And it makes a very pleasing cash register sound when I get the notification, which is great fun.
+
+07:54.260 --> 07:56.240
+Uh, and that's all there is to it.
+
+07:56.240 --> 08:01.910
+And then there's an alert, uh, method here, which, based on whether you're texting or pushing it,
+
+08:01.910 --> 08:04.280
+will construct something to tell you about.
+
+08:04.280 --> 08:08.590
+And it will then send a message and it takes an opportunity.
+
+08:08.590 --> 08:12.760
+So you pass in an opportunity and you'll get a message about that opportunity.
+
+08:12.790 --> 08:19.330
+You remember, opportunity is the object that we looked at down here that has a deal, an estimate and
+
+08:19.330 --> 08:20.350
+a discount.
+
+08:21.310 --> 08:21.820
+All right.
+
+08:21.820 --> 08:23.410
+But first let's just quickly try it out.
+
+08:23.410 --> 08:26.470
+I should just be able to create an instance of this.
+
+08:26.470 --> 08:31.720
+And I should be able to say massive news and ping my phone just went.
+
+08:31.750 --> 08:38.110
+Now, unfortunately, I have quite aggressive noise filter on my microphone to to only bring out voice.
+
+08:38.110 --> 08:42.850
+So I imagine you didn't hear the cash register as I say, very pleasing indeed.
+
+08:42.850 --> 08:45.790
+Luckily you'll be able to hear it for yourself when you try it out.
+
+08:45.910 --> 08:49.690
+Uh, and yeah, I'm going to have to hear that again just because I love it.
+
+08:49.930 --> 08:51.400
+Uh, there it goes.
+
+08:51.580 --> 08:55.030
+And yeah, my watch two has has come up.
+
+08:55.210 --> 08:57.340
+So it's, um.
+
+08:57.340 --> 09:00.520
+Yeah, very satisfactory indeed.
+
+09:00.520 --> 09:05.350
+That then is the, uh, the messaging agent.
+
+09:05.350 --> 09:08.560
+I will see you next time for the planning agent.
