@@ -6,16 +6,17 @@ from modal import App, Volume, Image
 app = modal.App("pricer-service")
 image = Image.debian_slim().pip_install("huggingface", "torch", "transformers", "bitsandbytes", "accelerate", "peft")
 secrets = [modal.Secret.from_name("hf-secret")]
+volume = modal.Volume.from_name("pricer-model-cache", create_if_missing=True)
 
 # Constants
 
 GPU = "T4"
 BASE_MODEL = "meta-llama/Meta-Llama-3.1-8B"
 PROJECT_NAME = "pricer"
-HF_USER = "ed-donner" # your HF name here! Or use mine if you just want to reproduce my results.
-RUN_NAME = "2024-09-13_13.04.39"
+HF_USER = "cproSD" # your HF name here! Or use mine if you just want to reproduce my results.
+RUN_NAME = "2025-04-08_21.52.37"
 PROJECT_RUN_NAME = f"{PROJECT_NAME}-{RUN_NAME}"
-REVISION = "e8d637df551603dc86cd7a1598a8f44af4d7ae36"
+#DEL: REVISION = "e8d637df551603dc86cd7a1598a8f44af4d7ae36"
 FINETUNED_MODEL = f"{HF_USER}/{PROJECT_RUN_NAME}"
 MODEL_DIR = "hf-cache/"
 BASE_DIR = MODEL_DIR + BASE_MODEL
@@ -24,15 +25,17 @@ FINETUNED_DIR = MODEL_DIR + FINETUNED_MODEL
 QUESTION = "How much does this cost to the nearest dollar?"
 PREFIX = "Price is $"
 
-@app.cls(image=image, secrets=secrets, gpu=GPU, timeout=1800)
+#DEL: @app.cls(image=image, secrets=secrets, gpu=GPU, timeout=1800)
+@app.cls(image=image, secrets=secrets, gpu=GPU, timeout=1800, volumes={"/pretrained_models": volume})
 class Pricer:
-    @modal.build()
-    def download_model_to_folder(self):
+    #DEL: def download_model_to_folder(self):
+    def __enter__(self):
         from huggingface_hub import snapshot_download
         import os
-        os.makedirs(MODEL_DIR, exist_ok=True)
-        snapshot_download(BASE_MODEL, local_dir=BASE_DIR)
-        snapshot_download(FINETUNED_MODEL, revision=REVISION, local_dir=FINETUNED_DIR)
+        os.makedirs("/pretrained_models/" + MODEL_DIR, exist_ok=True)
+        snapshot_download(BASE_MODEL, local_dir="/pretrained_models/" + BASE_DIR)
+        #DEL: snapshot_download(FINETUNED_MODEL, revision=REVISION, local_dir=FINETUNED_DIR)
+        snapshot_download(FINETUNED_MODEL, local_dir="/pretrained_models/" + FINETUNED_DIR)
 
     @modal.enter()
     def setup(self):
@@ -61,7 +64,8 @@ class Pricer:
             device_map="auto"
         )
     
-        self.fine_tuned_model = PeftModel.from_pretrained(self.base_model, FINETUNED_DIR, revision=REVISION)
+        #DEL: self.fine_tuned_model = PeftModel.from_pretrained(self.base_model, FINETUNED_DIR, revision=REVISION)
+        self.fine_tuned_model = PeftModel.from_pretrained(self.base_model, FINETUNED_DIR)
 
     @modal.method()
     def price(self, description: str) -> float:
