@@ -6,15 +6,18 @@
 
 I'm so happy you're joining me on this path. We'll be building immensely satisfying projects in the coming weeks. Some will be easy, some will be challenging, many will ASTOUND you! The projects build on each other so you develop deeper and deeper expertise each week. One thing's for sure: you're going to have a lot of fun along the way.
 
-### A note before you begin
+### Before you begin
 
 I'm here to help you be most successful with your learning! If you hit any snafus, or if you have any ideas on how I can improve the course, please do reach out in the platform or by emailing me direct (ed@edwarddonner.com). It's always great to connect with people on LinkedIn to build up the community - you'll find me here:  
-https://www.linkedin.com/in/eddonner/
+https://www.linkedin.com/in/eddonner/  
+And this is new to me, but I'm also trying out X/Twitter at [@edwarddonner](https://x.com/edwarddonner) - if you're on X, please show me how it's done 😂  
 
 Resources to accompany the course, including the slides and useful links, are here:  
 https://edwarddonner.com/2024/11/13/llm-engineering-resources/
 
-## Instant Gratification instructions for Week 1, Day 1
+## Instant Gratification instructions for Week 1, Day 1 - with Llama 3.2 **not** Llama 3.3!
+
+### Important note: see my warning about Llama3.3 below - it's too large for home computers! Stick with llama3.2! Several students have missed this warning...
 
 We will start the course by installing Ollama so you can see results immediately!
 1. Download and install Ollama from https://ollama.com noting that on a PC you might need to have administrator permissions for the install to work properly
@@ -49,7 +52,9 @@ Early in the course, I show you an alternative if you'd rather not spend anythin
 Any time that we have code like:  
 `openai = OpenAI()`  
 You can use this as a direct replacement:  
-`openai = OpenAI(base_url='http://localhost:11434/v1', api_key='ollama')`
+`openai = OpenAI(base_url='http://localhost:11434/v1', api_key='ollama')`  
+And also replace model names like **gpt-4o-mini** with **llama3.2**.  
+For week 1 day 1, you can find this in week1/solutions/day1_with_ollama.ipynb.
 
 Below is a full example:
 
