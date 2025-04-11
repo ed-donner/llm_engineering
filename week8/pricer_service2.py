@@ -5,7 +5,7 @@ from modal import App, Volume, Image
 
 app = modal.App("pricer-service")
 image = Image.debian_slim().pip_install("huggingface", "torch", "transformers", "bitsandbytes", "accelerate", "peft")
-image.add_local_python_source("hello", "llama")  #CE: adding here based on Deprecation warnings...  
+image.add_local_python_source("hello", "llama")  #CP: adding here based on Deprecation warnings...  
 secrets = [modal.Secret.from_name("hf-secret")]
 
 # Constants
@@ -17,20 +17,18 @@ HF_USER = "cproSD" # your HF name here! Or use mine if you just want to reproduc
 RUN_NAME = "2025-04-08_21.52.37"
 PROJECT_RUN_NAME = f"{PROJECT_NAME}-{RUN_NAME}"
 FINETUNED_MODEL = f"{HF_USER}/{PROJECT_RUN_NAME}"
-#DEL: MODEL_DIR = "hf-cache/"
-MODEL_DIR = "/models/"
-BASE_DIR = MODEL_DIR + BASE_MODEL
-FINETUNED_DIR = MODEL_DIR + FINETUNED_MODEL
-CACHE_DIR = "/cache"  #CE: Use the standard /cache path for hf-hub-cache
+#DEL: MODEL_DIR = "/models/"
+#DEL: BASE_DIR = MODEL_DIR + BASE_MODEL
+#DEL: FINETUNED_DIR = MODEL_DIR + FINETUNED_MODEL
+CACHE_DIR = "/cache"  #CP: Use the standard /cache path for hf-hub-cache
 
 QUESTION = "How much does this cost to the nearest dollar?"
 PREFIX = "Price is $"
 
-#CE: Use the pre-configured hf-hub-cache Volume...
+#CP: Use the pre-configured hf-hub-cache Volume...
 hf_cache_volume = Volume.from_name("hf-hub-cache")
 
 @app.cls(
-    #image=image, 
     image=image.env({"HF_HUB_CACHE": CACHE_DIR}),
     secrets=secrets, 
     gpu=GPU, 
@@ -38,17 +36,9 @@ hf_cache_volume = Volume.from_name("hf-hub-cache")
     volumes={CACHE_DIR: hf_cache_volume}
 )
 class Pricer:
-    #DEL: @modal.build()
-    #DEL: def download_model_to_folder(self):
-    #DEL:     from huggingface_hub import snapshot_download
-    #DEL:     import os
-    #DEL:     os.makedirs(MODEL_DIR, exist_ok=True)
-    #DEL:     snapshot_download(BASE_MODEL, local_dir=BASE_DIR)
-    #DEL:     snapshot_download(FINETUNED_MODEL, local_dir=FINETUNED_DIR)
 
     @modal.enter()
     def setup(self):
-        import os
         import torch
         from transformers import AutoTokenizer, AutoModelForCausalLM, BitsAndBytesConfig, set_seed
         from peft import PeftModel
@@ -60,20 +50,17 @@ class Pricer:
             bnb_4bit_compute_dtype=torch.bfloat16,
             bnb_4bit_quant_type="nf4"
         )
-    
+
         # Load model and tokenizer
-        
-        self.tokenizer = AutoTokenizer.from_pretrained(BASE_DIR)
+        self.tokenizer = AutoTokenizer.from_pretrained(BASE_MODEL)
         self.tokenizer.pad_token = self.tokenizer.eos_token
         self.tokenizer.padding_side = "right"
-        
         self.base_model = AutoModelForCausalLM.from_pretrained(
-            BASE_DIR, 
+            BASE_MODEL, 
             quantization_config=quant_config,
             device_map="auto"
         )
-    
-        self.fine_tuned_model = PeftModel.from_pretrained(self.base_model, FINETUNED_DIR, revision=REVISION)
+        self.fine_tuned_model = PeftModel.from_pretrained(self.base_model, FINETUNED_MODEL)
 
     @modal.method()
     def price(self, description: str) -> float:
