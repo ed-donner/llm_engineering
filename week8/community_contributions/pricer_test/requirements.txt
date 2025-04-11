@@ -1,0 +1,6 @@
+huggingface
+torch
+transformers
+bitsandbytes
+accelerate
+peft
