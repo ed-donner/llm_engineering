@@ -58,7 +58,7 @@ class Pricer:
             quantization_config=quant_config,
             device_map="auto"
         )
-        self.fine_tuned_model = PeftModel.from_pretrained(self.base_model, FINETUNED_MODEL)
+        self.fine_tuned_model = PeftModel.from_pretrained(self.base_model, FINETUNED_MODEL, revision=REVISION)
 
     @modal.method()
     def price(self, description: str) -> float:
