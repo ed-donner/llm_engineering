@@ -5,7 +5,7 @@ from modal import App, Volume, Image
 
 app = modal.App("pricer-service")
 image = Image.debian_slim().pip_install("huggingface", "torch", "transformers", "bitsandbytes", "accelerate", "peft")
-image.add_local_python_source("hello", "llama")  #CP: adding here based on Deprecation warnings...  
+image.add_local_python_source("hello", "llama")    
 secrets = [modal.Secret.from_name("hf-secret")]
 
 # Constants
@@ -13,19 +13,16 @@ secrets = [modal.Secret.from_name("hf-secret")]
 GPU = "T4"
 BASE_MODEL = "meta-llama/Meta-Llama-3.1-8B"
 PROJECT_NAME = "pricer"
-HF_USER = "cproSD" # your HF name here! Or use mine if you just want to reproduce my results.
-RUN_NAME = "2025-04-08_21.52.37"
+HF_USER = "ed-donner" # your HF name here! Or use mine if you just want to reproduce my results.
+RUN_NAME = "2024-09-13_13.04.39"
 PROJECT_RUN_NAME = f"{PROJECT_NAME}-{RUN_NAME}"
 FINETUNED_MODEL = f"{HF_USER}/{PROJECT_RUN_NAME}"
-#DEL: MODEL_DIR = "/models/"
-#DEL: BASE_DIR = MODEL_DIR + BASE_MODEL
-#DEL: FINETUNED_DIR = MODEL_DIR + FINETUNED_MODEL
-CACHE_DIR = "/cache"  #CP: Use the standard /cache path for hf-hub-cache
+CACHE_DIR = "/cache" 
 
 QUESTION = "How much does this cost to the nearest dollar?"
 PREFIX = "Price is $"
 
-#CP: Use the pre-configured hf-hub-cache Volume...
+#NOTE: Use the pre-configured hf-hub-cache Volume...
 hf_cache_volume = Volume.from_name("hf-hub-cache")
 
 @app.cls(
