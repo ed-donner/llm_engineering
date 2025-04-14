@@ -1,0 +1,496 @@
+WEBVTT
+
+00:00.260 --> 00:05.780
+So the good news is that this is the very final video about data set curation.
+
+00:05.810 --> 00:08.120
+You were probably fed up of data set curation.
+
+00:08.120 --> 00:10.970
+Now there's just one more piece and then we are done.
+
+00:11.000 --> 00:16.370
+So we have crafted an outstanding data set of which we should be very proud.
+
+00:16.370 --> 00:19.610
+Let's do some final peeks at it.
+
+00:19.760 --> 00:23.030
+Um, one question that you might ask.
+
+00:23.060 --> 00:24.710
+Um, well, I'm going to ask it anyway.
+
+00:24.710 --> 00:30.740
+Is is it possible that the price of an item is related?
+
+00:30.740 --> 00:35.570
+It's correlated to how long the description is of that item.
+
+00:35.570 --> 00:41.960
+You might imagine a situation where the higher price things tend to have more information.
+
+00:41.960 --> 00:44.420
+And that would be worth us understanding.
+
+00:44.600 --> 00:48.170
+Um, because yeah, that's something that the model would learn from quickly.
+
+00:48.170 --> 00:52.550
+And it gives us a good sense, perhaps when we look at traditional approaches about how we might approach
+
+00:52.550 --> 00:52.730
+it.
+
+00:52.730 --> 01:00.650
+So this is a nice little scatter plot that is going to show us, um, each of the, the sizes on the
+
+01:00.650 --> 01:01.220
+x axis.
+
+01:01.250 --> 01:07.970
+It's going to show us the length of the description, and on the y axis it's going to show us the price.
+
+01:08.060 --> 01:12.350
+Um, let's have a look at this across the full sample data set.
+
+01:12.740 --> 01:13.700
+So here we go.
+
+01:13.700 --> 01:15.950
+Here's a nice nice picture for you.
+
+01:15.950 --> 01:20.210
+So there are 400,000 points on this picture.
+
+01:20.360 --> 01:23.330
+Uh and it's something to look at.
+
+01:23.330 --> 01:26.420
+You can see in it there's there's a lot to digest.
+
+01:26.450 --> 01:34.040
+You can see this interesting pattern that's happening as prices tend to be more prevalent at these boundary
+
+01:34.040 --> 01:34.490
+points.
+
+01:34.490 --> 01:43.370
+The $799 priced items, um, and you can see, of course, that there are many more cheaper items.
+
+01:43.370 --> 01:52.610
+And you can see that there is something of apparently a correlation that, uh, items which have longer
+
+01:52.610 --> 01:59.480
+descriptions do appear, perhaps sometimes to have a trend of being the more expensive ones.
+
+01:59.480 --> 02:03.750
+But it's not clear that there's a significant correlation in that regard.
+
+02:03.750 --> 02:06.750
+So there's something there, but it's nothing major.
+
+02:06.750 --> 02:12.780
+So we suspect that traditional machine learning, when trying to look at something like that will probably
+
+02:12.780 --> 02:15.270
+not find any major correlation.
+
+02:15.270 --> 02:21.660
+So just an example of the kind of, um, diagram that you can come up with to try and get insight into
+
+02:21.660 --> 02:23.610
+different aspects of your data.
+
+02:24.330 --> 02:27.510
+One other thing I want to talk about for a moment more is tokens.
+
+02:27.750 --> 02:34.830
+Um, and uh, the, um, we're going to be working a lot more with tokens when we get to actually training
+
+02:34.830 --> 02:38.640
+against an open source model, but it's worth looking at tokens right now.
+
+02:38.640 --> 02:44.790
+So I've just written this function report, which takes an item and which will then print, uh, the
+
+02:44.790 --> 02:48.630
+prompt, first of all, the full training prompt that will be used during training.
+
+02:48.630 --> 02:54.930
+And then the last ten tokens in that prompt, and then it will decode those.
+
+02:54.930 --> 02:59.010
+So we'll see the bits of text that map to the last ten tokens.
+
+02:59.010 --> 03:02.250
+And if you're wondering why the last ten you're going to see in just a second.
+
+03:02.250 --> 03:08.550
+So let's pick a random number, number 40,000 and run this.
+
+03:08.580 --> 03:09.060
+Okay.
+
+03:09.090 --> 03:12.840
+So this here sorry for all of this text here.
+
+03:12.840 --> 03:18.390
+That is the prompt that's going to be sent to the LLM to learn from.
+
+03:18.630 --> 03:22.170
+Um, it's going to be asked how much does this cost to the nearest dollar.
+
+03:22.170 --> 03:23.790
+And then it's going to get a description.
+
+03:23.790 --> 03:30.090
+And then price is and then this which is the price rounded to the nearest dollar.
+
+03:30.180 --> 03:36.750
+You'll note if you look in the item code that when building the training prompt, it rounds this to
+
+03:36.780 --> 03:37.860
+the nearest dollar.
+
+03:37.950 --> 03:44.520
+So if we look at the last ten tokens you can see what's happening here I'm printing out underneath it.
+
+03:44.550 --> 03:46.110
+What are those ten tokens.
+
+03:46.110 --> 03:53.010
+And I just wanted to show you that in terms of the final few tokens, price gets mapped to one token
+
+03:53.040 --> 04:02.130
+is gets a token with that start of of of word space before it dollars again with the start of word,
+
+04:02.130 --> 04:07.410
+and then the number 34 is getting mapped to one specific token.
+
+04:07.680 --> 04:12.450
+And this is, as I say, just a feature of the llama tokenizer that it does.
+
+04:12.450 --> 04:18.000
+As with GPT, it does have a separate token for every three digit number.
+
+04:18.000 --> 04:21.120
+Some of the other tokenizers the other models do not.
+
+04:21.210 --> 04:27.120
+Um, and whilst this isn't required for our project, it does make things a bit simpler for us later.
+
+04:27.180 --> 04:32.250
+And then the period gets one token and the .00 gets one token.
+
+04:32.280 --> 04:35.130
+Let's do another sample.
+
+04:36.930 --> 04:42.000
+Let's do something completely, uh, something in a different location altogether.
+
+04:42.720 --> 04:44.100
+Number 10,000.
+
+04:44.280 --> 04:47.550
+And this is a something that's rather cheap.
+
+04:47.580 --> 04:51.930
+It costs $9 and price is 9000.
+
+04:51.960 --> 04:58.110
+Let's go for something that's near the end of the data set 398,000.
+
+04:58.620 --> 05:05.740
+And this is a, um, uh, coilover damper kit.
+
+05:05.740 --> 05:10.240
+And this price is $765.
+
+05:10.240 --> 05:15.430
+And you'll see once more that the 765 gets mapped to one token.
+
+05:15.430 --> 05:22.090
+So you should satisfy yourself this this sample is of course sorted by cheapest first ish because we've
+
+05:22.120 --> 05:25.840
+gone through sampling, uh, in each, each category.
+
+05:25.840 --> 05:28.990
+So, so rounded to the nearest dollar.
+
+05:28.990 --> 05:35.170
+It is sorted by cheapest in the lower, um, parts of the sample, and the most expensive in the higher
+
+05:35.170 --> 05:36.100
+parts of the sample.
+
+05:36.100 --> 05:43.390
+And you can satisfy yourself that we are getting this effect, that every number from 1 to 999 is getting
+
+05:43.390 --> 05:46.780
+mapped to one token, just as it says here.
+
+05:46.780 --> 05:54.190
+And as I say one more time, when, uh, look at the quantity or gamma or phi three tokenizers, you'll
+
+05:54.190 --> 05:55.870
+see that that's not the case.
+
+05:55.960 --> 06:02.350
+Um, it turns out to be a little bit handy for us later on, but it's not required and definitely later.
+
+06:02.350 --> 06:07.060
+If you want to experiment with using other models like Quantum Gemini three, you can simply switch
+
+06:07.090 --> 06:08.620
+it in and it will work.
+
+06:08.650 --> 06:14.440
+You'll just find here that it will be mapped to multiple tokens, not to the one token for the three
+
+06:14.470 --> 06:15.430
+digit number.
+
+06:16.690 --> 06:20.260
+Okay, big sigh of relief.
+
+06:20.260 --> 06:22.630
+We've made it through data curation.
+
+06:22.630 --> 06:27.460
+The last part of it all is to finish things off and upload to the hub.
+
+06:27.460 --> 06:33.520
+And what we're going to do to start with is shuffle up our data set, because it's no good at all if
+
+06:33.520 --> 06:35.710
+it's sorted in order of cheapest.
+
+06:35.710 --> 06:38.650
+First we need a nice jumbled data set.
+
+06:38.800 --> 06:44.350
+Um, and first I, um, set the random seed because I want to make sure that we always are working with
+
+06:44.350 --> 06:50.230
+exactly the same data set so that you can reproduce exactly the same stuff that I will and get the same
+
+06:50.260 --> 06:51.340
+outcomes.
+
+06:51.520 --> 06:58.990
+Um, we use Random.shuffle to shuffle things up, and then I take the first 400,000 as my training data
+
+06:59.020 --> 06:59.290
+set.
+
+06:59.290 --> 07:01.900
+And then the next 2000 as the test set.
+
+07:01.930 --> 07:03.220
+Now I hear you.
+
+07:03.250 --> 07:05.230
+You cry, you data scientists.
+
+07:05.260 --> 07:11.380
+That one normally takes, like, at least a 5% or 10% test data set here.
+
+07:11.470 --> 07:16.270
+Um, and you can absolutely feel free to do so because obviously we've got we've got 8000 data points
+
+07:16.300 --> 07:17.350
+right, right here.
+
+07:17.350 --> 07:21.490
+And you can also, of course, sample more to have a bigger data set.
+
+07:21.520 --> 07:26.590
+It won't be necessary for us because we're going to find that we're only going to use a few hundred
+
+07:26.590 --> 07:27.310
+for testing.
+
+07:27.310 --> 07:30.160
+And that's going to give us very accurate results.
+
+07:30.160 --> 07:34.090
+And we get diminishing returns if we keep testing against more and more.
+
+07:34.090 --> 07:39.340
+So this is plenty for our purposes for this project, but it is a best practice.
+
+07:39.370 --> 07:40.630
+I don't know if it's a best practice.
+
+07:40.660 --> 07:47.620
+It's a common practice to reserve at least 5% of these other, uh, for the test data set, and sometimes
+
+07:47.620 --> 07:52.810
+to to separately have 5% for test and a 5% for validation, as I talked about before.
+
+07:52.870 --> 07:58.930
+Um, not required for this purpose, but by all means, you can do it if you wish and have that as an
+
+07:58.930 --> 08:00.880
+extra data set that you manage.
+
+08:01.030 --> 08:02.300
+Um, but anyway, we will do that.
+
+08:02.300 --> 08:03.320
+We will jumble it up.
+
+08:03.320 --> 08:08.630
+It's been divided into a training dataset of 400,000 and a test set of 2000.
+
+08:08.660 --> 08:14.480
+Let's have a look at the first the the the test first element.
+
+08:14.480 --> 08:19.640
+The test prompt that you remember is the prompt without revealing the answer.
+
+08:19.640 --> 08:24.680
+This is the prompt that will be sent to sorry, I'm looking at the training prompt first, then we'll
+
+08:24.680 --> 08:25.310
+look at the test prompt.
+
+08:25.340 --> 08:27.470
+The training prompt is the one that does have the answer.
+
+08:27.470 --> 08:31.310
+So the training prompt says how much does this cost to the nearest dollar.
+
+08:31.310 --> 08:35.120
+It is a Delphi fuel pump module.
+
+08:35.390 --> 08:37.430
+Um, and uh yeah.
+
+08:37.460 --> 08:37.910
+How about that.
+
+08:37.910 --> 08:39.470
+It costs $227.
+
+08:39.470 --> 08:41.300
+I would have had no clue about that.
+
+08:41.300 --> 08:47.450
+So this is an example of something that will be sent to an LM as part of training, because it contains
+
+08:47.450 --> 08:50.240
+the description and it contains the price.
+
+08:50.480 --> 08:54.380
+Um, so let's look at a test prompt.
+
+08:54.410 --> 09:01.280
+Now the test prompt is going to show us something that will be used, which will have the description,
+
+09:01.280 --> 09:02.990
+but it will not have the price.
+
+09:02.990 --> 09:07.400
+And this is the first item in our test set.
+
+09:07.400 --> 09:09.350
+So there we have it.
+
+09:09.470 --> 09:17.960
+Uh, let's have a quick look at the distribution of prices for the first 250 test points, because these
+
+09:17.960 --> 09:22.430
+are actually the points that we'll be using most of the time for actually testing our model.
+
+09:22.430 --> 09:26.750
+And you can see there's a nice healthy spread of different prices here.
+
+09:26.780 --> 09:33.410
+There's plenty of things in the higher area that will test whether the model can handle expensive things.
+
+09:33.410 --> 09:41.360
+And then, you know, the majority are the cheaper priced with a good variety of prices in our test
+
+09:41.360 --> 09:42.530
+data set.
+
+09:43.340 --> 09:51.650
+Okay, finally, finally, we now turn this into a series of training prompts and test prompts, uh,
+
+09:51.650 --> 09:57.680
+which is just simply plucking out the the prompt and the test prompt that we just looked at, along
+
+09:57.680 --> 09:58.910
+with the prices.
+
+09:59.390 --> 10:03.590
+This little piece of code here will upload it to the hugging face.
+
+10:03.620 --> 10:10.820
+I will turn it into a data set object suitable for the hugging face hub, by calling the Fromdict for
+
+10:10.820 --> 10:14.330
+a data set and then putting that into a data set dict.
+
+10:15.050 --> 10:22.940
+And then finally this line here will upload your data set to the Hugging Face hub so that you can continue
+
+10:22.940 --> 10:26.000
+to use it and download it for future.
+
+10:26.000 --> 10:33.110
+Uh, when we get to to fine tuning, uh, but I'm not going to run it because I've already run it.
+
+10:33.110 --> 10:35.300
+And this is for you to put in your username.
+
+10:35.300 --> 10:46.100
+I have this uploaded to to my to to uh, um, sorry, I have it uploaded to my username here.
+
+10:46.100 --> 10:51.800
+So you will be able to also just retrieve the data that way too.
+
+10:51.830 --> 10:55.820
+If you wanted to short circuit all of this data curation, which hopefully you do not want to do.
+
+10:56.210 --> 11:05.940
+Um, and then as a final thing here, um, I'm going to turn this train and test the collection into
+
+11:06.090 --> 11:07.230
+a pickle file.
+
+11:07.230 --> 11:12.270
+I'm going to pickle it and put it into a file so we can load it for future days so we don't have to
+
+11:12.300 --> 11:16.050
+go through all of this rigmarole again of building our lists.
+
+11:16.050 --> 11:22.620
+So if you're familiar with Python pickles, it's super easy way to take a Python object and dump it
+
+11:22.620 --> 11:23.520
+out to a file.
+
+11:23.520 --> 11:28.710
+And now that I've run that, there will be two new files here test dot pickle and train dot pickle that
+
+11:28.710 --> 11:32.340
+will contain my training and test data set.
+
+11:33.090 --> 11:36.900
+And with that we have completed our data curation work.
+
+11:36.900 --> 11:44.820
+Please can I leave with you to investigate the data set more and to also confirm when you try out this,
+
+11:44.970 --> 11:53.220
+this exercise of trying to tokenize, uh, different, um, uh, different data points that you always
+
+11:53.220 --> 11:59.490
+get the case that three digit numbers tokenized to one token and get a sense for those tokens.
+
+11:59.820 --> 12:03.720
+And with that, I will see you back with the slides for a wrap up.

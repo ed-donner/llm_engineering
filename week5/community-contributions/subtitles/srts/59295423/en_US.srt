@@ -1,0 +1,223 @@
+WEBVTT
+
+00:00.650 --> 00:06.890
+Welcome to day two of week four, when we get more into leaderboards so that by the end of this, you'll
+
+00:06.890 --> 00:11.690
+know more than you ever wanted to know or dreamed of knowing about leaderboards and metrics and benchmarks
+
+00:11.690 --> 00:14.060
+and arenas and all of that.
+
+00:14.060 --> 00:20.420
+But you'll find it incredibly useful and important as you look to understand how to pick the right LLM
+
+00:20.420 --> 00:21.800
+for the task at hand.
+
+00:21.830 --> 00:30.890
+So the plan for today, uh, last time we talked about comparing Llms using basic attributes and using
+
+00:30.890 --> 00:31.820
+benchmarks.
+
+00:31.850 --> 00:38.330
+Today you're going to look beyond the open LLM leaderboard from hugging face at other leaderboards and
+
+00:38.330 --> 00:41.750
+arenas that let you compare and evaluate llms.
+
+00:42.320 --> 00:50.480
+We're also going to look at some real world use cases of llms solving commercial problems, uh, which
+
+00:50.600 --> 00:53.420
+will be hopefully, uh, insightful for you.
+
+00:53.450 --> 00:58.700
+We'll just do that quickly, because I think everyone has exposure to so many these days, but it will
+
+00:58.700 --> 01:05.960
+give you food for thought and it should, in summary, arm you to be able to choose the right LLM for
+
+01:05.960 --> 01:07.250
+your projects.
+
+01:08.000 --> 01:16.190
+So we're going to be doing a tour of six essential leaderboards that are available through Huggingface
+
+01:16.430 --> 01:17.360
+and beyond.
+
+01:17.390 --> 01:18.230
+Huggingface.
+
+01:18.260 --> 01:23.690
+For comparing Llms, the first of them is actually one that we've already seen the Huggingface OpenAI
+
+01:23.900 --> 01:25.190
+leaderboard comparing.
+
+01:25.220 --> 01:31.280
+There's both the old version, but now there's the new version, which has the harder metrics.
+
+01:31.310 --> 01:38.660
+It's of course open source models, but it is the go to place to compare open source models.
+
+01:39.230 --> 01:46.550
+There is also a leaderboard called Big Code on Huggingface, which is a leaderboard that compares models
+
+01:46.550 --> 01:50.420
+specifically that are designed to generate code.
+
+01:50.420 --> 01:56.060
+And we'll be doing that looking at those examples and how it assesses models in just a second.
+
+01:56.480 --> 02:03.530
+There is one called the LM perf board, which is another Huggingface board that talks, thinks about
+
+02:03.530 --> 02:11.090
+performance, uh, about both accuracy and the actual speed and cost of compute.
+
+02:11.090 --> 02:14.720
+So this is a super important one that looks at a different dimension.
+
+02:14.720 --> 02:20.040
+It's looking at some of the basic attributes, and it's one that again is going to become a go to resource
+
+02:20.040 --> 02:25.560
+for you, particularly when you're thinking about inference of open source models compared to their
+
+02:25.560 --> 02:27.180
+closed source cousins.
+
+02:27.420 --> 02:29.850
+And then there are some other hugging face boards.
+
+02:29.850 --> 02:31.110
+There's so much on hugging face.
+
+02:31.110 --> 02:31.920
+There are more.
+
+02:31.950 --> 02:37.260
+There are specific leader boards designed for different business areas.
+
+02:37.260 --> 02:44.160
+You're going to see a medical leaderboard which is designed for, uh, of course, uh, medical use
+
+02:44.160 --> 02:44.850
+cases.
+
+02:44.850 --> 02:47.940
+You're going to see leaderboards for other languages.
+
+02:47.970 --> 02:49.380
+I think there's one Portuguese.
+
+02:49.380 --> 02:50.190
+I just saw that.
+
+02:50.190 --> 02:50.820
+I'll show you.
+
+02:50.820 --> 02:57.150
+There's a bunch of different language specific leaderboards depending on your use case.
+
+02:57.150 --> 02:59.670
+That might be the leaderboard that's right for you.
+
+03:00.300 --> 03:02.970
+Then we're going to go and look at Valheim's leaderboard.
+
+03:02.970 --> 03:06.720
+You may remember we we briefly looked at this uh, early on.
+
+03:06.720 --> 03:12.960
+It's a very useful resource which has a number of leaderboards, um, that include open and closed source.
+
+03:12.960 --> 03:17.910
+So it's one of the places where you can bring together the full family of models.
+
+03:17.910 --> 03:24.990
+It also has that useful table, if you remember, that has cost, API costs and contacts window lengths.
+
+03:25.080 --> 03:31.840
+And so it's another one to add to your bookmarks because it's one of the few places which which reliably
+
+03:31.840 --> 03:35.440
+has all of that information up to date in one place.
+
+03:36.040 --> 03:44.140
+And then the last of the leaderboards that we'll look at is called Seal, which assesses various expert
+
+03:44.140 --> 03:48.190
+skills, and they are always adding new leaderboards to to this set of leaderboards.
+
+03:48.190 --> 03:52.210
+So it's it is, if I may say, another one to bookmark.
+
+03:52.210 --> 03:58.840
+So your bookmarks are going to get crowded because these are great resources and I think you will thank
+
+03:58.840 --> 04:00.850
+me when you need to use them in the future.
+
+04:02.350 --> 04:09.790
+We are then also going to look at something called the Chatbot Arena, the LMS Chatbot Arena.
+
+04:09.790 --> 04:12.100
+It is a fantastic resource.
+
+04:12.100 --> 04:19.390
+It is specifically looking at the instruct the chat use case, the ability of models to chat.
+
+04:19.390 --> 04:26.080
+But the idea is rather than having some sort of benchmark test, it relies on human judgement to decide
+
+04:26.080 --> 04:34.840
+which model is better at the kind of, uh, the, the, um, the instruction following chats.
+
+04:34.990 --> 04:45.340
+Um, And it's just a qualitative decision by a human to decide to pick a model A or model B whilst chatting
+
+04:45.340 --> 04:46.870
+with both models together.
+
+04:46.870 --> 04:52.810
+And it's a blind test in that you don't know which model is which and you have to vote without knowing.
+
+04:53.020 --> 05:01.420
+Um, and models are given an Elo rating, which I mentioned before based on their overall, uh, um,
+
+05:01.420 --> 05:08.500
+how they rank overall against their, their, their peers, um, from many human tests.
+
+05:08.500 --> 05:10.330
+So we'll see this.
+
+05:10.360 --> 05:12.700
+We'll get to do some voting ourselves.
+
+05:13.300 --> 05:18.580
+And then finally we're going to look at a bunch of commercial use cases, everything from law to talent
+
+05:18.610 --> 05:23.050
+to code to healthcare to education, seeing llms in action.
+
+05:23.050 --> 05:26.950
+And of course, this this could be ten times more.
+
+05:26.980 --> 05:34.060
+The Llms are making an impact in every business vertical you can imagine, but it's always useful to
+
+05:34.060 --> 05:37.270
+see a few of them and get a sense of what's out there.
+
+05:37.270 --> 05:39.610
+So we will do all of that now.
+
+05:39.610 --> 05:44.950
+And, uh, prepare, prepare to do some bookmarking because you're going to see a lot of useful stuff
+
+05:44.950 --> 05:45.370
+now.

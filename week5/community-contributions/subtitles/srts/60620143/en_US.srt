@@ -1,0 +1,448 @@
+WEBVTT
+
+00:00.110 --> 00:02.570
+So we're going to make a call to GPT four.
+
+00:02.600 --> 00:07.850
+Oh, that's going to ask it to look through a set of links, figure out which ones are relevant, and
+
+00:07.850 --> 00:11.000
+then replace them with fully qualified links.
+
+00:11.270 --> 00:17.660
+Um, and it's going to be a great, a great way of using llms because it requires particularly for selecting
+
+00:17.660 --> 00:18.740
+which links are relevant.
+
+00:18.740 --> 00:21.620
+It needs a sort of nuanced reasoning process.
+
+00:21.890 --> 00:27.560
+Uh, so we're going to we're going to not only are we going to to use GPT four for this purpose, we're
+
+00:27.560 --> 00:34.130
+going to ask it to respond in the form of JSON in a way that specifies exactly the information that
+
+00:34.130 --> 00:35.390
+we need back.
+
+00:35.420 --> 00:41.660
+Now, later on, we're going to cover a technique called structured outputs, which is when we require
+
+00:41.660 --> 00:45.080
+the LLM to respond with a very specific format.
+
+00:45.110 --> 00:48.950
+We effectively we specify the format that it needs to respond in.
+
+00:48.980 --> 00:50.300
+We're not going to do this today.
+
+00:50.300 --> 00:52.670
+We're just going to simply ask for JSON back.
+
+00:52.700 --> 00:56.000
+And we're going to tell it the format that it needs to use to reply.
+
+00:56.000 --> 00:57.380
+And it's going to be great.
+
+00:57.410 --> 01:00.590
+Uh, this works well for simple requests like this.
+
+01:00.590 --> 01:04.120
+When you get more sophisticated, you you might need to use structured outputs.
+
+01:04.120 --> 01:09.370
+And in week eight, when we build our Agentic AI framework, we're going to do just that.
+
+01:09.370 --> 01:11.560
+But for now, this is what we do.
+
+01:11.560 --> 01:14.290
+So we're going to to create a system prompt.
+
+01:14.350 --> 01:19.960
+The system prompt is where, of course we describe the task at hand and how it's to go about doing it.
+
+01:19.960 --> 01:22.570
+That is where we will be supplying this information.
+
+01:22.570 --> 01:24.250
+Here's the system prompt.
+
+01:24.280 --> 01:28.720
+You are provided with a list of links found on a web page.
+
+01:28.720 --> 01:34.810
+You are able to decide which of these links will be most relevant to include in a brochure about the
+
+01:34.810 --> 01:41.800
+company, such as links to an about page or a company page, or a careers jobs page.
+
+01:41.830 --> 01:46.210
+You should respond in JSON as in this example.
+
+01:46.210 --> 01:49.150
+And then there is an example passed in.
+
+01:49.150 --> 01:54.400
+And when I said we're working with one shot prompting, that's really what I meant by giving it a specific
+
+01:54.400 --> 02:01.480
+example that it could use with an about page and a careers page, and the way that we're specifying
+
+02:01.480 --> 02:07.000
+the format is simply by giving it an example you can see we're asking for a dictionary.
+
+02:07.030 --> 02:09.880
+It will have a single attribute links.
+
+02:09.880 --> 02:16.570
+And that links will be a list of again dictionaries with type and URL in each one.
+
+02:16.570 --> 02:19.420
+And that URL is the full URL.
+
+02:19.420 --> 02:21.430
+So let me run this cell.
+
+02:21.430 --> 02:27.190
+And just to make sure that this is clear to you, let me just print link system prompt.
+
+02:27.190 --> 02:28.840
+So we now have a variable.
+
+02:28.840 --> 02:31.330
+And this is what that variable contains.
+
+02:31.330 --> 02:32.410
+We print it out.
+
+02:32.440 --> 02:34.540
+We'll get the carriage returns as well.
+
+02:34.540 --> 02:35.830
+Let's have a look at this.
+
+02:36.910 --> 02:37.990
+Here it is.
+
+02:38.500 --> 02:44.890
+So this is exactly what we are going to instruct the LLM to do in our system prompt.
+
+02:45.370 --> 02:50.110
+And now we're going to write a function get links user prompt.
+
+02:50.110 --> 02:51.400
+And this is what it looks like.
+
+02:51.430 --> 02:53.770
+It will take a website object.
+
+02:53.770 --> 02:59.800
+And it's going to say here is a list of links on the website of blah.
+
+03:00.070 --> 03:04.630
+Please decide which are relevant web links for a brochure about the company.
+
+03:04.660 --> 03:13.470
+Respond with a full your URL do not include and a few things not to include and then list out the links
+
+03:13.590 --> 03:17.160
+by one by one and return that.
+
+03:17.160 --> 03:20.490
+So this will make more sense if we look at an actual example.
+
+03:20.490 --> 03:26.580
+So let's call get Links user prompt and we'll pass in editor which is of course as before editor.
+
+03:26.580 --> 03:27.510
+Is this one up here.
+
+03:27.510 --> 03:29.520
+It's going to be looking at these links.
+
+03:29.520 --> 03:32.100
+So let's see what this user prompt looks like.
+
+03:32.130 --> 03:34.800
+And you should run this to and get a sense for it.
+
+03:34.800 --> 03:36.930
+This is what the user prompt would look like.
+
+03:36.960 --> 03:40.020
+It's sorry it says exactly what I just said.
+
+03:40.110 --> 03:45.270
+Uh, it tells it that we're looking at this website, that fine website.
+
+03:45.540 --> 03:47.430
+Uh, and then here are the links.
+
+03:47.430 --> 03:55.080
+Some might be relative and you should summarize and you should you should select the ones that are relevant.
+
+03:55.680 --> 03:56.580
+Okay.
+
+03:56.610 --> 04:01.920
+And now it's time to put all of this into a function which is going to call OpenAI.
+
+04:01.920 --> 04:04.890
+And here it is get links URL.
+
+04:04.890 --> 04:08.430
+So we'll create a new website object for that URL.
+
+04:09.120 --> 04:11.130
+And now we call this.
+
+04:11.130 --> 04:15.930
+And I went through this quickly last time, and now it's time to spend a little bit more time on this.
+
+04:15.930 --> 04:23.670
+We call OpenAI chat, which is the main API for chats completions, which is the one that we will almost
+
+04:23.670 --> 04:24.330
+always use.
+
+04:24.330 --> 04:31.560
+Is that the the API, which is the standard API where we're saying your task is to keep going, is to
+
+04:31.590 --> 04:33.720
+is to complete this conversation.
+
+04:33.720 --> 04:42.000
+And we create something on the completions API and it takes, as before, a model and messages the model
+
+04:42.000 --> 04:42.690
+we're passing in.
+
+04:42.690 --> 04:43.410
+It was a variable.
+
+04:43.410 --> 04:46.350
+We set GPT four mini right at the start.
+
+04:46.410 --> 04:47.820
+Messages.
+
+04:47.820 --> 04:51.120
+Hopefully this is already starting to be familiar to you.
+
+04:51.120 --> 04:56.370
+The format that we use for messages is a list of dictionaries.
+
+04:56.400 --> 05:02.700
+It's a list of dictionaries where each dictionary, each dictionary has a key role with either system
+
+05:02.700 --> 05:08.670
+or user, a key content with the associated system message or user message.
+
+05:08.670 --> 05:09.270
+So.
+
+05:09.270 --> 05:11.600
+System system message user.
+
+05:11.630 --> 05:15.890
+User message that is going in our messages list.
+
+05:15.890 --> 05:17.360
+It's as simple as that.
+
+05:17.360 --> 05:20.300
+I hope that this is completely connecting for you.
+
+05:20.330 --> 05:26.930
+There is one little extra detail, one tiny thing I'm throwing in there, and it's this here response
+
+05:26.930 --> 05:28.010
+format.
+
+05:28.100 --> 05:34.970
+So you could tell OpenAI that we want it to provide a JSON object back in its response.
+
+05:34.970 --> 05:39.500
+And we do that by passing this in type JSON object.
+
+05:39.500 --> 05:44.870
+So that is something which is it's actually Claude doesn't doesn't have this way of requiring a JSON
+
+05:44.900 --> 05:45.800
+object back.
+
+05:45.890 --> 05:46.940
+OpenAI does.
+
+05:46.940 --> 05:53.120
+But OpenAI mentions in their documentation that even when you use this, it's still important that you
+
+05:53.120 --> 05:56.570
+mention in your prompt that a JSON response is required.
+
+05:56.570 --> 06:00.950
+It will only work if you do mention that explicitly in your prompt also.
+
+06:01.700 --> 06:03.620
+So we do that.
+
+06:03.650 --> 06:06.440
+What comes back is into this variable completion.
+
+06:06.440 --> 06:11.180
+Actually, to keep this consistent with before, I'm going to change this to response because that's
+
+06:11.180 --> 06:12.770
+what we called it last time.
+
+06:14.540 --> 06:15.410
+There we go.
+
+06:15.590 --> 06:24.080
+Uh, and, uh, what we then to to to actually get the final reply, we go response dot choices zero.
+
+06:24.080 --> 06:25.490
+So what's this about?
+
+06:25.490 --> 06:32.540
+Well, as it happens we can actually in the API request ask to have multiple variations if we want,
+
+06:32.570 --> 06:36.890
+if we wanted it to generate several possible variations of the response.
+
+06:36.890 --> 06:37.970
+And we haven't done that.
+
+06:37.970 --> 06:39.680
+So we're only going to get back one.
+
+06:39.740 --> 06:43.250
+Uh, and so those variations come back in the form of these choices.
+
+06:43.250 --> 06:44.840
+But we've only got one.
+
+06:44.840 --> 06:50.000
+So choices zero is getting us the one and the only choice of the response back.
+
+06:50.000 --> 06:57.380
+So that's why you'll always see response dot choices zero dot message dot content is just simply drilling
+
+06:57.380 --> 07:00.050
+down to what is actually the text message back.
+
+07:00.050 --> 07:05.870
+So basically you get very familiar with these two two things because it's the same in many, many times
+
+07:05.870 --> 07:06.680
+that we call the API.
+
+07:06.710 --> 07:12.410
+We'll be doing the same thing OpenAI dot chat, dot completions, dot create and then with what comes
+
+07:12.410 --> 07:16.840
+back it's response dot choices, zero Message content.
+
+07:17.380 --> 07:21.370
+You will get to the point when you'll be reciting it in your sleep.
+
+07:21.700 --> 07:29.200
+And then with what comes back, we're going to use the Json.load string function to then bring that
+
+07:29.200 --> 07:31.150
+back as JSON.
+
+07:31.180 --> 07:32.710
+Let's run that.
+
+07:32.980 --> 07:33.910
+Okay.
+
+07:33.910 --> 07:35.290
+So we're going to take the plunge.
+
+07:35.290 --> 07:40.210
+We're going to call that that function and pass in the website anthropic comm.
+
+07:40.210 --> 07:41.770
+So what are we expecting it to do.
+
+07:41.800 --> 07:50.950
+We're expecting it to collect all of the links on that page and then call uh call GPT four mini and
+
+07:50.950 --> 07:57.460
+say please select from this some links which you think are relevant and respond with them.
+
+07:57.460 --> 07:58.990
+So let's see what we get.
+
+07:59.020 --> 07:59.890
+Here we go.
+
+08:01.210 --> 08:02.860
+It's going off now to OpenAI.
+
+08:02.890 --> 08:06.550
+Well it's first it had to collect the anthropic page and back it comes.
+
+08:06.550 --> 08:09.910
+And this is what we get type about page.
+
+08:09.910 --> 08:17.080
+And there's a link to the about page a careers page, a team page, research enterprise pricing, API
+
+08:17.080 --> 08:17.980
+and news.
+
+08:17.980 --> 08:18.760
+How about that?
+
+08:18.760 --> 08:24.610
+This is all actually great information that we would want on a brochure, and no doubt there are a ton
+
+08:24.610 --> 08:26.380
+of links that it hasn't included.
+
+08:26.380 --> 08:28.270
+Let's convince ourselves of that.
+
+08:28.270 --> 08:37.330
+We can say, uh, anthropic is website and just pass this in.
+
+08:39.700 --> 08:47.500
+And do anthropic dot links and we'll see what are all of the links that were on that page here?
+
+08:47.500 --> 08:48.310
+They all are.
+
+08:48.340 --> 08:52.360
+There's a ton of them like supported countries and lots of others.
+
+08:52.360 --> 08:57.820
+You'll also see that there are many of them that are not fully, uh, the full URL, including the the
+
+08:57.820 --> 08:58.690
+host name.
+
+08:58.690 --> 09:06.970
+And so you'll see that and that our call to GPT four mini has very well selected a subset of these fully
+
+09:06.970 --> 09:09.490
+qualified them and explained what they are.
+
+09:10.060 --> 09:11.470
+I'd say that's a great result.
+
+09:11.470 --> 09:16.480
+That was pretty easy to it's just step one of the two steps that we have to go through to build our
+
+09:16.480 --> 09:17.380
+company brochure.
+
+09:17.380 --> 09:19.900
+And I will see you in the next video for step two.

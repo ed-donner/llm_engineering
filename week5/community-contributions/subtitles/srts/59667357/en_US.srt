@@ -1,0 +1,187 @@
+WEBVTT
+
+00:00.740 --> 00:03.290
+Let's now see our results side by side.
+
+00:03.290 --> 00:10.970
+We started our journey with a constant model that was at $1.46 error from the average of all of the
+
+00:10.970 --> 00:11.330
+data.
+
+00:11.330 --> 00:17.390
+In the training data set, we looked at a traditional machine learning model with just a few features.
+
+00:17.390 --> 00:18.590
+It got to 1.39.
+
+00:18.590 --> 00:20.810
+It beat the average random forest.
+
+00:20.810 --> 00:24.110
+The best of our traditional machine learning models got to 97.
+
+00:24.140 --> 00:35.270
+The human got to 127, GPT four got to 76, and our fine tuned customized model has got us to $47.
+
+00:35.390 --> 00:39.860
+And this, of course, brings me to the challenge for you.
+
+00:39.890 --> 00:44.330
+The challenge for you is to improve on this $47.
+
+00:44.450 --> 00:50.120
+Uh, this is something where hyperparameter optimization can go a long way.
+
+00:50.180 --> 00:57.950
+And so the task at hand is now to play with the hyperparameters experiment, use weights and biases.
+
+00:57.980 --> 01:03.920
+Uh, explore maybe different optimizers, different learning rates, different batch sizes, and see
+
+01:03.920 --> 01:06.440
+what you can do to improve on this number.
+
+01:06.440 --> 01:11.130
+You can also explore different ways of running the model at inference time to see if that improves it.
+
+01:11.130 --> 01:18.810
+And then there is one factor that is actually perhaps the way that you can make the the biggest impact
+
+01:18.810 --> 01:25.500
+on the results with the smallest change is to relook one more time at the data set, at the data curation
+
+01:25.500 --> 01:31.560
+step, and challenge yourself to see whether you can think of different ways to be prompting or organizing
+
+01:31.560 --> 01:36.690
+that information in order to be getting better outcomes.
+
+01:36.690 --> 01:42.390
+And then there is one final thing that you could do, which is a bigger step, but very exciting.
+
+01:42.390 --> 01:47.400
+And if you don't do it, I'm definitely going to do it, which is to try the other models on this.
+
+01:47.400 --> 01:54.480
+Try Jama, try Kwon the powerhouse, try fi three, see how they perform.
+
+01:54.720 --> 02:00.360
+There are a couple of places where it might be a bit fiddly, because they might not predict one token
+
+02:00.360 --> 02:04.380
+as the right number, just maybe that's only at that inference function.
+
+02:04.380 --> 02:06.420
+Otherwise everything else might just be fine.
+
+02:06.540 --> 02:10.470
+But you'll need to experiment with that and convince yourself that it's that it's so good.
+
+02:10.740 --> 02:12.990
+So try some different models.
+
+02:12.990 --> 02:19.040
+You could also try doing the whole thing with a version of llama three that's quantized to eight bits
+
+02:19.040 --> 02:22.100
+instead of four bits, depending on your appetite for that.
+
+02:22.100 --> 02:23.690
+There are also some larger models.
+
+02:23.690 --> 02:29.540
+There is a version of 53, I think that is 14 billion parameters that you could experiment with and
+
+02:29.540 --> 02:31.250
+see whether that improves things.
+
+02:31.250 --> 02:33.590
+So that is the objective.
+
+02:33.590 --> 02:37.850
+I would love to hear from the first person that can get this below 40.
+
+02:37.880 --> 02:39.290
+That has to be possible.
+
+02:39.290 --> 02:45.440
+I think there is like a hard limit on how low you can get it, given the reality of uncertainty in pricing,
+
+02:45.440 --> 02:50.030
+but I think you guys, someone is going to be able to get it below $40.
+
+02:50.030 --> 02:57.650
+You'll build a model that can get within $40 across the 251st items in the test set, and I can't wait
+
+02:57.650 --> 02:58.520
+to hear about that.
+
+02:58.520 --> 03:04.130
+So please do reach out and tell me when you get below 40, and tell me your hyperparameters and your
+
+03:04.130 --> 03:06.620
+model so that I can try and recreate it myself.
+
+03:06.650 --> 03:08.270
+I would love that.
+
+03:08.750 --> 03:11.750
+And with that, let's wrap up for the week.
+
+03:12.470 --> 03:19.760
+It's the end now of week seven where you can now do, of course, obviously generating text and code
+
+03:19.760 --> 03:26.520
+with frontier APIs and with open source models and hugging face, you can solve problems including dataset
+
+03:26.550 --> 03:29.190
+curation, a baseline model, and fine tuning.
+
+03:29.190 --> 03:35.550
+And at this point, you can confidently carry out the full process for selecting and training an open
+
+03:35.550 --> 03:39.570
+source model that can outperform the frontier.
+
+03:39.570 --> 03:41.940
+And that's a big accomplishment.
+
+03:42.540 --> 03:48.360
+So next week is the finale of this course, and I promise you, I've kept the best to last.
+
+03:48.360 --> 03:50.250
+It's going to be a triumph.
+
+03:50.430 --> 03:52.620
+Next week is going to be so much fun.
+
+03:52.620 --> 03:54.660
+You've you've got this far.
+
+03:54.690 --> 03:59.100
+Hang on in there to the very end to see everything come together.
+
+03:59.130 --> 04:03.150
+There's some stuff that's really important we're going to do about now packaging up what we've done
+
+04:03.150 --> 04:09.120
+and being able to deploy it as behind an API so we can use it for production purposes, and then really
+
+04:09.120 --> 04:16.140
+package everything into an application that can can make a real impact.
+
+04:16.440 --> 04:22.320
+And at that point, you'll be in a position to be creating your own end to end solutions to commercial
+
+04:22.320 --> 04:23.010
+problems.
+
+04:23.010 --> 04:27.240
+Using groundbreaking llms that you'll be able to train yourself.
+
+04:27.300 --> 04:31.740
+So there's a lot ahead, and I can't wait for next week.
+
+04:31.830 --> 04:34.110
+And as always, I will see you there.
