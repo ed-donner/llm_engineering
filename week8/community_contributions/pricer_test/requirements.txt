@@ -4,3 +4,4 @@ transformers
 bitsandbytes
 accelerate
 peft
+dotenv

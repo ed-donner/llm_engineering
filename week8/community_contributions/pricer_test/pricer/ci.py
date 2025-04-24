@@ -39,17 +39,16 @@ FINETUNED_DIR = MODEL_DIR + FINETUNED_MODEL
 QUESTION = "How much does this cost to the nearest dollar?"
 PREFIX = "Price is $"
 
-@app.cls(image=image, secrets=secrets, gpu=GPU, timeout=1800)
+
 class Pricer:
-    @modal.build()
     def download_model_to_folder(self):
         from huggingface_hub import snapshot_download
         import os
         os.makedirs(MODEL_DIR, exist_ok=True)
-        snapshot_download(BASE_MODEL, local_dir=BASE_DIR)
-        snapshot_download(FINETUNED_MODEL, revision=REVISION, local_dir=FINETUNED_DIR)
+        print(f"Using this HF Token: {hf_token}")
+        snapshot_download(BASE_MODEL, local_dir=BASE_DIR, use_auth_token=hf_token)
+        snapshot_download(FINETUNED_MODEL, revision=REVISION, local_dir=FINETUNED_DIR, use_auth_token=hf_token)
 
-    @modal.enter()
     def setup(self):
         import os
         import torch
@@ -78,7 +77,6 @@ class Pricer:
     
         self.fine_tuned_model = PeftModel.from_pretrained(self.base_model, FINETUNED_DIR, revision=REVISION)
 
-    @modal.method()
     def price(self, description: str) -> float:
         import os
         import re
@@ -98,6 +96,5 @@ class Pricer:
         match = re.search(r"[-+]?\d*\.\d+|\d+", contents)
         return float(match.group()) if match else 0
 
-    @modal.method()
     def wake_up(self) -> str:
         return "ok"
