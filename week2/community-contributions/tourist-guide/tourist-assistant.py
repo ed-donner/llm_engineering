@@ -18,9 +18,7 @@ MODEL = "gpt-4o-mini"
 openai = OpenAI()
 
 
-
-
-#audio generation
+# Audio generation
     
 from pydub import AudioSegment
 from pydub.playback import play
