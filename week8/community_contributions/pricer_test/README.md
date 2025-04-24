@@ -1,18 +1,5 @@
 # Run Continuous Integration (CI) Tests on Modal
 
-Note!
-The HF secret in Modal is named "huggingface-secret". Pls rename if your secret has another name.
-
-## Test modal deployment
-You can test pricer.ci in Modal:
-(`modal deploy -m pricer.ci`)
-In python CLI:
-(`import modal`)
-(`Pricer = modal.Cls.lookup("pricer-ci-testing", "Pricer")`)
-(`pricer = Pricer()`)
-(`reply = pricer.price.remote("Quadcast HyperX condenser mic, connects via usb-c to your computer for crystal clear audio")`)
-(`print(reply)`)
-
 ## Unit testing
 Unit test strategy created like in 
 [This example repo](https://github.com/modal-labs/ci-on-modal)
@@ -20,11 +7,12 @@ Unit test strategy created like in
 ## Usage
 
 All commands below are run from the root of the repository (this directory).
+_Note_: I removed modal-decorators from pricer.ci-module to be able to run unit tests.
 
 ### Run tests remotely on Modal
 
 ```bash
-modal run pricer.ci
+modal run pricer.ci::pytest
 ```
 
 On the first execution, the [container image](https://modal.com/docs/guide/custom-container)
@@ -39,9 +27,15 @@ To debug the tests, you can open a shell
 in the exact same environment that the tests are run in:
 
 ```bash
-modal shell pricer.ci
+modal shell pricer.ci::pytest
 ```
 
 _Note_: On the Modal worker, the `pytest` command is run from the home directory, `/root`,
 which contains the `tests` folder, but the `modal shell` command will
 drop you at the top of the filesystem, `/`.
+
+To run test:
+```bash
+cd root
+pytest
+```
