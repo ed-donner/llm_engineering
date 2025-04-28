@@ -1,0 +1,74 @@
+[
+  {
+    "id": "service_001",
+    "content": "We offer tire services including rotation, balancing, flat repair, and new tire sales and installation.",
+    "metadata": {
+      "source": "service_page",
+      "category": "tire_services",
+      "tags": "tire, rotation, repair, installation"
+    }
+  },
+  {
+    "id": "service_002",
+    "content": "Brake services include pad replacement, rotor resurfacing, and ABS diagnostics.",
+    "metadata": {
+      "source": "service_page",
+      "category": "brake_services",
+      "tags": "brake, pads, rotors, abs"
+    }
+  },
+  {
+    "id": "faq_001",
+    "content": "Walk-ins are welcome, but appointments are recommended for faster service.",
+    "metadata": {
+      "source": "faq",
+      "category": "appointments",
+      "tags": "appointment, walk-in"
+    }
+  },
+  {
+    "id": "faq_002",
+    "content": "Most oil changes are completed within 30–45 minutes.",
+    "metadata": {
+      "source": "faq",
+      "category": "oil_change",
+      "tags": "oil change, duration"
+    }
+  },
+  {
+    "id": "general_001",
+    "content": "Pinkys Auto Care is located at Rte 112, Yorkjuh, JH 98746. We're open Monday through Friday from 8am to 6pm, and Saturday from 9am to 2pm.",
+    "metadata": {
+      "source": "general_info",
+      "category": "location_hours",
+      "tags": "location, hours, contact"
+    }
+  },
+  {
+    "id": "promo_001",
+    "content": "At Pinkys Auto Care, we combine modern diagnostics with friendly, small-town service. Our ASE-certified mechanics serve Springfield with over 15 years of experience.",
+    "metadata": {
+      "source": "about_us",
+      "category": "branding",
+      "tags": "promo, about us, experience"
+    }
+  },
+  {
+    "id": "customer_query_001",
+    "content": "My car shakes when braking—do I need new rotors?",
+    "metadata": {
+      "source": "user_query",
+      "category": "brake_services",
+      "tags": "brake, rotor, vibration"
+    }
+  },
+  {
+    "id": "customer_query_002",
+    "content": "Can you align wheels on a 2021 Subaru Outback?",
+    "metadata": {
+      "source": "user_query",
+      "category": "wheel_alignment",
+      "tags": "wheel alignment, vehicle-specific"
+    }
+  }
+]
