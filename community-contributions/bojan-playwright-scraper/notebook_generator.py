@@ -6,16 +6,16 @@ import asyncio
 from dotenv import load_dotenv
 import logging
 
-# Učitavanje .env varijabli
+# Loading .env variables
 load_dotenv()
 
-# Postavljanje logginga
+# Setting up logging
 logging.basicConfig(
     level=os.getenv("LOG_LEVEL", "INFO").upper(),
     format="%(asctime)s - %(levelname)s - %(message)s"
 )
 
-# Dodavanje direktorija projekta u sys.path
+# Adding project directory to sys.path
 project_dir = os.path.join(
     "/home/lakov/projects/llm_engineering",
     "community-contributions/playwright-bojan"
@@ -23,21 +23,21 @@ project_dir = os.path.join(
 if project_dir not in sys.path:
     sys.path.insert(0, project_dir)
 
-# Uvoz analyze_content iz playwright_ai_scraper.py
+# Importing analyze_content from playwright_ai_scraper.py
 try:
     from playwright_ai_scraper import analyze_content
 except ModuleNotFoundError as e:
     logging.error(f"Error importing module: {e}")
     sys.exit(1)
 
-# Funkcija za spremanje notebooka
+# Function to save the notebook
 
 
 def save_notebook(url, content):
     output_dir = os.path.join(project_dir, "notebooks")
     os.makedirs(output_dir, exist_ok=True)
 
-    # Izvlačenje domene iz URL-a
+    # Extracting the domain from the URL
     domain = url.split("//")[-1].split("/")[0].replace(".", "_")
     filename = f"{domain}_Summary.ipynb"
     path = os.path.join(output_dir, filename)
@@ -62,7 +62,7 @@ This notebook contains an AI-generated summary of the website content.
     logging.info(f"Notebook saved to: {path}")
     return path
 
-# Glavna funkcija
+# Main function
 
 
 async def main():

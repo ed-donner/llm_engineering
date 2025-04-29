@@ -10,25 +10,25 @@ from prometheus_client import Counter, Histogram, start_http_server
 from diskcache import Cache
 from dotenv import load_dotenv
 
-# Učitavanje .env varijabli
+# Loading .env variablesi
 load_dotenv()
 
-# Postavljanje logginga
+# Setting up logging
 logging.basicConfig(
     level=os.getenv("LOG_LEVEL", "INFO").upper(),
     format="%(asctime)s - %(levelname)s - %(message)s"
 )
 
-# Postavljanje Prometheus metrika
+# Setting up Prometheus metrics
 SCRAPE_ATTEMPTS = Counter("scrape_attempts", "Total scraping attempts")
 SCRAPE_DURATION = Histogram(
     "scrape_duration", "Scraping duration distribution"
 )
 
-# Postavljanje cachea
+# Setting up cache
 cache = Cache("./scraper_cache")
 
-# Prilagođene iznimke
+# Custom exceptions
 
 
 class ScrapingError(Exception):
@@ -51,7 +51,7 @@ class AIScraper:
             "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 "
             "Safari/537.36"
         ]
-        self.timeout = 60000  # 60 sekundi
+        self.timeout = 60000  # 60 seconds
         self.retries = int(os.getenv("RETRY_COUNT", 2))
         self.headless = headless
         self.delays = {
@@ -61,7 +61,7 @@ class AIScraper:
         }
 
     async def human_interaction(self, page):
-        """Simulira ljudsko ponašanje na stranici."""
+        """Simulates human behavior on the page."""
         try:
             for _ in range(random.randint(2, 5)):
                 x = random.randint(0, 1366)
@@ -79,7 +79,7 @@ class AIScraper:
             logging.warning(f"Human interaction failed: {e}")
 
     async def load_page(self, page, url):
-        """Učitava stranicu s dinamičkim čekanjem."""
+        """Loads the page with dynamic waiting."""
         start_time = time.time()
         try:
             await page.goto(
@@ -106,7 +106,7 @@ class AIScraper:
             return False
 
     async def scrape_with_retry(self, url):
-        """Scrapa stranicu s ponovnim pokušajima."""
+        """Scrapes the page with retries."""
         SCRAPE_ATTEMPTS.inc()
         start_time = time.time()
         async with async_playwright() as p:
@@ -163,7 +163,7 @@ class AIScraper:
         raise ScrapingError(f"All attempts to scrape {url} failed")
 
     async def get_cached_content(self, url):
-        """Dohvaća sadržaj iz cachea ili scrapa."""
+        """Retrieves content from cache or scrapes."""
         key = f"content_{url.replace('/', '_')}"
         content = cache.get(key)
         if content is None:
@@ -179,7 +179,7 @@ class AIScraper:
 
 
 async def analyze_content(url, headless=True):
-    """Analizira sadržaj stranice koristeći OpenAI API."""
+    """Analyzes the page content using the OpenAI API."""
     try:
         scraper = AIScraper(headless=headless)
         content = await scraper.get_cached_content(url)
@@ -218,7 +218,7 @@ async def analyze_content(url, headless=True):
 
 
 async def main():
-    """Glavna funkcija za scraping i analizu."""
+    """Main function for scraping and analysis."""
     try:
         port = int(os.getenv("PROMETHEUS_PORT", 8000))
         start_http_server(port)
