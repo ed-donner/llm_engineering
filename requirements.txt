@@ -19,7 +19,7 @@ faiss-cpu
 langchain-openai
 langchain_experimental
 langchain_chroma
-langchain[docarray]
+docarray
 datasets
 sentencepiece
 matplotlib
