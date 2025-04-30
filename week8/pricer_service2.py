@@ -4,6 +4,9 @@ from modal import App, Volume, Image
 
 app = modal.App("pricer-service")
 image = Image.debian_slim().pip_install("huggingface", "torch", "transformers", "bitsandbytes", "accelerate", "peft")
+
+# This collects the secret from Modal.
+# Depending on your Modal configuration, you may need to replace "hf-secret" with "huggingface-secret"
 secrets = [modal.Secret.from_name("hf-secret")]
 
 # Constants
@@ -15,7 +18,10 @@ RUN_NAME = "2024-09-13_13.04.39"
 PROJECT_RUN_NAME = f"{PROJECT_NAME}-{RUN_NAME}"
 REVISION = "e8d637df551603dc86cd7a1598a8f44af4d7ae36"
 FINETUNED_MODEL = f"{HF_USER}/{PROJECT_RUN_NAME}"
-CACHE_DIR = "/cache" 
+CACHE_DIR = "/cache"
+
+# Change this to 1 if you want Modal to be always running, otherwise it will go cold after 2 mins
+MIN_CONTAINERS = 0
 
 QUESTION = "How much does this cost to the nearest dollar?"
 PREFIX = "Price is $"
@@ -27,6 +33,7 @@ hf_cache_volume = Volume.from_name("hf-hub-cache", create_if_missing=True)
     secrets=secrets, 
     gpu=GPU, 
     timeout=1800,
+    min_containers=MIN_CONTAINERS,
     volumes={CACHE_DIR: hf_cache_volume}
 )
 class Pricer:
@@ -75,7 +82,3 @@ class Pricer:
         contents = contents.replace(',','')
         match = re.search(r"[-+]?\d*\.\d+|\d+", contents)
         return float(match.group()) if match else 0
-
-    @modal.method()
-    def wake_up(self) -> str:
-        return "ok"
