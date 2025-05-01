@@ -28,7 +28,8 @@ This gets you a local copy of the code on your box.
 1. **Install Git** if not already installed (it will be in most cases)
 
 - Open Terminal (Applications > Utilities > Terminal)
-- Type `git --version` If not installed, you'll be prompted to install it
+- Type `git --version` If not installed, you'll be prompted to install it  
+- After the installation, you may need to open a new Terminal window to use it (or you might even need to restart)
 
 2. **Navigate to your projects folder:**
 

@@ -31,7 +31,8 @@ This gets you a local copy of the code on your box.
 1. **Install Git** (if not already installed):
 
 - Download Git from https://git-scm.com/download/win
-- Run the installer and follow the prompts, using default options (press OK lots of times!)
+- Run the installer and follow the prompts, using default options (press OK lots of times!). 
+- After the installation, you may need to open a new Powershell window to use it (or you might even need to restart)
 
 2. **Open Command Prompt:**
 
