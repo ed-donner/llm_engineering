@@ -188,4 +188,7 @@ WingIDE_Projekti/
 nohup.out
 *.png
 
+# IDE
+.vscode
+.cursor/
 scraper_cache/
