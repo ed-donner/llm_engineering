@@ -5,6 +5,9 @@ from modal import App, Image
 
 app = modal.App("pricer-service")
 image = Image.debian_slim().pip_install("torch", "transformers", "bitsandbytes", "accelerate", "peft")
+
+# This collects the secret from Modal.
+# Depending on your Modal configuration, you may need to replace "hf-secret" with "huggingface-secret"
 secrets = [modal.Secret.from_name("hf-secret")]
 
 # Constants

@@ -1,0 +1,6 @@
+playwright>=1.43.0
+openai>=1.14.2
+prometheus-client>=0.19.0
+diskcache>=5.6.1
+python-dotenv>=1.0.1
+nest_asyncio>=1.6.0
