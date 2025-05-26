@@ -1,0 +1,11 @@
+item_number,item_name,item_id,item_description,item_price,item_type,item_quantity,owner_name,owner_id,willing_to_trade
+1,Valiant Longsword,#2567-defg25,A longsword with a crest of the Valiant Knights engraved on the hilt.,3000000,Weapon,1,Sir Gawain,#NPC123,True
+2,Celestial Shield,#4321-hijk43,"A shimmering shield imbued with celestial energy, said to protect against dark magic.",2500000,Armor,1,Sir Lancelot,#NPC123,True
+3,Elixir of Vitality,#7890-lmnop78,A potion that restores the consumer's health and vitality.,50000,Consumable,5,Merlin,#NPC012,True
+4,Dragonscale Armor,#1357-pqrs13,"An armor made from the scales of the mighty Red Dragon, providing excellent protection.",4500000,Armor,1,Sir Gawain,#NPC123,False
+5,Mana Potion,#6789-tuvw67,A potion that restores the consumer's mana points.,10000,Consumable,10,Morgana,#NPC032,True
+6,Golden Ring,#9876-xyzq98,A ring with golden filigree and a single ruby set in the center.,200000,Accessory,1,Cleo,#PLAYER001,True
+7,Rainbow Amulet,#2468-abcd24,"An amulet with a rainbow prism in the center, said to grant the wearer luck.",500000,Accessory,1,Asbel,#NPC210,True
+8,Sage's Staff,#5310-mno15,"A staff carried by the wise Sage, said to amplify magic spells.",8000000,Misc,1,Merlin,#NPC012,False
+9,Phoenix Feather Cloak,#8899-efgh88,"A cloak made from the feathers of the mythical Phoenix, granting the wearer resistance to fire.",7000000,Armor,1,Arthur,#NPC230,True
+10,Star Crystal,#1122-ijk11,"A rare crystal that shines with a star-like light, used in powerful enchantments.",12000000,Misc,1,Morgana,#NPC032,True

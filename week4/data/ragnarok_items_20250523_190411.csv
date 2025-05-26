@@ -1,0 +1,68 @@
+attribute,value
+1,
+"""item_name""","""Mjölnir's Hammer"","
+"""item_id""","""#1357-gnd234"","
+"""item_description""","""Legendary Thor's Hammer, imbued with lightning magic. Deals massive thunder damage."","
+"""item_price""","5000000,"
+"""item_type""","""Weapon"","
+"""owner_name""","""Mjölnir"","
+"""owner_id""","""#NPC001"","
+"""willing_to_trade""",false
+2,
+"""item_name""","""Healing Elixir"","
+"""item_id""","""#1123-hgr456"","
+"""item_description""","""A small vial of sweet, effervescent liquid. Restores a moderate amount of HP."","
+"""item_price""","1000,"
+"""item_type""","""Consumable"","
+"""owner_name""","""None"","
+"""owner_id""","null,"
+"""willing_to_trade""",true
+3,
+"""item_name""","""Dragon's Scale Armor"","
+"""item_id""","""#2567-jkl789"","
+"""item_description""","""Rare armor made from the scales of a legendary dragon. Provides excellent protection."","
+"""item_price""","2500000,"
+"""item_type""","""Armor"","
+"""owner_name""","""Dragon Slayer Guild"","
+"""owner_id""","""#GUILD002"","
+"""willing_to_trade""",true
+4,
+"""item_name""","""Fire Crystal"","
+"""item_id""","""#3456-mno123"","
+"""item_description""","""A small, radiant crystal that emits a warm, flickering flame. Used as a focus for fire magic."","
+"""item_price""","5000,"
+"""item_type""","""Misc"","
+"""owner_name""","""None"","
+"""owner_id""","null,"
+"""willing_to_trade""",true
+5,
+"""item_name""","""Shadow Emblem"","
+"""item_id""","""#4567-pqr456"","
+"""item_description""","""An enchanted emblem that radiates an aura of darkness. Used for dark rituals and enchantments."","
+"""item_price""","1500000,"
+"""item_type""","""Accessory"","
+"""owner_name""","""Dark Priestess"","
+"""owner_id""","""#NPC003"","
+"""willing_to_trade""",false
+6,
+"""item_name""","""Frozen Meat"","
+"""item_id""","""#5678-stu789"","
+"""item_description""","""A hunk of meat, frozen solid. Used as a base ingredient for various dishes."","
+"""item_price""","100,"
+"""item_type""","""Consumable"","
+"""owner_name""","""None"","
+"""owner_id""","null,"
+"""willing_to_trade""",true
+7,
+"""item_name""","""Golden Amulet"","
+"""item_id""","""#6789-vwx123"","
+"""item_description""","""An ornate golden amulet, adorned with precious gems. Grants the wearer good fortune and protection."","
+"""item_price""","3000000,"
+"""item_type""","""Accessory"","
+"""owner_name""","""Wealthy Merchant"","
+"""owner_id""","""#NPC004"","
+"""willing_to_trade""",true
+8,
+"""item_name""","""Dusty Tomes"","
+"""item_id""","""#7890-yzx321"","
+"""item_description""","""A collection of ancient, dusty tomes. Contains valuable knowledge and arcane secrets."","

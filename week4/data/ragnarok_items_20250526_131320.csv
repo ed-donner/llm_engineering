@@ -1,0 +1,15 @@
+item_number,item_name,item_id,item_description,item_price,item_type,item_quantity,owner_name,owner_id,willing_to_trade
+2,Dagger of Light,#0001-l12345,A sacred dagger imbued with holy power.,500000,Weapon,1,Father Geralt,#NPC001,true
+3,Ring of Elemental Protection,#1111-e12345,An ancient ring enchanted to protect against the elements.,200000,Accessory,1,None,null,true
+4,Dragon Scale Armor,#2222-s12345,An armor made from the scales of a legendary dragon.,1000000,Armor,1,King Valtor,#NPC002,false
+5,Healing Potion,#3333-p12345,A potion that restores a moderate amount of HP.,2000,Consumable,5,Mage Guild,#GUILD001,true
+6,Blessed Amulet,#4444-a12345,An amulet that grants increased resistance to magic attacks.,300000,Accessory,1,High Priestess,#NPC003,false
+7,Ice Staff,#5555-s12345,A powerful staff that can create and control ice magic.,800000,Weapon,1,None,null,true
+8,Steel Shield,#6666-s12345,A sturdy shield made of the finest steel.,750000,Armor,1,Fighter's Guild,#GUILD002,true
+9,Enchanted Cloak,#7777-c12345,A magical cloak that provides protection and stealth.,1200000,Accessory,1,Father Geralt,#NPC001,true
+10,Mana Potion,#8888-p12345,A potion that restores a moderate amount of MP.,5000,Consumable,10,Mage's Guild,#GUILD001,true
+11,Lucky Charm,#9999-c12345,A small charm said to bring good fortune and luck.,15000,Misc,1,Merchant Guild,#GUILD003,true
+12,Phoenix Feather Fan,#AAAAB-f12345,An elegant fan made from the feathers of a legendary Phoenix.,400000,Accessory,1,Queen Morag,#NPC004,false
+13,Rune of Protection,#BBBBB-r12345,A powerful rune that can protect its bearer from harm.,1500000,Misc,1,High Council,#NPC005,false
+14,Diamond Ring,#CCCCC-r12345,"A beautiful ring set with a large, flawless diamond.",2000000,Accessory,1,Lady Elara,#NPC006,true
+15,Sword of Valor,,,,,,,,

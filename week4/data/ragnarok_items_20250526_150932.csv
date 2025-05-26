@@ -1,0 +1,2 @@
+item_number,item_name,item_id,item_description,item_price,item_type,item_quantity,owner_name,owner_id,willing_to_trade
+1,Golden Staff,#0013-staff001,"A golden staff that is said to channel the power of the gods, granting the wielder divine abilities and increased damage.",200000,Staff,1,None,null,true

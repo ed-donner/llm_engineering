@@ -1,0 +1,31 @@
+attribute,value
+"""Item Name""","""Mythril Shield"","
+"""Item ID""","""#2182-def456"","
+"""Item Description""","""A shield made of Mythril, a rare and powerful metal. Offers excellent defense against physical attacks."","
+"""Item Price""","15000,"
+"""Item Type""","""Equipment"","
+"""Willing to Trade For""",false
+"""Item Name""","""Healing Elixir"","
+"""Item ID""","""#1111-ghi789"","
+"""Item Description""","""A powerful potion that restores a player's HP by a significant amount."","
+"""Item Price""","2500,"
+"""Item Type""","""Consumable"","
+"""Willing to Trade For""",true
+"""Item Name""","""Demon's Claw"","
+"""Item ID""","""#3456-ijk012"","
+"""Item Description""","""A rare and powerful weapon, the Demon's Claw, infused with the essence of a demon. Offers high attack power and magical damage."","
+"""Item Price""","35000,"
+"""Item Type""","""Equipment"","
+"""Willing to Trade For""",true
+"""Item Name""","""Rune of Swiftness"","
+"""Item ID""","""#4789-lmn345"","
+"""Item Description""","""An enchanted rune that increases a player's movement speed, making it easier to dodge enemy attacks and reach targets quickly."","
+"""Item Price""","12000,"
+"""Item Type""","""Consumable"","
+"""Willing to Trade For""",false
+"""Item Name""","""Ring of Protection"","
+"""Item ID""","""#5678-opq678"","
+"""Item Description""","""An enchanted ring that offers protection against elemental damage, making the wearer more resilient to various types of attacks."","
+"""Item Price""","10000,"
+"""Item Type""","""Equipment"","
+"""Willing to Trade For""",true

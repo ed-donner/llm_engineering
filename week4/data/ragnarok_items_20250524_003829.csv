@@ -1,0 +1,4 @@
+item_description,item_id,item_name,item_number,item_price,item_quantity,item_type,owner_id,owner_name,willing_to_trade,Here is a Python example of how to generate 10 items in JSON format with the specified structure,"for i in range(1, 11)","for i in range(1, 5)",if i >= 5
+,,,str(i),,,,,,,,,,
+A legendary item wielded by Argo.,"f""#{random.randint(100000, 999999)}-{random.randint(100000, 999999)}","f""{owner_name}'s {random.choice(['Sword', 'Shield', 'Potion', 'Ring', 'Amulet'])}",str(i),item_prices[i % len(item_prices)],1,random.choice(item_types),owner_id,owner_name,True,,,,
+A unique and powerful item.,"f""#{random.randint(100000, 999999)}-{random.randint(100000, 999999)}","f""{owner_name}'s {random.choice(['Sword', 'Shield', 'Potion', 'Ring', 'Amulet'])}",,item_prices[i % len(item_prices)],1,random.choice(item_types),owner_id,owner_name,"random.choice([True, False])",,,,

@@ -1,0 +1,2 @@
+item_number,item_name,item_id,item_description,item_price,item_type,item_quantity,owner_name,owner_id,willing_to_trade
+1,Blessed Holy Water,#12012-holy,"A vial of blessed holy water, said to purify and heal those who drink it. It is a valuable asset for religious adventurers and a popular item in the marketplace.",50000,Consumable,5,Priestess,#NPC,true

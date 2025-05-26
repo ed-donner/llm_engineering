@@ -1,0 +1,12 @@
+item_description,item_id,item_name,item_number,item_price,item_type,owner_id,owner_name,willing_to_trade,1,10,2,3,4,5,6,7,8,9
+,,,1,,,,,,,,,,,,,,,
+"A legendary sword, said to be forged in the heart of a fallen star. Its flame pierces even the darkest of souls.",#1001-heavensflame,Heaven's Flame,2,5000000,Weapon,#BOSS101,The Dark Lord,false,,,,,,,,,,
+A magical ring imbued with powerful enchantments that grant the wearer increased resistance to all elements.,#2002-enchantedring,Enchanted Ring of Protection,3,1000000,Accessory,#NPC203,Momo the Merchant,true,,,,,,,,,,
+"A simple, yet effective potion that restores a moderate amount of health.",#3003-potionhealing,Potion of Healing,4,1000,Consumable,null,None,true,,,,,,,,,,
+The magnificent crown of the legendary King of Midgard. It is said to grant the wearer immense power and wisdom.,#4004-royalcrown,Royal Crown of Midgard,5,15000000,Armor,#NPC301,King Valfrey,false,,,,,,,,,,
+A potion that restores a significant amount of mana.,#5005-manapotion,Mana Potion,6,5000,Consumable,null,None,true,,,,,,,,,,
+"An arrow tipped with mythril, a rare and valuable metal. It deals significant damage and is highly sought after by archers.",#6006-mythrilarrow,Mythril Arrow,7,200000,Weapon,#NPC402,The Mysterious Archer,true,,,,,,,,,,
+"A talisman that allows the wielder to call forth gusts of wind, increasing their mobility and combat capabilities.",#7007-talismanwind,Talisman of the Wind,8,750000,Accessory,#NPC501,The Wind Mage,false,,,,,,,,,,
+A rare and delicious fruit that grants temporary stat boosts when consumed.,#8008-goldenapple,Golden Apple,9,10000,Consumable,#NPC602,The Fruit Merchant,true,,,,,,,,,,
+"A shield made from the scales of a dragon, providing exceptional protection against physical attacks.",#9009-dragonscaleshield,Dragon Scale Shield,10,12000000,Armor,#NPC701,The Dragon Tamer,false,,,,,,,,,,
+A legendary potion that grants the drinker temporary invulnerability to all damage.,#10010-potioninvincibility,Potion of Invincibility,,25000000,Consumable,#NPC801,The Alchemist,false,,,,,,,,,,

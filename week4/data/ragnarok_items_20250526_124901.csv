@@ -1,0 +1,15 @@
+item_number,item_name,item_id,item_description,item_price,item_type,item_quantity,owner_name,owner_id,willing_to_trade
+2,Enchanted Mace of Thunder,#0001-thundermace,A mace imbued with the power of thunder. Deals lightning damage.,500000,Weapon,1,Zephyr,#NPC11,false
+3,Ice Wand of Frostbite,#0002-frostwand,A wand that unleashes a frosty blast of ice. Deals cold damage.,450000,Weapon,1,Zephyr,#NPC11,false
+4,Lucky Rabbit's Foot,#0003-rabbitfoot,A lucky rabbit's foot that can grant bonuses in various situations.,75000,Accessory,1,None,null,true
+5,Potion of Healing,#0004-healingpotion,A potion that restores health and vitality.,10000,Consumable,3,Katarina,#PC25,true
+6,Eternal Shield of Protection,#0005-shield,A shield that provides unparalleled protection against damage.,1500000,Armor,1,Valentina,#NPC23,false
+7,Mana Elixir,#0006-manaelixir,A powerful elixir that restores mana points.,25000,Consumable,5,Arthur,#PC18,true
+8,Dragon's Claw Ring,#0007-dragonring,"A ring imbued with the power of dragons, increasing strength and agility.",300000,Accessory,1,None,null,true
+9,Healing Talisman,#0008-healingtalisman,A powerful talisman that grants increased health regeneration.,125000,Consumable,2,Raven,#PC34,true
+10,Mystic Amulet,#0009-mysticamulet,An ancient amulet with magical properties that grant various bonuses.,800000,Accessory,1,Elena,#NPC31,false
+11,Crystal Staff of Light,#0010-lightstaff,"A staff that emits a bright light, increasing the wielder's magic power.",600000,Staff,1,Thorin,#PC09,true
+12,Mithril Coat of Plates,#0011-platescoat,"A heavy armor made of mithril plates, providing excellent protection.",1200000,Armor,1,Loki,#NPC17,false
+13,Emerald Ring of Agility,#0012-agilityring,A ring that increases the wearer's agility and movement speed.,200000,Accessory,1,Leif,#PC28,true
+14,Crystal Ball of Foresight,#0013-crystalball,A magical crystal ball that grants the ability to see into the future.,10000000,Misc,1,Merlin,#NPC05,false
+,Sapphire Necklace of,,,,,,,,

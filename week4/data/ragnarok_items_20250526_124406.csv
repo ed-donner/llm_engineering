@@ -1,0 +1,11 @@
+item_number,item_name,item_id,item_description,item_price,item_type,item_quantity,owner_name,owner_id,willing_to_trade
+1,Shadow's Edge,#5678-defg56,"A sinister, curved blade imbued with the essence of shadows.",1500000,Weapon,1,The Shadow Assassin,#NPC345,False
+2,Healing Elixir,#9876-ijk789,"A small, corked vial filled with a shimmering, golden liquid.",5000,Consumable,5,Mama Mia,#GUILD001,True
+3,Mage's Amulet,#1112-lmn111,"A beautiful, intricately designed amulet that amplifies magical abilities.",300000,Accessory,1,None,,True
+4,Goblin's Boots,#2345-pqr234,"A pair of worn, goblin-made leather boots that provide exceptional agility.",25000,Armor,2,The Shadow Assassin,#NPC345,False
+5,Dragon Scale Shield,#3578-stu357,"A large, ornate shield made from the scales of a mighty dragon.",500000,Armor,1,Sir Galahad,#NPC210,True
+6,Enchanted Ring,#4687-vwx468,"A delicate, golden ring inscribed with magical runes.",100000,Accessory,1,None,,True
+7,Potion of Poison,#5796-yzy579,"A dark, viscous potion that causes damage over time to an enemy.",10000,Consumable,3,The Dark Witch,#NPC678,False
+8,Wooden Bow,#6812-zab681,"A simple, yet effective long-range weapon for hunters.",10000,Weapon,1,Ranger Tom,#PLAYER123,True
+9,Leather Armor,#7845-abc784,"Lightweight, flexible armor made of high-quality leather.",50000,Armor,1,None,,True
+10,Mana Potion,#8976-def897,"A small, clear potion that restores a significant amount of mana.",25000,Consumable,2,Mage Alice,#PLAYER456,True

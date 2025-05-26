@@ -1,0 +1,12 @@
+item_description,item_id,item_name,item_number,item_price,item_quantity,item_type,owner_id,owner_name,willing_to_trade,Here are ten randomly generated Ragnarok Online Items
+,,,1,,,,,,,
+A legendary sword imbued with the essence of the Inferno. Its fiery blade radiates heat and fear.,#5678-xyz987,Blazing Inferno Sword,2,2000000,1,Weapon,#BOSS123,The Red Dragon,false,
+A divine shield gifted by the goddess Amitra herself. It grants the wielder unparalleled protection.,#9876-pqr456,Eternal Shield of Amitra,3,1500000,1,Armor,#NPC002,High Priestess Luna,true,
+A rare crystal containing the haunting melody of the Sirens. It can be used to charm powerful creatures.,#3456-abc789,Siren's Song Crystal,4,500000,5,Consumable,#NPC101,Captain Morgan,true,
+A rare amulet crafted by the dwarves using the precious Starstone. It provides luck and protection.,#2345-xyz012,Dwarven Starstone Amulet,5,1200000,1,Accessory,#GUILD001,Guild Master Grimgold,false,
+"A tear dropped by the Crystal Witch, imbued with her mystic power. It can be used to heal or enhance.",#6789-pqr345,Mystic Tear Pendant,6,1800000,3,Consumable,#NPC005,Alchemist Fawkes,true,
+A dark dagger forged in the shadows of Morroc. Its wielder can vanish in the darkness.,#8765-xyz234,Shadow's Edge Dagger,7,1000000,1,Weapon,#BOSS001,The Shadow Assassin,false,
+A simple but effective elixir to restore health.,#4567-abc098,Healing Elixir,8,5000,20,Consumable,#NPC003,Healer Aria,true,
+"A rare, enchanted apple that grants the consumer temporary strength and vitality.",#1234-xyz678,Golden Apple of Renewal,9,250000,2,Consumable,#MEMBER101,Guild Member Alice,true,
+"A pair of powerful gauntlets, rumored to have been worn by a dragon. They grant the wearer increased strength and agility.",#5678-pqr987,Dragon's Claw Gauntlets,10,3500000,1,Armor,,None,true,
+A rare crystal containing the essence of a celestial body. It can be used to grant powerful abilities or blessings.,#9876-xyz123,Celestial Star Crystal,,5000000,1,Misc,#BOSS101,The Celestial Being,false,

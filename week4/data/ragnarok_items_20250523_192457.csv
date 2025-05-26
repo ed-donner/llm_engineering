@@ -1,0 +1,12 @@
+item_description,item_id,item_name,item_number,item_price,item_type,owner_id,owner_name,willing_to_trade
+,,,1,,,,,
+"An ancient, shadowy robe, rumored to have once belonged to a legendary mage. The robe grants the wearer increased stealth and a chance to inflict fear on enemies.",#1357-xyz987,Shadow's Embrace,2,20000000,Armor,#NPC123,The Shadow Sage,false
+A small vial containing a potent healing elixir. Consumption restores a significant amount of health and removes all debuffs.,#1111-pqr456,Healing Elixir,3,500000,Consumable,null,None,true
+"A large, golden shield adorned with precious gems. It provides excellent defense and reflects a portion of incoming damage.",#2468-abc123,The Shining Shield,4,15000000,Armor,#GUILD001,Captain Kidd,true
+A small vial containing a mana-restoring potion. Consumption restores a moderate amount of mana.,#3333-xyz987,Mana Potion,5,1000000,Consumable,null,None,true
+An amulet made from the pearl of a rare underwater creature. It is said to grant the wearer the ability to breathe underwater and increase their swimming speed.,#4444-pqr456,The Amulet of the Sea,6,10000000,Accessory,#NPC456,The Sea Serpent,false
+"A rare, enchanted longbow that deals increased damage and has a chance to inflict a critical hit.",#5555-abc123,The Enchanted Bow,7,12000000,Weapon,#NPC789,The Archer King,true
+"An ancient wand that channels powerful healing magic. Consumption restores a large amount of health and mana, and removes all negative status effects.",#6666-xyz987,The Wand of Healing,8,25000000,Misc,#GUILD234,The Healer's Guild,true
+"An elemental ring that grants the wearer resistance to a specific elemental damage type. Choose between Fire, Water, Earth, Air, or Dark.",#7777-pqr456,The Elemental Ring,9,7500000,Accessory,#NPC678,The Elemental Master,true
+"A rare, glowing moonstone that can be used to create powerful lunar spells. It is a valuable commodity for advanced mages and alchemists.",#8888-xyz987,The Moonstone,10,30000000,Misc,#NPC345,The Lunar Priestess,false
+A basic iron helmet that provides decent protection against physical damage.,#9999-abc123,The Iron Helmet,,50000,Armor,#NPC111,The Blacksmith,true

@@ -1,0 +1,37 @@
+attribute,value
+"""Item Name""","""Star of Absolution"","
+"""Item ID""","""#1567-zxcvbnm"","
+"""Item Description""","""A rare and powerful item that grants the user absolution from all sins and misdeeds. Can only be used once."","
+"""Item Price""","50000000,"
+"""Item Type""","""Rare Consumable"","
+"""Owner""","""MightyDragon"","
+"""Owner's ID""","""#1234-xyz123"","
+"""Willing to Trade For""",false
+"""Item Name""","""Healing Elixir"","
+"""Item ID""","""#6789-pqrs789"","
+"""Item Description""","""A common and inexpensive item that restores a moderate amount of HP to the user."","
+"""Item Price""","1000,"
+"""Item Type""","""Consumable"","
+"""Willing to Trade For""",true
+"""Item Name""","""Shadow's Embrace"","
+"""Item ID""","""#2345-abc123"","
+"""Item Description""","""An exotic and rare item that summons a shadow companion to aid the user in battle. Has a 10% chance to drop from the Shadow Dragon."","
+"""Item Price""","10000000,"
+"""Item Type""","""Rare Equipment"","
+"""Owner""","""TheDarkOne"","
+"""Owner's ID""","""#6789-pqrs789"","
+"""Willing to Trade For""",true
+"""Item Name""","""Bronze Coins"","
+"""Item ID""","""#5678-def456"","
+"""Item Description""","""A common and cheap currency used throughout the game for various transactions."","
+"""Item Price""","100,"
+"""Item Type""","""Currency"","
+"""Willing to Trade For""",true
+"""Item Name""","""Eternal Flame"","
+"""Item ID""","""#9876-hijklmn"","
+"""Item Description""","""A rare and valuable item that grants the user a permanent source of fire damage, making them a formidable opponent in battle."","
+"""Item Price""","25000000,"
+"""Item Type""","""Rare Consumable"","
+"""Owner""","""TheFireMage"","
+"""Owner's ID""","""#1234-xyz123"","
+"""Willing to Trade For""",false

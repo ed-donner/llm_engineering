@@ -1,0 +1,2 @@
+item_number,item_name,item_id,item_description,item_price,item_type,item_quantity,owner_name,owner_id,willing_to_trade
+1,Dragonhide Boots,#4858-dragonhideboots,"Boots made from the hide of a dragon, providing excellent foot protection and agility.",350000,Armor,1,Dragon Slayer,#DRAGONSLAYER,false

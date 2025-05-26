@@ -1,0 +1,12 @@
+item_description,item_id,item_name,item_number,item_price,item_type,owner_id,owner_name,willing_to_trade,Here are 10 randomly generated items for Ragnarok Online
+,,,1,,,,,,
+"An ancient sword imbued with the power of the full moon. It glows with a gentle silver light, and the wielder gains increased magic power during the night.",#2345-defg56,Moonlight Sword,2,5000000,Weapon,#NPC123,The Lunar Priestess,false,
+A suit of armor made from the scales of a mighty dragon. It provides excellent protection against fire and offers a slight increase in strength.,#6789-hijk98,Dragon Scale Armor,3,3500000,Armor,null,None,true,
+A rare and powerful consumable that restores the user's HP and MP to maximum levels. It is said to grant temporary immunity to all status ailments.,#3456-lmnop67,Eternal Elixir,4,15000000,Consumable,#NPC045,The Wise Alchemist,false,
+A beautiful silver brooch adorned with precious gems. It is said to bring good fortune and increase the wearer's charisma.,#5678-pqrs89,Silver Brooch,5,2500000,Accessory,#NPC210,The Fortune Teller,true,
+An ancient shield said to be imbued with powerful magic. It provides excellent protection and grants the wielder increased resistance to elemental attacks.,#89ab-cdef01,Mystic Shield,6,8000000,Armor,#NPC135,The Mystic Sage,false,
+A magical potion that changes the user's appearance to resemble a rainbow. It is a popular choice among players seeking to stand out in the crowd.,#2345-efgh67,Rainbow Potion,7,500000,Consumable,null,None,true,
+"An amulet that imbues the wearer with a fierce rage, increasing their attack power and critical hit chance.",#6789-mnop98,Berserker Amulet,8,10000000,Accessory,#PC256,The Enraged Warrior,true,
+A powerful salve that quickly restores HP when applied to a wound. It is a valuable asset for adventurers and warriors alike.,#3456-lkjm67,Healing Salve,9,2000000,Consumable,#NPC314,The Healing Herbalist,true,
+A haunting melody that lures nearby enemies towards the player. It is a valuable tool for adventurers seeking to take down powerful foes.,#89ab-cdgh01,Siren's Song,10,12000000,Consumable,#NPC075,The Siren,false,
+A rare and valuable crystal that can be used to upgrade powerful equipment. It is said to contain the essence of a dying star.,#5678-pqrs89,Rare Star Crystal,,25000000,Misc,#NPC189,The Star Seeker,true,

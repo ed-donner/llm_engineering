@@ -1,0 +1,14 @@
+item_number,item_name,item_id,item_description,item_price,item_type,item_quantity,owner_name,owner_id,willing_to_trade
+2,Valiant Sword,#1011-defg101,A legendary sword used by heroes. Its blade glows with an ethereal light.,5000000,Weapon,1,Sir Galahad,#NPC001,true
+3,Dragonscale Armor,#2345-hijkl234,A rare armor made from the scales of a dragon. It provides excellent protection.,7500000,Armor,1,Sir Galahad,#NPC001,false
+4,Mana Elixir,#3678-mnoq367,A powerful consumable that restores mana. A must-have for mages.,10000,Consumable,5,None,null,true
+5,Ring of Haste,#48ab-pqrs48a,A magical accessory that increases movement speed.,25000,Accessory,3,Lady Elaine,#NPC002,true
+6,Sapphire Necklace,#5abc-tuvw5ab,An elegant necklace adorned with a large sapphire. It's said to bring good fortune.,200000,Accessory,1,Prince Arthas,#NPC003,true
+7,Mystic Talisman,#6def-xyzv6de,A rare talisman imbued with powerful magic. It's said to grant special abilities.,15000000,Misc,1,The Mystic,#NPC004,false
+8,Golden Apple,#7ghi-jklh7gh,"A rare, golden apple. It's said to grant extraordinary vitality and health.",500000,Consumable,2,Lady Morgana,#NPC005,true
+9,Royal Crown,#8ijkl-mnop8ij,The crown of the ruling monarch. It's a symbol of power and authority.,50000000,Misc,1,Sir Galahad,#NPC001,false
+10,Silver Longsword,#9mno-pqrs9mn,"A silver longsword, well-balanced and effective for most adventurers.",25000,Weapon,1,Captain Jack,#NPC006,true
+11,Mage Robe,#atfg-hijklatf,"A traditional robe for mages, made of enchanted cloth.",100000,Armor,1,Professor Snape,#NPC007,true
+12,Lucky Rabbit's Foot,#bcde-fghi bcde,"A lucky rabbit's foot, believed to bring good fortune to its owner.",1000,Misc,1,Thief Guild Leader,#NPC008,true
+13,Healing Scroll,#cdfg-hijklcdf,"A powerful healing scroll, capable of restoring a significant amount of health.",10000,Consumable,3,Healer Guild Master,#NPC009,false
+14,Demon's Eye,#efgh-ijkl efh,"A rare and enchanted demon eye, granting the ability to see into the spirit world.",1500000,Misc,1,Seeress,,

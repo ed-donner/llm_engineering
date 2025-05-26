@@ -1,0 +1,12 @@
+item_description,item_id,item_name,item_price,item_type,owner_id,owner_name,willing_to_trade,1,10,2,3,4,5,6,7,8,9
+,,,,,,,,,,,,,,,,,
+"A radiant crystal star imbued with the power of Amita, the goddess of stars. It is said that those who possess it can call upon her blessings for guidance in the darkest of times.",#1111-star_amita,Enchanted Star of Amita,5000000,Misc,#NPC001,Lady Elara,true,,,,,,,,,,
+"An exquisite necklace made from the tooth of a slain dragon, with a gleaming ruby set at its center. It is said to grant the wearer increased strength and vitality.",#2222-dragon_tooth,Dragon's Tooth Necklace,15000000,Accessory,#NPC002,King Valtor,false,,,,,,,,,,
+"A small, golden vial containing a potent healing liquid. It can restore the health of one character to full.",#3333-healing_elixir,Healing Elixir,10000,Consumable,null,None,true,,,,,,,,,,
+An elegant cape with intricate designs of shadows weaved into its fabric. It is said to grant its wearer the ability to blend into the shadows and avoid detection.,#4444-shadow_embrace,Shadow's Embrace Cape,3000000,Armor,#GUILD001,Guild Master Zephyr,true,,,,,,,,,,
+"A small, blue vial containing a potion that can restore the mana of one character to full.",#5555-mana_potion,Mana Potion,5000,Consumable,null,None,true,,,,,,,,,,
+A powerful crossbow with a bolt enchanted to strike with the force of thunder. It is a rare and sought-after weapon among archers.,#6666-thunder_crossbow,Grand Crossbow of Thunder,10000000,Weapon,#NPC003,Captain Orion,true,,,,,,,,,,
+A magnificent golden crown rumored to turn all it touches into gold. It is said to be the possession of the legendary King Midas.,#7777-midas_crown,Royal Crown of Midas,20000000,Misc,null,None,false,,,,,,,,,,
+A sturdy leather bracer with intricate ice patterns etched into its surface. It is said to provide increased resistance to fire and heat.,#8888-ice_bracer,Ice Bracer,8000000,Accessory,#NPC004,Queen Seraphina,true,,,,,,,,,,
+A small vial containing a potent antidote that can neutralize the effects of poison on one character.,#9999-antidote,Antidote,25000,Consumable,null,None,true,,,,,,,,,,
+A wooden staff imbued with the wisdom of ancient sages. It is said to grant the wielder increased intelligence and knowledge.,#AAAA-wisdom_staff,Sage's Staff of Wisdom,12000000,Misc,#NPC005,Master Ganymede,true,,,,,,,,,,

@@ -1,0 +1,14 @@
+Here are 20 Ragnarok Online Items in the required JSON format,item_number,item_name,item_id,item_description,item_price,item_type,item_quantity,owner_name,owner_id,willing_to_trade
+,2,Crystal Shield of Light,#1567-defg123,A beautiful shield made of crystal imbued with holy energy.,500000,Armor,1,Knight Errant,#NPC001,true
+,3,Blazing Dragon Sword,#2345-hijk456,"A legendary sword forged in the heart of a dragon, radiating intense heat.",2000000,Weapon,1,Dragon Knight,#NPC002,false
+,4,Healing Elixir,#3456-lkmn789,A potion that restores a significant amount of HP.,5000,Consumable,10,Alchemist,#NPC003,true
+,5,Sage's Staff of Wisdom,#4567-opqr012,A magical staff that enhances the user's intelligence and mana.,1500000,Accessory,1,Sage,#NPC004,false
+,6,Rainbow Wings,#5678-stuv321,A pair of wings that grant the wearer the ability to fly and change colors.,3000000,Misc,1,Angelic Guardian,#NPC005,true
+,7,Mage's Robe of Elements,#6789-wxyz432,An elegant robe that enhances the user's elemental magic.,1000000,Armor,1,Mage Guild Master,#GUILD001,true
+,8,Shadow Hunter's Dagger,#7890-abcd543,A deadly dagger that excels in stealth and critical hits.,750000,Weapon,1,Shadow Hunter,#NPC006,true
+,9,Steel Plate Armor,#8901-efgh654,"A heavy armor made of steel, providing excellent protection.",2500000,Armor,1,Knight Errant,#NPC001,true
+,10,Enchanted Bow of the Forest,#9012-ijkl789,A powerful bow imbued with the essence of nature.,1250000,Weapon,1,Ranger,#NPC007,true
+,11,Dwarven Hammer of Thunder,#0123-mnop456,"A mighty hammer forged by the Dwarves, dealing thunder damage.",1750000,Weapon,1,Dwarf Blacksmith,#NPC008,true
+,12,Wizard's Orb of Teleportation,#1234-pqrs012,A magical orb that allows the user to teleport to various locations.,2500000,Misc,1,Wizard,#NPC009,false
+,13,Mystic Emblem of Protection,#1345-tuvs321,An amulet that wards off all types of damage and status effects.,3000000,Accessory,1,Paladin,#NPC010,true
+,14,Thief's Cloak of Shadows,#1456-wxyz432,A cloak that makes the wearer invisible and undetectable.,10000000,,,,,

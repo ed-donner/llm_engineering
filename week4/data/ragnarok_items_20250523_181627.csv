@@ -1,0 +1,46 @@
+attribute,value
+Item 1,
+"""item_name""","""Mjölnir of Thunder"","
+"""item_id""","""#1357-thor321"","
+"""item_description""","""The legendary hammer of Thor, God of Thunder. Enhances lightning magic and attacks, but is heavy and unwieldy for non-Thor worshippers."","
+"""item_price""","5000000,"
+"""item_type""","""Weapon"","
+"""owner_name""","""Thor"","
+"""owner_id""","""#GOD001"","
+"""willing_to_trade""",false
+Item 2,
+"""item_name""","""Rainbow Wings"","
+"""item_id""","""#6543-rainbow987"","
+"""item_description""","""A rare pair of wings that shimmer with all the colors of the rainbow. Enhances flight speed and offers minor resistance to all elements."","
+"""item_price""","2000000,"
+"""item_type""","""Accessory"","
+"""owner_name""","""Aria"","
+"""owner_id""","""#NPC210"","
+"""willing_to_trade""",true
+Item 3,
+"""item_name""","""Healing Potion"","
+"""item_id""","""#1111-hp123"","
+"""item_description""","""A common consumable potion that restores a moderate amount of health points. Often used by adventurers and casual players."","
+"""item_price""","1000,"
+"""item_type""","""Consumable"","
+"""owner_name""","""None"","
+"""owner_id""","null,"
+"""willing_to_trade""",true
+Item 4,
+"""item_name""","""Ring of Swiftness"","
+"""item_id""","""#2345-ring456"","
+"""item_description""","""An enchanted ring that increases movement speed and agility, making it a popular choice among thieves and scouts."","
+"""item_price""","100000,"
+"""item_type""","""Accessory"","
+"""owner_name""","""Zephyr"","
+"""owner_id""","""#GUILD002"","
+"""willing_to_trade""",true
+Item 5,
+"""item_name""","""Dwarf Star Crystal"","
+"""item_id""","""#3210-star789"","
+"""item_description""","""A rare mineral found deep within the earth. Said to grant immense power to those who can harness its energy."","
+"""item_price""","15000000,"
+"""item_type""","""Misc"","
+"""owner_name""","""Mining Guild"","
+"""owner_id""","""#ORG003"","
+"""willing_to_trade""",false

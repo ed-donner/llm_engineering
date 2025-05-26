@@ -1,0 +1,8 @@
+Here's an example of a valid JSON object for an item,item_number,item_name,item_id,item_description,item_price,item_type,item_quantity,owner_name,owner_id,willing_to_trade,And here's an example of a valid JSON array,Generate 20 items with the following,Continue generating items below
+,1,Ancient Dragon's Tooth,#1234-abc123,"A legendary tooth from an ancient dragon, rumored to have immense power.",5000000,Weapon,1,Zephyr the Sage,#NPC5432,false,,,
+,2,Ancient Dragon's Tooth,#1234-abc123,"A legendary tooth from an ancient dragon, rumored to have immense power.",5000000,Weapon,1,Zephyr the Sage,#NPC5432,false,,,
+,3,Moonlit Shadow Cloak,#2345-def456,"A dark cloak that blends into the shadows, worn by the elusive Shadow Hunters.",300000,Armor,3,None,null,true,,,
+,4,Shimmering Starstone,#1112-ghi345,"A radiant, sparkling gemstone that is said to bring good fortune to its owner.",85000,Consumable,2,Alice,#PC12345,true,,,
+,5,Dragon's Claw Talisman,#3210-jkl678,"A talisman shaped like a dragon's claw, said to grant strength and courage to the bearer.",15000,Accessory,5,Bob,#NPC67890,false,,,
+,6,Berserker's Emblem,#5432-mno987,"A symbol of the Berserker's Guild, granting increased combat prowess and fury to its wearer.",200000,Accessory,1,Eve,#PC98765,true,,,
+,7,Celestial Starfruit,#6543-pqr123,"A rare, sweet fruit that falls from the Celestial Tree in the mystical Gardens of Silence.",750000,Consumable,1,Frank,#NPC23456,false,,,

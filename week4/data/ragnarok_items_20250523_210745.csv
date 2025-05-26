@@ -1,0 +1,3 @@
+item_description,item_id,item_name,item_number,item_price,item_type,owner_id,owner_name,willing_to_trade,Here's a possible solution in Python,"def generate_item(number, category, price, owner=None, id=None)"
+,,,number,,,,,,,
+"f""A {category} of legendary power.","f""#{random.choice(string.ascii_uppercase + string.digits + string.ascii_lowercase) * 5}","f""Item {number}",,price,category,"id or ""None","owner or ""None","random.choice([True, False])",,
