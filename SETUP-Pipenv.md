@@ -56,21 +56,23 @@ Once Python is installed and ready follow the next steps:
 
    This may take a while.
 
-   > [!NOTE]
-   >
-   > On windows, if you see any "compiling" or "building" errors, you'll need to
-   > install the *Microsoft C++ Build Tools* from:
-   > * <https://visualstudio.microsoft.com/visual-cpp-build-tools/>
-   >
-   > And follow this instructions:
-   > <https://github.com/chroma-core/chroma/issues/189#issuecomment-1454418844>
-   > * Navigate to *"Individual components"*, find and select these two:
-   >   * `MSVC v143 -VS 2022 C++ x64/x86 build tools (Latest)`
-   >   * `Windows 11 SDK (10.0.22621.0)`\
-   >     *It doesn't matter you are on Win10 if the case,
-   >     choose the higher version available.*
-   > * And "Install" with the lower right button.
-   > * You may need to reboot your system.
+> [!NOTE]
+>
+> On windows, if you see any "compiling" or "building" errors, you'll need to
+> install the *Microsoft C++ Build Tools* from:
+>
+> * <https://visualstudio.microsoft.com/visual-cpp-build-tools/>
+>
+> And follow this instructions:
+> <https://github.com/chroma-core/chroma/issues/189#issuecomment-1454418844>
+>
+> * Navigate to *"Individual components"*, find and select these two:
+>   * `MSVC v143 -VS 2022 C++ x64/x86 build tools (Latest)`
+>   * `Windows 11 SDK (10.0.22621.0)`\
+>     *It doesn't matter you are on Win10 if the case,
+>     choose the higher version available.*
+> * And "Install" with the lower right button.
+> * You may need to reboot your system.
 
 In future to enter the environment just navigate to the *project's root folder* and run:
 
