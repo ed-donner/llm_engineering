@@ -1,0 +1,12 @@
+item_description,item_id,item_name,item_number,item_price,item_quantity,item_type,owner_id,owner_name,willing_to_trade,Here are ten Ragnarok Online Items
+,,Mjölnir's Hammer,1,,,,,,,
+"A legendary hammer wielded by Thor, the Norse god of thunder. Its mighty blows can shatter the strongest defenses.",#2156-mjoelnir,Dragon Scale Armor,2,5000000,1,Weapon,#GOD-THOR,Thor,false,
+"An armor crafted from the scales of a dragon, providing exceptional protection against all types of damage.",#1987-dragon_scale,Phoenix Feather Quiver,3,1500000,1,Armor,null,None,true,
+"A quiver adorned with beautiful phoenix feathers, increasing the critical hit rate of arrows.",#3625-phoenix_feather,Healing Potion,4,200000,1,Accessory,#GOD-ARTEMIS,Artemis,false,
+A small vial containing a potion that restores health when consumed.,#4378-healing_potion,Shadow Emblem,5,5000,5,Consumable,#NPC-MERCHANT,Merchant,true,
+A dark emblem symbolizing the bearer's affiliation with the Shadow Guard guild.,#9872-shadow_emblem,Enchanted Shield,6,100000,1,Misc,#GUILD-SHADOW_GUARD,Shadow Guard,false,
+A magical shield imbued with powerful enchantments that absorb damage.,#5411-enchanted_shield,Demonic Claw,7,1000000,1,Armor,#NPC-GILGAMESH,Gilgamesh,true,
+"A wicked claw imbued with the essence of a demon, dealing massive damage and inflicting status ailments.",#6548-demonic_claw,Rainbow Wings,8,15000000,1,Weapon,#EVIL-SATAN,Satan,false,
+A pair of wings that grant the bearer the ability to fly and change colors based on their emotions.,#8765-rainbow_wings,Healing Talisman,9,25000000,1,Accessory,#NPC-IRIS,Iris,true,
+A small talisman that restores health and mana when used.,#1234-healing_talisman,Celestial Crown,10,25000,10,Consumable,#NPC-ALCHEMIST,Alchemist,true,
+A magnificent crown that bestows the wearer with the power of the celestial bodies.,#9876-celestial_crown,,,30000000,1,Armor,#NPC-ZODIAC_KING,Zodiac King,false,

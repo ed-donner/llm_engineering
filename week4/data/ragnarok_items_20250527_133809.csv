@@ -1,0 +1,12 @@
+item_description,item_id,item_name,item_number,item_price,item_quantity,item_type,owner_id,owner_name,willing_to_trade
+,,Example Item,1,,,,,,
+A brief description,#1234-abc123,Example Item 2,2,1000000,10,Weapon,#NPC123,Character Name,True
+A brief description,#1234-abc123,Example Item 3,3,2000000,5,Armor,#NPC123,Character Name,False
+A brief description,#1234-abc123,Example Item 4,4,3000000,8,Consumable,#NPC123,Character Name,True
+A brief description,#1234-abc123,Example Item 5,5,4000000,9,Accessory,#NPC123,Character Name,False
+A brief description,#1234-abc123,Example Item 6,6,5000000,7,Misc,#NPC123,Character Name,True
+A brief description,#1234-abc123,Example Item 7,7,6000000,10,Weapon,#NPC123,Character Name,False
+A brief description,#1234-abc123,Example Item 8,8,7000000,5,Armor,#NPC123,Character Name,True
+A brief description,#1234-abc123,Example Item 9,9,8000000,8,Consumable,#NPC123,Character Name,False
+A brief description,#1234-abc123,Example Item 10,10,9000000,9,Accessory,#NPC123,Character Name,True
+A brief description,#1234-abc123,,,10000000,7,Misc,#NPC123,Character Name,False

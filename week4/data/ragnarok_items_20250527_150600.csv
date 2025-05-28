@@ -1,0 +1,12 @@
+item_description,item_id,item_name,item_number,item_price,item_quantity,item_type,owner_id,owner_name,willing_to_trade,Here's a list of 10 Ragnarok Online Items with randomized attributes
+,,Shining Dragon Sword,1,,,,,,,
+"A legendary sword, forged from the heart of a dragon.",#2567-bcdfgh12,Mystic Amulet,2,1500000,1,Weapon,#PLAYER123,Arthur,true,
+"An amulet imbued with powerful magic, capable of granting the wearer increased resistance.",#3890-efpqrst54,Dazzling Ring,3,750000,5,Accessory,#NPC012,Morgana,false,
+"A beautiful ring, said to have been crafted by the finest goldsmith in Midgard.",#6213-abclmnop90,Blessed Talisman,4,500000,2,Accessory,#GUILD234,Kirara,true,
+"A talisman infused with holy energy, bestowing protection and good fortune upon its bearer.",#9135-pqrstuvwxyz,Rusty Dagger,5,300000,10,Consumable,#PLAYER123,Arthur,true,
+"A worn-out dagger, likely of little value to most adventurers.",#1148-xyzabcd12,Crystal Pendant,6,10000,3,Weapon,#MONSTER321,Goblin,false,
+"A stunning pendant, carved from a rare crystal and rumored to have magical properties.",#4569-mnopqrstu,Durable Shield,7,1200000,1,Accessory,#NPC456,Luna,true,
+"A sturdy shield, designed to protect its bearer from powerful blows and elemental attacks.",#7890-efghijklm,Healing Elixir,8,800000,1,Armor,#BOSS567,Gilgamesh,false,
+A powerful elixir that can restore a character's health when consumed.,#3456-abcd1234,Rare Gemstone,9,250000,8,Consumable,#NPC789,Healer,true,
+"A rare gemstone, believed to possess mystical properties and sought after by collectors and alchemists alike.",#5678-efghijklm,Enchanted Bow,10,2000000,1,Misc,#NPC901,Merlin,true,
+"A powerful bow, enchanted with magic that increases the accuracy and damage of arrows.",#9876-pqrstuvw,,,1800000,1,Weapon,#BOSS888,Robin Hood,true,

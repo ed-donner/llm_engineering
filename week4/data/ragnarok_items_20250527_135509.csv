@@ -1,0 +1,12 @@
+item_description,item_id,item_name,item_number,item_price,item_quantity,item_type,owner_id,owner_name,willing_to_trade,Here's a set of 10 Ragnarok Online Items
+,,Crescent Moon Pendant,1,,,,,,,
+A beautiful pendant shaped like a crescent moon. Legend says that it was once owned by a powerful mage.,#0001-moonstone,Healing Elixir,2,50000,1,Accessory,#NPC001,Morgan Le Fay,false,
+A rare consumable item that restores a player's HP and MP.,#1235-elixir,Stone of Agility,3,250000,5,Consumable,null,None,true,
+An enchanted stone that increases a player's Agility stat.,#2346-agility,Golden Hammer,4,150000,2,Accessory,#Player002,Character Name 1,true,
+An ornate and powerful hammer used by blacksmiths to create masterpieces.,#3457-hammer,Ice Arrow,5,750000,1,Weapon,#NPC003,Character Name 2,false,
+A rare and powerful ice-infused arrow used by archers in battle.,#4568-arrow,Dragon Scale Armor,6,350000,3,Weapon,#Player003,Character Name 3,true,
+"An armor made from the scales of a dragon, providing exceptional protection.",#5679-armor,Ring of Fire,7,1000000,1,Armor,#Player004,Character Name 4,true,
+A fiery ring that enhances a player's offensive capabilities.,#6789-ring,Lucky Charm,8,1250000,1,Accessory,#Player005,Character Name 5,false,
+"A small, lucky charm that brings good fortune to its owner.",#7890-charm,Healing Staff,9,50000,10,Misc,#Player006,Character Name 6,true,
+A powerful healing staff used by clerics and other healing classes.,#8901-staff,Mana Shield,10,800000,1,Weapon,#NPC004,Character Name 7,false,
+A magical shield that protects a player's MP from being drained.,#9012-shield,,,600000,2,Accessory,#Player007,Character Name 8,true,

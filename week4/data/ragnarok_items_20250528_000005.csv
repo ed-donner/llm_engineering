@@ -1,0 +1,12 @@
+item_description,item_id,item_name,item_number,item_price,item_quantity,item_type,owner_id,owner_name,willing_to_trade,Let's create 10 items for Ragnarok Online with the given requirements,The 10 items have been generated successfully
+nan,nan,Sword of the Moon,1,nan,nan,nan,nan,nan,nan,,nan
+"A mystical sword, imbued with the power of the moon. It glows with a soft, silver light when wielded by a worthy adventurer.",#5678-moonblade,Healing Potion,2,2500000,1,Weapon,#BOSS123,"Luna, the Silver Wolf",false,nan,nan
+"A small vial of magical elixir, capable of restoring a player's vitality and health when consumed.",#9876-elixir,Dragonscale Armor,3,1000,5,Consumable,null,None,true,nan,nan
+A suit of armor made from the scales of a legendary dragon. It offers excellent protection and is highly sought after by the bravest adventurers.,#2345-scales,Rainbow Feather,4,5000000,nan,Armor,#BOSS234,The Red Dragon,nan,nan,nan
+A rare feather from a mythical bird that changes colors depending on the weather. It is believed to bring good fortune and happiness to its owner.,#6789-rainbow,Ring of the Sea,5,100000,nan,Misc,nan,nan,nan,nan,nan
+A beautiful ring made from the pearl of a rare oyster. It is said to grant the wearer the ability to breathe underwater and to communicate with marine life.,#3456-searinging,Emerald Talisman,6,7500000,nan,Accessory,#DEITY002,"Poseidon, the God of the Sea",nan,nan,nan
+A small talisman carved from a beautiful emerald. It is said to grant the bearer the ability to detect hidden treasures and magical secrets.,#8901-emerald,Blessed Hammer,7,500000,nan,nan,nan,nan,nan,nan,nan
+"A powerful hammer, imbued with the blessings of the gods. It is said to deal massive damage to evil creatures and to protect its wielder from harm.",#4567-hammer,Mana Potion,8,15000000,nan,nan,#DEITY001,"Zeus, the God of Thunder",nan,nan,nan
+A small vial of magical potion that restores a player's mana when consumed.,#1234-manapotion,Diamond Ring,9,500,10,nan,nan,nan,nan,nan,nan
+"A beautiful ring set with a large, brilliant diamond. It is said to grant the wearer the ability to manipulate ice and cold.",#5678-diamond,Starfruit,10,20000000,nan,nan,#BOSS345,"Frozenheart, the Ice Queen",nan,nan,nan
+A rare and delicious fruit that grows in the Celestial Garden. It is said to grant the consumer temporary invincibility and increased strength.,#9012-starfruit,nan,nan,1500000,nan,nan,nan,nan,nan,nan,

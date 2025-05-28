@@ -1,0 +1,12 @@
+item_description,item_id,item_name,item_number,item_price,item_quantity,item_type,owner_id,owner_name,willing_to_trade,Here are ten randomly generated items for Ragnarok Online
+,,Heavenly Axe,1,,,,,,,
+"An ancient, divine weapon said to have been wielded by the gods themselves. Its edges are etched with celestial runes that shimmer with ethereal light.",#2456-defg67,Rainbow Ring,2,1500000,1,Weapon,#BOSS001,Midas,false,
+A magnificent ring adorned with all seven colors of the rainbow. It is said to grant the wearer the power to control the elements and the ability to heal.,#3789-hijk98,Golden Charm,3,5000000,1,Accessory,,None,true,
+A golden charm shaped like a phoenix. It is said to bring good fortune and ward off evil spirits.,#4012-lmn123,Demon's Claw,4,50000,10,Consumable,#PLAYER002,Lina,true,
+"An ominous, dark claw said to have been taken from a demon lord. Its touch is said to instill fear in its enemies and grant the wielder enhanced strength.",#5321-opq210,Enchanted Pendant,5,1200000,1,Weapon,#BOSS001,Midas,false,
+A beautifully crafted pendant with an enchanted gemstone at its center. It is said to grant the wearer protection against dark magic and increase their magical abilities.,#6543-rst456,Mystic Staff,6,2000000,1,Accessory,#NPC003,Zephyr,true,
+A mysterious staff with intricate runes etched upon its surface. It is said to channel arcane energies and grant its wielder powerful spells.,#7654-tuv789,Ice Shield,7,10000000,1,Staff,,None,true,
+A magnificent shield made of the purest ice. It is said to protect the wielder from elemental attacks and grant them the ability to freeze their enemies.,#8765-wxy123,Healing Potion,8,8000000,1,Shield,#BOSS002,Frostbite,false,
+"A small vial filled with a golden, shimmering liquid. It is said to restore vitality and cure ailments upon consumption.",#9876-zab345,Thunder Mace,9,1000,50,Consumable,#NPC004,Healer,true,
+A powerful mace imbued with the power of lightning. It is said to deal massive electrical damage to its enemies.,#0123-cde567,Ruby Brooch,10,1300000,1,Weapon,#BOSS003,Thunder,false,
+A stunning brooch adorned with a vibrant red ruby. It is said to grant the wearer increased charisma and the ability to charm their enemies.,#1234-efg890,,,3000000,1,Accessory,#PLAYER001,Cleo,true,

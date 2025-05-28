@@ -1,0 +1,12 @@
+item_description,item_id,item_name,item_number,item_price,item_quantity,item_type,owner_id,owner_name,willing_to_trade,Here are 10 Ragnarok Online Items
+,,,1,,,,,,,
+"A legendary sword once owned by a brave knight, now sought after by collectors.",#2345-defg67,Shining Sword of Valor,2,5000000,1,Weapon,#NPC001,Sir Galahad,false,
+"A small, shimmering vial filled with a powerful potion that restores vitality.",#6789-hijk98,Healing Elixir,3,500,10,Consumable,null,None,true,
+"An ancient set of armor imbued with powerful enchantments, rumored to grant invincibility.",#3456-lmnop54,Mystic Armor,4,10000000,1,Armor,#NPC002,Morgan Le Fay,true,
+"An elegant scepter carried by the reigning monarch of Midgard, symbolizing their divine right.",#7890-pqrs12,Royal Scepter,5,25000000,1,Misc,#NPC003,King Thor,false,
+"A beautifully crafted amulet, inscribed with powerful runes to enhance magical abilities.",#4567-tuvw36,Rune-infused Amulet,6,1500000,1,Accessory,#NPC004,Merlin,true,
+A rare treasure taken from the mouth of a legendary goblin king.,#8901-xyzv78,Goblin's Golden Tooth,7,2000000,1,Misc,#NPC005,Goblin King,true,
+A magical ring that offers the wearer a shield against various types of damage.,#2346-mnop90,Blessed Ring of Protection,8,750000,1,Accessory,null,None,true,
+A potion that temporarily increases the user's movement speed and attack speed.,#6788-ijk98,Eternal Potion of Haste,9,5000,5,Consumable,#GUILD001,Alchemist Guild,true,
+"An armor made from the scales of a legendary dragon, offering unparalleled protection.",#3457-lmnop45,Dragonscale Armor,10,15000000,1,Armor,#NPC006,Dragon Slayer,false,
+A rare herb that can be used to create powerful potions to restore hit points and mana.,#9012-xyzw36,Rare Herb of Rejuvenation,,50000,3,Consumable,#GUILD002,Herbalist Guild,true,
