@@ -4,6 +4,7 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
+environs = "*"
 python-dotenv = "*"
 jupyterlab = "*"
 ipywidgets = "*"
