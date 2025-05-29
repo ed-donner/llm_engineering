@@ -63,7 +63,7 @@ class ItemLoader:
             result.category = self.name
         return results
             
-    def load(self, workers=6):
+    def load(self, workers=8):
         """
         Load in this dataset; the workers parameter specifies how many processes
         should work on loading and scrubbing the data
