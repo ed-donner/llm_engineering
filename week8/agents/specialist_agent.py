@@ -15,7 +15,7 @@ class SpecialistAgent(Agent):
         Set up this Agent by creating an instance of the modal class
         """
         self.log("Specialist Agent is initializing - connecting to modal")
-        Pricer = modal.Cls.lookup("pricer-service", "Pricer")
+        Pricer = modal.Cls.from_name("pricer-service", "Pricer")
         self.pricer = Pricer()
         self.log("Specialist Agent is ready")
         

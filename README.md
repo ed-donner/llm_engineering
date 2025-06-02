@@ -15,7 +15,7 @@ And this is new to me, but I'm also trying out X/Twitter at [@edwarddonner](http
 Resources to accompany the course, including the slides and useful links, are here:  
 https://edwarddonner.com/2024/11/13/llm-engineering-resources/
 
-## Instant Gratification instructions for Week 1, Day 1
+## Instant Gratification instructions for Week 1, Day 1 - with Llama 3.2 **not** Llama 3.3!
 
 ### Important note: see my warning about Llama3.3 below - it's too large for home computers! Stick with llama3.2! Several students have missed this warning...
 
@@ -52,7 +52,9 @@ Early in the course, I show you an alternative if you'd rather not spend anythin
 Any time that we have code like:  
 `openai = OpenAI()`  
 You can use this as a direct replacement:  
-`openai = OpenAI(base_url='http://localhost:11434/v1', api_key='ollama')`
+`openai = OpenAI(base_url='http://localhost:11434/v1', api_key='ollama')`  
+And also replace model names like **gpt-4o-mini** with **llama3.2**.  
+For week 1 day 1, you can find this in week1/solutions/day1_with_ollama.ipynb.
 
 Below is a full example:
 
