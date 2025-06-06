@@ -178,3 +178,14 @@ products_vectorstore/
 
 # ignore diagnostics reports
 **/report.txt
+
+# ignore optimized C++ code from being checked into repo
+week4/optimized
+week4/simple
+*.env.save
+.virtual_documents/
+WingIDE_Projekti/
+nohup.out
+*.png
+
+scraper_cache/
