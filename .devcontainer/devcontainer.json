@@ -1,0 +1,36 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the README at:
+// https://github.com/microsoft/vscode-dev-containers/tree/v0.234.0/containers/ubuntu
+{
+  "name": "LLM Engineering",
+  "dockerComposeFile": "docker-compose.yml",
+  "service": "jupyter",
+  "workspaceFolder": "/workspaces/llm-engineering",
+  "customizations": {
+    "vscode": {
+      // Add the IDs of extensions you want installed when the container is created.
+      "extensions": [
+        "ms-python.python",
+        "ms-toolsai.jupyter",
+        "esbenp.prettier-vscode"
+      ],
+
+      // Set *default* container specific settings.json values on container create.
+      "settings": {
+        "[python]": {
+          "editor.formatOnType": true,
+          "editor.defaultFormatter": "ms-python.python"
+        },
+        "python.defaultInterpreterPath": "/opt/conda/bin/python"
+      }
+    }
+  }
+
+  // Use 'forwardPorts' to make a list of ports inside the container available locally.
+  // "forwardPorts": [],
+
+  // Use 'postCreateCommand' to run commands after the container is created.
+  // "postCreateCommand": "uname -a",
+
+  // Comment out to connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
+  // "remoteUser": "vscode"
+}
