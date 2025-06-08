@@ -8,11 +8,3 @@ services:
     container_name: llm-engineering
     environment:
       - 'JUPYTER_TOKEN=docker'
-      - 'HISTFILE=/home/jovyan/bash_history/.bash_history'
-    ports:
-      - 8888:8888
-    volumes:
-      - bash_history:/home/jovyan/bash_history
-
-volumes:
-  bash_history:
