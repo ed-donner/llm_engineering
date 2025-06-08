@@ -7,4 +7,5 @@ services:
       dockerfile: .devcontainer/Dockerfile
     container_name: llm-engineering
     environment:
-      - 'JUPYTER_TOKEN=docker'
+      - JUPYTER_TOKEN=docker
+      - OLLAMA_HOST=http://host.docker.internal:11434
