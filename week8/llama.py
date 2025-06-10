@@ -3,6 +3,7 @@ from modal import App, Volume, Image
 
 # Setup
 
+# app name as llama
 app = modal.App("llama")
 image = Image.debian_slim().pip_install("torch", "transformers", "bitsandbytes", "accelerate")
 secrets = [modal.Secret.from_name("hf-secret")]
@@ -12,12 +13,14 @@ MODEL_NAME = "meta-llama/Meta-Llama-3.1-8B" # "google/gemma-2-2b"
 
 
 @app.function(image=image, secrets=secrets, gpu=GPU, timeout=1800)
+
 def generate(prompt: str) -> str:
     import os
     import torch
     from transformers import AutoTokenizer, AutoModelForCausalLM, BitsAndBytesConfig, set_seed
 
     # Quant Config
+    
     quant_config = BitsAndBytesConfig(
         load_in_4bit=True,
         bnb_4bit_use_double_quant=True,
@@ -42,3 +45,8 @@ def generate(prompt: str) -> str:
     attention_mask = torch.ones(inputs.shape, device="cuda")
     outputs = model.generate(inputs, attention_mask=attention_mask, max_new_tokens=5, num_return_sequences=1)
     return tokenizer.decode(outputs[0])
+
+
+
+
+

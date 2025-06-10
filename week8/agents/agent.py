@@ -1,3 +1,8 @@
+#This Python code defines an abstract base class called Agent, which is meant to be used as a #superclass for other agent-like classes in a system (such as AI agents, bots, etc.). Its main #feature is to log messages with color-coded output, which is helpful in environments like a # #terminal or command line where you want to visually distinguish output from different agents.
+
+# https://chatgpt.com/share/6841f3f8-e21c-8001-9e15-074290f17aa4
+
+
 import logging
 
 class Agent:
