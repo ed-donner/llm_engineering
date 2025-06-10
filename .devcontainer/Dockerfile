@@ -13,7 +13,5 @@ RUN conda install -y mamba -n base -c conda-forge
 COPY environment.yml /tmp/environment.yml
 RUN mamba env create -f /tmp/environment.yml
 
-# Create .env file with placeholder for OPENAI_API_KEY
-RUN echo 'OPENAI_API_KEY=XXX' > /home/jovyan/.env && \
-    # activate conda environment and set it as default
-    echo 'conda activate llms' >> /home/jovyan/.bashrc
+# Activate conda environment and set it as default
+RUN echo 'conda activate llms' >> /home/jovyan/.bashrc
