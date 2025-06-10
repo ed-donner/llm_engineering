@@ -30,7 +30,7 @@
 
   // Use 'postCreateCommand' to run commands after the container is created.
   // Create .env file with placeholder for OPENAI_API_KEY
-  "postCreateCommand": "echo 'OPENAI_API_KEY=XXX' > ./.env"
+  "postCreateCommand": "[ ! -f .env ] && cp ./.devcontainer/.env.example .env && echo 'Please set your API keys in the .env file.' || true"
 
   // Comment out to connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
   // "remoteUser": "vscode"
