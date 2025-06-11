@@ -30,8 +30,12 @@
 
   // Use 'postCreateCommand' to run commands after the container is created.
   // Create .env file with placeholder for OPENAI_API_KEY
-  "postCreateCommand": "[ ! -f .env ] && cp ./.devcontainer/.env.example .env && echo 'Please set your API keys in the .env file.' || true"
+  "postCreateCommand": "[ ! -f .env ] && cp ./.devcontainer/.env.example .env && echo 'Please set your API keys in the .env file.' || true",
 
   // Comment out to connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
   // "remoteUser": "vscode"
+
+  // Use 'forwardPorts' to make a list of ports inside the container available locally.
+  // Forward a range of Gradio ports (7860-7879).
+  "forwardPorts": [7860, 7861, 7862, 7863, 7864, 7865, 7866, 7867, 7868, 7869, 7870, 7871, 7872, 7873, 7874, 7875, 7876, 7877, 7878, 7879]
 }
