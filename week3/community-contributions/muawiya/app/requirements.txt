@@ -1,0 +1,7 @@
+huggingface_hub==0.30.2
+ipython==8.12.3
+openai==1.76.2
+protobuf==6.30.2
+Requests==2.32.3
+torch==2.6.0+cu124
+transformers==4.51.3
