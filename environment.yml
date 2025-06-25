@@ -19,7 +19,6 @@ dependencies:
   - jupyter-dash
   - sentencepiece
   - pyarrow
-  - faiss-cpu
   - pip:
     - beautifulsoup4
     - plotly
@@ -44,7 +43,6 @@ dependencies:
     - langchain-openai
     - langchain-chroma
     - langchain-community
-    - faiss-cpu
     - feedparser
     - twilio
     - pydub
