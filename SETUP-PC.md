@@ -13,9 +13,11 @@ I use a platform called Anaconda to set up your environment. It's a powerful too
 
 Having said that: if you have any problems with Anaconda, I've provided an alternative approach. It's faster and simpler and should have you running quickly, with less of a guarantee around compatibility.
 
-### Before we begin - Heads up! Please do check these Windows "gotchas":
-
 If you are relatively new to using the Command Prompt, here is an excellent [guide](https://chatgpt.com/share/67b0acea-ba38-8012-9c34-7a2541052665) with instructions and exercises. I'd suggest you work through this first to build some confidence.
+
+## HEAD'S UP - "GOTCHA" ISSUES ON A PC: The following 4 Windows issues will need your attention, particularly #3 and #4
+
+Please do take a look at these issues. Issue #3 (Windows 260 character limit) will cause an issue with an "Archive Error" installing pytorch if unaddressed. Issue #4 will cause an installation issue.
 
 There are 4 common gotchas to developing on Windows to be aware of:   
 
@@ -92,7 +94,7 @@ Press Win + R, type `cmd`, and press Enter
 
 Run `python --version` to find out which python you're on.  
 Ideally you'd be using a version of Python 3.11, so we're completely in sync.  
-I believe Python 3.12 works also, but (as of Feb 2025) Python 3.13 does **not** yet work as several Data Science dependencies are not yet ready for Python 3.13.  
+I believe Python 3.12 works also, but (as of June 2025) Python 3.13 does **not** yet work as several Data Science dependencies are not yet ready for Python 3.13.  
 If you need to install Python or install another version, you can download it here:  
 https://www.python.org/downloads/
 
