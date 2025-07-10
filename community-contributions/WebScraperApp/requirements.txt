@@ -1,0 +1,5 @@
+PyQt5>=5.15.0
+PyQtWebEngine>=5.15.0
+urllib3==2.0.7
+openai>=1.0.0
+python-dotenv>=1.0.0
