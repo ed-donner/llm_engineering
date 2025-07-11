@@ -189,3 +189,5 @@ nohup.out
 *.png
 
 scraper_cache/
+week2/output_audio.mp3
+week3/output.txt
