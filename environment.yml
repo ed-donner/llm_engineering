@@ -21,6 +21,7 @@ dependencies:
   - pyarrow
   - pip:
     - beautifulsoup4
+    - selenium
     - plotly
     - bitsandbytes
     - transformers
