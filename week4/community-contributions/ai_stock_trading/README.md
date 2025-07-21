@@ -1,41 +1,63 @@
-# 📈 Stock Analysis & Sharia Compliance Tool
+# 📈 AI Stock Trading & Sharia Compliance Platform
 
-A comprehensive Gradio-based web application that provides AI-powered stock analysis with Islamic Sharia compliance assessment. This tool combines real-time financial data, technical analysis, and AI-driven insights to help users make informed investment decisions while adhering to Islamic finance principles.
+A comprehensive **Streamlit-based** web application that provides AI-powered stock analysis with Islamic Sharia compliance assessment. This professional-grade platform combines real-time financial data from USA and Egyptian markets, advanced technical analysis, and institutional-quality AI-driven insights to help users make informed investment decisions while adhering to Islamic finance principles.
 
-![Stock Analysis Interface](https://img.shields.io/badge/Interface-Gradio-blue)
-![AI Powered](https://img.shields.io/badge/AI-OpenAI%20GPT--4o--mini-green)
-![Islamic Finance](https://img.shields.io/badge/Islamic-Sharia%20Compliant-gold)
+## 📸 Application Screenshots
 
-## 🌟 Features
+### Home View
+![Home View](screenshots/home.png)
+*Main application interface with market selection and stock input*
 
-### 📊 **Multi-Period Stock Analysis**
-- Fetches historical data for 1 month, 1 year, and 5 years
-- Calculates key financial metrics: returns, volatility, volume, price ranges
-- Comprehensive technical analysis with statistical insights
+### Chat Interface
+![Chat Interface](screenshots/chat.png)
+*Interactive chat for trading advice, Sharia compliance, and stock analysis*
 
-### 🤖 **AI-Powered Trade Recommendations**
-- Uses OpenAI GPT-4o-mini for intelligent analysis
-- Provides clear BUY/HOLD/SELL recommendations
-- Numerical justification based on multi-timeframe data
-- Considers risk factors and market trends
+### Dashboard View
+![Dashboard View](screenshots/dashboard.png)
+*Comprehensive dashboard with KPIs, charts, and real-time metrics*
 
-### ☪️ **Sharia Compliance Assessment**
-- Analyzes company business activities for Islamic compliance
-- Provides HALAL/HARAM/DOUBTFUL rulings
-- Confidence scores (0-100) for each assessment
-- Detailed justification based on Islamic finance principles
+## 🎯 Key Features
 
-### 📈 **Interactive Visualizations**
+### 📊 **Comprehensive Stock Analysis**
+- Real-time data fetching from multiple markets (USA, Egypt)
+- Advanced technical indicators (RSI, MACD, Bollinger Bands, Moving Averages)
+- Risk assessment and volatility analysis
+- Performance metrics across multiple time periods
+
+### 🤖 **AI-Powered Trading Decisions**
+- GPT-4 powered investment recommendations
+- Buy/Hold/Sell signals with confidence scores
+- Price targets and stop-loss suggestions
+- Algorithmic + AI combined decision making
+
+### ☪️ **Sharia Compliance Checking**
+- Islamic finance principles assessment
+- Halal/Haram rulings with detailed reasoning
+- Business activity and financial ratio screening
+- Alternative investment suggestions
+
+### 💬 **Natural Language Interface**
+- Interactive chat interface for stock discussions
+- Ask questions in plain English
+- Context-aware responses about selected stocks
+- Quick action buttons for common queries
+
+### 📈 **Interactive Dashboards**
+- Comprehensive metrics dashboard
+- Multiple chart types (Price, Performance, Risk, Trading Signals)
+- Real-time data visualization with Plotly
+- Exportable analysis reports
 - Real-time price charts with volume data
 - Professional matplotlib-based visualizations
 - Price statistics and performance metrics
 - Responsive chart interface
 
-### 🖥️ **User-Friendly Interface**
-- Clean, modern Gradio web interface
-- Two-column layout for optimal user experience
-- Example stock buttons for quick testing
-- Real-time analysis progress tracking
+### 🖥️ **Professional Interface**
+- Clean, modern Streamlit web interface
+- Multi-market support (USA & Egyptian stocks)
+- Interactive chat interface with context awareness
+- Real-time KPI dashboard with currency formatting
+- Quick action buttons for common analysis tasks
 
 ## 🚀 Quick Start
 
@@ -56,83 +78,116 @@ cd ai_stock_trading
 pip install -r requirements.txt
 ```
 
-3. **Set up OpenAI API Key**
+3. **Set up environment variables**
+Create a `.env` file in the project root:
 ```bash
-export OPENAI_API_KEY="your-api-key-here"
-```
-
-Or set it in the notebook:
-```python
-import os
-os.environ["OPENAI_API_KEY"] = "your-api-key-here"
+OPENAI_API_KEY=your-api-key-here
 ```
 
 ### Running the Application
 
-1. **Open the Jupyter notebook**
+1. **Launch the Streamlit app**
 ```bash
-jupyter notebook stock_analysis_sharia_compliance.ipynb
+streamlit run main_app.py
 ```
 
-2. **Run all cells** to initialize the functions
+2. **Access the web interface** at `http://localhost:8501`
 
-3. **Launch the interface** by running the final cell
+3. **Select your market** (USA or Egypt) from the sidebar
 
-4. **Access the web interface** at `http://localhost:7860`
+4. **Enter a stock symbol** and start analyzing!
 
 ## 📖 How to Use
 
-1. **Enter a stock ticker** (e.g., AAPL, MSFT, GOOGL) in the input field
-2. **Click "Analyze Stock"** to start the analysis
-3. **Review the results**:
-   - **Trade Advice**: AI-generated BUY/HOLD/SELL recommendation
-   - **Sharia Assessment**: Islamic compliance ruling with confidence score
-   - **Price Chart**: 1-month interactive price and volume chart
+1. **Select Market**: Choose between USA or Egypt from the sidebar
+2. **Enter Stock Symbol**: Input a ticker (e.g., AAPL for USA, ABUK.CA for Egypt)
+3. **View Dashboard**: See real-time KPIs, price charts, and key metrics
+4. **Use Chat Interface**: Ask questions or request specific analysis:
+   - "Give me trading advice for AAPL"
+   - "Is this stock Sharia compliant?"
+   - "What's the price target?"
+5. **Review Professional Analysis**:
+   - **Trading Recommendations**: Institutional-grade BUY/HOLD/SELL advice
+   - **Sharia Compliance**: Comprehensive Islamic finance screening
+   - **Technical Analysis**: Advanced indicators and risk assessment
 
 ### Example Tickers to Try
 
-| Ticker | Company | Expected Sharia Status |
-|--------|---------|----------------------|
-| **AAPL** | Apple Inc. | ✅ Likely Halal (Technology) |
-| **MSFT** | Microsoft Corp. | ✅ Likely Halal (Technology) |
-| **JNJ** | Johnson & Johnson | ✅ Likely Halal (Healthcare) |
-| **BAC** | Bank of America | ❌ Likely Haram (Banking/Interest) |
-| **KO** | Coca-Cola | ⚠️ May be Doubtful |
+#### USA Market
+| Ticker | Company | Sector | Expected Sharia Status |
+|--------|---------|--------|-----------------------|
+| **AAPL** | Apple Inc. | Technology | ✅ Likely Halal |
+| **MSFT** | Microsoft Corp. | Technology | ✅ Likely Halal |
+| **GOOGL** | Alphabet Inc. | Technology | ✅ Likely Halal |
+| **JNJ** | Johnson & Johnson | Healthcare | ✅ Likely Halal |
+| **BAC** | Bank of America | Banking | ❌ Likely Haram |
+| **JPM** | JPMorgan Chase | Banking | ❌ Likely Haram |
 
-## 🛠️ Technical Implementation
+#### Egypt Market
+| Ticker | Company | Sector | Expected Sharia Status |
+|--------|---------|--------|-----------------------|
+| **ABUK.CA** | Abu Qir Fertilizers | Industrial | ✅ Likely Halal |
+| **ETEL.CA** | Egyptian Telecom | Telecom | ✅ Likely Halal |
+| **HRHO.CA** | Hassan Allam Holding | Construction | ✅ Likely Halal |
+| **CIB.CA** | Commercial Intl Bank | Banking | ❌ Likely Haram |
 
-### Core Components
+## 🔧 Technical Implementation
 
-1. **Data Fetching Tool** (`fetch_history`)
-   - Uses yfinance API for real-time stock data
-   - Supports multiple time periods and intervals
-   - Error handling for invalid tickers
+### Modular Architecture
 
-2. **Analysis Tool** (`summarize`)
-   - Calculates financial metrics
-   - Annualized volatility calculation
-   - Price performance analysis
+The platform is built with a clean, modular architecture using separate tool modules:
 
-3. **Trade Decision Tool** (`get_trade_advice`)
-   - OpenAI GPT-4o-mini integration
-   - Multi-period analysis prompts
-   - Structured recommendation format
+#### 1. **Stock Fetching Module** (`tools/fetching.py`)
+- **Multi-Market Support**: USA (75+ stocks) and Egypt (50+ stocks) with proper currency handling
+- **Real-Time Data**: Uses yfinance API with robust error handling
+- **Currency Formatting**: Automatic USD/EGP formatting based on market
+- **Stock Info Enrichment**: Company details, market cap, sector classification
 
-4. **Sharia Compliance Tool** (`assess_sharia`)
-   - Company profile extraction
-   - Islamic finance criteria evaluation
-   - Confidence scoring system
+#### 2. **Technical Analysis Module** (`tools/analysis.py`)
+- **Advanced Indicators**: RSI, MACD, Bollinger Bands, Moving Averages
+- **Risk Metrics**: Volatility analysis, Sharpe ratio, maximum drawdown
+- **Performance Analysis**: Multi-timeframe returns and trend analysis
+- **Professional Calculations**: Annualized metrics and statistical analysis
 
-5. **Charting Tool** (`plot_price`)
-   - Matplotlib-based visualizations
-   - Price and volume charts
-   - Professional styling
+#### 3. **Trading Decisions Module** (`tools/trading_decisions.py`)
+- **Institutional-Grade AI**: Senior analyst persona with 15+ years experience
+- **Professional Standards**: BUY/HOLD/SELL with confidence, price targets, stop-loss
+- **Risk Management**: Risk-reward ratios, time horizons, risk assessment
+- **Robust JSON Parsing**: Handles malformed AI responses with fallback logic
 
-### AI Prompts
+#### 4. **Sharia Compliance Module** (`tools/sharia_compliance.py`)
+- **Comprehensive Screening**: Business activities, financial ratios, trading practices
+- **AAOIFI Standards**: Debt-to-assets < 33%, interest income < 5%
+- **Prohibited Activities**: 50+ categories including banking, gambling, alcohol
+- **User-Triggered Analysis**: Only shows when specifically requested
 
-The application uses carefully crafted prompts for:
-- **Financial Analysis**: Multi-timeframe technical analysis with numerical justification
-- **Sharia Assessment**: Islamic finance principles evaluation with scholarly approach
+#### 5. **Charting Module** (`tools/charting.py`)
+- **Professional Visualizations**: Plotly-based interactive charts
+- **Multiple Chart Types**: Price, volume, technical indicators
+- **Responsive Design**: Mobile-friendly chart rendering
+- **Export Capabilities**: PNG/HTML export functionality
+
+#### 6. **Main Application** (`main_app.py`)
+- **Streamlit Interface**: Modern, responsive web application
+- **Chat Integration**: Context-aware conversational interface
+- **Real-Time KPIs**: Live dashboard with key metrics
+- **Session Management**: Persistent data across user interactions
+
+### AI Integration
+
+The platform leverages OpenAI's GPT-4o-mini with specialized prompts:
+
+#### Trading Analysis Prompts
+- **Senior Analyst Persona**: 15+ years institutional experience
+- **Professional Standards**: Risk-reward ratios, logical price targets
+- **Structured Output**: JSON format with validation and error handling
+- **Technical Focus**: Based on RSI, MACD, trend analysis, volume patterns
+
+#### Sharia Compliance Prompts
+- **Islamic Scholar Approach**: Follows AAOIFI and DSN standards
+- **Comprehensive Screening**: Business activities, financial ratios, trading practices
+- **Scholarly Reasoning**: Detailed justification with Islamic finance principles
+- **Confidence Scoring**: Quantified certainty levels for rulings
 
 ## 📊 Sample Analysis Output
 
@@ -226,6 +281,27 @@ Contributions are welcome! Please feel free to submit issues, feature requests, 
 - Portfolio analysis features
 - Historical backtesting
 - Mobile-responsive design
+
+### 🔮 Future Work: MCP Integration
+
+We plan to implement a **Model Context Protocol (MCP) layer** to make all trading tools accessible as standardized MCP tools:
+
+#### Planned MCP Tools:
+- **`stock_fetcher`** - Real-time market data retrieval for USA/Egypt markets
+- **`technical_analyzer`** - Advanced technical analysis with 20+ indicators
+- **`sharia_checker`** - Islamic finance compliance screening
+- **`trading_advisor`** - AI-powered institutional-grade recommendations
+- **`risk_assessor`** - Portfolio risk analysis and management
+- **`chart_generator`** - Professional financial visualizations
+
+#### Benefits of MCP Integration:
+- **Standardized Interface**: Consistent tool access across different AI systems
+- **Interoperability**: Easy integration with other MCP-compatible platforms
+- **Scalability**: Modular architecture for adding new financial tools
+- **Reusability**: Tools can be used independently or combined
+- **Professional Integration**: Compatible with institutional trading platforms
+
+This will enable the platform to serve as a comprehensive financial analysis toolkit that can be integrated into various AI-powered trading systems and workflows.
 
 ## 📄 License
 
