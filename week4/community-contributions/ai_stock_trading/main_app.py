@@ -14,6 +14,11 @@ from tools.trading_decisions import trading_engine
 from tools.sharia_compliance import sharia_checker
 from tools.charting import chart_generator
 
+# Import new modular components
+from core.data_service import data_service
+from core.ai_assistant import ai_assistant
+from components.chat_interface import ChatInterface
+
 # Load environment variables
 load_dotenv()
 
@@ -211,264 +216,20 @@ class StockTradingApp:
             st.error(f"Error loading quick analysis: {str(e)}")
     
     def load_stock_analysis(self, symbol: str):
-        try:
-            country = st.session_state.selected_country
-            data = stock_fetcher.fetch_stock_data(symbol, period="1y")
-            stock_info = stock_fetcher.get_stock_info(symbol, country)
-            analysis = stock_analyzer.analyze_stock(data)
-            trading_decision = trading_engine.get_trading_recommendation(symbol, analysis, stock_info)
-            sharia_compliance = sharia_checker.check_sharia_compliance(symbol, stock_info, analysis)
-            
-            st.session_state.stock_data[symbol] = {
-                'data': data,
-                'stock_info': stock_info,
-                'analysis': analysis,
-                'trading_decision': trading_decision,
-                'sharia_compliance': sharia_compliance
-            }
-        except Exception as e:
-            st.error(f"Error loading analysis for {symbol}: {str(e)}")
+        """Load complete analysis using data service"""
+        country = st.session_state.selected_country
+        # Pre-load all analysis components
+        data_service.get_analysis(symbol)
+        data_service.get_trading_recommendation(symbol, country)
+        data_service.get_sharia_compliance(symbol, country)
     
     def render_chat_page(self):
         st.header("💬 AI Stock Analysis Chat")
         
-        if not st.session_state.selected_stock:
-            st.warning("⚠️ Please select a stock from the sidebar to start chatting.")
-            return
-        
         symbol = st.session_state.selected_stock
-        st.info(f"💬 Chatting about: **{symbol}**")
-        
-        if symbol not in st.session_state.stock_data:
-            with st.spinner("Loading stock data and analysis..."):
-                self.load_stock_analysis(symbol)
-        
-        self.render_chat_interface()
-    
-    def render_chat_interface(self):
-        symbol = st.session_state.selected_stock
-        
-        if st.session_state.chat_history:
-            for message in st.session_state.chat_history:
-                if message['role'] == 'user':
-                    st.chat_message("user").write(message['content'])
-                else:
-                    st.chat_message("assistant").write(message['content'])
-        else:
-            welcome_msg = f"""
-            👋 Hello! I'm your AI stock analysis assistant. I can help you with:
-            
-            • **Technical Analysis** of {symbol}
-            • **Trading Recommendations** (Buy/Hold/Sell)
-            • **Sharia Compliance** assessment
-            • **Risk Analysis** and market insights
-            
-            What would you like to know about {symbol}?
-            """
-            st.chat_message("assistant").write(welcome_msg)
-        
-        user_input = st.chat_input("Ask me anything about this stock...")
-        
-        if user_input:
-            st.session_state.chat_history.append({'role': 'user', 'content': user_input})
-            
-            with st.spinner("Analyzing..."):
-                ai_response = self.generate_ai_response(user_input, symbol)
-            
-            st.session_state.chat_history.append({'role': 'assistant', 'content': ai_response})
-            st.rerun()
-        
-        st.subheader("🚀 Quick Actions")
-        col1, col2, col3, col4 = st.columns(4)
-        
-        with col1:
-            if st.button("📊 Get Analysis"):
-                self.add_analysis_to_chat(symbol)
-                st.rerun()
-        
-        with col2:
-            if st.button("💰 Trading Rec"):
-                self.add_trading_to_chat(symbol)
-                st.rerun()
-        
-        with col3:
-            if st.button("☪️ Sharia Check"):
-                self.add_sharia_to_chat(symbol)
-                st.rerun()
-        
-        with col4:
-            if st.button("🎯 Price Target"):
-                self.add_target_to_chat(symbol)
-                st.rerun()
-    
-    def generate_ai_response(self, user_input: str, symbol: str) -> str:
-        try:
-            from openai import OpenAI
-            client = OpenAI(api_key=os.getenv('OPENAI_API_KEY'))
-            
-            # Check if user is asking about Sharia compliance
-            sharia_keywords = ['sharia', 'halal', 'haram', 'islamic', 'muslim', 'compliant', 'permissible', 'forbidden']
-            is_sharia_query = any(keyword in user_input.lower() for keyword in sharia_keywords)
-            
-            stock_data = st.session_state.stock_data.get(symbol, {})
-            analysis = stock_data.get('analysis', {})
-            trading_decision = stock_data.get('trading_decision', {})
-            stock_info = stock_data.get('stock_info', {})
-            country = st.session_state.selected_country
-            
-            # Format price with proper currency
-            current_price = analysis.get('current_price', 0)
-            formatted_price = stock_fetcher.format_price_with_currency(current_price, country)
-            
-            # Base context without Sharia info
-            context = f"""
-            You are analyzing {symbol} ({stock_info.get('company_name', 'N/A')}).
-            
-            Current Price: {formatted_price}
-            Return: {analysis.get('total_return_pct', 0):.2f}%
-            Recommendation: {trading_decision.get('recommendation', 'N/A')}
-            Sector: {stock_info.get('sector', 'N/A')}
-            
-            User Question: {user_input}
-            
-            Provide helpful analysis based on the available data.
-            """
-            
-            # Add Sharia context only if user asks about it
-            if is_sharia_query:
-                # Load Sharia compliance if not already loaded
-                if symbol not in st.session_state.stock_data or 'sharia_compliance' not in st.session_state.stock_data[symbol]:
-                    with st.spinner("Loading Sharia compliance analysis..."):
-                        self.load_stock_analysis(symbol)
-                
-                sharia_compliance = st.session_state.stock_data.get(symbol, {}).get('sharia_compliance', {})
-                context += f"""
-                
-                SHARIA COMPLIANCE ANALYSIS:
-                Ruling: {sharia_compliance.get('ruling', 'N/A')}
-                Confidence: {sharia_compliance.get('confidence', 0)*100:.0f}%
-                Reasoning: {sharia_compliance.get('reasoning', 'N/A')}
-                
-                Focus your response on Islamic finance principles and Sharia compliance.
-                """
-            
-            response = client.chat.completions.create(
-                model="gpt-4o-mini",
-                messages=[
-                    {"role": "system", "content": "You are a financial advisor and Islamic finance expert."},
-                    {"role": "user", "content": context}
-                ],
-                temperature=0.7,
-                max_tokens=400
-            )
-            
-            return response.choices[0].message.content
-            
-        except Exception as e:
-            return f"Sorry, I'm having trouble right now. Error: {str(e)}"
-    
-    def add_analysis_to_chat(self, symbol: str):
-        stock_data = st.session_state.stock_data.get(symbol, {})
-        analysis = stock_data.get('analysis', {})
-        
-        if analysis:
-            summary = stock_analyzer.get_analysis_summary(analysis)
-            st.session_state.chat_history.append({
-                'role': 'assistant', 
-                'content': f"📊 **Analysis Summary for {symbol}:**\n\n{summary}"
-            })
-    
-    def add_trading_to_chat(self, symbol: str):
-        stock_data = st.session_state.stock_data.get(symbol, {})
-        trading_decision = stock_data.get('trading_decision', {})
-        stock_info = stock_data.get('stock_info', {})
         country = st.session_state.selected_country
         
-        if trading_decision:
-            rec = trading_decision.get('recommendation', 'HOLD')
-            conf = trading_decision.get('confidence', 0)
-            
-            # Handle confidence as percentage if it's already 0-100, or as decimal if 0-1
-            if conf <= 1.0:
-                conf_pct = conf * 100
-            else:
-                conf_pct = conf
-            
-            reason = trading_decision.get('reasoning', 'No reasoning available')
-            price_target = trading_decision.get('price_target')
-            stop_loss = trading_decision.get('stop_loss')
-            time_horizon = trading_decision.get('time_horizon', 'medium')
-            risk_level = trading_decision.get('risk_level', 'medium')
-            
-            # Clean reasoning - remove JSON artifacts
-            if reason.startswith('```json') or reason.startswith('{'):
-                # Extract readable content from malformed JSON
-                if 'reasoning' in reason:
-                    try:
-                        import re
-                        reasoning_match = re.search(r'"reasoning"\s*:\s*"([^"]+)"', reason)
-                        if reasoning_match:
-                            reason = reasoning_match.group(1)
-                        else:
-                            reason = "Technical analysis suggests this recommendation based on current market conditions."
-                    except:
-                        reason = "Technical analysis suggests this recommendation based on current market conditions."
-            
-            # Format the message professionally
-            message_parts = [
-                f"💰 **Trading Recommendation: {rec}**",
-                f"📊 **Confidence Level:** {conf_pct:.0f}%",
-                f"⏱️ **Time Horizon:** {time_horizon.title()}-term",
-                f"⚠️ **Risk Level:** {risk_level.title()}",
-                "",
-                f"**Analysis:**",
-                reason
-            ]
-            
-            # Add price targets if available
-            if price_target:
-                formatted_target = stock_fetcher.format_price_with_currency(price_target, country)
-                message_parts.append(f"🎯 **Price Target:** {formatted_target}")
-            
-            if stop_loss:
-                formatted_stop = stock_fetcher.format_price_with_currency(stop_loss, country)
-                message_parts.append(f"🛡️ **Stop Loss:** {formatted_stop}")
-            
-            message_parts.append("")
-            message_parts.append("*This is not financial advice. Please do your own research and consult with a financial advisor.*")
-            
-            message = "\n".join(message_parts)
-            st.session_state.chat_history.append({'role': 'assistant', 'content': message})
-    
-    def add_sharia_to_chat(self, symbol: str):
-        stock_data = st.session_state.stock_data.get(symbol, {})
-        sharia_compliance = stock_data.get('sharia_compliance', {})
-        
-        if sharia_compliance:
-            summary = sharia_checker.get_compliance_summary(sharia_compliance)
-            st.session_state.chat_history.append({
-                'role': 'assistant', 
-                'content': f"☪️ **Sharia Compliance:**\n\n{summary}"
-            })
-    
-    def add_target_to_chat(self, symbol: str):
-        stock_data = st.session_state.stock_data.get(symbol, {})
-        trading_decision = stock_data.get('trading_decision', {})
-        analysis = stock_data.get('analysis', {})
-        
-        current = analysis.get('current_price', 0)
-        target = trading_decision.get('price_target')
-        stop = trading_decision.get('stop_loss')
-        
-        message = f"🎯 **Current Price:** ${current:.2f}\n"
-        if target:
-            upside = ((target - current) / current) * 100
-            message += f"**Target:** ${target:.2f} ({upside:+.1f}%)\n"
-        if stop:
-            downside = ((stop - current) / current) * 100
-            message += f"**Stop Loss:** ${stop:.2f} ({downside:+.1f}%)"
-        
-        st.session_state.chat_history.append({'role': 'assistant', 'content': message})
+        ChatInterface.render(symbol, country)
     
     def render_dashboard_page(self):
         st.header("📊 Dashboard")
@@ -480,27 +241,29 @@ class StockTradingApp:
         symbol = st.session_state.selected_stock
         country = st.session_state.selected_country
         
-        if symbol not in st.session_state.stock_data:
-            with st.spinner("Loading analysis..."):
-                self.load_stock_analysis(symbol)
+        # Load data using new data service
+        with st.spinner("Loading dashboard data..."):
+            basic_info = data_service.get_basic_info(symbol, country)
+            data = data_service.get_price_data(symbol, "1y")
+            analysis = data_service.get_analysis(symbol, "1y")
+            trading_decision = data_service.get_trading_recommendation(symbol, country)
+            sharia_compliance = data_service.get_sharia_compliance(symbol, country)
         
-        stock_data = st.session_state.stock_data.get(symbol, {})
-        if not stock_data:
-            st.error("Failed to load data.")
+        # Check if data loaded successfully
+        if data is None or analysis.get('error') or trading_decision.get('error'):
+            st.error("Failed to load dashboard data. Please try again.")
             return
-        
-        analysis = stock_data.get('analysis', {})
-        trading_decision = stock_data.get('trading_decision', {})
-        sharia_compliance = stock_data.get('sharia_compliance', {})
-        data = stock_data.get('data')
         
         # KPIs at the top
         col1, col2, col3, col4, col5 = st.columns(5)
         
         with col1:
-            current_price = data['Close'].iloc[-1]
-            formatted_price = stock_fetcher.format_price_with_currency(current_price, country)
-            st.metric("💰 Current Price", formatted_price)
+            if data is not None and hasattr(data, 'iloc') and len(data) > 0:
+                current_price = data['Close'].iloc[-1]
+                formatted_price = stock_fetcher.format_price_with_currency(current_price, country)
+                st.metric("💰 Current Price", formatted_price)
+            else:
+                st.metric("💰 Current Price", "N/A")
         
         with col2:
             total_return = analysis.get('total_return_pct', 0)
@@ -508,36 +271,56 @@ class StockTradingApp:
         
         with col3:
             rec = trading_decision.get('recommendation', 'HOLD')
-            conf = trading_decision.get('confidence', 0) * 100
-            st.metric("Recommendation", rec, f"{conf:.0f}% confidence")
+            conf = trading_decision.get('confidence', 0.5)
+            if conf <= 1.0:
+                conf_pct = conf * 100
+            else:
+                conf_pct = conf
+            st.metric("Recommendation", rec, f"{conf_pct:.0f}% confidence")
         
         with col4:
             ruling = sharia_compliance.get('ruling', 'UNCERTAIN')
-            sharia_conf = sharia_compliance.get('confidence', 0) * 100
-            st.metric("Sharia Status", ruling, f"{sharia_conf:.0f}% confidence")
+            sharia_conf = sharia_compliance.get('confidence', 0.5)
+            if sharia_conf <= 1.0:
+                sharia_conf_pct = sharia_conf * 100
+            else:
+                sharia_conf_pct = sharia_conf
+            st.metric("Sharia Status", ruling, f"{sharia_conf_pct:.0f}% confidence")
         
         with col5:
             volatility = analysis.get('volatility_annualized', 0)
             st.metric("Volatility", f"{volatility:.1f}%")
         
-        st.divider()
         
-        # Charts section
-        
-        # First row: Risk Analysis and Trading Signals
-        col1, col2 = st.columns(2)
-        
-        with col1:
-            risk_fig = chart_generator.create_risk_analysis_chart(analysis, symbol)
-            st.plotly_chart(risk_fig, use_container_width=True)
-        
-        with col2:
-            signals_fig = chart_generator.create_trading_signals_chart(data, analysis, trading_decision, symbol)
-            st.plotly_chart(signals_fig, use_container_width=True)
-        
-        # Second row: Price Chart (full width)
-        price_fig = chart_generator.create_price_chart(data, symbol, analysis)
-        st.plotly_chart(price_fig, use_container_width=True)
+        # Charts section (only if data is available)
+        if data is not None and hasattr(data, 'iloc') and len(data) > 0:
+            st.divider()
+            
+            # First row: Risk Analysis and Trading Signals
+            col1, col2 = st.columns(2)
+            
+            with col1:
+                try:
+                    risk_fig = chart_generator.create_risk_analysis_chart(analysis, symbol)
+                    st.plotly_chart(risk_fig, use_container_width=True)
+                except Exception as e:
+                    st.error(f"Risk chart error: {str(e)}")
+            
+            with col2:
+                try:
+                    signals_fig = chart_generator.create_trading_signals_chart(data, analysis, trading_decision, symbol)
+                    st.plotly_chart(signals_fig, use_container_width=True)
+                except Exception as e:
+                    st.error(f"Signals chart error: {str(e)}")
+            
+            # Second row: Price Chart (full width)
+            try:
+                price_fig = chart_generator.create_price_chart(data, symbol, analysis)
+                st.plotly_chart(price_fig, use_container_width=True)
+            except Exception as e:
+                st.error(f"Price chart error: {str(e)}")
+        else:
+            st.warning("📊 Charts unavailable - no price data loaded.")
     
 
 
