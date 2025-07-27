@@ -153,10 +153,6 @@ Install with: `pip install -r requirements.txt`
 - Include property images in analysis
 - Create a simple web interface
 
-## License
-
-Free to use for personal and educational purposes.
-
 ## Disclaimer
 
 This tool is for educational purposes. Always verify property information directly with landlords or estate agents. Respect website terms of service.
