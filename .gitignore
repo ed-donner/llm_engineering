@@ -1,3 +1,4 @@
+
 # Github's default gitignore for Python
 
 # Byte-compiled / optimized / DLL files
@@ -189,3 +190,9 @@ nohup.out
 *.png
 
 scraper_cache/
+
+week2/community-contributions/Wk2_Day5_Ollama_sharathir.ipynb
+week3/community-contributions/OCRTest_Sharathir.ipynb
+week4/community-contributions/codellama_latest.cpp
+week4/community-contributions/codeqwen_latest.cpp
+week4/community-contributions/optimized.exe
