@@ -107,6 +107,43 @@ From within the `llm_engineering` folder, type: `jupyter lab`
 
 If there are any problems, contact me!
 
+### Part 2C - Alternative to Part 2 if Anaconda. Use modern uv tool (50x faster to install)
+
+1. **Open a new Terminal** (Applications > Utilities > Terminal)
+
+Run `python --version` to find out which python you're on.  
+Ideally you'd be using a version of Python 3.11, so we're completely in sync.  
+I believe Python 3.12 works also, but (as of August 2025) Python 3.13 does **not** yet work as several Data Science dependencies are not yet ready for Python 3.13.  
+If you need to install Python or install another version, you can download it here:  
+https://www.python.org/downloads/
+
+2. **Install uv:**
+
+```bash
+curl -LsSf https://astral.sh/uv/install.sh | sh
+```
+
+3. **Navigate to the project root directory:**
+
+Use `cd ~/Projects/llm_engineering` and verify the folder contents with `ls`.
+
+4. **Initialize the project and download dependencies:**
+
+Run: `uv sync`
+
+It will install a virtual environment in `.venv` directory 
+
+5. **Activate the virtual environment:**
+
+From within the `llm_engineering` folder, type: `source .venv/bin/activate`
+
+6. **Start Jupyter Lab:**
+
+From within the `llm_engineering` folder, type: `jupyter lab`  
+...and Jupyter Lab should open up, ready for you to get started. Open the `week1` folder and double click on `day1.ipynb`. Success! Now close down jupyter lab and move on to Part 3.
+
+If there are any problems, contact me!
+
 ### Part 3 - OpenAI key (OPTIONAL but recommended)
 
 Particularly during weeks 1 and 2 of the course, you'll be writing code to call the APIs of Frontier models (models at the forefront of AI).

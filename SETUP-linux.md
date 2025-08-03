@@ -108,6 +108,35 @@ Run: `python -m pip install --upgrade pip` followed by `pip install -r requireme
 If issues occur, try the fallback:
 `pip install --retries 5 --timeout 15 --no-cache-dir --force-reinstall -r requirements.txt`
 
+### Part 2C - Alternative to Part 2 if Anaconda. Use modern uv tool (50x faster to install)
+
+1. **Install Python 3.11 (if not already installed):**
+
+- Debian/Ubuntu: `sudo apt update && sudo apt install python3.11`
+- Fedora: `sudo dnf install python3.11`
+- Arch: `sudo pacman -S python`
+
+2. **Install uv:**
+
+```bash
+curl -LsSf https://astral.sh/uv/install.sh | sh
+```
+
+3. **Navigate to the project root directory:**
+
+Use `cd ~/Projects/llm_engineering` and verify the folder contents with `ls`.
+
+4. **Initialize the project and download dependencies:**
+
+Run: `uv sync`
+
+It will install a virtual environment in `.venv` directory 
+
+5. **Activate the virtual environment:**
+
+Use: `source .venv/bin/activate`
+
+
 ###### Arch users:
 
 Some updates break dependencies. Most notably, numpy, scipy and gensim. To troubleshoot this, you can try many commands:
