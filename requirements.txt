@@ -30,6 +30,7 @@ beautifulsoup4
 pydub
 modal
 ollama
+groq
 psutil
 setuptools
 speedtest-cli
