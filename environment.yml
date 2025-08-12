@@ -20,6 +20,7 @@ dependencies:
   - pyarrow
   - pip:
     - beautifulsoup4
+    - selenium
     - plotly
     - transformers
     - sentence-transformers
