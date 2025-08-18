@@ -131,6 +131,7 @@ env.bak/
 venv.bak/
 llms/
 llms.bak/
+API_KEYS.txt
 
 # Spyder project settings
 .spyderproject
