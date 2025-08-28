@@ -41,6 +41,7 @@ speedtest-cli = "*"
 sentence-transformers = "*"
 feedparser = "*"
 wandb = "*"
+peft = "*"
 
 [dev-packages]
 mypy = "*"
