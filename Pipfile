@@ -52,6 +52,7 @@ pyflakes = "*"
 coverage = "*"
 pydocstyle = "*"
 pycodestyle = "*"
+setuptools = "*"
 
 [requires]
 python_version = "3.11"
