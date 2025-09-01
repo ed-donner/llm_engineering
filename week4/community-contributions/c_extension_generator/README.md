@@ -31,7 +31,7 @@ the original Python code.
 In this image, you can see the Gradio app dashboard whose main sections are
 described below.
 
-![Gradio app dashboard](gradio_dashboard.png)\
+![Gradio app dashboard](gradio_dashboard.jpg)\
 *Image: Gradio app dashboard with default example `hello world` code loaded.*
 *(compile output redacted for privacy)*
 
