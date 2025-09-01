@@ -1,5 +1,8 @@
 # Python C Extension code generator
 
+Written by Carlos Bazaga [@carbaz] based on the work of Ed Donner [@ed-donner]
+under the MIT License.
+
 This folder contains a Jupyter notebook that demonstrates how to use a Frontier model
 to generate high-performance Python C extension code from Python code.
 
