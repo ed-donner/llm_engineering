@@ -17,17 +17,13 @@ dependencies:
   - scikit-learn
   - chromadb
   - jupyter-dash
-  - sentencepiece
   - pyarrow
-  - faiss-cpu
   - pip:
     - beautifulsoup4
     - plotly
-    - bitsandbytes
     - transformers
     - sentence-transformers
-    - datasets
-    - accelerate
+    - datasets==3.6.0
     - openai
     - anthropic
     - google-generativeai
@@ -44,7 +40,8 @@ dependencies:
     - langchain-openai
     - langchain-chroma
     - langchain-community
-    - faiss-cpu
     - feedparser
     - twilio
     - pydub
+    - protobuf==3.20.2
+    - wandb
