@@ -43,6 +43,8 @@ sentence-transformers = "*"
 feedparser = "*"
 wandb = "*"
 peft = "*"
+pyaudio = "*"
+simpleaudio = "*"
 
 [dev-packages]
 mypy = "*"
