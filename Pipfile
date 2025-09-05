@@ -45,6 +45,7 @@ wandb = "*"
 peft = "*"
 pyaudio = "*"
 simpleaudio = "*"
+xai-sdk = "*"
 
 [dev-packages]
 mypy = "*"

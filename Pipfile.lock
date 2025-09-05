@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "020de204045a8f57208379f247e19245de6ff431ddf39b4da2e98d2c3162bd84"
+            "sha256": "f2e01fbc21e632c059f0a389f8ac64ce9cc2a0034ac7865cddb7e05321955cbf"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -5243,6 +5243,15 @@
             ],
             "markers": "python_version >= '3.8'",
             "version": "==1.17.3"
+        },
+        "xai-sdk": {
+            "hashes": [
+                "sha256:73236f7ea71a7862127e63969941d7b88a4613c9684a303dd1b936d065db46d9",
+                "sha256:dd5b9309b46d4270843025637f65c0c246b70c9c321aca6cb54f3201238685f8"
+            ],
+            "index": "pypi",
+            "markers": "python_version >= '3.10'",
+            "version": "==1.1.0"
         },
         "xxhash": {
             "hashes": [
