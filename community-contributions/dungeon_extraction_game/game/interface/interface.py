@@ -15,6 +15,8 @@ class Interface_Config(NamedTuple):
     input_button: str
     input_label: str
     input_command: str
+    game_over_field: str
+    game_over_label: str
     start_scene: str
 
 
