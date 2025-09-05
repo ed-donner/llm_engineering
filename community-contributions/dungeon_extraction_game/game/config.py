@@ -8,7 +8,7 @@ from .gameplay import Gameplay_Config
 from .illustrator import draw_dalle_2, draw_dalle_3, draw_gemini, draw_gpt, draw_grok
 from .illustrator import draw_grok_x
 from .interface import Interface_Config
-from .storyteller import narrate
+from .storyteller import narrate, set_description_limit
 
 
 # Environment initialization.
@@ -65,6 +65,7 @@ SCENE_STYLE = 'Photorealistic'
 
 # Set a Storyteller scene descriptions size limit to keep the draw prompt in range.
 STORYTELLER_LIMIT = 730
+set_description_limit(STORYTELLER_LIMIT)  # Need to patch pydantic class model.
 
 # Define the storyteller behaviour. Remember to specify a limited scene length.
 STORYTELLER_PROMPT = f"""
