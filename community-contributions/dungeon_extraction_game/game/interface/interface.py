@@ -29,7 +29,7 @@ def get_interface(submit_function, config: Interface_Config):
         # Scene's image.
         scene_image = gr.Image(
             label="Scene", value=config.start_img, placeholder=config.place_img,
-            type="pil", show_label=False, show_copy_button=True)
+            type="pil", show_label=False)
         # Scene's description.
         description_box = gr.Textbox(
             label=config.description_label, value=config.start_scene,
