@@ -15,7 +15,8 @@ from .storyteller import narrate, set_description_limit
 load_dotenv(override=True)
 
 
-# Choose draw function. (Choose one from the imported ones up there)
+# Choose draw function.
+#   Choose one from the imported ones up there or set to None to disable images.
 DRAW_FUNCTION = draw_dalle_2
 
 # Define a sample scene description for testing purposes.
@@ -160,6 +161,7 @@ GAME_CONFIG = Gameplay_Config(
     scene_style=SCENE_STYLE,
     scene_prompt=SCENE_PROMPT,
     storyteller_prompt=STORYTELLER_PROMPT,
+    disable_img='images/disabled.jpg',
     error_img='images/machine.jpg',
     error_narrator='NEURAL SINAPSIS ERROR\n\n{ex}\n\nEND OF LINE\n\nRE-SUBMIT_',
     error_illustrator='NEURAL PROJECTION ERROR\n\n{ex}\n\nEND OF LINE\n\nRE-SUBMIT_',)
