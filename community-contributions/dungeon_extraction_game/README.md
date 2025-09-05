@@ -8,11 +8,7 @@ TODO:
 * Add sounds to the scene
 * Add voice acting for the Game master's descriptions.
 * Add voice input.
-* Control End of game.
 * Use video for the final scene: escape or death.
-* Allow different settings like space, medieval, classic, etc.
-* Control difficult and increase with deepness.
-* Control deepness and time to die.
 * Generate a score based on total treasures, exp gained and deep reached.
 
 ## Requirements
