@@ -79,6 +79,9 @@ additional dependencies:
 
 All services and game values can be set at `config.py` file.
 
+Setting the `DRAW_FUNCTION` to `None` will disable the image generation and a fixed
+image will be used.
+
 ## Game launch
 
 The game can be launch from terminal, just navigate to game's root folder
@@ -127,7 +130,13 @@ the rails.
 
 ![Adventurer acts](images/first_input.jpg)
 
-The game continues this way until you either escape with your treasures...
+The game continues this way
+
+![Adventurer dies](images/advance_adventure.jpg)
+
+Until you either escape with your treasures...
 or meet your end.
 
 ![Adventurer dies](images/tragic_end.jpg)
+
+The cling the bottom button to start over a new game.
