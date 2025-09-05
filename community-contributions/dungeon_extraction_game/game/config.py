@@ -2,6 +2,21 @@
 
 from logging import getLogger
 
+from dotenv import load_dotenv
+
+from .gameplay import Gameplay_Config
+from .illustrator import draw_dalle_2, draw_dalle_3, draw_gemini, draw_gpt, draw_grok
+from .illustrator import draw_grok_x
+from .interface import Interface_Config
+from .storyteller import narrate
+
+
+# Environment initialization.
+load_dotenv(override=True)
+
+
+# Choose draw function.
+DRAW_FUNCTION = draw_dalle_2
 
 # Define a sample scene description for testing purposes.
 SAMPLE_SCENE = '''A shadow-drenched chamber lies buried deep within the bowels of an
@@ -137,9 +152,32 @@ You will use a turn-based system where the player and enemies take turns acting.
   * Reaching to zero health or lees implies the adventurer has die.
 """
 
+# Configure the game.
+GAME_CONFIG = Gameplay_Config(
+    draw_func=DRAW_FUNCTION,
+    narrate_func=narrate,
+    scene_style=SCENE_STYLE,
+    scene_prompt=SCENE_PROMPT,
+    storyteller_prompt=STORYTELLER_PROMPT,
+    error_img='images/machine.jpg',
+    error_narrator='NEURAL SINAPSIS ERROR\n\n{ex}\n\nEND OF LINE\n\nRE-SUBMIT_',
+    error_illustrator='NEURAL PROJECTION ERROR\n\n{ex}\n\nEND OF LINE\n\nRE-SUBMIT_',)
+
+# Configure the interface.
+UI_CONFIG = Interface_Config(
+    start_img='images/chair.jpg',
+    place_img='images/machine.jpg',
+    description_label='Cognitive Projection',
+    title_label='The Neural Nexus',
+    input_button='Imprint your will',
+    input_label='Cognitive Imprint',
+    input_command='Awaiting neural imprint…',
+    start_scene=START_SCENE)
+
 
 _logger = getLogger(__name__)
 
+# Log scene prompt length calculation.
 if (max_image_prompt := len(SCENE_PROMPT) + len(SCENE_STYLE) + STORYTELLER_LIMIT) > 1024:
     _logger.warning(f'ESTIMATED SCENE PROMPT MAX SIZE: {max_image_prompt}')
 else:
