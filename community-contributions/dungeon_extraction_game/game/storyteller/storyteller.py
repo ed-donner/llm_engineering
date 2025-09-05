@@ -2,11 +2,11 @@
 
 from typing import List
 
+from annotated_types import MaxLen
 from dotenv import load_dotenv
 from openai import OpenAI
 from pydantic import BaseModel, Field
 
-from ..config import STORYTELLER_LIMIT
 from .tools import handle_tool_call, tools
 
 
@@ -30,7 +30,7 @@ class _character_sheet(BaseModel):
 
 class _response_format(BaseModel):
     game_over: bool
-    scene_description: str = Field(..., max_length=STORYTELLER_LIMIT)
+    scene_description: str = Field(..., max_length=700)
     dungeon_deepness: int
     adventure_time: int
     adventurer_status: _character_sheet
@@ -46,6 +46,11 @@ class _response_format(BaseModel):
             f'\n\nDeepness: {self.dungeon_deepness}'
             f'\n\nGame Over: {self.game_over}')
         return response_view
+
+
+def set_description_limit(limit):  # HBD: We modify the class definition in runtime.
+    """Update "_response_format" class to set a new "scene_description" max length."""
+    _response_format.model_fields['scene_description'].metadata[0] = MaxLen(limit)
 
 
 # Function definition.
