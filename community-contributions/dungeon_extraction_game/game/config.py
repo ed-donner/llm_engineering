@@ -15,7 +15,7 @@ from .storyteller import narrate, set_description_limit
 load_dotenv(override=True)
 
 
-# Choose draw function.
+# Choose draw function. (Choose one from the imported ones up there)
 DRAW_FUNCTION = draw_dalle_2
 
 # Define a sample scene description for testing purposes.
@@ -173,6 +173,8 @@ UI_CONFIG = Interface_Config(
     input_button='Imprint your will',
     input_label='Cognitive Imprint',
     input_command='Awaiting neural imprint…',
+    game_over_field='Game Over',
+    game_over_label='Disengage Neural Links',
     start_scene=START_SCENE)
 
 
