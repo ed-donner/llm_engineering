@@ -89,86 +89,8 @@ def talker_openai(message):
         print(f"Error generating audio with OpenAI: {str(e)}")
         return None
 
-# def talker_gemini(message):
-#     """Generate audio from text using Gemini TTS"""
-#     try:
-#         # Try the newer Gemini 2.0 TTS API
-#         model = google.generativeai.GenerativeModel(gemini_model)
-        
-#         # Truncate message for TTS
-#         truncated_message = truncate_for_tts(message)
-        
-#         # Generate audio using Gemini with simplified config
-#         response = model.generate_content(
-#             truncated_message,
-#             generation_config={
-#                 "response_modalities": ["AUDIO"]
-#             }
-#         )
-        
-#         # Check if response has audio data
-#         if hasattr(response, 'audio_data') and response.audio_data:
-#             output_filename = "output_audio_gemini.wav"
-#             with open(output_filename, "wb") as f:
-#                 f.write(response.audio_data)
-#             return output_filename
-#         else:
-#             print("Gemini response does not contain audio data")
-#             raise Exception("No audio data in Gemini response")
-            
-#     except Exception as e:
-#         print(f"Error generating audio with Gemini: {str(e)}")
-#         print("Gemini TTS not available, using OpenAI TTS with different voice")
-#         # Use OpenAI TTS but with a different voice to distinguish
-#         try:
-#             # Truncate message for TTS
-#             truncated_message = truncate_for_tts(message)
-            
-#             response = client.audio.speech.create(
-#                 model="tts-1",
-#                 voice="alloy",  # Different voice to indicate it's for Gemini responses
-#                 input=truncated_message
-#             )
-#             audio_stream = BytesIO(response.content)
-#             output_filename = "output_audio_gemini_fallback.mp3"
-#             with open(output_filename, "wb") as f:
-#                 f.write(audio_stream.read())
-#             return output_filename
-#         except Exception as fallback_error:
-#             print(f"Fallback TTS also failed: {str(fallback_error)}")
-#             return None
-
-# def talker_claude(message):
-#     """Generate audio from text using Claude TTS (fallback to OpenAI)"""
-#     try:
-#         # Truncate message for TTS
-#         truncated_message = truncate_for_tts(message)
-        
-#         # Claude doesn't have native TTS, so we'll use OpenAI TTS
-#         # but with a different filename to distinguish
-#         response = client.audio.speech.create(
-#             model="tts-1",
-#             voice="nova",  # Different voice for Claude responses
-#             input=truncated_message
-#         )
-
-#         audio_stream = BytesIO(response.content)
-#         output_filename = "output_audio_claude.mp3"
-#         with open(output_filename, "wb") as f:
-#             f.write(audio_stream.read())
-
-#         return output_filename
-#     except Exception as e:
-#         print(f"Error generating audio for Claude: {str(e)}")
-#         return None
-
 def talker(message, model_choice):
     """Generate audio from text using selected model"""
-    # if model_choice == "Google Gemini (2.0 Flash)":
-        # return talker_gemini(message)
-    # elif model_choice == "Claude (Sonnet 4)":
-        # return talker_claude(message)
-    # else:
     return talker_openai(message)
 
 def get_figma_help_openai(user_question, chat_history):
@@ -278,16 +200,13 @@ def get_figma_help(user_question, chat_history, model_choice):
     else:
         return "Please select a valid model."
 
-
 custom_css = """
-
 /* Chat area styling */
 .styled-chat {
     border-radius: 15px !important;
     box-shadow: 0 4px 12px var(--shadow-color) !important;
     border: 1px solid var(--border-color) !important;
     padding: 10px;
-    # background-color: #fff;
 }
 
 /* Audio player styling */
@@ -298,45 +217,136 @@ custom_css = """
     padding: 10px;
     background-color: var(--background-fill-secondary) !important;
 }
+
+/* Header styling */
+.header-container {
+    text-align: center;
+    padding: 20px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 15px;
+    margin-bottom: 20px;
+}
+
+.header-title {
+    color: white;
+    margin: 0;
+    font-size: 2.5em;
+}
+
+.header-subtitle {
+    color: #f0f0f0;
+    margin: 10px 0 0 0;
+    font-size: 1.2em;
+}
+
+/* Features section styling */
+.features-container {
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 10px;
+    border-left: 4px solid #667eea;
+}
+
+.features-title {
+    color: #333;
+    margin-top: 0;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.feature-item {
+    color: #333;
+    margin: 10px 0;
+}
+
+.feature-title {
+    color: #667eea;
+}
+
+.feature-description {
+    color: #666;
+}
+
+/* Pro tip styling */
+.protip-container {
+    text-align: center;
+    margin-top: 20px;
+    padding: 15px;
+    background: #e8f4f8;
+    border-radius: 8px;
+}
+
+.protip-text {
+    margin: 0;
+    color: #2c5aa0 !important;
+    font-weight: 500;
+}
+
+/* Quick start questions styling */
+.quickstart-container {
+    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+    padding: 15px 20px;
+    border-radius: 10px;
+    margin: 20px 0;
+}
+
+.quickstart-title {
+    color: white !important;
+    margin: 0;
+    font-size: 1.3em;
+    text-align: center;
+}
+
+.quickstart-subtitle {
+    color: #f0f8ff !important;
+    margin: 5px 0 0 0;
+    text-align: center;
+    font-size: 0.9em;
+}
 """
 
 # Create Gradio interface
-with gr.Blocks(title="Figma Onboarding Assistant", theme=gr.themes.Soft(),css=custom_css) as demo:
-    gr.Markdown(
+with gr.Blocks(title="Figma Onboarding Assistant", theme=gr.themes.Soft(), css=custom_css) as demo:
+    gr.HTML(
         """
-        <div style="text-align: center; padding: 20px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 15px; margin-bottom: 20px;">
-            <h1 style="color: white; margin: 0; font-size: 2.5em;">🎨 Figma Onboarding Assistant</h1>
-            <p style="color: #f0f0f0; margin: 10px 0 0 0; font-size: 1.2em;">Your AI-powered Figma learning companion</p>
+        <div class="header-container">
+            <h1 class="header-title">🎨 Figma Onboarding Assistant</h1>
+            <p class="header-subtitle">Your AI-powered Figma learning companion</p>
         </div>
         
-        <div style="background: #f8f9fa; padding: 20px; border-radius: 10px; border-left: 4px solid #667eea;">
-            <h3 style="color: #333; margin-top: 0;">✨ What I can help you with:</h3>
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 15px;">
+        <div class="features-container">
+            <h3 class="features-title">✨ What I can help you with:</h3>
+            <div class="features-grid">
                 <div>
-                    <p style="color: #333; margin: 10px 0;"><strong style="color: #667eea;">🚀 Getting Started</strong><br/>
-                    <span style="color: #666;">Interface overview, basic navigation</span></p>
-                    <p style="color: #333; margin: 10px 0;"><strong style="color: #667eea;">🛠️ Tools & Features</strong><br/>
-                    <span style="color: #666;">Pen tool, shapes, text, layers</span></p>
-                    <p style="color: #333; margin: 10px 0;"><strong style="color: #667eea;">📐 Auto Layout</strong><br/>
-                    <span style="color: #666;">Responsive design techniques</span></p>
-                    <p style="color: #333; margin: 10px 0;"><strong style="color: #667eea;">🔗 Prototyping</strong><br/>
-                    <span style="color: #666;">Interactions and animations</span></p>
+                    <p class="feature-item"><strong class="feature-title">🚀 Getting Started</strong><br/>
+                    <span class="feature-description">Interface overview, basic navigation</span></p>
+                    <p class="feature-item"><strong class="feature-title">🛠️ Tools & Features</strong><br/>
+                    <span class="feature-description">Pen tool, shapes, text, layers</span></p>
+                    <p class="feature-item"><strong class="feature-title">📐 Auto Layout</strong><br/>
+                    <span class="feature-description">Responsive design techniques</span></p>
+                    <p class="feature-item"><strong class="feature-title">🔗 Prototyping</strong><br/>
+                    <span class="feature-description">Interactions and animations</span></p>
                 </div>
                 <div>
-                    <p style="color: #333; margin: 10px 0;"><strong style="color: #667eea;">🧩 Components</strong><br/>
-                    <span style="color: #666;">Creating reusable elements</span></p>
-                    <p style="color: #333; margin: 10px 0;"><strong style="color: #667eea;">👥 Collaboration</strong><br/>
-                    <span style="color: #666;">Sharing and team workflows</span></p>
-                    <p style="color: #333; margin: 10px 0;"><strong style="color: #667eea;">📚 Design Systems</strong><br/>
-                    <span style="color: #666;">Libraries and style guides</span></p>
-                    <p style="color: #333; margin: 10px 0;"><strong style="color: #667eea;">⚡ Shortcuts</strong><br/>
-                    <span style="color: #666;">Productivity tips and tricks</span></p>
+                    <p class="feature-item"><strong class="feature-title">🧩 Components</strong><br/>
+                    <span class="feature-description">Creating reusable elements</span></p>
+                    <p class="feature-item"><strong class="feature-title">👥 Collaboration</strong><br/>
+                    <span class="feature-description">Sharing and team workflows</span></p>
+                    <p class="feature-item"><strong class="feature-title">📚 Design Systems</strong><br/>
+                    <span class="feature-description">Libraries and style guides</span></p>
+                    <p class="feature-item"><strong class="feature-title">⚡ Shortcuts</strong><br/>
+                    <span class="feature-description">Productivity tips and tricks</span></p>
                 </div>
             </div>
         </div>
         
-        <div style="text-align: center; margin-top: 20px; padding: 15px; background: #e8f4f8; border-radius: 8px;">
-            <p style="margin: 0; color: #2c5aa0 !important; font-weight: 500;">💡 Pro tip: Ask specific questions like \"How do I create a button component?\" for the best results!</p>
+        <div class="protip-container">
+            <p class="protip-text">💡 Pro tip: Ask specific questions like "How do I create a button component?" for the best results!</p>
         </div>
         """
     )
@@ -362,14 +372,15 @@ with gr.Blocks(title="Figma Onboarding Assistant", theme=gr.themes.Soft(),css=cu
     
 
     # Example questions
-    gr.Markdown(
+    gr.HTML(
         """
-        <div style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); padding: 15px 20px; border-radius: 10px; margin: 20px 0;">
-            <h3 style="color: white !important; margin: 0; font-size: 1.3em; text-align: center;">🚀 Quick Start Questions</h3>
-            <p style="color: #f0f8ff !important; margin: 5px 0 0 0; text-align: center; font-size: 0.9em;">Click any question below to get started instantly!</p>
+        <div class="quickstart-container">
+            <h3 class="quickstart-title">🚀 Quick Start Questions</h3>
+            <p class="quickstart-subtitle">Click any question below to get started instantly!</p>
         </div>
         """
     )
+    
     with gr.Row():
         example_btns = [
             gr.Button(
@@ -396,7 +407,6 @@ with gr.Blocks(title="Figma Onboarding Assistant", theme=gr.themes.Soft(),css=cu
 
     # Your components with simple styling
     chatbot = gr.Chatbot(
-        # value=[],
         type="messages",
         height=400,
         placeholder="Ask me anything about Figma! For example: 'How do I create a component?' or 'What are frames in Figma?'",
@@ -409,20 +419,6 @@ with gr.Blocks(title="Figma Onboarding Assistant", theme=gr.themes.Soft(),css=cu
         elem_classes=["styled-audio"]
     )
 
-
-
-
-
-
-
-
-
-
-
-
-    last_response = gr.State("")
-
-    
     last_response = gr.State("")
     current_model = gr.State("OpenAI (GPT-3.5)")
     
@@ -485,9 +481,4 @@ with gr.Blocks(title="Figma Onboarding Assistant", theme=gr.themes.Soft(),css=cu
         )
 
 # Launch the app
-# if __name__ == "__main__":
-    demo.launch(
-        share=True,
-        # server_name="0.0.0.0",
-        # server_port=7860
-    )
+demo.launch(share=True)
