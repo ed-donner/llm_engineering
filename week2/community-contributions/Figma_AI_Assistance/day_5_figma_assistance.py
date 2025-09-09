@@ -314,7 +314,7 @@ with gr.Blocks(title="Figma Onboarding Assistant", theme=gr.themes.Soft(), css=c
     gr.HTML(
         """
         <div class="header-container">
-            <h1 class="header-title">🎨 Figma_AI_Assistant</h1>
+            <h1 class="header-title">🎨 Figma AI Assistant</h1>
             <p class="header-subtitle">Your AI-powered Figma learning companion</p>
         </div>
         
