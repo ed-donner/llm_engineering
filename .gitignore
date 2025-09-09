@@ -192,3 +192,5 @@ scraper_cache/
 
 # WandB local sync data.
 wandb/
+
+.history/
