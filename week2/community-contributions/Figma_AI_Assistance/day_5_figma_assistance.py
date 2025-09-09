@@ -400,11 +400,6 @@ with gr.Blocks(title="Figma Onboarding Assistant", theme=gr.themes.Soft(), css=c
         )
         submit_btn = gr.Button("Ask", scale=1, variant="primary")
         clear_btn = gr.Button("Clear Chat", scale=1)
-        audio_btn = gr.Button("🔊 Text To Audio", scale=1, variant="secondary")
-        clear_audio_btn = gr.Button("🔇 Clear Audio", scale=1, variant="secondary")
-    
-
-    
 
 
     # Your components with simple styling
@@ -414,6 +409,9 @@ with gr.Blocks(title="Figma Onboarding Assistant", theme=gr.themes.Soft(), css=c
         placeholder="Ask me anything about Figma! For example: 'How do I create a component?' or 'What are frames in Figma?'",
         elem_classes=["styled-chat"]
     )
+    with gr.Row():
+        audio_btn = gr.Button("🔊 Text To Audio", scale=1, variant="primary")
+        clear_audio_btn = gr.Button("🔇 Clear Audio", scale=2, variant="secondary")
 
     audio_output = gr.Audio(
         label="Audio Response",
