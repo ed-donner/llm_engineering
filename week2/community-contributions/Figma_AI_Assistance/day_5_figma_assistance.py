@@ -314,7 +314,7 @@ with gr.Blocks(title="Figma Onboarding Assistant", theme=gr.themes.Soft(), css=c
     gr.HTML(
         """
         <div class="header-container">
-            <h1 class="header-title">🎨 Figma Onboarding Assistant</h1>
+            <h1 class="header-title">🎨 Figma_AI_Assistant</h1>
             <p class="header-subtitle">Your AI-powered Figma learning companion</p>
         </div>
         
@@ -411,7 +411,7 @@ with gr.Blocks(title="Figma Onboarding Assistant", theme=gr.themes.Soft(), css=c
     )
     with gr.Row():
         audio_btn = gr.Button("🔊 Text To Audio", scale=1, variant="primary")
-        clear_audio_btn = gr.Button("🔇 Clear Audio", scale=2, variant="secondary")
+        clear_audio_btn = gr.Button("🔇 Clear Audio", scale=1, variant="secondary")
 
     audio_output = gr.Audio(
         label="Audio Response",
