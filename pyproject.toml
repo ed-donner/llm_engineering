@@ -1,0 +1,53 @@
+[project]
+name = "llms"
+version = "0.1.0"
+description = "Environment for LLM-related work"
+requires-python = "==3.11"
+dependencies = [
+    "python-dotenv",
+    "requests",
+    "numpy",
+    "pandas",
+    "scipy",
+    "torch==2.0.1",  # PyTorch
+    "jupyterlab",
+    "ipywidgets",
+    "matplotlib",
+    "scikit-learn",
+    "chromadb",
+    "jupyter-dash",
+    "pyarrow",
+    "beautifulsoup4",
+    "plotly",
+    "transformers",
+    "sentence-transformers",
+    "datasets==3.6.0",
+    "openai",
+    "anthropic",
+    "google-generativeai",
+    "gradio",
+    "gensim",
+    "modal",
+    "ollama",
+    "psutil",
+    "setuptools",
+    "speedtest-cli",
+    "langchain",
+    "langchain-core",
+    "langchain-text-splitters",
+    "langchain-openai",
+    "langchain-chroma",
+    "langchain-community",
+    "feedparser",
+    "twilio",
+    "pydub",
+    "protobuf==3.20.2",
+    "wandb"
+]
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+include = ["week1", "week2", "week3", "week4", "week5", "week6", "week7", "week8", "extras"]
