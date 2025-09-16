@@ -190,3 +190,7 @@ nohup.out
 
 scraper_cache/
 challenge/
+
+# WandB local sync data.
+wandb/
+
