@@ -292,7 +292,6 @@ custom_css = """
     background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
     padding: 15px 20px;
     border-radius: 10px;
-    margin: 20px 0;
 }
 
 .quickstart-title {
@@ -315,7 +314,7 @@ with gr.Blocks(title="Figma Onboarding Assistant", theme=gr.themes.Soft(), css=c
     gr.HTML(
         """
         <div class="header-container">
-            <h1 class="header-title">🎨 Figma Onboarding Assistant</h1>
+            <h1 class="header-title">🎨 Figma AI Assistant</h1>
             <p class="header-subtitle">Your AI-powered Figma learning companion</p>
         </div>
         
@@ -351,26 +350,6 @@ with gr.Blocks(title="Figma Onboarding Assistant", theme=gr.themes.Soft(), css=c
         """
     )
     
-    # Model selection dropdown
-    model_dropdown = gr.Dropdown(
-        choices=["OpenAI (GPT-3.5)", "Google Gemini (2.0 Flash)", "Claude (Sonnet 4)"],
-        value="OpenAI (GPT-3.5)",
-        label="Select AI Model",
-        info="Choose which AI model to use for responses"
-    )
-    
-    with gr.Row():
-        msg = gr.Textbox(
-            placeholder="Type your Figma question here...",
-            container=False,
-            scale=4
-        )
-        submit_btn = gr.Button("Ask", scale=1, variant="primary")
-        clear_btn = gr.Button("Clear Chat", scale=1)
-        audio_btn = gr.Button("🔊 Play Audio", scale=1, variant="secondary")
-        clear_audio_btn = gr.Button("🔇 Clear Audio", scale=1, variant="secondary")
-    
-
     # Example questions
     gr.HTML(
         """
@@ -380,7 +359,7 @@ with gr.Blocks(title="Figma Onboarding Assistant", theme=gr.themes.Soft(), css=c
         </div>
         """
     )
-    
+
     with gr.Row():
         example_btns = [
             gr.Button(
@@ -405,6 +384,24 @@ with gr.Blocks(title="Figma Onboarding Assistant", theme=gr.themes.Soft(), css=c
             )
         ]
 
+    # Model selection dropdown
+    model_dropdown = gr.Dropdown(
+        choices=["OpenAI (GPT-3.5)", "Google Gemini (2.0 Flash)", "Claude (Sonnet 4)"],
+        value="OpenAI (GPT-3.5)",
+        label="Select AI Model",
+        info="Choose which AI model to use for responses"
+    )
+    
+    with gr.Row():
+        msg = gr.Textbox(
+            placeholder="Type your Figma question here...",
+            container=False,
+            scale=4
+        )
+        submit_btn = gr.Button("Ask", scale=1, variant="primary")
+        clear_btn = gr.Button("Clear Chat", scale=1)
+
+
     # Your components with simple styling
     chatbot = gr.Chatbot(
         type="messages",
@@ -412,6 +409,9 @@ with gr.Blocks(title="Figma Onboarding Assistant", theme=gr.themes.Soft(), css=c
         placeholder="Ask me anything about Figma! For example: 'How do I create a component?' or 'What are frames in Figma?'",
         elem_classes=["styled-chat"]
     )
+    with gr.Row():
+        audio_btn = gr.Button("🔊 Text To Audio", scale=1, variant="primary")
+        clear_audio_btn = gr.Button("🔇 Clear Audio", scale=1, variant="secondary")
 
     audio_output = gr.Audio(
         label="Audio Response",
