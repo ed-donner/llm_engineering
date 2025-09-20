@@ -3,7 +3,7 @@ name: Run Python script
 on:
   push:
     branches:
-      - figma_assistance
+      - Figma_AI_Assistant
 
 jobs:
   build:
