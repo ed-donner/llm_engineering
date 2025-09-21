@@ -189,6 +189,8 @@ nohup.out
 *.png
 
 scraper_cache/
+challenge/
 
 # WandB local sync data.
 wandb/
+
