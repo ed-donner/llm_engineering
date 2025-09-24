@@ -75,7 +75,7 @@ In some distributions this may be required so that the llms environment is visib
 
 3. **Start Jupyter Lab:**
 
-From the `llm_engineering` folder, run: `jupyter lab`.
+From the `llm_engineering` folder, run: `jupyter-lab`.
 
 Jupyter Lab should open in your browser. Close it after confirming it works, and proceed to Part 3.
 
