@@ -9,6 +9,7 @@ dependencies:
   - requests
   - numpy
   - pandas
+  - hf-xet==1.1.9
   - scipy
   - pytorch
   - jupyterlab
@@ -44,3 +45,4 @@ dependencies:
     - twilio
     - pydub
     - protobuf==3.20.2
+    - wandb

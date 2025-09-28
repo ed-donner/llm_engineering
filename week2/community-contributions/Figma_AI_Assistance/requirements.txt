@@ -1,0 +1,7 @@
+openai
+python-dotenv
+gradio
+pillow
+google-generativeai
+anthropic
+ipython
