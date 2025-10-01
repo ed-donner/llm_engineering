@@ -1,5 +1,6 @@
 name: llms
 channels:
+  - pytorch
   - conda-forge
   - defaults
 dependencies:
@@ -12,6 +13,8 @@ dependencies:
   - hf-xet==1.1.9
   - scipy
   - pytorch
+  - torchvision
+  - torchaudio
   - jupyterlab
   - ipywidgets
   - matplotlib
