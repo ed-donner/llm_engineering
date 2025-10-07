@@ -1,0 +1,73 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "llm-engineering"
+version = "0.1.0"
+description = "LLM Engineering course materials and projects"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "python-dotenv",
+    "jupyterlab",
+    "ipywidgets",
+    "requests",
+    "numpy",
+    "pandas",
+    "scipy",
+    "scikit-learn",
+    "matplotlib",
+    "gensim",
+    "torch",
+    "transformers",
+    "tqdm",
+    "openai",
+    "gradio",
+    "langchain",
+    "langchain-core",
+    "langchain-text-splitters",
+    "langchain-openai",
+    "langchain-chroma",
+    "langchain-community",
+    "datasets==3.6.0",
+    "google-generativeai",
+    "anthropic",
+    "chromadb",
+    "plotly",
+    "jupyter-dash",
+    "beautifulsoup4",
+    "pydub",
+    "modal",
+    "ollama",
+    "psutil",
+    "setuptools",
+    "speedtest-cli",
+    "sentence_transformers",
+    "feedparser",
+    "protobuf==3.20.2",
+    "wandb",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest",
+    "black",
+    "flake8",
+    "mypy",
+]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["*"]
+exclude = ["week*", "community-contributions", "extras"]
+
+[tool.black]
+line-length = 88
+target-version = ['py311']
+
+[tool.mypy]
+python_version = "3.11"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true
