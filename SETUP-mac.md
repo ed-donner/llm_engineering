@@ -9,7 +9,7 @@ I should confess up-front: setting up a powerful environment to work at the fore
 Email: ed@edwarddonner.com  
 LinkedIn: https://www.linkedin.com/in/eddonner/  
 
-I use a platform called Anaconda to set up your environment. It's a powerful tool that builds a complete science environment. Anaconda ensures that you're working with the right version of Python and all your packages are compatible with mine, even if our systems are completely different. It takes more time to set up, and it uses more hard drive space (5+ GB) but it's very reliable once its working.
+I use a platform called Anaconda to set up your environment. It's a powerful tool that builds a complete data science environment. Anaconda ensures that you're working with the right version of Python and all your packages are compatible with mine, even if our systems are completely different. It takes more time to set up, and it uses more hard drive space (5+ GB) but it's very reliable once its working.
 
 Having said that: if you have any problems with Anaconda, I've provided an alternative approach. It's faster and simpler and should have you running quickly, with less of a guarantee around compatibility.
 
