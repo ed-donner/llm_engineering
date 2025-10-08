@@ -1,0 +1,50 @@
+[project]
+name = "llm-engineering"
+version = "1.0.0"
+authors = [
+  { name="Ed Donner", email="ed@edwarddonner.com" }
+]
+license = { file="LICENSE" }
+description = "LLM Engineering - Master AI and LLMs"
+readme = "README.md"
+requires-python = "==3.11.*"
+dependencies = [
+  "python-dotenv==1.1.*",
+  "jupyterlab==4.4.*",
+  "ipywidgets==8.1.*",
+  "requests==2.32.*",
+  "numpy==1.26.*",
+  "pandas==2.3.*",
+  "scipy==1.13.*",
+  "scikit-learn==1.7.*",
+  "matplotlib==3.10.*",
+  "gensim==4.3.*",
+  "torch==2.7.*",
+  "transformers>=4.54.*",
+  "tqdm==4.67.*",
+  "openai==1.98.*",
+  "gradio==5.39.*",
+  "langchain==0.3.*",
+  "langchain-core==0.3.*",
+  "langchain-text-splitters==0.3.*",
+  "langchain-openai==0.3.*",
+  "langchain-chroma==0.2.*",
+  "langchain-community==0.3.*",
+  "datasets==3.6.0",
+  "matplotlib==3.10.*",
+  "google-generativeai==0.8.*",
+  "anthropic==0.60.*",
+  "chromadb==1.0.*",
+  "plotly==6.2.*",
+  "jupyter-dash==0.4.*",
+  "beautifulsoup4==4.13.*",
+  "pydub==0.25.*",
+  "modal==1.1.*",
+  "ollama==0.5.*",
+  "psutil==7.0.*",
+  "setuptools==80.9.*",
+  "speedtest-cli==2.1.*",
+  "sentence_transformers==5.0.*",
+  "feedparser==6.0.*",
+  "protobuf==3.20.2"
+]
