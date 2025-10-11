@@ -139,15 +139,25 @@ One thing to watch for: if you've used Anaconda before, make sure that your Anac
 And if you still have any problems with conda and python versions, it's possible that you will need to run this too:  
 `conda config --set auto_activate_base false`  
 
-And now simply run:  
+And now simply run this:  
 `uv sync`  
-And marvel at the speed and reliability! If necessary, uv should install python 3.12, and then it should install all the packages.  
-If you get an error about "invalid certificate" while running `uv sync`, then please check Gotcha 6 above, and try this instead:  
+uv should install everything blazingly fast. If you hit any installation errors:
+
+- First thing to try is this:  
+`uv python pin 3.11` and then `uv sync` again.  
+- If you get an error about missing wheels for torch (Intel Mac people, you might get this), then:    
+`uv python pin 3.11` then `uv add torch==2.2.2 torchvision==0.17.2 torchaudio==2.2.2` then `uv sync`   
+- If none of these work, then try:   
+`uv python pin 3.10` and then `uv sync`  
+
+- If you get an error about "invalid certificate" while running `uv sync`, then please check Gotcha 6 above, and try this instead:   
 `uv --native-tls sync`  
-And also try this instead:  
+- And also try this instead:   
 `uv --allow-insecure-host github.com sync`
 
-And you now have a full spec environment!!
+And other problems - message me.
+
+But if no problems - you now have a full spec environment!!
 
 ___
 
