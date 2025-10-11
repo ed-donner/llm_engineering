@@ -8,12 +8,12 @@ I'm so happy you're joining me on this path. We'll be building immensely satisfy
 
 # IMPORTANT ANNOUNCEMENT - OCTOBER 2025 - PLEASE READ
 
-I am phasing in new, updated versions of all the course videos, with new videos and new code. I realize this can be quite jarring for people already on the course, and I will do my best to minimize headache!
+I am phasing in new, updated versions of all the course videos, with new videos and new code. I realize this can be jarring for people already on the course, and I will do my best to make this as smooth as possible.
 - Both video series will be available in Udemy and you can watch either. A new week should become available each week as we roll this out.
 - You can follow the original videos or the new videos - either should work great. Switch between them at any time.
 - The latest code is pushed to the repo. You can follow along with new code, or revert to original code.
 
-The most significant change is that the new version uses the fabulous uv, instead of Anaconda! But there's also tons of new content, including new models, tools and techniques. Prompt caching, LiteLLM, inference techniques and so much more.
+The most significant change is that the new version uses the fabulous uv, instead of Anaconda. But there's also tons of new content, including new models, tools and techniques. Prompt caching, LiteLLM, inference techniques and so much more.
 
 ### To revert to the original version of code, consistent with the original videos (Anaconda + virtualenv)
 
@@ -25,16 +25,16 @@ And that's it! Any questions, please ask me on Udemy or at ed@edwarddonner.com. 
 
 ### Before you begin
 
-I'm here to help you be most successful with your learning! If you hit any snafus, or if you have any ideas on how I can improve the course, please do reach out in the platform or by emailing me direct (ed@edwarddonner.com). It's always great to connect with people on LinkedIn to build up the community - you'll find me here:  
+I'm here to help you be most successful with your learning. If you hit any snafus, or if you have any ideas on how I can improve the course, please do reach out in the platform or by emailing me direct (ed@edwarddonner.com). It's always great to connect with people on LinkedIn to build up the community - you'll find me here:  
 https://www.linkedin.com/in/eddonner/  
 And this is new to me, but I'm also trying out X/Twitter at [@edwarddonner](https://x.com/edwarddonner) - if you're on X, please show me how it's done 😂  
 
 Resources to accompany the course, including the slides and useful links, are here:  
 https://edwarddonner.com/2024/11/13/llm-engineering-resources/
 
-## Instant Gratification instructions for Week 1, Day 1 - with Llama 3.2 **not** Llama 3.3!
+## Instant Gratification instructions for Week 1, Day 1 - with Llama 3.2 **not** Llama 3.3
 
-### Important note: see my warning about Llama3.3 below - it's too large for home computers! Stick with llama3.2! Several students have missed this warning...
+### Important note: see my warning about Llama3.3 below - it's too large for home computers! Stick with llama3.2 - several students have missed this warning...
 
 We will start the course by installing Ollama so you can see results immediately!
 1. Download and install Ollama from https://ollama.com noting that on a PC you might need to have administrator permissions for the install to work properly
@@ -51,7 +51,7 @@ After we do the Ollama quick project, and after I introduce myself and the cours
 
 Hopefully I've done a decent job of making these guides bulletproof - but please contact me right away if you hit roadblocks:
 
-NEW INSTRUCTIONS for new version of the course (rolled out October 2025): [New Setup Instructions All Platforms](setup/SETUP-NEW.md)
+NEW INSTRUCTIONS for new version of the course (rolled out October 2025): [New Setup Instructions All Platforms](setup/SETUP-new.md)
 
 ORIGINAL INSTRUCTIONS for people on the version prior to October 2025:  
 - PC people please follow the instructions here: [Original PC instructions](setup/SETUP-PC.md)
