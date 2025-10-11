@@ -2,6 +2,8 @@
 
 ## Setup instructions for Windows
 
+**These are the original instructions for the original version of the videos from before October 2025. For the new version, see [SETUP-new.md](SETUP-new.md).**
+
 Welcome, PC people!
 
 I should confess up-front: setting up a powerful environment to work at the forefront of AI is not as simple as I'd like. For most people these instructions will go great; but in some cases, for whatever reason, you'll hit a problem. Please don't hesitate to reach out - I am here to get you up and running quickly. There's nothing worse than feeling _stuck_. Message me, email me or LinkedIn message me and I will unstick you quickly!
