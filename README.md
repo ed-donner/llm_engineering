@@ -4,6 +4,8 @@
 
 ![Voyage](assets/voyage.jpg)
 
+_If you're looking at this in Cursor, please right click on the filename in the Explorer on the left, and select "Open preview", to view the formatted version._
+
 I'm so happy you're joining me on this path. We'll be building immensely satisfying projects in the coming weeks. Some will be easy, some will be challenging, many will ASTOUND you! The projects build on each other so you develop deeper and deeper expertise each week. One thing's for sure: you're going to have a lot of fun along the way.
 
 # IMPORTANT ANNOUNCEMENT - OCTOBER 2025 - PLEASE READ
