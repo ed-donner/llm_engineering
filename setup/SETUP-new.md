@@ -147,8 +147,6 @@ uv should install everything blazingly fast. If you hit any installation errors:
 `uv python pin 3.11` and then `uv sync` again.  
 - If you get an error about missing wheels for torch (Intel Mac people, you might get this), then:    
 `uv python pin 3.11` then `uv add torch==2.2.2 torchvision==0.17.2 torchaudio==2.2.2` then `uv sync`   
-- If none of these work, then try:   
-`uv python pin 3.10` and then `uv sync`  
 
 - If you get an error about "invalid certificate" while running `uv sync`, then please check Gotcha 6 above, and try this instead:   
 `uv --native-tls sync`  

@@ -1,7 +1,7 @@
 [project]
 name = "llm-engineering"
 version = "0.1.0"
-requires-python = ">=3.10"
+requires-python = ">=3.11"
 dependencies = [
     "anthropic>=0.69.0",
     "beautifulsoup4>=4.14.2",
