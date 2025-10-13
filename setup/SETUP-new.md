@@ -128,34 +128,22 @@ https://docs.astral.sh/uv/getting-started/installation/
 
 Once you've installed uv, you need to open a new terminal window in Cursor (the plus sign or Ctrl+shift+backtick) for `uv --version` to work. Please check!
 
-Mac people: if you hit a problem with not having permissions to edit your profile files, please see Q14 [here](https://edwarddonner.com/faq) for the fix to this common Mac configuration issue.
+Any problems with uv installation or using uv, please see [Q11 on my FAQ page](https://edwarddonner.com/faq/#11) for a full briefing.
 
 ### Now that it's installed:
 
 Run `uv self update` to make sure you're on the latest version of uv.
 
-One thing to watch for: if you've used Anaconda before, make sure that your Anaconda environment is deactivated   
-`conda deactivate`  
-And if you still have any problems with conda and python versions, it's possible that you will need to run this too:  
-`conda config --set auto_activate_base false`  
-
 And now simply run this:  
 `uv sync`  
-uv should install everything blazingly fast. If you hit any installation errors:
+uv should install everything blazingly fast. Any problems, please see [Q11 on my FAQ page](https://edwarddonner.com/faq/#11).
 
-- First thing to try is this:  
-`uv python pin 3.11` and then `uv sync` again.  
-- If you get an error about missing wheels for torch (Intel Mac people, you might get this), then:    
-`uv python pin 3.11` then `uv add torch==2.2.2 torchvision==0.17.2 torchaudio==2.2.2` then `uv sync`   
+You now have a full spec environment!!
 
-- If you get an error about "invalid certificate" while running `uv sync`, then please check Gotcha 6 above, and try this instead:   
-`uv --native-tls sync`  
-- And also try this instead:   
-`uv --allow-insecure-host github.com sync`
-
-And other problems - message me.
-
-But if no problems - you now have a full spec environment!!
+Using uv is simple and fast:  
+1. Instead of `pip install xxx` you do `uv add xxx`  
+2. You never need to activate an environment - uv does it for you.  
+3. Instead of `python xxx` you do `uv run xxx`
 
 ___
 
