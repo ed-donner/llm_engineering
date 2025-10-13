@@ -15,6 +15,9 @@ I am phasing in new, updated versions of all the course videos, with new videos 
 - You can follow the original videos or the new videos - either should work great. Switch between them at any time.
 - The latest code is pushed to the repo. You can follow along with new code, or revert to original code.
 
+Full details of this upgrade is on the course resources in Purple at the top:  
+https://edwarddonner.com/2024/11/13/llm-engineering-resources/
+
 The most significant change is that the new version uses the fabulous uv, instead of Anaconda. But there's also tons of new content, including new models, tools and techniques. Prompt caching, LiteLLM, inference techniques and so much more.
 
 ### To revert to the original version of code, consistent with the original videos (Anaconda + virtualenv)
@@ -33,6 +36,9 @@ And this is new to me, but I'm also trying out X/Twitter at [@edwarddonner](http
 
 Resources to accompany the course, including the slides and useful links, are here:  
 https://edwarddonner.com/2024/11/13/llm-engineering-resources/
+
+And a useful FAQ with common questions is here:  
+https://edwarddonner.com/faq/
 
 ## Instant Gratification instructions for Week 1, Day 1 - with Llama 3.2 **not** Llama 3.3
 
