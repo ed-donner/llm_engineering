@@ -1,0 +1,30 @@
+Subject: Week 6 Day 5 - Fix OpenAI Fine-Tuning Moderation Failures
+
+Hi there,
+
+I'm submitting a fix for Week 6 Day 5 where fine-tuning jobs fail after training completes.
+
+ROOT CAUSE:
+OpenAI error: "Unfortunately, your fine-tuning job ftjob-pJwYT39SqD8inEtpIVrGWTw6 has failed."
+
+The issue: Training completes successfully (200/200 steps), but OpenAI's post-training safety evaluation (refusals_v3) rejects models trained on data containing weapon/tactical keywords (knife, blade, combat, tactical). These trigger the "hate/threatening" category.
+
+SOLUTION:
+- Added content moderation filtering (keyword + OpenAI API)
+- Filters 12 problematic items (200→190 train, 50→48 validation)
+- Includes pre-cleaned JSONL files ready to use
+- Maintains quality (190 exceeds OpenAI's 50-100 recommendation)
+
+RESULT:
+✅ Successfully deployed: ft:gpt-4o-mini-2024-07-18:personal:pricer:CQUN1Nk6
+
+FILES (9 files, ~392 KB):
+- Modified day5.ipynb with check_moderation() function
+- fix_moderation.py & test_moderation.py scripts
+- Pre-cleaned training/validation data
+- Comprehensive documentation
+
+This saves users 30-60 min troubleshooting and $5-10 in wasted API costs.
+
+Best regards,
+Bilal-jamal

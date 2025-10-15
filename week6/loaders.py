@@ -62,7 +62,7 @@ class ItemLoader:
         for result in results:
             result.category = self.name
         return results
-            
+    # Small dataset? Set workers=4-6 to avoid overhead     
     def load(self, workers=8):
         """
         Load in this dataset; the workers parameter specifies how many processes
