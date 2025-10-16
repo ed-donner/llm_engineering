@@ -1,6 +1,8 @@
 # LLM Engineering - Master AI and LLMs
 
-## Setup instructions for Linux
+## Original Setup instructions for Linux
+
+**These are the original instructions for the original version of the videos from before October 2025. For the new version, see [SETUP-new.md](SETUP-new.md).**
 
 Welcome, Linux people!
 
