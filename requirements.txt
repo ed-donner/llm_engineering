@@ -1,5 +1,5 @@
 python-dotenv
-jupyterlab
+ipykernel
 ipywidgets
 requests
 numpy
@@ -7,7 +7,6 @@ pandas
 scipy
 scikit-learn
 matplotlib
-gensim
 torch
 transformers
 tqdm
