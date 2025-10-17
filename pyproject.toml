@@ -43,4 +43,5 @@ dependencies = [
     "tqdm>=4.67.1",
     "transformers>=4.56.2",
     "wandb>=0.22.1",
+    "youtube-transcript-api>=1.2.3",
 ]
