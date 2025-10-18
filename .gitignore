@@ -194,3 +194,11 @@ challenge/
 # WandB local sync data.
 wandb/
 
+week2/prices.db
+week4/main.cpp
+week4/main
+week4/main.exe
+week4/main.rs
+
+local/
+
