@@ -1,0 +1,7 @@
+{
+    "sports": "https://en.wikipedia.org/wiki/Sabermetrics", 
+    "Politics": "https://en.wikipedia.org/wiki/Separation_of_powers",
+    "History": "https://en.wikipedia.org/wiki/Industrial_Revolution",
+    "Technology": "https://en.wikipedia.org/wiki/Artificial_general_intelligence",
+    "Productivity": "https://en.wikipedia.org/wiki/Scientific_management",
+}

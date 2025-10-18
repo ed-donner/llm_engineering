@@ -1,0 +1,7 @@
+beautifulsoup4
+openai
+dotenv
+requests
+rich
+pyppeteer
+pyppeteer_stealth

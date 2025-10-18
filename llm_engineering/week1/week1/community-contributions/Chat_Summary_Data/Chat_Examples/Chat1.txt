@@ -1,0 +1,28 @@
+Client: Hello I would like to order a pizza
+Restaurant: Sure. What pizza would you like to order from our menu?
+Client: Chicken Ranch
+Restaurant: I am so sorry, but chicken ranch is currently unavailable on our menu
+Client: AHHHHH. Do you have chicken BBQ?
+Restaurant: Yes! Do you want it small, medium, or large?
+Client: Medium
+Restaurant: Ok. This will be 180 LE
+Client: Thanks
+Restaurant: Anytime.
+Client: AHHHH I forgot. I want to add a new chicken BBQ pizza
+Restaurant: No problem. Do you also want it medium?
+Client: Yes
+Restaurant: Okay this will be 380 LE
+Client: Okay Thanks
+Client: Wait a minute. Isn't 180 * 2 = 360?
+Restaurant: It seems that there might be a misunderstanding. We add an extra 20 LE for every extra pizza ordered.
+Client: NOBODY TOLD ME THAT.. AND WHY ON EARTH WOULD YOU DO SOMETHING LIKE THAT?
+Restaurant: We are sorry but this is our policy.
+Client: Okay then I don't want your pizza.
+Restaurant: We are so sorry to hear that. We can make a 10% discount on the total price so it would be 342 LE
+Client: Fine
+Restaurant: Thank you for ordering
+Restaurant: Pizza is delivered. How is your experience?
+Client: Your pizza doesn't taste good
+Restaurant: We are so sorry to hear that. Do you have any suggestions you would like to make?
+Client: Make good pizza
+Restaurant: Thanks for your review. We will make sure to improve our pizza in the future. Your opinion really matters.
