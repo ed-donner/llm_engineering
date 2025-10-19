@@ -8,21 +8,25 @@ headers = {
 }
 
 
-def fetch_website_contents(url):
-    """
-    Return the title and contents of the website at the given url;
-    truncate to 2,000 characters as a sensible limit
-    """
-    response = requests.get(url, headers=headers)
-    soup = BeautifulSoup(response.content, "html.parser")
-    title = soup.title.string if soup.title else "No title found"
-    if soup.body:
+class Website:
+    def __init__(self, url):
+        """
+        Create this Website object from the given url using the BeautifulSoup library
+        """
+        self.url = url
+        response = requests.get(url, headers=headers)
+        soup = BeautifulSoup(response.content, 'html.parser')
+        self.title = soup.title.string if soup.title else "No title found"
         for irrelevant in soup.body(["script", "style", "img", "input"]):
             irrelevant.decompose()
-        text = soup.body.get_text(separator="\n", strip=True)
-    else:
-        text = ""
-    return (title + "\n\n" + text)[:2_000]
+        self.text = soup.body.get_text(separator="\n", strip=True)
+
+
+def fetch_website_contents(url):
+    """
+    Return a Website object for the given url
+    """
+    return Website(url)
 
 
 def fetch_website_links(url):
