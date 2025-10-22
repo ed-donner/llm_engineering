@@ -6,6 +6,7 @@ ReputationRadar is a Streamlit dashboard that unifies Reddit, Twitter/X, and Tru
 ---
 
 ## Table of Contents
+- [Demo](#demo)
 - [Feature Highlights](#feature-highlights)
 - [Architecture Overview](#architecture-overview)
 - [Quick Start](#quick-start)
@@ -17,6 +18,13 @@ ReputationRadar is a Streamlit dashboard that unifies Reddit, Twitter/X, and Tru
 - [Legal & Compliance](#legal--compliance)
 
 ---
+
+
+## Demo
+
+The video demo of the app can be found at:-
+https://drive.google.com/file/d/1XZ09NOht1H5LCJEbOrAldny2L5SV1DeT/view?usp=sharing
+
 
 ## Feature Highlights
 - **Adaptive Ingestion** – Toggle Reddit, Twitter/X, and Trustpilot independently; backoff, caching, and polite scraping keep providers happy.
