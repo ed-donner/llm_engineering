@@ -22,6 +22,7 @@ dependencies = [
     "langchain-text-splitters>=0.3.11",
     "litellm>=1.77.5",
     "matplotlib>=3.10.6",
+    "nbformat>=5.10.4",
     "modal>=1.1.4",
     "numpy>=2.3.3",
     "ollama>=0.6.0",
