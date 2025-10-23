@@ -20,6 +20,27 @@ https://edwarddonner.com/2024/11/13/llm-engineering-resources/
 
 The most significant change is that the new version uses the fabulous uv, instead of Anaconda. But there's also tons of new content, including new models, tools and techniques. Prompt caching, LiteLLM, inference techniques and so much more.
 
+### How this is organized in Udemy
+
+We are rolling out the new weeks, but keeping the original content in an appendix:
+
+In Udemy:  
+
+Section 1 = NEW WEEK 1  
+Section 2 = NEW WEEK 2  
+Section 3 = NEW WEEK 3  
+Section 4 = Original Week 4  
+Section 5 = Original Week 5  
+Section 6 = Original Week 6  
+Section 7 = Original Week 7  
+Section 8 = Original Week 8  
+
+Then as an appendix / archive:
+
+Section 9 = Original Week 1  
+Section 10 = Original Week 2  
+Section 11 = Original Week 3  
+
 ### To revert to the original version of code, consistent with the original videos (Anaconda + virtualenv)
 
 If you'd prefer to stick with the code for the original videos, simply do this from your Anaconda Prompt or Terminal:  
