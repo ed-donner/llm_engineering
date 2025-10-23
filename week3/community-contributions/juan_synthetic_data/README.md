@@ -1,6 +1,8 @@
 # Synthetic Data Generator
 **NOTE:** This is a copy of the repository https://github.com/Jsrodrigue/synthetic-data-creator.
 
+# Synthetic Data Generator
+
 An intelligent synthetic data generator that uses OpenAI models to create realistic tabular datasets based on reference data. This project includes an intuitive web interface built with Gradio.
 
 > **🎓 Educational Project**: This project was inspired by the highly regarded LLM Engineering course on Udemy: [LLM Engineering: Master AI and Large Language Models](https://www.udemy.com/course/llm-engineering-master-ai-and-large-language-models/learn/lecture/52941433#questions/23828099). It demonstrates practical applications of LLM engineering principles, prompt engineering, and synthetic data generation techniques.
@@ -61,7 +63,7 @@ An intelligent synthetic data generator that uses OpenAI models to create realis
 - Python 3.12+
 - OpenAI account with API key
 
-### Installation with pip
+### Option 1: Using pip
 ```bash
 # Create virtual environment
 python -m venv venv
@@ -71,11 +73,11 @@ source venv/bin/activate  # On Windows: venv\Scripts\activate
 pip install -r requirements.txt
 ```
 
-### Installation with uv
+### Option 2: Using uv
 ```bash
 # Clone the repository
 git clone https://github.com/Jsrodrigue/synthetic-data-creator.git
-cd synthetic_data
+cd synthetic-data-creator
 
 # Install dependencies
 uv sync
@@ -100,8 +102,15 @@ OPENAI_API_KEY=your_api_key_here
 ## 🎯 Usage
 
 ### Start the application
+
+You can run the app either with **Python** or with **uv** (recommended if you installed dependencies using `uv sync`):
+
 ```bash
+# Option 1: using Python
 python app.py
+
+# Option 2: using uv (no need to activate venv manually)
+uv run app.py
 ```
 
 The script will print a local URL (e.g., http://localhost:7860) — open that link in your browser.
