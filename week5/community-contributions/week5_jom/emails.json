@@ -1,0 +1,1444 @@
+[
+  {
+    "sender": "project.manager@company.com",
+    "subject": "Project Update Meeting",
+    "body": "Hi John,\n\nJust a reminder that we have a project update meeting scheduled for tomorrow at 10 AM. Please bring your latest developments on the software features we're aiming to launch next quarter.\n\nBest,\nAnna",
+    "timestamp": "2024-01-02T09:12:00Z",
+    "category": "Work Emails"
+  },
+  {
+    "sender": "order@amazon.com",
+    "subject": "Your Amazon.com order has shipped!",
+    "body": "Hello John Doe,\n\nWe're happy to let you know that your order of 'The Great Gatsby' has been shipped. You can expect delivery by January 5th.\n\nThank you for shopping with us!\n\nAmazon Customer Service",
+    "timestamp": "2024-01-03T13:45:00Z",
+    "category": "Purchases"
+  },
+  {
+    "sender": "netflix@streaming.com",
+    "subject": "New Documentaries on Netflix this January!",
+    "body": "Hi John,\n\nKickstart your year with some thought-provoking documentaries added to Netflix this January. Uncover hidden histories and explore fascinating subjects.\n\nHappy Streaming!\n\nNetflix Team",
+    "timestamp": "2024-01-05T17:30:00Z",
+    "category": "Subscriptions"
+  },
+  {
+    "sender": "mom@family.com",
+    "subject": "How have you been?",
+    "body": "Hi John,\n\nJust wanted to check in and see how you're doing. Dad and I are planning a trip to visit you soon. Let us know when you're free!\n\nLove,\nMom",
+    "timestamp": "2024-01-07T10:15:00Z",
+    "category": "Family"
+  },
+  {
+    "sender": "college.group@friends.com",
+    "subject": "Reunion Plans!",
+    "body": "Hey everyone,\n\nIt's been too long! How about we plan a weekend getaway sometime in February? Let's pick a destination and get this rolling!\n\nCheers,\nAlex",
+    "timestamp": "2024-01-08T18:20:00Z",
+    "category": "Friends"
+  },
+  {
+    "sender": "bank@finance.com",
+    "subject": "Your January Bank Statement",
+    "body": "Dear John Doe,\n\nYour bank statement for January 2024 is now available. Please log in to your account to view the details.\n\nBest regards,\nYour Bank",
+    "timestamp": "2024-01-10T08:55:00Z",
+    "category": "Finance"
+  },
+  {
+    "sender": "linkedin@social.com",
+    "subject": "You have new connection requests!",
+    "body": "Hi John,\n\nYou have received new connection requests on LinkedIn. Expand your professional network by connecting with colleagues and like-minded professionals.\n\nBest,\nLinkedIn Team",
+    "timestamp": "2024-01-11T14:10:00Z",
+    "category": "Social Media"
+  },
+  {
+    "sender": "gym@fitness.com",
+    "subject": "Membership Renewal Reminder",
+    "body": "Hi John,\n\nWe hope you're enjoying your time at FitLife Gym! Just a reminder that your membership is up for renewal on January 20, 2024.\n\nStay fit,\nFitLife Team",
+    "timestamp": "2024-01-12T10:00:00Z",
+    "category": "Personal"
+  },
+  {
+    "sender": "hr@company.com",
+    "subject": "Annual Performance Review",
+    "body": "Dear John,\n\nWe have scheduled your annual performance review for January 25, 2024, at 3 PM. Please prepare a summary of your key achievements from the past year.\n\nRegards,\nHR Department",
+    "timestamp": "2024-01-14T09:30:00Z",
+    "category": "Work Emails"
+  },
+  {
+    "sender": "shop@localgrocer.com",
+    "subject": "Order Confirmation: Local Grocery Store",
+    "body": "Hi John,\n\nThank you for your order with Local Grocery Store. Your delivery is scheduled for tomorrow between 3 PM and 5 PM.\n\nSincerely,\nLocal Grocery",
+    "timestamp": "2024-01-15T12:45:00Z",
+    "category": "Purchases"
+  },
+  {
+    "sender": "spotify@music.com",
+    "subject": "Discover Your New Favorite Playlist",
+    "body": "Hi John,\n\nStart your week with personalized playlists curated just for you. Enjoy the best tunes that match your taste and mood.\n\nHappy Listening,\nSpotify Team",
+    "timestamp": "2024-01-16T09:00:00Z",
+    "category": "Subscriptions"
+  },
+  {
+    "sender": "sara.sister@family.com",
+    "subject": "Birthday Plans for Mom",
+    "body": "Hey John,\n\nMom's birthday is coming up in February, and I was thinking we should plan something special for her. Maybe a surprise dinner?\n\nLet me know your thoughts,\nSara",
+    "timestamp": "2024-01-17T11:30:00Z",
+    "category": "Family"
+  },
+  {
+    "sender": "ian@friends.com",
+    "subject": "Catching up this weekend?",
+    "body": "Hey John,\n\nHow about grabbing a coffee this Saturday afternoon? Let's catch up on everything!\n\nBest,\nIan",
+    "timestamp": "2024-01-18T19:45:00Z",
+    "category": "Friends"
+  },
+  {
+    "sender": "notifications@creditcard.com",
+    "subject": "January Statement Available",
+    "body": "Dear John Doe,\n\nYour January credit card statement is now ready to view. Please log into your account to check your transactions and balance.\n\nThank you,\nYour Credit Card Provider",
+    "timestamp": "2024-01-19T16:05:00Z",
+    "category": "Finance"
+  },
+  {
+    "sender": "instagram@social.com",
+    "subject": "New Followers on Instagram!",
+    "body": "Hi John,\n\nYou have new followers waiting to see your posts! Keep up with your friends and start sharing your moments.\n\nCheers,\nInstagram Team",
+    "timestamp": "2024-01-20T13:15:00Z",
+    "category": "Social Media"
+  },
+  {
+    "sender": "energy@utilities.com",
+    "subject": "Your Latest Utility Bill is Available",
+    "body": "Dear John Doe,\n\nYour current utility bill is now available for review. Please log in to your account to view the charges and make a payment by the due date.\n\nRegards,\nUtility Company",
+    "timestamp": "2024-01-22T08:20:00Z",
+    "category": "Personal"
+  },
+  {
+    "sender": "colleague@work.com",
+    "subject": "Code Review Feedback",
+    "body": "Hi John,\n\nI've reviewed the code you submitted and have some feedback for you. Let’s discuss it today post-lunch.\n\nCheers,\nEmily",
+    "timestamp": "2024-01-23T10:50:00Z",
+    "category": "Work Emails"
+  },
+  {
+    "sender": "order@adobe.com",
+    "subject": "Your Adobe Subscription Renewal",
+    "body": "Hi John,\n\nYour Adobe Creative Cloud subscription is set to renew on February 1, 2024. Enjoy uninterrupted access to all our creative tools.\n\nBest,\nAdobe Team",
+    "timestamp": "2024-01-24T11:55:00Z",
+    "category": "Subscriptions"
+  },
+  {
+    "sender": "robert@techconference.com",
+    "subject": "Invitation to Speak at Tech Conference 2024",
+    "body": "Hi John,\n\nWe are thrilled to invite you as a speaker at the Tech Conference 2024, happening in March. Your expertise in software engineering would be a great addition to our panel.\n\nLooking forward to hearing from you,\nRobert",
+    "timestamp": "2024-01-25T14:30:00Z",
+    "category": "Work Emails"
+  },
+  {
+    "sender": "community@newsfeed.com",
+    "subject": "Weekly Tech News Digest",
+    "body": "Hello John,\n\nHere’s your curated list of the latest in tech that you shouldn’t miss this week. From AI advancements to new gadgets, stay informed.\n\nEnjoy reading,\nTech Newsfeed",
+    "timestamp": "2024-01-26T15:00:00Z",
+    "category": "Subscriptions"
+  },
+  {
+    "sender": "max@investment.com",
+    "subject": "Quarterly Investment Update",
+    "body": "Hi John,\n\nAttached, please find your quarterly investment portfolio update for Q4 2023. Let us know if you have any questions or wish to make changes.\n\nBest regards,\nMax",
+    "timestamp": "2024-01-27T09:25:00Z",
+    "category": "Finance"
+  },
+  {
+    "sender": "info@library.com",
+    "subject": "Your Reserved Books Are Ready for Pickup",
+    "body": "Dear John,\n\nThe books you reserved are now ready for you to pick up at the local library. We look forward to seeing you soon!\n\nHappy Reading,\nLibrary Staff",
+    "timestamp": "2024-01-28T10:45:00Z",
+    "category": "Personal"
+  },
+  {
+    "sender": "jane@colleague.com",
+    "subject": "Solution for the Bug Issue",
+    "body": "Hey John,\n\nI found a potential solution to the bug that's been plaguing our software. Can we discuss this sometime today?\n\nThanks,\nJane",
+    "timestamp": "2024-01-29T11:15:00Z",
+    "category": "Work Emails"
+  },
+  {
+    "sender": "shipping@walmart.com",
+    "subject": "Your Walmart Order is Out for Delivery!",
+    "body": "Hi John Doe,\n\nGood news! Your recent Walmart purchase is on its way and should arrive today by 5 PM.\n\nThanks for shopping with us,\nWalmart Team",
+    "timestamp": "2024-02-02T10:20:00Z",
+    "category": "Purchases"
+  },
+  {
+    "sender": "family@cousin.com",
+    "subject": "Family Gathering This April",
+    "body": "Hi John,\n\nWe’re planning a family gathering in April. It would be wonderful to have everyone together. Let’s discuss details soon!\n\nTake care,\nCousin Lily",
+    "timestamp": "2024-02-05T12:00:00Z",
+    "category": "Family"
+  },
+  {
+    "sender": "newsletter@techupdates.com",
+    "subject": "Top Tech Trends in 2024",
+    "body": "Hello John,\n\nStaying ahead in tech? Check out the top trends predicted to transform the industry this year. Learn more in our latest article!\n\nBest,\nTech Updates Team",
+    "timestamp": "2024-02-07T09:50:00Z",
+    "category": "Subscriptions"
+  },
+  {
+    "sender": "laura@universityfriend.com",
+    "subject": "Long Time, No See!",
+    "body": "Hey John,\n\nIt’s been ages since we last caught up. How about we plan a meetup next weekend? Let me know your availability!\n\nCheers,\nLaura",
+    "timestamp": "2024-02-09T18:30:00Z",
+    "category": "Friends"
+  },
+  {
+    "sender": "bank@finance.com",
+    "subject": "Notice of New Secure Login Features",
+    "body": "Dear John Doe,\n\nTo enhance your account security, we’re introducing new login features. Please review the changes and update your security settings.\n\nThanks,\nYour Bank",
+    "timestamp": "2024-02-10T13:15:00Z",
+    "category": "Finance"
+  },
+  {
+    "sender": "twitter@social.com",
+    "subject": "You were mentioned in a tweet!",
+    "body": "Hi John,\n\nSomeone mentioned you in a tweet! See what’s being said and join the conversation on Twitter.\n\nHappy Tweeting,\nTwitter Team",
+    "timestamp": "2024-02-12T17:45:00Z",
+    "category": "Social Media"
+  },
+  {
+    "sender": "bill@healthcare.com",
+    "subject": "Upcoming Dental Appointment Reminder",
+    "body": "Hello John Doe,\n\nThis is a reminder for your dental appointment on March 1, 2024, at 9 AM.\n\nSee you soon,\nYour Dental Clinic",
+    "timestamp": "2024-02-13T16:20:00Z",
+    "category": "Personal"
+  },
+  {
+    "sender": "ceo@company.com",
+    "subject": "Company Town Hall Meeting",
+    "body": "Dear John,\n\nWe are holding a company-wide town hall meeting on March 10, 2024, to discuss our strategic goals for the year. Your attendance is highly encouraged.\n\nBest,\nCEO",
+    "timestamp": "2024-02-14T11:30:00Z",
+    "category": "Work Emails"
+  },
+  {
+    "sender": "store@hikinggear.com",
+    "subject": "Order Confirmation for Hiking Gear",
+    "body": "Hi John,\n\nThank you for your order of the new hiking boots and gear. Your items will be shipped by February 18, 2024.\n\nHappy Trails,\nHiking Gear Store",
+    "timestamp": "2024-02-15T12:45:00Z",
+    "category": "Purchases"
+  },
+  {
+    "sender": "spotify@music.com",
+    "subject": "Your Payment for Spotify was Successful!",
+    "body": "Hi John,\n\nThanks for your continuing subscription to Spotify. Your payment for February has been successfully processed.\n\nEnjoy the music,\nSpotify Team",
+    "timestamp": "2024-02-16T09:10:00Z",
+    "category": "Subscriptions"
+  },
+  {
+    "sender": "dad@family.com",
+    "subject": "Check Out This Article!",
+    "body": "Hi John,\n\nI read this interesting article about the latest advancements in software engineering. I thought you might enjoy it.\n\nLove,\nDad",
+    "timestamp": "2024-02-18T20:55:00Z",
+    "category": "Family"
+  },
+  {
+    "sender": "mike@friends.com",
+    "subject": "Board Game Night This Friday!",
+    "body": "Hey John,\n\nAre you up for a board game night this Friday? Let me know if you're available, and I'll set it up.\n\nCheers,\nMike",
+    "timestamp": "2024-02-20T18:10:00Z",
+    "category": "Friends"
+  },
+  {
+    "sender": "finance@creditcard.com",
+    "subject": "Important: Verify Your Account Information",
+    "body": "Dear John Doe,\n\nWe need you to verify your account information due to recent updates to our system security. Please log in and update your details.\n\nThank you,\nCredit Card Services",
+    "timestamp": "2024-02-22T11:45:00Z",
+    "category": "Finance"
+  },
+  {
+    "sender": "notification@facebook.com",
+    "subject": "You Have New Notifications",
+    "body": "Hi John,\n\nYou have new notifications waiting on Facebook. Visit your profile to see what's new and connect with friends.\n\nBest,\nFacebook Team",
+    "timestamp": "2024-02-23T10:30:00Z",
+    "category": "Social Media"
+  },
+  {
+    "sender": "emergency@insurance.com",
+    "subject": "Policy Renewal Notice",
+    "body": "Dear John Doe,\n\nThis is a reminder that your car insurance policy is due for renewal on March 5, 2024. Please review your coverage details and plan your payment.\n\nBest regards,\nYour Insurance Company",
+    "timestamp": "2024-02-25T15:00:00Z",
+    "category": "Personal"
+  },
+  {
+    "sender": "teammate@work.com",
+    "subject": "Pair Programming Session Request",
+    "body": "Hi John,\n\nCould you help me out with a pair programming session tomorrow morning? I’m stuck on a critical issue.\n\nThanks a ton,\nAlan",
+    "timestamp": "2024-02-26T08:50:00Z",
+    "category": "Work Emails"
+  },
+  {
+    "sender": "shipping@amazon.com",
+    "subject": "Your Package is Delivered!",
+    "body": "Hi John,\n\nYour Amazon order has been delivered. Thank you for shopping with us, and we hope you enjoy your purchase!\n\nWarm regards,\nAmazon Team",
+    "timestamp": "2024-02-28T14:15:00Z",
+    "category": "Purchases"
+  },
+  {
+    "sender": "netflix@streaming.com",
+    "subject": "Upcoming Content on Netflix This March",
+    "body": "Hi John,\n\nReady for fresh content this March? From thrilling series to acclaimed movies, here's what's new on Netflix.\n\nHappy Watching,\nNetflix Team",
+    "timestamp": "2024-03-01T16:05:00Z",
+    "category": "Subscriptions"
+  },
+  {
+    "sender": "aunt@family.com",
+    "subject": "Family Recipe for You",
+    "body": "Hi John,\n\nI’ve shared with you the family recipe passed down for generations. Hope you enjoy making it as much as we do!\n\nLove,\nAunt Martha",
+    "timestamp": "2024-03-03T11:20:00Z",
+    "category": "Family"
+  },
+  {
+    "sender": "jessica@collegefriend.com",
+    "subject": "Planning a Spring Picnic",
+    "body": "Hey John,\n\nWith spring almost here, how about a picnic at the local park? Let’s find a day that works for everyone.\n\nTake care,\nJessica",
+    "timestamp": "2024-03-04T17:35:00Z",
+    "category": "Friends"
+  },
+  {
+    "sender": "tax@finance.com",
+    "subject": "Preparation for Tax Filing",
+    "body": "Dear John Doe,\n\nGet ready for the upcoming tax season. Review our tax filing checklist to ensure you have all necessary documents in order.\n\nBest,\nTax Team",
+    "timestamp": "2024-03-06T10:10:00Z",
+    "category": "Finance"
+  },
+  {
+    "sender": "linkedin@social.com",
+    "subject": "Job Opportunities You May Like",
+    "body": "Hi John,\n\nBased on your profile, we've found job opportunities you might be interested in. Check them out and advance your career.\n\nRegards,\nLinkedIn Team",
+    "timestamp": "2024-03-07T13:40:00Z",
+    "category": "Social Media"
+  },
+  {
+    "sender": "medical@clinic.com",
+    "subject": "Medical Test Results Available",
+    "body": "Dear John Doe,\n\nYour recent medical test results are now available. Please log in to your patient portal to view them and contact us if you have questions.\n\nBest,\nYour Clinic",
+    "timestamp": "2024-03-08T11:25:00Z",
+    "category": "Personal"
+  },
+  {
+    "sender": "manager@work.com",
+    "subject": "Action Items Post Staff Meeting",
+    "body": "Hi John,\n\nFollowing our staff meeting, here are your key action items for the upcoming week. Let’s touch base by Friday to review progress.\n\nBest,\nYour Manager",
+    "timestamp": "2024-03-10T09:40:00Z",
+    "category": "Work Emails"
+  },
+  {
+    "sender": "order@bestbuy.com",
+    "subject": "Your Best Buy Order is Ready for Pickup",
+    "body": "Hi John,\n\nYour Best Buy order is available for pickup at your chosen store location. Thank you for shopping with us.\n\nBest,\nBest Buy Team",
+    "timestamp": "2024-03-12T14:05:00Z",
+    "category": "Purchases"
+  },
+  {
+    "sender": "readers@magazine.com",
+    "subject": "March Edition Now Available",
+    "body": "Hello John,\n\nDive into the latest tech innovations featured in March’s edition of our magazine. Exclusive insights await.\n\nHappy Reading,\nMagazine Team",
+    "timestamp": "2024-03-13T12:15:00Z",
+    "category": "Subscriptions"
+  },
+  {
+    "sender": "grandparents@family.com",
+    "subject": "Missing You!",
+    "body": "Dear John,\n\nWe’ve been missing you and hope you can visit us soon. We’d love to hear all about your latest adventures.\n\nLove,\nGrandma and Grandpa",
+    "timestamp": "2024-03-15T19:25:00Z",
+    "category": "Family"
+  },
+  {
+    "sender": "ben@friends.com",
+    "subject": "BBQ at My Place!",
+    "body": "Hey John,\n\nThrowing a BBQ on Saturday evening. You should come! Bring something to drink.\n\nCheers,\nBen",
+    "timestamp": "2024-03-16T13:50:00Z",
+    "category": "Friends"
+  },
+  {
+    "sender": "finance@bank.com",
+    "subject": "New Savings Plan Options",
+    "body": "Dear John Doe,\n\nExplore our new savings plan options designed to help you achieve your financial goals. Contact us for more details.\n\nRegards,\nYour Bank",
+    "timestamp": "2024-03-18T14:20:00Z",
+    "category": "Finance"
+  },
+  {
+    "sender": "linkedin@social.com",
+    "subject": "New Skills You Might Be Interested In",
+    "body": "Hi John,\n\nBased on your professional interests, we recommend exploring these new learning opportunities. Enhance your skills today.\n\nBest,\nLinkedIn Team",
+    "timestamp": "2024-03-19T09:00:00Z",
+    "category": "Social Media"
+  },
+  {
+    "sender": "health@insurance.com",
+    "subject": "Annual Insurance Policy Update",
+    "body": "Dear John Doe,\n\nPlease review the annual updates to your health insurance policy. Ensure your information is accurate and up-to-date.\n\nThank you,\nYour Insurance Provider",
+    "timestamp": "2024-03-20T15:30:00Z",
+    "category": "Personal"
+  },
+  {
+    "sender": "sarah@work.com",
+    "subject": "New Software Deployment",
+    "body": "Hi John,\n\nWe’re deploying the new software update this Thursday. Ensure your team is briefed and ready for testing post-deployment.\n\nThanks,\nSarah",
+    "timestamp": "2024-03-21T09:15:00Z",
+    "category": "Work Emails"
+  },
+  {
+    "sender": "delivery@amazon.com",
+    "subject": "Your Order is Arriving Soon!",
+    "body": "Hi John,\n\nYour Amazon order will arrive today by 8 PM. Track your delivery in real-time for updates.\n\nBest,\nAmazon Team",
+    "timestamp": "2024-03-23T15:45:00Z",
+    "category": "Purchases"
+  },
+  {
+    "sender": "subs@magazine.com",
+    "subject": "Renewal Notice for Your Subscription",
+    "body": "Hi John,\n\nIt’s time to renew your magazine subscription. Don’t miss out on upcoming issues packed with tech insights.\n\nBest,\nSubscription Team",
+    "timestamp": "2024-03-25T11:00:00Z",
+    "category": "Subscriptions"
+  },
+  {
+    "sender": "relatives@aunt.com",
+    "subject": "Summer Family Reunion Update",
+    "body": "Hi John,\n\nWe’re planning to hold the summer family reunion in June this year. Let’s start thinking about some fun activities!\n\nCheers,\nAunt Lisa",
+    "timestamp": "2024-03-27T13:30:00Z",
+    "category": "Family"
+  },
+  {
+    "sender": "dave@friends.com",
+    "subject": "Road Trip Proposal!",
+    "body": "Hey John,\n\nReady for a road trip? We’re thinking the first week of April. Let's finalize plans this week.\n\nBest,\nDave",
+    "timestamp": "2024-03-28T18:50:00Z",
+    "category": "Friends"
+  },
+  {
+    "sender": "statement@creditcard.com",
+    "subject": "Your March Statement is Ready",
+    "body": "Dear John Doe,\n\nYour March credit card statement is now available. Please review the charges and make a timely payment.\n\nThanks,\nYour Credit Card Team",
+    "timestamp": "2024-03-30T14:00:00Z",
+    "category": "Finance"
+  },
+  {
+    "sender": "instagram@social.com",
+    "subject": "Share Your Moments on Instagram",
+    "body": "Hi John,\n\nShare your memorable moments on Instagram! Engage with your followers and stay connected.\n\nCheers,\nInstagram Team",
+    "timestamp": "2024-04-01T12:10:00Z",
+    "category": "Social Media"
+  },
+  {
+    "sender": "billing@utilities.com",
+    "subject": "Your Latest Water Bill is Due",
+    "body": "Dear John Doe,\n\nYour water bill for this month is ready. Please review it and ensure payment by the due date to avoid late fees.\n\nKind regards,\nUtility Company",
+    "timestamp": "2024-04-03T11:20:00Z",
+    "category": "Personal"
+  },
+  {
+    "sender": "maria@work.com",
+    "subject": "Please Review the New Project Specs",
+    "body": "Hi John,\n\nCan you review the attached specifications for our upcoming project and let me know your thoughts by end of this week?\n\nThanks,\nMaria",
+    "timestamp": "2024-04-04T09:35:00Z",
+    "category": "Work Emails"
+  },
+  {
+    "sender": "support@fitlife.com",
+    "subject": "March Fitness Challenge Results",
+    "body": "Hi John,\n\nCongratulations on participating in our March fitness challenge! Check out your results in your member portal.\n\nKeep Moving,\nFitLife Team",
+    "timestamp": "2024-04-05T17:00:00Z",
+    "category": "Personal"
+  },
+  {
+    "sender": "emily@friends.com",
+    "subject": "Hiking this Weekend?",
+    "body": "Hi John,\n\nThe weather looks great for a hike this weekend. Let's hit the trails on Saturday morning!\n\nBest,\nEmily",
+    "timestamp": "2024-04-06T18:40:00Z",
+    "category": "Friends"
+  },
+  {
+    "sender": "alerts@finance.com",
+    "subject": "Suspicious Activity Detected",
+    "body": "Dear John Doe,\n\nWe detected unusual activity on your account. Please review your transactions and contact us immediately if you did not authorize them.\n\nSincerely,\nYour Bank",
+    "timestamp": "2024-04-08T09:50:00Z",
+    "category": "Finance"
+  },
+  {
+    "sender": "notifications@race.com",
+    "subject": "Your 5K Race Results Are In!",
+    "body": "Congrats John!\n\nThank you for participating in the Annual 5K Marathon. View your race times and photos from the event on our website.\n\nBest,\nRace Organizers",
+    "timestamp": "2024-04-09T13:25:00Z",
+    "category": "Personal"
+  },
+  {
+    "sender": "project.lead@work.com",
+    "subject": "Feedback on Last Week's Presentation",
+    "body": "Hi John,\n\nI wanted to give you some feedback on your presentation at last week’s meeting. Let’s schedule a time to discuss this further.\n\nBest,\nProject Lead",
+    "timestamp": "2024-04-10T11:45:00Z",
+    "category": "Work Emails"
+  },
+  {
+    "sender": "tracker@package.com",
+    "subject": "Package Delivery Confirmation",
+    "body": "Hi John,\n\nYour package has been successfully delivered. Make sure to check your doorstep or mail room.\n\nThank you,\nPackage Tracking Service",
+    "timestamp": "2024-04-13T14:40:00Z",
+    "category": "Purchases"
+  },
+  {
+    "sender": "apple@streaming.com",
+    "subject": "Apple TV+ April Releases",
+    "body": "Hi John,\n\nExplore what’s new this April on Apple TV+. From thrilling adventures to heartwarming stories, there's plenty to enjoy.\n\nHappy Watching,\nApple TV+ Team",
+    "timestamp": "2024-04-14T16:30:00Z",
+    "category": "Subscriptions"
+  },
+  {
+    "sender": "uncle@family.com",
+    "subject": "Easter Celebration Plans!",
+    "body": "Hi John,\n\nEaster is around the corner. Are you joining us for the family celebration this year?\n\nCheers,\nUncle Jim",
+    "timestamp": "2024-04-15T18:00:00Z",
+    "category": "Family"
+  },
+  {
+    "sender": "office@work.com",
+    "subject": "Office Closure Notification",
+    "body": "Hi John,\n\nPlease be informed that the office will be closed on April 25th due to maintenance work. Plan your schedule accordingly.\n\nThanks,\nOffice Administration",
+    "timestamp": "2024-04-16T08:15:00Z",
+    "category": "Work Emails"
+  },
+  {
+    "sender": "news@techworld.com",
+    "subject": "The Latest in Tech: April Edition",
+    "body": "Hi John,\n\nCatch up with the most exciting tech news and innovations featured in our April edition.\n\nHappy Reading,\nTech World",
+    "timestamp": "2024-04-17T15:35:00Z",
+    "category": "Subscriptions"
+  },
+  {
+    "sender": "tom@friends.com",
+    "subject": "Call Me When You're Free",
+    "body": "Hey John,\n\nJust wanted to catch up. Give me a call when you have some free time.\n\nBest,\nTom",
+    "timestamp": "2024-04-18T18:50:00Z",
+    "category": "Friends"
+  },
+  {
+    "sender": "transactions@bank.com",
+    "subject": "Monthly Transactions Summary",
+    "body": "Dear John Doe,\n\nYour monthly transaction summary for April is now available. Please review to ensure all transactions are correct.\n\nBest,\nYour Bank",
+    "timestamp": "2024-04-20T12:00:00Z",
+    "category": "Finance"
+  },
+  {
+    "sender": "alerts@instagram.com",
+    "subject": "Account Security Alert",
+    "body": "Hi John,\n\nWe’ve noticed a new login attempt from an unfamiliar device. Please verify if this was you.\n\nStay Safe,\nInstagram Team",
+    "timestamp": "2024-04-21T11:15:00Z",
+    "category": "Social Media"
+  },
+  {
+    "sender": "yourdoctor@wellness.com",
+    "subject": "Health Check-Up Reminder",
+    "body": "Dear John Doe,\n\nThis is a reminder for your annual health check-up scheduled for April 28th. Please confirm your attendance.\n\nRegards,\nYour Healthcare Provider",
+    "timestamp": "2024-04-23T14:05:00Z",
+    "category": "Personal"
+  },
+  {
+    "sender": "colleague@work.com",
+    "subject": "Brainstorming Session Next Week",
+    "body": "Hi John,\n\nWe’ve organized a brainstorming session for next Thursday at 2 PM. Be prepared with your ideas!\n\nThanks,\nTeam",
+    "timestamp": "2024-04-24T09:25:00Z",
+    "category": "Work Emails"
+  },
+  {
+    "sender": "orderupdate@amazon.com",
+    "subject": "Delivery Delayed",
+    "body": "Hi John,\n\nDue to unforeseen circumstances, your package delivery may be delayed. Check your order status for updates.\n\nBest,\nAmazon Support",
+    "timestamp": "2024-04-25T10:35:00Z",
+    "category": "Purchases"
+  },
+  {
+    "sender": "matchday@football.com",
+    "subject": "Exclusive: Upcoming Matches",
+    "body": "Hi John,\n\nCheck out the schedule for upcoming football matches this season. Don’t miss out on the action!\n\nCheers,\nFootball Fan Club",
+    "timestamp": "2024-04-26T18:20:00Z",
+    "category": "Subscriptions"
+  },
+  {
+    "sender": "dan@family.com",
+    "subject": "Weekend Getaway?",
+    "body": "Hi John,\n\nThinking about a spontaneous weekend getaway. Could use the break—how about you?\n\nBest,\nDan",
+    "timestamp": "2024-04-27T14:40:00Z",
+    "category": "Family"
+  },
+  {
+    "sender": "alexa@friends.com",
+    "subject": "April Fool's Day Prank Ideas!",
+    "body": "Hey John,\n\nGot any fun ideas for April Fool's Day this year? Let’s plan something hilarious!\n\nCheers,\nAlexa",
+    "timestamp": "2024-03-29T15:50:00Z",
+    "category": "Friends"
+  },
+  {
+    "sender": "billing@utilities.com",
+    "subject": "Your Gas Bill is Available",
+    "body": "Dear John Doe,\n\nYour gas bill for April is ready. Ensure timely payment to continue uninterrupted service.\n\nSincerely,\nUtility Services",
+    "timestamp": "2024-04-28T11:10:00Z",
+    "category": "Personal"
+  },
+  {
+    "sender": "matt@colleague.com",
+    "subject": "Client Feedback on Proposal",
+    "body": "Hi John,\n\nWe received some feedback from the client on the recent proposal. Can you review it and prepare a response by Thursday?\n\nThanks,\nMatt",
+    "timestamp": "2024-04-29T13:25:00Z",
+    "category": "Work Emails"
+  },
+  {
+    "sender": "promotions@bestsales.com",
+    "subject": "Limited Time Sale Announcement",
+    "body": "Hi John,\n\nDon’t miss our limited-time sale on electronic gadgets. Grab your favorites before they’re gone!\n\nSincerely,\nBestSales Team",
+    "timestamp": "2024-04-30T17:10:00Z",
+    "category": "Purchases"
+  },
+  {
+    "sender": "spotify@music.com",
+    "subject": "Spotify Playlist for Your Week",
+    "body": "Hi John,\n\nStart your week with Spotify's personalized playlist curated for your musical tastes. Discover new hits every day.\n\nEnjoy,\nSpotify Team",
+    "timestamp": "2024-05-01T09:20:00Z",
+    "category": "Subscriptions"
+  },
+  {
+    "sender": "aunt@family.com",
+    "subject": "Memorial Day BBQ",
+    "body": "Hi John,\n\nWe're hosting a BBQ for Memorial Day weekend. Would love for you to join us—plenty of good food and laughter guaranteed!\n\nLove,\nAunt June",
+    "timestamp": "2024-05-05T10:30:00Z",
+    "category": "Family"
+  },
+  {
+    "sender": "meet@work.com",
+    "subject": "Weekly Team Meeting",
+    "body": "Hello Team,\n\nThis is a reminder for our weekly team meeting scheduled for Monday at 10 AM. Be prepared to discuss current projects.\n\nThanks,\nManagement",
+    "timestamp": "2024-05-06T11:00:00Z",
+    "category": "Work Emails"
+  },
+  {
+    "sender": "editors@magazine.com",
+    "subject": "Special Edition Publication",
+    "body": "Hi John,\n\nGrab our special edition with in-depth features on tech leaders shaping tomorrow’s world.\n\nHappy Reading,\nMagazine Editors",
+    "timestamp": "2024-05-08T14:25:00Z",
+    "category": "Subscriptions"
+  },
+  {
+    "sender": "chad@friends.com",
+    "subject": "Game Night Planning",
+    "body": "Hey John,\n\nThinking of hosting a game night at my place Friday. Let me know if you’re interested.\n\nBest,\nChad",
+    "timestamp": "2024-05-10T16:45:00Z",
+    "category": "Friends"
+  },
+  {
+    "sender": "cardalerts@finance.com",
+    "subject": "Automatic Payment Confirmation",
+    "body": "Dear John Doe,\n\nYour scheduled automatic payment has been processed successfully. Thank you for using our services.\n\nBest regards,\nFinance Team",
+    "timestamp": "2024-05-11T10:20:00Z",
+    "category": "Finance"
+  },
+  {
+    "sender": "twitter@social.com",
+    "subject": "Trending Topics You Might Like",
+    "body": "Hi John,\n\nStay up to date with the latest trending topics on Twitter. Join in and share your thoughts.\n\nHappy Tweeting,\nTwitter Support",
+    "timestamp": "2024-05-13T13:55:00Z",
+    "category": "Social Media"
+  },
+  {
+    "sender": "healthcenter@insurance.com",
+    "subject": "Coverage Changes Notice",
+    "body": "Dear John Doe,\n\nPlease review the changes in your health coverage, effective starting June 1, to ensure it meets your needs.\n\nBest,\nHealth Insurance Center",
+    "timestamp": "2024-05-15T15:15:00Z",
+    "category": "Personal"
+  },
+  {
+    "sender": "notifications@team.com",
+    "subject": "Code Merge Notification",
+    "body": "Hi John,\n\nYour recent code changes have been merged. Please verify everything is functioning as expected.\n\nThanks,\nTeam Notifications",
+    "timestamp": "2024-05-16T09:10:00Z",
+    "category": "Work Emails"
+  },
+  {
+    "sender": "shipping@walmart.com",
+    "subject": "Walmart Delivery Notification",
+    "body": "Hi John Doe,\n\nYour recent Walmart purchase has been shipped and should arrive by May 23rd.\n\nThanks for shopping with us,\nWalmart Team",
+    "timestamp": "2024-05-17T14:35:00Z",
+    "category": "Purchases"
+  },
+  {
+    "sender": "audible@audiobooks.com",
+    "subject": "Your May Audiobook Selections",
+    "body": "Hi John,\n\nCheck out the latest selections available for your listening pleasure. Dive into a world of intrigue and adventure with your May picks.\n\nHappy Listening,\nAudible Team",
+    "timestamp": "2024-05-18T17:30:00Z",
+    "category": "Subscriptions"
+  },
+  {
+    "sender": "sarah@family.com",
+    "subject": "Picnic Plans for the Long Weekend",
+    "body": "Hi John,\n\nThinking of doing a family picnic for the upcoming holiday weekend. Hope you can make it!\n\nLove,\nSarah",
+    "timestamp": "2024-05-19T12:40:00Z",
+    "category": "Family"
+  },
+  {
+    "sender": "craig@friends.com",
+    "subject": "Cycling Trip Next Month",
+    "body": "Hey John,\n\nPlanning a cycling trip next month. Would love for you to join. Let’s discuss the details.\n\nBest,\nCraig",
+    "timestamp": "2024-05-21T19:15:00Z",
+    "category": "Friends"
+  },
+  {
+    "sender": "accounts@finance.com",
+    "subject": "Balance Confirmation Request",
+    "body": "Dear John Doe,\n\nPlease confirm your account balance as of May 2024 for our records. Contact us if there are discrepancies.\n\nThanks,\nFinance Accounts",
+    "timestamp": "2024-05-23T09:25:00Z",
+    "category": "Finance"
+  },
+  {
+    "sender": "instagram@social.com",
+    "subject": "New Photo Tags Notification",
+    "body": "Hi John,\n\nYou’ve been tagged in new photos. Check them out and engage with your circle!\n\nCheers,\nInstagram Team",
+    "timestamp": "2024-05-24T15:40:00Z",
+    "category": "Social Media"
+  },
+  {
+    "sender": "provider@health.com",
+    "subject": "Appointment Confirmation",
+    "body": "Hi John Doe,\n\nYour upcoming appointment with Dr. Smith on June 2nd is confirmed. Please arrive 15 minutes early.\n\nSincerely,\nHealth Provider",
+    "timestamp": "2024-05-25T10:00:00Z",
+    "category": "Personal"
+  },
+  {
+    "sender": "teamlead@work.com",
+    "subject": "Action Items for End of May",
+    "body": "Hi John,\n\nAs we approach the end of May, please focus on closing your pending tasks by Friday.\n\nBest,\nTeam Lead",
+    "timestamp": "2024-05-27T11:50:00Z",
+    "category": "Work Emails"
+  },
+  {
+    "sender": "support@retailer.com",
+    "subject": "Your Return Request has been Approved",
+    "body": "Hey John,\n\nYour request for return has been approved. Please send the item back using the prepaid label.\n\nThanks,\nRetailer Support Team",
+    "timestamp": "2024-05-28T14:45:00Z",
+    "category": "Purchases"
+  },
+  {
+    "sender": "newsletter@techworld.com",
+    "subject": "May's Tech World Newsletter",
+    "body": "Hello John,\n\nDiscover the technological advancements and insights from May in our exclusive newsletter.\n\nEnjoy reading,\nTech World Team",
+    "timestamp": "2024-05-29T13:15:00Z",
+    "category": "Subscriptions"
+  },
+  {
+    "sender": "sam@family.com",
+    "subject": "Baking Weekend!",
+    "body": "Hi John,\n\nLet's have a baking marathon this weekend. We'll try out new recipes and exchange some of our favorites.\n\nCheers,\nSam",
+    "timestamp": "2024-05-31T16:20:00Z",
+    "category": "Family"
+  },
+  {
+    "sender": "karen.smith@techcorp.com",
+    "subject": "Project Alpha Update",
+    "body": "Hi John,\n\nJust a quick update on Project Alpha: The development team has made significant progress, and we're on track to meet the next milestone by the end of the month. Let's discuss further in our meeting tomorrow.\n\nBest,\nKaren",
+    "timestamp": "2024-06-04T10:45:00",
+    "category": "Work Emails"
+  },
+  {
+    "sender": "notifications@amazon.com",
+    "subject": "Your Order has Shipped!",
+    "body": "Hello John,\n\nGood news! Your order containing 'Latest Tech Gadgets' has shipped. You can expect delivery by June 6.\n\nThank you for shopping with us.\n\nBest regards,\nAmazon Shipping",
+    "timestamp": "2024-06-02T17:23:00",
+    "category": "Purchases"
+  },
+  {
+    "sender": "matt.johnson@streamflix.com",
+    "subject": "New Arrivals This Month",
+    "body": "Hi John,\n\nCheck out the latest movies and series arriving on Streamflix this June. Don't miss out on our recommended picks for you.\n\nHappy streaming!\n\nMatt\nStreamflix Team",
+    "timestamp": "2024-06-05T09:05:00",
+    "category": "Subscriptions"
+  },
+  {
+    "sender": "momdoe@gmail.com",
+    "subject": "Family Reunion Plans",
+    "body": "Hello John,\n\nYour aunt Linda just suggested having a family reunion next month. It'd be great to catch up with everyone. Let me know your thoughts.\n\nLove,\nMom",
+    "timestamp": "2024-06-07T14:15:00",
+    "category": "Family"
+  },
+  {
+    "sender": "mike.friends@gmail.com",
+    "subject": "Movie Night This Friday?",
+    "body": "Hey John,\n\nHow about a movie night this Friday at my place? I've got some new titles we could watch and a bunch of snacks ready.\n\nLet me know if you can make it!\n\nCheers,\nMike",
+    "timestamp": "2024-06-03T16:30:00",
+    "category": "Friends"
+  },
+  {
+    "sender": "bank@fintran.com",
+    "subject": "Monthly Statement Available",
+    "body": "Dear John Doe,\n\nYour June statement is now available. We encourage you to review it at your earliest convenience via your online banking portal.\n\nThank you for banking with us.\n\nFintran Bank",
+    "timestamp": "2024-06-10T08:00:00",
+    "category": "Finance"
+  },
+  {
+    "sender": "linkedin-notifications@linkedin.com",
+    "subject": "John, See Who Viewed Your Profile",
+    "body": "Hi John,\n\n5 people have viewed your profile this week. Log in to see who they are and more insights about your profile's views.\n\nBest,\nThe LinkedIn Team",
+    "timestamp": "2024-06-06T11:45:00",
+    "category": "Social Media"
+  },
+  {
+    "sender": "customer.care@gymzone.com",
+    "subject": "Payment Reminder for June",
+    "body": "Dear John,\n\nThis is a friendly reminder that your monthly payment for your Gym Zone membership is due on June 15. Please ensure payments are up to date to continue enjoying our facilities.\n\nRegards,\nGym Zone Customer Care",
+    "timestamp": "2024-06-08T09:00:00",
+    "category": "Personal"
+  },
+  {
+    "sender": "jane@techweekly.com",
+    "subject": "Tech Weekly Newsletter - June Edition",
+    "body": "Hey John,\n\nHere's your June edition of Tech Weekly, packed with the latest news on advancements and trends in technology.\n\nEnjoy your read!\n\nJane",
+    "timestamp": "2024-06-11T08:30:00",
+    "category": "Subscriptions"
+  },
+  {
+    "sender": "hr@techcorp.com",
+    "subject": "Mid-Year Performance Review Scheduled",
+    "body": "Hi John,\n\nYour mid-year performance review is scheduled for June 20 at 3 PM. Please come prepared with any of your accomplishments or challenges you'd like to discuss.\n\nBest regards,\nHR Team",
+    "timestamp": "2024-06-09T12:00:00",
+    "category": "Work Emails"
+  },
+  {
+    "sender": "spotify@spotify.com",
+    "subject": "Your Top Tracks of the Month",
+    "body": "Hi John,\n\nHere are your top tracks for May. Explore them again and check out playlists curated just for you.\n\nHappy listening,\nSpotify Team",
+    "timestamp": "2024-06-12T11:00:00",
+    "category": "Subscriptions"
+  },
+  {
+    "sender": "steve.doe@gmail.com",
+    "subject": "Dad’s Birthday Plans",
+    "body": "Hey John,\n\nDad’s 60th birthday is coming up! Let's discuss what we can do to make it special. Any ideas for a gift?\n\nTalk soon,\nSteve",
+    "timestamp": "2024-06-14T16:45:00",
+    "category": "Family"
+  },
+  {
+    "sender": "alice.retailer@allaboutgadgets.com",
+    "subject": "Exclusive Gadget Sale for Members",
+    "body": "Hello John,\n\nWe're running an exclusive sale on the latest tech gadgets only for our members. Don’t miss out on these deals, valid until June 25.\n\nBest,\nAlice from All About Gadgets",
+    "timestamp": "2024-06-13T13:20:00",
+    "category": "Purchases"
+  },
+  {
+    "sender": "peter.young@techcorp.com",
+    "subject": "Coffee Chat?",
+    "body": "Hey John,\n\nWould love to catch up over coffee sometime this week. Let me know your availability.\n\nCheers,\nPeter",
+    "timestamp": "2024-06-17T09:15:00",
+    "category": "Work Emails"
+  },
+  {
+    "sender": "news@technosavvy.com",
+    "subject": "June Technology Trends",
+    "body": "Hello John,\n\nCatch up with the latest technology trends and insights in June’s edition of TechnoSavvy.\n\nHappy Reading,\nThe TechnoSavvy Team",
+    "timestamp": "2024-06-15T10:05:00",
+    "category": "Subscriptions"
+  },
+  {
+    "sender": "facebook-notifications@facebook.com",
+    "subject": "You Have 2 New Friend Requests",
+    "body": "Hi John,\n\nYou've received two new friend requests. Log in now to view and accept them.\n\nBest,\nFacebook Team",
+    "timestamp": "2024-06-16T11:25:00",
+    "category": "Social Media"
+  },
+  {
+    "sender": "dr.smith@cityhealth.org",
+    "subject": "Appointment Reminder",
+    "body": "Dear John Doe,\n\nThis is a reminder for your appointment at City Health Clinic on June 19 at 2 PM. Please arrive 10 minutes early for check-in.\n\nBest regards,\nCity Health Clinic",
+    "timestamp": "2024-06-18T08:45:00",
+    "category": "Personal"
+  },
+  {
+    "sender": "anna.trips@wanderlust.com",
+    "subject": "Your Next Travel Adventure?",
+    "body": "Hey John,\n\nSummer is here, and it’s the perfect time to plan your next travel adventure! Check out our affordable packages for popular destinations.\n\nSafe Travels,\nAnna\nWanderlust Travel",
+    "timestamp": "2024-06-20T09:30:00",
+    "category": "Subscriptions"
+  },
+  {
+    "sender": "billing@homeutilities.com",
+    "subject": "June Electricity Bill",
+    "body": "Dear John Doe,\n\nYour electricity bill for June is now available. Please login to your account to view and settle the amount by the end of June.\n\nThank you,\nHome Utilities",
+    "timestamp": "2024-06-21T08:00:00",
+    "category": "Personal"
+  },
+  {
+    "sender": "kate.family@gmail.com",
+    "subject": "Cousin Jake's Graduation",
+    "body": "Hi John,\n\nI wanted to remind you that Jake’s graduation ceremony is on June 28. It'll be great if you could join us for the celebration!\n\nLove,\nAunt Kate",
+    "timestamp": "2024-06-22T14:10:00",
+    "category": "Family"
+  },
+  {
+    "sender": "sales@newbookstore.com",
+    "subject": "Summer Book Sale!",
+    "body": "Hello John,\n\nDive into new adventures with our summer book sale! Discover titles across all genres at discounted prices.\n\nHappy Reading,\nThe New Bookstore Team",
+    "timestamp": "2024-06-23T17:00:00",
+    "category": "Purchases"
+  },
+  {
+    "sender": "tom@codingenthusiasts.com",
+    "subject": "Coding Workshop This Weekend",
+    "body": "Hi John,\n\nWe have a coding workshop on Sunday that focuses on advanced Python techniques. It’d be great to see you there!\n\nBest,\nTom\nCoding Enthusiasts Team",
+    "timestamp": "2024-06-24T09:50:00",
+    "category": "Subscriptions"
+  },
+  {
+    "sender": "sandra@techcorp.com",
+    "subject": "Annual Company Picnic",
+    "body": "Hello Team,\n\nWe're excited to invite you all to the annual company picnic on July 10. Families are welcome, and we’ll have plenty of fun activities.\n\nPlease RSVP by June 30.\n\nBest,\nSandra\nTechCorp HR",
+    "timestamp": "2024-06-25T11:20:00",
+    "category": "Work Emails"
+  },
+  {
+    "sender": "anne@focusfinance.com",
+    "subject": "Investment Summary - Q2 2024",
+    "body": "Dear John Doe,\n\nAttached is your investment summary for Q2 2024. If you have any questions or need further details, feel free to reach out.\n\nRegards,\nAnne\nFocus Finance Inc.",
+    "timestamp": "2024-06-26T07:45:00",
+    "category": "Finance"
+  },
+  {
+    "sender": "events@concertnight.com",
+    "subject": "Concert Tickets Just Released",
+    "body": "Hey John,\n\nWe just released tickets for the Summer Music Festival. Grab yours before they’re gone!\n\nEnjoy the music,\nConcert Night Team",
+    "timestamp": "2024-06-27T13:30:00",
+    "category": "Purchases"
+  },
+  {
+    "sender": "linkedin-updates@linkedin.com",
+    "subject": "New Endorsements and Skill Recommendations",
+    "body": "Hi John,\n\nYou’ve received new endorsements for your skills. Log in now to see them and update your professional profile.\n\nBest,\nLinkedIn Team",
+    "timestamp": "2024-06-28T15:05:00",
+    "category": "Social Media"
+  },
+  {
+    "sender": "paul@cafe-leisure.com",
+    "subject": "Coffee Beans on Discount!",
+    "body": "Dear John,\n\nOur premium coffee beans are now on discount for this week only. Perfect time to stock up for your home or office.\n\nHappy Brewing,\nPaul from Café Leisure",
+    "timestamp": "2024-06-29T08:30:00",
+    "category": "Purchases"
+  },
+  {
+    "sender": "greg@yourroommate.com",
+    "subject": "Rent Reminder for July",
+    "body": "Hey John,\n\nJust a quick reminder that rent is due on July 1st. Please let me know if you have already transferred the amount.\n\nThanks!\nGreg",
+    "timestamp": "2024-06-30T18:10:00",
+    "category": "Personal"
+  },
+  {
+    "sender": "john.doe@techcorp.com",
+    "subject": "Re: Coffee Chat?",
+    "body": "Hi Peter,\n\nThanks for the invite. How about Thursday morning at Brewed Awakenings? 10 AM works for me if you’re available.\n\nSee you then,\nJohn",
+    "timestamp": "2024-06-17T10:00:00",
+    "category": "Work Emails"
+  },
+  {
+    "sender": "notifications@netflix.com",
+    "subject": "More to Watch for You!",
+    "body": "Hi John,\n\nWe've updated your recommendations with more titles you might love based on your viewing history.\n\nEnjoy binge-watching!\nNetflix",
+    "timestamp": "2024-07-01T07:30:00",
+    "category": "Subscriptions"
+  },
+  {
+    "sender": "brooke@holidayexplorers.com",
+    "subject": "Explore July’s Exotic Destinations",
+    "body": "Hello John,\n\nLooking for an adventure this July? Check out our top picks for exotic travel destinations and start packing!\n\nSafe Travels,\nBrooke\nHoliday Explorers",
+    "timestamp": "2024-07-02T09:45:00",
+    "category": "Subscriptions"
+  },
+  {
+    "sender": "notifications@amazon.com",
+    "subject": "Delivery Confirmation",
+    "body": "Hello John,\n\nYour recent purchase from Amazon has been delivered. We hope you enjoy your new gadgets!\n\nThank you,\nAmazon Delivery",
+    "timestamp": "2024-07-03T14:00:00",
+    "category": "Purchases"
+  },
+  {
+    "sender": "carol.finance@investzone.com",
+    "subject": "Stock Market Trends Report - July",
+    "body": "Hi John,\n\nHere’s your monthly stock market trends report for July. Discover new opportunities and make informed decisions.\n\nBest regards,\nCarol\nInvestZone",
+    "timestamp": "2024-07-04T13:00:00",
+    "category": "Finance"
+  },
+  {
+    "sender": "team@bookmeetup.com",
+    "subject": "Join Our July Book Club Meetup",
+    "body": "Hey John,\n\nJoin us for our next book club meeting on July 15, where we'll discuss 'The Future of Technology'. RSVP to secure your spot.\n\nBest,\nBook Meetup Team",
+    "timestamp": "2024-07-05T15:45:00",
+    "category": "Subscriptions"
+  },
+  {
+    "sender": "email-billing@techcorp.com",
+    "subject": "Your TechCorp Software Invoice",
+    "body": "Dear John,\n\nAttached is your invoice for TechCorp software services for July 2024. Please ensure payment by the due date.\n\nThank you,\nTechCorp Finance",
+    "timestamp": "2024-07-06T09:20:00",
+    "category": "Work Emails"
+  },
+  {
+    "sender": "jim@friends.com",
+    "subject": "Weekend Trip to the Lake",
+    "body": "Hey John,\n\nA few of us are planning a weekend trip to the lake. It’ll be fun if you can join us! Let me know.\n\nCheers,\nJim",
+    "timestamp": "2024-07-07T16:00:00",
+    "category": "Friends"
+  },
+  {
+    "sender": "alert@healthtracker.com",
+    "subject": "Monthly Health Summary",
+    "body": "Dear John,\n\nHere’s your health activity summary for June. Keep hitting your fitness goals!\n\nRegards,\nHealthTracker Team",
+    "timestamp": "2024-07-08T08:10:00",
+    "category": "Personal"
+  },
+  {
+    "sender": "team@techsummit.com",
+    "subject": "Early Bird Registration for Tech Summit 2024",
+    "body": "Hello John,\n\nThe Tech Summit 2024 is happening soon! Register now to save with early bird discounts.\n\nLooking forward to seeing you,\nTech Summit Team",
+    "timestamp": "2024-07-09T14:25:00",
+    "category": "Subscriptions"
+  },
+  {
+    "sender": "tony@fpfinancial.com",
+    "subject": "Review Your Financial Goals",
+    "body": "Hi John,\n\nLet’s schedule a time to review your financial goals and plan for the upcoming quarter.\n\nBest,\nTony\nFP Financial Advisors",
+    "timestamp": "2024-07-10T09:50:00",
+    "category": "Finance"
+  },
+  {
+    "sender": "samanta.parker@techcorp.com",
+    "subject": "Holiday Schedule Announcement",
+    "body": "Dear Staff,\n\nPlease be informed of the upcoming holiday schedule and plan accordingly for project deadlines.\n\nRegards,\nSamanta\nTechCorp Administration",
+    "timestamp": "2024-07-11T11:15:00",
+    "category": "Work Emails"
+  },
+  {
+    "sender": "support@travelassist.com",
+    "subject": "Your Travel Insurance Policy",
+    "body": "Dear John,\n\nAttached is your travel insurance policy for your upcoming trip. Keep it handy and travel safe.\n\nSincerely,\nTravel Assist Team",
+    "timestamp": "2024-07-12T08:30:00",
+    "category": "Personal"
+  },
+  {
+    "sender": "chris@sportsenthusiast.com",
+    "subject": "Join the Summer Tennis League!",
+    "body": "Hello John,\n\nThe Summer Tennis League starts soon! Sign up now to participate and enjoy some exciting matches.\n\nBest,\nChris\nSports Enthusiast Club",
+    "timestamp": "2024-07-13T10:05:00",
+    "category": "Subscriptions"
+  },
+  {
+    "sender": "aunt.clara@gmail.com",
+    "subject": "July 4th BBQ Photos",
+    "body": "Hi John,\n\nI just uploaded some photos from our July 4th BBQ. Check them out and let me know if you want copies.\n\nLove,\nAunt Clara",
+    "timestamp": "2024-07-14T15:30:00",
+    "category": "Family"
+  },
+  {
+    "sender": "billing@waterer.services",
+    "subject": "Water Service Bill - July",
+    "body": "Dear John Doe,\n\nYour water service bill for July is now available. Please review it and complete payment by the due date.\n\nThank you,\nWaterer Services",
+    "timestamp": "2024-07-15T09:10:00",
+    "category": "Personal"
+  },
+  {
+    "sender": "olivia@bookreviews.co",
+    "subject": "Exclusive List of Must-Reads This Month",
+    "body": "Hi John,\n\nHere's a handpicked list of must-reads for July, tailored just for you based on your past reads.\n\nHappy Reading,\nOlivia\nBook Reviews Co.",
+    "timestamp": "2024-07-16T13:55:00",
+    "category": "Subscriptions"
+  },
+  {
+    "sender": "rick.nelson@smarttravels.com",
+    "subject": "Explore Last-Minute Travel Deals",
+    "body": "Hey John,\n\nPlanning a spontaneous getaway? Check out our last-minute deals for this summer.\n\nSafe Travels,\nRick\nSmart Travels",
+    "timestamp": "2024-07-17T12:40:00",
+    "category": "Subscriptions"
+  },
+  {
+    "sender": "laura.teamlead@techcorp.com",
+    "subject": "Team Outing Plan",
+    "body": "Hi Team,\n\nLet’s plan a team outing for next month. Suggestions on activities and locations are welcome. Please share your ideas!\n\nThanks,\nLaura",
+    "timestamp": "2024-07-18T11:00:00",
+    "category": "Work Emails"
+  },
+  {
+    "sender": "john.doe@techcorp.com",
+    "subject": "Re: Annual Company Picnic",
+    "body": "Hi Sandra,\n\nCount me in for the company picnic. Looking forward to it!\n\nBest,\nJohn",
+    "timestamp": "2024-07-19T10:45:00",
+    "category": "Work Emails"
+  },
+  {
+    "sender": "sales@your-movies.com",
+    "subject": "Movies and Snacks Combo Deals",
+    "body": "Hello John,\n\nGrab exciting combo deals on movies and snacks this month. Perfect for a cozy night in!\n\nBest,\nYour Movies Team",
+    "timestamp": "2024-07-20T14:35:00",
+    "category": "Purchases"
+  },
+  {
+    "sender": "grandma.doe@yahoo.com",
+    "subject": "Garden Photos",
+    "body": "Hi John,\n\nI wanted to share some photos of the garden in full bloom. Hope you enjoy them. Let me know your thoughts!\n\nLove,\nGrandma",
+    "timestamp": "2024-07-21T16:10:00",
+    "category": "Family"
+  },
+  {
+    "sender": "mark@eventlaunch.com",
+    "subject": "Tech Highlights Event - Get Your Tickets!",
+    "body": "Hi John,\n\nTech Highlights 2024 is approaching. Secure your spot today for early access to the latest technology showcases.\n\nSee you there,\nMark\nEvent Launch Team",
+    "timestamp": "2024-07-22T12:00:00",
+    "category": "Subscriptions"
+  },
+  {
+    "sender": "notifications@instagram.com",
+    "subject": "john_doe, See Your Latest Activity",
+    "body": "Hey John,\n\nHere’s your latest activity on Instagram. Discover new posts and stories from your friends.\n\nBest,\nInstagram",
+    "timestamp": "2024-07-23T09:25:00",
+    "category": "Social Media"
+  },
+  {
+    "sender": "billing@energyplus.com",
+    "subject": "July Gas Bill Ready",
+    "body": "Dear John Doe,\n\nYour July gas bill is ready for review. Log in to your account to view details and make a payment.\n\nThank you,\nEnergyPlus",
+    "timestamp": "2024-07-24T08:20:00",
+    "category": "Personal"
+  },
+  {
+    "sender": "susan@examplecorp.com",
+    "subject": "Join Our Webinar on Cloud Computing!",
+    "body": "Dear John,\n\nWe invite you to join our webinar on the future of cloud computing this Thursday at 11 AM. Register now!\n\nBest,\nSusan\nExampleCorp",
+    "timestamp": "2024-07-25T13:15:00",
+    "category": "Subscriptions"
+  },
+  {
+    "sender": "matt@bro-zone.com",
+    "subject": "Summer Adventure Gear Sale!",
+    "body": "Hi John,\n\nGet ready for summer adventures with up to 50% off on all outdoor gear. Sale ends soon!\n\nCheers,\nMatt\nBro-Zone",
+    "timestamp": "2024-07-26T14:00:00",
+    "category": "Purchases"
+  },
+  {
+    "sender": "sam.friends@gmail.com",
+    "subject": "Birthday BBQ Invite",
+    "body": "Hey man,\n\nHosting a BBQ for my birthday next Saturday, would love for you to come! Let me know if you can make it.\n\nCheers,\nSam",
+    "timestamp": "2024-07-27T15:45:00",
+    "category": "Friends"
+  },
+  {
+    "sender": "subscription@newsweek.com",
+    "subject": "Your Monthly Digest from NewsWeek",
+    "body": "Hi John,\n\nHere's your monthly digest from Newsweek, highlighting top stories and features just for you.\n\nHappy Reading,\nNewsWeek Team",
+    "timestamp": "2024-07-28T10:15:00",
+    "category": "Subscriptions"
+  },
+  {
+    "sender": "nina@travelgear.com",
+    "subject": "Discounts on Luggage - Limited Time Offer",
+    "body": "Hello John,\n\nPlanning a trip? Don’t miss out on our special offers on durable luggage sets. Limited stock available!\n\nSafe Travels,\nNina\nTravel Gear",
+    "timestamp": "2024-07-29T11:40:00",
+    "category": "Purchases"
+  },
+  {
+    "sender": "jack@techworldupdates.com",
+    "subject": "Latest Updates in AI Technology",
+    "body": "Hi John,\n\nThis month’s issue covers the latest breakthroughs and discussions in AI technology. Don’t miss out!\n\nBest,\nJack\nTech World Updates",
+    "timestamp": "2024-07-30T10:05:00",
+    "category": "Subscriptions"
+  },
+  {
+    "sender": "emily@financialplanner.com",
+    "subject": "Plan for Tax Season Ahead",
+    "body": "Hello John,\n\nA friendly reminder to start gathering your financial documents as tax season approaches.\n\nRegards,\nEmily\nYour Financial Planner",
+    "timestamp": "2024-07-31T09:00:00",
+    "category": "Finance"
+  },
+  {
+    "sender": "event@weeklyrunners.com",
+    "subject": "Join Our Weekly Running Club",
+    "body": "Hi John,\n\nOur running club meets every Wednesday evening. It’d be great to have you join us for some exercise and socializing.\n\nSee you there,\nWeekly Runners Team",
+    "timestamp": "2024-08-01T11:30:00",
+    "category": "Subscriptions"
+  },
+  {
+    "sender": "sara@communityfitness.com",
+    "subject": "New Classes at Community Fitness",
+    "body": "Hello John,\n\nCheck out the new classes we’ve added this August at Community Fitness, including Yoga and HIIT sessions.\n\nStay Fit,\nSara\nCommunity Fitness Team",
+    "timestamp": "2024-08-02T08:45:00",
+    "category": "Subscriptions"
+  },
+  {
+    "sender": "jessica@techretreat.com",
+    "subject": "Join the 2024 Summer Tech Retreat",
+    "body": "Hi John,\n\nEscape to our Summer Tech Retreat this August. Register soon as spots are limited.\n\nSee you at the retreat,\nJessica\nTech Retreat",
+    "timestamp": "2024-08-03T09:15:00",
+    "category": "Subscriptions"
+  },
+  {
+    "sender": "john.doe@techcorp.com",
+    "subject": "Re: Team Outing Plan",
+    "body": "Hi Laura,\n\nHow about a hike followed by a picnic? Seems like a great way to relax and unwind.\n\nBest,\nJohn",
+    "timestamp": "2024-08-04T18:20:00",
+    "category": "Work Emails"
+  },
+  {
+    "sender": "betty@autumnreads.com",
+    "subject": "Books to Cozy Up With This Fall",
+    "body": "Dear John,\n\nCheck out our selection of books to keep you company this fall. Perfect for chilly, leisurely reads.\n\nHappy Reading,\nBetty\nAutumn Reads",
+    "timestamp": "2024-08-05T10:25:00",
+    "category": "Subscriptions"
+  },
+  {
+    "sender": "john.doe@techcorp.com",
+    "subject": "Re: Your TechCorp Software Invoice",
+    "body": "Hi,\n\nI'm verifying the details on the invoice as it seems there might be a discrepancy. Can you confirm?\n\nThanks,\nJohn Doe",
+    "timestamp": "2024-08-06T09:50:00",
+    "category": "Work Emails"
+  },
+  {
+    "sender": "naomi.family@gmail.com",
+    "subject": "Summer Family Picnic Photos",
+    "body": "Hi John,\n\nHere are some lovely photos from our family picnic last weekend. Let me know which ones you want printed.\n\nLove,\nNaomi",
+    "timestamp": "2024-08-07T15:30:00",
+    "category": "Family"
+  },
+  {
+    "sender": "adam.localsports@gmail.com",
+    "subject": "Try Out for Local Soccer League",
+    "body": "Hi John,\n\nWe’re recruiting for our local soccer league. Trials are on August 16. Interested? Let us know!\n\nCheers,\nAdam",
+    "timestamp": "2024-08-08T16:25:00",
+    "category": "Subscriptions"
+  },
+  {
+    "sender": "lana@weeklyart.com",
+    "subject": "August Art Workshops in Your Area",
+    "body": "Hello John,\n\nExplore your creative side with our art workshops this August. Suitable for all skill levels!\n\nBest,\nLana\nWeekly Art",
+    "timestamp": "2024-08-09T11:55:00",
+    "category": "Subscriptions"
+  },
+  {
+    "sender": "reminder@carcareplus.com",
+    "subject": "Time for Your Car Maintenance",
+    "body": "Dear John Doe,\n\nIt’s time for your routine car maintenance. Schedule an appointment at your convenience.\n\nThank you,\nCar Care Plus",
+    "timestamp": "2024-08-10T09:45:00",
+    "category": "Personal"
+  },
+  {
+    "sender": "emma@fashion-choices.com",
+    "subject": "New Fall Collections Just In!",
+    "body": "Hi John,\n\nCheck out our new arrivals for the fall season. Refresh your wardrobe with our latest collections.\n\nWarm regards,\nEmma\nFashion Choices",
+    "timestamp": "2024-08-11T13:20:00",
+    "category": "Purchases"
+  },
+  {
+    "sender": "harry.work@gmail.com",
+    "subject": "Soccer This Saturday?",
+    "body": "Hey John,\n\nWant to join us for a soccer game this Saturday morning? Let me know if you're in!\n\nCheers,\nHarry",
+    "timestamp": "2024-08-12T17:00:00",
+    "category": "Friends"
+  },
+  {
+    "sender": "ayesha@techworldexpo.com",
+    "subject": "Don’t Miss the Tech World Expo",
+    "body": "Hello John,\n\nJoin us at the Tech World Expo for an immersive experience into the future of technology. Book your tickets today!\n\nSee you at the expo,\nAyesha\nTech World Expo Team",
+    "timestamp": "2024-08-13T11:15:00",
+    "category": "Subscriptions"
+  },
+  {
+    "sender": "facebook-team@facebook.com",
+    "subject": "John, Catch Up on New Posts from Friends",
+    "body": "Hi John,\n\nYour friends have shared new updates and posts. Log into Facebook to see what’s happening.\n\nBest,\nFacebook Team",
+    "timestamp": "2024-08-14T10:50:00",
+    "category": "Social Media"
+  },
+  {
+    "sender": "notifications@ebay.com",
+    "subject": "Winning Bid Confirmation",
+    "body": "Congrats John!\n\nYou’ve won the bid on the tech gadget you’ve been eyeing. Finalize your purchase now.\n\nThank you,\nEbay Team",
+    "timestamp": "2024-08-15T14:45:00",
+    "category": "Purchases"
+  },
+  {
+    "sender": "neil@financialupdates.com",
+    "subject": "Quarterly Financial Insights",
+    "body": "Hi John,\n\nYour quarterly financial insights are ready. Review strategies and find best practices to optimize your assets.\n\nRegards,\nNeil\nFinancial Updates",
+    "timestamp": "2024-08-16T09:35:00",
+    "category": "Finance"
+  },
+  {
+    "sender": "lucas.friends@gmail.com",
+    "subject": "Camping Trip Planning",
+    "body": "Hey John,\n\nLet's finalize details for our camping trip. What dates work best for you in September?\n\nCheers,\nLucas",
+    "timestamp": "2024-08-17T18:50:00",
+    "category": "Friends"
+  },
+  {
+    "sender": "schemas@schemaworld.com",
+    "subject": "Integrating Schema Markup Techniques",
+    "body": "Hi John,\n\nThis month’s newsletter covers advanced Schema markup techniques to boost your SEO practices.\n\nBest,\nSchemaWorld",
+    "timestamp": "2024-08-18T08:15:00",
+    "category": "Subscriptions"
+  },
+  {
+    "sender": "johnny.tunes7@spotify.com",
+    "subject": "Your Personalized Playlist",
+    "body": "Hi John,\n\nYour new personalized playlist is ready. Enjoy the fresh tunes tailored just for you.\n\nHappy Listening,\nSpotify",
+    "timestamp": "2024-08-19T10:30:00",
+    "category": "Subscriptions"
+  },
+  {
+    "sender": "janet@communitylibrary.com",
+    "subject": "August Book Club Meeting",
+    "body": "Hello John,\n\nJoin us for this month's book club meeting. We’re reading 'Digital World' by Sara Brown.\n\nHappy Reading,\nJanet\nCommunity Library",
+    "timestamp": "2024-08-20T12:50:00",
+    "category": "Subscriptions"
+  },
+  {
+    "sender": "richard@techcorp.com",
+    "subject": "Upcoming Product Launch Meeting",
+    "body": "Hi Team,\n\nWe have a meeting scheduled for August 25 to discuss the upcoming product launch. Please prepare your presentations.\n\nThanks,\nRichard\nTechCorp",
+    "timestamp": "2024-08-21T10:20:00",
+    "category": "Work Emails"
+  },
+  {
+    "sender": "twitter-notification@twitter.com",
+    "subject": "See Your Recent Mentions and Retweets",
+    "body": "Hey John,\n\nCheck out your latest Twitter mentions and retweets. Interact and engage with your followers.\n\nBest,\nTwitter",
+    "timestamp": "2024-08-22T15:15:00",
+    "category": "Social Media"
+  },
+  {
+    "sender": "sophie@petgroomers.com",
+    "subject": "Grooming Session for Charlie",
+    "body": "Hi John,\n\nCharlie is due for his grooming session. Please book a convenient slot this month.\n\nThank you,\nSophie\nPet Groomers",
+    "timestamp": "2024-08-23T11:25:00",
+    "category": "Personal"
+  },
+  {
+    "sender": "team@futuristiconference.com",
+    "subject": "Early Registration Open for the Futuristi Conference",
+    "body": "Hello John,\n\nSecure your spot at the Futuristi Conference today with early registration discounts.\n\nSee you there,\nFuturisti Team",
+    "timestamp": "2024-08-24T08:55:00",
+    "category": "Subscriptions"
+  },
+  {
+    "sender": "jess.family@gmail.com",
+    "subject": "Thanksgiving Get-Together",
+    "body": "Hey John,\n\nThinking about hosting Thanksgiving this year. Let’s start planning! Are you available to help organize?\n\nLove,\nJess",
+    "timestamp": "2024-08-25T14:10:00",
+    "category": "Family"
+  },
+  {
+    "sender": "jason@socialevents.com",
+    "subject": "RSVP for the Tech Networking Night",
+    "body": "Hi John,\n\nJoin us for a night of tech networking on August 30. RSVP now to confirm your attendance.\n\nSee you there,\nJason\nSocialEvents",
+    "timestamp": "2024-08-26T11:00:00",
+    "category": "Subscriptions"
+  },
+  {
+    "sender": "laura.activities@weekends.com",
+    "subject": "Weekend Activities in Your Area",
+    "body": "Hello John,\n\nExplore exciting weekend activities happening around you. Don’t miss out on the fun!\n\nCheers,\nLaura\nWeekends.com",
+    "timestamp": "2024-08-27T08:30:00",
+    "category": "Subscriptions"
+  },
+  {
+    "sender": "notifications@deliveryservice.com",
+    "subject": "Scheduled Package Delivery",
+    "body": "Dear John,\n\nYour package is scheduled to be delivered tomorrow. Please ensure someone is available to receive it.\n\nThank you,\nDelivery Service",
+    "timestamp": "2024-08-28T12:15:00",
+    "category": "Purchases"
+  },
+  {
+    "sender": "mark.webdev@techcorp.com",
+    "subject": "Front-End Development Team Meeting",
+    "body": "Hello Team,\n\nA meeting is scheduled for August 31 to discuss front-end development strategies. Your input is valuable.\n\nBest,\nMark",
+    "timestamp": "2024-08-29T09:10:00",
+    "category": "Work Emails"
+  },
+  {
+    "sender": "support@domainplanner.com",
+    "subject": "Renew Your Domain Name",
+    "body": "Hi John,\n\nYour domain name is due for renewal on September 5. Renew now to prevent any service disruptions.\n\nThank you,\nDomain Planner",
+    "timestamp": "2024-08-30T10:40:00",
+    "category": "Personal"
+  },
+  {
+    "sender": "newsletter@traveltoday.com",
+    "subject": "Top Destinations for the Fall",
+    "body": "Hello John,\n\nFind the top travel destinations for this fall and start planning your perfect getaway.\n\nSafe Travels,\nTravel Today",
+    "timestamp": "2024-08-31T11:45:00",
+    "category": "Subscriptions"
+  },
+  {
+    "sender": "amy@familymatters.com",
+    "subject": "Special Anniversary Celebration",
+    "body": "Hi John,\n\nWe’re planning to celebrate grandma and grandpa's anniversary next month. Let’s make it special. Can you help with the arrangements?\n\nLove,\nAmy",
+    "timestamp": "2024-09-01T14:30:00",
+    "category": "Family"
+  },
+  {
+    "sender": "contact@securenet.com",
+    "subject": "Monthly Security Update",
+    "body": "Dear John,\n\nStay informed with the latest security updates to protect your personal and professional data.\n\nSincerely,\nSecureNet Team",
+    "timestamp": "2024-09-02T09:05:00",
+    "category": "Subscriptions"
+  },
+  {
+    "sender": "helen@bookstoreevents.com",
+    "subject": "Book Launch Event in Your City",
+    "body": "Hello John,\n\nJoin us for an exclusive book launch event featuring renowned author Tom Hamilton. RSVP for details.\n\nSee you there,\nHelen\nBookstore Events",
+    "timestamp": "2024-09-03T10:15:00",
+    "category": "Subscriptions"
+  },
+  {
+    "sender": "samantha.broker@realestatez.com",
+    "subject": "Market Update: Real Estate Trends",
+    "body": "Hi John,\n\nThe latest trends in the real estate market are in. See how they might affect your investments.\n\nBest,\nSamantha\nRealEstateZ",
+    "timestamp": "2024-09-04T11:00:00",
+    "category": "Finance"
+  },
+  {
+    "sender": "jane@booknook.com",
+    "subject": "Autumn Reads Arriving Soon",
+    "body": "Hi John,\n\nGet ready for cozy reading with new arrivals at Book Nook this autumn.\n\nWarm regards,\nJane\nBook Nook",
+    "timestamp": "2024-09-05T09:45:00",
+    "category": "Subscriptions"
+  },
+  {
+    "sender": "team@techseries.com",
+    "subject": "Tech Series Webinar: Register Now",
+    "body": "Hi John,\n\nOur next Tech Series webinar is on Cyber Security Trends. Join us to gain insights and knowledge.\n\nBest,\nTech Series Team",
+    "timestamp": "2024-09-06T11:30:00",
+    "category": "Subscriptions"
+  },
+  {
+    "sender": "emily@designhub.com",
+    "subject": "Feedback on Latest UI Designs",
+    "body": "Hi John,\n\nCould you review and provide feedback on the latest UI designs? Your insights are appreciated.\n\nThanks,\nEmily\nDesignHub",
+    "timestamp": "2024-09-07T10:00:00",
+    "category": "Work Emails"
+  },
+  {
+    "sender": "alarms@smartsecurity.com",
+    "subject": "Routine Security Check Scheduled",
+    "body": "Dear John,\n\nA routine security check is scheduled for your premises on September 12. Contact us for further details.\n\nThanks,\nSmart Security",
+    "timestamp": "2024-09-08T09:15:00",
+    "category": "Personal"
+  },
+  {
+    "sender": "mike@fitnesscentre.com",
+    "subject": "Join Our September Fitness Challenge",
+    "body": "Hi John,\n\nOur September fitness challenge is open! Join and get motivated to achieve your health goals.\n\nCheers,\nMike\nFitness Centre",
+    "timestamp": "2024-09-09T13:20:00",
+    "category": "Subscriptions"
+  },
+  {
+    "sender": "oliver@digitalevents.com",
+    "subject": "Digital Marketing Event Pass",
+    "body": "Hello John,\n\nClaim your pass for the Digital Marketing Event this October. Learn from industry leaders and network with peers.\n\nSee you there,\nOliver\nDigital Events",
+    "timestamp": "2024-09-10T11:40:00",
+    "category": "Subscriptions"
+  }
+]
