@@ -1,7 +1,7 @@
 # NTSA | Frequently Asked Questions | NTSA Kenya
 
 **URL:** https://ntsa.go.ke/faqs
-**Scraped:** 2025-10-24T05:34:41.706480
+**Scraped:** 2025-10-24T07:24:28.754233
 **Content Length:** 819 characters
 
 ---

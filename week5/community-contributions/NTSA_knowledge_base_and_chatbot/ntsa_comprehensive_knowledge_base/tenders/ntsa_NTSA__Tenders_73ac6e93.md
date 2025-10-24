@@ -1,7 +1,7 @@
 # NTSA | Tenders
 
 **URL:** https://ntsa.go.ke/tenders
-**Scraped:** 2025-10-24T05:34:09.765585
+**Scraped:** 2025-10-24T07:23:53.707639
 **Content Length:** 354 characters
 
 ---

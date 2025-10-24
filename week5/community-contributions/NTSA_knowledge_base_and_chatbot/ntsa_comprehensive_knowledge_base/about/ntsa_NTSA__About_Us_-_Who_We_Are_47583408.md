@@ -1,7 +1,7 @@
 # NTSA | About Us - Who We Are
 
 **URL:** https://ntsa.go.ke/about/who-we-are
-**Scraped:** 2025-10-24T05:34:27.946216
+**Scraped:** 2025-10-24T07:24:13.128350
 **Content Length:** 2204 characters
 
 ---

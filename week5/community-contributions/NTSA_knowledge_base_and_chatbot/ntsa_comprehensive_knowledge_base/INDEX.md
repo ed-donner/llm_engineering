@@ -1,6 +1,6 @@
 # NTSA Knowledge Base Index
 
-**Generated:** 2025-10-24 05:34:52
+**Generated:** 2025-10-24 07:24:42
 **Total Pages:** 15
 
 ## Services
@@ -42,7 +42,7 @@
 
 ## About
 
-- [NTSA | NTSA | About Us](ntsa_comprehensive_knowledge_base\about\ntsa_NTSA__NTSA__About_Us_05bb6415.md)
+- [NTSA | About Us](ntsa_comprehensive_knowledge_base\about\ntsa_NTSA__About_Us_05bb6415.md)
   - URL: https://ntsa.go.ke/about
   - Content: 1422 chars
   - Depth: 0

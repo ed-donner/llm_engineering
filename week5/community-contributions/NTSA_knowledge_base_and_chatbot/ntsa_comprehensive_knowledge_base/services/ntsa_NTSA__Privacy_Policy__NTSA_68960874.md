@@ -1,7 +1,7 @@
 # NTSA | Privacy Policy | NTSA
 
 **URL:** https://ntsa.go.ke/privacy-policy
-**Scraped:** 2025-10-24T05:34:46.121750
+**Scraped:** 2025-10-24T07:24:33.755242
 **Content Length:** 1130 characters
 
 ---
