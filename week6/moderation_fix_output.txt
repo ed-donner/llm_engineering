@@ -1,0 +1,79 @@
+================================================================================
+COMPREHENSIVE MODERATION FIX FOR FINE-TUNING
+================================================================================
+
+Loading training data...
+Original training set: 200 items
+Original validation set: 50 items
+
+================================================================================
+Filtering TRAINING SET: 200 items
+================================================================================
+  ❌ Filtered item 12: Unknown... (sensitive_keywords)
+  Processed 20/200...
+  Processed 40/200...
+  ❌ Filtered item 49: Unknown... (sensitive_keywords)
+  ❌ Filtered item 51: Unknown... (sensitive_keywords)
+  Processed 60/200...
+  Processed 80/200...
+  ❌ Filtered item 92: Unknown... (sensitive_keywords)
+  Processed 100/200...
+  ❌ Filtered item 108: Unknown... (sensitive_keywords)
+  ❌ Filtered item 112: Unknown... (sensitive_keywords)
+  Processed 120/200...
+  ❌ Filtered item 129: Unknown... (sensitive_keywords)
+  ❌ Filtered item 138: Unknown... (sensitive_keywords)
+  Processed 140/200...
+  Processed 160/200...
+  Processed 180/200...
+  ❌ Filtered item 186: Unknown... (sensitive_keywords)
+  ❌ Filtered item 196: Unknown... (sensitive_keywords)
+  Processed 200/200...
+
+================================================================================
+RESULTS for TRAINING SET
+================================================================================
+✅ Safe items: 190
+❌ Filtered items: 10
+
+Filter reasons:
+  - sensitive_keywords: 10
+
+================================================================================
+Filtering VALIDATION SET: 50 items
+================================================================================
+  Processed 20/50...
+  Processed 40/50...
+  ❌ Filtered item 45: Unknown... (sensitive_keywords)
+  ❌ Filtered item 47: Unknown... (sensitive_keywords)
+
+================================================================================
+RESULTS for VALIDATION SET
+================================================================================
+✅ Safe items: 48
+❌ Filtered items: 2
+
+Filter reasons:
+  - sensitive_keywords: 2
+
+================================================================================
+FINAL DATA CHECK
+================================================================================
+
+Writing clean JSONL files...
+
+✅ Wrote 190 examples to fine_tune_train.jsonl
+
+✅ Wrote 48 examples to fine_tune_validation.jsonl
+
+================================================================================
+✅ DONE! Your data is now ready for fine-tuning.
+================================================================================
+
+Training examples: 190
+Validation examples: 48
+
+Next steps:
+1. Upload the new JSONL files to OpenAI
+2. Create a new fine-tuning job
+3. The job should now pass moderation checks
