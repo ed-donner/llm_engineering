@@ -1,0 +1,103 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+  --bg-elev: #ffffff;
+  --text-primary: #111827;
+  --text-secondary: #4b5563;
+  --border-color: #e5e7eb;
+}
+
+/* Explicit theme classes applied to <html> by the app */
+.theme-light {
+  --background: #ffffff;
+  --foreground: #111827;
+  --bg-elev: #ffffff;
+  --text-primary: #111827; /* gray-900 */
+  --text-secondary: #4b5563; /* gray-600 */
+  --border-color: #e5e7eb; /* gray-200 */
+}
+
+.theme-dark {
+  --background: #0b1020;
+  --foreground: #e5e7eb;
+  --bg-elev: #121a2b;
+  --text-primary: #f3f4f6; /* gray-100 */
+  --text-secondary: #9ca3af; /* gray-400 */
+  --border-color: #1f2937; /* gray-800 */
+}
+
+/* Removed unsupported @theme at-rule; using CSS variables directly */
+
+/* Keep system preference as a fallback if no theme class set */
+@media (prefers-color-scheme: dark) {
+  :root:not(.theme-light):not(.theme-dark) {
+    --background: #0b1020;
+    --foreground: #e5e7eb;
+    --bg-elev: #121a2b;
+    --text-primary: #f3f4f6;
+    --text-secondary: #9ca3af;
+    --border-color: #1f2937;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--text-primary);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Typography defaults follow theme */
+.prose,
+.prose p,
+.prose div {
+  color: var(--text-primary);
+}
+
+/* Chat content follows theme */
+.chat-message,
+.chat-content,
+.message-content {
+  color: var(--text-primary);
+}
+
+/* Override for user messages - white text on blue background */
+.bg-blue-600 p,
+.bg-blue-600 div,
+.bg-blue-600 .prose p,
+[class*="bg-blue-600"] p,
+[class*="bg-blue-600"] [class*="text-white"] {
+  color: #ffffff !important;
+}
+
+/* Specific override for user message text */
+[style*="color: white"] {
+  color: #ffffff !important;
+}
+
+/* Inputs and controls default text color to ensure readability */
+input, select, textarea {
+  color: var(--text-primary);
+}
+input::placeholder, textarea::placeholder {
+  color: var(--text-secondary);
+}
+
+/* Dark theme overrides for common Tailwind utility classes */
+.theme-dark .bg-white,
+.theme-dark .bg-gray-50 {
+  background-color: var(--bg-elev) !important;
+}
+.theme-dark .text-gray-900,
+.theme-dark .text-black {
+  color: var(--text-primary) !important;
+}
+.theme-dark .text-gray-700,
+.theme-dark .text-gray-600 {
+  color: var(--text-secondary) !important;
+}
+.theme-dark .border-gray-200,
+.theme-dark .border-gray-300 {
+  border-color: var(--border-color) !important;
+}
