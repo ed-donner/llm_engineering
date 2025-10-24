@@ -1,7 +1,7 @@
 # NTSA | NTSA Launches New Road Safety Campaign | NTSA Kenya
 
 **URL:** https://ntsa.go.ke/news/ntsa-launches-new-road-safety-campaign
-**Scraped:** 2025-10-24T05:34:18.816453
+**Scraped:** 2025-10-24T07:24:03.599976
 **Content Length:** 1113 characters
 
 ---

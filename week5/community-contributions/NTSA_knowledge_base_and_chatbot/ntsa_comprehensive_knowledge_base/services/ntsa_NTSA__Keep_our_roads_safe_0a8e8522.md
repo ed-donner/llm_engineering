@@ -1,7 +1,7 @@
 # NTSA | Keep our roads safe
 
 **URL:** https://ntsa.go.ke/
-**Scraped:** 2025-10-24T05:34:50.569331
+**Scraped:** 2025-10-24T07:24:38.822420
 **Content Length:** 6068 characters
 
 ---

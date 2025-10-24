@@ -1,7 +1,7 @@
 # Career Opportunities | NTSA
 
 **URL:** https://ntsa.go.ke/careers
-**Scraped:** 2025-10-24T05:34:32.578853
+**Scraped:** 2025-10-24T07:24:18.790660
 **Content Length:** 477 characters
 
 ---

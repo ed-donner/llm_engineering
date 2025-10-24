@@ -1,7 +1,7 @@
 # NTSA | NTSA Services
 
 **URL:** https://ntsa.go.ke/services
-**Scraped:** 2025-10-24T05:33:50.657769
+**Scraped:** 2025-10-24T07:23:38.582012
 **Content Length:** 1994 characters
 
 ---

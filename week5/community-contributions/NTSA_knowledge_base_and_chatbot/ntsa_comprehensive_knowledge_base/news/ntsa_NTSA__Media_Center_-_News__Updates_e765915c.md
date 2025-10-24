@@ -1,7 +1,7 @@
 # NTSA | Media Center - News & Updates
 
 **URL:** https://ntsa.go.ke/news
-**Scraped:** 2025-10-24T05:34:04.407247
+**Scraped:** 2025-10-24T07:23:48.561059
 **Content Length:** 2481 characters
 
 ---

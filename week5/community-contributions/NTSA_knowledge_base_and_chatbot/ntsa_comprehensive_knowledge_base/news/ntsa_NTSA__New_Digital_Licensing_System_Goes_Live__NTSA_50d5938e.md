@@ -1,7 +1,7 @@
 # NTSA | New Digital Licensing System Goes Live | NTSA Kenya
 
 **URL:** https://ntsa.go.ke/news/new-digital-licensing-system-goes-live
-**Scraped:** 2025-10-24T05:34:14.170148
+**Scraped:** 2025-10-24T07:23:58.993952
 **Content Length:** 1003 characters
 
 ---

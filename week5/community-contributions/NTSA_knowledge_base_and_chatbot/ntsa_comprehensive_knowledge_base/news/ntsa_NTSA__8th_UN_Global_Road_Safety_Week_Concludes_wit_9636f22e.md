@@ -1,7 +1,7 @@
 # NTSA | 8th UN Global Road Safety Week Concludes with Nationwide Activities | NTSA Kenya
 
 **URL:** https://ntsa.go.ke/news/8th-un-global-road-safety-week-concludes-with-nationwide-activities
-**Scraped:** 2025-10-24T05:34:23.386582
+**Scraped:** 2025-10-24T07:24:08.503078
 **Content Length:** 1494 characters
 
 ---

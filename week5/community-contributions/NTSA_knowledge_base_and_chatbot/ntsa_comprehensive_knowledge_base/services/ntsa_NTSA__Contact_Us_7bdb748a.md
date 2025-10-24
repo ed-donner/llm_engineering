@@ -1,7 +1,7 @@
 # NTSA | Contact Us
 
 **URL:** https://ntsa.go.ke/contact
-**Scraped:** 2025-10-24T05:33:58.531154
+**Scraped:** 2025-10-24T07:23:43.605483
 **Content Length:** 1587 characters
 
 ---

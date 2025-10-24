@@ -1,7 +1,7 @@
 # NTSA | Vehicles Services
 
 **URL:** https://ntsa.go.ke/services/vehicles-services
-**Scraped:** 2025-10-24T05:34:37.062846
+**Scraped:** 2025-10-24T07:24:23.702092
 **Content Length:** 814 characters
 
 ---

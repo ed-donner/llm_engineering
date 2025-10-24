@@ -3,7 +3,7 @@
     "base_url": "https://ntsa.go.ke",
     "total_pages_scraped": 15,
     "failed_pages": 0,
-    "scraping_timestamp": "2025-10-24T05:34:52.991790",
+    "scraping_timestamp": "2025-10-24T07:24:42.107607",
     "output_directory": "ntsa_comprehensive_knowledge_base"
   },
   "scraped_pages": [
@@ -17,8 +17,8 @@
     },
     {
       "url": "https://ntsa.go.ke/about",
-      "title": "NTSA | NTSA | About Us",
-      "file_path": "ntsa_comprehensive_knowledge_base\\about\\ntsa_NTSA__NTSA__About_Us_05bb6415.md",
+      "title": "NTSA | About Us",
+      "file_path": "ntsa_comprehensive_knowledge_base\\about\\ntsa_NTSA__About_Us_05bb6415.md",
       "category": "about",
       "content_length": 1422,
       "depth": 0
