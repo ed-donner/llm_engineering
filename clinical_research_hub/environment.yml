@@ -1,0 +1,22 @@
+name: clinical-research-brief
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.12
+  - pip
+  - feedparser=6.0.11
+  - jinja2=3.1.4
+  - python-dateutil=2.9.0
+  - requests=2.32.3
+  - bleach=6.1.0
+  - markupsafe=2.1.5
+  - pytest=8.3.3
+  - weasyprint=62.3
+  - cairo
+  - pango
+  - gdk-pixbuf
+  - libffi
+  - pip:
+    - openai>=1.93.0  # Still needed for OpenRouter API compatibility
+    - python-dotenv>=1.1.1
