@@ -1,0 +1,10 @@
+# Core dependencies
+gradio>=5.49.1
+openai>=2.6.0
+pandas>=2.3.3
+python-dotenv>=1.0.0
+
+# Evaluation dependencies
+numpy>=1.24.0
+matplotlib>=3.7.0
+seaborn>=0.13.0
