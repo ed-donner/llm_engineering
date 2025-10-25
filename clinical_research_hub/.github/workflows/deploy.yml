@@ -1,0 +1,122 @@
+name: 🔬 AI Clinical Research Intelligence Hub - Daily Automation
+
+# Token permissions for this workflow (needed to push to gh-pages)
+permissions:
+  contents: write
+
+on:
+  # Scheduled runs: Monday to Friday at 5:00 AM Central European Time (UTC+1/UTC+2)
+  # During CET (UTC+1): 4:00 AM UTC
+  # During CEST (UTC+2): 3:00 AM UTC
+  # Using 3:00 AM UTC to handle daylight saving time
+  schedule:
+    - cron: '0 3 * * 1-5'  # Monday to Friday at 3:00 AM UTC (5:00 AM CET)
+  
+  # Manual trigger option
+  workflow_dispatch:
+    inputs:
+      deploy_message:
+        description: 'Deployment message (optional)'
+        required: false
+        default: 'Manual deployment'
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    name: 🚀 Generate Daily Brief & Deploy to GitHub Pages
+    permissions:
+      contents: write
+
+    steps:
+      - name: 📥 Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: � Set Timezone and Run Info
+        run: |
+          echo "🕐 Current UTC time: $(date -u)"
+          echo "🌍 Setting timezone to Europe/Berlin (CET/CEST)"
+          sudo timedatectl set-timezone Europe/Berlin || echo "Timezone setting not available in container"
+          echo "🔄 Trigger type: ${{ github.event_name }}"
+          if [ "${{ github.event_name }}" = "schedule" ]; then
+            echo "⏰ This is an automated daily run"
+          else
+            echo "👤 This is a manual run"
+          fi
+
+      - name: �🐍 Setup Python 3.9
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+
+      - name: 📦 Install Dependencies
+        run: |
+          pip install --upgrade pip
+          pip install --no-cache-dir -r requirements.txt
+
+      - name: 🔍 Verify Environment Setup
+        run: |
+          python --version
+          pip list | grep -E "(requests|feedparser|jinja2|pydantic|beautifulsoup4)" || true
+
+      - name: 🔑 Ensure Google CSE env
+        run: |
+          if [ -n "${{ secrets.GOOGLE_CX }}" ]; then
+            echo "GOOGLE_CX=${{ secrets.GOOGLE_CX }}" >> $GITHUB_ENV
+            echo "Using GOOGLE_CX from secrets.GOOGLE_CX"
+          elif [ -n "${{ secrets.GOOGLE_CSE_ID }}" ]; then
+            echo "GOOGLE_CX=${{ secrets.GOOGLE_CSE_ID }}" >> $GITHUB_ENV
+            echo "Mapped GOOGLE_CSE_ID to GOOGLE_CX"
+          else
+            echo "No Google CSE secret provided; proceeding without Google Search."
+          fi
+
+      - name: 🤖 Run AI Clinical Research Pipeline
+        env:
+          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+          GOOGLE_API_KEY: ${{ secrets.GOOGLE_API_KEY }}
+          GOATCOUNTER_URL: ${{ secrets.GOATCOUNTER_URL }}
+        run: |
+          echo "🚀 Starting AI Clinical Research Intelligence Pipeline..."
+          python pipeline.py
+          echo "✅ Pipeline completed successfully!"
+
+      - name: 📊 Verify Generated Content
+        run: |
+          echo "📁 Checking generated files..."
+          ls -la site/
+          echo "📄 HTML file size:"
+          wc -l site/index.html
+          echo "📈 Brief data:"
+          ls -la briefs/
+
+      - name: 🌐 Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./site
+          force_orphan: true
+          commit_message: |
+            🔬 Daily AI Clinical Research Intelligence Hub Update
+
+            ${{ github.event.inputs.deploy_message || 'Automated daily deployment' }}
+            Triggered: ${{ github.event_name }}
+            Commit: ${{ github.sha }}
+          user_name: 'github-actions[bot]'
+          user_email: 'github-actions[bot]@users.noreply.github.com'
+
+      - name: 📝 Deployment Summary
+        run: |
+          echo "🎉 Deployment completed successfully!"
+          echo "� Run type: ${{ github.event_name }}"
+          if [ "${{ github.event_name }}" = "schedule" ]; then
+            echo "⏰ Automated daily deployment at 5:00 AM CET"
+          fi
+          echo "�🔗 Your site will be available at:"
+          echo "   https://albertoclemente.github.io/ai-clinicalresearch-hub/"
+          echo ""
+          echo "📊 Generated content summary:"
+          if [ -f "briefs/$(date +%Y-%m-%d).json" ]; then
+            echo "   ✅ Brief data: briefs/$(date +%Y-%m-%d).json"
+          fi
+          echo "   ✅ HTML site: site/index.html"
+          echo "   ✅ Logs: logs/"

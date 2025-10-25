@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI in Clinical Research Brief - {{ brief_date }}</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            font-size: 14px;
+            line-height: 1.6;
+            color: #1f2937;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #e5e7eb;
+        }
+        
+        .header h1 {
+            font-size: 28px;
+            font-weight: bold;
+            color: #111827;
+            margin: 0 0 10px 0;
+        }
+        
+        .header .date {
+            font-size: 20px;
+            color: #4b5563;
+            margin: 0 0 10px 0;
+        }
+        
+        .header .meta {
+            font-size: 12px;
+            color: #6b7280;
+        }
+        
+        .article {
+            margin-bottom: 30px;
+            padding: 20px;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            background-color: #f9fafb;
+            break-inside: avoid;
+        }
+        
+        .article h2 {
+            font-size: 18px;
+            font-weight: bold;
+            color: #111827;
+            margin: 0 0 15px 0;
+            line-height: 1.4;
+        }
+        
+        .article h2 a {
+            color: #111827;
+            text-decoration: none;
+        }
+        
+        .score {
+            display: inline-block;
+            background-color: #dbeafe;
+            color: #1e40af;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        
+        .summary {
+            margin-bottom: 15px;
+            color: #374151;
+            line-height: 1.6;
+        }
+        
+        .comment {
+            margin-bottom: 15px;
+            color: #6b7280;
+            font-style: italic;
+            line-height: 1.5;
+        }
+        
+        .resources {
+            margin-bottom: 15px;
+            color: #374151;
+        }
+        
+        .resources h4 {
+            font-size: 14px;
+            font-weight: 600;
+            color: #111827;
+            margin: 0 0 8px 0;
+        }
+        
+        .resources ul {
+            margin: 0;
+            padding-left: 20px;
+            list-style-type: disc;
+        }
+        
+        .resources li {
+            margin-bottom: 6px;
+            line-height: 1.4;
+        }
+        
+        .resources a {
+            color: #2563eb;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        .footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 15px;
+            border-top: 1px solid #e5e7eb;
+            font-size: 12px;
+            color: #6b7280;
+        }
+        
+        .source {
+            font-weight: 600;
+        }
+        
+        .link {
+            color: #2563eb;
+            text-decoration: none;
+            font-size: 11px;
+            word-break: break-all;
+        }
+        
+        .page-break {
+            page-break-before: always;
+        }
+        
+        .document-footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #e5e7eb;
+            font-size: 12px;
+            color: #6b7280;
+        }
+        
+        @media print {
+            .article {
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>AI in Clinical Research Brief</h1>
+        <div class="date">{{ brief_date }}</div>
+        <div class="meta">
+            {{ total_items }} AI-related articles curated from clinical research and AI sources<br>
+            Generated on {{ generated_at[:10] }} at {{ generated_at[11:16] }} UTC
+        </div>
+    </div>
+    
+    {% for item in items %}
+    <article class="article">
+        {% if item.ai_tag %}
+        <div class="score">{{ item.ai_tag }}</div>
+        {% endif %}
+        
+        <h2>
+            <a href="{{ item.link }}" target="_blank">{{ item.title }}</a>
+        </h2>
+        
+        <div class="summary">
+            {{ item.summary }}
+        </div>
+        
+        <div class="comment">
+            {{ item.comment }}
+        </div>
+        
+        {% if item.resources %}
+        <div class="resources">
+            <h4>Related Resources:</h4>
+            <ul>
+                {% for resource in item.resources.split('\n') %}
+                    {% if resource.strip() %}
+                        <li>{{ resource.strip() }}</li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+        </div>
+        {% endif %}
+        
+        <div class="footer">
+            <div class="source">
+                Source: {{ item.source }}
+            </div>
+            <div class="date">
+                {{ item.pub_date[:10] }}
+            </div>
+        </div>
+        
+        <div class="link">
+            {{ item.link }}
+        </div>
+    </article>
+    {% endfor %}
+    
+    <div class="document-footer">
+        <p>AI in Clinical Research Brief - Automated curation of AI-related clinical research news</p>
+        <p>Content sourced from public RSS feeds and ranked by AI for relevance to artificial intelligence in clinical research</p>
+    </div>
+</body>
+</html>

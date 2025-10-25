@@ -1,0 +1,12 @@
+feedparser==6.0.11
+openai>=1.93.0  # Still needed for OpenRouter API compatibility
+weasyprint==62.3
+jinja2==3.1.4
+pytest==8.3.3
+python-dateutil==2.9.0
+requests==2.32.3
+bleach==6.1.0
+markupsafe==2.1.5
+python-dotenv==1.1.1
+pydantic>=2.0.0
+beautifulsoup4==4.12.3

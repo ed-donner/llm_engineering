@@ -1,0 +1,1055 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>AI Clinical Research Daily Brief - {{ brief_date }}</title>
+    <meta name="description" content="Daily updates on AI breakthroughs in clinical research and healthcare. Automatically curated news, studies, and innovations in medical AI technology.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    {% if GOATCOUNTER_URL %}
+    <!-- GoatCounter analytics -->
+    <script data-goatcounter="{{ GOATCOUNTER_URL }}"
+        async src="//gc.zgo.at/count.js"></script>
+    {% endif %}
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'sans': ['Geist', 'ui-sans-serif', 'system-ui'],
+                        'mono': ['JetBrains Mono', 'ui-monospace', 'monospace']
+                    },
+                    colors: {
+                        'neural': {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            200: '#bae6fd',
+                            300: '#7dd3fc',
+                            400: '#38bdf8',
+                            500: '#0ea5e9',
+                            600: '#0284c7',
+                            700: '#0369a1',
+                            800: '#075985',
+                            900: '#0c4a6e',
+                        },
+                        'electric': {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            200: '#bae6fd',
+                            300: '#7dd3fc',
+                            400: '#38bdf8',
+                            500: '#06b6d4',
+                            600: '#0891b2',
+                            700: '#0e7490',
+                            800: '#155e75',
+                            900: '#164e63',
+                        }
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'glow': 'glow 2s ease-in-out infinite alternate',
+                        'slide-up': 'slideUp 0.5s ease-out',
+                        'fade-in': 'fadeIn 0.8s ease-out'
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-10px)' }
+                        },
+                        glow: {
+                            '0%': { boxShadow: '0 0 20px rgba(6, 182, 212, 0.3)' },
+                            '100%': { boxShadow: '0 0 30px rgba(6, 182, 212, 0.6)' }
+                        },
+                        slideUp: {
+                            '0%': { transform: 'translateY(20px)', opacity: '0' },
+                            '100%': { transform: 'translateY(0)', opacity: '1' }
+                        },
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Alpine.js -->
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    
+    <!-- Custom styles -->
+    <style>
+        /* Safe-area utilities for iOS notch and home indicator */
+        .pt-safe {
+            padding-top: max(12px, constant(safe-area-inset-top));
+            padding-top: max(12px, env(safe-area-inset-top));
+        }
+        .pb-safe {
+            padding-bottom: max(12px, constant(safe-area-inset-bottom));
+            padding-bottom: max(12px, env(safe-area-inset-bottom));
+        }
+        .horizontal-scroll {
+            -webkit-overflow-scrolling: touch;
+            scroll-snap-type: x proximity;
+        }
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        
+        .neural-gradient {
+            background: linear-gradient(135deg, #06b6d4 0%, #3b82f6 50%, #8b5cf6 100%);
+        }
+        
+        .glass-card {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+        
+        .hover-lift {
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        
+        .hover-lift:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+        
+        .search-highlight {
+            background: linear-gradient(120deg, #fbbf24 0%, #f59e0b 100%);
+            color: #1f2937;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+        
+        .tag-ai {
+            background: linear-gradient(135deg, #06b6d4 0%, #3b82f6 100%);
+            color: white;
+            animation: glow 3s ease-in-out infinite alternate;
+        }
+        
+        .neural-pattern {
+            background-image: 
+                radial-gradient(circle at 1px 1px, rgba(6, 182, 212, 0.15) 1px, transparent 0);
+            background-size: 20px 20px;
+        }
+        
+        .text-gradient {
+            background: linear-gradient(135deg, #1f2937 0%, #4b5563 50%, #6b7280 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .search-glow:focus {
+            box-shadow: 0 0 0 3px rgba(6, 182, 212, 0.2), 0 0 20px rgba(6, 182, 212, 0.3);
+        }
+        
+        .minimal-scrollbar::-webkit-scrollbar {
+            width: 4px;
+        }
+        
+        .minimal-scrollbar::-webkit-scrollbar-track {
+            background: #f1f5f9;
+        }
+        
+        .minimal-scrollbar::-webkit-scrollbar-thumb {
+            background: #94a3b8;
+            border-radius: 2px;
+        }
+        
+        .section-fade {
+            animation: fadeIn 1s ease-out;
+        }
+        
+        /* Screen reader only content */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+        
+        /* Removed stagger animations for immediate visibility */
+        
+        .tag-ai {
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+        
+        .search-input {
+            background: white;
+            border: 1px solid #e5e7eb;
+            border-radius: 24px;
+            padding: 12px 24px 12px 48px;
+            font-size: 0.9rem;
+            transition: all 0.2s ease;
+        }
+        
+        .search-input:focus {
+            outline: none;
+            border-color: #3b82f6;
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+        }
+        
+        /* Premium Animations */
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        .hover-lift {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .hover-lift:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        .section-fade {
+            animation: fadeIn 0.8s ease-out;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        /* Reduced motion support */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+            
+            .animate-float,
+            .animate-pulse-slow,
+            .animate-glow {
+                animation: none !important;
+            }
+        }
+        
+        /* Focus-visible styles for accessibility */
+        *:focus-visible {
+            outline: 2px solid #3b82f6;
+            outline-offset: 2px;
+        }
+        
+        /* Skip to content link */
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 6px;
+            background: white;
+            color: black;
+            padding: 8px 16px;
+            text-decoration: none;
+            border-radius: 4px;
+            z-index: 1000;
+            font-weight: 600;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+        
+        .skip-link:focus {
+            top: 6px;
+        }
+        
+        /* Pagination controls styling */
+        .pagination-container {
+            margin-top: 3rem;
+            margin-bottom: 2rem;
+            padding: 1.5rem 0;
+            border-top: 1px solid rgba(229, 231, 235, 0.5);
+        }
+        
+        .pagination-nav {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.25rem;
+            flex-wrap: wrap;
+        }
+        
+        .pagination-nav button {
+            min-height: 2.5rem;
+            min-width: 2.5rem;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        @media (max-width: 640px) {
+            .pagination-container {
+                margin-top: 2rem;
+                padding: 1rem 0;
+            }
+            
+            .pagination-nav {
+                gap: 0.125rem;
+            }
+            
+            .pagination-nav button {
+                min-height: 2.25rem;
+                min-width: 2.25rem;
+                padding: 0.375rem 0.75rem;
+                font-size: 0.875rem;
+            }
+        }
+        
+        .horizontal-scroll {
+            -webkit-overflow-scrolling: touch;
+            scroll-snap-type: x mandatory;
+        }
+    </style>
+</head>
+<body class="min-h-screen font-sans antialiased overflow-x-hidden neural-pattern" x-data="clinicalBrief()">
+    
+    <!-- Skip to content link for accessibility -->
+    <a href="#main-content" class="skip-link">Skip to content</a>
+    
+    <!-- Hero Header with Enhanced Gradient and Animations -->
+    <header class="w-full relative min-h-[80vh] sm:min-h-[85vh] flex items-center justify-center overflow-visible px-4 sm:px-6 py-8 sm:py-20" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 25%, #f093fb 50%, #f5576c 75%, #4facfe 100%); background-size: 400% 400%; animation: gradientShift 15s ease infinite;">
+        
+        <!-- Contrast overlay for better text readability -->
+        <div class="absolute inset-0 bg-black/20"></div>
+        
+        <!-- Animated Background Elements -->
+        <div class="absolute inset-0 opacity-20">
+            <div class="absolute top-20 left-20 w-72 h-72 bg-white rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-float"></div>
+            <div class="absolute top-40 right-32 w-96 h-96 bg-pink-300 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-float" style="animation-delay: 2s;"></div>
+            <div class="absolute bottom-32 left-32 w-80 h-80 bg-blue-300 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-float" style="animation-delay: 4s;"></div>
+            <div class="absolute bottom-20 right-20 w-64 h-64 bg-purple-300 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-float" style="animation-delay: 6s;"></div>
+        </div>
+        
+        <!-- Main Hero Content -->
+    <div class="relative z-10 text-center px-4 sm:px-6 max-w-5xl mx-auto pb-6 sm:pb-10 w-full">
+            <div class="opacity-100 mb-6 sm:mb-10 space-y-3 sm:space-y-4 px-1">
+                <span class="inline-flex items-center px-3 py-1 rounded-full text-xs sm:text-sm font-medium bg-white/25 text-white shadow-sm">✨ Daily insights on AI in clinical research</span>
+                <h1 class="text-3xl sm:text-4xl lg:text-6xl font-semibold text-white tracking-tight">
+                    <span class="font-mono text-blue-200">AI-Powered</span>
+                </h1>
+                <h2 class="text-lg sm:text-2xl lg:text-4xl font-light text-white/90 tracking-wide">
+                    Clinical Research <span class="bg-gradient-to-r from-yellow-300 to-pink-300 bg-clip-text text-transparent font-semibold">Intelligence Hub</span>
+                </h2>
+                <p class="text-sm sm:text-lg lg:text-xl text-white/85 font-light max-w-3xl mx-auto leading-relaxed">
+                    Your daily source for the latest AI breakthroughs in clinical research. Automatically curated, summarized, and organized so you never miss what matters
+                </p>
+            </div>
+            
+            <!-- Enhanced Search Interface -->
+            <div class="opacity-100 mb-6 sm:mb-10 w-full">
+                <div class="bg-white/90 sm:bg-white/20 rounded-2xl sm:rounded-3xl p-3 sm:p-8 w-full max-w-lg sm:max-w-3xl mx-auto border border-white/40 sm:border-white/20 shadow-lg sm:shadow-2xl space-y-2 sm:space-y-4 backdrop-blur-sm"">
+                    <div class="relative mb-3 sm:mb-6">
+                        <input 
+                            type="text" 
+                            placeholder="🔍 Search AI research news..." 
+                            aria-label="Search articles about AI in clinical research"
+                            role="searchbox"
+                            class="w-full px-4 sm:px-8 py-3 sm:py-5 text-base sm:text-lg bg-white rounded-xl border border-white/60 focus:outline-none focus:ring-2 focus:ring-blue-200 transition-all duration-300 text-gray-800 placeholder-gray-500 shadow"
+                            x-model="searchQuery"
+                            @input="performSearch"
+                        >
+                        <div class="absolute right-3 sm:right-6 top-1/2 transform -translate-y-1/2">
+                            <svg class="w-4 h-4 sm:w-6 sm:h-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                            </svg>
+                        </div>
+                    </div>
+                    
+                    <!-- Category Filter Pills -->
+                    <div class="overflow-x-auto horizontal-scroll px-3 sm:px-0">
+                        <div class="flex gap-2 sm:gap-3 mt-1 sm:mt-2 min-w-max pb-2 pr-3" role="group" aria-label="Filter articles by AI technology category">
+                        <button @click="aiTagFilter = ''; performSearch()" aria-label="Show all AI technology articles" class="px-3 sm:px-4 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-medium bg-gradient-to-r from-blue-500 to-indigo-500 text-white hover:from-blue-600 hover:to-indigo-600 transition-all duration-200 shadow-sm" :class="{'brightness-110': !aiTagFilter}">
+                            🌟 All Technologies
+                        </button>
+                        <button @click="aiTagFilter = 'Generative AI'; performSearch()" aria-label="Filter by Generative AI articles" class="px-3 sm:px-4 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-medium bg-white/30 text-white hover:bg-white/45 transition-all duration-200 shadow-sm" :class="{'bg-white/60 text-blue-900': aiTagFilter === 'Generative AI'}">
+                            🤖 Generative AI
+                        </button>
+                        <button @click="aiTagFilter = 'Machine Learning'; performSearch()" aria-label="Filter by Machine Learning articles" class="px-3 sm:px-4 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-medium bg-white/30 text-white hover:bg-white/45 transition-all duration-200 shadow-sm" :class="{'bg-white/60 text-blue-900': aiTagFilter === 'Machine Learning'}">
+                            🧠 Machine Learning
+                        </button>
+                        <button @click="aiTagFilter = 'Natural Language Processing'; performSearch()" aria-label="Filter by Natural Language Processing articles" class="px-3 sm:px-4 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-medium bg-white/30 text-white hover:bg-white/45 transition-all duration-200 shadow-sm" :class="{'bg-white/60 text-blue-900': aiTagFilter === 'Natural Language Processing'}">
+                            💬 NLP
+                        </button>
+                        <button @click="aiTagFilter = 'Digital Health'; performSearch()" aria-label="Filter by Digital Health articles" class="px-3 sm:px-4 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-medium bg-white/30 text-white hover:bg-white/45 transition-all duration-200 shadow-sm" :class="{'bg-white/60 text-blue-900': aiTagFilter === 'Digital Health'}">
+                            📱 Digital Health
+                        </button>
+                        <button @click="aiTagFilter = 'Trial Optimization'; performSearch()" aria-label="Filter by Trial Optimization articles" class="px-3 sm:px-4 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-medium bg-white/30 text-white hover:bg-white/45 transition-all duration-200 shadow-sm" :class="{'bg-white/60 text-blue-900': aiTagFilter === 'Trial Optimization'}">
+                            🎯 Trial Optimization
+                        </button>
+                        <button @click="aiTagFilter = 'AI Ethics'; performSearch()" aria-label="Filter by AI Ethics articles" class="px-3 sm:px-4 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-medium bg-white/30 text-white hover:bg-white/45 transition-all duration-200 shadow-sm" :class="{'bg-white/60 text-blue-900': aiTagFilter === 'AI Ethics'}">
+                            ⚖️ AI Ethics
+                        </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Statistics Display -->
+            <div class="flex flex-col sm:flex-row items-center justify-center sm:space-x-8 space-y-4 sm:space-y-0 text-white/70 mt-4 sm:mt-8">
+                <div class="text-center">
+                    <div class="text-xl sm:text-3xl font-semibold text-white">{{ total_items }}</div>
+                    <div class="text-xs sm:text-sm">Stories Today</div>
+                </div>
+                <div class="hidden sm:block w-px h-8 bg-white/30"></div>
+                <div class="text-center">
+                    <div class="text-xl sm:text-3xl font-semibold text-white">{{ brief_date }}</div>
+                    <div class="text-xs sm:text-sm">Last Updated</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Enhanced Scroll Indicator -->
+        <!-- Removed top-down arrow scroll indicator -->
+    </header>
+    
+    <!-- Main Content Section -->
+    <main class="relative bg-gradient-to-br from-gray-50 to-blue-50/30 min-h-screen py-20" id="main-content">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <!-- Section Header with Insights -->
+            <div class="text-center mb-12 sm:mb-16 section-fade px-2">
+                <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4 sm:mb-6">
+                    Today's AI <span class="bg-gradient-to-r from-blue-600 to-emerald-600 bg-clip-text text-transparent">Discoveries</span>
+                </h2>
+                <p class="text-base sm:text-lg text-gray-600 max-w-2xl sm:max-w-3xl mx-auto mb-6 sm:mb-8">
+                    Fresh insights from the world of AI-powered healthcare research, updated daily
+                </p>
+            </div>
+            
+            <!-- Enhanced Filter Bar -->
+            <div class="section-fade mb-12 sm:mb-16">
+                <div class="glass-card rounded-3xl p-5 sm:p-6 max-w-5xl mx-auto border border-white/30">
+                    <div class="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-5 sm:gap-6">
+                        <div class="flex flex-col sm:flex-row sm:items-center w-full space-y-3 sm:space-y-0 sm:space-x-4">
+                            <label class="text-xs sm:text-sm font-semibold text-gray-700 whitespace-nowrap">🔬 Filter by AI Technology:</label>
+                            <select 
+                                x-model="aiTagFilter"
+                                @change="performSearchImmediate"
+                                class="px-3 sm:px-4 py-2.5 sm:py-3 bg-white/80 border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-400 focus:border-transparent transition-all duration-200 text-gray-700 w-full sm:w-auto"
+                                aria-label="Filter articles by AI technology"
+                            >
+                                <option value="">🌟 All Technologies</option>
+                                <option value="Generative AI">🤖 Generative AI</option>
+                                <option value="Natural Language Processing">💬 Natural Language Processing</option>
+                                <option value="Machine Learning">🧠 Machine Learning</option>
+                                <option value="Digital Health">📱 Digital Health</option>
+                                <option value="Trial Optimization">🎯 Trial Optimization</option>
+                                <option value="AI Ethics">⚖️ AI Ethics</option>
+                            </select>
+                            
+                            <label class="text-xs sm:text-sm font-semibold text-gray-700 whitespace-nowrap">📊 Sort by:</label>
+                            <select 
+                                x-model="sortBy"
+                                @change="performSearchImmediate"
+                                class="px-3 sm:px-4 py-2.5 sm:py-3 bg-white/80 border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-400 focus:border-transparent transition-all duration-200 text-gray-700 w-full sm:w-auto"
+                                aria-label="Sort articles"
+                            >
+                                <option value="newest">🆕 Newest First</option>
+                                <option value="oldest">📅 Oldest First</option>
+                                <option value="source">🔤 Source A-Z</option>
+                            </select>
+                        </div>
+                        
+                        <div class="flex items-center space-x-4 w-full lg:w-auto justify-between lg:justify-end">
+                            <div class="text-xs sm:text-sm text-gray-600">
+                                <span class="font-semibold text-blue-600" x-text="filteredItems.length"></span> 
+                                <span>of</span> 
+                                <span class="font-semibold">{{ total_items }}</span> 
+                                <span>articles</span>
+                                <template x-if="getTotalPages() > 1">
+                                    <span class="ml-2 text-[11px] sm:text-xs text-gray-500">
+                                        (Page <span x-text="currentPage"></span> of <span x-text="getTotalPages()"></span>)
+                                    </span>
+                                </template>
+                            </div>
+                            <!-- Screen reader live region for search results -->
+                            <div class="sr-only" role="status" aria-live="polite" x-text="`${filteredItems.length} results found`"></div>
+                            <button 
+                                @click="searchQuery = ''; aiTagFilter = ''; performSearch()"
+                                x-show="searchQuery || aiTagFilter"
+                                class="px-3 py-1 text-xs bg-gray-100 hover:bg-gray-200 rounded-full text-gray-600 transition-colors"
+                            >
+                                Clear
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- No Results State -->
+            <div 
+                x-show="filteredItems.length === 0 && (searchQuery || aiTagFilter)"
+                class="text-center py-24 section-fade"
+            >
+                <div class="max-w-md mx-auto">
+                    <div class="w-24 h-24 mx-auto mb-6 rounded-full bg-gradient-to-br from-blue-400 to-emerald-500 flex items-center justify-center">
+                        <svg class="w-12 h-12 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.172 16.172a4 4 0 015.656 0M9 12h6m-6-4h6m2 5.291A7.962 7.962 0 0112 15c-2.34 0-4.5-.9-6.08-2.371m15.08 2.371A7.962 7.962 0 0112 15c2.34 0 4.5-.9 6.08-2.371M15 9.75a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-3">No matches found</h3>
+                    <p class="text-gray-600 mb-6">Try exploring different AI technologies or broaden your search terms.</p>
+                    <button 
+                        @click="searchQuery = ''; aiTagFilter = ''; performSearch()"
+                        class="px-6 py-3 bg-blue-600 text-white rounded-xl hover:bg-blue-700 transition-colors font-medium"
+                    >
+                        View All Articles
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Enhanced Articles Grid -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8">
+                <template x-for="(item, index) in getPaginatedItems()" :key="item.id">
+                    <article class="group glass-card rounded-3xl p-6 sm:p-8 hover-lift transition-all duration-500 border border-white/40 hover:border-blue-200 relative overflow-hidden">
+                        
+                        <!-- Gradient Accent -->
+                        <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-500 via-emerald-500 to-purple-500"></div>
+                        
+                        <!-- Article Header -->
+                        <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4 sm:gap-0 mb-5 sm:mb-6">
+                            <div class="flex items-center space-x-3">
+                                <!-- AI Technology Badge -->
+                                <span 
+                                    class="inline-flex items-center space-x-2 px-3 sm:px-4 py-2 rounded-full text-xs sm:text-sm font-semibold text-white"
+                                    :aria-label="`Category: ${item.ai_tag}`"
+                                    :class="{
+                                        'bg-gradient-to-r from-purple-500 to-pink-500': item.ai_tag === 'Generative AI',
+                                        'bg-gradient-to-r from-blue-500 to-cyan-500': item.ai_tag === 'Natural Language Processing',
+                                        'bg-gradient-to-r from-green-500 to-emerald-500': item.ai_tag === 'Machine Learning',
+                                        'bg-gradient-to-r from-orange-500 to-red-500': item.ai_tag === 'Digital Health',
+                                        'bg-gradient-to-r from-yellow-500 to-amber-500': item.ai_tag === 'Trial Optimization',
+                                        'bg-gradient-to-r from-indigo-500 to-violet-500': item.ai_tag === 'AI Ethics',
+                                        'bg-gradient-to-r from-gray-600 to-gray-800': !['Generative AI', 'Natural Language Processing', 'Machine Learning', 'Digital Health', 'Trial Optimization', 'AI Ethics'].includes(item.ai_tag)
+                                    }"
+                                >
+                                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                                    </svg>
+                                    <span x-text="item.ai_tag"></span>
+                                </span>
+                            </div>
+                            
+                            <!-- Source and Date with better semantics -->
+                            <div class="flex flex-col items-start sm:items-end space-y-1.5 sm:space-y-2">
+                                <div class="text-[11px] sm:text-xs text-gray-500 font-mono bg-gray-100 px-3 py-1 rounded-full" x-text="item.source"></div>
+                                <time :datetime="item.pub_date" class="text-[11px] sm:text-xs text-gray-400 font-medium" x-text="formatDate(item.pub_date)"></time>
+                            </div>
+                        </div>
+                        
+                        <!-- Title with Curiosity Hook -->
+                        <div class="mb-5 sm:mb-6">
+                            <h3 class="text-lg sm:text-xl lg:text-2xl font-bold text-gray-900 mb-3 leading-tight group-hover:text-blue-600 transition-colors duration-300">
+                                <a 
+                                    :href="item.link" 
+                                    target="_blank" 
+                                    rel="noopener noreferrer"
+                                    x-html="highlightText(item.title)"
+                                    class="hover:underline decoration-blue-500 decoration-2 underline-offset-4"
+                                ></a>
+                            </h3>
+                            
+                            <!-- Key Insight Teaser -->
+                            <div class="flex items-center space-x-2 text-xs sm:text-sm font-medium text-blue-600 mb-3 sm:mb-4">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                                </svg>
+                                <span>Key Innovation</span>
+                            </div>
+                        </div>
+                        
+                        <!-- Enhanced Summary -->
+                        <div class="mb-6 sm:mb-8">
+                            <p class="text-gray-700 leading-relaxed text-sm sm:text-base" x-html="highlightText(item.summary)"></p>
+                            
+                            <!-- Impact Metrics (if available) -->
+                            <div class="mt-4 flex flex-wrap gap-2" x-show="item.summary.includes('%') || item.summary.includes('accuracy') || item.summary.includes('improvement')">
+                                <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-green-100 text-green-700" x-show="item.summary.includes('90%')">
+                                    📈 90% Accuracy
+                                </span>
+                                <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-blue-100 text-blue-700" x-show="item.summary.includes('improvement')">
+                                    ⚡ Significant Improvement
+                                </span>
+                                <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-purple-100 text-purple-700" x-show="item.summary.includes('30%')">
+                                    📊 30% Better Tracking
+                                </span>
+                            </div>
+                        </div>
+                        
+                        <!-- Enhanced Footer -->
+                        <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 pt-5 sm:pt-6 border-t border-gray-100">
+                            <div class="flex items-center space-x-4">
+                                <!-- Research Type Indicator -->
+                                <div class="flex items-center space-x-1 text-xs text-gray-500">
+                                    <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
+                                        <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                    </svg>
+                                    <span x-show="item.title.includes('Randomized')">RCT Study</span>
+                                    <span x-show="item.title.includes('Protocol')">Protocol</span>
+                                    <span x-show="item.title.includes('Trial') && !item.title.includes('Randomized')">Clinical Trial</span>
+                                    <span x-show="!item.title.includes('Trial') && !item.title.includes('Protocol')">Research</span>
+                                </div>
+                            </div>
+                            
+                            <a 
+                                :href="item.link" 
+                                target="_blank" 
+                                rel="noopener noreferrer" 
+                                class="group/cta inline-flex items-center justify-center space-x-2 bg-gradient-to-r from-blue-600 to-emerald-600 text-white px-5 py-2.5 rounded-xl hover:from-blue-700 hover:to-emerald-700 transition-all duration-200 text-sm font-semibold hover:shadow-lg w-full sm:w-auto"
+                            >
+                                <span>Explore Study</span>
+                                <svg class="w-4 h-4 group-hover/cta:translate-x-1 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                                </svg>
+                            </a>
+                        </div>
+                    </article>
+                </template>
+            </div>
+            
+            <!-- Pagination Controls -->
+            <div class="pagination-container" x-show="getTotalPages() > 1">
+                <div class="flex flex-col sm:flex-row items-center justify-between gap-6 mb-6">
+                    <div class="flex items-center space-x-2 text-sm text-gray-600">
+                        <span>Showing</span>
+                        <span class="font-semibold" x-text="((currentPage - 1) * itemsPerPage) + 1"></span>
+                        <span>to</span>
+                        <span class="font-semibold" x-text="Math.min(currentPage * itemsPerPage, filteredItems.length)"></span>
+                        <span>of</span>
+                        <span class="font-semibold" x-text="filteredItems.length"></span>
+                        <span>results</span>
+                    </div>
+                    
+                    <div class="text-sm text-gray-500">
+                        Page <span class="font-semibold" x-text="currentPage"></span> of <span class="font-semibold" x-text="getTotalPages()"></span>
+                    </div>
+                </div>
+                
+                <nav class="pagination-nav" aria-label="Pagination navigation">
+                    <!-- Previous Button -->
+                    <button 
+                        @click="prevPage()"
+                        :disabled="!hasPrevPage()"
+                        :class="{'opacity-50 cursor-not-allowed': !hasPrevPage(), 'hover:bg-blue-50': hasPrevPage()}"
+                        class="flex items-center px-3 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-l-lg transition-colors duration-200"
+                        aria-label="Previous page"
+                    >
+                        <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                        </svg>
+                        <span class="hidden sm:inline">Previous</span>
+                    </button>
+                    
+                    <!-- Page Numbers -->
+                    <template x-for="page in Array.from({length: Math.min(5, getTotalPages())}, (_, i) => {
+                        const totalPages = getTotalPages();
+                        if (totalPages <= 5) return i + 1;
+                        if (currentPage <= 3) return i + 1;
+                        if (currentPage >= totalPages - 2) return totalPages - 4 + i;
+                        return currentPage - 2 + i;
+                    })" :key="page">
+                        <button 
+                            @click="goToPage(page)"
+                            :class="{
+                                'bg-blue-600 text-white border-blue-600': page === currentPage,
+                                'bg-white text-gray-700 border-gray-300 hover:bg-gray-50': page !== currentPage
+                            }"
+                            class="px-3 py-2 text-sm font-medium border transition-colors duration-200"
+                            :aria-label="`Go to page ${page}`"
+                            :aria-current="page === currentPage ? 'page' : false"
+                            x-text="page"
+                        ></button>
+                    </template>
+                    
+                    <!-- Next Button -->
+                    <button 
+                        @click="nextPage()"
+                        :disabled="!hasNextPage()"
+                        :class="{'opacity-50 cursor-not-allowed': !hasNextPage(), 'hover:bg-blue-50': hasNextPage()}"
+                        class="flex items-center px-3 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-r-lg transition-colors duration-200"
+                        aria-label="Next page"
+                    >
+                        <span class="hidden sm:inline">Next</span>
+                        <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                        </svg>
+                    </button>
+                </nav>
+            </div>
+        </div>
+    </main>
+    
+    <!-- Back to Top Button -->
+    <button 
+        @click="scrollToTop"
+        class="fixed bottom-8 right-8 bg-blue-600 hover:bg-blue-700 text-white p-3 rounded-full shadow-lg transition-all duration-300 z-50"
+        x-show="showBackToTop"
+        x-transition:enter="transition ease-out duration-300"
+        x-transition:enter-start="opacity-0 transform scale-95"
+        x-transition:enter-end="opacity-100 transform scale-100"
+        x-transition:leave="transition ease-in duration-200"
+        x-transition:leave-start="opacity-100 transform scale-100"
+        x-transition:leave-end="opacity-0 transform scale-95"
+        aria-label="Back to top"
+    >
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path>
+        </svg>
+    </button>
+    
+    <!-- Creative Footer -->
+    <footer class="relative neural-gradient py-20 text-white overflow-hidden">
+        <div class="absolute inset-0 opacity-10">
+            <div class="neural-pattern h-full w-full"></div>
+        </div>
+        
+        <div class="relative z-10 max-w-4xl mx-auto px-6 text-center">
+            <div class="mb-8">
+                <h3 class="text-2xl font-light mb-4">Powered by Artificial Intelligence</h3>
+                <p class="text-white/70 text-lg font-light">
+                    Curating the future of clinical research, one breakthrough at a time
+                </p>
+            </div>
+            
+            <div class="w-24 h-px bg-white/30 mx-auto mb-8"></div>
+            
+            <div class="flex items-center justify-center space-x-8 text-sm text-white/60">
+                <span>AI Clinical Research Daily Brief</span>
+                <span>•</span>
+                <span>Powered by AI Curation</span>
+                <span>•</span>
+                <span>{{ brief_date }}</span>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        // Global keyboard event handlers
+        document.addEventListener('keydown', (e) => {
+            if (e.key === '/' && document.activeElement.tagName !== 'INPUT') {
+                e.preventDefault();
+                document.querySelector('input[role=searchbox]').focus();
+            }
+            if (e.key === 'Escape') {
+                // Clear search if input is focused, otherwise trigger Alpine method
+                if (document.activeElement.matches('input[role=searchbox]')) {
+                    document.activeElement.blur();
+                }
+                // Use Alpine.js store to clear search
+                Alpine.store('search').clear();
+            }
+        });
+        
+        // Alpine.js stores for global state
+        document.addEventListener('alpine:init', () => {
+            Alpine.store('search', {
+                component: null,
+                register(component) {
+                    this.component = component;
+                },
+                clear() {
+                    if (!this.component) {
+                        return;
+                    }
+                    this.component.searchQuery = '';
+                    this.component.aiTagFilter = '';
+                    if (typeof this.component.performSearchImmediate === 'function') {
+                        this.component.performSearchImmediate();
+                    } else if (typeof this.component.performSearch === 'function') {
+                        this.component.performSearch();
+                    }
+                }
+            });
+        });
+        
+        function clinicalBrief() {
+            return {
+                // Data
+                items: {{ items | tojson }},
+                filteredItems: {{ items | tojson }},
+                
+                // State
+                searchQuery: '',
+                aiTagFilter: '',
+                sortBy: 'newest',
+                searchTimeout: null,
+                showBackToTop: false,
+                
+                // Pagination
+                currentPage: 1,
+                itemsPerPage: 8,
+                
+                // Initialize
+                init() {
+                    this.filteredItems = this.items;
+                    const searchStore = Alpine.store('search');
+                    if (searchStore && typeof searchStore.register === 'function') {
+                        searchStore.register(this);
+                    }
+                    this.loadStateFromUrl();
+                    this.setupScrollListener();
+                },
+                
+                // Setup scroll listener for back to top button
+                setupScrollListener() {
+                    window.addEventListener('scroll', () => {
+                        this.showBackToTop = window.scrollY > 300;
+                    });
+                },
+                
+                // Load state from URL parameters
+                loadStateFromUrl() {
+                    const url = new URL(window.location);
+                    this.searchQuery = url.searchParams.get('q') || '';
+                    this.aiTagFilter = url.searchParams.get('tag') || '';
+                    this.sortBy = url.searchParams.get('sort') || 'newest';
+                    if (this.searchQuery || this.aiTagFilter) {
+                        this.performSearch();
+                    }
+                },
+                
+                // Sync state to URL
+                syncUrl() {
+                    const url = new URL(window.location);
+                    if (this.searchQuery) {
+                        url.searchParams.set('q', this.searchQuery);
+                    } else {
+                        url.searchParams.delete('q');
+                    }
+                    if (this.aiTagFilter) {
+                        url.searchParams.set('tag', this.aiTagFilter);
+                    } else {
+                        url.searchParams.delete('tag');
+                    }
+                    if (this.sortBy !== 'newest') {
+                        url.searchParams.set('sort', this.sortBy);
+                    } else {
+                        url.searchParams.delete('sort');
+                    }
+                    history.replaceState(null, '', url.toString());
+                },
+                
+                // Debounced search functionality
+                performSearch() {
+                    // Clear existing timeout
+                    if (this.searchTimeout) {
+                        clearTimeout(this.searchTimeout);
+                    }
+                    
+                    // Debounce search by 150ms
+                    this.searchTimeout = setTimeout(() => {
+                        this._doSearch();
+                        this.syncUrl();
+                        this.scrollToArticles();
+                    }, 150);
+                },
+                
+                // Immediate search for filter changes
+                performSearchImmediate() {
+                    this._doSearch();
+                    this.syncUrl();
+                    this.scrollToArticles();
+                },
+                
+                // Internal search implementation
+                _doSearch() {
+                    let filtered = this.items;
+                    
+                    // Text search
+                    if (this.searchQuery) {
+                        const query = this.searchQuery.toLowerCase();
+                        filtered = filtered.filter(item => 
+                            item.title.toLowerCase().includes(query) ||
+                            item.summary.toLowerCase().includes(query) ||
+                            item.source.toLowerCase().includes(query)
+                        );
+                    }
+                    
+                    // AI Tag filter
+                    if (this.aiTagFilter) {
+                        filtered = filtered.filter(item => item.ai_tag === this.aiTagFilter);
+                    }
+                    
+                    // Sort results
+                    filtered = this.sortResults(filtered);
+                    
+                    this.filteredItems = filtered;
+                    
+                    // Reset to first page when search changes
+                    this.currentPage = 1;
+                },
+                
+                // Pagination helper methods
+                getPaginatedItems() {
+                    const start = (this.currentPage - 1) * this.itemsPerPage;
+                    const end = start + this.itemsPerPage;
+                    return this.filteredItems.slice(start, end);
+                },
+                
+                getTotalPages() {
+                    return Math.ceil(this.filteredItems.length / this.itemsPerPage);
+                },
+                
+                hasNextPage() {
+                    return this.currentPage < this.getTotalPages();
+                },
+                
+                hasPrevPage() {
+                    return this.currentPage > 1;
+                },
+                
+                // Pagination navigation methods
+                nextPage() {
+                    if (this.hasNextPage()) {
+                        this.currentPage++;
+                        this.scrollToArticles();
+                    }
+                },
+                
+                prevPage() {
+                    if (this.hasPrevPage()) {
+                        this.currentPage--;
+                        this.scrollToArticles();
+                    }
+                },
+                
+                goToPage(page) {
+                    if (page >= 1 && page <= this.getTotalPages()) {
+                        this.currentPage = page;
+                        this.scrollToArticles();
+                    }
+                },
+                
+                scrollToArticles() {
+                    const articlesSection = document.querySelector('.grid');
+                    if (articlesSection) {
+                        articlesSection.scrollIntoView({ 
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                },
+                
+                // Sort results based on selected criteria
+                sortResults(items) {
+                    return [...items].sort((a, b) => {
+                        switch (this.sortBy) {
+                            case 'oldest':
+                                return new Date(a.pub_date) - new Date(b.pub_date);
+                            case 'source':
+                                return a.source.localeCompare(b.source);
+                            case 'newest':
+                            default:
+                                return new Date(b.pub_date) - new Date(a.pub_date);
+                        }
+                    });
+                },
+                
+                // Copy link to clipboard
+                async copyLink(url) {
+                    try {
+                        await navigator.clipboard.writeText(url);
+                        // You could add a toast notification here
+                        console.log('Link copied to clipboard');
+                    } catch (err) {
+                        console.error('Failed to copy link:', err);
+                        // Fallback for older browsers
+                        const textArea = document.createElement('textarea');
+                        textArea.value = url;
+                        document.body.appendChild(textArea);
+                        textArea.select();
+                        document.execCommand('copy');
+                        document.body.removeChild(textArea);
+                    }
+                },
+                
+                // Helper functions for XSS safety
+                escapeRegex(str) {
+                    return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+                },
+                
+                escapeHtml(str) {
+                    const div = document.createElement('div');
+                    div.textContent = str;
+                    return div.innerHTML;
+                },
+                
+                // Highlight search terms with XSS protection
+                highlightText(text) {
+                    if (!this.searchQuery) return this.escapeHtml(text);
+                    
+                    const safeQuery = this.escapeRegex(this.searchQuery);
+                    const regex = new RegExp(`(${safeQuery})`, 'gi');
+                    const escapedText = this.escapeHtml(text);
+                    return escapedText.replace(regex, '<mark class="search-highlight">$1</mark>');
+                },
+                
+                // Format publication date
+                formatDate(dateString) {
+                    if (!dateString) return '';
+                    
+                    try {
+                        const date = new Date(dateString);
+                        
+                        // Always format as month day, year (e.g., "Aug 14, 2025")
+                        return date.toLocaleDateString('en-US', {
+                            month: 'short',
+                            day: 'numeric',
+                            year: 'numeric'
+                        });
+                    } catch (error) {
+                        // If date parsing fails, return a formatted version of the string
+                        return dateString.split('T')[0]; // Just return the date part
+                    }
+                },
+                
+                // Scroll to main content
+                scrollToContent() {
+                    const mainElement = document.querySelector('main');
+                    if (mainElement) {
+                        mainElement.scrollIntoView({ 
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                },
+                
+                // Scroll to top of page
+                scrollToTop() {
+                    window.scrollTo({
+                        top: 0,
+                        behavior: 'smooth'
+                    });
+                }
+            }
+        }
+    </script>
+</body>
+</html>
