@@ -1,0 +1,57 @@
+services:
+  qdrant:
+    image: qdrant/qdrant:v1.7.4
+    container_name: rag-qdrant
+    ports:
+      - "6333:6333"
+      - "6334:6334"
+    volumes:
+      - ${RAG_DATA_DIR:-${HOME}/RAGApp}/qdrant_data:/qdrant/storage
+    environment:
+      - QDRANT__SERVICE__HTTP_PORT=6333
+      - QDRANT__SERVICE__GRPC_PORT=6334
+    restart: unless-stopped
+
+  # Optional: Backend service (for containerized deployment)
+  backend:
+    build:
+      context: ../backend
+      dockerfile: Dockerfile
+    container_name: rag-backend
+    ports:
+      - "8000:8000"
+    environment:
+      - QDRANT_URL=http://qdrant:6333
+      - RAG_DATA_DIR=/app/data
+      - RAG_PROFILE=balanced
+      # Use host.docker.internal to reach host's Ollama (macOS/Windows). On Linux, set to http://host.docker.internal:11434 and ensure gateway mapping or expose Ollama.
+      - OLLAMA_HOST=http://host.docker.internal:11434
+    volumes:
+      - ${RAG_DATA_DIR:-${HOME}/RAGApp}:/app/data
+    depends_on:
+      - qdrant
+    restart: unless-stopped
+    profiles:
+      - full  # Only start with docker-compose --profile full up
+
+  frontend:
+    build:
+      context: ../frontend
+      dockerfile: Dockerfile
+    container_name: rag-frontend
+    ports:
+      - "3000:3000"
+    environment:
+      - NEXT_PUBLIC_API_URL=http://backend:8000
+      - NEXT_PUBLIC_WS_URL=ws://backend:8000
+    depends_on:
+      - backend
+    restart: unless-stopped
+    profiles:
+      - full
+
+volumes: {}
+
+networks:
+  default:
+    name: rag-network
