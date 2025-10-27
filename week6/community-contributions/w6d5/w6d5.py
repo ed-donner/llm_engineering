@@ -65,8 +65,8 @@ class PricePredictionFineTuner:
             print("Pickle files not found. Loading from Hugging Face...")
             self._load_from_huggingface(category)
         
-        self.fine_tune_train = self.train[:200]
-        self.fine_tune_validation = self.train[200:250]
+        self.fine_tune_train = self.train[:500]
+        self.fine_tune_validation = self.train[500:600]
         
         print(f"Fine-tuning split: {len(self.fine_tune_train)} train, {len(self.fine_tune_validation)} validation")
     
@@ -93,7 +93,7 @@ class PricePredictionFineTuner:
                         if processed % 1000 == 0:
                             print(f"Processed {processed:,} items, found {len(items):,} valid items")
                             
-                        if len(items) >= 1000:
+                        if len(items) >= 1500:
                             print(f"Collected {len(items)} items, stopping for efficiency")
                             break
                             
@@ -102,8 +102,8 @@ class PricePredictionFineTuner:
             
             print(f"Created {len(items):,} valid Item objects")
             
-            if len(items) < 250:
-                raise ValueError(f"Not enough valid items found: {len(items)}. Need at least 250.")
+            if len(items) < 600:
+                raise ValueError(f"Not enough valid items found: {len(items)}. Need at least 600.")
             
             random.shuffle(items)
             
@@ -195,16 +195,20 @@ class PricePredictionFineTuner:
             job = self.client.fine_tuning.jobs.create(
                 training_file=train_file_id,
                 validation_file=validation_file_id,
-                    model="gpt-4o-mini-2024-07-18",
-                    seed=42,
-                    hyperparameters={"n_epochs": 1},
-                    integrations=integrations,
-                    suffix="pricer"
+                        model="gpt-4o-mini-2024-07-18",
+                        seed=42,
+                hyperparameters={
+                            "n_epochs": 3,
+                            "learning_rate_multiplier": 0.1,
+                            "batch_size": 4
+                        },
+                        integrations=integrations,
+                        suffix="pricer-improved"
             )
             
             print(f"Fine-tuning job started: {job.id}")
             return job.id
-            
+                
         except Exception as e:
             print(f"Failed to start fine-tuning job: {e}")
             raise
@@ -257,40 +261,72 @@ class PricePredictionFineTuner:
             return 0.0
     
     def evaluate_model(self, job_id: str) -> Dict[str, Any]:
-        print("Retrieving fine-tuned model name...")
-        
         try:
             job = self.client.fine_tuning.jobs.retrieve(job_id)
             self.fine_tuned_model_name = job.fine_tuned_model
             
-            if not self.fine_tuned_model_name:
-                return {"error": "Fine-tuned model name not available yet"}
-            
-            print(f"Fine-tuned model: {self.fine_tuned_model_name}")
-            
             if not self.test:
                 return {"error": "No test items available"}
             
+            test_subset = self.test[:min(250, len(self.test))]
+            actual_size = len(test_subset)
+            
             print(f"Testing individual prediction first...")
-            print(f"Actual price: ${self.test[0].price}")
-            predicted_price = self.gpt_fine_tuned(self.test[0])
+            print(f"Actual price: ${test_subset[0].price}")
+            predicted_price = self.gpt_fine_tuned(test_subset[0])
             print(f"Predicted price: ${predicted_price}")
             
             print(f"Test prompt used:")
-            print(self.test[0].test_prompt())
+            print(test_subset[0].test_prompt())
             
-            print(f"\nRunning full evaluation with {len(self.test)} test items...")
-            Tester.test(self.gpt_fine_tuned, self.test)
+            print(f"\nRunning full evaluation with {actual_size} test items...")
+            
+            test_subset2 = self.test[:actual_size]
+            tester = Tester(self.gpt_fine_tuned, test_subset2, size=actual_size)
+            tester.run()
             
             return {
                 "status": "completed",
                 "message": "Evaluation completed using Tester class with RMSLE metrics",
-                "test_items": len(self.test),
+                "test_items": actual_size,
                 "model_name": self.fine_tuned_model_name
             }
-            
         except Exception as e:
             return {"error": f"Evaluation failed: {e}"}
+    
+    def evaluate_existing_model(self, model_name: str) -> Dict[str, Any]:
+        print("Evaluating existing fine-tuned model...")
+        
+        self.fine_tuned_model_name = model_name
+        
+        if not self.test:
+            return {"error": "No test items available. Load data first."}
+        
+        print(f"Fine-tuned model: {self.fine_tuned_model_name}")
+        
+        test_subset = self.test[:min(250, len(self.test))]
+        actual_size = len(test_subset)
+        
+        print(f"Testing individual prediction first...")
+        print(f"Actual price: ${test_subset[0].price}")
+        predicted_price = self.gpt_fine_tuned(test_subset[0])
+        print(f"Predicted price: ${predicted_price}")
+        
+        print(f"Test prompt used:")
+        print(test_subset[0].test_prompt())
+        
+        print(f"\nRunning full evaluation with {actual_size} test items...")
+        
+        test_subset2 = self.test[:actual_size]
+        tester = Tester(self.gpt_fine_tuned, test_subset2, size=actual_size)
+        tester.run()
+        
+        return {
+            "status": "completed",
+            "message": "Evaluation completed using Tester class with RMSLE metrics",
+            "test_items": actual_size,
+            "model_name": self.fine_tuned_model_name
+        }
     
     def add_wandb_sync(self, job_id: str) -> None:
         try:
@@ -362,10 +398,11 @@ def main():
             print("\nPrice prediction fine-tuning process completed!")
             print("\nFollows reference implementation exactly:")
             print("  Uses pickle files (train.pkl, test.pkl)")
-            print("  200 training examples, 50 validation examples")
+            print("  500 training examples, 100 validation examples")
+            print("  3 epochs with balanced learning rate (0.1)")
+            print("  Batch size 4 for stable training")
             print("  Proper RMSLE evaluation using Tester class")
             print("  Weights and Biases integration")
-            print("  Same model and hyperparameters as reference")
             
         else:
             print("\nFine-tuning failed - check the error messages above")
@@ -375,5 +412,47 @@ def main():
         import traceback
         traceback.print_exc()
 
+def evaluate_only(model_name: str):
+    print("=" * 60)
+    print("EVALUATING EXISTING FINE-TUNED MODEL")
+    print("=" * 60)
+    
+    api_key = os.getenv('OPENAI_API_KEY')
+    if not api_key:
+        print("OPENAI_API_KEY not found in environment")
+        return
+    
+    try:
+        fine_tuner = PricePredictionFineTuner(api_key)
+        
+        print("\nLoading data...")
+        fine_tuner.load_amazon_data("Appliances")
+        
+        print("\nRunning evaluation...")
+        results = fine_tuner.evaluate_existing_model(model_name)
+        
+        if "error" in results:
+            print(f"Evaluation failed: {results['error']}")
+        else:
+            print(f"\n{results['message']}")
+            print(f"Evaluation used {results['test_items']} test items")
+            print("\nCheck the generated chart for detailed RMSLE metrics!")
+            
+    except Exception as e:
+        print(f"\nError during evaluation: {e}")
+        import traceback
+        traceback.print_exc()
+
 if __name__ == "__main__":
-    main()
+    import sys
+    
+    if len(sys.argv) > 1 and sys.argv[1] == "--evaluate":
+        if len(sys.argv) < 3:
+            print("Usage: python w6d5.py --evaluate <model_name>")
+            print("\nExample:")
+            print("  python w6d5.py --evaluate ft:gpt-4o-mini-2024-07-18:techxelo:pricer-improved:CVIfbqic")
+        else:
+            model_name = sys.argv[2]
+            evaluate_only(model_name)
+    else:
+        main()
