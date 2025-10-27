@@ -54,7 +54,9 @@ ___
 
 3. **Do a git clone:**
 
-Enter this in the command prompt in the Projects folder:
+Enter the clone command below in the command prompt in the `projects` folder. If this gives you an error about long filenames, please do #3 in the "gotchas" section at the top, and then restart your computer, and you might also need to run this: `git config --system core.longpaths true`
+
+Here's the clone command:
 
 `git clone https://github.com/ed-donner/llm_engineering.git`
 

@@ -1,0 +1,16 @@
+streamlit
+praw
+requests
+beautifulsoup4
+pandas
+python-dotenv
+tenacity
+plotly
+openai>=1.0.0
+vaderSentiment
+fuzzywuzzy[speedup]
+python-Levenshtein
+reportlab
+tqdm
+pytest
+XlsxWriter
