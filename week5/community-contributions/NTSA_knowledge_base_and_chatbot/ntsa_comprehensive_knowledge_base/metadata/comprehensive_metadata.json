@@ -1,0 +1,132 @@
+{
+  "scraping_info": {
+    "base_url": "https://ntsa.go.ke",
+    "total_pages_scraped": 15,
+    "failed_pages": 0,
+    "scraping_timestamp": "2025-10-24T07:24:42.107607",
+    "output_directory": "ntsa_comprehensive_knowledge_base"
+  },
+  "scraped_pages": [
+    {
+      "url": "https://ntsa.go.ke",
+      "title": "NTSA | Keep our roads safe",
+      "file_path": "ntsa_comprehensive_knowledge_base\\services\\ntsa_NTSA__Keep_our_roads_safe_f13d765c.md",
+      "category": "services",
+      "content_length": 6068,
+      "depth": 0
+    },
+    {
+      "url": "https://ntsa.go.ke/about",
+      "title": "NTSA | About Us",
+      "file_path": "ntsa_comprehensive_knowledge_base\\about\\ntsa_NTSA__About_Us_05bb6415.md",
+      "category": "about",
+      "content_length": 1422,
+      "depth": 0
+    },
+    {
+      "url": "https://ntsa.go.ke/services",
+      "title": "NTSA | NTSA Services",
+      "file_path": "ntsa_comprehensive_knowledge_base\\services\\ntsa_NTSA__NTSA_Services_7a9ee5d0.md",
+      "category": "services",
+      "content_length": 1994,
+      "depth": 0
+    },
+    {
+      "url": "https://ntsa.go.ke/contact",
+      "title": "NTSA | Contact Us",
+      "file_path": "ntsa_comprehensive_knowledge_base\\services\\ntsa_NTSA__Contact_Us_7bdb748a.md",
+      "category": "services",
+      "content_length": 1587,
+      "depth": 0
+    },
+    {
+      "url": "https://ntsa.go.ke/news",
+      "title": "NTSA | Media Center - News & Updates",
+      "file_path": "ntsa_comprehensive_knowledge_base\\news\\ntsa_NTSA__Media_Center_-_News__Updates_e765915c.md",
+      "category": "news",
+      "content_length": 2481,
+      "depth": 0
+    },
+    {
+      "url": "https://ntsa.go.ke/tenders",
+      "title": "NTSA | Tenders",
+      "file_path": "ntsa_comprehensive_knowledge_base\\tenders\\ntsa_NTSA__Tenders_73ac6e93.md",
+      "category": "tenders",
+      "content_length": 354,
+      "depth": 0
+    },
+    {
+      "url": "https://ntsa.go.ke/news/new-digital-licensing-system-goes-live",
+      "title": "NTSA | New Digital Licensing System Goes Live | NTSA Kenya",
+      "file_path": "ntsa_comprehensive_knowledge_base\\news\\ntsa_NTSA__New_Digital_Licensing_System_Goes_Live__NTSA_50d5938e.md",
+      "category": "news",
+      "content_length": 1003,
+      "depth": 1
+    },
+    {
+      "url": "https://ntsa.go.ke/news/ntsa-launches-new-road-safety-campaign",
+      "title": "NTSA | NTSA Launches New Road Safety Campaign | NTSA Kenya",
+      "file_path": "ntsa_comprehensive_knowledge_base\\news\\ntsa_NTSA__NTSA_Launches_New_Road_Safety_Campaign__NTSA_63481444.md",
+      "category": "news",
+      "content_length": 1113,
+      "depth": 1
+    },
+    {
+      "url": "https://ntsa.go.ke/news/8th-un-global-road-safety-week-concludes-with-nationwide-activities",
+      "title": "NTSA | 8th UN Global Road Safety Week Concludes with Nationwide Activities | NTSA Kenya",
+      "file_path": "ntsa_comprehensive_knowledge_base\\news\\ntsa_NTSA__8th_UN_Global_Road_Safety_Week_Concludes_wit_9636f22e.md",
+      "category": "news",
+      "content_length": 1494,
+      "depth": 1
+    },
+    {
+      "url": "https://ntsa.go.ke/about/who-we-are",
+      "title": "NTSA | About Us - Who We Are",
+      "file_path": "ntsa_comprehensive_knowledge_base\\about\\ntsa_NTSA__About_Us_-_Who_We_Are_47583408.md",
+      "category": "about",
+      "content_length": 2204,
+      "depth": 1
+    },
+    {
+      "url": "https://ntsa.go.ke/careers",
+      "title": "Career Opportunities | NTSA",
+      "file_path": "ntsa_comprehensive_knowledge_base\\careers\\ntsa_Career_Opportunities__NTSA_3e462d97.md",
+      "category": "careers",
+      "content_length": 477,
+      "depth": 1
+    },
+    {
+      "url": "https://ntsa.go.ke/services/vehicles-services",
+      "title": "NTSA | Vehicles Services",
+      "file_path": "ntsa_comprehensive_knowledge_base\\services\\ntsa_NTSA__Vehicles_Services_57ba53a1.md",
+      "category": "services",
+      "content_length": 814,
+      "depth": 1
+    },
+    {
+      "url": "https://ntsa.go.ke/faqs",
+      "title": "NTSA | Frequently Asked Questions | NTSA Kenya",
+      "file_path": "ntsa_comprehensive_knowledge_base\\services\\ntsa_NTSA__Frequently_Asked_Questions__NTSA_Kenya_291931bf.md",
+      "category": "services",
+      "content_length": 819,
+      "depth": 1
+    },
+    {
+      "url": "https://ntsa.go.ke/privacy-policy",
+      "title": "NTSA | Privacy Policy | NTSA",
+      "file_path": "ntsa_comprehensive_knowledge_base\\services\\ntsa_NTSA__Privacy_Policy__NTSA_68960874.md",
+      "category": "services",
+      "content_length": 1130,
+      "depth": 1
+    },
+    {
+      "url": "https://ntsa.go.ke/",
+      "title": "NTSA | Keep our roads safe",
+      "file_path": "ntsa_comprehensive_knowledge_base\\services\\ntsa_NTSA__Keep_our_roads_safe_0a8e8522.md",
+      "category": "services",
+      "content_length": 6068,
+      "depth": 1
+    }
+  ],
+  "failed_urls": []
+}
