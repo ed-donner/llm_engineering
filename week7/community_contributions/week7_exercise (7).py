@@ -104,6 +104,10 @@ print(dataset["train"][0])
 # somecleaning on prices
 df["price_clean"] = pd.to_numeric(df["price"], errors="coerce")
 
+#Print the data showing the price and price cleaned to see they are actual not all 0
+print(df_clean[["title", "price", "price_clean"]].head(10))
+print(f"\nNumber of valid price entries: {df_clean['price_clean'].notna().sum()}")
+
 # Bringing the text fields togeter
 def combine_text(row):
     title = row["title"] or ""
@@ -141,6 +145,14 @@ with open("pricing_train.jsonl", "w") as f:
 with open("pricing_eval.jsonl", "w") as f:
     for ex in eval_examples:
         f.write(json.dumps(ex) + "\n")
+
+#Check the price exists in the Saved JSON aboved
+with open("pricing_train.jsonl") as f:
+    lines = [json.loads(line) for line in f]
+
+print("Sample outputs from training data:")
+for ex in lines[:5]:
+    print(ex["output"])
 
 #A good formating for the llm
 def format_for_model(ex):
@@ -213,7 +225,7 @@ data_collator = DataCollatorForLanguageModeling(tokenizer, mlm=False)
 #updated for faster exp
 training_args = TrainingArguments(
     output_dir="./price-predictor-checkpoints",
-    num_train_epochs=1,  # ⬅️ change from 2 to 1
+    num_train_epochs=1,  # ⬅change from 2 to 1
     per_device_train_batch_size=1,
     gradient_accumulation_steps=2,
     learning_rate=2e-4,
@@ -241,69 +253,59 @@ trainer.save_model("./price-predictor-finetuned")
 model = AutoModelForCausalLM.from_pretrained("./price-predictor-finetuned", device_map="auto")
 tokenizer = AutoTokenizer.from_pretrained("./price-predictor-finetuned")
 
-#small evaluation subset
-eval_dataset_small = dataset["eval"].shuffle(seed=42).select(range(min(50, len(dataset["eval"]))))
-pred_prices, true_prices = [], []
+# Inspect one example from your fine-tuning eval dataset before using it
+print("Inspecting one evaluation example (should have instruction, input, output):")
+with open("pricing_eval.jsonl") as f:
+    sample_eval = [json.loads(line) for line in f][:3]  # just a few samples
+for ex in sample_eval:
+    print(json.dumps(ex, indent=2))
 
-# #iteration Over the tqdm
-# for ex in tqdm(eval_dataset_small, desc="Evaluating"):
-#     prompt = f"### Instruction:\nEstimate the fair market price of this product in USD. Return only a single number.\n\n### Input:\n{ex['input']}\n\n### Response:"
-#     inputs = tokenizer(prompt, return_tensors="pt").to(model.device)
-#     with torch.no_grad():
-#         output = model.generate(**inputs, max_new_tokens=20)
-#     text = tokenizer.decode(output[0], skip_special_tokens=True)
+eval_dataset_small = load_dataset("json", data_files="pricing_eval.jsonl")["train"]
+eval_dataset_small = eval_dataset_small.shuffle(seed=42).select(range(min(50, len(eval_dataset_small))))
 
-#     # Extract numeric prediction
-#     numbers = re.findall(r"[-+]?\d*\.\d+|\d+", text)
-#     pred = float(numbers[-1]) if numbers else np.nan
+for ex in eval_dataset_small.select(range(5)):
+    print("Output price:", ex["output"])
 
-#     pred_prices.append(pred)
-#     true_prices.append(float(ex["output"]))
-
-
-# Safe evaluation loop
+#iteration Over the tqdm
 for ex in tqdm(eval_dataset_small, desc="Evaluating"):
-    # Skip if output is missing or invalid
-    try:
-        true_val = float(ex["output"])
-    except (ValueError, TypeError):
-        continue  # skip this example
-
-    prompt = (
-        "### Instruction:\nEstimate the fair market price of this product in USD. "
-        "Return only a single number.\n\n"
-        f"### Input:\n{ex['input']}\n\n### Response:"
-    )
-
+    prompt = f"### Instruction:\nEstimate the fair market price of this product in USD. Return only a single number.\n\n### Input:\n{ex['input']}\n\n### Response:"
     inputs = tokenizer(prompt, return_tensors="pt").to(model.device)
     with torch.no_grad():
         output = model.generate(**inputs, max_new_tokens=20)
-
     text = tokenizer.decode(output[0], skip_special_tokens=True)
+
+    # Extract numeric prediction
     numbers = re.findall(r"[-+]?\d*\.\d+|\d+", text)
     pred = float(numbers[-1]) if numbers else np.nan
 
     pred_prices.append(pred)
-    true_prices.append(true_val)
+    true_prices.append(float(ex["output"]))
+
+# --- Fix length mismatch and mask NaNs ---
+import numpy as np
+
+pred_prices = np.array(pred_prices, dtype=float)
+true_prices = np.array(true_prices, dtype=float)
+
+# Ensure both arrays are same length
+min_len = min(len(pred_prices), len(true_prices))
+pred_prices = pred_prices[:min_len]
+true_prices = true_prices[:min_len]
+
+# Filter out NaNs or nonsensical large predictions
+mask = (~np.isnan(pred_prices)) & (pred_prices < 10000)  # exclude any predictions above $10k
+pred_prices = pred_prices[mask]
+true_prices = true_prices[mask]
+
+print("Arrays aligned:")
+print("Preds:", len(pred_prices), "Truths:", len(true_prices))
 
 # Filter out invalid predictions
 mask = ~np.isnan(pred_prices)
 
 pred_prices = np.array(pred_prices)[mask]
 
-# Convert to numpy arrays and align lengths
-pred_prices = np.array(pred_prices, dtype=float)
-true_prices = np.array(true_prices, dtype=float)
-
-# Ensure equal lengths just in case (zip trims to shortest)
-min_len = min(len(pred_prices), len(true_prices))
-pred_prices = pred_prices[:min_len]
-true_prices = true_prices[:min_len]
-
-# Drop NaNs safely
-mask = ~np.isnan(pred_prices)
-pred_prices = pred_prices[mask]
-true_prices = true_prices[mask]
+true_prices = np.array(true_prices)[mask]
 
 # Compute metrics manually again
 mae = mean_absolute_error(true_prices, pred_prices)
@@ -327,6 +329,18 @@ plt.legend()
 plt.grid(True)
 plt.show()
 
+#Zoom
+plt.figure(figsize=(6,6))
+plt.scatter(true_prices, pred_prices, alpha=0.6)
+plt.plot([0, max(true_prices)], [0, max(true_prices)], 'r--', label="Perfect Prediction")
+plt.xlabel("Actual Price (USD)")
+plt.ylabel("Predicted Price (USD)")
+plt.title("Predicted vs Actual Prices (Zoomed In)")
+plt.ylim(0, 600)   #  Zoom y-axis
+plt.legend()
+plt.grid(True)
+plt.show()
+
 #check the distribution
 errors = np.abs(pred_prices - true_prices)
 plt.figure(figsize=(8,4))
@@ -337,3 +351,25 @@ plt.ylabel("Frequency")
 plt.show()
 
 print(f"Average Error: ${np.mean(errors):.2f}, Median Error: ${np.median(errors):.2f}")
+
+# Load the base model
+model_name = "facebook/opt-125m"
+tokenizer = AutoTokenizer.from_pretrained(model_name)
+model = AutoModelForCausalLM.from_pretrained(model_name, device_map="auto")
+
+# Sample 5 examples from your eval_df
+examples = eval_df.sample(5, random_state=42)
+
+for i, row in examples.iterrows():
+    prompt = f"### Instruction:\nEstimate the fair market price of this product in USD. Return only a single number.\n\n### Input:\n{row['text']}\n\n### Response:"
+    inputs = tokenizer(prompt, return_tensors="pt").to(model.device)
+
+    with torch.no_grad():
+        outputs = model.generate(**inputs, max_new_tokens=20)
+
+    prediction_text = tokenizer.decode(outputs[0], skip_special_tokens=True)
+
+    print(f"\n--- Example {i} ---")
+    print("Prompt:\n", prompt[:200], "...")
+    print("Model output:\n", prediction_text)
+    print("Actual price:", row["price_clean"])
