@@ -396,13 +396,12 @@ def main():
                 print("\nCheck the generated chart for detailed RMSLE metrics!")
             
             print("\nPrice prediction fine-tuning process completed!")
-            print("\nImproved configuration to prevent overfitting:")
             print("  Uses pickle files (train.pkl, test.pkl)")
             print("  750 training examples, 100 validation examples")
-            print("  1 epoch to prevent overfitting")
-            print("  Learning rate: 0.5 (higher for better generalization)")
-            print("  Batch size: 8 (larger for stability)")
-            print("  Assertive system prompt (forces predictions)")
+            print("  1 epoch")
+            print("  Learning rate: 0.5")
+            print("  Batch size: 8")
+            print("  Assertive system prompt")
             print("  Proper RMSLE evaluation using Tester class")
             print("  Weights and Biases integration")
             
