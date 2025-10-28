@@ -1,0 +1,9 @@
+# NTSA | 8th UN Global Road Safety Week Concludes with Nationwide Activities | NTSA Kenya
+
+**URL:** https://ntsa.go.ke/news/8th-un-global-road-safety-week-concludes-with-nationwide-activities
+**Scraped:** 2025-10-24T07:24:08.503078
+**Content Length:** 1494 characters
+
+---
+
+Home/Media Center/News & Updates/8th UN Global Road Safety Week Concludes with Nationwide Activities Back to NewsMay 15, 20258th UN Global Road Safety Week Concludes with Nationwide ActivitiesNTSA wraps up a successful week of road safety awareness, engaging partners and communities across Kenya to promote the protection of vulnerable road users. Share:The 8th UN Global Road Safety Week concluded on a high note after a week of impactful and colorful activities held across the country. Led by the National Transport and Safety Authority (NTSA), the campaign saw active participation from Board Directors, Management, and officials who visited various regions to promote road safety awareness.Throughout the week, NTSA partnered with road safety actors, government agencies, and community stakeholders to sensitize the public—particularly vulnerable road users such as pedestrians and cyclists. The collaborative efforts aimed to reinforce the importance of safe mobility and reduce road-related injuries and fatalities.NTSA thanks all partners and participants for their commitment to making Kenyan roads safer for everyone. Related ArticlesKenya Recognized for Technological Advancement and Public Service Excellence at APSCA AwardsOct 13, 2025LIST OF APPROVED MOTOR VEHICLE BODY BUILDERS, CONFORMITY ASSESSORS AND SPEED LIMITERS SUPPLIERS IN KENYASep 01, 2025Operation Watoto Wafike Salama – Free Motor Vehicle Inspection ClinicsAug 20, 2025Quick LinksAbout NTSAOur ServicesContact UsFAQs

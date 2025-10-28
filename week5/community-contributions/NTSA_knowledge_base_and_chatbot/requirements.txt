@@ -1,0 +1,14 @@
+# Core dependencies
+requests>=2.25.0
+beautifulsoup4>=4.9.0
+selenium>=4.0.0
+webdriver-manager>=3.8.0
+
+# Jupyter notebook
+jupyter>=1.0.0
+ipykernel>=6.0.0
+
+# Optional: For advanced features
+# langchain>=0.1.0
+# chromadb>=0.4.0
+# openai>=1.0.0
