@@ -1,0 +1,497 @@
+[
+  {
+    "deal": {
+      "destination": "Paris",
+      "deal_type": "Flight",
+      "description": "This deal allows travelers to fly to Paris for just 7,100 credit card points and a minimal fee of $5.60. Award availability is great, particularly this December, making it an ideal time to explore the City of Light. Enjoy iconic attractions, delightful cuisine, and the beautiful winter ambiance of Paris without breaking the bank.",
+      "price": 500.0,
+      "url": "https://thepointsguy.com/deals/deal-of-the-day/"
+    },
+    "estimate": 2466.2734375,
+    "discount": 1966.2734375
+  },
+  {
+    "deal": {
+      "destination": "Alaska",
+      "deal_type": "Cruise",
+      "description": "Learn about the optimal times to cruise in Alaska with considerations for wildlife, discounted pricing, and unique experiences available throughout the different months. This destination offers breathtaking scenery and adventure opportunities that are perfect for nature lovers and cruisers alike. Make informed decisions on when to book your unforgettable Alaskan adventure.",
+      "price": 500.0,
+      "url": "https://thepointsguy.com/cruise/best-time-to-cruise-alaska/"
+    },
+    "estimate": 2976.80078125,
+    "discount": 2476.80078125
+  },
+  {
+    "deal": {
+      "destination": "Saudi Arabia",
+      "deal_type": "Flight",
+      "description": "Delta Air Lines is launching new nonstop flights from Atlanta to Riyadh, Saudi Arabia, starting next October. This makes Delta the only U.S. airline to offer this route, providing unique travel opportunities for those looking to explore the Middle East. Experience rich culture and history in the Kingdom of Saudi Arabia with convenient flight options.",
+      "price": 500.0,
+      "url": "https://thepointsguy.com/news/delta-air-lines-saudi-arabia-riyadh-nonstop-flights/"
+    },
+    "estimate": 2248.259521484375,
+    "discount": 1748.259521484375
+  },
+  {
+    "deal": {
+      "destination": "Hyatt Vacation Club",
+      "deal_type": "Hotel",
+      "description": "Earn 3,000 Hyatt points per night this winter when staying at Hyatt Vacation Club properties. This offer provides guests with rewards for their stays, adding significant value as those points can be redeemed for future accommodations and experiences. Travelers can enjoy high-quality accommodations in beautiful settings while accumulating points for future trips.",
+      "price": 500.0,
+      "url": "https://thepointsguy.com/news/hyatt-vacation-club-bonus-points-offer/"
+    },
+    "estimate": 2887.52685546875,
+    "discount": 2387.52685546875
+  },
+  {
+    "deal": {
+      "destination": "Various IHG properties",
+      "deal_type": "Hotel",
+      "description": "IHG One Rewards members can save up to 30% on stays at participating properties during this flash sale. Membership is free, allowing travelers to take advantage of significant savings on hotel bookings around the world. It's a perfect chance to enjoy luxurious stays while maximizing your budget during travel.",
+      "price": 500.0,
+      "url": "https://thepointsguy.com/deals/ihg-flash-sale/"
+    },
+    "estimate": 2464.5458984375,
+    "discount": 1964.5458984375
+  },
+  {
+    "deal": {
+      "destination": "Paris",
+      "deal_type": "Flight",
+      "description": "Travelers have a fantastic opportunity to fly to Paris for just 7,100 credit card points plus a minimal fee of $5.60 this December. This deal features excellent award availability from select U.S. cities, making it an exceptional choice for those looking to explore the City of Light. It's a great time to enjoy Parisian culture, cuisine, and landmarks while redeeming your points efficiently. Don't miss out on this limited-time offer to experience Europe's romantic capital without breaking the bank.",
+      "price": 500.0,
+      "url": "https://thepointsguy.com/deals/deal-of-the-day/"
+    },
+    "estimate": 2827.6220703125,
+    "discount": 2327.6220703125
+  },
+  {
+    "deal": {
+      "destination": "Alaska",
+      "deal_type": "Cruise",
+      "description": "Alaska is a breathtaking cruise destination with a limited season that offers various advantages depending on the month. This detailed guide helps travelers choose the best time to cruise, whether it's for discounted pricing or to witness abundant wildlife. Each month brings unique characteristics, ensuring every traveler can find the perfect time for their voyage. Embark on an unforgettable journey through stunning landscapes and vibrant marine life in Alaska.",
+      "price": 500.0,
+      "url": "https://thepointsguy.com/cruise/best-time-to-cruise-alaska/"
+    },
+    "estimate": 3351.845458984375,
+    "discount": 2851.845458984375
+  },
+  {
+    "deal": {
+      "destination": "Saudi Arabia",
+      "deal_type": "Flight",
+      "description": "Delta Air Lines is set to become the only U.S. airline providing nonstop flights to Riyadh, Saudi Arabia, from Atlanta starting next October. This new route opens exciting travel opportunities for those interested in exploring the rich culture and history of Saudi Arabia's capital. Ideal for both business and leisure travelers, this service enhances connectivity to an emerging destination with much to offer. Book your ticket to be among the first to experience this new travel path.",
+      "price": 500.0,
+      "url": "https://thepointsguy.com/news/delta-air-lines-saudi-arabia-riyadh-nonstop-flights/"
+    },
+    "estimate": 3028.00341796875,
+    "discount": 2528.00341796875
+  },
+  {
+    "deal": {
+      "destination": "IHG Hotels",
+      "deal_type": "Hotel",
+      "description": "IHG is currently running a flash sale that allows members to save up to 30% on stays at participating properties. This deal is perfect for IHG One Rewards members, and signing up is free, making the offer accessible to a broader audience. With a variety of locations and accommodations, guests can enjoy significant discounts, enhancing their travel experience without a hefty price tag. Take advantage of this limited-time offer to enjoy luxury stays at a fraction of the cost!",
+      "price": 500.0,
+      "url": "https://thepointsguy.com/deals/ihg-flash-sale/"
+    },
+    "estimate": 2123.265380859375,
+    "discount": 1623.265380859375
+  },
+  {
+    "deal": {
+      "destination": "Hyatt Vacation Club",
+      "deal_type": "Hotel",
+      "description": "This winter, guests can earn 3,000 Hyatt points per night at Hyatt Vacation Club properties, providing a great way to collect rewards while enjoying a winter getaway. Travelers can expect relaxing accommodations in scenic locations with premium amenities. This offer is designed to enhance the vacation experience, ensuring points earners can redeem for future travels. It's a perfect opportunity to enjoy luxury stays while also boosting your reward balance for even more adventures ahead.",
+      "price": 500.0,
+      "url": "https://thepointsguy.com/news/hyatt-vacation-club-bonus-points-offer/"
+    },
+    "estimate": 2416.3115234375,
+    "discount": 1916.3115234375
+  },
+  {
+    "deal": {
+      "destination": "Paris",
+      "deal_type": "Flight",
+      "description": "Book a flight to Paris this December for as low as 7,100 credit card points plus only $5.60. This fantastic deal comes with great award availability departing from select U.S. cities, making it an excellent opportunity for travelers looking to visit the City of Light. Don't miss out on experiencing Paris, with its iconic attractions like the Eiffel Tower and Louvre Museum, at such a minimal cost.",
+      "price": 500.0,
+      "url": "https://thepointsguy.com/deals/deal-of-the-day/"
+    },
+    "estimate": 2097.250732421875,
+    "discount": 1597.250732421875
+  },
+  {
+    "deal": {
+      "destination": "Alaska",
+      "deal_type": "Cruise",
+      "description": "Discover the best time to cruise Alaska with our detailed guide that highlights the limited cruise season from May to September. Each month offers unique advantages such as discounted pricing and opportunities to see incredible wildlife. Whether you prefer the bustling summer or the quieter late season, learn when to book your Alaskan adventure for the best experience.",
+      "price": 500.0,
+      "url": "https://thepointsguy.com/cruise/best-time-to-cruise-alaska/"
+    },
+    "estimate": 3514.16943359375,
+    "discount": 3014.16943359375
+  },
+  {
+    "deal": {
+      "destination": "Saudi Arabia",
+      "deal_type": "Flight",
+      "description": "Starting next October, Delta Air Lines will introduce nonstop flights from Atlanta to Riyadh, marking itself as the only U.S. airline offering this route. This is a significant opportunity for travelers interested in exploring the Kingdom with access to its rich culture and history. Plan your travels to take advantage of this new connection to Saudi Arabia.",
+      "price": 500.0,
+      "url": "https://thepointsguy.com/news/delta-air-lines-saudi-arabia-riyadh-nonstop-flights/"
+    },
+    "estimate": 3667.870361328125,
+    "discount": 3167.870361328125
+  },
+  {
+    "deal": {
+      "destination": "Various Locations (IHG Hotels)",
+      "deal_type": "Hotel",
+      "description": "IHG One Rewards members can enjoy a limited-time flash sale offering up to 30% off on stays at participating IHG properties. Membership is free, which provides additional travel perks. This offer is perfect for hotel stays across various destinations, making it an ideal opportunity for budget-conscious travelers.",
+      "price": 350.0,
+      "url": "https://thepointsguy.com/deals/ihg-flash-sale/"
+    },
+    "estimate": 2205.177978515625,
+    "discount": 1855.177978515625
+  },
+  {
+    "deal": {
+      "destination": "Hyatt Vacation Club",
+      "deal_type": "Hotel",
+      "description": "Earn 3,000 Hyatt points per night when you stay at Hyatt Vacation Club properties this winter. It's a great way to enhance your stay at beautiful locations while racking up points that can be redeemed for future travel. This offer is perfect for winter getaway seekers looking to enjoy a relaxing vacation while earning rewards.",
+      "price": 500.0,
+      "url": "https://thepointsguy.com/news/hyatt-vacation-club-bonus-points-offer/"
+    },
+    "estimate": 3293.184814453125,
+    "discount": 2793.184814453125
+  },
+  {
+    "deal": {
+      "destination": "Paris",
+      "deal_type": "Package",
+      "description": "Travelers can fly to Paris for an incredible deal of only 7,100 credit card points plus $5.60. The offer is valid from select U.S. cities this December, making it a perfect opportunity for holiday travel or a romantic getaway. Don\u2019t miss the chance to explore the City of Light while saving on airfare!",
+      "price": 500.0,
+      "url": "https://thepointsguy.com/deals/deal-of-the-day/"
+    },
+    "estimate": 1937.4169921875,
+    "discount": 1437.4169921875
+  },
+  {
+    "deal": {
+      "destination": "Saudi Arabia",
+      "deal_type": "Flight",
+      "description": "Delta Air Lines is set to introduce nonstop flights from Atlanta to Riyadh, Saudi Arabia, next October, making it the only U.S. airline offering this route. This exciting development opens up new travel opportunities for American travelers to explore the Kingdom's rich history and culture. Be among the first to book these flights and experience a new adventure!",
+      "price": 500.0,
+      "url": "https://thepointsguy.com/news/delta-air-lines-saudi-arabia-riyadh-nonstop-flights/"
+    },
+    "estimate": 2180.265625,
+    "discount": 1680.265625
+  },
+  {
+    "deal": {
+      "destination": "Various Hyatt Vacation Club properties",
+      "deal_type": "Hotel",
+      "description": "This winter, enjoy a stay at Hyatt Vacation Club properties and earn 3,000 points per night. This promotion encourages travelers to indulge in luxury at various locations, with every night spent contributing to your loyalty rewards. Experience comfort, amenities, and the revenue of points to redeem for future stays!",
+      "price": 500.0,
+      "url": "https://thepointsguy.com/news/hyatt-vacation-club-bonus-points-offer/"
+    },
+    "estimate": 2734.311767578125,
+    "discount": 2234.311767578125
+  },
+  {
+    "deal": {
+      "destination": "Various IHG properties",
+      "deal_type": "Hotel",
+      "description": "IHG One Rewards members can take advantage of a flash sale providing up to 30% off at participating properties. This limited-time offer allows members to book accommodations across various locations at significant discounts, perfect for weekend getaways or extended vacations. Sign up for free to access this amazing deal!",
+      "price": 500.0,
+      "url": "https://thepointsguy.com/deals/ihg-flash-sale/"
+    },
+    "estimate": 2387.095703125,
+    "discount": 1887.095703125
+  },
+  {
+    "deal": {
+      "destination": "Alaska",
+      "deal_type": "Cruise",
+      "description": "Alaska is known for its breathtaking views and wildlife, and the best time to cruise there can vary. This guide helps travelers understand the advantages of cruising in Alaska based on the month they choose to embark. Travelers can benefit from discounted pricing during specific seasons, ensuring a unique and memorable experience out at sea. Enjoy the natural beauty and adventures that Alaska has to offer!",
+      "price": 500.0,
+      "url": "https://thepointsguy.com/cruise/best-time-to-cruise-alaska/"
+    },
+    "estimate": 3685.193115234375,
+    "discount": 3185.193115234375
+  },
+  {
+    "deal": {
+      "destination": "Paris",
+      "deal_type": "Flight",
+      "description": "This incredible deal allows you to fly to Paris for just 7,100 credit card points plus a mere $5.60. You can book this award flight departing from select U.S. cities this December, making it an affordable dream destination during the holiday season. Enjoy the beauty of Paris and explore its iconic landmarks without breaking the bank. Don't miss this opportunity to visit the City of Lights on a budget!",
+      "price": 500.0,
+      "url": "https://thepointsguy.com/deals/deal-of-the-day/"
+    },
+    "estimate": 2293.15283203125,
+    "discount": 1793.15283203125
+  },
+  {
+    "deal": {
+      "destination": "Alaska",
+      "deal_type": "Cruise",
+      "description": "Alaska offers a unique cruising experience with a limited season where travelers can see wildlife and stunning landscapes. This guide helps you choose the best time to cruise Alaska, discussing each month\u2019s pros and cons, including potential discounts and wildlife viewing opportunities. Planning your cruise around peak seasons can enhance your experience and save you money on your adventure.",
+      "price": 500.0,
+      "url": "https://thepointsguy.com/cruise/best-time-to-cruise-alaska/"
+    },
+    "estimate": 2563.173583984375,
+    "discount": 2063.173583984375
+  },
+  {
+    "deal": {
+      "destination": "Saudi Arabia",
+      "deal_type": "Flight",
+      "description": "Delta Air Lines is launching a new route from Atlanta to Riyadh in October, making it the only U.S. airline to offer direct flights to Saudi Arabia. This is a great opportunity for travelers interested in experiencing Middle Eastern culture and hospitality. Don\u2019t miss your chance to be among the first to explore this exciting new destination from the U.S.",
+      "price": 500.0,
+      "url": "https://thepointsguy.com/news/delta-air-lines-saudi-arabia-riyadh-nonstop-flights/"
+    },
+    "estimate": 1687.6510009765625,
+    "discount": 1187.6510009765625
+  },
+  {
+    "deal": {
+      "destination": "Hyatt Vacation Club",
+      "deal_type": "Hotel",
+      "description": "Earn 3,000 Hyatt points per night this winter when staying at Hyatt Vacation Club properties. This limited-time offer allows travelers to enjoy a luxurious and comfortable stay while racking up points for future trips. Ideal for points-savvy travelers looking to maximize their rewards during their winter getaway.",
+      "price": 500.0,
+      "url": "https://thepointsguy.com/news/hyatt-vacation-club-bonus-points-offer/"
+    },
+    "estimate": 2384.860595703125,
+    "discount": 1884.860595703125
+  },
+  {
+    "deal": {
+      "destination": "Various IHG properties",
+      "deal_type": "Hotel",
+      "description": "IHG One Rewards members can save up to 30% on stays at participating properties through a flash sale. This deal is perfect for those planning a trip and willing to stay at IHG hotels. Become a member for free and take advantage of steep discounts on your accommodations, making your travels more affordable without compromising on comfort. Act fast, as this sale is limited.",
+      "price": 500.0,
+      "url": "https://thepointsguy.com/deals/ihg-flash-sale/"
+    },
+    "estimate": 2723.661376953125,
+    "discount": 2223.661376953125
+  },
+  {
+    "deal": {
+      "destination": "Paris",
+      "deal_type": "Flight",
+      "description": "Take advantage of this incredible deal to fly to Paris for only 7,100 credit card points plus a nominal fee of $5.60. With fantastic award availability from select U.S. cities this December, it's an opportunity for travelers to experience the City of Lights at a fraction of the usual point cost. This limited-time offer encourages travelers to book quickly to secure their tickets for a winter getaway in one of the world\u2019s most romantic destinations.",
+      "price": 500.0,
+      "url": "https://thepointsguy.com/deals/deal-of-the-day/"
+    },
+    "estimate": 1811.4459228515625,
+    "discount": 1311.4459228515625
+  },
+  {
+    "deal": {
+      "destination": "Multiple locations in Alaska",
+      "deal_type": "Cruise",
+      "description": "Discover the stunning beauty of Alaska on a cruise, best enjoyed during its limited season. Each month offers unique advantages, ranging from discounted pricing to the chance of seeing abundant wildlife like whales and bears. This guide helps travelers decide the optimal time to embark on their Alaskan adventure, ensuring they experience all the natural wonders this amazing destination has to offer.",
+      "price": 500.0,
+      "url": "https://thepointsguy.com/cruise/best-time-to-cruise-alaska/"
+    },
+    "estimate": 3470.741455078125,
+    "discount": 2970.741455078125
+  },
+  {
+    "deal": {
+      "destination": "Saudi Arabia",
+      "deal_type": "Flight",
+      "description": "Delta Air Lines will soon be the only U.S. airline offering nonstop flights to Saudi Arabia, specifically connecting Atlanta to Riyadh starting next October. This unique route presents a valuable travel opportunity for those looking to explore the rich culture and history of Saudi Arabia. Be among the first to experience this new connection and discover the fantastic landscapes and heritage of the Kingdom.",
+      "price": 500.0,
+      "url": "https://thepointsguy.com/news/delta-air-lines-saudi-arabia-riyadh-nonstop-flights/"
+    },
+    "estimate": 3656.968505859375,
+    "discount": 3156.968505859375
+  },
+  {
+    "deal": {
+      "destination": "Multiple IHG Hotels",
+      "deal_type": "Hotel",
+      "description": "IHG One Rewards members can take advantage of a flash sale that promises savings of up to 30% on stays at participating properties. This offer is a great way for travelers to enjoy top-notch accommodations while enjoying significant savings. Joining the IHG One Rewards program is free, allowing even more travelers to access this lucrative deal.",
+      "price": 350.0,
+      "url": "https://thepointsguy.com/deals/ihg-flash-sale/"
+    },
+    "estimate": 2630.43603515625,
+    "discount": 2280.43603515625
+  },
+  {
+    "deal": {
+      "destination": "Hyatt Vacation Club properties",
+      "deal_type": "Hotel",
+      "description": "Earn 3,000 Hyatt points per night this winter at Hyatt Vacation Club locations. This deal invites travelers to enjoy luxurious accommodations while earning valuable points that can be redeemed for future stays and perks. This offer is perfect for those looking to enjoy a winter getaway and build their loyalty points at the same time\u2014making it a win-win for leisure seekers.",
+      "price": 500.0,
+      "url": "https://thepointsguy.com/news/hyatt-vacation-club-bonus-points-offer/"
+    },
+    "estimate": 2742.44580078125,
+    "discount": 2242.44580078125
+  },
+  {
+    "deal": {
+      "destination": "Paris",
+      "deal_type": "Flight",
+      "description": "Book a flight to Paris for only 7,100 credit card points plus $5.60 this December. This is a fantastic opportunity to travel to one of the most romantic cities in the world at an unbelievably low cost. The deal includes round-trip flights from select U.S. cities with great award availability. Don't miss out on this limited-time offer to experience Parisian culture, cuisine, and landmarks.",
+      "price": 500.0,
+      "url": "https://thepointsguy.com/deals/deal-of-the-day/"
+    },
+    "estimate": 2132.895263671875,
+    "discount": 1632.895263671875
+  },
+  {
+    "deal": {
+      "destination": "Alaska",
+      "deal_type": "Cruise",
+      "description": "Alaska is known as a premier cruise destination with a limited season, each month providing unique advantages such as discounted pricing or exceptional wildlife viewing. This guide helps travelers determine the best time to experience the breathtaking landscapes and diverse wildlife of Alaska on a cruise. Whether looking for adventure or relaxation, this guide highlights the optimal months for your trip.",
+      "price": 500.0,
+      "url": "https://thepointsguy.com/cruise/best-time-to-cruise-alaska/"
+    },
+    "estimate": 2560.084716796875,
+    "discount": 2060.084716796875
+  },
+  {
+    "deal": {
+      "destination": "Saudi Arabia",
+      "deal_type": "Flight",
+      "description": "Starting in October, Delta Air Lines will be launching a new direct flight route from Atlanta to Riyadh, making it the only U.S. airline serving this destination. This offer provides an excellent opportunity for travelers interested in exploring the rich culture and history of Saudi Arabia. Book your flights in advance to secure your spot on this new route, which promises a convenient travel option to a growing destination.",
+      "price": 500.0,
+      "url": "https://thepointsguy.com/news/delta-air-lines-saudi-arabia-riyadh-nonstop-flights/"
+    },
+    "estimate": 1428.189697265625,
+    "discount": 928.189697265625
+  },
+  {
+    "deal": {
+      "destination": "Various IHG properties",
+      "deal_type": "Hotel",
+      "description": "IHG One Rewards members can take advantage of a flash sale offering up to 30% off at participating hotels. This limited-time offer allows you to enjoy significant savings on memorable stays at IHG properties around the world. Sign up for free to become an IHG One Rewards member and access this exclusive deal and more. Stay at top hotels while maximizing your rewards.",
+      "price": 350.0,
+      "url": "https://thepointsguy.com/deals/ihg-flash-sale/"
+    },
+    "estimate": 2310.8056640625,
+    "discount": 1960.8056640625
+  },
+  {
+    "deal": {
+      "destination": "Hyatt Vacation Club properties",
+      "deal_type": "Hotel",
+      "description": "Earn 3,000 Hyatt points per night this winter when you stay at Hyatt Vacation Club properties, allowing you to enjoy luxurious accommodations and various amenities. This is a great way to enhance your travel experience while gaining significant rewards for future stays. The offer is available exclusively this winter, making it a perfect opportunity to plan a getaway.",
+      "price": 500.0,
+      "url": "https://thepointsguy.com/news/hyatt-vacation-club-bonus-points-offer/"
+    },
+    "estimate": 2529.80712890625,
+    "discount": 2029.80712890625
+  },
+  {
+    "deal": {
+      "destination": "Paris",
+      "deal_type": "Flight",
+      "description": "This deal allows travelers to fly to Paris for only 7,100 credit card points plus a minimal fee of $5.60. Award availability is particularly favorable from select U.S. cities, making this an incredible opportunity for those looking to explore the City of Light this December. With just a small cash outlay, travelers can experience all that Paris has to offer, from its iconic landmarks to its renowned cuisine.",
+      "price": 500.0,
+      "url": "https://thepointsguy.com/deals/deal-of-the-day/"
+    },
+    "estimate": 2171.856201171875,
+    "discount": 1671.856201171875
+  },
+  {
+    "deal": {
+      "destination": "Saudi Arabia",
+      "deal_type": "Flight",
+      "description": "Delta Air Lines is set to launch a new route connecting Atlanta to Riyadh, Saudi Arabia, starting next October. This will make Delta the only U.S. airline offering nonstop service to this growing destination. This route presents a unique opportunity for travelers looking to explore Saudi Arabia's rich culture and history, with convenient travel options from one of the largest U.S. cities.",
+      "price": 500.0,
+      "url": "https://thepointsguy.com/news/delta-air-lines-saudi-arabia-riyadh-nonstop-flights/"
+    },
+    "estimate": 2526.151123046875,
+    "discount": 2026.151123046875
+  },
+  {
+    "deal": {
+      "destination": "Various IHG properties",
+      "deal_type": "Hotel",
+      "description": "IHG One Rewards members can take advantage of a flash sale offering up to 30% off on stays at participating properties. With various locations available, this deal allows for substantial savings on accommodations, ideal for travelers looking to book winter getaways or holiday trips. Signing up for the rewards program is free, making this an accessible option for all.",
+      "price": 350.0,
+      "url": "https://thepointsguy.com/deals/ihg-flash-sale/"
+    },
+    "estimate": 2769.24365234375,
+    "discount": 2419.24365234375
+  },
+  {
+    "deal": {
+      "destination": "Alaska",
+      "deal_type": "Cruise",
+      "description": "Alaska's cruise season has specific months with unique advantages, including discounted pricing and abundant wildlife viewings. This guide helps travelers decide the best time for their Alaskan cruise adventure, whether they\u2019re looking for the best deals or the most scenic wildlife experiences. Ideal for nature lovers and adventure seekers alike, this destination promises thrilling experiences throughout the season.",
+      "price": 500.0,
+      "url": "https://thepointsguy.com/cruise/best-time-to-cruise-alaska/"
+    },
+    "estimate": 2547.8408203125,
+    "discount": 2047.8408203125
+  },
+  {
+    "deal": {
+      "destination": "Various Hyatt Vacation Club properties",
+      "deal_type": "Package",
+      "description": "Hyatt Vacation Club properties are offering an enticing promotion this winter where travelers can earn 3,000 points per night. This promotion is perfect for those looking to experience the luxury and comfort of Hyatt properties while accumulating points for future stays. Ideal for families or couples, it combines relaxation with the potential for rewards during the winter season.",
+      "price": 500.0,
+      "url": "https://thepointsguy.com/news/hyatt-vacation-club-bonus-points-offer/"
+    },
+    "estimate": 2638.575439453125,
+    "discount": 2138.575439453125
+  },
+  {
+    "deal": {
+      "destination": "Paris",
+      "deal_type": "Flight",
+      "description": "Fly to Paris for only 7,100 credit card points plus a minimal fee of $5.60. The deal offers terrific award availability for trips from select U.S. cities in December, making it an ideal time to explore the City of Light. Enjoy an unforgettable holiday season with landmarks, culture, and cuisine awaiting you in Paris.",
+      "price": 500.0,
+      "url": "https://thepointsguy.com/deals/deal-of-the-day/"
+    },
+    "estimate": 2073.568603515625,
+    "discount": 1573.568603515625
+  },
+  {
+    "deal": {
+      "destination": "Saudi Arabia",
+      "deal_type": "Flight",
+      "description": "Delta Air Lines is launching a new nonstop route from Atlanta to Riyadh starting next October, making it the only US airline to connect directly to Saudi Arabia. This new service opens up opportunities for business and leisure travel to a historically rich destination. Travelers can expect a blend of modernity and tradition in Riyadh's stunning architecture and culture.",
+      "price": 500.0,
+      "url": "https://thepointsguy.com/news/delta-air-lines-saudi-arabia-riyadh-nonstop-flights/"
+    },
+    "estimate": 3828.263427734375,
+    "discount": 3328.263427734375
+  },
+  {
+    "deal": {
+      "destination": "Alaska",
+      "deal_type": "Cruise",
+      "description": "Experience the breathtaking beauty of Alaska with its limited cruise season. Each month offers unique perks, from discounted pricing to abundant wildlife sightings. This guide will help you determine the best timing for your Alaskan adventure, ensuring an unforgettable trip filled with natural wonders and exploration of majestic landscapes.",
+      "price": 500.0,
+      "url": "https://thepointsguy.com/cruise/best-time-to-cruise-alaska/"
+    },
+    "estimate": 2574.424560546875,
+    "discount": 2074.424560546875
+  },
+  {
+    "deal": {
+      "destination": "Multiple Hyatt locations",
+      "deal_type": "Hotel",
+      "description": "This winter, earn 3,000 Hyatt points per night at Hyatt Vacation Club properties. Enjoy spacious accommodations and upscale amenities across beautiful locations, ideal for family getaways or longer stays. Don't miss this chance to maximize your rewards while relaxing in comfort at a Hyatt destination of your choice.",
+      "price": 500.0,
+      "url": "https://thepointsguy.com/news/hyatt-vacation-club-bonus-points-offer/"
+    },
+    "estimate": 2946.070556640625,
+    "discount": 2446.070556640625
+  },
+  {
+    "deal": {
+      "destination": "Multiple IHG locations",
+      "deal_type": "Hotel",
+      "description": "IHG is offering a flash sale for its One Rewards members with discounts of up to 30% on stays at participating properties. This is a perfect opportunity for frequent travelers to save substantially while enjoying the hotel brand's high standards. Membership is free, making it a great time to sign up and take advantage of the offer.",
+      "price": 500.0,
+      "url": "https://thepointsguy.com/deals/ihg-flash-sale/"
+    },
+    "estimate": 1302.68408203125,
+    "discount": 802.68408203125
+  }
+]
