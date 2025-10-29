@@ -1,0 +1,61 @@
+[project]
+name = "tuxedo-link"
+version = "0.1.0"
+description = "AI-powered cat adoption matching application"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "pydantic>=2.0",
+    "python-dotenv",
+    "requests",
+    "chromadb",
+    "sentence-transformers",
+    "transformers",
+    "torch==2.2.2",
+    "pillow",
+    "scikit-learn",
+    "open-clip-torch",
+    "python-Levenshtein",
+    "beautifulsoup4",
+    "feedparser",
+    "sendgrid",
+    "gradio",
+    "plotly",
+    "modal",
+    "tqdm",
+    "numpy==1.26.4",
+    "openai",
+    "pyyaml",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest",
+    "pytest-mock",
+    "pytest-asyncio",
+    "pytest-cov",
+    "ipython",
+    "jupyter",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["models", "database", "agents", "modal_services", "utils"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = "test_*.py"
+python_classes = "Test*"
+python_functions = "test_*"
+addopts = "-v --cov=. --cov-report=html --cov-report=term"
+
+[tool.coverage.run]
+omit = [
+    "tests/*",
+    "setup.py",
+    "*/site-packages/*",
+]
+

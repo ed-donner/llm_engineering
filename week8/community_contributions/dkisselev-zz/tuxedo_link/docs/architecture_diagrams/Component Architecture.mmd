@@ -1,0 +1,114 @@
+// Tuxedo Link - Detailed Component Architecture
+
+// Users
+user [icon: user, color: purple]
+
+// Frontend - Gradio UI
+ui_layer [color: #E8F5E9] {
+  gradio_app [label: "Gradio Application"]
+  search_interface [label: "Search Tab"]
+  alerts_interface [label: "Alerts Tab"]
+  about_interface [label: "About Tab"]
+  
+  gradio_app > search_interface
+  gradio_app > alerts_interface
+  gradio_app > about_interface
+}
+
+// Framework Layer
+framework_layer [color: #FFF3E0] {
+  tuxedo_framework [label: "TuxedoLinkFramework", icon: server]
+  user_manager [label: "UserManager", icon: user]
+  
+  tuxedo_framework > user_manager
+}
+
+// Orchestration Layer
+orchestration [color: #E3F2FD] {
+  planning_agent [label: "PlanningAgent\n(Orchestrator)", icon: brain]
+}
+
+// Processing Agents
+processing_agents [color: #F3E5F5] {
+  profile_agent [label: "ProfileAgent\n(GPT-4)", icon: chat]
+  matching_agent [label: "MatchingAgent\n(Hybrid Search)", icon: search]
+  dedup_agent [label: "DeduplicationAgent\n(Fingerprint+CLIP)", icon: filter]
+}
+
+// External Integration Agents
+external_agents [color: #E0F2F1] {
+  petfinder_agent [label: "PetfinderAgent\n(OAuth)", icon: api]
+  rescuegroups_agent [label: "RescueGroupsAgent\n(API Key)", icon: api]
+  email_agent [label: "EmailAgent\n(SendGrid)", icon: email]
+}
+
+// Data Storage
+storage_layer [color: #ECEFF1] {
+  sqlite_db [label: "SQLite Database", icon: database]
+  vector_db [label: "ChromaDB\n(Vector Store)", icon: database]
+  
+  db_tables [label: "Tables"] {
+    users_table [label: "users"]
+    alerts_table [label: "alerts"]
+    cats_cache_table [label: "cats_cache"]
+  }
+  
+  vector_collections [label: "Collections"] {
+    cats_collection [label: "cats_embeddings"]
+  }
+  
+  sqlite_db > db_tables
+  vector_db > vector_collections
+}
+
+// External Services
+external_services [color: #FFEBEE] {
+  openai_api [label: "OpenAI API\n(GPT-4)", icon: openai]
+  petfinder_api [label: "Petfinder API\n(OAuth 2.0)", icon: api]
+  rescuegroups_api [label: "RescueGroups API\n(API Key)", icon: api]
+  sendgrid_api [label: "SendGrid API\n(Email)", icon: email]
+}
+
+// Deployment Layer
+deployment [color: #E8EAF6] {
+  modal_service [label: "Modal (Serverless)", icon: cloud]
+  
+  modal_functions [label: "Functions"] {
+    daily_job [label: "daily_search_job"]
+    weekly_job [label: "weekly_search_job"]
+    cleanup_job [label: "cleanup_job"]
+  }
+  
+  modal_storage [label: "Storage"] {
+    volume [label: "Modal Volume\n(/data)"]
+  }
+  
+  modal_service > modal_functions
+  modal_service > modal_storage
+}
+
+// User Flows
+user > ui_layer: Interact
+ui_layer > framework_layer: API calls
+framework_layer > orchestration: Search request
+
+// Orchestration Flow
+orchestration > processing_agents: Extract profile
+orchestration > external_agents: Fetch cats
+orchestration > processing_agents: Deduplicate
+orchestration > processing_agents: Match & rank
+orchestration > storage_layer: Cache results
+
+// Agent to External Services
+processing_agents > external_services: Profile extraction
+external_agents > external_services: API requests
+external_agents > external_services: Send emails
+
+// Agent to Storage
+processing_agents > storage_layer: Store/retrieve
+external_agents > storage_layer: Cache & embeddings
+orchestration > storage_layer: Query & update
+
+// Modal Integration
+deployment > framework_layer: Scheduled tasks
+deployment > storage_layer: Persistent data
