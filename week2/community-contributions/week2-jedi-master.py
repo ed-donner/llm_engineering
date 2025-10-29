@@ -4,6 +4,7 @@ import os
 from dotenv import load_dotenv
 from openai import OpenAI
 import gradio as gr
+import tempfile
 
 MODEL_ENDPOINTS = {
         "gpt-4.1-mini": {"type": "openai", "base_url": "https://api.openai.com/v1", "api_key": ""},
@@ -38,12 +39,22 @@ def load_api_keys():
             cfg["api_key"] = KEYS.get(cfg["type"], "")
         return "API keys found and look good so far!"
 
+def voiceover(message):
+    openai = OpenAI()
+    response = openai.audio.speech.create(
+    model="gpt-4o-mini-tts",
+    voice="onyx",    # Also, try replacing onyx with alloy or coral
+    input=message
+    )
+    return response.read()
+
 def ask_llm(user_prompt, history, model):
     system_prompt = """
     You are a wise Jedi Master and an excellent teacher.
     You will answer any question you are given by breaking it down into small steps
     that even a complete beginner will understand.
-    When answering, speak as if you are Yoda from the Star Wars universe.
+    When answering, speak as if you are Yoda from the Star Wars universe: deep, gravelly, slow pacing,
+    ancient and wise tone, inverted sentence structure.
     Also, refer to the user as "My young Padawan"
     End every answer with "May the force be with you, always."
     """
@@ -56,8 +67,12 @@ def ask_llm(user_prompt, history, model):
     response = ""
     for chunk in stream:
         response += chunk.choices[0].delta.content or ''
-        yield response
-    #return response.choices[0].message.content
+        yield response, None
+    audio = voiceover(response)
+    tmp = tempfile.NamedTemporaryFile(delete=False, suffix=".wav")
+    tmp.write(audio)
+    tmp.close()
+    yield response, tmp.name
 
 def main():
     load_api_keys()
@@ -74,7 +89,9 @@ def main():
             value="gpt-4.1-mini",
             interactive=True
         )
-        chat = gr.ChatInterface(fn=ask_llm, type="messages", additional_inputs=[model_dropdown])
+        with gr.Row():
+            audio_output = gr.Audio(autoplay=True)
+        chat = gr.ChatInterface(fn=ask_llm, type="messages", additional_inputs=[model_dropdown], additional_outputs=[audio_output])
         demo.launch()
 
 if __name__ == "__main__":
