@@ -171,14 +171,7 @@ sample_preds = clf.predict(sample_features)
 for text, pred in zip(sample_texts, sample_preds):
     print(f"\nReview: {text}\nPredicted Sentiment: {pred}")
 
-"""-->Positive reviews dominate,
-
--->The model basically learned “always say positive”,
-
--->Hence, 84% accuracy but 0 recall for negative/neutral — a fake good score.
-
-#Improving Model Balance & Realism
-"""
+"""#Improving Model Balance & Realism"""
 
 # Separate by sentiment
 pos = df[df["sentiment"] == "positive"]
@@ -217,14 +210,7 @@ print("Classification Report:\n", classification_report(y_test, y_pred))
 
 print("\nConfusion Matrix:\n", confusion_matrix(y_test, y_pred))
 
-"""-->It now distinguishes between negative, neutral, and positive.
-
--->Has a macro average F1 ≈ 0.57, which is fair for such a small, noisy sample.
-
--->Shows that balancing worked — negatives are now detected correctly (recall 0.83).
-
-#Agents
-"""
+"""#Agents"""
 
 # Base class for all agents
 class BaseAgent:
@@ -301,7 +287,7 @@ class ReviewerAgent(BaseAgent):
         """
 
         response = self.client.messages.create(
-            model="claude-3-5-haiku-20241022",  #  updated to latest available model
+            model="claude-3-5-haiku-20241022",
             max_tokens=250,
             temperature=0.6,
             messages=[{"role": "user", "content": prompt}]
