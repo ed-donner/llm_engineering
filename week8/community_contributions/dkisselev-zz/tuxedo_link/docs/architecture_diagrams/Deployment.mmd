@@ -1,0 +1,51 @@
+// Tuxedo Link - Modal Deployment
+
+// Local Development
+local [label: "Local Development", icon: laptop, color: purple] {
+  gradio_dev [label: "Gradio UI\n:7860"]
+  dev_db [label: "SQLite DB\n./data/"]
+  dev_vector [label: "ChromaDB\n./cat_vectorstore/"]
+}
+
+// Modal Cloud
+modal [label: "Modal Cloud", icon: cloud, color: blue] {
+  // Scheduled Functions
+  scheduled [label: "Scheduled Functions"] {
+    daily [label: "daily_search_job\nCron: 0 9 * * *"]
+    weekly [label: "weekly_search_job\nCron: 0 9 * * 1"]
+    cleanup [label: "cleanup_job\nCron: 0 2 * * 0"]
+  }
+  
+  // On-Demand Functions
+  ondemand [label: "On-Demand"] {
+    manual_search [label: "run_scheduled_searches()"]
+    manual_cleanup [label: "cleanup_old_data()"]
+  }
+  
+  // Storage
+  storage [label: "Modal Volume\n/data"] {
+    vol_db [label: "tuxedo_link.db"]
+    vol_vector [label: "cat_vectorstore/"]
+  }
+  
+  // Secrets
+  secrets [label: "Secrets"] {
+    api_keys [label: "- OPENAI_API_KEY\n- PETFINDER_*\n- RESCUEGROUPS_*\n- SENDGRID_*"]
+  }
+}
+
+// External Services
+external [label: "External Services", icon: cloud, color: red] {
+  openai [label: "OpenAI"]
+  petfinder [label: "Petfinder"]
+  rescue [label: "RescueGroups"]
+  sendgrid [label: "SendGrid"]
+}
+
+// Connections
+local > modal: Deploy
+modal > storage: Persistent data
+modal > secrets: Load keys
+scheduled > storage: Read/Write
+ondemand > storage: Read/Write
+modal > external: API calls

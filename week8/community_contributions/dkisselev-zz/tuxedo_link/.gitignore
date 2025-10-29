@@ -1,0 +1,77 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual environments
+venv/
+ENV/
+env/
+.venv
+
+# Environment variables
+.env
+
+# Configuration
+config.yaml
+
+# Database
+*.db
+*.db-journal
+*.sqlite
+*.sqlite3
+
+# ChromaDB
+cat_vectorstore/
+metadata_vectorstore/
+*.chroma
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Testing
+.coverage
+htmlcov/
+.pytest_cache/
+.tox/
+
+# Logs
+*.log
+logs/
+
+# Modal
+.modal-cache/
+
+# Data files
+data/*.db
+data/*.json
+!data/.gitkeep
+
+# Model cache (sentence-transformers, huggingface, etc.)
+.cache/
+
+# Jupyter
+.ipynb_checkpoints/
+
