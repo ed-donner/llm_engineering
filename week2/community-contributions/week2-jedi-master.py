@@ -11,7 +11,6 @@ import yoda_students
 MODEL_ENDPOINTS = {
         "gpt-4.1-mini": {"type": "openai", "base_url": "https://api.openai.com/v1", "api_key": ""},
         "claude-haiku-4-5": {"type": "anthropic", "base_url": "https://api.anthropic.com/v1/", "api_key": ""},
-        "gemma3n:e2b": {"type": "ollama", "base_url": "http://localhost:11434/v1", "api_key": ""}, # small ollama model that runs on-device
         "qwen3-vl:235b-cloud": {"type": "ollama", "base_url": "http://localhost:11434/v1", "api_key": ""}, # large ollama model that runs in the cloud
 }
 
@@ -195,7 +194,6 @@ def main():
             choices=[
                 "gpt-4.1-mini",
                 "claude-haiku-4-5",
-                "gemma3n:e2b",
                 "qwen3-vl:235b-cloud"
             ],
             value="gpt-4.1-mini",
