@@ -1,0 +1,20 @@
+[
+  {
+    "source": "trustpilot",
+    "id": "trustpilot-001",
+    "url": "https://www.trustpilot.com/review/reputationradar.ai",
+    "author": "Dana",
+    "timestamp": "2025-01-12T11:00:00+00:00",
+    "text": "ReputationRadar has simplified our weekly reporting. The sentiment breakdowns are easy to understand and accurate.",
+    "meta": {"rating": "5 stars"}
+  },
+  {
+    "source": "trustpilot",
+    "id": "trustpilot-002",
+    "url": "https://www.trustpilot.com/review/reputationradar.ai?page=2",
+    "author": "Liam",
+    "timestamp": "2025-01-10T18:20:00+00:00",
+    "text": "Support was responsive, but the Trustpilot integration kept timing out. Hoping for a fix soon.",
+    "meta": {"rating": "3 stars"}
+  }
+]
