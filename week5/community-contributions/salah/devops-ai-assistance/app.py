@@ -1,6 +1,6 @@
 import os
 import gradio as gr
-from devops_ai_assistance import create_assistant, DevOpsAIAssistant
+from devops_ai_assistance import create_assistant
 
 
 assistant = None
@@ -8,7 +8,6 @@ status_info = None
 
 
 def initialize_assistant(kb_path: str):
-    """Initialize the assistant with knowledge base"""
     global assistant, status_info
 
     try:
@@ -16,42 +15,41 @@ def initialize_assistant(kb_path: str):
         if not kb_path:
             return "Error: Please provide a valid knowledge base path"
 
-        print(f"\n🚀 Initializing with knowledge base: {kb_path}")
+        print(f"\nInitializing with knowledge base: {kb_path}")
         assistant = create_assistant(kb_path)
         status_info = assistant.get_status()
 
         status_message = f"""
-✅ **DevOps AI Assistant Initialized Successfully!**
+**DevOps AI Assistant Initialized Successfully**
 
-📊 **Knowledge Base Statistics:**
+**Knowledge Base Statistics:**
 - Documents Loaded: {status_info['documents_loaded']}
 - Chunks Created: {status_info['chunks_created']}
 - Vectors in Store: {status_info['vectors_in_store']}
 - Knowledge Base Path: {status_info['knowledge_base_path']}
 
-🎯 **Ready to Answer Questions About:**
+**Ready to Answer Questions About:**
 - Kubernetes infrastructure configuration
 - ArgoCD deployment manifests
 - Helm charts and values
-- Infrastructure as Code (IaC)
-- DevOps best practices in your environment
+- Infrastructure as Code
+- DevOps best practices
 
-Start by asking questions about your k8s cluster infrastructure!
+Start by asking questions about your infrastructure!
 """
         return status_message
 
     except Exception as e:
         error_msg = f"Error initializing assistant: {str(e)}"
-        print(f"❌ {error_msg}")
-        return f"❌ {error_msg}"
+        print(f"Error: {error_msg}")
+        return f"Error: {error_msg}"
 
 
 def chat_with_assistant(message: str, history):
-    """Chat function for the assistant"""
     global assistant
 
     if not assistant:
-        bot_response = "❌ Assistant not initialized. Please provide a knowledge base path first."
+        bot_response = "Assistant not initialized. Please provide a knowledge base path first."
         history.append((message, bot_response))
         return history, ""
 
@@ -66,11 +64,11 @@ def chat_with_assistant(message: str, history):
 
         sources_text = ""
         if result.get('sources'):
-            sources_text = "\n\n📚 **Sources:**\n"
+            sources_text = "\n\n**Sources:**\n"
             for i, source in enumerate(result['sources'], 1):
                 source_file = source.get('source', 'Unknown')
                 file_type = source.get('file_type', 'Unknown')
-                sources_text += f"\n{i}. **{source_file}** ({file_type})"
+                sources_text += f"\n{i}. {source_file} ({file_type})"
 
         bot_response = answer + sources_text if sources_text else answer
 
@@ -82,16 +80,13 @@ def chat_with_assistant(message: str, history):
 
 
 def create_interface():
-    """Create the Gradio interface"""
-    global assistant
-
     with gr.Blocks(title="DevOps AI Assistant") as interface:
 
-        gr.Markdown("# 🤖 DevOps AI Assistant")
-        gr.Markdown("Intelligent Q&A system for your Kubernetes infrastructure powered by RAG and LLM")
+        gr.Markdown("# DevOps AI Assistant")
+        gr.Markdown("Intelligent Q&A system for your infrastructure powered by RAG and LLM")
 
-        gr.Markdown("## 🔧 Configuration")
-        gr.Markdown("Enter the path to your GitOps repository (knowledge base) to initialize the assistant")
+        gr.Markdown("## Configuration")
+        gr.Markdown("Enter the path to your GitOps repository to initialize the assistant")
 
         with gr.Row():
             kb_path_input = gr.Textbox(
@@ -100,39 +95,38 @@ def create_interface():
                 lines=1,
                 value="/workspace/aau/repositories/infra-gitops/"
             )
-            init_button = gr.Button("🚀 Initialize Assistant")
+            init_button = gr.Button("Initialize Assistant")
 
-        status_output = gr.Markdown(value="⏳ Waiting for initialization...")
+        status_output = gr.Markdown(value="Waiting for initialization...")
 
-        gr.Markdown("## 💬 Chat Interface")
+        gr.Markdown("## Chat Interface")
 
         chatbot = gr.Chatbot(
             label="Conversation",
             height=500,
             show_copy_button=True,
-            avatar_images=("👤", "🤖"),
             bubble_full_width=False
         )
 
         with gr.Row():
             msg_input = gr.Textbox(
                 label="Your Question",
-                placeholder="Ask about your k8s infrastructure, ArgoCD, Helm charts, etc...",
+                placeholder="Ask about your infrastructure, ArgoCD, Helm charts, etc...",
                 lines=2,
                 scale=5
             )
-            send_button = gr.Button("Send 💬", scale=1)
+            send_button = gr.Button("Send", scale=1)
 
         with gr.Row():
-            clear_button = gr.Button("🗑️ Clear Chat", scale=2)
+            clear_button = gr.Button("Clear Chat", scale=2)
 
-        with gr.Accordion("📋 Example Questions", open=False):
+        with gr.Accordion("Example Questions", open=False):
             gr.Markdown("""
 **Infrastructure & Deployment:**
-- How is the Kubernetes cluster configured?
-- What ArgoCD applications are deployed?
+- How many ArgoCD applications?
+- What is the repository structure?
+- How many YAML files are there?
 - Show me the Helm chart values for nginx
-- What storage solutions are available?
 
 **Monitoring & Observability:**
 - How is Prometheus configured?
@@ -174,9 +168,8 @@ def create_interface():
 
 
 def main():
-    """Main entry point"""
     print("\n" + "=" * 60)
-    print("🚀 DevOps AI Assistant - RAG System")
+    print("DevOps AI Assistant - RAG System")
     print("=" * 60)
     print("Starting Gradio server...")
     print("\nAccess the application at: http://127.0.0.1:7860")
