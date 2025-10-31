@@ -1,0 +1,352 @@
+	•	Day’s Focus: Exploring foundational machine learning concepts and building baseline models for NLP tasks.
+	•	Baseline Models’ Importance: Establishing a reference point for evaluating the performance of more advanced models, such as large language models.
+	•	Learning Objectives: Understanding the concept of baseline models and gaining practical experience in building them using traditional machine learning techniques.
+	•	Importance of Baseline Models: Provides a yardstick to measure the progress of complex models like deep neural networks.
+	•	Suitability of Large Language Models: Not always the right solution for every problem, especially for tasks like price prediction which are better suited for traditional NLP and linear regression.
+	•	Models to be Explored: Familiarity with the models to be used is beneficial for a quick experiment and gaining perspective.
+	•	Initial Approach: Start with basic feature engineering, identifying factors like best seller rank, and use linear regression to predict price.
+	•	Natural Language Processing: Employ Bag of Words, analysing word frequency in product descriptions (excluding stop words), to predict price.
+	•	Advanced Word Embeddings: Utilise word2vec, a neural network approach, with both linear regression and random forests for improved price prediction.
+	•	Model Selection: Exploring different models like word2vec, random forests, and support vector regression to find the best approach for price prediction based on product description.
+	•	Evaluation: Evaluating the performance of different models to determine their effectiveness in solving the price prediction problem.
+	•	Baseline Models: Establishing baseline models as a crucial yardstick for measuring progress in machine learning projects.
+
+
+
+
+
+# Course Explanation: Building Baseline Models for NLP
+This course teaches you how to build baseline models for machine learning projects, specifically focusing on a price prediction task using product descriptions.
+
+🎯 Core Philosophy
+The main idea is: always start simple before going complex. Before jumping to advanced solutions like large language models (LLMs), you should build simple baseline models to understand:
+
+Whether your problem is actually solvable with ML
+How much complex models actually improve performance
+What a "good" result looks like for your specific task
+
+📚 What You'll Learn
+The Price Prediction Problem
+You'll predict product prices using various types of information, progressing from simple to complex:
+1. Traditional Features → Linear Regression
+
+Start with basic numerical features (like bestseller rank)
+Use simple linear regression
+This is your simplest baseline
+
+2. Bag of Words (BoW) → Linear Regression
+
+Extract text from product descriptions
+Count word frequencies (excluding common words like "the", "and")
+Feed these counts into linear regression
+This shows if text contains useful pricing signals
+
+3. Word2Vec Embeddings → Multiple Models
+
+Use word2vec: a neural network that captures word meaning through context
+Words with similar meanings get similar numerical representations
+Try this with:
+
+Linear Regression (simple)
+Random Forests (more complex, can capture non-linear patterns)
+Support Vector Regression (another approach)
+
+
+
+🎓 Key Takeaways
+
+Baseline models are your measuring stick - They tell you if your fancy deep learning model is actually worth the extra complexity
+LLMs aren't always the answer - For structured tasks like price prediction, simpler methods often work better and are more efficient
+Progression matters - Start simple, measure, then add complexity only when needed
+Practical evaluation - You'll compare all these approaches to see which works best for your specific problem
+
+
+# Step-by-Step Explanation: Understanding Model Performance
+📊 What Do The Numbers Mean?
+The "error" numbers (341, 146, 114, etc.) represent how far off the predictions were from actual prices, on average.
+
+Lower number = Better prediction
+Think of it like: "On average, the model was off by $X"
+Error of 97 means: the model's guess was typically $97 away from the real price
+
+
+🎯 The Models Tested (From Worst to Best)
+1. Random Model (Error: 341) - The Worst
+
+What it does: Makes completely random guesses at prices
+Example: Like asking a blindfolded person to guess prices
+Why test it? To establish the absolute worst-case scenario
+Result: Off by $341 on average - terrible!
+
+2. Constant Model (Error: 146)
+
+What it does: Always guesses the average price of all products
+Example: Like always guessing "$50" for every product, no matter what
+Why test it? Shows what happens if you ignore all information
+Result: Better than random, but still bad ($146 off)
+
+3. Feature-Based Linear Regression (Error: 139)
+
+What it does: Uses simple facts like "bestseller rank" to predict price
+Example: "If bestseller rank is #1, price is probably higher"
+The math: Draws a straight line relationship: rank ↑ = price ↑
+Result: Slightly better ($139 off), but barely improved
+
+4. Bag of Words Model (Error: 114)
+
+What it does: Counts how often words appear in product descriptions
+Example: Products mentioning "premium" or "deluxe" might cost more
+How it works:
+
+Counts: "LED" appears 5 times, "wireless" appears 2 times
+Ignores meaningless words like "the", "and", "is"
+
+
+Result: Better! Now only $114 off on average
+
+5. Word2Vec Model (Error: 115)
+
+What it does: Understands word meanings and relationships
+Example: Knows "expensive" and "costly" mean similar things
+How it's different:
+
+Bag of Words: treats "king" and "queen" as completely unrelated
+Word2Vec: understands they're related concepts
+
+
+Result: Similar to Bag of Words ($115 off)
+
+6. Random Forest (Error: 97) - THE WINNER! 🏆
+
+What it does: Creates many "decision trees" that work together
+Analogy: Like asking 100 experts and averaging their opinions
+How it works:
+
+Tree 1 says: "If description has 'luxury' AND bestseller rank < 100, then price = $200"
+Tree 2 says: "If description mentions 'LED' AND has 'rechargeable', then price = $150"
+Final answer: average of all 100 trees
+
+
+Result: Best performance - only $97 off!
+
+
+💡 Why This Progression Matters
+The Journey Shows:
+
+Pure guessing (random) is useless ✗
+Simple averages are better than guessing ✓
+Using product features helps more ✓✓
+Understanding text (descriptions) helps even more ✓✓✓
+Smart algorithms (Random Forest) work best ✓✓✓✓
+
+The $97 Error Achievement:
+
+Across all product categories (electronics, books, toys, etc.)
+This is respectable but not perfect
+Shows that predicting price from description alone is hard
+
+
+🤖 The Final Test: GPT-4 Challenge
+The Setup:
+They want to test GPT-4 Mini and GPT-4 Maxi (advanced AI chatbots) on the same task
+The Key Difference:
+Traditional Models (what we tested above):
+
+✓ Trained on thousands of product examples
+✓ Learned: "When I see pattern X, price is usually Y"
+✓ Got to practice and learn from data
+
+Frontier Models (GPT-4):
+
+✗ No training on this specific price data
+✗ Only get the product description
+✗ Must guess based on general knowledge alone
+
+Why This Is Harder:
+Think of it like:
+
+Traditional models = Student who studied 1,000 practice problems
+GPT-4 = Student taking the test without seeing any practice problems, only using general knowledge
+
+The Question:
+Can GPT-4's general intelligence and language understanding beat specialized models that were trained on actual pricing data?
+
+🎓 Key Lessons for Beginners
+
+Start simple, add complexity gradually - Random → Constant → Features → Text
+Numbers tell the story - Lower error = better model
+Context matters - $97 error is good for prices ranging from $10-$500
+Even good models aren't perfect - Predicting price from description is genuinely difficult
+Different approaches for different strengths - Trained models vs. general intelligence models
+
+
+## Loading the pkl files
+Let's avoid curating all our data again! Load in the pickle files
+
+with open('train.pkl', 'rb') as file:
+    train = pickle.load(file)
+
+with open('test.pkl', 'rb') as file:
+    test = pickle.load(file)
+
+# Understanding the Code: Loading .pkl Files
+🗂️ What Are .pkl (Pickle) Files?
+Pickle files are like saved snapshots of your data - think of them as "save game" files for your machine learning project.
+Why They Exist:
+
+Problem: Processing raw data takes time (cleaning, organizing, splitting)
+Solution: Do it once, save the result, reload it instantly next time
+Analogy: Like meal prepping on Sunday so you don't cook every day
+
+# 📝 Code Breakdown: Line by Line
+Line 1: Opening the File
+pythonwith open('train.pkl', 'rb') as file:
+What each part means:
+
+with open(...) = Open a file (and automatically close it when done)
+'train.pkl' = The name of the file we're opening
+'rb' = "Read Binary" mode
+
+r = Read (not write)
+b = Binary (computer format, not human-readable text)
+
+
+as file = Give it a nickname "file" to use in the next line
+
+Why 'rb' (binary)? Pickle saves data in computer language, not plain text. You can't open it in Notepad!
+
+Line 2: Loading the Data
+python    train = pickle.load(file)
+What it does:
+
+pickle.load(file) = Unpack/restore the saved data from the file
+train = = Store the unpacked data in a variable called train
+
+Result: Now train contains all your training data, ready to use!
+
+Lines 3-4: Same Process for Test Data
+pythonwith open('test.pkl', 'rb') as file:
+    test = pickle.load(file)
+Exact same process, but for:
+
+test.pkl = File containing test data
+test = = Variable storing the test data
+
+🎯 The Comment: "Let's avoid curating all our data again!"
+What "Curating Data" Means:
+The steps they already did (and don't want to repeat):
+
+Loading raw data
+
+Read product descriptions from original files
+Read prices, categories, features
+
+
+Cleaning data
+
+Remove missing values
+Fix formatting errors
+Handle special characters
+
+
+Processing text
+
+Remove punctuation
+Convert to lowercase
+Remove stop words ("the", "and", "is")
+Apply word2vec or bag of words
+
+
+Splitting data
+
+Training set (80%): Data the model learns from
+Test set (20%): Data used to evaluate the model
+
+
+
+Why Save as Pickle?
+Without pickle:
+Every time you run your code:
+→ Load raw data (2 minutes)
+→ Clean it (3 minutes)
+→ Process text (5 minutes)
+→ Split into train/test (1 minute)
+= 11 minutes EVERY TIME! 😫
+With pickle:
+First time: Do all the work, save as .pkl (11 minutes)
+Every other time: Load .pkl files (2 seconds!) ⚡
+
+What's Inside train.pkl and test.pkl?
+These files likely contain DataFrames (spreadsheet-like data) with:
+
+Columns Might Include:
+Column Name                   Description                          Example
+product_description      Text describing the product    "LED rechargeable flashlight."
+price                    Actual price (what we want to predict)        29.99
+
+
+
+Why Two Separate Files?
+
+train.pkl (Training Data):
+
+Used to teach the model
+The model learns patterns from this
+Usually 70-80% of all data
+
+
+test.pkl (Test Data):
+
+Used to evaluate the model
+The model has never seen this before
+Tells us if the model works on new data
+Usually 20-30% of all data
+
+
+
+Analogy:
+
+Training data = Practice problems students study from
+Test data = The actual exam questions (different from practice)
+
+
+🔧 Complete Picture: Before and After
+BEFORE (What Already Happened):
+python# Someone already did this work and saved the results:
+1. Load raw_data.csv
+2. Clean the data
+3. Process text features
+4. Split into train/test
+5. Save both as pickle files
+   → train.pkl created ✓
+   → test.pkl created ✓
+NOW (What This Code Does):
+python# Quick reload - skip all the preprocessing!
+train = load train.pkl  # Get training data instantly
+test = load test.pkl    # Get test data instantly
+# Ready to build models! 🚀
+
+💡 Key Takeaways
+
+Pickle = Save Button for Python data
+'rb' = Read Binary mode for loading pickle files
+Saves Time - Do preprocessing once, reload many times
+Train vs Test - Separate files for learning vs. evaluation
+Not Human-Readable - Can't open in Excel or Notepad
+
+This is a standard practice in machine learning to make your workflow efficient! 🎯RetryClaude can make mistakes. Please double-check responses.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

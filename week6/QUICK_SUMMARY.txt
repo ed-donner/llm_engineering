@@ -1,0 +1,83 @@
+╔══════════════════════════════════════════════════════════════════╗
+║        FILES TO GIVE THE COMMUNITY - QUICK REFERENCE            ║
+╚══════════════════════════════════════════════════════════════════╝
+
+✅ MUST INCLUDE (6 files) - ~3 MB total
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+1. day5.ipynb                         - Modified notebook
+2. items.py                           - Required dependency
+3. fix_moderation.py                  - Your filtering script
+4. test_moderation.py                 - Your testing script
+5. DAY5_MODERATION_FIX_README.md      - Main documentation
+6. requirements.txt                   - Python dependencies
+
+🟡 HIGHLY RECOMMENDED (3 files) - ~236 KB total
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+7. fine_tune_train.jsonl              - 190 clean examples
+8. fine_tune_validation.jsonl         - 48 clean examples
+9. MODERATION_FIX_README.md           - Technical details
+
+❌ DO NOT INCLUDE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+✗ train.pkl (582 MB)                 - TOO LARGE
+✗ test.pkl (2 MB)                    - Not needed
+✗ dz_*.py, dz_*.txt, dz_*.ipynb      - Personal files
+✗ ollama_*.jsonl                     - Not related
+
+═══════════════════════════════════════════════════════════════════
+
+RECOMMENDED PACKAGE: 9 files, ~3.2 MB total
+
+═══════════════════════════════════════════════════════════════════
+
+📂 FOLDER STRUCTURE FOR PR:
+
+week6/community-contributions/bilal-jamal-day5-moderation-fix/
+│
+├── README.md                    ← Main docs
+├── day5.ipynb                   ← Modified notebook
+├── items.py                     ← Dependency
+├── fix_moderation.py            ← Filtering script
+├── test_moderation.py           ← Testing script
+├── requirements.txt             ← Dependencies
+├── MODERATION_FIX_README.md     ← Technical docs
+│
+└── data/
+    ├── fine_tune_train.jsonl    ← 190 examples
+    └── fine_tune_validation.jsonl ← 48 examples
+
+═══════════════════════════════════════════════════════════════════
+
+🚀 QUICK SUBMISSION COMMANDS:
+
+# Create folder
+mkdir -p community-contributions/bilal-jamal-day5-moderation-fix/data
+
+# Copy core files
+cp day5.ipynb items.py fix_moderation.py test_moderation.py requirements.txt MODERATION_FIX_README.md community-contributions/bilal-jamal-day5-moderation-fix/
+
+# Copy and rename main README
+cp DAY5_MODERATION_FIX_README.md community-contributions/bilal-jamal-day5-moderation-fix/README.md
+
+# Copy data files
+cp fine_tune_train.jsonl fine_tune_validation.jsonl community-contributions/bilal-jamal-day5-moderation-fix/data/
+
+# Verify
+du -sh community-contributions/bilal-jamal-day5-moderation-fix/
+# Should show ~3.2M
+
+═══════════════════════════════════════════════════════════════════
+
+📋 WHAT YOUR FIX DOES:
+
+Problem:  Fine-tuning fails with "refusals_v3" error
+Solution: Filters weapon/tactical keywords before training
+Result:   190 clean examples → successful fine-tuning ✅
+
+═══════════════════════════════════════════════════════════════════
+
+Author: Bilal-jamal
+Date: 2025-10-14
+Type: Critical Bug Fix
+
+═══════════════════════════════════════════════════════════════════
