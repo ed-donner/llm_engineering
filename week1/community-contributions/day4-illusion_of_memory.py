@@ -1,4 +1,4 @@
-#python newbie, just playing around with creating the illusion of memory
+# python newbie, just playing around with creating the illusion of memory
 from openai import OpenAI
 openai=OpenAI()
 
