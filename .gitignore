@@ -202,3 +202,6 @@ week4/main.rs
 
 local/
 
+# Ignore all PDF files
+*.pdf
+
