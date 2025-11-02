@@ -1,0 +1,14 @@
+python-dotenv
+langchain
+langchain-core
+langchain-community
+langchain-openai
+langchain-chroma
+langchain-google-community
+chromadb
+openai
+gradio
+google-auth
+google-auth-oauthlib
+google-auth-httplib2
+google-api-python-client
