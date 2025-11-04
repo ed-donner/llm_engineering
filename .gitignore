@@ -200,5 +200,9 @@ week4/main
 week4/main.exe
 week4/main.rs
 
+week5/preprocessed_db/
+week5/vector_db/
+
+
 local/
 

@@ -4,6 +4,7 @@
 - **Date of Birth:** October 14, 1990
 - **Job Title:** HR Generalist
 - **Location:** Denver, Colorado
+- **Current Salary:** $70,000
 
 ## Insurellm Career Progression
 - **2020** - Joined Insurellm as a HR Coordinator
