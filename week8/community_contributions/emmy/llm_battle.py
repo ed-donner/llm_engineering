@@ -1,18 +1,3 @@
-"""Interactive multi-model debate arena with live updates and judge reports.
-
-This script assembles four LLM-powered agents:
-    * Debater A
-    * Debater B
-    * Judge
-    * Reporter
-
-The agents can be configured to target different providers by setting
-environment variables for their API keys and (optionally) custom base URLs.
-The debate is presented via a Gradio UI with two tabs:
-    1. Live Debate: streams the arguments as they are generated.
-    2. Judge's Report: displays the verdict, rubric scores, and a summary.
-"""
-
 from __future__ import annotations
 
 import json
