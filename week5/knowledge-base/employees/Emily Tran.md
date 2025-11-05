@@ -3,9 +3,10 @@
 # Emily Tran
 
 ## Summary
-- **Date of Birth:** March 18, 1991  
-- **Job Title:** Digital Marketing Specialist  
-- **Location:** San Francisco, CA  
+- **Date of Birth:** March 18, 1991
+- **Job Title:** Digital Marketing Specialist
+- **Location:** San Francisco, CA
+- **Current Salary:** $75,000  
 
 ---
 
