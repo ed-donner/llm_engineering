@@ -146,7 +146,7 @@ def handler_call_db(message):
 
 
     
-    response=[]
+    response=[] 
     for tool_call in message.tool_calls:
         function=handler.get(tool_call.function.name)
         if function:
