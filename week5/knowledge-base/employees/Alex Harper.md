@@ -3,10 +3,9 @@
 # Alex Harper
 
 ## Summary
-- **Date of Birth**: March 15, 1993
-- **Job Title**: Sales Development Representative (SDR)
-- **Location**: Denver, Colorado
-- **Current Salary**: $75,000  
+- **Date of Birth**: March 15, 1993  
+- **Job Title**: Sales Development Representative (SDR)  
+- **Location**: Denver, Colorado  
 
 ## Insurellm Career Progression
 - **July 2021**: Joined Insurellm as a Sales Development Representative, focusing on lead generation and nurturing B2B relationships.  

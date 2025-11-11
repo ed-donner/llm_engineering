@@ -3,10 +3,9 @@
 # Alex Thomson
 
 ## Summary
-- **Date of Birth:** March 15, 1995
-- **Job Title:** Sales Development Representative (SDR)
-- **Location:** Austin, Texas
-- **Current Salary:** $65,000  
+- **Date of Birth:** March 15, 1995  
+- **Job Title:** Sales Development Representative (SDR)  
+- **Location:** Austin, Texas  
 
 ## Insurellm Career Progression
 - **November 2022** - Joined Insurellm as a Sales Development Representative. Alex Thomson quickly adapted to the team, demonstrating exceptional communication and rapport-building skills.

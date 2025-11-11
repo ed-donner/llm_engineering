@@ -1,10 +1,9 @@
 # Avery Lancaster
 
 ## Summary
-- **Date of Birth**: March 15, 1985
-- **Job Title**: Co-Founder & Chief Executive Officer (CEO)
-- **Location**: San Francisco, California
-- **Current Salary**: $225,000  
+- **Date of Birth**: March 15, 1985  
+- **Job Title**: Co-Founder & Chief Executive Officer (CEO)  
+- **Location**: San Francisco, California  
 
 ## Insurellm Career Progression
 - **2015 - Present**: Co-Founder & CEO  

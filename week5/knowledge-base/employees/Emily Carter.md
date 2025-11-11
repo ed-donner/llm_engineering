@@ -3,10 +3,9 @@
 # Emily Carter
 
 ## Summary
-- **Date of Birth:** August 12, 1990
-- **Job Title:** Account Executive
-- **Location:** Austin, Texas
-- **Current Salary:** $70,000  
+- **Date of Birth:** August 12, 1990  
+- **Job Title:** Account Executive  
+- **Location:** Austin, Texas  
 
 ## Insurellm Career Progression
 - **2021-Present:** Account Executive  

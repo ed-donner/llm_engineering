@@ -3,10 +3,9 @@
 # Samuel Trenton
 
 ## Summary
-- **Date of Birth:** April 12, 1989
-- **Job Title:** Senior Data Scientist
-- **Location:** Austin, Texas
-- **Current Salary:** $115,000  
+- **Date of Birth:** April 12, 1989  
+- **Job Title:** Senior Data Scientist  
+- **Location:** Austin, Texas  
 
 ## Insurellm Career Progression
 - **January 2020 - Present:** Senior Data Scientist  

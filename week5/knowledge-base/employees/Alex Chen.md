@@ -3,10 +3,9 @@
 # Alex Chen
 
 ## Summary
-- **Date of Birth:** March 15, 1990
-- **Job Title:** Backend Software Engineer
-- **Location:** San Francisco, California
-- **Current Salary:** $115,000  
+- **Date of Birth:** March 15, 1990  
+- **Job Title:** Backend Software Engineer  
+- **Location:** San Francisco, California  
 
 ## Insurellm Career Progression
 - **April 2020:** Joined Insurellm as a Junior Backend Developer. Focused on building APIs to enhance customer data security.

@@ -6,7 +6,6 @@
 - **Date of Birth:** March 15, 1990
 - **Job Title:** Frontend Software Engineer
 - **Location:** Austin, Texas
-- **Current Salary:** $92,000
 
 ## Insurellm Career Progression
 - **June 2018:** Hired as a Frontend Software Engineer.

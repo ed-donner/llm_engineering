@@ -44,8 +44,4 @@ dependencies = [
     "tqdm>=4.67.1",
     "transformers>=4.56.2",
     "wandb>=0.22.1",
-    "langchain-huggingface>=1.0.0",
-    "langchain-ollama>=1.0.0",
-    "langchain-anthropic>=1.0.1",
-    "langchain-experimental>=0.0.42",
 ]
