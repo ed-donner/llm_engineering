@@ -1,6 +1,10 @@
 
 # Docstring & Unit Test Generator
 
+This is a copy of the repository https://github.com/Jsrodrigue/docstring_unity_test_generator.
+
+---
+
 Automate docstring and unit test creation for Python projects using LLMs. Provides both a CLI and a web UI so teams can quickly increase documentation quality and test coverage with minimal manual work.
 
 
