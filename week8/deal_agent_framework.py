@@ -38,6 +38,7 @@ class DealAgentFramework:
 
     DB = "products_vectorstore"
     MEMORY_FILENAME = "memory.json"
+    MAX_MEMORY_SIZE = 100  # ← ADD THIS: Maximum opportunities to keep
 
     def __init__(self):
         init_logging()
@@ -58,7 +59,8 @@ class DealAgentFramework:
             with open(self.MEMORY_FILENAME, "r") as file:
                 data = json.load(file)
             opportunities = [Opportunity(**item) for item in data]
-            return opportunities
+            # Limit memory on load too
+            return opportunities[-self.MAX_MEMORY_SIZE:]
         return []
 
     def write_memory(self) -> None:
@@ -73,11 +75,24 @@ class DealAgentFramework:
     def run(self) -> List[Opportunity]:
         self.init_agents_as_needed()
         logging.info("Kicking off Planning Agent")
-        result = self.planner.plan(memory=self.memory)
-        logging.info(f"Planning Agent has completed and returned: {result}")
-        if result:
-            self.memory.append(result)
-            self.write_memory()
+        
+        try:
+            result = self.planner.plan(memory=self.memory)
+            logging.info(f"Planning Agent has completed and returned: {result}")
+            
+            if result:
+                self.memory.append(result)
+                
+                # ← ADD THIS: Limit memory size (keep most recent)
+                if len(self.memory) > self.MAX_MEMORY_SIZE:
+                    self.log(f"Memory exceeded {self.MAX_MEMORY_SIZE}, trimming oldest entries")
+                    self.memory = self.memory[-self.MAX_MEMORY_SIZE:]
+                
+                self.write_memory()
+                
+        except Exception as e:
+            logging.error(f"Error in run(): {e}", exc_info=True)
+        
         return self.memory
 
     @classmethod
@@ -96,4 +111,3 @@ class DealAgentFramework:
 
 if __name__=="__main__":
     DealAgentFramework().run()
-    
