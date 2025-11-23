@@ -1,0 +1,147 @@
+PortQry Version 2.0
+Report generated: 18/11/2025 10:42:15
+
+========================================================
+Command line: portqry.exe -n APP-SRV01 -e 8098 -p TCP
+========================================================
+
+Querying target system called:
+
+ APP-SRV01
+
+Attempting to resolve name to IP address...
+
+Name resolved to 10.25.71.169
+
+querying…
+TCP port 8098 (unknown service): LISTENING
+
+TCP port 8098 is LISTENING
+portqry.exe exit code: 0 (SUCCESS)
+
+--------------------------------------------------------
+Command line: portqry.exe -n APP-SRV01 -e 443 -p TCP
+--------------------------------------------------------
+
+Querying target system called:
+
+ APP-SRV01
+
+Attempting to resolve name to IP address...
+
+Name resolved to 10.25.71.169
+
+querying…
+TCP port 443 (https service): LISTENING
+
+TCP port 443 is LISTENING
+portqry.exe exit code: 0 (SUCCESS)
+
+--------------------------------------------------------
+Command line: portqry.exe -n APP-SRV01 -e 22 -p TCP
+--------------------------------------------------------
+
+Querying target system called:
+
+ APP-SRV01
+
+Attempting to resolve name to IP address...
+
+Name resolved to 10.25.71.169
+
+querying…
+TCP port 22 (ssh service): FILTERED
+
+Port is being filtered.
+portqry.exe exit code: 5 (PORT_FILTERED)
+
+--------------------------------------------------------
+Command line: portqry.exe -n DB-SRV02 -e 1433 -p TCP
+--------------------------------------------------------
+
+Querying target system called:
+
+ DB-SRV02
+
+Attempting to resolve name to IP address...
+
+Name resolved to 10.25.72.45
+
+querying…
+TCP port 1433 (ms-sql-s service): LISTENING
+
+TCP port 1433 is LISTENING
+portqry.exe exit code: 0 (SUCCESS)
+
+--------------------------------------------------------
+Command line: portqry.exe -n DB-SRV02 -e 135 -p TCP
+--------------------------------------------------------
+
+Querying target system called:
+
+ DB-SRV02
+
+Attempting to resolve name to IP address...
+
+Name resolved to 10.25.72.45
+
+querying…
+TCP port 135 (epmap service): NOT LISTENING
+
+TCP port 135 is NOT LISTENING
+portqry.exe exit code: 1 (NOT_LISTENING)
+
+--------------------------------------------------------
+Command line: portqry.exe -n FILE-SRV03 -e 445 -p TCP
+--------------------------------------------------------
+
+Querying target system called:
+
+ FILE-SRV03
+
+Attempting to resolve name to IP address...
+
+Name resolved to 10.25.73.20
+
+querying…
+TCP port 445 (microsoft-ds service): LISTENING
+
+TCP port 445 is LISTENING
+portqry.exe exit code: 0 (SUCCESS)
+
+--------------------------------------------------------
+Command line: portqry.exe -n FILE-SRV03 -e 3389 -p TCP
+--------------------------------------------------------
+
+Querying target system called:
+
+ FILE-SRV03
+
+Attempting to resolve name to IP address...
+
+Name resolved to 10.25.73.20
+
+querying…
+TCP port 3389 (ms-wbt-server service): FILTERED
+
+Port is being filtered.
+portqry.exe exit code: 5 (PORT_FILTERED)
+
+--------------------------------------------------------
+Command line: portqry.exe -n APP-SRV01 -e 1434 -p UDP
+--------------------------------------------------------
+
+Querying target system called:
+
+ APP-SRV01
+
+Attempting to resolve name to IP address...
+
+Name resolved to 10.25.71.169
+
+UDP port 1434 (ms-sql-m service): LISTENING OR FILTERED
+No response received (ICMP Port Unreachable not received).
+
+UDP port 1434 may be FILTERED.
+portqry.exe exit code: 2 (UDP_PORT_NO_RESPONSE)
+
