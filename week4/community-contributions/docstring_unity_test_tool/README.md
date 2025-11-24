@@ -1,10 +1,10 @@
 # Docstring & Unit Test Generator
 
-A simple tool that helps you add clear docstrings and generate realistic pytest-style unit tests for Python projects using large language models.
+A simple tool that helps you add clear docstrings and generate realistic pytest-style unit tests for Python projects using large language models. 
 
-Repository: https://github.com/Jsrodrigue/docstring_unity_test_generator
+Check the Full Repository: https://github.com/Jsrodrigue/docstring_unity_test_generator
 
-What it does (plain English)
+What it does
 - Scans your Python code to find functions and classes.
 - Uses an LLM to write helpful docstrings and to create matching unit tests.
 - Adds only the docstring into your source files (it does not rewrite your code).
