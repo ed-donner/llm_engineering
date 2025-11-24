@@ -14,7 +14,7 @@ What it does
 Why use it
 - Save time: automatically produce documentation and tests so developers can focus on logic.
 - Improve quality: get consistent, readable docstrings and test examples that reflect your code.
-- Safer changes: review and accept changes per file or function — nothing is applied without approval.
+- Safer changes: review and accept docstring generator.
 
 How it works (simple flow)
 1. The tool finds items in your code (functions and classes).
