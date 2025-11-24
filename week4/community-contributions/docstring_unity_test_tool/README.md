@@ -9,7 +9,7 @@ What it does
 - Uses an LLM to write helpful docstrings and to create matching unit tests.
 - Adds only the docstring into your source files (it does not rewrite your code).
 - Creates test files under a `tests/` folder that mirror your project layout.
-- Lets you review generated docstrings and tests before saving them.
+- Lets you review generated docstrings before saving them.
 
 Why use it
 - Save time: automatically produce documentation and tests so developers can focus on logic.
@@ -20,7 +20,7 @@ How it works (simple flow)
 1. The tool finds items in your code (functions and classes).
 2. For each item, it asks an LLM to write a docstring or a pytest test.
 3. You review the suggested content and approve or edit it.
-4. Approved docstrings are inserted into source files; approved tests are written under `tests/`.
+4. Approved docstrings are inserted into source files; generated tests are written under `tests/`.
 
 Main features (at a glance)
 - Safe docstring insertion only (no full-file rewrites).
