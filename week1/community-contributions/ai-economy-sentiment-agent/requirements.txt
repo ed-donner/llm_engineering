@@ -1,5 +1,22 @@
-yfinance
-requests
-beautifulsoup4
-openai
-pandas
+# Core dependencies for AI Economy Sentiment Agent
+
+# Market data
+yfinance>=0.2.0
+
+# Web scraping and API requests
+requests>=2.31.0
+beautifulsoup4>=4.12.0
+lxml>=5.0.0  # Required for RSS/XML parsing (Google News feeds)
+
+# AI/LLM integration
+openai>=1.0.0  # Compatible with Ollama API
+
+# Data processing
+pandas>=2.0.0
+
+# Timezone handling
+pytz>=2024.0  # For market open/close detection
+
+# Optional but recommended
+# jupyter>=1.0.0  # For running analysis.ipynb
+# ipykernel>=6.0.0  # Jupyter kernel support
