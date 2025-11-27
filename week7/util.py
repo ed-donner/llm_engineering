@@ -6,6 +6,9 @@ import plotly.graph_objects as go
 from itertools import accumulate
 import math
 from tqdm.notebook import tqdm
+import plotly.io as pio
+
+pio.renderers.default = "colab"
 
 GREEN = "\033[92m"
 YELLOW = "\033[93m"
@@ -207,6 +210,7 @@ class Tester:
             self.truths.append(truth)
             self.errors.append(error)
             self.colors.append(color)
+            print(f"{COLOR_MAP[color]}${error:.0f} ", end="")
         self.report()
 
 
