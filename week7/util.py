@@ -5,10 +5,9 @@ import plotly.express as px
 import plotly.graph_objects as go
 from itertools import accumulate
 import math
-from tqdm.notebook import tqdm
-import plotly.io as pio
+from tqdm.auto import tqdm
+from IPython.display import clear_output
 
-pio.renderers.default = "colab"
 
 GREEN = "\033[92m"
 YELLOW = "\033[93m"
@@ -91,8 +90,8 @@ class Tester:
             color_discrete_map={"green": "green", "orange": "orange", "red": "red"},
             title=title,
             labels={"truth": "Actual Price", "guess": "Predicted Price"},
-            width=1000,
-            height=800,
+            width=800,
+            height=600,
         )
 
         # Assign customdata per trace (one color/category = one trace)
@@ -139,6 +138,11 @@ class Tester:
         upper = [m + c for m, c in zip(running_means, ci)]
         lower = [m - c for m, c in zip(running_means, ci)]
 
+        # Title with final stats
+        final_mean = running_means[-1]
+        final_ci = ci[-1]
+        title = f"{self.title} Error: {final_mean:,.2f} ± {final_ci:,.2f}"
+
         # Plot
         fig = go.Figure()
 
@@ -177,17 +181,12 @@ class Tester:
             )
         )
 
-        # Title with final stats
-        final_mean = running_means[-1]
-        final_ci = ci[-1]
-        title = f"{self.title} Error: ${final_mean:,.2f} ± ${final_ci:,.2f}"
-
         fig.update_layout(
             title=title,
             xaxis_title="Number of Datapoints",
-            yaxis_title="Average Absolute Error ($)",
-            width=1000,
-            height=360,
+            yaxis_title="Error ($)",
+            width=800,
+            height=300,
             template="plotly_white",
             showlegend=False,
         )
@@ -203,7 +202,7 @@ class Tester:
         self.chart(title)
 
     def run(self):
-        for i in tqdm(range(self.size), total=self.size):
+        for i in tqdm(range(self.size)):
             title, guess, truth, error, color = self.run_datapoint(i)
             self.titles.append(title)
             self.guesses.append(guess)
@@ -211,6 +210,7 @@ class Tester:
             self.errors.append(error)
             self.colors.append(color)
             print(f"{COLOR_MAP[color]}${error:.0f} ", end="")
+        clear_output(wait=True)
         self.report()
 
 
