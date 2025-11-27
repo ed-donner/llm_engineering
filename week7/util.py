@@ -56,7 +56,9 @@ class Tester:
         truth = float(datapoint["completion"])
         error = abs(guess - truth)
         color = self.color_for(error, truth)
-        title = datapoint.title if len(datapoint.title) <= 40 else datapoint.title[:40] + "..."
+        pieces = datapoint["prompt"].split("Title: ")
+        title = pieces[1].split("\n")[0] if len(pieces) > 1 else pieces[0]
+        title = title if len(datapoint.title) <= 40 else title[:40] + "..."
         return title, guess, truth, error, color
 
     def chart(self, title):
