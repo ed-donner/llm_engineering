@@ -1,0 +1,84 @@
+import streamlit as st
+from langchain_community.document_loaders import YoutubeLoader, UnstructuredURLLoader
+from langchain.chat_models import init_chat_model
+from langchain.messages import SystemMessage, HumanMessage
+import validators
+import os
+from dotenv import load_dotenv
+# Load environment variables
+load_dotenv()
+os.environ["OPENAI_API_KEY"] = os.getenv("OPENAI_API_KEY")
+
+# Streamlit page setup
+st.set_page_config(page_title="Summarize text from YouTube or Website", page_icon="📄")
+st.title("LangChain: Summarize Content from YouTube or Website")
+st.subheader("Enter a URL below")
+
+# Input URL
+generic_url = st.text_input("URL", label_visibility="collapsed").strip()
+
+# Custom headers for web scraping
+headers = {
+    "User-Agent": (
+        "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+        "AppleWebKit/537.36 (KHTML, like Gecko) "
+        "Chrome/120.0.0.0 Safari/537.36 "
+        "Edg/120.0.0.0"
+    )
+}
+
+# System prompt
+system_prompt = """
+You are an expert assistant specialized in analyzing content from  YouTube videos and websites.
+You will be given the full transcript or text content, and you need to summarize it clearly and concisely.
+"""
+
+#User prompt
+userPrompt="""
+Provide the summary of the following content
+"""
+
+# Button action
+if st.button("Summarize the content from URL or YouTube"):
+    if not validators.url(generic_url):
+        st.error("Please enter a valid URL.")
+    else:
+        try:
+            with st.spinner("Fetching and summarizing content..."):
+                # Load content
+                if "youtube.com" in generic_url:
+                    loader = YoutubeLoader.from_youtube_url(youtube_url= generic_url)
+                
+                else:
+                    loader = UnstructuredURLLoader(
+                        urls=[generic_url],
+                        ssl_verify=False,
+                        headers=headers
+                    )
+
+                documents = loader.load()
+                if not documents:
+                    st.error("Could not extract content from the URL or YouTube video.")
+                else:
+                    # Extract plain text from loaded documents
+                    page_text = ""
+                    for doc in documents:
+                        page_text += doc.page_content + "\n"
+
+                    if not page_text.strip():
+                        st.error("No text content could be extracted.")
+                    else:
+                        # Initialize LLM
+                        llm= init_chat_model(model="gpt-4-turbo", temperature=0.1, max_tokens=1000)
+                        # Prepare messages
+                        page_text= userPrompt + "\n" +page_text
+                        messages = [
+                            SystemMessage(content=system_prompt),
+                            HumanMessage(content=page_text)
+                        ]
+                        response = llm.invoke(messages)
+                        st.success("Summary:")
+                        st.write(response.content)
+
+        except Exception as e:
+            st.exception(f"An error occurred: {e}")
