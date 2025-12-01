@@ -1,12 +1,9 @@
 import streamlit as st
 from langchain_community.document_loaders import YoutubeLoader, UnstructuredURLLoader
-from langchain.chat_models import init_chat_model
-from langchain.messages import SystemMessage, HumanMessage
 import validators
 from openai import OpenAI
 import os
 api_key = os.getenv('OPENAI_API_KEY')
-#os.environ["OPENAI_API_KEY"] = api_key
 client = OpenAI(api_key=api_key)
 
 from dotenv import load_dotenv
@@ -82,8 +79,6 @@ if st.button("Summarize the content from URL or YouTube"):
                     if not page_text.strip():
                         st.error("No text content could be extracted.")
                     else:
-                        # Initialize LLM
-                        #llm= init_chat_model(model="gpt-4-turbo", temperature=0.1, max_tokens=1000)
                         response = client.chat.completions.create(model="gpt-4o-mini",
                         messages=[{"role":"system", "content":system_prompt}, {"role":"user", "content":userPrompt + "\n" +page_text}],
                         temperature=0.2,
