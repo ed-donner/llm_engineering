@@ -3,11 +3,24 @@ from langchain_community.document_loaders import YoutubeLoader, UnstructuredURLL
 from langchain.chat_models import init_chat_model
 from langchain.messages import SystemMessage, HumanMessage
 import validators
+from openai import OpenAI
 import os
+api_key = os.getenv('OPENAI_API_KEY')
+#os.environ["OPENAI_API_KEY"] = api_key
+client = OpenAI(api_key=api_key)
+
 from dotenv import load_dotenv
 # Load environment variables
 load_dotenv()
-os.environ["OPENAI_API_KEY"] = os.getenv("OPENAI_API_KEY")
+
+if not api_key:
+    print("No API key was found - please head over to the troubleshooting notebook in this folder to identify & fix!")
+elif not api_key.startswith("sk-proj-"):
+    print("An API key was found, but it doesn't start sk-proj-; please check you're using the right key - see troubleshooting notebook")
+elif api_key.strip() != api_key:
+    print("An API key was found, but it looks like it might have space or tab characters at the start or end - please remove them - see troubleshooting notebook")
+else:
+    print("API key found and looks good so far!")
 
 # Streamlit page setup
 st.set_page_config(page_title="Summarize text from YouTube or Website", page_icon="📄")
@@ -48,7 +61,7 @@ if st.button("Summarize the content from URL or YouTube"):
                 # Load content
                 if "youtube.com" in generic_url:
                     loader = YoutubeLoader.from_youtube_url(youtube_url= generic_url)
-                
+
                 else:
                     loader = UnstructuredURLLoader(
                         urls=[generic_url],
@@ -57,6 +70,7 @@ if st.button("Summarize the content from URL or YouTube"):
                     )
 
                 documents = loader.load()
+                print(documents)
                 if not documents:
                     st.error("Could not extract content from the URL or YouTube video.")
                 else:
@@ -69,16 +83,13 @@ if st.button("Summarize the content from URL or YouTube"):
                         st.error("No text content could be extracted.")
                     else:
                         # Initialize LLM
-                        llm= init_chat_model(model="gpt-4-turbo", temperature=0.1, max_tokens=1000)
-                        # Prepare messages
-                        page_text= userPrompt + "\n" +page_text
-                        messages = [
-                            SystemMessage(content=system_prompt),
-                            HumanMessage(content=page_text)
-                        ]
-                        response = llm.invoke(messages)
+                        #llm= init_chat_model(model="gpt-4-turbo", temperature=0.1, max_tokens=1000)
+                        response = client.chat.completions.create(model="gpt-4o-mini",
+                        messages=[{"role":"system", "content":system_prompt}, {"role":"user", "content":userPrompt + "\n" +page_text}],
+                        temperature=0.2,
+                        max_tokens=512)
                         st.success("Summary:")
-                        st.write(response.content)
+                        st.write(response.choices[0].message.content)
 
         except Exception as e:
             st.exception(f"An error occurred: {e}")
