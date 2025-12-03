@@ -1,3 +1,14 @@
+---
+title: AI Powered Test Data Generator
+emoji: 🧪
+colorFrom: blue
+colorTo: purple
+sdk: gradio
+sdk_version: "4.44.1"
+app_file: app.py
+pinned: false
+---
+
 # AI-Powered Test Data Generator
 
 Generate realistic test data for testing, development, and prototyping using open-source LLMs via HuggingFace Inference API.
