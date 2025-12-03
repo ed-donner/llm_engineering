@@ -1,10 +1,19 @@
 import { SendOutlined } from "@ant-design/icons";
 import { Alert, Button, Input, Space, Spin, Typography } from "antd";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { OllamaModel } from "../ModelsSelect/hooks/useOllamaModels";
 import { useChat } from "./hooks/useChat";
 
 const { TextArea } = Input;
+
+// ---------------------------------------------------------------------------------------------------------------------
+//  Types
+// ---------------------------------------------------------------------------------------------------------------------
+
+export interface ChatMessage {
+  role: "system" | "user" | "assistant";
+  content: string;
+}
 
 // ---------------------------------------------------------------------------------------------------------------------
 //  Component: ChatInterface
@@ -13,14 +22,26 @@ const { TextArea } = Input;
 export const ChatInterface = ({
   selectedModel,
   systemPrompts,
+  onHistoryChange,
 }: {
   selectedModel: OllamaModel | null;
   systemPrompts: string[];
+  onHistoryChange?: (history: ChatMessage[]) => void;
 }) => {
   const [message, setMessage] = useState("");
-  const [output, setOutput] = useState("");
   const [validationError, setValidationError] = useState<string | null>(null);
+  const [messageHistory, setMessageHistory] = useState<ChatMessage[]>([]);
+  const [isSending, setIsSending] = useState(false);
+  const messagesEndRef = useRef<HTMLDivElement>(null);
   const { sendMessage, loading, error } = useChat();
+
+  // -------------------------------------------------------------------------------------------------------------------
+  //  Effect: Scroll to bottom when new messages arrive
+  // -------------------------------------------------------------------------------------------------------------------
+
+  useEffect(() => {
+    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+  }, [messageHistory, isSending]);
 
   // -------------------------------------------------------------------------------------------------------------------
   //  Function: handleSend
@@ -46,18 +67,27 @@ export const ChatInterface = ({
     }
 
     setValidationError(null);
-    setOutput("");
 
-    // Build messages array: system prompts first, then user message
-    const messages = [
+    const userMessage: ChatMessage = {
+      role: "user",
+      content: message.trim(),
+    };
+
+    // Add user message to history immediately for better UX
+    const updatedHistory = [...messageHistory, userMessage];
+    setMessageHistory(updatedHistory);
+    setIsSending(true);
+    const currentMessage = message.trim();
+    setMessage("");
+
+    // Build messages array: system prompts first, then message history, then new user message
+    const messages: ChatMessage[] = [
       ...systemPrompts.map((prompt) => ({
         role: "system" as const,
         content: prompt.trim(),
       })),
-      {
-        role: "user" as const,
-        content: message.trim(),
-      },
+      ...messageHistory,
+      userMessage,
     ];
 
     const response = await sendMessage({
@@ -65,99 +95,195 @@ export const ChatInterface = ({
       messages,
     });
 
+    setIsSending(false);
+
     if (response) {
-      setOutput(response);
+      // Add assistant response to history
+      const assistantMessage: ChatMessage = {
+        role: "assistant",
+        content: response,
+      };
+      const newHistory = [...updatedHistory, assistantMessage];
+      setMessageHistory(newHistory);
+      onHistoryChange?.(newHistory);
+    } else {
+      // Remove user message if request failed
+      setMessageHistory(messageHistory);
+      setMessage(currentMessage);
     }
-    setMessage("");
   };
 
   return (
-    <Space direction="vertical" style={{ width: "100%" }} size="middle">
-      {!selectedModel && (
-        <Alert
-          message="No model selected"
-          description="Please select a model from the models card above."
-          type="info"
-          showIcon
-        />
-      )}
-
-      {validationError && (
-        <Alert
-          message="Validation Error"
-          description={validationError}
-          type="error"
-          showIcon
-          closable
-          onClose={() => setValidationError(null)}
-        />
-      )}
-
-      {error && (
-        <Alert
-          message="Error"
-          description={error}
-          type="error"
-          showIcon
-          closable
-        />
-      )}
-
-      <div>
-        <Typography.Text
-          strong
-          style={{ display: "block", marginBottom: "8px" }}
-        >
-          Message:
-        </Typography.Text>
-        <Input
-          value={message}
-          onChange={(e) => setMessage(e.target.value)}
-          placeholder="Enter your message..."
-          onPressEnter={handleSend}
-          disabled={!selectedModel || loading}
-          suffix={
-            <Button
-              type="primary"
-              icon={<SendOutlined />}
-              onClick={handleSend}
-              disabled={message.trim() === "" || !selectedModel || loading}
-              loading={loading}
-            >
-              Send
-            </Button>
-          }
-          size="large"
-        />
-      </div>
-
-      <div>
-        <Typography.Text
-          strong
-          style={{ display: "block", marginBottom: "8px" }}
-        >
-          Response:
-        </Typography.Text>
-        {loading && !output ? (
-          <div style={{ textAlign: "center", padding: "20px" }}>
-            <Spin size="large" />
-            <Typography.Text
-              type="secondary"
-              style={{ display: "block", marginTop: "10px" }}
-            >
-              Waiting for response...
-            </Typography.Text>
-          </div>
-        ) : (
-          <TextArea
-            value={output}
-            readOnly
-            placeholder="LLM response will appear here..."
-            rows={10}
-            style={{ resize: "none" }}
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        height: "600px",
+        border: "1px solid #d9d9d9",
+        borderRadius: "8px",
+        overflow: "hidden",
+      }}
+    >
+      {/* Messages Area */}
+      <div
+        style={{
+          flex: 1,
+          overflowY: "auto",
+          padding: "16px",
+          backgroundColor: "#fafafa",
+          display: "flex",
+          flexDirection: "column",
+          gap: "12px",
+        }}
+      >
+        {!selectedModel && (
+          <Alert
+            message="No model selected"
+            description="Please select a model from the models card above."
+            type="info"
+            showIcon
+            style={{ marginBottom: "8px" }}
           />
         )}
+
+        {validationError && (
+          <Alert
+            message="Validation Error"
+            description={validationError}
+            type="error"
+            showIcon
+            closable
+            onClose={() => setValidationError(null)}
+            style={{ marginBottom: "8px" }}
+          />
+        )}
+
+        {error && (
+          <Alert
+            message="Error"
+            description={error}
+            type="error"
+            showIcon
+            closable
+            style={{ marginBottom: "8px" }}
+          />
+        )}
+
+        {messageHistory.length === 0 && !isSending && (
+          <div
+            style={{
+              textAlign: "center",
+              padding: "40px 20px",
+              color: "#8c8c8c",
+            }}
+          >
+            <Typography.Text type="secondary" style={{ fontStyle: "italic" }}>
+              No messages yet. Start a conversation!
+            </Typography.Text>
+          </div>
+        )}
+
+        {messageHistory.map((msg, index) => (
+          <div
+            key={index}
+            style={{
+              display: "flex",
+              justifyContent: msg.role === "user" ? "flex-end" : "flex-start",
+              marginBottom: "8px",
+            }}
+          >
+            <div
+              style={{
+                maxWidth: "70%",
+                padding: "12px 16px",
+                borderRadius: "12px",
+                backgroundColor:
+                  msg.role === "user" ? "#1890ff" : "#ffffff",
+                color: msg.role === "user" ? "#ffffff" : "#000000",
+                boxShadow: "0 1px 2px rgba(0,0,0,0.1)",
+                wordWrap: "break-word",
+                whiteSpace: "pre-wrap",
+              }}
+            >
+              <Typography.Text
+                style={{
+                  color: msg.role === "user" ? "#ffffff" : "#000000",
+                  fontSize: "14px",
+                }}
+              >
+                {msg.content}
+              </Typography.Text>
+            </div>
+          </div>
+        ))}
+
+        {isSending && (
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "flex-start",
+              marginBottom: "8px",
+            }}
+          >
+            <div
+              style={{
+                padding: "12px 16px",
+                borderRadius: "12px",
+                backgroundColor: "#ffffff",
+                boxShadow: "0 1px 2px rgba(0,0,0,0.1)",
+                display: "flex",
+                alignItems: "center",
+                gap: "8px",
+              }}
+            >
+              <Spin size="small" />
+              <Typography.Text type="secondary" style={{ fontSize: "14px" }}>
+                Thinking...
+              </Typography.Text>
+            </div>
+          </div>
+        )}
+
+        <div ref={messagesEndRef} />
       </div>
-    </Space>
+
+      {/* Input Area */}
+      <div
+        style={{
+          borderTop: "1px solid #d9d9d9",
+          padding: "12px",
+          backgroundColor: "#ffffff",
+        }}
+      >
+        <Space.Compact style={{ width: "100%" }}>
+          <TextArea
+            value={message}
+            onChange={(e) => setMessage(e.target.value)}
+            placeholder="Type your message..."
+            disabled={!selectedModel || loading || isSending}
+            autoSize={{ minRows: 1, maxRows: 4 }}
+            onPressEnter={(e) => {
+              if (!e.shiftKey) {
+                e.preventDefault();
+                handleSend();
+              }
+            }}
+            style={{ resize: "none" }}
+          />
+          <Button
+            type="primary"
+            icon={<SendOutlined />}
+            onClick={handleSend}
+            disabled={
+              message.trim() === "" || !selectedModel || loading || isSending
+            }
+            loading={loading || isSending}
+            style={{ height: "auto" }}
+          >
+            Send
+          </Button>
+        </Space.Compact>
+      </div>
+    </div>
   );
 };
