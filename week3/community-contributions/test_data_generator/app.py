@@ -7,6 +7,7 @@ Uses HuggingFace Inference API for cloud-based model inference.
 
 import gradio as gr
 from huggingface_hub import InferenceClient
+from dotenv import load_dotenv
 import pandas as pd
 import json
 import csv
@@ -14,6 +15,9 @@ import io
 import re
 import tempfile
 import os
+
+# Load environment variables from .env file
+load_dotenv()
 
 # Available HuggingFace models for inference
 AVAILABLE_MODELS = [
@@ -58,6 +62,8 @@ DATA_TEMPLATES = {
 def get_hf_client():
     """Get HuggingFace Inference client."""
     token = os.environ.get("HF_TOKEN")
+    if not token:
+        raise ValueError("HF_TOKEN environment variable is not set. Please add it as a secret in Space settings.")
     return InferenceClient(token=token)
 
 
@@ -171,10 +177,16 @@ IMPORTANT: Return ONLY the JSON array, no explanations, no markdown code blocks,
 
         response = client.chat_completion(
             model=model,
-            messages=[{
-                "role": "user",
-                "content": prompt
-            }],
+            messages=[
+                {
+                    "role": "system",
+                    "content": "You are a helpful assistant that generates test data. Always respond with valid JSON arrays only, no explanations."
+                },
+                {
+                    "role": "user",
+                    "content": prompt
+                }
+            ],
             max_tokens=4096,
             temperature=0.7
         )
@@ -183,7 +195,7 @@ IMPORTANT: Return ONLY the JSON array, no explanations, no markdown code blocks,
         data = parse_json_from_response(response_text)
 
         if not data:
-            return [], "Error: Failed to parse LLM response as JSON. Please try again."
+            return [], f"Error: Failed to parse LLM response as JSON. Raw response: {response_text[:500]}..."
 
         if len(data) > num_records:
             data = data[:num_records]
