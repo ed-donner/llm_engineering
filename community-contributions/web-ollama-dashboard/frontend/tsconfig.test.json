@@ -1,0 +1,9 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "types": ["jest", "@testing-library/jest-dom"],
+    "esModuleInterop": true
+  },
+  "include": ["src/**/*", "**/__tests__/**/*"]
+}
+
