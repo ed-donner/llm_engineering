@@ -3,9 +3,10 @@
 # Jordan Blake
 
 ## Summary
-- **Date of Birth:** March 15, 1993  
-- **Job Title:** Sales Development Representative (SDR)  
-- **Location:** Austin, Texas  
+- **Date of Birth:** March 15, 1993
+- **Job Title:** Sales Development Representative (SDR)
+- **Location:** Austin, Texas
+- **Current Salary:** $65,000  
 
 ## Insurellm Career Progression
 - **2021-06:** Joined Insurellm as an Entry-Level SDR  
