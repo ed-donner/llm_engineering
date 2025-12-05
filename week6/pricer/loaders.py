@@ -61,6 +61,7 @@ class ItemLoader:
             "McAuley-Lab/Amazon-Reviews-2023",
             f"raw_meta_{self.category}",
             split="full",
+            trust_remote_code=True,
         )
         results = self.load_in_parallel(workers)
         finish = datetime.now()
