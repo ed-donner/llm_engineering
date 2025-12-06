@@ -1,0 +1,3 @@
+# LLM Engineering - Example GitHub Repositories
+https://github.com/ed-donner/llm_engineering
+https://github.com/openai/openai-cookbook
