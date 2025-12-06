@@ -1,6 +1,15 @@
-# GitHub README Summarizer (LLM Engineering Project)
+# GitHub README Summarizer (LLM Engineering Project) 
+## Day 2 use a local LLM
+```
+# use local ollama model
+OLLAMA_BASE_URL = "http://localhost:11434/v1"
+ollama = OpenAI(base_url=OLLAMA_BASE_URL, api_key='ollama')
+clientModel = "gemma3:4b"
+```
 
 Ever wondered what happens when you let an LLM summarize an llm_engineering git repository README using system and user prompts? 
+
+This python notebook is configured to use a local llm  
 
 ## Example
 

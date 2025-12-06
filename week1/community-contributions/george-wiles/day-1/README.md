@@ -1,4 +1,5 @@
 # GitHub README Summarizer (LLM Engineering Project)
+## Day 1 use model="gpt-4.1-mini"
 
 Ever wondered what happens when you let an LLM summarize an llm_engineering git repository README using system and user prompts? 
 
