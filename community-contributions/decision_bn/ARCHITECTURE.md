@@ -14,19 +14,18 @@
 │  • UI State Management (session_state)                      │
 │  • User Input Collection                                    │
 │  • Results Display & Visualization                          │
+│  • Error dialogs with “Show details” buttons                 │
 └───────┬─────────────────────────┬────────────────────┬───────┘
-        │                         │                    │
-        ▼                         ▼                    ▼
-┌──────────────┐         ┌──────────────┐    ┌────────────────┐
-│llm_parser.py │         │decision_     │    │config.py       │
-│              │         │maker.py      │    │                │
-│CaseParser    │         │              │    │• Prompts       │
-│class:        │         │DecisionBN    │    │• Settings      │
-│• parse_case()│         │class:        │    │• Constants     │
-│• validate()  │         │• build BN    │    └────────────────┘
-│              │         │• inference   │
-│              │         │• utilities   │
-└──────┬───────┘         └──────┬───────┘
+    │                         │                    │
+    ▼                         ▼                    ▼
+┌──────────────┐         ┌────────────────────┐    ┌────────────────┐
+│CaseParser     │        │DecisionBN           │    │config.py       │
+│(from          │        │(from                │    │                │
+│bn_decision_   │        │bn_decision_maker)   │    │• Prompts       │
+│maker)         │        │• build BN           │    │• Settings      │
+│• parse_case() │        │• inference          │    │• Constants     │
+└──────────────┘        │• utilities          │    └────────────────┘
+            └────────────────────┘
        │                        │
        ▼                        ▼
 ┌──────────────┐         ┌──────────────┐    ┌────────────────┐
@@ -89,11 +88,10 @@ Display recommendation
 - ✓ Session state management
 - ✓ User input validation
 - ✓ Results visualization
-- ✗ NO business logic
-- ✗ NO direct LLM calls
-- ✗ NO BN construction
+- ✓ Centralized error handling (parse/build) with details-on-click
+- ✓ Invokes parsing and BN construction via imported classes
 
-### bn_decision_maker.py (Core Logic)
+### bn_decision_maker (Core Logic)
 - ✓ BN data structure → pyAgrum conversion
 - ✓ Inference queries (marginals, posteriors)
 - ✓ Expected utility calculations
@@ -101,10 +99,9 @@ Display recommendation
 - ✗ NO UI code
 - ✗ NO LLM interaction
 
-### llm_parser.py (External Service)
-- ✓ LLM API interaction
-- ✓ JSON parsing & validation
-- ✓ Error handling for API calls
+### CaseParser (Parsing)
+- ✓ Parses case text to BN-ready JSON
+- ✓ Error handling surfaced to UI via app.py
 - ✗ NO UI code
 - ✗ NO BN operations
 
@@ -152,10 +149,7 @@ Display recommendation
 ```python
 # In app.py
 from bn_decision_maker import CaseParser, DecisionBN, SYSTEM_PROMPT
-parser = CaseParser()
-data = parser.parse_case(text, SYSTEM_PROMPT)
-bn = DecisionBN(data['bn-data'])
-result = bn.get_optimal_action(...)
+bn, data = parse_and_build_bn(text, SYSTEM_PROMPT)  # centralized error handling
 ```
 
 ### Pattern 2: Notebook Exploration
@@ -196,8 +190,6 @@ def analyze(case: str):
 
 ### Unit Tests
 - `test_decision_maker.py`: Test DecisionBN class
-- `test_llm_parser.py`: Test parsing & validation
-- `test_utilities.py`: Test EU calculations
 
 ### Integration Tests
 - End-to-end case analysis

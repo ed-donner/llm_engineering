@@ -1,3 +1,13 @@
+---
+title: Decision BN Analyzer
+emoji: 🎯
+colorFrom: indigo
+colorTo: blue
+sdk: docker
+app_port: 8501
+pinned: false
+---
+
 # Decision Analysis Web App
 
 A production-ready Streamlit application for Bayesian Network-based decision analysis.

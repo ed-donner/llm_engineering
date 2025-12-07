@@ -40,9 +40,13 @@ class DecisionBN:
             for v in self.bn_data["variables"]
         }
         
-        # Add all chance variables
+        # Add all chance variables (excluding Decision if utilities exist)
         var_map = {}
         for var in self.bn_data["variables"]:
+            # Skip "Decision" variable if utilities exist - it will be added as decision node
+            if self.has_utilities and var["name"] == "Decision":
+                continue
+                
             lv = gum.LabelizedVariable(var["name"], var["name"], 0)
             for label in var["states"]:
                 lv.addLabel(label)

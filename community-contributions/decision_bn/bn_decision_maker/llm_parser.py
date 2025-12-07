@@ -11,24 +11,23 @@ from dotenv import load_dotenv
 class CaseParser:
     """Parse natural language decision cases into BN JSON structures using LLM."""
     
-    def __init__(self, api_key: Optional[str] = None, model: str = "gpt-4o-mini"):
+    def __init__(self, models: Optional[list] = None):
         """
         Initialize the parser.
         
         Args:
-            api_key: OpenAI API key (if None, loads from environment)
-            model: LLM model to use
+            models: List of model configurations to try in order
         """
         load_dotenv()
-        self.api_key = api_key or os.getenv("OPENAI_API_KEY")
-        self.model = model
+        self.models = models or []
         
-        if not self.api_key:
-            raise ValueError("No API key found. Set OPENAI_API_KEY in .env file.")
+        if not self.models:
+            raise ValueError("No models configured. Provide models list in config.")
     
     def parse_case(self, case_text: str, system_prompt: str) -> Dict:
         """
         Parse a case description into BN JSON structure.
+        Attempts models in order from the models list, falling back to the next on failure.
         
         Args:
             case_text: Natural language case description
@@ -36,15 +35,68 @@ class CaseParser:
             
         Returns:
             Dictionary with 'bn-data' key containing BN structure
+            
+        Raises:
+            RuntimeError: If all models fail
         """
-        response = completion(
-            model=self.model,
-            messages=[
+        errors = []
+        
+        # Try each model in order
+        for i, model_config in enumerate(self.models):
+            model_name = model_config.get("model_name", "unknown")
+            try:
+                print(f"[Model {i+1}/{len(self.models)}] Attempting with {model_name}...")
+                return self._try_parse(case_text, system_prompt, model_config)
+            except Exception as e:
+                error_msg = f"{model_name}: {str(e)}"
+                errors.append(error_msg)
+                print(f"[Model {i+1}/{len(self.models)}] {model_name} failed. Attempting next model...")
+        
+        # All models failed
+        raise RuntimeError(
+            f"All {len(self.models)} models failed to parse the case.\n" +
+            "\n".join([f"  • {err}" for err in errors])
+        )
+    
+    def _try_parse(self, case_text: str, system_prompt: str, model_config: Dict) -> Dict:
+        """
+        Attempt to parse a case with a specific model.
+        
+        Args:
+            case_text: Natural language case description
+            system_prompt: System prompt defining output format
+            model_config: Model configuration dict with model_name and litellm_params
+            
+        Returns:
+            Dictionary with 'bn-data' key containing BN structure
+        """
+        model_name = model_config.get("model_name")
+        litellm_params = model_config.get("litellm_params", {})
+        
+        # Get API key from environment variable specified in config
+        env_key = litellm_params.get("env_key", "OPENAI_API_KEY")
+        api_key = os.getenv(env_key)
+        
+        if not api_key:
+            raise ValueError(f"No API key found for {model_name}. Set {env_key} in .env file.")
+        
+        # Build completion kwargs
+        completion_kwargs = {
+            "model": model_name,
+            "messages": [
                 {"role": "system", "content": system_prompt},
                 {"role": "user", "content": f"The case is: {case_text}"}
             ],
-            response_format={"type": "json_object"}
-        )
+            "response_format": {"type": "json_object"},
+            "api_key": api_key
+        }
+        
+        # Add litellm parameters if provided (excluding env_key)
+        if litellm_params:
+            params_to_add = {k: v for k, v in litellm_params.items() if k != "env_key"}
+            completion_kwargs.update(params_to_add)
+        
+        response = completion(**completion_kwargs)
         
         result = response.choices[0].message.content
         parsed = json.loads(result)

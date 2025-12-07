@@ -3,7 +3,7 @@ Simple test/demo script for the decision analysis modules.
 Run this to verify the architecture works without Streamlit.
 """
 from bn_decision_maker import DecisionBN
-from bn_decision_maker.examples.predefined_cases import PREDEFINED_CASES, CASE_UTILITIES
+from bn_decision_maker.examples.predefined_cases import PREDEFINED_CASES
 
 # Example BN data (minimal test case)
 test_bn_data = {
@@ -62,8 +62,8 @@ def test_basic_bn():
     for action, eu in eus.items():
         print(f"  {action}: {eu:.2f}")
     
-    best_action, best_eu = bn.get_optimal_action("Outcome", utilities, evidence)
-    print(f"\n✓ Optimal action: {best_action} (EU={best_eu:.2f})")
+    # optimal_policy = bn.get_optimal_policy()
+    # print(optimal_policy)
     
     print("\n" + "=" * 60)
     print("All tests passed! ✓")
@@ -78,10 +78,6 @@ def show_predefined_cases():
     for i, (name, description) in enumerate(PREDEFINED_CASES.items(), 1):
         print(f"\n{i}. {name}")
         print(f"   {description[:100]}...")
-        if name in CASE_UTILITIES:
-            config = CASE_UTILITIES[name]
-            print(f"   Outcome variable: {config['outcome_var']}")
-            print(f"   Actions: {list(config['actions'].keys())}")
 
 if __name__ == "__main__":
     test_basic_bn()
