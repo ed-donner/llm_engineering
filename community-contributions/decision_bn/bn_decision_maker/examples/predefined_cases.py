@@ -17,7 +17,7 @@ A home's window insulation is Good (0.85) or Poor (0.15). The heater thermostat 
 The homeowner decides whether to call maintenance or ignore. If the system is inefficient (high energy use), calling gives +40 (saves future cost) and ignoring gives –60 (wasted bills). If efficiency is normal, calling unnecessarily costs –10, while ignoring gives +20.
 """
 
-CASE_FRAUD_DETECTION = """
+CASE_ORIG_FRAUD_DETECTION = """
 When the card holder is travelling abroad, fraudulent transactions are more likely since tourists are prime targets
 for thieves. More precisely, 1% of transactions are fraudulent when the card holder is travelling, where as only
 0.4% of the transactions are fraudulent when they are not travelling. On average, 5% of all transactions happen
@@ -26,7 +26,8 @@ increases, unless the card holder happens to be travelling. More precisely, when
 10% of the fraudulent transactions are foreign purchases where as only 1% of the legitimate transactions are
 foreign purchases. On the other hand, when the card holder is travelling, then 90% of the transactions are
 foreign purchases regardless of the legitimacy of the transactions.
-• Purchases made over the internet are more likely to be fraudulent. This is especially true for card holders who
+
+Purchases made over the internet are more likely to be fraudulent. This is especially true for card holders who
 don’t own any computer. Currently, 60% of the population owns a computer and for those card holders, 1% of
 their legitimate transactions are done over the internet, however this percentage increases to 2% for fraudulent
 transactions. For those who don’t own any computer, a mere 0.1% of their legitimate transactions is done
@@ -37,10 +38,21 @@ credit card at least one computer related accessory item as opposed to just 0.1%
 Therefore, a computer related accessory purchase is a strong indicator that the card holder owns a computer.
 """
 
+CASE_FRAUD_DETECTION = """
+A payment system analyzes transactions for fraud. Account Age is New (0.12) or Established (0.88). 
+Device Risk is High (0.08) or Low (0.92). Transaction Velocity depends on both: 3% unusual for established accounts 
+with low device risk, 22% if either factor is risky, 35% if both are risky. Payment Method is Secure (0.75) or 
+Risky (0.25), independent of other factors. Fraud likelihood is 0.8% when velocity is normal and payment is secure, 
+18% if either is bad, 42% if both are bad. The ML detector catches fraud with 92% accuracy and has 3% false positives. 
+The team decides to Block or Allow. If fraudulent and allowed: –150. If fraudulent and blocked: +10. 
+If legitimate and blocked: –10. If legitimate and allowed: +5.
+"""
+
 # Mapping for easy access
 PREDEFINED_CASES = {
     "Vehicle Overheat": CASE_VEHICLE_OVERHEAT,
     "Manufacturing Line Jam": CASE_MANUFACTURING_LINE_JAM,
     "Home Heating Efficiency": CASE_HOME_HEATING,
+    # "Credit Card Fraud Detection": CASE_ORIG_FRAUD_DETECTION
     "Credit Card Fraud Detection": CASE_FRAUD_DETECTION
 }

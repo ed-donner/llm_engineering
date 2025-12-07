@@ -1,6 +1,9 @@
 """
 Streamlit web application for Bayesian Network decision analysis.
 """
+import traceback
+import logging
+from datetime import datetime
 import streamlit as st
 import pandas as pd
 import plotly.graph_objects as go
@@ -132,11 +135,36 @@ def create_horizontal_bar(labels, values, value_format='.4f', value_label='Proba
 def parse_and_build_bn(case_text: str, system_prompt: str):
     """
     Parse case with LLM and build Bayesian Network.
+    Uses models list from config, trying models[0] first and cascading through fallbacks.
     Cached to avoid repeated API calls for the same case.
-    """
-    parser = CaseParser()
-    parsed_data = parser.parse_case(case_text, system_prompt)
-    bn = DecisionBN(parsed_data['bn-data'])
+    """    
+    # Setup error logging
+    log_dir = "logs"
+    import os
+    os.makedirs(log_dir, exist_ok=True)
+    
+    error_log_file = os.path.join(log_dir, f"parse_errors_{datetime.now().strftime('%Y%m%d')}.log")
+    logging.basicConfig(
+        filename=error_log_file,
+        level=logging.ERROR,
+        format='%(asctime)s - %(levelname)s - %(message)s'
+    )
+    
+    parser = CaseParser(models=APP_CONFIG.get("models"))
+    try:
+        parsed_data = parser.parse_case(case_text, system_prompt)
+    except Exception as e:
+        # Log parsing error
+        logging.error(f"Parsing Error:\n{traceback.format_exc()}\n\nCase Text:\n{case_text[:500]}...")
+        st.error(traceback.format_exc())
+        return None, None
+    try:
+        bn = DecisionBN(parsed_data['bn-data'])
+    except Exception as e:
+        # Log unexpected errors
+        logging.error(f"Unexpected Error in BN Building:\n{traceback.format_exc()}\n\nParsed Data:\n{parsed_data}")
+        st.error(f"Unexpected error: {e}")
+        return None, parsed_data
     return bn, parsed_data
 
 
@@ -154,9 +182,12 @@ if 'parsed_data' not in st.session_state:
     st.session_state.parsed_data = None
 if 'case_name' not in st.session_state:
     st.session_state.case_name = None
+if 'show_logs' not in st.session_state:
+    st.session_state.show_logs = False
 
 st.markdown(f"# {APP_CONFIG['title']}")
-st.markdown("*AI-powered decision analysis using Bayesian Networks*")
+st.markdown("*AI-powered decision analysis using Bayesian Networks (pyAgrum)")
+
 st.markdown("---")
 
 # Sidebar for case selection
@@ -193,38 +224,29 @@ else:
 _, col_center, _ = st.columns([1, 1, 1])
 with col_center:
     # Analysis button
-    analyze_button = st.button("Analyze Case", type="primary", use_container_width=True)
+    analyze_button = st.button("Analyze Case", type="primary", width='stretch')
 
     if analyze_button:
         if not case_text or not case_text.strip():
             st.error("Please enter or select a case to analyze.")
         else:
             try:
-                with st.spinner("Parsing case with LLM..."):
-                    # Parse and build (with caching)
-                    bn, parsed_data = parse_and_build_bn(case_text, SYSTEM_PROMPT)
-                    
-                    # Store in session state
-                    st.session_state.bn = bn
-                    st.session_state.parsed_data = parsed_data
-                    st.session_state.case_name = case_name
-                    
-                st.success("Case analyzed successfully! Please check the inferred network structure and CPTs on the right before moving forward.")
+                bn, parsed_data = parse_and_build_bn(case_text, SYSTEM_PROMPT)
+                if bn is None:
+                    st.stop()
+                # Store in session state
+                st.session_state.bn = bn
+                st.session_state.parsed_data = parsed_data
+                st.session_state.case_name = case_name
                 
+                st.success("Case analyzed successfully! Please check the inferred network structure and CPTs on the left side before moving forward.")
+                
+                # Debug: show parsed data
+                with st.expander("Parsed Data", expanded=False):
+                    st.json(parsed_data)
             except Exception as e:
-                st.error(f"Error analyzing case: {str(e)}")
-                
-                # Show detailed error information for debugging
-                with st.expander("Debug Information", expanded=True):
-                    st.code(str(e))
-                    import traceback
-                    st.code(traceback.format_exc())
-                    
-                    # If we have parsed data, show it
-                    if 'parsed_data' in locals():
-                        st.json(parsed_data)
-                
-                st.stop()
+                import traceback
+                st.info(f"Issue with parsing and building BN. Please revise your description. Details: {e}")
 
 # Display results if BN is available
 if st.session_state.bn is not None:
@@ -257,7 +279,7 @@ if st.session_state.bn is not None:
                     value_label="Probability",
                     stacked=False
                 )
-                st.plotly_chart(fig, use_container_width=True, key=f"marginal_bar_{var}")
+                st.plotly_chart(fig, width='stretch', key=f"marginal_bar_{var}")
                 st.markdown("")
         
         # Query with Evidence
@@ -299,7 +321,7 @@ if st.session_state.bn is not None:
                         value_label="Probability",
                         stacked=False
                     )
-                    st.plotly_chart(fig, use_container_width=True, key=f"query_bar_{query_var}")
+                    st.plotly_chart(fig, width='stretch', key=f"query_bar_{query_var}")
 
         # Decision Analysis (for predefined cases with known utilities)
         if 'utilities' in st.session_state.parsed_data['bn-data']:
@@ -319,7 +341,7 @@ if st.session_state.bn is not None:
                         fig = create_utility_heatmap(
                             data=pd.DataFrame([eus]),
                             x_label="Expected Utility", y_label="Action", title="Expected Utilities")
-                        st.plotly_chart(fig, use_container_width=False, key="expected_utilities_heatmap")
+                        st.plotly_chart(fig, width='content', key="expected_utilities_heatmap")
 
                     except ValueError as e:
                         st.error(f"Cannot compute utilities: {str(e)}")
@@ -339,7 +361,7 @@ if st.session_state.bn is not None:
             # Get pyAgrum BN object and display it
             agrum_bn = bn.get_bn_graph()
             dot_string = agrum_bn.toDot()
-            st.graphviz_chart(dot_string, use_container_width=True)
+            st.graphviz_chart(dot_string, width='stretch')
             
             st.markdown("---")
             
