@@ -48,4 +48,6 @@ dependencies = [
     "langchain-ollama>=1.0.0",
     "langchain-anthropic>=1.0.1",
     "langchain-experimental>=0.0.42",
+#    added for notebook compatibility in pycharm
+    "notebook>=7.5.0",
 ]
