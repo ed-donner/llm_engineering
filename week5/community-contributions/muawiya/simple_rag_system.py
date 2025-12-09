@@ -14,7 +14,7 @@ try:
     from langchain.docstore.document import Document
     from langchain_huggingface import HuggingFaceEmbeddings
     from langchain_community.document_loaders import PyPDFLoader
-    from langchain.text_splitter import CharacterTextSplitter
+    from langchain_text_splitters import CharacterTextSplitter
 except ImportError:
     print("Installing required packages...")
     os.system("pip install langchain-huggingface pypdf")
@@ -22,7 +22,7 @@ except ImportError:
     from langchain.docstore.document import Document
     from langchain_huggingface import HuggingFaceEmbeddings
     from langchain_community.document_loaders import PyPDFLoader
-    from langchain.text_splitter import CharacterTextSplitter
+    from langchain_text_splitters import CharacterTextSplitter
 
 def create_sample_cv():
     """Create a sample CV text file"""

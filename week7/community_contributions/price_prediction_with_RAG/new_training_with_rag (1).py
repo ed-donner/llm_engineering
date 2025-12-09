@@ -34,10 +34,10 @@ import matplotlib.pyplot as plt
 #LangChain & RAG Imports
 
 from sentence_transformers import SentenceTransformer
-from langchain.schema import Document
+from langchain_core.documents import Document
 from langchain.vectorstores import Chroma
 import chromadb
-from langchain.embeddings import HuggingFaceEmbeddings
+from langchain_huggingface import HuggingFaceEmbeddings
 
 # Commented out IPython magic to ensure Python compatibility.
 # Constants

@@ -35,12 +35,15 @@ dependencies:
     - psutil
     - setuptools
     - speedtest-cli
-    - langchain
-    - langchain-core
-    - langchain-text-splitters
-    - langchain-openai
-    - langchain-chroma
-    - langchain-community
+    - langchain>=1.0.0,<2.0.0
+    - langchain-core>=1.0.0,<2.0.0
+    - langchain-text-splitters>=1.0.0,<2.0.0
+    - langchain-openai>=1.0.0,<2.0.0
+    - langchain-chroma>=0.2.0,<2.0.0
+    - langchain-community>=0.4.0,<0.5.0
+    - langchain-huggingface>=0.1.0,<0.2.0
+    - starlette>=0.40.0,<0.51.0
+    - python-multipart
     - feedparser
     - twilio
     - pydub

@@ -3,9 +3,9 @@ from dotenv import load_dotenv
 from enum import Enum
 
 import plotly.graph_objects as go
-from langchain.document_loaders import DirectoryLoader, TextLoader
-from langchain.text_splitter import CharacterTextSplitter
-from langchain.schema import Document
+from langchain_community.document_loaders import DirectoryLoader, TextLoader
+from langchain_text_splitters import CharacterTextSplitter
+from langchain_core.documents import Document
 from langchain_openai import OpenAIEmbeddings, ChatOpenAI
 from langchain_chroma import Chroma
 from langchain.memory import ConversationBufferMemory
