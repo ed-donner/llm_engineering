@@ -58,7 +58,7 @@ class ScrapedDeal:
         content = soup.find("div", class_="content-section").get_text()
         content = content.replace("\nmore", "").replace("\n", " ")
         if "Features" in content:
-            self.details, self.features = content.split("Features")
+            self.details, self.features = content.split("Features", 1)
         else:
             self.details = content
             self.features = ""
