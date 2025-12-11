@@ -1,4 +1,31 @@
-from bs4 import BeautifulSoup
+import json
+import os
+import sys
+import time
+
+#region agent log
+try:
+    from bs4 import BeautifulSoup
+except ModuleNotFoundError as e:
+    log_payload = {
+        "sessionId": "debug-session",
+        "runId": "pre-fix",
+        "hypothesisId": "H1",
+        "location": "week1/scraper.py:1",
+        "message": "bs4 import failed",
+        "data": {
+            "sys_executable": sys.executable,
+            "sys_path": sys.path,
+            "cwd": os.getcwd(),
+            "error": str(e),
+        },
+        "timestamp": int(time.time() * 1000),
+    }
+    with open("/Users/shuhuili/Documents/Projects/.cursor/debug.log", "a") as log_f:
+        log_f.write(json.dumps(log_payload) + "\n")
+    raise
+#endregion
+
 import requests
 
 
@@ -13,6 +40,23 @@ def fetch_website_contents(url):
     Return the title and contents of the website at the given url;
     truncate to 2,000 characters as a sensible limit
     """
+#region agent log
+    with open("/Users/shuhuili/Documents/Projects/.cursor/debug.log", "a") as log_f:
+        log_f.write(
+            json.dumps(
+                {
+                    "sessionId": "debug-session",
+                    "runId": "pre-fix",
+                    "hypothesisId": "H2",
+                    "location": "week1/scraper.py:11",
+                    "message": "fetch_website_contents entry",
+                    "data": {"url": url},
+                    "timestamp": int(time.time() * 1000),
+                }
+            )
+            + "\n"
+        )
+#endregion
     response = requests.get(url, headers=headers)
     soup = BeautifulSoup(response.content, "html.parser")
     title = soup.title.string if soup.title else "No title found"
