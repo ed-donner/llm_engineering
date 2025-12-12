@@ -48,4 +48,6 @@ dependencies = [
     "langchain-ollama>=1.0.0",
     "langchain-anthropic>=1.0.1",
     "langchain-experimental>=0.0.42",
+    "groq>=0.33.0",
+    "xgboost>=3.1.1",
 ]
