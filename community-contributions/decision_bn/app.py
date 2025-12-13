@@ -7,7 +7,6 @@ from datetime import datetime
 import streamlit as st
 import pandas as pd
 import plotly.graph_objects as go
-import pyagrum.lib.notebook as gnb
 from bn_decision_maker import DecisionBN, CaseParser, SYSTEM_PROMPT, APP_CONFIG
 from bn_decision_maker.examples.predefined_cases import PREDEFINED_CASES
 
