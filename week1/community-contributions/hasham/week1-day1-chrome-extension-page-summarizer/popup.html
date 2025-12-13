@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <style>
+    body {
+      width: 400px;
+      padding: 20px;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      margin: 0;
+    }
+    h2 {
+      margin: 0 0 15px 0;
+      color: #333;
+      font-size: 18px;
+    }
+    .api-key-section {
+      margin-bottom: 15px;
+    }
+    input {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      font-size: 13px;
+      box-sizing: border-box;
+    }
+    button {
+      width: 100%;
+      padding: 10px;
+      background: #10a37f;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: 500;
+      margin-top: 10px;
+    }
+    button:hover {
+      background: #0d8c6d;
+    }
+    button:disabled {
+      background: #ccc;
+      cursor: not-allowed;
+    }
+    #summary {
+      margin-top: 15px;
+      padding: 12px;
+      background: #f7f7f7;
+      border-radius: 4px;
+      font-size: 13px;
+      line-height: 1.5;
+      max-height: 300px;
+      overflow-y: auto;
+      display: none;
+    }
+    #loading {
+      text-align: center;
+      color: #666;
+      display: none;
+      margin-top: 15px;
+    }
+    .error {
+      color: #d93025;
+      font-size: 12px;
+      margin-top: 8px;
+    }
+    .info {
+      font-size: 11px;
+      color: #666;
+      margin-top: 5px;
+    }
+  </style>
+</head>
+<body>
+  <h2>📄 Webpage Summarizer</h2>
+  
+  <button id="summarizeBtn">Summarize This Page</button>
+  
+  <div id="loading">⏳ Generating summary...</div>
+  <div id="summary"></div>
+  
+  <script src="config.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>
