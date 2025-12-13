@@ -1,0 +1,53 @@
+Business Source License 1.1
+
+Parameters
+Licensor: Sina Bahrami
+Licensed Work: Decision Analysis Web App ("decision_bn" project)
+The Licensed Work is (c) 2025 Sina Bahrami
+Change Date: 2027-12-31
+Change License: MIT License
+
+For information about the Business Source License 1.1, see
+https://github.com/sourcegraph/sourcegraph/blob/main/LICENSE or
+https://mariadb.com/bsl11/ (reference implementation).
+
+Terms
+The Licensor hereby grants you the right to copy, modify, create derivative works,
+redistribute, and make non-production use of the Licensed Work. The Licensor may
+make an offer for production use (commercial or revenue-generating) under a
+separate paid license.
+
+Production use of the Licensed Work prior to the Change Date requires a separate
+commercial agreement with the Licensor. “Production use” means use of the Licensed
+Work in any capacity that: (a) is provided to third parties as a hosted or
+distributed product/service, (b) generates direct or indirect revenue, or (c)
+forms part of a business process relied upon for external delivery.
+
+After the Change Date, the Change License will apply and you may then use the
+Licensed Work under the terms of the MIT License.
+
+You may redistribute the Licensed Work (including modifications and derivative
+works) in source or object form only if you do not remove or alter any license,
+copyright, or other notices.
+
+Disclaimer
+THE LICENSED WORK IS PROVIDED "AS IS" AND WITHOUT WARRANTIES OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING WITHOUT LIMITATION WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE, NON-INFRINGEMENT, OR THAT THE LICENSED WORK
+WILL BE ERROR-FREE OR FREE OF SECURITY DEFECTS. THE LICENSOR HAS NO LIABILITY
+FOR DAMAGES OF ANY KIND, INCLUDING WITHOUT LIMITATION DIRECT, INDIRECT,
+SPECIAL, INCIDENTAL, OR CONSEQUENTIAL DAMAGES, OR LOSS OF DATA, PROFITS, OR
+BUSINESS, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGES. SOME
+JURISDICTIONS DO NOT ALLOW THE EXCLUSION OF IMPLIED WARRANTIES, SO THIS
+DISCLAIMER MAY NOT APPLY TO YOU.
+
+Limitation
+Any use in violation of these terms automatically and immediately terminates
+your rights under this License for the entire Licensed Work.
+
+Notices
+If you make material modifications, you must cause the modified files to carry
+prominent notices stating you modified the files.
+
+Questions
+For commercial licensing inquiries, contact the Licensor.
