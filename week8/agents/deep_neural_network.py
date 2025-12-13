@@ -87,7 +87,7 @@ class DeepNeuralNetworkInference:
         self.model.to(self.device)
 
     def load(self, path):
-        self.model.load_state_dict(torch.load(path))
+        self.model.load_state_dict(torch.load(path, map_location=self.device))
         self.model.to(self.device)
 
     def inference(self, text):
