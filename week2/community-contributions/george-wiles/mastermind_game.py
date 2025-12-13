@@ -100,20 +100,25 @@ def create_game_board_html(game, current_guess, status=""):
     <div id='mastermind-board' class='mastermind-board'>
          <div id='status-line'>
             {status}
+            <div class="current-guess-title">
     """
     if game.won:
-        html += f'✅ Won in {len(game.guesses)} guesses!'
+        html += f'Won in {len(game.guesses)} guesses!'
     elif game.game_over:
-        html += '❌ Game Over'
+        html += 'Game Over'
     else:
-        html += f'🎮 Guess {len(game.guesses)}/{game.max_guesses}'
+        html += f'🎯 Guess {len(game.guesses)}/{game.max_guesses}'
+        
+    html += """
+        </div>
+    """
         
     
     # Current Guess Section (only if game not over)
     if not game.game_over:
         html += """
         <div class="current-guess-section">
-            <div class="current-guess-title">🎨 Your Current Guess</div>
+            <div class="current-guess-title">Your Current Guess</div>
             <div class="current-guess-pegs">
         """
         
@@ -171,27 +176,6 @@ def create_game_board_html(game, current_guess, status=""):
     html += '</div></div></div><div>'
     
     return html
-
-
-def get_basic_hint(game):
-    """Provide a basic strategic hint (non-LLM)"""
-    if not game.guesses:
-        return "💡 Start by trying 4 different colors to gather information!"
-    
-    if game.game_over:
-        return "🎮 Game is over! Start a new game to play again."
-    
-    last_feedback = game.feedback[-1]
-    total_correct = last_feedback['black'] + last_feedback['white']
-    
-    if total_correct == 0:
-        return "❌ None of those colors are in the code. Try completely different colors!"
-    elif last_feedback['black'] == game.code_length - 1:
-        return "🔥 You're SO close! Just one color needs to change!"
-    elif last_feedback['black'] > 0:
-        return f"✅ You have {last_feedback['black']} peg(s) in the exact right spot. Keep those positions!"
-    else:
-        return f"🔄 All {last_feedback['white']} correct colors are in wrong positions. Try rearranging!"
     
 def load_css(path: str) -> str:
     with open(path, "r") as f:
