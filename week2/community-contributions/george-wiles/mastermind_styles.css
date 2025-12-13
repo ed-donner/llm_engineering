@@ -1,12 +1,36 @@
+/* Define CSS Custom Properties (Variables) */
+:root {
+    /* Default values for light mode */
+    --primary-text-color: #333;
+    --secondary-text-color: #666;
+    --background-color: #f0f0f0;
+    --border-color: #ccc;
+    --mastermind-title-color: #4CAF50;
+}
+
+/* Override for dark mode */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --primary-text-color: #eee;
+        --secondary-text-color: #bbb;
+        --background-color: #222;
+        --border-color: #555;
+        --mastermind-title-color: #8BC34A; /* A lighter green for dark mode */
+    }
+}
+
+/* Apply styles using the custom properties */
+body {
+    color: var(--primary-text-color);
+    background-color: var(--background-color);
+}
 
 .mastermind-board {
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    padding: 25px;
-    border-radius: 15px;
+    padding: 0px;
+    border-radius: 5px;
     font-family: 'Segoe UI', Arial, sans-serif;
     box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-    max-width: 600px;
-    margin: 0 auto;
 }
 .board-header {
     text-align: center;
@@ -33,10 +57,10 @@
 }
 .current-guess-title {
     color: white;
-    font-size: 16px;
+    font-size: 14px;
     font-weight: bold;
-    margin-bottom: 15px;
-    text-align: center;
+    margin-bottom: 12px;
+    opacity: 0.8;
 }
 .current-guess-pegs {
     display: flex;
@@ -179,4 +203,20 @@
 .narrow-dropdown select {
     width: 80px !important;
     min-width: 80px !important;
+}
+
+.mastermind-title {
+    text-align: center;
+    font-size: 3em;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+    margin-bottom: 20px;
+    background-color: transparent; 
+    border: 2px solid #efefef; 
+    padding: 10px; 
+    border-radius: 8px; 
+}
+
+.small-button-text {
+    font-size: 0.8em; /* Adjust this value as needed */
+    padding: 6px 10px; /* Adjust padding if you want smaller buttons */
 }
