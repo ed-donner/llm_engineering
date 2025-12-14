@@ -4,7 +4,7 @@ import pandas as pd
 # Database obtained from Kaggle:
 # https://www.kaggle.com/datasets/sampaiovitor/avaliaes-em-portugus-amazon-e-mercado-livre?resource=download
 
-PATH = "week1/review-analysis/ml_scrape_final.csv"
+PATH = "week1/community-contributions/review-analysis/ml_scrape_final.csv"
 
 def get_comments(path=PATH):
     """Obtains the review comments for monitors from the dataset."""
