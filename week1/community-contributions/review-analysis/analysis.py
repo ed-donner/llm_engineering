@@ -23,41 +23,20 @@ def comments_to_text():
     comments = get_comments()
     return "\n".join([f"{i+1}. {comment.strip()}" for i, comment in enumerate(comments)])
 
+def get_system_prompt():
+    """Return the system prompt"""
+    with open("week1/community-contributions/review-analysis/system_prompt.txt", "r") as file:
+        return file.read()
+
+def get_user_prompt():
+    """Return the user prompt"""
+    with open("week1/community-contributions/review-analysis/user_prompt.txt", "r") as file:
+        return file.read()
+
 comments = comments_to_text()
 
-system_prompt = """
-You are an assistant specialized in comment analysis. Your task is to carefully analyze the texts of the provided comments and identify important information and syntheses for a final feedback. Consider the general tone, context, intensity of opinions, and possible ambiguities.
-"""
-user_prompt = f"""
-Based on the product review comments below, make a table with 7 rows and 2 columns called Analysis, Result.
-
-Row 1: Summary
-a very short summary of the analysis of the comments, highlighting the most relevant points mentioned by users.
-
-Row 2: Sentiment Analysis
-a sentiment analysis in each one. Classify the sentiment as positive, negative or neutral. The response should contain a very short and simple general summary of the analysis performed.
-
-Row 3: Most positive review
-Indicate the most positive comment, without considerations.
-
-Row 4: Most negative review
-Indicate the most negative comment, without considerations.
-
-Row 5: Final Feedback
-A short final feedback from the analysis of the comments.
-
-Row 6: Categories (hashtags)
-Identify the topics mentioned in the comments and group them into categories, providing only the category name to summarize all comments.
-
-Row 7: Analysis Score
-Provide an overall rating from 0 to 5 stars based on the analysis of the comments.
-
-Comments:
-
-{comments}".
-
-Note: It is not necessary to mention individual comments in the analysis.
-"""
+system_prompt = get_system_prompt()
+user_prompt = get_user_prompt() + comments
 
 def messages(system_prompt=system_prompt, user_prompt=user_prompt):
     """Create the message structure for the chat API."""
