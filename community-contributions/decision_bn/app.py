@@ -8,8 +8,22 @@ import streamlit as st
 import pandas as pd
 import plotly.graph_objects as go
 from bn_decision_maker import DecisionBN, CaseParser, SYSTEM_PROMPT, APP_CONFIG
-from bn_decision_maker.examples.predefined_cases import PREDEFINED_CASES
 
+# Predefined case examples
+CASE_VEHICLE_OVERHEAT = """
+In a car, the coolant level can be either Low (0.15) or Normal (0.85). The radiator fan works correctly with probability 0.95, but if the coolant is low, it tends to fail more often: 0.85 working, 0.15 failed. The engine temperature depends on both variables. When the coolant is normal and the fan works, the engine overheats only 2% of the time. If either the coolant is low or the fan fails, overheating rises to 40%, and if both fail, overheating occurs 90% of the time.
+The driver must decide whether to continue driving or stop immediately. If the engine is actually overheating, continuing gives a utility of –200 (engine damage), and stopping gives +50 (safe outcome). If the engine is normal, continuing gives +100, while stopping unnecessarily gives +70.
+"""
+
+CASE_MANUFACTURING_LINE_JAM = """
+In a packaging line, the conveyor motor condition is Good (0.9) or Worn (0.1). The sensor alignment is Proper (0.8) or Misaligned (0.2). A line jam depends on both — if both are good, the jam probability is 2%, but if either is bad it rises to 25%, and if both are faulty it jumps to 70%.
+When the jam occurs, a warning light turns on with 95% accuracy; when no jam exists, it falsely turns on 5% of the time. The operator can decide to pause production for inspection or continue running. If the line is jammed and the operator continues, the utility is –100 (damage), while pausing yields +30 (minor downtime). If there's no jam, continuing yields +80, and pausing unnecessarily yields +50.
+"""
+# Mapping for easy access
+PREDEFINED_CASES = {
+    "Vehicle Overheat": CASE_VEHICLE_OVERHEAT,
+    "Manufacturing Line Jam": CASE_MANUFACTURING_LINE_JAM,
+}
 
 def create_utility_heatmap(data: pd.DataFrame, x_label: str, y_label: str, title: str):
     """
