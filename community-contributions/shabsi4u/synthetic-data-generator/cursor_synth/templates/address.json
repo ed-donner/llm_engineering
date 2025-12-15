@@ -1,0 +1,15 @@
+{
+  "id": "address",
+  "schema": {
+    "type": "object",
+    "properties": {
+      "street": { "type": "string" },
+      "city": { "type": "string" },
+      "state": { "type": "string" },
+      "postal_code": { "type": "string" },
+      "country": { "type": "string" }
+    },
+    "required": ["street", "city", "country"]
+  },
+  "prompt_template": "[{\"street\": \"123 Main St\", \"city\": \"New York\", \"state\": \"NY\", \"postal_code\": \"10001\", \"country\": \"USA\"}, {\"street\": \"456 Oak Ave\", \"city\": \"Los Angeles\", \"state\": \"CA\", \"postal_code\": \"90210\", \"country\": \"USA\"}] Generate exactly {{count}} addresses as JSON array. Each address must match: {{schema}}. Tone: {{tone}}. Start with [ and end with ]. No thinking, no explanations, just JSON."
+}

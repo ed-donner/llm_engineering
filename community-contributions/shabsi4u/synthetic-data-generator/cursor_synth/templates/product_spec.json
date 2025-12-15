@@ -1,0 +1,15 @@
+{
+  "id": "product_spec",
+  "schema": {
+    "type": "object",
+    "properties": {
+      "name": { "type": "string" },
+      "category": { "type": "string" },
+      "short_description": { "type": "string" },
+      "features": { "type": "array", "items": { "type": "string" }, "minItems": 3, "maxItems": 8 },
+      "price_usd": { "type": "number" }
+    },
+    "required": ["name", "category", "short_description"]
+  },
+  "prompt_template": "[{\"name\": \"Smartphone\", \"category\": \"Electronics\", \"short_description\": \"Latest model\", \"features\": [\"5G\", \"Camera\", \"Battery\"], \"price_usd\": 699.99}, {\"name\": \"Book\", \"category\": \"Education\", \"short_description\": \"Learning guide\", \"features\": [\"Pages\", \"Cover\", \"Index\"], \"price_usd\": 29.99}] Generate exactly {{count}} product specs as JSON array. Each product must match: {{schema}}. Tone: {{tone}}. Features: 3-8 strings. Start with [ and end with ]. No thinking, no explanations, just JSON."
+}
