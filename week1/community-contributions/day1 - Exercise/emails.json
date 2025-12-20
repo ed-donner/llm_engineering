@@ -1,0 +1,35 @@
+{
+  "empresa": "Soluções Alpha Ltda.",
+  "emails": [
+    {
+      "id": 1,
+      "tipo": "Apresentação",
+      "assunto": "Conheça a Soluções Alpha Ltda.",
+      "mensagem": "Olá,\n\nÉ um prazer entrar em contato!\nA Soluções Alpha Ltda. é uma empresa especializada em serviços de consultoria e soluções digitais para pequenos e médios negócios.\n\nNosso objetivo é ajudar empresas a crescerem com eficiência, inovação e resultados concretos.\n\nFicaremos felizes em conversar e entender como podemos colaborar com o seu negócio.\n\nAtenciosamente,\nEquipe Soluções Alpha\ncontato@solucoesalpha.com.br"
+    },
+    {
+      "id": 2,
+      "tipo": "Proposta Comercial",
+      "assunto": "Proposta de Serviços – Soluções Alpha",
+      "mensagem": "Olá,\n\nConforme nossa conversa, segue nossa proposta de serviços personalizados para atender às necessidades do seu empreendimento.\n\nA proposta inclui:\n- Análise do negócio\n- Planejamento estratégico\n- Suporte contínuo\n\nCaso tenha dúvidas ou deseje ajustes, estamos à disposição.\n\nAtenciosamente,\nCarlos Silva\nComercial – Soluções Alpha"
+    },
+    {
+      "id": 3,
+      "tipo": "Confirmação de Reunião",
+      "assunto": "Confirmação de Reunião",
+      "mensagem": "Olá,\n\nConfirmamos nossa reunião agendada para o dia 15/03, às 14h, de forma online.\n\nO link será enviado com antecedência.\n\nAtenciosamente,\nEquipe Soluções Alpha"
+    },
+    {
+      "id": 4,
+      "tipo": "Agradecimento",
+      "assunto": "Agradecemos a Parceria",
+      "mensagem": "Olá,\n\nGostaríamos de agradecer pela confiança em nosso trabalho.\nÉ um prazer ter sua empresa como cliente da Soluções Alpha.\n\nSeguimos à disposição para qualquer necessidade ou suporte adicional.\n\nCordialmente,\nEquipe Soluções Alpha"
+    },
+    {
+      "id": 5,
+      "tipo": "Promoção",
+      "assunto": "Oferta Especial por Tempo Limitado",
+      "mensagem": "Olá,\n\nTemos uma novidade!\nDurante este mês, estamos oferecendo condições especiais para novos contratos de consultoria.\n\nEntre em contato conosco e aproveite essa oportunidade para impulsionar seu negócio.\n\nAtenciosamente,\nEquipe Soluções Alpha"
+    }
+  ]
+}
