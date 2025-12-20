@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brochure Generator</title>
+    <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+    <div class="container">
+        <h1>🏢 Brochure Generator</h1>
+        <p class="subtitle">Generate AI-powered company brochures</p>
+        
+        <form id="brochureForm">
+            <div class="form-group">
+                <label for="companyName">Company Name:</label>
+                <input type="text" id="companyName" name="companyName" placeholder="e.g., Hugging Face" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="companyUrl">Company URL:</label>
+                <input type="url" id="companyUrl" name="companyUrl" placeholder="https://example.com" required>
+            </div>
+            
+            <div id="tabWarning" class="tab-warning hidden">
+                ⚠️ Please navigate to a website to use this extension
+            </div>
+            
+            <button type="submit" id="generateBtn" class="primary-btn">Generate Brochure</button>
+        </form>
+        
+        <div id="status" class="status hidden"></div>
+        
+        <div id="result" class="result hidden">
+            <div class="result-header">
+                <h2>Generated Brochure</h2>
+                <button id="copyBtn" class="copy-btn">📋 Copy</button>
+                <button id="downloadBtn" class="download-btn">💾 Download</button>
+            </div>
+            <div id="brochureContent" class="brochure-content"></div>
+        </div>
+    </div>
+    
+    <script src="popup.js"></script>
+</body>
+</html>
