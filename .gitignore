@@ -194,7 +194,7 @@ challenge/
 # WandB local sync data.
 wandb/
 
-week2/prices.db
+week2/**/prices.db
 week4/main.cpp
 week4/main
 week4/main.exe
@@ -206,3 +206,10 @@ week5/vector_db/
 
 local/
 
+week6/full/
+week6/lite/
+week6/*/*.pkl
+week6/*/*.jsonl
+week6/*.pth
+week6/*.joblib
+week8/*.pth
