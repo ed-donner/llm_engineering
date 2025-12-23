@@ -1,0 +1,20 @@
+[
+  {
+    "source": "twitter",
+    "id": "173654001",
+    "url": "https://twitter.com/brandlover/status/173654001",
+    "author": "brandlover",
+    "timestamp": "2025-01-15T16:45:00+00:00",
+    "text": "Huge shoutout to ReputationRadar for flagging sentiment risks ahead of our launch. Saved us hours this morning!",
+    "meta": {"likes": 57, "retweets": 8, "replies": 3, "quote_count": 2}
+  },
+  {
+    "source": "twitter",
+    "id": "173653991",
+    "url": "https://twitter.com/critique/status/173653991",
+    "author": "critique",
+    "timestamp": "2025-01-13T09:12:00+00:00",
+    "text": "The new ReputationRadar dashboard feels laggy and the PDF export failed twice. Dev team please check your rollout.",
+    "meta": {"likes": 14, "retweets": 1, "replies": 5, "quote_count": 0}
+  }
+]

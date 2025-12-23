@@ -1,0 +1,22 @@
+# Secrets - NEVER commit these!
+.env
+credentials.json
+token.json
+
+# Vector Database (contains your emails)
+chroma/
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+
+# IDE
+.vscode/
+.idea/
+.DS_Store
+
+# Logs
+*.log

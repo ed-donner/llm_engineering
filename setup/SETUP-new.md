@@ -54,7 +54,9 @@ ___
 
 3. **Do a git clone:**
 
-Enter this in the command prompt in the Projects folder:
+Enter the clone command below in the command prompt in the `projects` folder. If this gives you an error about long filenames, please do #3 in the "gotchas" section at the top, and then restart your computer, and you might also need to run this: `git config --system core.longpaths true`
+
+Here's the clone command:
 
 `git clone https://github.com/ed-donner/llm_engineering.git`
 
@@ -207,3 +209,7 @@ Now go to View >> Explorer. Open the week1 folder, and click on `day1.ipynb`.
 - If this doesn't come up, please go to the troubleshooting lab in the Setup folder.
 
 # CONGRATULATIONS!! You made it! The rest of the course is easy 😂
+
+**One final note:**
+
+Early on in the course (on Day 2), I give a demo of a very cool, popular product called Claude Code. It's an AI coding tool, similar to Cursor that we use on the course. I'm only showing this as an example of Agentic AI in action; it's not a tool that's covered explicitly on this course, particularly as we're in Cursor. But if you want to use Claude Code yourself, the Quick Start guide from Anthropic is [here](https://docs.claude.com/en/docs/claude-code/quickstart).

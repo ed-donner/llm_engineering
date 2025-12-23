@@ -1,0 +1,18 @@
+# GitOps Guardian Dependencies
+
+# Core
+gradio>=4.0.0
+pydantic>=2.0.0
+python-dotenv
+
+# AI/LLM
+openai>=1.0.0
+
+# GitHub
+PyGithub
+
+# YAML parsing
+PyYAML
+
+# Utilities
+python-dateutil
