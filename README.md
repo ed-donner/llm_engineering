@@ -8,49 +8,13 @@ _If you're looking at this in Cursor, please right click on the filename in the 
 
 I'm so happy you're joining me on this path. We'll be building immensely satisfying projects in the coming weeks. Some will be easy, some will be challenging, many will ASTOUND you! The projects build on each other so you develop deeper and deeper expertise each week. One thing's for sure: you're going to have a lot of fun along the way.
 
-# IMPORTANT ANNOUNCEMENT - OCTOBER 2025 - PLEASE READ
+## IMPORTANT ANNOUNCEMENT - DECEMBER 2025 - PLEASE READ
 
-I am phasing in new, updated versions of all the course videos, with new videos and new code. I realize this can be jarring for people already on the course, and I will do my best to make this as smooth as possible.
-- Both video series will be available in Udemy and you can watch either. A new week should become available each week as we roll this out.
-- You can follow the original videos or the new videos - either should work great. Switch between them at any time.
-- The latest code is pushed to the repo. You can follow along with new code, or revert to original code.
-
-Full details of this upgrade is on the course resources in Purple at the top:  
-https://edwarddonner.com/2024/11/13/llm-engineering-resources/
-
-The most significant change is that the new version uses the fabulous uv, instead of Anaconda. But there's also tons of new content, including new models, tools and techniques. Prompt caching, LiteLLM, inference techniques and so much more.
-
-### How this is organized in Udemy
-
-We are rolling out the new weeks, but keeping the original content in an appendix:
-
-In Udemy:  
-
-Section 1 = NEW WEEK 1  
-Section 2 = NEW WEEK 2  
-Section 3 = NEW WEEK 3  
-Section 4 = NEW WEEK 4  
-Section 5 = NEW WEEK 5  
-Section 6 = NEW WEEK 6  
-Section 7 = Original Week 7   
-Section 8 = Original Week 8   
-
-Then as an appendix / archive:
-
-Section 9 = Original Week 1  
-Section 10 = Original Week 2  
-Section 11 = Original Week 3    
-Section 12 = Original Week 4  
-Section 13 = Original Week 5  
-Section 14 = Original Week 6  
-
-### To revert to the original version of code, consistent with the original videos (Anaconda + virtualenv)
-
-If you'd prefer to stick with the code for the original videos, simply do this from your Anaconda Prompt or Terminal:  
+The course material has been completely refreshed with all new weeks. If you'd prefer to stick with the code for the original videos, simply do this from your Anaconda Prompt or Terminal:  
 `git fetch`  
 `git checkout original`
 
-And that's it! Any questions, please ask me on Udemy or at ed@edwarddonner.com. More details at the top of the course resources [here](https://edwarddonner.com/2024/11/13/llm-engineering-resources/).
+Any questions, please ask me on Udemy or at ed@edwarddonner.com. More details at the top of the course resources [here](https://edwarddonner.com/2024/11/13/llm-engineering-resources/).
 
 ### Before you begin
 
@@ -119,13 +83,7 @@ You should be able to use the free tier or minimal spend to complete all the pro
 
 Learn about Google Colab and set up a Google account (if you don't already have one) [here](https://colab.research.google.com/)
 
-The colab links are in the Week folders and also here:  
-- For week 3 day 1, this Google Colab shows what [colab can do](https://colab.research.google.com/drive/1DjcrYDZldAXKJ08x1uYIVCtItoLPk1Wr?usp=sharing)
-- For week 3 day 2, here is a colab for the HuggingFace [pipelines API](https://colab.research.google.com/drive/1aMaEw8A56xs0bRM4lu8z7ou18jqyybGm?usp=sharing)
-- For week 3 day 3, here's the colab on [Tokenizers](https://colab.research.google.com/drive/1WD6Y2N7ctQi1X9wa6rpkg8UfyA4iSVuz?usp=sharing)
-- For week 3 day 4, we go to a colab with HuggingFace [models](https://colab.research.google.com/drive/1hhR9Z-yiqjUe7pJjVQw4c74z_V3VchLy?usp=sharing)
-- For week 3 day 5, we return to colab to make our [Meeting Minutes product](https://colab.research.google.com/drive/1KSMxOCprsl1QRpt_Rq0UqCAyMtPqDQYx?usp=sharing)
-- For week 7, we will use these Colab books: [Day 1](https://colab.research.google.com/drive/15rqdMTJwK76icPBxNoqhI7Ww8UM-Y7ni?usp=sharing) | [Day 2](https://colab.research.google.com/drive/1T72pbfZw32fq-clQEp-p8YQ4_qFKv4TP?usp=sharing) | [Days 3 and 4](https://colab.research.google.com/drive/1csEdaECRtjV_1p9zMkaKKjCpYnltlN3M?usp=sharing) | [Day 5](https://colab.research.google.com/drive/1igA0HF0gvQqbdBD4GkcK3GpHtuDLijYn?usp=sharing)
+The colab links are in the folders for Week 3 and Week 7 - if you open up the lab for each day, you'll find a direct link to the colab.
 
 ### Monitoring API charges
 
