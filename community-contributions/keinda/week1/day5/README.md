@@ -19,4 +19,4 @@ The goal is to keep guidance practical, beginner-friendly, and easy to follow.
 
 ## Notes
 - This notebook uses a simulated student profile.
-- The project is part of Week 1 Day 5 community contributions.
+
