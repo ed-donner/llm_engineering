@@ -1,0 +1,66 @@
+╔══════════════════════════════════════════════════════════════════╗
+║     QUICK SETUP GUIDE FOR HUGGING FACE SPACES                    ║
+╚══════════════════════════════════════════════════════════════════╝
+
+📦 FILES TO UPLOAD:
+  ✓ app.py
+  ✓ requirements.txt  
+  ✓ README.md
+
+🔑 REQUIRED SECRETS (Settings → Repository secrets):
+  
+  Secret Name: OPENAI_API_KEY
+  Secret Value: [Your OpenAI API key from platform.openai.com]
+  
+  Secret Name: ANTHROPIC_API_KEY
+  Secret Value: [Your Anthropic API key from console.anthropic.com]
+
+🚀 DEPLOYMENT STEPS:
+
+1. Go to: https://huggingface.co/new-space
+
+2. Configure Space:
+   - Space name: python-cpp-optimizer
+   - License: MIT
+   - SDK: Gradio
+   - Hardware: CPU Basic (free)
+
+3. Upload Files:
+   - Drag & drop: app.py, requirements.txt, README.md
+   - Or use git (see DEPLOYMENT.md)
+
+4. Add Secrets:
+   - Settings → Repository secrets
+   - Add both API keys (see above)
+
+5. Wait for Build:
+   - Takes ~1-2 minutes
+   - Check "Logs" tab for progress
+
+6. Test Your App:
+   - Click on your Space URL
+   - Try the default example
+   - Verify it works!
+
+⚠️  IMPORTANT SECURITY NOTES:
+   - Never commit API keys to git
+   - Always use Secrets for credentials
+   - Warn users about code execution risks
+   - Monitor usage to prevent abuse
+
+💡 TIPS:
+   - CPU Basic is free but slower
+   - CPU Upgrade costs $0.03/hour but faster
+   - Check Analytics for usage stats
+   - Update via git push
+
+📚 DETAILED GUIDE:
+   See DEPLOYMENT.md for complete instructions
+
+🆘 HELP:
+   - HF Docs: https://huggingface.co/docs/hub/spaces
+   - Gradio: https://www.gradio.app/docs/
+   - Forum: https://discuss.huggingface.co/
+
+════════════════════════════════════════════════════════════════════
+

@@ -1,0 +1,33 @@
+# Environment variables
+.env
+
+# Compiled files
+optimized
+optimized.cpp
+*.o
+*.exe
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+env/
+ENV/
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Gradio
+flagged/
+

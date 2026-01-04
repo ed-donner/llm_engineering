@@ -2,8 +2,6 @@
 
 ## Setup instructions for Windows
 
-**These are the original instructions for the original version of the videos from before October 2025. For the new version, see [SETUP-new.md](SETUP-new.md).**
-
 Welcome, PC people!
 
 I should confess up-front: setting up a powerful environment to work at the forefront of AI is not as simple as I'd like. For most people these instructions will go great; but in some cases, for whatever reason, you'll hit a problem. Please don't hesitate to reach out - I am here to get you up and running quickly. There's nothing worse than feeling _stuck_. Message me, email me or LinkedIn message me and I will unstick you quickly!
@@ -15,18 +13,16 @@ I use a platform called Anaconda to set up your environment. It's a powerful too
 
 Having said that: if you have any problems with Anaconda, I've provided an alternative approach. It's faster and simpler and should have you running quickly, with less of a guarantee around compatibility.
 
+### Before we begin - Heads up!
+
 If you are relatively new to using the Command Prompt, here is an excellent [guide](https://chatgpt.com/share/67b0acea-ba38-8012-9c34-7a2541052665) with instructions and exercises. I'd suggest you work through this first to build some confidence.
-
-## HEAD'S UP - "GOTCHA" ISSUES ON A PC: The following 4 Windows issues will need your attention, particularly #3 and #4
-
-Please do take a look at these issues. Issue #3 (Windows 260 character limit) will cause an issue with an "Archive Error" installing pytorch if unaddressed. Issue #4 will cause an installation issue.
 
 There are 4 common gotchas to developing on Windows to be aware of:   
 
 1. Permissions. Please take a look at this [tutorial](https://chatgpt.com/share/67b0ae58-d1a8-8012-82ca-74762b0408b0) on permissions on Windows  
 2. Anti-virus, Firewall, VPN. These can interfere with installations and network access; try temporarily disabling them as needed  
 3. The evil Windows 260 character limit to filenames - here is a full [explanation and fix](https://chatgpt.com/share/67b0afb9-1b60-8012-a9f7-f968a5a910c7)!  
-4. If you've not worked with Data Science packages on your computer before, you might need to install Microsoft Build Tools. Here are [instructions](https://chatgpt.com/share/67b0b762-327c-8012-b809-b4ec3b9e7be0). A student also mentioned that [these instructions](https://github.com/bycloudai/InstallVSBuildToolsWindows) might be helpful for people on Windows 11.    
+4. If you've not worked with Data Science packages on your computer before, you might need to install Microsoft Build Tools. Here are [instructions](https://chatgpt.com/share/67b0b762-327c-8012-b809-b4ec3b9e7be0).  
 
 ### Part 1: Clone the Repo
 
@@ -35,8 +31,7 @@ This gets you a local copy of the code on your box.
 1. **Install Git** (if not already installed):
 
 - Download Git from https://git-scm.com/download/win
-- Run the installer and follow the prompts, using default options (press OK lots of times!). 
-- After the installation, you may need to open a new Powershell window to use it (or you might even need to restart)
+- Run the installer and follow the prompts, using default options (press OK lots of times!)
 
 2. **Open Command Prompt:**
 
@@ -76,8 +71,7 @@ If this Part 2 gives you any problems, there is an alternative Part 2B below tha
 - Open **Anaconda Prompt** (search for it in the Start menu)
 - Navigate to the "project root directory" by entering something like `cd C:\Users\YourUsername\Documents\Projects\llm_engineering` using the actual path to your llm_engineering project root directory. Do a `dir` and check you can see subdirectories for each week of the course.
 - Create the environment: `conda env create -f environment.yml`
-- **If you get an ArchiveError issue, then this is caused by the Windows 260 character limit - see gotcha number 3 at the top**
-- Wait for a few minutes for all packages to be installed - in some cases, this can literally take 30 minutes if you've not used Anaconda before, and even longer depending on your internet connection. Important stuff is happening! If this runs for more than 1 hour 15 mins, or gives you other problems, please go to Part 2B instead.  
+- Wait for a few minutes for all packages to be installed - in some cases, this can literally take 20-30 minutes if you've not used Anaconda before, and even longer depending on your internet connection. Important stuff is happening! If this runs for more than 1 hour 15 mins, or gives you other problems, please go to Part 2B instead.
 - You have now built an isolated, dedicated AI environment for engineering LLMs, running vector datastores, and so much more! You now need to **activate** it using this command: `conda activate llms`  
 
 You should see `(llms)` in your prompt, which indicates you've activated your new environment.
@@ -96,7 +90,7 @@ Press Win + R, type `cmd`, and press Enter
 
 Run `python --version` to find out which python you're on.  
 Ideally you'd be using a version of Python 3.11, so we're completely in sync.  
-I believe Python 3.12 works also, but (as of June 2025) Python 3.13 does **not** yet work as several Data Science dependencies are not yet ready for Python 3.13.  
+I believe Python 3.12 works also, but (as of Feb 2025) Python 3.13 does **not** yet work as several Data Science dependencies are not yet ready for Python 3.13.  
 If you need to install Python or install another version, you can download it here:  
 https://www.python.org/downloads/
 
@@ -115,7 +109,7 @@ If you see an error like this:
 
 > Microsoft Visual C++ 14.0 or greater is required. Get it with "Microsoft C++ Build Tools": [https://visualstudio.microsoft.com/visual-cpp-build-tools/](https://visualstudio.microsoft.com/visual-cpp-build-tools/)
 
-Then please follow the link and install Microsoft C++ Build Tools. A student also mentioned that [these instructions](https://github.com/bycloudai/InstallVSBuildToolsWindows) might be helpful for people on Windows 11.   
+Then please follow the link and install Microsoft C++ Build Tools.  
 
 In the very unlikely event that this step doesn't go well, you should try the bullet-proof (but slower) version:  
 `pip install --retries 5 --timeout 15 --no-cache-dir --force-reinstall -r requirements.txt`
