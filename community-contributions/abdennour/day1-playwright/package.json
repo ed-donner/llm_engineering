@@ -1,0 +1,19 @@
+{
+  "name": "day1-playwright-scraper",
+  "version": "1.0.0",
+  "description": "A Playwright scraper for the day 1 project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Abdennour",
+  "license": "ISC",
+  "dependencies": {
+    "playwright": "^1.44.0",
+    "openai": "^6.15.0",
+    "dotenv": "^16.4.7"
+  },
+  "devDependencies": {
+    "playwright": "^1.44.0"
+  }
+}
