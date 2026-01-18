@@ -44,11 +44,7 @@ Create a `.env` file in your project root with:
 OPENAI_API_KEY=your_openai_api_key_here
 ```
 
-### 3. Setup Scraper Module
-
-Ensure `scraper.py` is in the same directory or in your Python path. The notebook includes code to add the `week1` directory to `sys.path` if needed.
-
-### 4. Run the Notebook
+### 3. Run the Notebook
 
 1. Open `day1_ClassAssets_Project.ipynb` in Jupyter Lab/Notebook
 2. Run all cells in order (Shift+Enter)
@@ -62,7 +58,6 @@ Ensure `scraper.py` is in the same directory or in your Python path. The noteboo
 fbrynmghni/
 ├── README.md                      # This file
 ├── day1_ClassAssets_Project.ipynb # Main notebook
-└── scraper.py                     # Web scraper utility (if needed)
 ```
 
 ---
