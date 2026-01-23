@@ -10,7 +10,7 @@ dependencies = [
     "feedparser>=6.0.12",
     "google-genai>=1.41.0",
     "google-generativeai>=0.8.5",
-    "gradio>=5.47.2",
+    "gradio>=5.47.2,<6.0",
     "ipykernel>=6.30.1",
     "ipywidgets>=8.1.7",
     "jupyter-dash>=0.4.2",
@@ -48,4 +48,6 @@ dependencies = [
     "langchain-ollama>=1.0.0",
     "langchain-anthropic>=1.0.1",
     "langchain-experimental>=0.0.42",
+    "groq>=0.33.0",
+    "xgboost>=3.1.1",
 ]
