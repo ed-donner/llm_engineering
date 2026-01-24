@@ -1,0 +1,45 @@
+[project]
+name = "synth-data-v2"
+version = "0.1.0"
+description = "Business-grade synthetic data generator using LLMs"
+authors = [
+    {name = "shabsi4u", email = "shabsi4u@github.com"}
+]
+requires-python = ">=3.10"
+license = {text = "MIT"}
+
+dependencies = [
+    "streamlit>=1.31.0",
+    "sqlalchemy>=2.0.0",
+    "openai>=1.0.0",
+    "pandas>=2.0.0",
+    "python-dotenv>=1.0.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.4.0",
+    "pytest-cov>=4.1.0",
+    "black>=23.0.0",
+    "ruff>=0.1.0",
+]
+
+[tool.black]
+line-length = 88
+target-version = ['py310']
+
+[tool.ruff]
+line-length = 88
+target-version = "py310"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+
+[dependency-groups]
+dev = [
+    "pytest>=9.0.2",
+    "pytest-cov>=7.0.0",
+]
