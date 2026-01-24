@@ -350,9 +350,12 @@ class GeneratorService:
         Returns:
             Database ID of saved generation
         """
+        # Save model info as "BackendName:model_id" for better tracking
+        model_info = f"{self.backend.__class__.__name__}:{self.backend.model_id}"
+
         return self.database.save_generation(
             schema=schema,
-            model_backend=self.backend.__class__.__name__,
+            model_backend=model_info,
             num_records=num_records,
             data=result.data,
             success=result.success,
@@ -382,9 +385,12 @@ class GeneratorService:
             Database ID of saved generation, or None if save failed
         """
         try:
+            # Save model info as "BackendName:model_id" for better tracking
+            model_info = f"{self.backend.__class__.__name__}:{self.backend.model_id}"
+
             return self.database.save_generation(
                 schema=schema,
-                model_backend=self.backend.__class__.__name__,
+                model_backend=model_info,
                 num_records=num_records,
                 data=None,
                 success=False,

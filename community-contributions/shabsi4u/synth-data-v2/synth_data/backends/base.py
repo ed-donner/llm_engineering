@@ -53,7 +53,7 @@ class ModelBackend(ABC):
         self,
         api_key: Optional[str] = None,
         model_id: str = "meta-llama/Llama-3.2-3B-Instruct",
-        base_url: str = "https://api-inference.huggingface.co/v1/"
+        base_url: str = "https://router.huggingface.co/v1/"
     ):
         """
         Initialize backend.

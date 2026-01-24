@@ -10,7 +10,8 @@ Business-grade synthetic data generation using LLMs with support for multiple ba
 - Multiple export formats (CSV, JSON, JSONL)
 - Streaming exports for large datasets
 - Export metadata tracking
-- Professional Streamlit UI (coming in Step 6)
+- Professional Streamlit UI with dual-format schema support
+- Flexible schema input (JSON or simplified "field:type" format)
 - Secure API key management
 
 ## Quick Start
@@ -49,8 +50,11 @@ Note: API keys can also be provided via the Streamlit UI for hosted deployments.
 ### Run Application
 
 ```bash
-# Start Streamlit app
+# Option 1: Direct Streamlit command
 streamlit run synth_data/ui/app.py
+
+# Option 2: Via Python module
+python -m synth_data
 ```
 
 ## Project Structure
@@ -93,15 +97,45 @@ export_service.export_to_file(result["data"], "output.json", ExportFormat.JSON, 
 export_service.export_to_file(result["data"], "output.jsonl", ExportFormat.JSONL)
 ```
 
-### Using the Streamlit UI (Coming in Step 6)
+### Using the Streamlit UI
 
-1. Open the Streamlit app in your browser
-2. Enter your HuggingFace API key (or configure in .env)
-3. Define your data schema in JSON format
-4. Specify the number of records to generate
-5. Click "Generate" and wait for results
-6. Download your data in CSV, JSON, or JSONL format
-7. View generation history
+**Generate Tab:**
+1. Enter your HuggingFace API key (or configure in .env)
+2. Select a model from the dropdown (Qwen, Llama, or Mistral)
+3. Define your schema using either format:
+   - **JSON**: `{"name": {"type": "string"}, "age": {"type": "integer"}}`
+   - **Simplified**: `name:string, age:integer, email:string`
+4. Adjust the number of records (1-100) and temperature
+5. Click "🚀 Generate Data" and wait for results
+6. Preview your data in the table
+7. Download in CSV, JSON, or JSONL format
+
+**History Tab:**
+1. Browse all past generations with filters
+2. Filter by model or success status
+3. Click "👁️ View" to load historical data (switch to Generate tab to see it)
+4. Click "⬇️ CSV" for quick download
+5. Click "🗑️ Delete" to remove old generations
+
+**Schema Format Examples:**
+```
+# Simplified format (quick and easy)
+name:string, age:int, email:string, active:bool
+
+# JSON format (full control)
+{
+  "name": {"type": "string"},
+  "age": {"type": "integer", "minimum": 18, "maximum": 65},
+  "email": {"type": "string"}
+}
+```
+
+**Type Aliases:**
+- `str` → `string`
+- `int` → `integer`
+- `float` → `number`
+- `bool` → `boolean`
+- `list` → `array`
 
 ## Development
 
@@ -127,14 +161,14 @@ black synth_data/
 
 This project is being built incrementally following the plan in `PLAN.md`.
 
-**Phase 1: Foundation & MVP**
+**Phase 1: Foundation & MVP** ✅ **COMPLETE**
 
 - ✅ Step 1: Project structure and dependencies
 - ✅ Step 2: ModelBackend interface (abstract base class)
 - ✅ Step 3: HuggingFaceAPIBackend + Database layer
 - ✅ Step 4: GeneratorService orchestration layer
 - ✅ Step 5: ExportService (CSV, JSON, JSONL, streaming)
-- ⏳ Step 6: Streamlit UI (next)
+- ✅ Step 6: Streamlit UI with dual schema format support
 
 **Future Phases:**
 - Phase 2: Local quantized models, Ollama, batch processing, quality metrics
