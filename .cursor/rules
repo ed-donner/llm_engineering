@@ -1,0 +1,291 @@
+# GitHub Multi-Account Setup
+
+This project uses SSH host aliasing to manage multiple GitHub accounts. Always follow these instructions when running git commands.
+
+## Account Configuration
+
+Two GitHub accounts are configured via SSH aliases in `~/.ssh/config`:
+
+| Account  | SSH Host Alias        | GitHub User | SSH Key                      |
+|----------|----------------------|-------------|------------------------------|
+| Personal | `github.com-personal` | `shabsi4u`  | `~/.ssh/id_ed25519_personal` |
+| Work     | `github.com-work`     | `shabs-nvt` | `~/.ssh/id_ed25519`          |
+
+## This Repository
+
+**This repository (`llm_engineering`) uses the PERSONAL account.**
+
+Current remotes:
+- **origin**: `git@github.com-personal:shabsi4u/llm_engineering.git`
+- **upstream**: `git@github.com-personal:ed-donner/llm_engineering.git`
+
+## Critical Rule
+
+**NEVER use `github.com` directly in git commands.** Always use the aliased hostname:
+- For this repo: `github.com-personal`
+- For work repos: `github.com-work`
+
+Using plain `github.com` will cause authentication failures because SSH cannot determine which key to use.
+
+## Correct Command Examples
+
+### Adding a remote
+```bash
+# CORRECT - uses aliased hostname
+git remote add origin git@github.com-personal:shabsi4u/repo-name.git
+
+# WRONG - will fail authentication
+git remote add origin git@github.com:shabsi4u/repo-name.git
+```
+
+### Cloning a repository
+```bash
+# CORRECT
+git clone git@github.com-personal:shabsi4u/repo-name.git
+
+# WRONG
+git clone git@github.com:shabsi4u/repo-name.git
+```
+
+### Updating a remote URL
+```bash
+# CORRECT
+git remote set-url origin git@github.com-personal:shabsi4u/repo-name.git
+```
+
+### Push, pull, fetch
+These commands work normally once remotes are configured correctly:
+```bash
+git push origin main
+git pull origin main
+git fetch upstream
+```
+
+## Troubleshooting
+
+If a git command fails with authentication errors:
+
+1. **Check the remote URL**:
+   ```bash
+   git remote -v
+   ```
+
+2. **Verify it uses the correct alias** (`github.com-personal` for this repo)
+
+3. **Fix incorrect URLs**:
+   ```bash
+   git remote set-url origin git@github.com-personal:shabsi4u/llm_engineering.git
+   ```
+
+4. **Test SSH connection**:
+   ```bash
+   ssh -T git@github.com-personal
+   # Should show: Hi shabsi4u! You've successfully authenticated...
+   ```
+
+## User Identity for This Repo
+
+Commits in this repo should use:
+- Name: `shabsi4u`
+- Email: `shabareesh.r@gmail.com`
+
+This is already configured in the repo's `.git/config`.
+
+---
+
+# Git Workflow for Course Contributions
+
+This repository is a fork of Ed Donner's LLM Engineering course. Follow these rules when contributing coursework.
+
+## Repository Structure
+
+| Remote   | URL                                                      | Purpose                    |
+|----------|----------------------------------------------------------|----------------------------|
+| origin   | `git@github.com-personal:shabsi4u/llm_engineering.git`   | Your personal fork         |
+| upstream | `git@github.com-personal:ed-donner/llm_engineering.git`  | Course author's repository |
+
+## Feature Branch Workflow
+
+**NEVER commit directly to `main`.** Always use feature branches.
+
+### Creating a new feature branch
+```bash
+# Ensure main is up to date first
+git checkout main
+git fetch upstream
+git merge upstream/main
+
+# Create and switch to a new feature branch
+git checkout -b my-feature-name
+```
+
+### Working on your branch
+```bash
+# Make changes, then stage and commit
+git add community-contributions/shabsi4u/
+git commit -m "Add my coursework for week X"
+```
+
+### Pushing to your fork
+```bash
+# Push your feature branch to origin (your fork)
+git push origin my-feature-name
+```
+
+## Pull Request Rules
+
+PRs are submitted to Ed's repository (upstream) for review and merge into community contributions.
+
+### CRITICAL: PR Scope Constraint
+
+**PRs must ONLY contain changes within `community-contributions/shabsi4u/`**
+
+- DO NOT include changes to course materials (week1/, week2/, etc.)
+- DO NOT modify other contributors' folders
+- DO NOT include changes to root files (README.md, requirements.txt, etc.)
+
+### Pre-PR Checklist
+
+Before pushing or creating a PR, verify your changes are correctly scoped:
+
+```bash
+# Check what files have been modified
+git diff --name-only main
+
+# All listed files should be under community-contributions/shabsi4u/
+# If you see files outside this folder, you need to fix your branch
+```
+
+### Fixing a branch with out-of-scope changes
+
+If your branch contains changes outside your contribution folder:
+
+```bash
+# Option 1: Reset specific files to match upstream
+git checkout upstream/main -- path/to/file/outside/your/folder
+
+# Option 2: Interactive rebase to edit commits (advanced)
+git rebase -i upstream/main
+```
+
+### Creating the PR
+
+1. Push your feature branch to origin (your fork)
+2. Go to https://github.com/ed-donner/llm_engineering
+3. Click "New Pull Request"
+4. Select: base: `ed-donner/llm_engineering` `main` ← compare: `shabsi4u/llm_engineering` `your-branch`
+5. Verify the "Files changed" tab shows ONLY files in `community-contributions/shabsi4u/`
+6. Submit the PR for Ed's review
+
+## Syncing Your Fork
+
+Keep your fork's main branch in sync with upstream:
+
+```bash
+git checkout main
+git fetch upstream
+git merge upstream/main
+git push origin main
+```
+
+## Quick Reference
+
+| Task                          | Command                                              |
+|-------------------------------|------------------------------------------------------|
+| Create feature branch         | `git checkout -b branch-name`                        |
+| Push to your fork             | `git push origin branch-name`                        |
+| Sync main with upstream       | `git fetch upstream && git merge upstream/main`      |
+| Check modified files          | `git diff --name-only main`                          |
+| Verify PR scope               | All changes must be in `community-contributions/shabsi4u/` |
+
+---
+
+# Custom Git Aliases
+
+The following aliases are configured in this repo's `.git/config`. Use these for common workflow tasks.
+
+## Available Aliases
+
+### `git sync`
+Sync your local main branch with upstream and push to your fork.
+```bash
+git sync
+# Equivalent to:
+# git checkout main && git fetch upstream && git merge upstream/main && git push origin main
+```
+
+### `git new <branch-name>`
+Create a new feature branch from an up-to-date main.
+```bash
+git new week3-exercise
+# Equivalent to:
+# git sync && git checkout -b week3-exercise
+```
+
+### `git pr-check`
+Verify your branch only contains changes in your contribution folder. Run before creating a PR.
+```bash
+git pr-check
+# Shows warning if files outside community-contributions/shabsi4u/ are modified
+# Shows "Ready for PR!" if all changes are correctly scoped
+```
+
+### `git pr-ready`
+Push your branch and get the URL to create a PR.
+```bash
+git pr-ready
+# Pushes current branch to origin, then displays:
+# Create PR at: https://github.com/ed-donner/llm_engineering/compare/main...shabsi4u:llm_engineering:your-branch
+```
+
+### `git rebase-main`
+Rebase your current feature branch onto the latest upstream main.
+```bash
+git rebase-main
+# Equivalent to:
+# git fetch upstream && git rebase upstream/main
+```
+
+### `git cleanup`
+Delete local branches that have been merged to main.
+```bash
+git cleanup
+# Switches to main and removes merged branches
+```
+
+## Typical Workflow Using Aliases
+
+```bash
+# 1. Start new work
+git new my-new-feature
+
+# 2. Make changes in community-contributions/shabsi4u/
+# ... edit files ...
+
+# 3. Commit your work
+git add community-contributions/shabsi4u/
+git commit -m "Add my coursework"
+
+# 4. Verify PR scope
+git pr-check
+
+# 5. Push and get PR URL
+git pr-ready
+
+# 6. After PR is merged, cleanup
+git sync
+git cleanup
+```
+
+## Re-installing Aliases
+
+If you clone fresh or aliases are missing, run these commands:
+
+```bash
+git config --local alias.sync '!git checkout main && git fetch upstream && git merge upstream/main && git push origin main'
+git config --local alias.new '!f() { git sync && git checkout -b "$1"; }; f'
+git config --local alias.pr-check '!git diff --name-only main | grep -v "^community-contributions/shabsi4u/" && echo "WARNING: Files outside your contribution folder!" || echo "All changes are in community-contributions/shabsi4u/ - Ready for PR!"'
+git config --local alias.pr-ready '!f() { branch=$(git rev-parse --abbrev-ref HEAD); git push -u origin "$branch" && echo "" && echo "Create PR at:" && echo "https://github.com/ed-donner/llm_engineering/compare/main...shabsi4u:llm_engineering:$branch?expand=1"; }; f'
+git config --local alias.rebase-main '!git fetch upstream && git rebase upstream/main'
+git config --local alias.cleanup '!git checkout main && git branch --merged main | grep -v "main" | xargs -r git branch -d'
+```
