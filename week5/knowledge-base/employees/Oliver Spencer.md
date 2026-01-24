@@ -3,9 +3,10 @@
 # Oliver Spencer
 
 ## Summary
-- **Date of Birth**: May 14, 1990  
-- **Job Title**: Backend Software Engineer  
-- **Location**: Austin, Texas  
+- **Date of Birth**: May 14, 1990
+- **Job Title**: Backend Software Engineer
+- **Location**: Austin, Texas
+- **Current Salary**: $125,000  
 
 ## Insurellm Career Progression
 - **March 2018**: Joined Insurellm as a Backend Developer I, focusing on API development for customer management systems.

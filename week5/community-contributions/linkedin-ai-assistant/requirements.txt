@@ -1,0 +1,15 @@
+openai
+sentence-transformers
+chromadb
+gradio
+transformers
+torch
+accelerate
+html2text
+beautifulsoup4
+pandas
+numpy
+matplotlib
+seaborn
+wordcloud
+plotly

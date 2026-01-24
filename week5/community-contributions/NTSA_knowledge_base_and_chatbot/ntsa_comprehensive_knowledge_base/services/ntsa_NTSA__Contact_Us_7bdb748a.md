@@ -1,0 +1,9 @@
+# NTSA | Contact Us
+
+**URL:** https://ntsa.go.ke/contact
+**Scraped:** 2025-10-24T07:23:43.605483
+**Content Length:** 1587 characters
+
+---
+
+Contact usWe'd love to hear from you. Our friendly team is always here to chat.Email usInquiries:info@ntsa.go.keComplaints:complaints@ntsa.go.keDL queries:dlqueries@ntsa.go.keIntegrity:integrity@ntsa.go.keCall usSafaricom:0709 932 000Telkom:020 6939 000Visit us316 Upper Hill Chambers,2nd Ngong Avenue,Upper Hill, Nairobi.Write to usNational Transport and Safety Authority,P.O Box 3602 - 00506,Nairobi.NTSA County OfficesThikaDeputy County Commissioners Offices, opposite Barclays Bank, next to Kiambu Lands Officeinfo@ntsa.go.ke0709 932 000NyeriRegional Commissioners Complex, Block C, Third floor, opposite the Nyeri Law Courtsinfo@ntsa.go.ke0709 932 000MeruImenti CDF Building, Ground Floorinfo@ntsa.go.ke0709 932 000EmbuMotor Vehicle Inspection, along Kiritiri Roadinfo@ntsa.go.ke0709 932 000NakuruMotor Vehicle Inspection Centre, along Nakuru Ravine Road, near Show Ground junctioninfo@ntsa.go.ke0709 932 000EldoretMotor Vehicle Inspection Centre, along Police Line Roadinfo@ntsa.go.ke0709 932 000KerichoKericho County Commissioner's compound, NTSA MVI Centreinfo@ntsa.go.ke0709 932 000KakamegaPostal, KRA Officesinfo@ntsa.go.ke0709 932 000KisiiMotor Vehicle Inspection Unit, along Kisii - Kilgoris Roadinfo@ntsa.go.ke0709 932 000KisumuMotor Vehicle Inspection Center, along Airport Roadinfo@ntsa.go.ke0709 932 000MachakosMachakos inspection Center, along people's park roadinfo@ntsa.go.ke0709 932 000VoiMotor Vehicle Inspection centreinfo@ntsa.go.ke0709 932 000MombasaMiritini MVImombasa.queries@ntsa.go.ke0709 932 000GarissaKRA Offices, 1st Floorinfo@ntsa.go.ke0709 932 000Find Us

@@ -1,0 +1,9 @@
+# Meeting Minutes Creator V2 - HuggingFace + Ollama Implementation
+# Requirements for Week 3 Day 5 Exercise
+
+torch>=2.0.0
+transformers>=4.35.0
+gradio>=4.0.0
+librosa>=0.10.0
+soundfile>=0.12.0
+requests>=2.31.0
