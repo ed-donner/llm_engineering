@@ -179,14 +179,56 @@ git rebase -i upstream/main
 
 ## Syncing Your Fork
 
-Keep your fork's main branch in sync with upstream:
+Keep your fork's main branch in sync with upstream while preserving your personal changes:
 
 ```bash
+# Recommended: Use the sync alias
+git checkout main
+git sync
+
+# Or manually:
 git checkout main
 git fetch upstream
 git merge upstream/main
 git push origin main
 ```
+
+### What Happens During Sync
+
+Your fork's main will contain BOTH:
+- Ed's latest course materials (from upstream)
+- Your personal additions (CLAUDE.md, .cursor/rules, etc.)
+
+**Merge behavior:**
+- ✅ New files from Ed → added cleanly
+- ✅ Your personal files (CLAUDE.md, etc.) → untouched, no conflict
+- ✅ Ed's updates to course files → merged if you haven't modified them
+- ⚠️ Files BOTH of you modified → merge conflict (rare - resolve manually)
+
+### Handling Merge Conflicts
+
+If a merge conflict occurs:
+
+```bash
+# View conflicted files
+git status
+
+# For personal files - keep your version
+git checkout --ours CLAUDE.md
+git checkout --ours .cursor/rules
+
+# For course materials - usually keep Ed's version
+git checkout --theirs week1/day1.ipynb
+
+# After resolving all conflicts
+git add .
+git commit -m "Merge upstream updates, resolve conflicts"
+git push origin main
+```
+
+### Regular Sync Cadence
+
+Run `git sync` regularly (e.g., weekly or before starting new coursework) to stay current with Ed's updates while maintaining your personal modifications.
 
 ## Quick Reference
 
@@ -253,8 +295,46 @@ git cleanup
 # Switches to main and removes merged branches
 ```
 
+### `git save "<message>"`
+Quickly commit all changes and push directly to your fork's main branch. Use for personal additions like documentation.
+```bash
+git save "Add CLAUDE.md documentation"
+# Equivalent to:
+# git add -A && git commit -m "message" && git push origin main
+```
+
+### `git quick "<message>"`
+Commit all changes and push to current branch (whatever branch you're on).
+```bash
+git quick "Work in progress"
+# Commits and pushes to current branch
+```
+
+### `git cm "<message>"`
+Commit all changes (without pushing). Useful when you want to commit but not push yet.
+```bash
+git cm "Add new feature"
+# Equivalent to:
+# git add -A && git commit -m "message"
+```
+
+### `git amend`
+Amend the last commit with current changes and force push (use carefully!).
+```bash
+git amend
+# Adds all changes to last commit and force pushes
+```
+
+### `git pushf`
+Push current branch to origin (shorthand for push).
+```bash
+git pushf
+# Equivalent to: git push origin HEAD
+```
+
 ## Typical Workflow Using Aliases
 
+### For PR Submissions (community contributions)
 ```bash
 # 1. Start new work
 git new my-new-feature
@@ -263,13 +343,12 @@ git new my-new-feature
 # ... edit files ...
 
 # 3. Commit your work
-git add community-contributions/shabsi4u/
-git commit -m "Add my coursework"
+git quick "Add my coursework for week 3"
 
 # 4. Verify PR scope
 git pr-check
 
-# 5. Push and get PR URL
+# 5. Push and get PR URL (if not already pushed)
 git pr-ready
 
 # 6. After PR is merged, cleanup
@@ -277,15 +356,37 @@ git sync
 git cleanup
 ```
 
+### For Personal Fork Changes (documentation, notes, etc.)
+```bash
+# Make changes to CLAUDE.md, .cursor/rules, or other personal docs
+# ... edit files ...
+
+# Commit and push directly to your fork's main
+git save "Update documentation"
+
+# Or if you want to commit without pushing yet
+git cm "Update CLAUDE.md"
+# ... review changes ...
+git pushf
+```
+
 ## Re-installing Aliases
 
 If you clone fresh or aliases are missing, run these commands:
 
 ```bash
+# PR workflow aliases
 git config --local alias.sync '!git checkout main && git fetch upstream && git merge upstream/main && git push origin main'
 git config --local alias.new '!f() { git sync && git checkout -b "$1"; }; f'
 git config --local alias.pr-check '!git diff --name-only main | grep -v "^community-contributions/shabsi4u/" && echo "WARNING: Files outside your contribution folder!" || echo "All changes are in community-contributions/shabsi4u/ - Ready for PR!"'
 git config --local alias.pr-ready '!f() { branch=$(git rev-parse --abbrev-ref HEAD); git push -u origin "$branch" && echo "" && echo "Create PR at:" && echo "https://github.com/ed-donner/llm_engineering/compare/main...shabsi4u:llm_engineering:$branch?expand=1"; }; f'
 git config --local alias.rebase-main '!git fetch upstream && git rebase upstream/main'
 git config --local alias.cleanup '!git checkout main && git branch --merged main | grep -v "main" | xargs -r git branch -d'
+
+# Personal fork management aliases
+git config --local alias.save '!f() { git add -A && git commit -m "$1" && git push origin main; }; f'
+git config --local alias.quick '!f() { branch=$(git rev-parse --abbrev-ref HEAD); git add -A && git commit -m "$1" && git push origin "$branch"; }; f'
+git config --local alias.cm '!f() { git add -A && git commit -m "$1"; }; f'
+git config --local alias.amend '!git add -A && git commit --amend --no-edit && git push origin $(git rev-parse --abbrev-ref HEAD) --force-with-lease'
+git config --local alias.pushf 'push origin HEAD'
 ```
