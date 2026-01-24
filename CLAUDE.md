@@ -225,9 +225,26 @@ This user has multiple GitHub accounts configured via SSH aliases:
 **For Personal Fork Changes (CLAUDE.md, .cursor/rules, personal notes):**
 1. **Commit directly to main** using `git save "message"`
 2. These changes stay in your fork only, not submitted as PRs to upstream
-3. Handle merge conflicts when running `git sync` to pull upstream changes
+3. Run `git sync` regularly to pull Ed's latest course updates
+4. Your personal files won't conflict - they only exist in your fork
+5. If Ed updates a file you modified, resolve conflicts manually (rare)
 
 Main branch: `main`
+
+### Fork Maintenance Strategy
+
+**Your fork's main branch contains:**
+- ✅ All of Ed's course materials (synced from upstream)
+- ✅ Your personal documentation (CLAUDE.md, .cursor/rules)
+- ✅ Your community contributions (community-contributions/shabsi4u/)
+
+**Staying in sync with upstream:**
+Run `git sync` regularly (weekly or before starting new work) to pull Ed's latest updates. Your personal files won't conflict because they only exist in your fork. Course material updates will merge cleanly unless you've modified the same files Ed has updated.
+
+**If merge conflicts occur:**
+- For personal files (CLAUDE.md, .cursor/rules): `git checkout --ours <file>` (keep your version)
+- For course files: `git checkout --theirs <file>` (keep Ed's version)
+- Then: `git add . && git commit && git push origin main`
 
 ## Important Conventions
 

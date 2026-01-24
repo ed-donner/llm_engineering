@@ -179,14 +179,56 @@ git rebase -i upstream/main
 
 ## Syncing Your Fork
 
-Keep your fork's main branch in sync with upstream:
+Keep your fork's main branch in sync with upstream while preserving your personal changes:
 
 ```bash
+# Recommended: Use the sync alias
+git checkout main
+git sync
+
+# Or manually:
 git checkout main
 git fetch upstream
 git merge upstream/main
 git push origin main
 ```
+
+### What Happens During Sync
+
+Your fork's main will contain BOTH:
+- Ed's latest course materials (from upstream)
+- Your personal additions (CLAUDE.md, .cursor/rules, etc.)
+
+**Merge behavior:**
+- ✅ New files from Ed → added cleanly
+- ✅ Your personal files (CLAUDE.md, etc.) → untouched, no conflict
+- ✅ Ed's updates to course files → merged if you haven't modified them
+- ⚠️ Files BOTH of you modified → merge conflict (rare - resolve manually)
+
+### Handling Merge Conflicts
+
+If a merge conflict occurs:
+
+```bash
+# View conflicted files
+git status
+
+# For personal files - keep your version
+git checkout --ours CLAUDE.md
+git checkout --ours .cursor/rules
+
+# For course materials - usually keep Ed's version
+git checkout --theirs week1/day1.ipynb
+
+# After resolving all conflicts
+git add .
+git commit -m "Merge upstream updates, resolve conflicts"
+git push origin main
+```
+
+### Regular Sync Cadence
+
+Run `git sync` regularly (e.g., weekly or before starting new coursework) to stay current with Ed's updates while maintaining your personal modifications.
 
 ## Quick Reference
 
