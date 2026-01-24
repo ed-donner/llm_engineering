@@ -129,6 +129,9 @@ class HuggingFaceAPIBackend(ModelBackend):
         prompt = self._build_prompt(schema, num_records)
         logger.debug(f"Generated prompt: {prompt[:200]}...")
 
+        # FIX: Initialize raw_response for error handling
+        raw_response = ""
+
         try:
             # Call API
             client = self._get_client()
@@ -178,9 +181,10 @@ class HuggingFaceAPIBackend(ModelBackend):
         except json.JSONDecodeError as e:
             error_msg = f"Failed to parse JSON response: {e}"
             logger.error(error_msg)
+            # FIX: raw_response is now always initialized
             return GenerationResult(
                 data=[],
-                raw_response=raw_response if 'raw_response' in locals() else "",
+                raw_response=raw_response,
                 num_records=0,
                 success=False,
                 error_message=error_msg

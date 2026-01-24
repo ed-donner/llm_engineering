@@ -73,11 +73,18 @@ class GeneratorService:
         self.save_to_db = save_to_db
 
         # Initialize database if needed
+        # FIX: Track if we own the database so we know whether to close it
         if save_to_db:
-            self.database = database if database else DatabaseService()
+            if database:
+                self.database = database
+                self._owns_database = False
+            else:
+                self.database = DatabaseService()
+                self._owns_database = True
             logger.info("GeneratorService initialized with database persistence")
         else:
             self.database = database
+            self._owns_database = False
             logger.info("GeneratorService initialized without database persistence")
 
     def generate(
@@ -170,8 +177,12 @@ class GeneratorService:
             raise GenerationError(error_msg)
 
         # Step 2: Call progress callback (0% complete)
+        # FIX: Protect against callback exceptions
         if on_progress:
-            on_progress(0, num_records)
+            try:
+                on_progress(0, num_records)
+            except Exception as e:
+                logger.warning(f"Progress callback raised exception: {e}", exc_info=True)
 
         # Step 3: Generate data using backend
         try:
@@ -195,8 +206,12 @@ class GeneratorService:
             )
 
             # Step 4: Call progress callback (100% complete)
+            # FIX: Protect against callback exceptions
             if on_progress:
-                on_progress(result.num_records, num_records)
+                try:
+                    on_progress(result.num_records, num_records)
+                except Exception as e:
+                    logger.warning(f"Progress callback raised exception: {e}", exc_info=True)
 
         except Exception as e:
             # Catch any backend errors and wrap them
@@ -445,7 +460,8 @@ class GeneratorService:
             >>> with service:
             ...     result = service.generate(schema, 10)
         """
-        if self.database:
+        # FIX: Only close database if we created it
+        if self.database and self._owns_database:
             self.database.close()
             logger.debug("GeneratorService closed")
 

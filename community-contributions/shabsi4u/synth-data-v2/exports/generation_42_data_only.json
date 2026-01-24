@@ -1,0 +1,27 @@
+[
+  {
+    "user": "alice123",
+    "score": 95,
+    "category": "premium"
+  },
+  {
+    "user": "bob456",
+    "score": 78,
+    "category": "standard"
+  },
+  {
+    "user": "charlie789",
+    "score": 88,
+    "category": "premium"
+  },
+  {
+    "user": "diana012",
+    "score": 65,
+    "category": "basic"
+  },
+  {
+    "user": "eve345",
+    "score": 92,
+    "category": "premium"
+  }
+]

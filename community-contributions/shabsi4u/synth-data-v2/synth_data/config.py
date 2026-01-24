@@ -51,13 +51,21 @@ def configure_logging(level: Optional[str] = None) -> None:
     """
     log_level = level or settings.LOG_LEVEL
 
+    # FIX: Get root logger and check if already configured
+    root_logger = logging.getLogger()
+
+    # If already has handlers, remove them to avoid duplication
+    if root_logger.hasHandlers():
+        root_logger.handlers.clear()
+
     logging.basicConfig(
         level=getattr(logging, log_level.upper()),
         format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
         handlers=[
             logging.FileHandler(settings.LOG_FILE),
             logging.StreamHandler()
-        ]
+        ],
+        force=True  # Force reconfiguration
     )
 
     logger = logging.getLogger(__name__)

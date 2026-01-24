@@ -40,6 +40,8 @@ class DatabaseService:
             # Use provided session (for testing with in-memory DB)
             self.session = session
             self._owns_session = False
+            self.engine = None  # FIX: Always set engine attribute
+            self.database_url = None
         else:
             # Create new engine and session
             self.database_url = database_url or settings.DATABASE_URL
