@@ -40,3 +40,6 @@ Thumbs.db
 .coverage
 htmlcov/
 .pytest_cache/
+
+# Exports (generated files)
+exports/
