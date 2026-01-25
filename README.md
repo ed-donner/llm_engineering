@@ -110,3 +110,6 @@ Please do message me or email me at ed@edwarddonner.com if this doesn't work or 
         </td>
     </tr>
 </table>
+## 👨‍💻 Practice & Projects
+
+This repository is used by **Md. Maruf Mullah** to practice the LLM Engineering course material and to build original projects by extending the provided examples, focusing on practical applications of LLMs, AI systems, and engineering workflows.
