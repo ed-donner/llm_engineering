@@ -213,3 +213,75 @@ week6/*/*.jsonl
 week6/*.pth
 week6/*.joblib
 week8/*.pth
+
+# ===============================
+# Environment variables / secrets
+# ===============================
+.env
+.env.*
+*.env
+*.key
+*.secret
+*.pem
+*.token
+
+# ===============================
+# Python cache & virtual envs
+# ===============================
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.env/
+venv/
+ENV/
+.venv/
+pip-wheel-metadata/
+
+# ===============================
+# Jupyter Notebook artifacts
+# ===============================
+.ipynb_checkpoints/
+*.nbconvert.ipynb
+
+# ===============================
+# IDE / Editor settings
+# ===============================
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# ===============================
+# OS generated files
+# ===============================
+.DS_Store
+Thumbs.db
+
+# ===============================
+# Logs & temporary files
+# ===============================
+*.log
+*.tmp
+*.bak
+*.swp
+*.lock
+
+# ===============================
+# ML / data artifacts (optional)
+# ===============================
+data/
+datasets/
+*.h5
+*.pt
+*.pth
+*.onnx
+*.ckpt
+*.joblib
+
+# ===============================
+# Build / distribution
+# ===============================
+build/
+dist/
+*.egg-info/
