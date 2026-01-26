@@ -52,4 +52,5 @@ dependencies = [
     "xgboost>=3.1.1",
     "selenium>=4.39.0",
     "webdriver-manager>=4.0.2",
+    "nbconvert>=7.16.6",
 ]
