@@ -48,11 +48,6 @@ Both keys are optional — the app works with just one provider configured.
 
 ## Usage
 
-**Run the standalone script:**
-```bash
-python technical_qa_assistant.py
-```
-
 **Or explore the notebook:**
 ```bash
 jupyter notebook technical_qa.ipynb
@@ -86,10 +81,8 @@ Voice input flows through Whisper for transcription, then the response gets synt
 
 ```
 technical-qa-assistant/
-├── technical_qa_assistant.py   # Main application
 ├── technical_qa.ipynb          # Jupyter notebook version
 ├── requirements.txt            # Dependencies
-├── .env.example                # Environment template
 └── README.md
 ```
 
@@ -97,7 +90,7 @@ technical-qa-assistant/
 
 - Python 3.11+
 - OpenAI API key (for GPT-4o-mini, Whisper, TTS)
-- Google API key (for Gemini Flash)
+- Google API key (for gemini-2.0-flash-exp)
 
 ## Tech Stack
 
