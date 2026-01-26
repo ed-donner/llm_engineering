@@ -1,0 +1,11 @@
+{
+    "python.defaultInterpreterPath": "${workspaceFolder}/.venv/Scripts/python.exe",
+    "python.terminal.activateEnvironment": true,
+    "jupyter.kernels.filter": [
+        {
+            "type": "pythonEnvironment",
+            "path": "${workspaceFolder}/.venv"
+        }
+    ],
+    "notebook.defaultFormatter": "ms-python.black-formatter"
+}
