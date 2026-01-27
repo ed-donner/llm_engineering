@@ -18,7 +18,7 @@ This implementation demonstrates:
 - Context-aware conversation using debate history
 - Role-based prompt engineering for consistent character behavior
 
-Unlike simple chatbot interactions (like `day1_llm_chats.py` in the parent directory), this creates a formal, structured debate with opening statements, rebuttals, Q&A, and closing arguments.
+Unlike simple chatbot interactions, this creates a formal, structured debate with opening statements, rebuttals, Q&A, and closing arguments.
 
 ## Features
 
@@ -43,8 +43,6 @@ This project uses the dependencies defined in the root `pyproject.toml`:
 ```toml
 openai>=2.15.0
 sarvamai>=0.1.22
-langchain-deepseek>=1.0.1
-litellm>=1.81.3
 rich>=14.3.1
 dotenv>=0.9.9
 ```
@@ -139,23 +137,6 @@ The debate follows a formal 11-stage structure:
 - **Temperature**: Set to 0.7 for balanced creativity and consistency
 - **Max Tokens**: Limited to 400 per response for concise arguments
 
-## File Structure
-
-```
-week2/3_way_implementation-debate/
-├── llm_debate.py          # Main debate simulation script
-└── README.md              # This file
-```
-
-### `llm_debate.py`
-
-The main script containing:
-- Environment setup and API client initialization
-- Three persona prompts (PROMPT_MODERATOR, PROMPT_FELIX, PROMPT_JAMES)
-- LLM calling functions (`call_deepseek`, `call_sarvam`)
-- Debate stage definitions
-- Main debate execution loop (`run_debate`)
-
 ## Example Output Snippet
 
 ```
@@ -175,31 +156,6 @@ ecosystem and human genome. We've witnessed unintended consequences before—GMO
 leading to herbicide-resistant superweeds, potential allergenicity concerns...
 ------------------------------------------------------------
 ```
-
-## Troubleshooting
-
-### Common Issues
-
-**Issue**: `ModuleNotFoundError: No module named 'sarvamai'`  
-**Solution**: Install dependencies: `pip install -e .` from project root
-
-**Issue**: `openai.AuthenticationError: Invalid API key`  
-**Solution**: Verify your `.env` file contains valid API keys and is in the project root
-
-**Issue**: `AttributeError: 'SarvamAI' object has no attribute 'chat'`  
-**Solution**: Ensure you're using `sarvamai>=0.1.22`. Update with: `pip install --upgrade sarvamai`
-
-**Issue**: Debate responses are too short or cut off  
-**Solution**: Increase `max_tokens` parameter in the calling functions (currently set to 400)
-
-**Issue**: Responses lack context from previous exchanges  
-**Solution**: The history is limited to last 6 exchanges. Increase `history[-6:]` to `history[-10:]` for more context
-
-## Related Files
-
-- **`week2/day1_llm_chats.py`**: Simpler 2-way conversation between Sarvam and DeepSeek with opposing personalities (argumentative vs. polite)
-- **`week2/day1.py`**: Basic DeepSeek API usage examples with puzzles and reasoning tasks
-- **Root `pyproject.toml`**: Project dependencies and configuration
 
 ## Notes
 

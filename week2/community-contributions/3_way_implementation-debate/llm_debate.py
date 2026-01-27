@@ -7,8 +7,6 @@ import os
 from dotenv import load_dotenv
 from openai import OpenAI
 from sarvamai import SarvamAI
-from langchain_deepseek import ChatDeepSeek
-from litellm import completion
 from rich.console import Console
 from rich.markdown import Markdown
 
