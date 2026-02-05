@@ -36,3 +36,4 @@ sentence_transformers
 feedparser
 protobuf==3.20.2
 wandb
+litellm
