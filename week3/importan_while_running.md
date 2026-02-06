@@ -1,3 +1,4 @@
+
 ```python
 import IPython
 IPython.Application.instance().kernel.do_shutdown(True)
@@ -8,6 +9,8 @@ IPython.Application.instance().kernel.do_shutdown(True)
 
 ## colab=
 ```python
+from google.colab import userdata
+from huggingface_hub import login
 hf_token = userdata.get('HF_TOKEN')
 if hf_token and hf_token.startswith("hf_"):
   print("HF key looks good so far")
