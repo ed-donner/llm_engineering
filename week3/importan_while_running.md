@@ -9,6 +9,7 @@ IPython.Application.instance().kernel.do_shutdown(True)
 #If you select "Show Resources" on the top right to see GPU memory, it might not drop down right away
 #But it does seem that the memory is available for use by new models in the later code.
 ```python
+import gc
 del model, inputs, tokenizer, outputs
 gc.collect()
 torch.cuda.empty_cache()
