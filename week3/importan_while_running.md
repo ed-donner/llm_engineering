@@ -5,6 +5,16 @@ IPython.Application.instance().kernel.do_shutdown(True)
 ```
 ## It clears Vram and ram so for the new cell it can utilize full memory
 
+## just to clean the gpu
+#If you select "Show Resources" on the top right to see GPU memory, it might not drop down right away
+#But it does seem that the memory is available for use by new models in the later code.
+```python
+del model, inputs, tokenizer, outputs
+gc.collect()
+torch.cuda.empty_cache()
+```
+
+
 # for secret key acces like api or hugging face token
 
 ## colab=
