@@ -1,0 +1,37 @@
+import os
+from dotenv import load_dotenv
+from IPython.display import Markdown, display
+from openai import OpenAI
+
+openai = OpenAI()
+
+# Step 1: Create your prompts
+
+system_prompt = """
+            You are a professional assistant who is very thorough in analyzing complex emails, 
+            extract the dates from it and insert them in the calendar. Return ONLY valid JSON.
+            """
+user_prompt = """
+    Here is the text you need to analyze.
+    Summarize my email, extracts any calendar specific events from it and lists them for me.
+"""
+
+email = """Let’s reconnect a couple of days after the quarterly board meeting, which is slated for the 25th. 
+
+I’ll be on leave the week following Holi, returning the Monday right after. 
+
+Please circulate the revised proposal by mid-next week so we have buffer before month-end closing."""
+
+# Step 2: Make the messages list
+
+messages = [
+    {"role":"system","content":system_prompt},
+    {"role":"user","content":user_prompt + email}
+] # fill this in
+
+# Step 3: Call OpenAI
+response = openai.chat.completions.create(model="gpt-4.1-nano",messages = messages)
+response.choices[0].message.content
+
+# Step 4: print the result
+print(response.choices[0].message.content)
