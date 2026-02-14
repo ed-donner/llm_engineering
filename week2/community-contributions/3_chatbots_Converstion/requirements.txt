@@ -1,6 +1,0 @@
-IPython
-anthropic
-dotenv
-ollama
-openai
-os
