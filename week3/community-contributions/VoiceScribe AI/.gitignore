@@ -1,0 +1,48 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+env/
+ENV/
+.venv
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Gradio
+gradio_cached_examples/
+flagged/
+
+# Models cache
+.cache/
+models/
+
+# Audio files (examples)
+*.mp3
+*.wav
+*.m4a
+*.flac
+*.ogg
+
+# Vector stores
+*.faiss
+*.pkl
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Environment variables
+.env
