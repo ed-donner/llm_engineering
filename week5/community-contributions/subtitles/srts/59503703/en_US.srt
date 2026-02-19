@@ -1,0 +1,166 @@
+WEBVTT
+
+00:00.800 --> 00:01.310
+Well.
+
+00:01.310 --> 00:02.450
+Hello there everybody.
+
+00:02.450 --> 00:06.770
+I am so grateful that you've made it through to the start of week seven.
+
+00:06.800 --> 00:10.670
+It is tremendous and I plan to not disappoint.
+
+00:10.670 --> 00:12.530
+I will make it worth your while.
+
+00:12.530 --> 00:13.190
+It's going.
+
+00:13.220 --> 00:15.830
+There's some really great content ahead.
+
+00:15.830 --> 00:22.250
+You may be feeling a bit of an anti-climax from what happened last week with our disappointing results.
+
+00:22.250 --> 00:25.760
+Fine tuning frontier model after so much hype.
+
+00:25.850 --> 00:31.040
+But what I can tell you is it's like a good movie where there's a period of time where things feel tense
+
+00:31.040 --> 00:32.210
+and disappointing.
+
+00:32.420 --> 00:35.870
+There's going to be redemption, there's going to be redemption.
+
+00:35.870 --> 00:41.480
+We will see if you're like me and you kept hammering away after after those results, you will have,
+
+00:41.480 --> 00:45.260
+I expect, got to a point where you have got some improvements.
+
+00:45.260 --> 00:50.960
+You get to a point where you can fine tune and actually get better results than we originally got with
+
+00:51.200 --> 00:58.910
+the Untuned version, but not significantly so, but a little bit better than I did in the last day.
+
+00:58.910 --> 01:02.260
+But anyways, for now we are moving swiftly onwards.
+
+01:02.260 --> 01:08.860
+We are launching into week seven and what a week do I have in store for you?
+
+01:09.010 --> 01:10.780
+Uh, it is a massive week.
+
+01:10.780 --> 01:12.400
+It is a really massive week.
+
+01:12.400 --> 01:15.220
+It is an advanced week where we're raising the bar.
+
+01:15.220 --> 01:22.600
+We're getting to a point where you're now acquiring advanced skills in this kind of deep learning field
+
+01:22.600 --> 01:23.920
+of of llms.
+
+01:23.920 --> 01:29.860
+And as we move more deeply into training, what you can already do, of course, you can already generate
+
+01:29.890 --> 01:35.350
+text and code with frontier models, with APIs, and with hugging face open source code.
+
+01:35.350 --> 01:41.080
+You can build rag pipelines and then you can now build data sets.
+
+01:41.380 --> 01:47.260
+Quite a long time we spent on data sets and baseline models and frontier models that you can fine tune,
+
+01:47.260 --> 01:49.450
+albeit with not amazing results.
+
+01:49.450 --> 01:53.830
+For our use case today we get advanced.
+
+01:53.860 --> 01:59.160
+We talk about using a technique called Lora for fine tuning open source models.
+
+01:59.160 --> 02:00.870
+We describe quantization.
+
+02:00.870 --> 02:09.480
+We talk about Q Laura, and we're getting into three key hyperparameters R alpha and target modules,
+
+02:09.780 --> 02:13.980
+which if you've not encountered them before, sounds like something straight out of Star Trek, but
+
+02:13.980 --> 02:17.460
+in fact will make complete sense by the end of today.
+
+02:17.580 --> 02:23.550
+And before we launch into it, I do need to take a moment to remind you of your eight week plan, and
+
+02:23.580 --> 02:29.130
+this may feel like this is boring for you at this point, but I think it's important to take pride in
+
+02:29.130 --> 02:33.960
+your accomplishments and to remember where everything that you've learned, you started.
+
+02:34.290 --> 02:41.220
+When we we first had our session to talk about, uh, uh, the, the opportunity with Llms and Frontier
+
+02:41.250 --> 02:49.290
+models and we compared them, um, we then looked at using the UIs, we use Gradio, we used agent ization
+
+02:49.290 --> 02:50.460
+Multi-modality.
+
+02:50.490 --> 02:55.530
+Then we got to hugging face the pipelines and then Tokenizers and models.
+
+02:55.530 --> 03:01.900
+Then in week four, we generated code by selecting LMS for the task.
+
+03:01.900 --> 03:04.060
+In week five, that was rag week.
+
+03:04.060 --> 03:09.580
+We used the wonderful Chroma and Lang chain to build some rag pipelines there, and hopefully you did
+
+03:09.580 --> 03:12.580
+the project, which I'm really excited to see what people do there.
+
+03:12.820 --> 03:16.510
+Uh, and then last week we fine tuned a frontier model.
+
+03:16.510 --> 03:17.980
+Uh, now you know how to do it.
+
+03:17.980 --> 03:19.660
+You understand about creating the data sets.
+
+03:19.660 --> 03:23.950
+You know how it works, and you understand when it's most applicable, when you're dealing with that
+
+03:23.950 --> 03:28.870
+kind of nuance of tone, and perhaps when it's not so applicable, in our case, when you're trying
+
+03:28.870 --> 03:33.820
+to actually build in functionality because a frontier model is already so massive.
+
+03:34.270 --> 03:41.470
+Um, so now we arrive at week seven, we are going to be fine tuning an open source model, one that
+
+03:41.470 --> 03:46.540
+is significantly smaller than a frontier model, and see where we get to with that.
+
+03:46.540 --> 03:49.120
+And week eight is where it all comes together.
+
+03:49.210 --> 03:55.300
+And so with that introduction, the main topic of the day is Laura, and we will launch right into that.

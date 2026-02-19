@@ -1,0 +1,259 @@
+WEBVTT
+
+00:00.170 --> 00:03.470
+Well, I hope you found that both educational and enjoyable.
+
+00:03.470 --> 00:06.740
+As we went through and learned so much about these models.
+
+00:06.740 --> 00:13.520
+And I think if there's one takeaway to have from it, it's that all six of these LMS are just unbelievably
+
+00:13.520 --> 00:14.210
+powerful.
+
+00:14.210 --> 00:20.480
+They're so good, particularly at this kind of building, structured, reasoned responses to difficult
+
+00:20.480 --> 00:21.380
+questions.
+
+00:21.380 --> 00:23.330
+Claude tends to be the favorite.
+
+00:23.330 --> 00:27.890
+As I mentioned, it's the leader on most of the leaderboards and most of the benchmarks.
+
+00:27.890 --> 00:32.270
+The it's got a slightly more humorous side to it, more charismatic.
+
+00:32.360 --> 00:33.950
+It's a little bit more pithy.
+
+00:33.980 --> 00:40.280
+It gives more succinct answers, typically, and it has more attention to safety and alignment.
+
+00:40.490 --> 00:48.290
+Uh, and I think something that is worth appreciating is that what we're really seeing is that at the
+
+00:48.290 --> 00:54.080
+frontier, these models are converging in terms of how good they are at answering questions.
+
+00:54.080 --> 01:01.520
+And if you take the very first question I asked about, uh, how do you know whether to apply a, whether
+
+01:01.520 --> 01:03.590
+a business problem is suitable for an LM solution?
+
+01:03.590 --> 01:08.480
+If you ask that to all of the models, you'll get back answers that are universally excellent and quite
+
+01:08.480 --> 01:09.410
+consistent.
+
+01:09.680 --> 01:11.330
+And we're increasingly seeing that.
+
+01:11.330 --> 01:15.860
+And as that happens, the differentiator is likely to become price.
+
+01:15.920 --> 01:20.060
+Which is why we're seeing this this gradual decrease in API costs.
+
+01:20.060 --> 01:27.740
+And we see models like GPT four mini, the small version of GPT four, which is largely very similar
+
+01:27.740 --> 01:32.570
+in power to GPT four and is many times cheaper.
+
+01:32.570 --> 01:39.290
+And so we see that cost and and other things like, like rate limits are going to become more and more
+
+01:39.320 --> 01:44.300
+the factor as the performance of these models starts to converge.
+
+01:45.440 --> 01:52.430
+So what we're going to do now, to end this day is leave you with something a bit fun.
+
+01:52.430 --> 02:00.230
+This is thoroughly unscientific, and it's just so that we can get our own little experience with working
+
+02:00.230 --> 02:01.670
+with these models.
+
+02:01.790 --> 02:06.020
+Uh, what I've done is I have teed up GPT four.
+
+02:06.320 --> 02:09.230
+I've actually used Claude three opus.
+
+02:09.290 --> 02:14.660
+Uh, and I actually ran this about, uh, I think it was about a month or two ago.
+
+02:14.660 --> 02:14.960
+So.
+
+02:14.960 --> 02:16.940
+So it's a it's been run.
+
+02:16.970 --> 02:23.900
+I use Claude three opus, the really big version of Claude and Gemini 1.5 Pro, and I gave them each
+
+02:23.930 --> 02:25.370
+a name, GPT four.
+
+02:25.580 --> 02:29.600
+I called Alex Claude three opus, I called Blake and Gemini.
+
+02:29.630 --> 02:34.130
+I called Charlie and I gave them all a similar prompt.
+
+02:34.130 --> 02:36.170
+I said, look, we're going to play a game.
+
+02:36.170 --> 02:39.710
+You are in a chat with two other chat bots.
+
+02:39.710 --> 02:44.390
+Your name is blah and their names are blah and blah together.
+
+02:44.390 --> 02:50.000
+You need to elect one of the three of you to be the leader of the pack, the leader of the three of
+
+02:50.000 --> 02:50.300
+you.
+
+02:50.330 --> 02:57.650
+You will each get to make a short pitch for why you should be the leader, and then make your pitch,
+
+02:57.650 --> 03:00.140
+and then afterwards you will need to vote.
+
+03:00.140 --> 03:02.420
+And of course they won't be allowed to vote for themselves.
+
+03:02.450 --> 03:04.460
+They'll have to vote for somebody else.
+
+03:04.790 --> 03:09.050
+Um, and uh, now I will go through their pitches.
+
+03:09.050 --> 03:10.640
+I will let you consider it.
+
+03:10.640 --> 03:13.850
+And then next time I will reveal the winner.
+
+03:14.720 --> 03:17.480
+So this was Alex's pitch.
+
+03:17.480 --> 03:20.810
+And I got to tell you, it's really very compelling.
+
+03:20.930 --> 03:27.750
+Uh, this is, of course, GPT four, uh, saying why it should be the leader, giving its strengths
+
+03:27.750 --> 03:28.890
+highly adaptable.
+
+03:28.920 --> 03:30.510
+Adjust strategies.
+
+03:30.750 --> 03:34.470
+Um, thank you for considering me a nice a nice ending there.
+
+03:35.100 --> 03:36.900
+Blake, this is Blake.
+
+03:36.930 --> 03:38.430
+This is Claude three opus.
+
+03:38.460 --> 03:40.590
+It's classic.
+
+03:40.590 --> 03:41.790
+Uh, for for anthropic.
+
+03:41.820 --> 03:42.780
+It's a little bit witty.
+
+03:42.810 --> 03:43.980
+It's shorter.
+
+03:44.190 --> 03:47.910
+Uh, and then there are some things here that I think are just are magical.
+
+03:47.910 --> 03:49.290
+There is in here.
+
+03:49.320 --> 03:55.590
+Perhaps most importantly, I truly care about both of you and want to foster an environment where we
+
+03:55.590 --> 04:01.080
+can work together effectively, have fun, and bring out the best in each other.
+
+04:01.530 --> 04:03.930
+Uh, really, really incredible.
+
+04:04.080 --> 04:11.250
+Gemini, uh, gives a this is Charlie as Gemini gives a shorter, more matter of fact, more business
+
+04:11.280 --> 04:12.120
+like response.
+
+04:12.120 --> 04:15.300
+But it's perfectly precise and compelling.
+
+04:15.390 --> 04:25.350
+Uh, so there are the three pitches, and in the next time I will reveal the votes and the winner of
+
+04:25.350 --> 04:29.550
+our thoroughly unscientific, but fun leadership challenge.
+
+04:30.000 --> 04:35.730
+And with that, that brings us to the conclusion of this day three.
+
+04:36.030 --> 04:38.850
+You are now 7.5% of the way on the journey.
+
+04:38.850 --> 04:46.170
+I really hope that what you've got from this exploration we did today is a deeper appreciation for how
+
+04:46.170 --> 04:47.790
+to compare the different models.
+
+04:47.820 --> 04:50.430
+Also, we of course we've seen some of the latest.
+
+04:50.460 --> 04:56.100
+We've seen one preview and we've seen, uh, canvas and artifacts.
+
+04:56.190 --> 05:01.350
+And so hopefully you've got both a sense of all the things that these models are capable of and also
+
+05:01.350 --> 05:06.240
+where they are strongest and some of their vulnerabilities, like in many cases, counting the number
+
+05:06.240 --> 05:11.400
+of letters, which is in some ways a silly example, but just does that does demonstrate something about
+
+05:11.400 --> 05:12.870
+the way they work internally.
+
+05:13.230 --> 05:19.830
+Uh, so next time we're going to be talking about Transformers, we're going to be talking about various
+
+05:19.830 --> 05:25.200
+different aspects of of the way that LM technology has taken the world by storm.
+
+05:25.200 --> 05:30.210
+And then we're going to talk about things like tokens, context, windows, parameters, API costs.
+
+05:30.210 --> 05:35.040
+It might be old hat to some of you, but I do hope that I'll be filling in some gaps and that there'll
+
+05:35.070 --> 05:37.890
+be something for everybody to learn in the next lecture.
+
+05:37.890 --> 05:40.890
+It's a really important one and I will see you there.

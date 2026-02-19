@@ -1,0 +1,325 @@
+WEBVTT
+
+00:00.800 --> 00:06.560
+So last time we looked at a humble linear regression model with feature engineering, and now we say
+
+00:06.560 --> 00:12.080
+goodbye to features and we start working with natural language processing.
+
+00:12.080 --> 00:19.490
+And we're going to begin with a rather simplistic type of NLP, which is called Bag of words, which
+
+00:19.490 --> 00:21.110
+I briefly mentioned before.
+
+00:21.140 --> 00:24.950
+So we're going to start by putting making these two very useful things.
+
+00:24.950 --> 00:33.920
+One is called prices and one is called documents and prices is just the list of all of the prices in
+
+00:33.920 --> 00:42.020
+our training data set and documents is all of the test prompts from our training data set.
+
+00:42.230 --> 00:47.480
+Just a bit of text, and what we're going to try and do now is build models which use the text in our
+
+00:47.480 --> 00:51.440
+documents, rather than using features that we have engineered ourselves.
+
+00:51.440 --> 00:52.940
+Just use the text.
+
+00:53.330 --> 01:00.660
+Um, and yeah, one one little trick you might notice here is that I use the test prompt, not the training
+
+01:00.660 --> 01:01.440
+prompt.
+
+01:01.590 --> 01:06.000
+If I use the training prompt, it would include the price in the training prompt.
+
+01:06.120 --> 01:12.210
+And that wouldn't work because then of course the model would just learn to spot the price itself is
+
+01:12.210 --> 01:13.470
+actually in the prompt.
+
+01:13.470 --> 01:16.470
+And then when it got to test time, it would fail rather miserably.
+
+01:16.470 --> 01:20.220
+So that's a little trick to watch out for.
+
+01:20.460 --> 01:22.980
+Um, a trap I'm more likely to watch out for.
+
+01:22.980 --> 01:25.710
+So we prepare that.
+
+01:25.710 --> 01:31.770
+We're now going to use something called a countvectorizer, which sounds super fancy.
+
+01:31.800 --> 01:36.330
+At any time that you think you're going to be working today with a count of Vectorizer, sounds like
+
+01:36.330 --> 01:41.850
+you're going to be building something that's highly sophisticated, but it is, alas, not sophisticated.
+
+01:41.940 --> 01:49.740
+What it's going to do is simply look for the counting, the number of words, and then build a vector
+
+01:49.740 --> 01:57.740
+where each location in the vector represents a particular word, and then how many times that word appears
+
+01:57.740 --> 01:59.420
+in your document.
+
+01:59.540 --> 02:06.110
+So each document will be a vector, and every row in that vector represents a word in your vocabulary.
+
+02:06.110 --> 02:09.170
+And the counter counts how many times it's there.
+
+02:09.170 --> 02:15.050
+And that whole way of thinking about things is known as a bag of words model, because it's like you
+
+02:15.050 --> 02:19.880
+have a bag of words that you are counting up, and it doesn't matter what order the words appear in,
+
+02:19.880 --> 02:23.840
+it's just the fact that they are there a certain number of times.
+
+02:24.170 --> 02:31.130
+Uh, and so we're doing that we're going to count up to the 1000 most common or most important of the
+
+02:31.130 --> 02:31.700
+words.
+
+02:31.700 --> 02:41.150
+And we're going to use this parameter here to make sure that it only, uh, it, it removes, uh, common
+
+02:41.150 --> 02:47.270
+stop words, which is what people call things like and and the and in and it that are going to be not
+
+02:47.270 --> 02:49.820
+useful for the model and only a distraction.
+
+02:49.820 --> 02:54.320
+And so they will get plucked out leaving us with juicy words behind.
+
+02:54.320 --> 03:00.000
+And um, what we're then going to do is, uh, and now you can see we do things much quicker.
+
+03:00.000 --> 03:05.340
+We're going to, uh, we're going to create our data set based on these documents.
+
+03:05.340 --> 03:09.240
+We're going to create a linear regression model again just as before.
+
+03:09.270 --> 03:14.610
+And we're going to fit our bag of words, um, to our prices.
+
+03:14.610 --> 03:21.090
+In other words, we're instead of using features this time we're replacing our features with this bag
+
+03:21.090 --> 03:29.130
+of words, this vector counting the number of words, um, for each word, each of our 1000 words in
+
+03:29.130 --> 03:32.850
+our most common dictionary vocab.
+
+03:32.880 --> 03:34.650
+So that's what we're going to do.
+
+03:34.680 --> 03:36.480
+We're going to run that linear regression.
+
+03:36.480 --> 03:37.980
+It's happening right now.
+
+03:37.980 --> 03:46.110
+It's counting up the uh, the, the 1000, uh, vector points across all of our data set.
+
+03:46.440 --> 03:53.250
+Um, and then once it's done that, we're going to put that into a bag of words, linear regression,
+
+03:53.250 --> 03:54.180
+pricer.
+
+03:54.180 --> 03:58.130
+and we are then going to test it, so we will test it again.
+
+03:58.160 --> 03:59.660
+It's just completed running.
+
+03:59.690 --> 04:07.280
+Um, so this is our function, our simple function that will try it out and we will test it with tester
+
+04:07.310 --> 04:08.570
+dot test.
+
+04:09.320 --> 04:10.790
+Bag of words.
+
+04:10.820 --> 04:13.520
+Linear regression Pricer.
+
+04:16.010 --> 04:17.630
+Let's see how it does.
+
+04:19.550 --> 04:21.050
+Lots of greens there I see.
+
+04:21.050 --> 04:22.730
+But also lots of reds.
+
+04:23.300 --> 04:23.960
+You can see.
+
+04:23.990 --> 04:25.340
+Let's just pluck one out.
+
+04:25.370 --> 04:27.140
+It guest $74.
+
+04:27.140 --> 04:29.030
+And it was in fact $46.
+
+04:29.030 --> 04:31.640
+So you can see that it's got things that are right.
+
+04:31.640 --> 04:33.530
+It's also got things that are way off.
+
+04:33.560 --> 04:35.540
+How do you think the graph is going to look.
+
+04:35.570 --> 04:36.830
+Let's see.
+
+04:37.430 --> 04:39.350
+Okay okay.
+
+04:39.350 --> 04:42.680
+Well it's looking more like there's some something good happening.
+
+04:42.680 --> 04:46.130
+We're starting to see things converging around the line.
+
+04:46.130 --> 04:48.080
+We're seeing a lot more green dots.
+
+04:48.080 --> 04:51.140
+The average is $113.
+
+04:51.140 --> 04:59.310
+So distinctly better than the linear regression with features and distinctly better than guessing.
+
+04:59.670 --> 05:01.980
+Uh, so, uh, progress happening.
+
+05:01.980 --> 05:05.760
+There's still some weird outliers here, some some problems.
+
+05:06.000 --> 05:10.860
+Um, but, uh, that this was the true value and it should have been right up there somewhere.
+
+05:11.160 --> 05:15.810
+Um, but there you can see that there is a progress being made.
+
+05:16.200 --> 05:24.540
+So next, the the last of the of this set before we go into more advanced models is going to be using
+
+05:24.540 --> 05:31.560
+the amazing Gensim library to, uh, introduce this word to vec model.
+
+05:31.560 --> 05:37.050
+That was uh, it was one of the first times that I really encountered, uh, neural networks with NLP,
+
+05:37.410 --> 05:45.060
+uh, using a vectorization model, um, with, with something that is a more sophisticated, uh, vector
+
+05:45.060 --> 05:46.440
+embedding model.
+
+05:46.500 --> 05:54.950
+Um, and we are going to use this word two vec function class from Gensim, and we are going to build
+
+05:54.950 --> 05:57.980
+vectors with 400 dimensions.
+
+05:58.250 --> 06:02.960
+And it's I've set it to use eight workers, which means it really hammers my box.
+
+06:02.960 --> 06:07.940
+This still took several minutes to run, and I ran it in advance so we wouldn't have to wait for for
+
+06:07.940 --> 06:08.840
+all of this.
+
+06:08.870 --> 06:19.610
+Uh, and I also then ran this, and that should mean that hopefully we are ready just to run this and
+
+06:19.610 --> 06:24.410
+to immediately see the results tester dot test.
+
+06:25.160 --> 06:33.200
+We should be able to pass in the word two vec linear regression pricer and see how this fancy vectorization
+
+06:33.200 --> 06:36.140
+model performs with linear regression.
+
+06:37.070 --> 06:39.950
+Well, it looks good so far from the first two lines, but oh no.
+
+06:39.980 --> 06:46.130
+Then there's some red, some green, some red, some greens, lots of reds that scoot down past the
+
+06:46.130 --> 06:49.290
+250 test data points to the chart.
+
+06:50.100 --> 06:52.080
+So here we have it.
+
+06:52.110 --> 06:54.150
+It looks quite decent again.
+
+06:54.180 --> 07:01.980
+Interestingly, the bad news is it's actually a hair worse than linear regression based on the simple
+
+07:02.010 --> 07:03.540
+bag of words model.
+
+07:03.540 --> 07:11.850
+So unveiling the lovely word two vec vector hasn't yet particularly helped us.
+
+07:11.850 --> 07:17.850
+We're still much the same territory as before, and that may be because the linear regression model
+
+07:17.850 --> 07:23.730
+isn't powerful enough to take advantage of all of the extra information that we have in these word two
+
+07:23.730 --> 07:25.140
+vec vectors.
+
+07:25.410 --> 07:31.800
+So in the next time we're going to explore some slightly more sophisticated models, and then we'll
+
+07:31.800 --> 07:34.890
+be done with our with our traditional machine learning.
+
+07:34.890 --> 07:38.820
+So just hang on in there for a bit longer, because I want to dig a little bit more juice out of this.
+
+07:38.850 --> 07:43.920
+We want to get a bit better with our baseline models, because we don't want our LMS to have an easy
+
+07:43.920 --> 07:44.730
+run at this at all.
+
+07:44.730 --> 07:46.350
+We want to we want to put up a fight.
+
+07:46.350 --> 07:48.330
+So see you next time.

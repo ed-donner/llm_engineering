@@ -1,0 +1,217 @@
+WEBVTT
+
+00:00.500 --> 00:01.460
+Welcome back.
+
+00:01.460 --> 00:08.330
+In the last part, we gave our GPT four and clawed the challenge of converting a simple Python program
+
+00:08.330 --> 00:14.630
+to calculate Pi into efficient C plus plus code, and both frontier models did well.
+
+00:15.050 --> 00:21.620
+Although GPT four only did a few more hints, and now we're going to move on to a harder problem.
+
+00:21.890 --> 00:29.210
+This code here, this Python code called Python hard, uh, is is is doing a little bit more work.
+
+00:29.300 --> 00:37.040
+Uh, it is going to, uh, calculate something called the maximum subarray sum.
+
+00:37.040 --> 00:39.170
+And this is what that does.
+
+00:39.200 --> 00:45.590
+Uh, the challenge is suppose you are given an array, a list of a large number of positive and negative
+
+00:45.590 --> 00:49.820
+numbers of random or pseudo random positive and negative numbers.
+
+00:49.820 --> 00:59.590
+And the question you are asked is if you were to take any subarray, any set of, of consecutive Numbers
+
+00:59.590 --> 01:06.520
+in that bigger array and add them up, you would get a sum of that section.
+
+01:06.520 --> 01:11.920
+What is the largest sum of any possible subarray?
+
+01:11.920 --> 01:17.200
+Pick any start point and end point that you wish in the array, and try and pick it so that you get
+
+01:17.200 --> 01:24.460
+the largest subarray and return that largest number, the number of the largest subarray.
+
+01:25.000 --> 01:28.630
+And of course, you have to bear in mind that there are negative numbers here.
+
+01:28.630 --> 01:31.690
+So it's not there's not an obvious answer.
+
+01:31.960 --> 01:36.820
+And the indeed the way that this code works is simply trying everything.
+
+01:36.820 --> 01:43.390
+It's a loop within a loop, loops through the start point, loops through the end point, and figures
+
+01:43.390 --> 01:48.580
+out it compares the current sum with the maximum sum and returns that sum.
+
+01:49.330 --> 01:51.340
+So that is what this function is doing.
+
+01:51.340 --> 01:52.960
+That is the meat of this code.
+
+01:52.960 --> 01:55.180
+There are two other things going on here.
+
+01:55.300 --> 02:02.180
+One of them is that we want to create a large number of pseudo random numbers, and I don't want to
+
+02:02.180 --> 02:09.980
+use something like Python's random number method, the random library, because then that's obviously
+
+02:09.980 --> 02:12.620
+not going to match with C plus plus libraries.
+
+02:12.740 --> 02:20.360
+Um, so instead what we've done here is, is just implement a very common, very simple pseudo random
+
+02:20.360 --> 02:21.530
+number generator.
+
+02:21.530 --> 02:24.890
+It's known as the linear Congruential generator.
+
+02:24.890 --> 02:27.680
+And you can Google it if you need to see the formula.
+
+02:27.770 --> 02:28.670
+That's what I did.
+
+02:28.940 --> 02:36.260
+And it's a simple way to generate a sort of predictable stream of random numbers based on a seed, uh,
+
+02:36.260 --> 02:43.610
+which is what we do so that we can have consistency and check that our C plus plus code gives identical
+
+02:43.610 --> 02:45.650
+results to our Python code.
+
+02:46.070 --> 02:55.040
+Um, and so yeah, this with a generator yielding the value is going to create these random numbers.
+
+02:55.040 --> 02:59.560
+And of course that's sneaky of me, because it's going to be hard for the frontier models to figure
+
+02:59.560 --> 03:02.410
+out how to convert that into C plus plus code.
+
+03:02.410 --> 03:04.330
+It's going to have to approach it.
+
+03:04.450 --> 03:09.670
+Um, not it's not not not an easy conversion, but not giving it things like the Pi function.
+
+03:09.880 --> 03:12.610
+Um, this is the one that does the loop within the loop.
+
+03:12.910 --> 03:18.760
+Um, and this here is something which repeats this 20 times.
+
+03:18.760 --> 03:28.810
+And uh, for the, uh, takes the total sum of all 20 times of doing it with a different seed.
+
+03:28.870 --> 03:36.070
+There's some settings here to get us off to a to to a consistent make sure that we're doing this consistently
+
+03:36.070 --> 03:37.090
+for every run.
+
+03:37.270 --> 03:45.760
+Um, and then we time doing this 20 times so that this is another of those cases where I should probably
+
+03:45.790 --> 03:50.890
+have been talking about it while I was running it, because if I remember right, this will take about
+
+03:50.890 --> 03:52.570
+a minute to run in Python.
+
+03:52.570 --> 03:56.880
+So I'm going to have to figure out how to interest you for a minute of waiting now.
+
+03:57.000 --> 04:04.890
+Uh, again, exac is the, uh, the definitely one that should cause you to raise an eyebrow any time
+
+04:04.890 --> 04:07.920
+that someone tells you to run exac of anything.
+
+04:08.040 --> 04:13.800
+Um, but of course, you can take a careful look through my code here and satisfy yourself that there
+
+04:13.800 --> 04:20.070
+is nothing devious happening here, and there is nothing but a bunch of maths.
+
+04:20.160 --> 04:23.160
+Uh, and besides, I have a British accent.
+
+04:23.160 --> 04:24.840
+That must mean I'm believable.
+
+04:25.170 --> 04:25.440
+Uh.
+
+04:25.440 --> 04:26.010
+All right.
+
+04:26.040 --> 04:28.350
+Anyway, that's enough prattling.
+
+04:28.470 --> 04:29.880
+Uh, it's done its thing.
+
+04:29.880 --> 04:33.960
+It was only 27 seconds, so I didn't need to jabber away like that.
+
+04:34.110 --> 04:43.110
+Um, and the total, uh, maximum subarray sum across all 20 runs is this rather large number of 10,980?
+
+04:43.140 --> 04:47.460
+I mean, it's not a massive number because of course we have positives and negatives that have all balance
+
+04:47.460 --> 04:48.780
+themselves out.
+
+04:49.320 --> 04:50.460
+All right.
+
+04:50.460 --> 04:57.880
+So now it's time for us to ask, uh, the GPT to make its version.
+
+04:57.910 --> 04:59.680
+Let's do that now.
+
+05:05.140 --> 05:12.190
+Here comes GPT version, and we will now try compiling that.
+
+05:14.140 --> 05:19.030
+And it's generated a warning, uh, implicit conversion.
+
+05:19.240 --> 05:22.690
+And then it ran it and it got the wrong answer.
+
+05:22.690 --> 05:28.750
+So in this case, despite the fact that there are some hints and despite that, I warned it about exactly
+
+05:28.750 --> 05:37.870
+the mistake I believe it's made, uh, the, um, it has generated code that runs quite quickly, but
+
+05:37.870 --> 05:44.650
+sadly ends up with an error, uh, problem, I believe with the number overflows that some C plus plus
+
+05:44.650 --> 05:48.190
+expert will have to confirm, and it ends up with the number zero.
+
+05:48.280 --> 05:52.060
+After the break, we will find out how Claude does.

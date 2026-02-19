@@ -1,0 +1,508 @@
+WEBVTT
+
+00:01.220 --> 00:07.160
+And welcome back to More Leaderboard Fest as we go through some more leaderboards.
+
+00:07.160 --> 00:13.490
+But this time we're bringing into the mix open source and closed source models together on some of the
+
+00:13.490 --> 00:15.080
+leading leaderboards.
+
+00:15.080 --> 00:18.650
+Outside hugging face for for a change.
+
+00:18.650 --> 00:21.440
+We are actually not going to be looking at hugging face now.
+
+00:21.440 --> 00:27.200
+So the first leaderboard that I want to show you, that is another one that is definitely belonging
+
+00:27.200 --> 00:29.780
+on your bookmarks is the vellum leaderboard.
+
+00:29.780 --> 00:31.760
+We did touch on this briefly in the past.
+
+00:31.940 --> 00:40.520
+Uh, vellum AI company had publishes this essential resource for LM practitioners, which compares different
+
+00:40.520 --> 00:43.310
+models at the very top of the page.
+
+00:43.310 --> 00:49.580
+You get these comparison charts about some basic benchmarks that are some of the easier benchmarks these
+
+00:49.580 --> 00:49.910
+days.
+
+00:49.970 --> 00:56.150
+MLU the reasoning one not the Pro, but the basic one that's, uh, you know, pinch of salt on this
+
+00:56.150 --> 00:59.240
+metric, but still, it's still quoted a lot.
+
+00:59.420 --> 01:02.480
+Um, human eval for Python coding and math.
+
+01:02.810 --> 01:08.240
+Um, and what you're seeing here are generally the closed source models that you know and love, like
+
+01:08.240 --> 01:14.000
+GPT four and sonnet 3.5, sonnet and GPT turbo and four.
+
+01:14.030 --> 01:15.140
+But look at that.
+
+01:15.140 --> 01:20.540
+There is an open source model in the mix in the form of llama 3.1 4.05 billion.
+
+01:20.570 --> 01:24.500
+That is the largest open source model on the planet.
+
+01:24.500 --> 01:32.300
+And you can see that it is competing, competing favorably with some frontier closed source models.
+
+01:32.540 --> 01:39.590
+Uh, so it does appear that this is in order of strength with the strongest one first, GPT four zero,
+
+01:39.590 --> 01:42.410
+uh, crushing it with MLU.
+
+01:42.410 --> 01:47.780
+But you can see that llama 405 B is just fractionally behind.
+
+01:47.840 --> 01:50.000
+Um, and they're all neck and neck.
+
+01:50.000 --> 01:50.720
+Really?
+
+01:50.750 --> 01:57.740
+Uh, so, uh, obviously llama 4 or 5 billion is the open source model is very much a contender.
+
+01:58.280 --> 02:02.900
+Then when it comes to coding, you can see that this is the order.
+
+02:02.900 --> 02:12.050
+Clause 3.5 sonnet is the leader, then GPT four zero, then llama 405 be in third position, and then
+
+02:12.050 --> 02:14.150
+the mini version of GPT four zero.
+
+02:14.330 --> 02:17.930
+Not not far off given how much cheaper it is.
+
+02:18.170 --> 02:20.420
+And then GPT turbo.
+
+02:20.990 --> 02:28.610
+And then here is the ranking for math questions GPT four zero at the at the helm, followed by llama
+
+02:28.610 --> 02:35.300
+405 billion right after that, and then followed by the others, with Claude coming in fourth place.
+
+02:35.300 --> 02:41.570
+For those top models, here are some super useful charts on performance.
+
+02:41.810 --> 02:47.270
+A little bit easier to interpret than the multi-dimensional chart we saw in Hugging face, although
+
+02:47.300 --> 02:48.620
+less information, of course.
+
+02:48.800 --> 02:57.020
+Uh, so in terms of the speed, the fastest to generate tokens measured in tokens per second is llama
+
+02:57.050 --> 02:59.060
+8 billion open source model.
+
+02:59.060 --> 03:05.780
+Not surprising because of course with fewer parameters it's doing less, so probably worth understanding.
+
+03:05.810 --> 03:06.500
+Uh, yeah.
+
+03:06.530 --> 03:07.310
+I see.
+
+03:07.340 --> 03:07.520
+So.
+
+03:07.520 --> 03:13.160
+So this is all, uh, trying as much as possible to run in a consistent way.
+
+03:13.160 --> 03:16.040
+And the information explains a little bit more about that.
+
+03:16.160 --> 03:23.060
+Uh, so after llama eight comes llama 70, a bigger model, and then Gemini 1.5 flash.
+
+03:23.120 --> 03:26.480
+Uh, and then Claude, three haiku, and then GPT four.
+
+03:26.510 --> 03:28.070
+Oh, mini.
+
+03:28.070 --> 03:29.060
+Uh, the mini variant.
+
+03:29.060 --> 03:32.270
+So obviously the smaller models are the faster ones.
+
+03:32.270 --> 03:33.950
+No surprise there.
+
+03:34.220 --> 03:36.020
+Uh, latency.
+
+03:36.050 --> 03:42.830
+Uh, that's that's measured in the number of seconds until the first token is received.
+
+03:42.860 --> 03:44.480
+It's a nice way of capturing it.
+
+03:44.480 --> 03:49.730
+That's a good way to explain what I was talking about earlier, when I showed latency on the basic attributes.
+
+03:49.730 --> 03:55.910
+And you can see no surprise the smaller models are able to respond very rapidly.
+
+03:55.970 --> 04:01.970
+Um, and here GPT four surprisingly has improved latency over GPT four.
+
+04:02.010 --> 04:02.280
+zero.
+
+04:02.310 --> 04:08.070
+Many, which may be just related to the the hardware setup that it has.
+
+04:08.070 --> 04:10.170
+I'm not sure, but they're close anyway.
+
+04:10.740 --> 04:17.730
+And then the cheapest models, which is measured in terms of dollars per million tokens.
+
+04:17.730 --> 04:24.540
+Uh, llama 8 billion comes in cheapest Gemini 1.5 flash does well, GPT four and mini of course is very
+
+04:24.540 --> 04:25.080
+cheap.
+
+04:25.080 --> 04:34.950
+And then, uh, the, uh, Claude three haiku, um, and then GPT 3.5 turbo after that.
+
+04:34.950 --> 04:40.890
+And this is being shown as two separate bars, one for input cost, one for output cost.
+
+04:41.190 --> 04:48.000
+So, uh, there is then a nice little interactive ability to compare two models and see them side by
+
+04:48.000 --> 04:50.190
+side against different measures.
+
+04:50.190 --> 04:56.430
+This is showing Claude three point uh, sorry, Claude 3.0 Claude three opus against GPT four.
+
+04:56.460 --> 05:04.320
+Oh, let's see if we can change this around a bit and pick 3.5 sonnet against GPT four.
+
+05:04.350 --> 05:07.200
+Oh, this is the face to face that we like to look at.
+
+05:07.680 --> 05:09.900
+So here we go.
+
+05:10.140 --> 05:14.910
+I mean, really, it looks like generally it considers them neck and neck.
+
+05:14.940 --> 05:15.750
+What are they saying?
+
+05:15.780 --> 05:22.650
+88.3% for Claude, 3.5 and 88.7% for GPT four.
+
+05:22.680 --> 05:22.920
+Oh.
+
+05:22.950 --> 05:28.080
+So giving GPT four the edge there reasoning Claude does better coding.
+
+05:28.080 --> 05:32.820
+Claude does better math, Claude does worse tool use.
+
+05:32.940 --> 05:36.540
+Uh, of course, what we went through in week two.
+
+05:36.660 --> 05:41.580
+Uh, Claude does better and multilingual Claude does better.
+
+05:41.580 --> 05:43.320
+So great.
+
+05:43.320 --> 05:48.120
+Uh, fascinating to be able to compare the models side by side like this.
+
+05:48.390 --> 05:54.840
+Um, then this table has, uh, row by row, the different models.
+
+05:54.870 --> 06:01.290
+Um, and so you can come through and look at, uh, closed source models like Claude 3.5 sonnet.
+
+06:01.290 --> 06:06.720
+Uh, that in terms of the averages, here is the one at the at the top of this leaderboard.
+
+06:06.870 --> 06:12.570
+Um, what you're looking at here is MLU again, which is this metric where everything scores very well.
+
+06:12.990 --> 06:18.000
+The one that we talked about in the initial metrics human eval for Python.
+
+06:18.000 --> 06:25.620
+This is the be hard benchmark that I mentioned was the benchmark designed to test future capabilities
+
+06:25.620 --> 06:28.290
+of models above and beyond what they're capable of.
+
+06:28.380 --> 06:36.480
+Um, but would you believe when you look at this cloud 3.5, sonnet is already scoring 93.1% in B hard,
+
+06:36.570 --> 06:41.580
+which means that no longer is this a metric that's testing for future capabilities.
+
+06:41.580 --> 06:43.680
+It is very much current capabilities.
+
+06:43.680 --> 06:46.500
+And cloud 3.5 sonnet is crushing it.
+
+06:46.980 --> 06:51.390
+Uh, grade school math and harder math problems.
+
+06:51.420 --> 06:57.870
+So here you see the the the the results from these different models.
+
+06:57.870 --> 07:03.180
+And something I mentioned early on that that is a bit puzzling is that cloud 3.5.
+
+07:03.210 --> 07:06.210
+Sonnet performs better than Claude three.
+
+07:06.240 --> 07:07.230
+Opus.
+
+07:07.320 --> 07:15.090
+Um, but Claude three opus is still provided as a by anthropic as as an API and costs significantly
+
+07:15.090 --> 07:16.590
+more than 3.5 sonnet.
+
+07:16.800 --> 07:20.010
+So I'm not sure why anyone would choose Claude.
+
+07:20.040 --> 07:23.700
+Three opus over 3.5 sonnet unless there happens to be some specific.
+
+07:23.730 --> 07:29.100
+Well, it looks like in the case of, uh, of reasoning, uh, Claude three opus does do better.
+
+07:29.100 --> 07:33.840
+So there are some, some, some ways in which it does better, but I'm not sure if it would be worth
+
+07:33.840 --> 07:35.340
+that extra price point.
+
+07:36.210 --> 07:43.560
+Um, and what you'll also see, of course, is that llama, uh, enters onto this model comparison.
+
+07:43.560 --> 07:49.530
+I noticed that llama 405 billion is not shown here, and I can only imagine.
+
+07:49.530 --> 07:56.310
+That's because they haven't yet been able to carry out all of these tests for llama 4.5 billion, because
+
+07:56.310 --> 08:04.350
+I would, of course, imagine that it far outperforms the 70 billion llama three instruct variant.
+
+08:06.120 --> 08:06.840
+Um.
+
+08:07.710 --> 08:13.590
+And now coming down to this table, this is the one that I showed you before.
+
+08:13.590 --> 08:18.300
+It's one place you can come to that will show you for the different models.
+
+08:18.330 --> 08:22.920
+What is their context, window size and what is their cost per input and output tokens.
+
+08:22.920 --> 08:32.310
+So it's of course only comparing the um, the, the, the models, uh, where it has that data, but
+
+08:32.310 --> 08:34.140
+it's extremely useful.
+
+08:34.140 --> 08:41.400
+It's something where, uh, you would either be hunting through many different pages online, or you
+
+08:41.400 --> 08:45.120
+can come here and see it all in one place, and that's why you should bookmark it.
+
+08:45.120 --> 08:52.410
+Uh, it of course, highlights that Gemini 1.5 flash has the extraordinary a million context window.
+
+08:52.410 --> 08:59.250
+That is, of course, 750,000 words or so of common English, uh, almost the complete works of Shakespeare,
+
+08:59.280 --> 09:03.190
+a extraordinarily large context window.
+
+09:03.670 --> 09:06.010
+The Claude family at 200,000.
+
+09:06.040 --> 09:09.250
+The GPT family at 128,000.
+
+09:09.280 --> 09:15.400
+Which, as I said before, seems somewhat slim compared to the million in Gemini 1.5 flash.
+
+09:15.400 --> 09:23.080
+But that's still a lot of information to be able to digest in a context window and still give a good
+
+09:23.080 --> 09:24.220
+response.
+
+09:24.430 --> 09:24.940
+Uh.
+
+09:24.970 --> 09:28.930
+You'll also see some open source models in the mix here.
+
+09:28.930 --> 09:36.640
+You can see mixed trials, context window size, and that the llama three models have an 8000 token
+
+09:36.640 --> 09:37.660
+context window.
+
+09:37.660 --> 09:43.660
+And that's worth bearing in mind as you compare using open source models to their closed source cousins,
+
+09:43.660 --> 09:49.240
+that if you need these massive context windows, then you're probably needing to go to the closed source
+
+09:49.240 --> 09:49.930
+route.
+
+09:52.120 --> 10:00.100
+Okay, so there is then a coding leaderboard that you can look at to compare human eval and then that,
+
+10:00.130 --> 10:04.870
+uh, that concludes the leaderboards on the vellum web page.
+
+10:04.870 --> 10:06.370
+There is one more to look at.
+
+10:06.400 --> 10:13.300
+Of these, um, business, uh, sites, and it is called the seal Leaderboard, provided by a company
+
+10:13.300 --> 10:14.020
+called scale.
+
+10:14.020 --> 10:18.730
+Com and scale specializes in generating bespoke data sets.
+
+10:18.820 --> 10:26.080
+So if you are working on a particular problem and you need to have a data set, uh, crafted, curated
+
+10:26.080 --> 10:30.550
+for your problem, then that is something that scale com is in business for.
+
+10:30.760 --> 10:38.290
+Uh, if you aren't able to use the data generator that hopefully you built as part of last week's challenge.
+
+10:38.350 --> 10:46.720
+So this leaderboard has a bunch of very specific leaderboards for different tasks.
+
+10:46.750 --> 10:53.890
+And there's one on adversarial robustness, which is designed, as it explains very well here on the
+
+10:53.920 --> 11:02.230
+Learn More to, uh, test prompts designed to trigger harmful responses from large language models.
+
+11:02.230 --> 11:08.800
+And so there's this, specific examples of the kinds of problematic questions that are asked.
+
+11:08.920 --> 11:12.790
+And if, for example, you're looking sorry, I didn't mean to do that.
+
+11:12.790 --> 11:20.290
+If, for example, you're looking to surface this as a chat as perhaps your airline customer support
+
+11:20.290 --> 11:27.580
+chatbot, you will care about the fact that it is robust against being taken off track and doing something
+
+11:27.580 --> 11:31.210
+that that could be far off the rails.
+
+11:31.210 --> 11:34.090
+So this is a useful benchmark for that purpose.
+
+11:34.090 --> 11:41.080
+Coding gives a more detailed benchmark for coding skills, and you can see Claude 3.5 sonnet leads the
+
+11:41.080 --> 11:41.800
+way.
+
+11:41.980 --> 11:46.930
+Um, and Mistral, of course, this is another set of boards that combines closed and open source.
+
+11:46.930 --> 11:57.130
+And Mistral Large two um, is in that top three, uh, as an open source, uh entrant instruction following
+
+11:57.310 --> 12:04.780
+uh, here you'll see that, uh, wonderfully, the llama 3.1 405 billion.
+
+12:04.810 --> 12:07.570
+They have been able to test this against instruction following.
+
+12:07.570 --> 12:09.130
+And it's in second place.
+
+12:09.130 --> 12:11.140
+It's ahead of GPT four zero.
+
+12:11.320 --> 12:14.110
+It's just behind Claude 3.5 sonnet.
+
+12:14.290 --> 12:20.320
+Uh, and so that is an amazing result for the world of open source and for meta coming in second place
+
+12:20.320 --> 12:21.010
+there.
+
+12:21.250 --> 12:23.230
+Uh, and in math problems.
+
+12:23.260 --> 12:30.280
+Llama 3.1 405 B comes in third place, GPT four zero and second Claude 3.5.
+
+12:30.310 --> 12:33.490
+Sonnet leading the way for math.
+
+12:33.610 --> 12:40.570
+And then there is also a leaderboard for Spanish, uh, which shows some of the results here.
+
+12:40.660 --> 12:47.980
+Uh, and Mistral is the open source front runner in fourth place with GPT four zero in pole position
+
+12:47.980 --> 12:48.790
+here.
+
+12:49.000 --> 12:55.450
+And Qxl.com are adding more of these business specific leaderboards all the time.
+
+12:55.450 --> 13:03.700
+So come back to see what else has been added and use this as a great resource for more specific leaderboards
+
+13:03.700 --> 13:05.020
+for your business problem.

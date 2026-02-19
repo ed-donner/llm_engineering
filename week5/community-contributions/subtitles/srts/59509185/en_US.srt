@@ -1,0 +1,526 @@
+WEBVTT
+
+00:00.680 --> 00:06.440
+So this is where I left you looking at this satisfying chart on training loss and seeing the training
+
+00:06.440 --> 00:07.640
+loss coming down.
+
+00:07.670 --> 00:09.800
+Could stare at this all day.
+
+00:09.800 --> 00:14.270
+Uh, but, uh, we will move on to other charts.
+
+00:14.480 --> 00:18.170
+Uh, let's go back to this diagram again.
+
+00:18.590 --> 00:22.190
+Um, I wanted to point out this one that you may have already seen.
+
+00:22.190 --> 00:24.110
+This is the learning rate.
+
+00:24.110 --> 00:25.670
+Let's blow this up.
+
+00:27.050 --> 00:34.250
+Uh, so this is showing you exactly what I was trying to describe earlier, but but as I, as I told
+
+00:34.250 --> 00:39.830
+you it would, it looks much more clear when when you're looking at it, uh, in weights and biases.
+
+00:39.890 --> 00:47.030
+Um, so this is showing how the learning rate changed over time from the beginning through to the end
+
+00:47.030 --> 00:54.290
+of the four, almost four, uh, didn't quite get to the end of the fourth epoch, um, when I ran the
+
+00:54.290 --> 00:55.130
+model before.
+
+00:55.160 --> 00:58.430
+And what you can see is that the learning rate started at zero.
+
+00:58.460 --> 01:03.720
+It then went up, uh, because of the warm up to this point here.
+
+01:03.870 --> 01:12.930
+Um, and then you can see that it, it gradually comes down in this very nice, smooth way, slowly
+
+01:12.930 --> 01:15.210
+to start with and then a lot more.
+
+01:15.210 --> 01:17.460
+And then at the end it tails off.
+
+01:17.460 --> 01:23.430
+And the idea is that it actually gets to exactly zero when you're four epochs are up.
+
+01:23.430 --> 01:25.710
+But I didn't make it to the end of the fourth epoch.
+
+01:25.740 --> 01:30.900
+And obviously if you choose to run for one epoch, then you get this whole chart just for the one epoch.
+
+01:30.930 --> 01:36.810
+It just takes the number of epochs that you set, and it smoothens the learning rate over that number
+
+01:36.810 --> 01:37.860
+of epochs.
+
+01:38.220 --> 01:42.660
+Uh, so, um, it hopefully illustrates exactly the point.
+
+01:42.660 --> 01:48.960
+And you can see that our blue line representing the current batch is right up at the top of this.
+
+01:49.020 --> 01:53.010
+Uh, and it looked flat to us only because we were at the very, very top.
+
+01:53.010 --> 01:59.310
+But in due course, it is going to come down smoothly, just as its predecessor did.
+
+02:00.580 --> 02:06.220
+Uh, so then another thing I wanted to mention, um, is that when we were looking at the different
+
+02:06.220 --> 02:11.830
+runs just here, you can see you can use this eye icon here to decide what you're going to be looking
+
+02:11.830 --> 02:12.250
+at.
+
+02:12.250 --> 02:16.690
+And I didn't put an eye on this one here in between.
+
+02:16.720 --> 02:27.190
+Now, what this is, is that after my, uh, my this batch, uh, was a brutally kicked off by by kicked
+
+02:27.190 --> 02:29.230
+off its instance by by Google.
+
+02:29.230 --> 02:35.230
+I was annoyed and decided I wanted to try and continue where it left off and run another couple of epochs.
+
+02:35.230 --> 02:38.470
+Even though the results got worse, I wanted to see what happened.
+
+02:38.500 --> 02:42.970
+I wanted to take it to an extreme, and I wanted to make sure it wasn't just an anomaly that the fourth
+
+02:42.970 --> 02:44.770
+epoch, the results got worse.
+
+02:44.770 --> 02:47.110
+Maybe the fifth epoch, they would suddenly be a lot better.
+
+02:47.110 --> 02:49.360
+So I at least wanted to see it play out a bit.
+
+02:49.540 --> 02:52.540
+Um, and so I'm going to now show that for you.
+
+02:52.570 --> 02:56.080
+Now it's going to be a bit confusing because I started it again.
+
+02:56.080 --> 02:58.960
+It's not going to continue off to the right here.
+
+02:58.960 --> 03:01.430
+It's going to begin over on the left.
+
+03:01.430 --> 03:06.500
+So you just have to bear in mind that it's going to see it as if it was the first training step.
+
+03:06.500 --> 03:11.720
+But in fact, what I'm going to show you belongs over to the right of this purple line.
+
+03:11.720 --> 03:12.350
+Let's see.
+
+03:12.380 --> 03:14.180
+Now this this this thing.
+
+03:14.180 --> 03:15.530
+And there it is.
+
+03:15.530 --> 03:17.600
+So let me blow this up.
+
+03:18.050 --> 03:23.630
+So hopefully it's clear to you that there should really be over here.
+
+03:23.630 --> 03:27.080
+It should be we should be able to take that and pull it over to the right.
+
+03:27.530 --> 03:34.130
+Because this is what happened when I resumed that SFT trainer from where it left off down here.
+
+03:34.130 --> 03:44.420
+And what you can see is this is then basically a fifth, another full epoch, um, representing that
+
+03:44.420 --> 03:47.990
+we never completed the fourth one, but this is like doing a whole nother epoch.
+
+03:47.990 --> 03:51.290
+And then this would be like the whole of the sixth epoch.
+
+03:51.410 --> 03:57.530
+Um, and what you can see again, another of these falls between the, um, when it, when it started,
+
+03:57.530 --> 04:04.100
+uh, the sixth epoch and at this point, definitely in a very suspicious territory.
+
+04:04.250 --> 04:05.810
+The loss looking too low.
+
+04:05.810 --> 04:12.710
+And sure enough, when I took these versions of the model and tried to run tests against them, they
+
+04:12.710 --> 04:19.010
+were all poorer in performance than the model that I took from a cut off about about here.
+
+04:19.460 --> 04:21.890
+So it was a test worth doing.
+
+04:21.890 --> 04:27.890
+I needed to satisfy myself that it wasn't just bad luck back here, but that it really was overfitting
+
+04:27.890 --> 04:30.080
+and that I wasn't getting useful results anymore.
+
+04:30.080 --> 04:31.910
+And that did prove to be the case.
+
+04:32.210 --> 04:35.090
+So it was a good test to do.
+
+04:35.090 --> 04:40.220
+And you can benefit from this because you can know if you have decided to do the full, the full Monty
+
+04:40.250 --> 04:47.300
+and run with this big version of the model, then, you know, once you've done, uh, your you might
+
+04:47.300 --> 04:48.830
+as well not go beyond three epochs.
+
+04:48.830 --> 04:55.820
+There is no no use for that, in my experience, unless you've tried changing hyperparameters and you've
+
+04:55.820 --> 04:57.290
+discovered something different.
+
+04:58.500 --> 05:04.110
+Uh, so then, um, the final thing I'll show you, you can play around with many of the other charts
+
+05:04.140 --> 05:04.860
+and weights and biases.
+
+05:04.860 --> 05:05.760
+There's lots to explore.
+
+05:05.760 --> 05:09.930
+You can look at the gradients themselves, and that is quite a rabbit hole.
+
+05:10.020 --> 05:15.450
+And you'd have to do a little bit of, uh, digging and research to understand what you're looking at
+
+05:15.450 --> 05:17.220
+and how to learn things from it.
+
+05:17.220 --> 05:22.440
+And ideally, what you the main things that you want to be looking for is making sure that you never
+
+05:22.470 --> 05:26.670
+get into a situation where your gradients are becoming zero.
+
+05:26.880 --> 05:29.700
+Um, which means that you're not learning anymore.
+
+05:29.700 --> 05:34.890
+If your gradients are zero, then your model is no longer learning and there's no use to be continuing
+
+05:34.890 --> 05:36.270
+the learning process.
+
+05:36.270 --> 05:40.740
+So you want to watch out for gradients being zero, and you also want to watch out for gradients blowing
+
+05:40.740 --> 05:47.670
+up and being too high, because that means that your your model is going to be bouncing around too much
+
+05:47.700 --> 05:49.920
+unless your learning rate is really tiny.
+
+05:49.920 --> 05:53.820
+Uh, your model is going to be, uh, not learning in a productive way.
+
+05:53.820 --> 05:59.740
+So those are some of the things to look for when you're looking at gradients in weights and biases.
+
+06:00.370 --> 06:03.730
+But the last thing I wanted to show you was going to hugging face.
+
+06:03.910 --> 06:11.710
+Um, and just show you if you if you remember this, this model here, which is the, uh, the the version
+
+06:11.710 --> 06:15.520
+of the Pricer model that I ran for all of these epochs.
+
+06:15.700 --> 06:16.930
+Um, you see this?
+
+06:16.930 --> 06:21.880
+The name of the run is the name that I constructed based on the date and time.
+
+06:21.940 --> 06:24.880
+Um, and it ends in, uh, 39.
+
+06:25.030 --> 06:26.440
+The number of seconds.
+
+06:26.440 --> 06:28.690
+Uh, just keep keep that in your mind.
+
+06:28.690 --> 06:34.480
+When we turn to hugging face, you go to the avatar menu and to your own name.
+
+06:34.600 --> 06:40.180
+Uh, you will then see your spaces if you have any, your models and your data sets.
+
+06:40.180 --> 06:42.700
+You can see I have 1 or 2.
+
+06:43.120 --> 06:46.990
+Uh, and when it comes to Pricer, I've run this once or twice.
+
+06:47.170 --> 06:54.070
+Uh, uh, and these, each of these represent the different repos that represent one of the different
+
+06:54.070 --> 06:55.870
+pricer runs.
+
+06:55.960 --> 07:01.670
+Um, and I like to keep them each each of these runs as a separate repo so that I can have all the different
+
+07:01.700 --> 07:05.420
+epochs and everything within this, this, this one repo.
+
+07:05.420 --> 07:12.110
+So what this 139 I think is the one that was the big guy with, with the, the, the four, three and
+
+07:12.110 --> 07:13.310
+a half epochs.
+
+07:13.310 --> 07:22.730
+So if we click into this, um, it comes up with the model page, uh, and if you go to files and versions,
+
+07:22.730 --> 07:28.100
+what you're looking at here is basically you're looking at git, you're looking at a repo which has
+
+07:28.100 --> 07:31.070
+within it the files associated with your model.
+
+07:31.340 --> 07:39.020
+Um, and as I mentioned uh, recently, you can see that the business here is this file, the safe tensors.
+
+07:39.020 --> 07:49.760
+And that file is 109MB, which is the size of the adapters that the adapters that we're using with are
+
+07:49.790 --> 07:50.690
+set to 32.
+
+07:50.720 --> 07:55.550
+When we did the maths, we worked out that that would be 109MB worth of weights.
+
+07:55.550 --> 07:57.400
+And that is all in this file.
+
+07:57.400 --> 07:59.710
+Safe tenses right here.
+
+08:00.130 --> 08:06.700
+Um, and, um, yeah, there's there's, uh, a few other things that we could look at.
+
+08:06.730 --> 08:14.860
+Adaptive config.json, uh, gives information about the, the adapter that we're using for the Lora
+
+08:14.860 --> 08:15.460
+fine tuning.
+
+08:15.460 --> 08:21.940
+And you can see, for example, it has the target modules stored in here, and it has our value of R
+
+08:21.970 --> 08:22.810
+32.
+
+08:22.840 --> 08:25.450
+It says we're using Lora training.
+
+08:25.660 --> 08:32.230
+Um, and so it has and it has the base model name uh llama 3.18 billion in there.
+
+08:32.590 --> 08:39.130
+Um, so that that gives you a sense of all of the information that's saved for this, this model.
+
+08:39.160 --> 08:43.360
+But the other thing I wanted to point out was this 16 commits over here.
+
+08:43.360 --> 08:46.090
+So this is showing the commit history.
+
+08:46.090 --> 08:53.170
+And basically every 5000 steps, um, the code that you saw was saving.
+
+08:53.170 --> 08:55.600
+This was pushing our model to the hub.
+
+08:55.600 --> 08:57.940
+That was something we configured in the training parameters.
+
+08:57.940 --> 09:00.760
+So it was being saved every 5000 steps.
+
+09:00.760 --> 09:05.410
+And that means that we can load in any of these models and test them.
+
+09:05.410 --> 09:08.080
+And that's how we can select the one that's performing the best.
+
+09:08.110 --> 09:10.000
+We've got each of these different checkpoints.
+
+09:10.000 --> 09:11.890
+And we can do as many of these as we want.
+
+09:12.070 --> 09:19.540
+Um, and uh, and we can use that to, to, to come back and recreate that moment when the model was
+
+09:19.540 --> 09:20.980
+at that point in training.
+
+09:21.040 --> 09:26.110
+Um, and so you can imagine I could have all of my different training runs all in this as different,
+
+09:26.140 --> 09:32.740
+uh, different revisions of this, uh, different, different versions of this price, the repository.
+
+09:32.740 --> 09:33.970
+But then it would get very cluttered.
+
+09:33.970 --> 09:38.620
+And that's why I separate it out so that each run is its own repo.
+
+09:38.620 --> 09:45.430
+And then the different batch steps show here, um, as the different history of the commits.
+
+09:45.580 --> 09:48.250
+Um, I think that's a nice, organized way of doing it.
+
+09:48.670 --> 09:54.400
+So that's how to see the model in the in the Huggingface hub.
+
+09:54.400 --> 09:56.170
+Uh, presumably We'll see.
+
+09:56.170 --> 09:57.820
+This is the one that's running right now.
+
+09:57.820 --> 09:59.290
+It's updated 15 minutes ago.
+
+09:59.290 --> 10:02.440
+So we go into this go into files and versions.
+
+10:02.440 --> 10:03.190
+We'll see that.
+
+10:03.220 --> 10:05.320
+Yes it's already saved a version.
+
+10:05.320 --> 10:06.610
+We've got to step 5000.
+
+10:06.640 --> 10:10.510
+So one version of this or two commits because there was an initial commit.
+
+10:10.510 --> 10:14.950
+And then step 5000 is just has been saved 15 minutes ago.
+
+10:14.980 --> 10:17.110
+So there's already a model that's running.
+
+10:17.110 --> 10:20.890
+And if you've been doing this at the same time as me, then you'll be in a similar boat and you'll be
+
+10:20.920 --> 10:26.560
+having versions of this model being uploaded to the Huggingface hub while I speak.
+
+10:26.950 --> 10:30.070
+And you'll actually, you would be able to test them right away.
+
+10:30.070 --> 10:32.350
+You don't need to wait for the training to complete.
+
+10:32.770 --> 10:34.780
+Um, so there we go.
+
+10:34.810 --> 10:42.940
+We've seen the, uh, the training underway, with the losses showing here that are a bit hard to understand.
+
+10:42.970 --> 10:49.630
+We visualize them beautifully in weights and biases, and we've seen the model itself being saved to
+
+10:49.660 --> 10:50.290
+the hub.
+
+10:50.290 --> 10:53.650
+And this is the experience of training.
+
+10:53.680 --> 10:55.640
+And I tell you, I can do this for hours.
+
+10:55.640 --> 10:59.270
+And I have done this for hours, which is very tragic of me.
+
+10:59.270 --> 11:03.710
+And in fact, I mentioned, I think right back at the very beginning of this course, that that screen
+
+11:03.710 --> 11:10.100
+you see over there that actually has weights and biases on it and the the chart that I was just showing
+
+11:10.100 --> 11:16.430
+you, uh, was, uh, this chart was the chart that was on there, uh, at the very beginning.
+
+11:16.430 --> 11:18.320
+Right now it's showing this chart here.
+
+11:18.470 --> 11:25.550
+Uh, and so I've been watching that during the course of the first few weeks of building this, this
+
+11:25.550 --> 11:26.330
+course.
+
+11:26.450 --> 11:28.730
+Uh, and it's been terrific fun.
+
+11:28.820 --> 11:34.220
+Uh, and hopefully you're doing much the same thing, watching the training happening, seeing your
+
+11:34.220 --> 11:37.040
+model versions being uploaded to the hub.
+
+11:37.070 --> 11:41.090
+Uh, and all that remains is for the run to complete.
+
+11:41.090 --> 11:50.270
+And then tomorrow for us to come and evaluate the model and see how we have done fine tuning our own
+
+11:50.270 --> 11:51.770
+verticalized model.
+
+11:52.100 --> 11:54.020
+Um, but we'll just wrap up for today.
+
+11:54.020 --> 11:55.400
+Back to the slides.

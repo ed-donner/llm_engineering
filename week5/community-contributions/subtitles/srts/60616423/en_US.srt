@@ -1,0 +1,262 @@
+WEBVTT
+
+00:00.050 --> 00:05.870
+So I hope you've just enjoyed yourself experimenting with different LMS locally on your box using the
+
+00:05.870 --> 00:07.400
+power of Olama.
+
+00:07.430 --> 00:10.040
+You've probably had similar experience to me, which is.
+
+00:10.040 --> 00:16.130
+I certainly found that Quinn 2.5 is perhaps the most powerful model when it comes to grasp of different
+
+00:16.130 --> 00:16.820
+languages.
+
+00:16.820 --> 00:20.300
+Some of the other models are better, I think, at explaining.
+
+00:20.360 --> 00:22.820
+So I'd be very interested to hear your observations.
+
+00:22.820 --> 00:26.750
+Please do post them with the course or message me direct.
+
+00:26.780 --> 00:31.370
+I'd love to hear what you've discovered and this kind of experimenting with different models and and
+
+00:31.370 --> 00:34.460
+finding the one that works best for your your problem.
+
+00:34.460 --> 00:37.160
+That is a critical skill for an LM engineer.
+
+00:37.160 --> 00:39.560
+So this was valuable time spent.
+
+00:39.590 --> 00:40.370
+All right.
+
+00:40.370 --> 00:42.620
+Let's talk about the next eight weeks.
+
+00:42.620 --> 00:50.570
+So I am looking to take you from where you are today, over on the left to being a master of LM engineering
+
+00:50.570 --> 00:51.650
+in eight weeks time.
+
+00:51.650 --> 00:53.090
+And this is how we'll do it.
+
+00:53.120 --> 00:59.150
+We'll start this week by looking at models at the frontier of what's possible today, which people call
+
+00:59.150 --> 01:00.200
+frontier models.
+
+01:00.260 --> 01:09.230
+Things like GPT 4001 preview and Claude 3.5, and a number of other pioneering models that are closed
+
+01:09.240 --> 01:11.730
+source and are able to achieve amazing things.
+
+01:11.730 --> 01:16.800
+And we'll do that through the web user interface like ChatGPT, and also then through the APIs.
+
+01:17.280 --> 01:22.410
+And we're going to build a commercial project, something immediately that will be useful, and there'll
+
+01:22.440 --> 01:25.290
+be an interesting commercial exercise for you as well.
+
+01:25.410 --> 01:31.380
+Then next week we will slap a user interface on top of it using a platform which I love, which is called
+
+01:31.380 --> 01:32.160
+Gradio.
+
+01:32.160 --> 01:34.980
+And we will have good fun with it and you'll see that I love it.
+
+01:34.980 --> 01:40.260
+I go on about it a bit, but it's so easy to use and it's so easy for people like me who are terrible
+
+01:40.260 --> 01:45.300
+at front end to build a nice, sharp user interface very quickly indeed.
+
+01:45.300 --> 01:53.400
+We'll do it to solve a classic JNI use case, which is the building an AI assistant, a chatbot, and
+
+01:53.400 --> 01:57.120
+we'll but we'll do so in a way that has audio and pictures.
+
+01:57.120 --> 02:03.720
+So it's multimodal and it will be able to use tools, which means that it's able to call out to code
+
+02:03.720 --> 02:07.650
+running on your computer, which sounds kind of spooky, but it's going to make sense when we do it.
+
+02:07.650 --> 02:08.760
+So that is all.
+
+02:08.760 --> 02:09.690
+Week two.
+
+02:10.290 --> 02:16.380
+In week three, we turn to open source, and we use the ubiquitous Hugging Face platform, which is
+
+02:16.380 --> 02:21.870
+used by data scientists and LM engineers across the board and will use it to build both.
+
+02:21.960 --> 02:27.270
+We'll use the simple API in hugging face called the pipelines API, and then we'll use the more advanced
+
+02:27.270 --> 02:32.040
+API, and we'll explore things like Tokenizers and models in Hugging Face.
+
+02:32.280 --> 02:38.460
+In week four, we're going to talk about something which is a particularly thorny issue in the world
+
+02:38.460 --> 02:42.840
+of AI, which is there are so many models to choose from.
+
+02:42.840 --> 02:47.220
+How do you go about selecting what is the right model for the task you have at hand?
+
+02:47.220 --> 02:52.650
+So we'll we'll work on things like benchmarks and leaderboards and figure out how do you go about that
+
+02:52.650 --> 02:53.940
+decision path.
+
+02:53.940 --> 02:58.560
+And then we're going to take on a particularly different kind of commercial problem about generating
+
+02:58.560 --> 02:59.160
+code.
+
+02:59.160 --> 03:06.330
+We're going to build an application which is able to rewrite Python code as C plus plus high performance
+
+03:06.330 --> 03:07.380
+C plus plus code.
+
+03:07.380 --> 03:11.010
+And we're going to then try it out with a bunch of closed source and open source models.
+
+03:11.010 --> 03:12.270
+And one of them will be the winner.
+
+03:12.300 --> 03:15.390
+The one that's the winner is going to take our test Python code.
+
+03:15.390 --> 03:22.620
+It's going to rewrite it and the new code is going to run 60,000 times faster, which is shocking.
+
+03:22.650 --> 03:24.210
+And you will see that yourself.
+
+03:24.270 --> 03:28.760
+And then there'll be some exercises for you to build other kinds of code generation tools.
+
+03:29.210 --> 03:35.780
+In week five, we will turn to one of the the topics that is super hot at the moment, which is rag
+
+03:35.780 --> 03:43.490
+retrieval, augmented generation, using, uh, data stores of information to add expertise to your
+
+03:43.490 --> 03:49.640
+LLM will be building our own Rag pipeline for answering questions that pertain to an organization.
+
+03:49.640 --> 03:54.860
+And then there'll be a difficult commercial challenge for you and exercise in which you apply this to
+
+03:54.890 --> 03:56.480
+your own information.
+
+03:56.480 --> 04:01.640
+And I'm really excited to see what people make of this, and to see some of your projects of rebuilding
+
+04:01.670 --> 04:03.860
+a Rag pipeline for yourself.
+
+04:04.790 --> 04:10.400
+In week six, we begin our three week flagship project for this course.
+
+04:10.400 --> 04:13.250
+Uh, week six, we will set up the business problem.
+
+04:13.250 --> 04:19.340
+We'll do a lot of work on data, and we're then going to create some traditional machine learning models,
+
+04:19.340 --> 04:21.410
+which is very important to do to build a baseline.
+
+04:21.410 --> 04:26.720
+And then we'll try models at the frontier, and we'll fine tune models at the frontier as well, to
+
+04:26.750 --> 04:29.810
+do as well as we possibly can with this business problem.
+
+04:29.810 --> 04:33.110
+In week seven, we'll apply it to open source.
+
+04:33.110 --> 04:38.080
+We're going to take open source models and they're initially going to perform terribly, and we're going
+
+04:38.080 --> 04:44.440
+to make it our mission to improve those open source models by fine tuning until at least we can compete
+
+04:44.440 --> 04:46.000
+with GPT four.
+
+04:46.210 --> 04:47.680
+The model at the frontier.
+
+04:47.680 --> 04:52.810
+And I'm not going to tell you what happens, but I will tell you that I believe that the results will
+
+04:52.810 --> 04:53.770
+astonish you.
+
+04:53.800 --> 04:54.880
+I will tell you that.
+
+04:54.880 --> 04:59.080
+So it is very much worth hanging on and seeing what happens in week seven.
+
+04:59.350 --> 05:05.200
+But then it all comes together in the finale in week eight, which is a fitting conclusion to the eight
+
+05:05.230 --> 05:13.060
+weeks we are going to build a fully autonomous Agentic AI solution, which will have seven agents collaborating
+
+05:13.060 --> 05:15.430
+to solve a real commercial problem.
+
+05:15.730 --> 05:17.170
+And the end.
+
+05:17.200 --> 05:21.400
+Not only will it be doing something where it scans the internet for various things, but will end up
+
+05:21.400 --> 05:24.880
+sending you push notifications with some of its discoveries.
+
+05:24.940 --> 05:27.340
+So it's going to be really fabulous.
+
+05:27.340 --> 05:30.100
+It's going to have a terrific result at the end of it.
+
+05:30.130 --> 05:35.830
+It will be a good way to to be a culmination of everything that you've learned each week, building
+
+05:35.830 --> 05:41.710
+on top of it, of the of the prior week, and resulting in true commercial projects that you'll be able
+
+05:41.710 --> 05:45.100
+to put into action in your day job right away.

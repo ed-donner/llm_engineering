@@ -1,0 +1,94 @@
+WEBVTT
+
+00:00.050 --> 00:04.430
+I'll just take a quick moment to introduce myself to convince you that I am actually qualified to be
+
+00:04.430 --> 00:05.960
+taking you on this eight week journey.
+
+00:05.990 --> 00:07.730
+So my name is Ed Donner.
+
+00:07.760 --> 00:13.400
+I've got about 20 years of experience in software engineering, data science, and tech leadership.
+
+00:13.400 --> 00:18.710
+Most of my career at JP Morgan, where at the end I ran engineering teams of about 300 people.
+
+00:18.740 --> 00:21.050
+I started out in London where I'm from.
+
+00:21.110 --> 00:26.000
+I then moved to Tokyo for a bit and ended up in New York City, where I live now.
+
+00:26.210 --> 00:29.720
+After JP Morgan, I founded a couple of AI startups.
+
+00:29.840 --> 00:35.720
+My first startup was sold, was acquired a couple of years ago, and in fact, that picture on the bottom
+
+00:35.720 --> 00:41.720
+right shows the moment when it was announced on a Times Square billboard.
+
+00:41.720 --> 00:44.720
+That was a particularly magical moment for me.
+
+00:44.720 --> 00:50.870
+But I don't want to show you that photo to brag about my Times Square moment, but also because, curiously,
+
+00:50.870 --> 00:53.030
+I actually live very near Times Square.
+
+00:53.060 --> 00:57.410
+It's an unusual place to live because it's such a sort of tourist place to be.
+
+00:57.440 --> 01:02.810
+But if you see these two red arrows and you imagine where they join up, that's basically where I live.
+
+01:02.810 --> 01:04.450
+And that's where I am right now.
+
+01:04.660 --> 01:09.250
+And so if you can imagine if I wave at you right now, if this were somehow a real time photo, you'd
+
+01:09.250 --> 01:13.120
+have a little me waving at you from roundabout where those red lines meet.
+
+01:13.600 --> 01:13.930
+Okay.
+
+01:13.960 --> 01:19.960
+And the final thing to mention, the picture in the middle at the bottom shows me flying.
+
+01:19.990 --> 01:21.430
+Or in front of a plane.
+
+01:21.430 --> 01:25.300
+You might be thinking, that's me saying, this is my big passion, my hobby, I fly planes.
+
+01:25.420 --> 01:28.030
+But in fact, that's that's not not what I was going to say.
+
+01:28.090 --> 01:34.000
+It turns out that whilst I'm very proficient and highly skilled in the field of llms, that does not
+
+01:34.000 --> 01:40.300
+translate in any way to my hand-eye coordination, which is terrible on almost any front, including
+
+01:40.300 --> 01:44.620
+flying planes where I have tried and am very shaky to say the least.
+
+01:44.650 --> 01:50.230
+So if it turns out that you find yourself in a plane and you look at the cockpit and you see that I
+
+01:50.230 --> 01:54.370
+am the person there on the stick, I suggest you look quickly for the nearest parachute.
+
+01:54.610 --> 02:01.120
+But if it comes to you needing to go on an eight week course to build up commercial expertise in how
+
+02:01.120 --> 02:04.750
+to be an LM engineer, then you've come to the right place.
+
+02:04.780 --> 02:07.750
+All right, without further ado, let's get to the course.

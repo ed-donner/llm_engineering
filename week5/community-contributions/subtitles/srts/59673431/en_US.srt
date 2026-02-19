@@ -1,0 +1,94 @@
+WEBVTT
+
+00:00.950 --> 00:02.300
+And here we have it.
+
+00:02.300 --> 00:04.100
+The user interface is completed.
+
+00:04.100 --> 00:11.150
+The extra notification came through on my phone and my watch, and you can see the wonderful trace of
+
+00:11.150 --> 00:16.070
+what went on here with the surfaced conclusion at the bottom.
+
+00:16.280 --> 00:22.010
+And it's actually just you just saw it up in the memory and it's just going off right now because it's
+
+00:22.010 --> 00:24.560
+kicking off another run while we speak.
+
+00:24.590 --> 00:27.830
+Uh, I left it too long, but there you got the idea.
+
+00:27.830 --> 00:35.420
+It ran, it completed, we saw the latest memories, and it was able to show the trace of the thinking
+
+00:35.420 --> 00:37.220
+that it was doing and what was happening.
+
+00:37.220 --> 00:40.160
+And it will be repeating this every five minutes.
+
+00:40.160 --> 00:41.990
+I should probably slow that down a bit.
+
+00:42.110 --> 00:48.380
+And notifying me all through the day and night of new deals.
+
+00:48.560 --> 00:54.470
+So hopefully this has been, uh, satisfying for you to see it come together.
+
+00:54.470 --> 00:59.600
+Hopefully you're running this yourself and seeing the same thing, seeing the conversation between the
+
+00:59.600 --> 01:05.870
+different agents in our agent framework and seeing this being surfaced and highlighted in this user
+
+01:05.870 --> 01:13.250
+interface, and seeing how easy, of course, how incredibly easy it is to use Gradio to build something
+
+01:13.280 --> 01:21.200
+off the shelf that is able to give us such great insights into what's going on and give us so much functionality,
+
+01:21.200 --> 01:23.330
+all in a set of screens.
+
+01:23.330 --> 01:28.700
+So with this, I hope that you enjoy working with this agent framework.
+
+01:28.700 --> 01:29.960
+Make it your own.
+
+01:29.990 --> 01:35.960
+I will probably go and fix the fact that the screen should refresh whilst it's also processing, so
+
+01:35.960 --> 01:37.250
+you don't have to to wait.
+
+01:37.250 --> 01:42.410
+But if I don't do it, then by all means you should do it yourself and add on more to this user interface
+
+01:42.410 --> 01:43.820
+and make this your own.
+
+01:43.820 --> 01:50.720
+Not only have you hopefully trained your own LLM to be even more accurate than R1, but also you're
+
+01:50.720 --> 01:55.790
+adding more functionality, improving the prompts, and finding other ways that we can bring this to
+
+01:55.820 --> 02:00.290
+life and also add add more features and surface them in the UI.
+
+02:00.290 --> 02:06.200
+And then when you've done that, push your code so that I can see it and admire it, and other students
+
+02:06.230 --> 02:08.780
+can take advantage of the changes that you've made.
+
+02:08.990 --> 02:15.680
+Enjoy working with this agent framework, and I will see you for the next video where we wrap things
+
+02:15.680 --> 02:16.220
+up.

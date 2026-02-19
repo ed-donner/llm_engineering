@@ -1,0 +1,421 @@
+WEBVTT
+
+00:00.800 --> 00:02.300
+So I know what you're thinking.
+
+00:02.300 --> 00:03.800
+You're thinking, what's going on here?
+
+00:03.830 --> 00:05.000
+We're on day five.
+
+00:05.030 --> 00:06.740
+We're on day five of week five.
+
+00:06.770 --> 00:08.840
+Why does he have a Jupyter notebook open?
+
+00:08.840 --> 00:10.730
+That's called day 4.5.
+
+00:10.730 --> 00:18.020
+And it's because it's just a little quick deviation on day four to show you genuinely how straightforward
+
+00:18.020 --> 00:21.110
+it is to switch out the vector data store for another one.
+
+00:21.110 --> 00:27.020
+And since this is super common out there, used a lot, I thought it was a great one to show you and
+
+00:27.020 --> 00:32.930
+to use it both to illustrate a different vector data store, and also to show you how easy it is to
+
+00:32.960 --> 00:34.310
+work with these abstractions.
+
+00:34.340 --> 00:39.140
+Now, something to to explain is that this isn't really a vector data store.
+
+00:39.140 --> 00:47.810
+It stands for Facebook AI Similarity Search, and it's a highly used, very common open source library
+
+00:47.840 --> 00:54.860
+put out by Facebook that lets you do quick search for vectors close to other vectors, and as such,
+
+00:54.890 --> 00:58.370
+it is often used as a kind of in-memory vector store.
+
+00:58.370 --> 01:04.160
+It doesn't persist on the disk, but you can use it to plonk in vectors and to retrieve other vectors
+
+01:04.160 --> 01:09.230
+that are similar, and you can also just use it as a library to do similarity search, to be looking
+
+01:09.230 --> 01:16.520
+for vectors close to other vectors, and Langshan has the right abstractions built around it, so it
+
+01:16.520 --> 01:19.220
+can just be a drop in replacement for chroma.
+
+01:19.220 --> 01:22.310
+So we use chroma before, which was persistent on disk.
+
+01:22.310 --> 01:26.090
+So it's a more serious hardcore data store vice.
+
+01:26.510 --> 01:29.360
+We can just use that in lieu of chroma.
+
+01:29.360 --> 01:34.070
+And I'm going to show you how easy it is because the code is going to be almost identical, except when
+
+01:34.070 --> 01:37.610
+we get to that abstraction and a couple of other things.
+
+01:38.240 --> 01:42.110
+So we run the imports as before in this import.
+
+01:42.110 --> 01:45.980
+You can see I have commented out the import for chroma, so I can't cheat.
+
+01:45.980 --> 01:52.160
+Chroma will not be included here and instead we're importing face Facebook AI similarity search.
+
+01:52.190 --> 01:58.760
+It's worth noting that face comes in two variations a CPU variant and a GPU variant, depending on which
+
+01:58.760 --> 01:59.930
+you have Pip installed.
+
+01:59.930 --> 02:04.490
+And with this environment, of course, I have Pip installed the CPU variant, but for high performance
+
+02:04.490 --> 02:11.750
+projects running on GPU, you can run the GPU version to run at blazing speed, so we've imported vice
+
+02:11.750 --> 02:13.880
+and no errors, which is great.
+
+02:14.150 --> 02:15.650
+Set up some things.
+
+02:15.650 --> 02:17.300
+This is all the same code.
+
+02:17.300 --> 02:19.220
+We load everything in as before.
+
+02:19.220 --> 02:25.970
+We're going to get hopefully 123 uh, to change that to be Len chunks.
+
+02:25.970 --> 02:28.310
+So we see do we have 123.
+
+02:28.340 --> 02:29.570
+Yes we do.
+
+02:29.600 --> 02:31.700
+Let's check that we have the right metadata.
+
+02:31.700 --> 02:33.590
+We have the four types.
+
+02:33.590 --> 02:35.840
+So far nothing is different.
+
+02:35.840 --> 02:36.980
+This is all the same.
+
+02:36.980 --> 02:38.000
+But look at this.
+
+02:38.000 --> 02:40.550
+One line has changed here cunningly.
+
+02:40.580 --> 02:44.060
+Uh, I didn't need to draw quite so much attention to it.
+
+02:44.060 --> 02:45.860
+I think you probably spotted it already.
+
+02:45.860 --> 02:49.850
+So we used to say vector store is chroma dot from documents.
+
+02:49.880 --> 02:53.720
+And we passed in the chunks embeddings and the persist directory.
+
+02:53.720 --> 02:58.580
+And now we just say vice dot from documents same construct.
+
+02:58.610 --> 03:00.380
+We also pass in the chunks.
+
+03:00.380 --> 03:01.970
+We also pass in the embeddings.
+
+03:01.970 --> 03:06.320
+And of course we don't pass in a persist directory because vice doesn't persist on disk.
+
+03:06.620 --> 03:09.980
+Um, now these two lines here are also different.
+
+03:09.980 --> 03:14.750
+So the lower level ways to ask questions of the data store are different.
+
+03:14.750 --> 03:20.300
+So if you're going to be using Feist, it's useful to have this to hand so you know how you can query
+
+03:20.300 --> 03:23.600
+for things like the number of vectors and the dimensionality.
+
+03:23.630 --> 03:27.530
+I don't know if you remember how many dimensions that there were when we did this in chroma.
+
+03:27.650 --> 03:32.630
+Um, but it's the same number of dimensions we're coming up with here.
+
+03:32.630 --> 03:36.590
+We're using the same OpenAI embeddings to vectorize.
+
+03:36.590 --> 03:40.550
+So we're still using the same LLM to create the vectors.
+
+03:40.550 --> 03:45.620
+The thing that has changed is how we are storing those vectors, not in chroma but in Feis.
+
+03:46.130 --> 03:50.540
+Um, and so uh, no surprise there 123 vectors, one for each chunk.
+
+03:50.540 --> 03:54.470
+And they have these dimensions coming back from OpenAI.
+
+03:55.190 --> 04:01.370
+Uh, so the other thing that's changed has been this pre-work section was different in day four.
+
+04:01.400 --> 04:04.010
+I'll remind you in day four, the pre-work.
+
+04:04.010 --> 04:05.660
+Let's go and take a look at that.
+
+04:06.080 --> 04:07.850
+Uh, ba ba ba ba.
+
+04:08.450 --> 04:14.270
+Uh, the pre-work actually looks a bit simpler just plucking out the vectors, documents, and doc types
+
+04:14.300 --> 04:15.890
+from chroma.
+
+04:15.890 --> 04:19.970
+And you can look at the ways that you query chroma to get this data.
+
+04:20.170 --> 04:22.810
+Um, and this is how I did it for vice.
+
+04:22.840 --> 04:25.840
+There might be a tighter way to do that, but this seems simple enough.
+
+04:25.840 --> 04:31.810
+I just collect the same vectors, documents, doc types, colors, and I map it into the color that
+
+04:31.990 --> 04:38.410
+Plotly is expecting so that we can just plot the same, uh, diagram so we can visualize our vectors
+
+04:38.410 --> 04:40.480
+just as we did before in 2D.
+
+04:40.600 --> 04:44.290
+This code is identical with one tiny exception.
+
+04:44.320 --> 04:45.670
+See if you can spot it.
+
+04:45.670 --> 04:47.290
+That's the only change.
+
+04:47.290 --> 04:52.570
+I've changed the title from saying chroma to saying vice, but otherwise the code is the same.
+
+04:52.750 --> 04:55.390
+Uh, we will visualize our data store.
+
+04:55.390 --> 05:00.250
+And so here then are the vectors as they are represented in vice.
+
+05:00.250 --> 05:04.660
+And of course, as you would expect, it's the same vectorization approach.
+
+05:04.660 --> 05:06.430
+So it looks pretty similar.
+
+05:06.430 --> 05:11.020
+We're just using a different underlying technology as our vector data store.
+
+05:11.260 --> 05:13.960
+Uh, and we can of course represent that in 3D.
+
+05:13.990 --> 05:21.190
+And we're now looking at the 3D representation in vice and nice to see that actually this time we've
+
+05:21.190 --> 05:24.370
+got, it's uh nicely it's very nicely separated.
+
+05:24.400 --> 05:25.060
+There we go.
+
+05:25.090 --> 05:26.560
+Anyway, I could look at that all day.
+
+05:27.160 --> 05:28.510
+So you get that sense.
+
+05:28.510 --> 05:31.930
+And then the code to bring it all together is identical.
+
+05:31.930 --> 05:33.310
+I haven't changed this at all.
+
+05:33.340 --> 05:38.020
+Vector stored as retriever can be called on chroma, or it can be called on face.
+
+05:38.020 --> 05:39.190
+And it is the same.
+
+05:39.190 --> 05:39.940
+So there we go.
+
+05:39.970 --> 05:40.750
+We run it.
+
+05:40.780 --> 05:41.740
+No errors.
+
+05:41.740 --> 05:42.370
+It's fine.
+
+05:42.370 --> 05:45.550
+Let's go straight to bringing up Gradio.
+
+05:45.820 --> 05:49.180
+Uh, and here we go.
+
+05:49.210 --> 05:51.820
+Here is our Gradio interface.
+
+05:52.150 --> 05:58.690
+Um, now, one of the things that I meant to show you last time that I now take this chance, and you
+
+05:58.690 --> 06:04.600
+can see the same will apply in chroma as well, is I can take questions like, uh, like you remember
+
+06:04.600 --> 06:07.060
+last time I asked, what did Avery do before?
+
+06:07.060 --> 06:11.710
+And it was cunning enough to look up the right context, even though I didn't say Lancaster and I spelled
+
+06:11.710 --> 06:17.500
+it with a lowercase a, we can take that even further, and I can say something like, what did?
+
+06:17.500 --> 06:21.370
+And I can spell Avery's name wrong like that.
+
+06:21.400 --> 06:24.400
+What did Avery do before?
+
+06:25.870 --> 06:27.670
+Um, uh.
+
+06:27.670 --> 06:32.920
+And I can run this piece of code like it is and have a look at what's come back.
+
+06:33.130 --> 06:40.390
+It has correctly identified that I'm talking about Avery Lancaster, and it looked up her HR document
+
+06:40.390 --> 06:45.580
+and it's again correctly identified that she worked at Innovate Insurance Solutions.
+
+06:45.670 --> 06:48.760
+Uh, we can might as well go in and just quickly check.
+
+06:48.760 --> 06:51.700
+Since it's set, it will go to the employees documents.
+
+06:51.700 --> 06:53.500
+We find Avery Lancaster.
+
+06:53.500 --> 06:54.580
+Here it is.
+
+06:54.580 --> 06:56.560
+Here is her HR record.
+
+06:56.560 --> 06:57.700
+Let's see what she did.
+
+06:57.700 --> 07:03.310
+She was indeed at Innovate Insurance Solutions before founding insurer Elm.
+
+07:03.550 --> 07:06.010
+Uh, it's good to see it didn't invent that.
+
+07:06.340 --> 07:16.270
+Uh, so, um, uh, the bottom line is that it's this this gives you a real sense that it didn't just
+
+07:16.270 --> 07:17.530
+do text matching.
+
+07:17.530 --> 07:23.230
+It didn't even, uh, get fussed by the wrong case that it was in lowercase and uppercase.
+
+07:23.230 --> 07:30.160
+It actually was able to identify that Avery spelt wrong, has the same meaning as Avery spelt with a
+
+07:30.190 --> 07:31.870
+Y Avery Lancaster.
+
+07:31.870 --> 07:39.220
+It has enough common sense to recognize that that is very plausibly what we were after.
+
+07:39.220 --> 07:44.890
+And again, the reason is because when it turned this into a vector and it put it in the vector and
+
+07:44.890 --> 07:51.640
+it looked in the vector data store for the vectors that were close to that, it found the Avery Lancaster's
+
+07:51.820 --> 07:56.050
+HR record as being something that was close to that in the data store.
+
+07:56.050 --> 08:00.430
+So I think it's fascinating to see that you can spell things wrong and it still works.
+
+08:00.430 --> 08:06.580
+And it's such a clear example of how much better using the vector lookup approach is than using the
+
+08:06.580 --> 08:11.080
+brute force technique that we used in the first session, which obviously would have failed hopelessly
+
+08:11.080 --> 08:12.130
+with this test.
+
+08:12.190 --> 08:17.890
+So I will let you prove to yourself that the same test will work if you use chroma, of course, and
+
+08:17.890 --> 08:19.720
+you can try out both, but you will see.
+
+08:19.720 --> 08:23.350
+I hope that chroma and vice have both worked very well indeed.
+
+08:23.440 --> 08:26.020
+But most importantly, you've seen that.
+
+08:26.050 --> 08:33.220
+True to what I explained before, Lang makes it super simple to switch out different vector data stores
+
+08:33.220 --> 08:37.510
+behind the scenes and use the same plumbing for your Rag workflow.
+
+08:38.080 --> 08:39.760
+All right, back to the slides.

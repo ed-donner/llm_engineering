@@ -1,0 +1,112 @@
+WEBVTT
+
+00:00.020 --> 00:03.800
+Let me talk about some other phenomena that have happened over the last few years.
+
+00:03.800 --> 00:10.910
+One of them has been the rise and fall, perhaps of a new type of job called the Prompt engineer, someone
+
+00:10.910 --> 00:17.780
+who specializes in knowing how to craft the right kind of prompts to get the best outcomes from llms.
+
+00:17.810 --> 00:23.780
+At one point, this role commanded a $500,000 salary and was hot in demand.
+
+00:23.810 --> 00:26.480
+It does seem to have fallen downwards a bit now.
+
+00:26.480 --> 00:31.100
+The demand is less, partly because knowing how to prompt well has become ubiquitous.
+
+00:31.100 --> 00:35.690
+There's so much content now about the right ways to go about prompting, and also because there are
+
+00:35.690 --> 00:39.050
+now tools that will actually create a prompt for you.
+
+00:39.080 --> 00:41.450
+Anthropic, in fact, has has one of those tools.
+
+00:41.450 --> 00:45.770
+So it is now something that has become relatively common.
+
+00:46.010 --> 00:50.240
+Another another phenomenon was the custom gpts.
+
+00:50.270 --> 00:55.160
+OpenAI has a GPT store that was incredibly popular for a while.
+
+00:55.190 --> 00:58.010
+It's become a little bit saturated at this point.
+
+00:58.010 --> 01:01.960
+I think people became fatigued of building custom GPT, gpts, but it's still there.
+
+01:01.990 --> 01:07.210
+The GPT store is still reasonably popular, and you can go there to experiment with different kinds
+
+01:07.210 --> 01:09.220
+of tuned gpts.
+
+01:10.090 --> 01:20.290
+Then of course, still very important was the emergence of co-pilots ways in which a human and an LLM
+
+01:20.320 --> 01:22.180
+could collaborate together.
+
+01:22.270 --> 01:27.160
+Famously, Microsoft Copilot, I think, was perhaps the first one that really took the world by storm.
+
+01:27.190 --> 01:34.810
+GitHub copilot of course, and there are many more co-pilots that are being embedded into a lot of applications.
+
+01:34.810 --> 01:38.890
+And in a way, we sort of saw that with canvas a moment ago.
+
+01:39.430 --> 01:48.070
+And then the new hot trend right now is all about agent ization, about using Agentic AI, which is
+
+01:48.070 --> 01:52.150
+where multiple llms collaborate to solve a problem.
+
+01:52.180 --> 01:59.440
+A more complex problem is broken down into smaller steps or smaller tasks, and then particularly tuned
+
+01:59.470 --> 02:06.610
+llms are used to tackle each of those steps, perhaps also with an LM responsible for planning and deciding
+
+02:06.610 --> 02:08.410
+which LM is doing what.
+
+02:08.440 --> 02:13.900
+Also, with a concept of memory, that there's some kind of persistent information that lasts, that
+
+02:13.900 --> 02:20.830
+can be exchanged between the LMS and a sense of autonomy, that the LMS don't just exist for the purposes
+
+02:20.830 --> 02:29.080
+of a chat interface with a human, but they have a sort of time horizon that that spans multiple chats,
+
+02:29.080 --> 02:29.830
+potentially.
+
+02:29.830 --> 02:37.660
+So that sense of autonomy and memory and being able to plan tasks and divide tasks down, those are
+
+02:37.660 --> 02:41.320
+all some of the core tenants of Agentic AI.
+
+02:41.350 --> 02:45.880
+And we'll be coming back to this a few times during the course, but in particular at the end of the
+
+02:45.880 --> 02:51.850
+course in week eight, we will build a full Agentic AI solution, as I might have said, a time or two,
+
+02:51.850 --> 02:55.270
+but it's really great and it will have eight, seven, seven.
+
+02:55.300 --> 02:56.680
+I don't get overexcited.
+
+02:56.710 --> 03:02.050
+There are seven agents that will collaborate as part of what we will build at the end.

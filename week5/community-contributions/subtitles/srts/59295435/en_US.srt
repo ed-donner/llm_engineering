@@ -1,0 +1,133 @@
+WEBVTT
+
+00:01.190 --> 00:07.160
+Well, just before we wrap up, let me introduce this week's challenge and talk about what we're going
+
+00:07.160 --> 00:07.460
+to do.
+
+00:07.460 --> 00:10.850
+And this is going to be, I think, again, a lot of fun.
+
+00:11.150 --> 00:14.870
+Hopefully you're finding all of the projects that we're doing together fun.
+
+00:14.960 --> 00:20.660
+I'm really trying to to come up with with interesting, juicy projects that stretch us in different
+
+00:20.660 --> 00:21.410
+ways.
+
+00:21.770 --> 00:27.440
+So I guess last time we've done, we built things like a system that generates minutes of meetings by
+
+00:27.470 --> 00:28.640
+listening to their audio.
+
+00:28.670 --> 00:31.070
+This time something completely different.
+
+00:31.280 --> 00:33.710
+It's going to be about writing code.
+
+00:33.710 --> 00:42.020
+And in particular, the idea is it's going to be about a code conversion, I guess somewhat inspired
+
+00:42.020 --> 00:43.430
+by bloop.
+
+00:43.430 --> 00:45.710
+And they're fiendishly brilliant idea.
+
+00:46.160 --> 00:54.560
+So in this case, what we're going to try and do is write a product that is designed to improve performance
+
+00:54.560 --> 00:59.390
+and performance critical code by converting Python to C plus.
+
+00:59.390 --> 01:00.020
+Plus.
+
+01:00.020 --> 01:01.270
+That's the idea.
+
+01:01.270 --> 01:05.710
+So we want to to find out how we can convert Python to C plus.
+
+01:05.710 --> 01:06.220
+Plus.
+
+01:06.220 --> 01:09.190
+And we're going to do this using a frontier model.
+
+01:09.190 --> 01:12.190
+And we're also going to do it with an open source model.
+
+01:12.190 --> 01:15.400
+And we're going to compare the performance of the results.
+
+01:15.400 --> 01:21.340
+But obviously we're going to have to start by selecting llms that are most suitable for the task.
+
+01:21.340 --> 01:22.960
+So that is the challenge at hand.
+
+01:22.990 --> 01:24.430
+I think it's going to be fun.
+
+01:24.520 --> 01:31.630
+We're going to see how we perform at optimizing code with the help of an LLM.
+
+01:33.640 --> 01:37.750
+But first, just a quick wrap up for day two of week four.
+
+01:37.780 --> 01:40.240
+Let me do that thing one more time.
+
+01:40.240 --> 01:44.110
+You're probably sick of this, but I do want to remind you of all the things you can do.
+
+01:44.170 --> 01:49.750
+You can code with frontier models, including building AI assistants that use tools.
+
+01:49.750 --> 01:57.670
+You can now also build open source solutions using hugging face the the Pipeline API across a variety
+
+01:57.670 --> 02:03.670
+of inference tasks and hugging faces, face, Tokenizers and models, which is the lower level APIs
+
+02:03.670 --> 02:09.010
+which give you more insight into what's going on and much more flexibility and will become essential
+
+02:09.010 --> 02:10.690
+when we get to training later.
+
+02:10.720 --> 02:12.010
+And now?
+
+02:12.010 --> 02:16.990
+Now, hopefully you should be in a position where you can confidently choose the right LLM for your
+
+02:16.990 --> 02:24.400
+project, backed by real results from leaderboards, from arenas, and from other resources.
+
+02:24.430 --> 02:29.530
+And when I say choose the right LLM, typically you'd be choosing the right 2 or 3 llms that you will
+
+02:29.560 --> 02:38.560
+then go into prototype with in order to then finally select the one that performs best after next time,
+
+02:38.560 --> 02:44.620
+you should have a deeper sense of how to assess the coding ability of models, and you'll have used
+
+02:44.620 --> 02:51.370
+a frontier model to generate code and built a solution front to back using Llms to generate code.
+
+02:51.370 --> 02:57.940
+And that's going to be another another skill that you will have acquired on the path to being a highly
+
+02:57.940 --> 02:59.530
+proficient LLM engineer.
+
+02:59.530 --> 03:00.700
+I will see you there.

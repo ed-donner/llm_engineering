@@ -1,0 +1,274 @@
+WEBVTT
+
+00:00.320 --> 00:07.970
+So I'm taking a moment now to explain that the training costs of optimizing a model for this course
+
+00:07.970 --> 00:09.740
+can be very slim indeed.
+
+00:09.740 --> 00:17.060
+It can be a matter of a couple of cents, and you don't need to go berserk and be doing what I'm doing
+
+00:17.060 --> 00:21.920
+and using A100 boxes and, and big training runs.
+
+00:22.490 --> 00:24.710
+And just to to clarify that.
+
+00:24.710 --> 00:30.260
+So first of all, as I explained last time, you can run on a box like a T4, which is very cheap.
+
+00:30.440 --> 00:34.190
+You can have a batch size that the largest that will fit on that box.
+
+00:34.190 --> 00:38.060
+It's probably 1 or 2, um, and then run training that way.
+
+00:38.060 --> 00:41.960
+But if you do that, actually with the training data set that we've been working with, it will take
+
+00:41.960 --> 00:46.370
+a long time, which is still going to add up to a bit because we've just got lots of data.
+
+00:46.370 --> 00:50.780
+And I wanted to explain that actually, it's not necessary to be training against this monstrous data
+
+00:50.810 --> 00:51.200
+set.
+
+00:51.200 --> 00:55.520
+I do that because I want to show you some, some good, some, some really quite strong results, but
+
+00:55.520 --> 00:58.250
+you'll get great results with a much smaller data set too.
+
+00:58.370 --> 01:04.350
+Now, one thing I would suggest though one you can just take the data set of 400,000 data points and
+
+01:04.350 --> 01:11.040
+just select from it the first 20,000 and run with that sub data set, and that would be totally fine.
+
+01:11.130 --> 01:13.830
+Um, it's probably better if you're going to do that.
+
+01:13.830 --> 01:20.670
+If instead you focus in on one particular type of product that's being priced, because that way the
+
+01:20.670 --> 01:24.120
+model will have opportunity to learn all about that product.
+
+01:24.240 --> 01:30.960
+Um, for example, you could choose appliances, which was one of the data sets that we pulled down
+
+01:30.960 --> 01:33.030
+from the Huggingface hub at the very beginning.
+
+01:33.210 --> 01:39.000
+Um, and instead of bringing down all of these data sets, you could simply bring down appliances only.
+
+01:39.000 --> 01:43.260
+And I've set up a, um, a Jupyter notebook.
+
+01:43.260 --> 01:46.380
+Uh, not not on Colab, just just a local notebook.
+
+01:46.380 --> 01:50.970
+It's in week six, where the other, uh, days were for week six.
+
+01:51.000 --> 01:55.410
+We actually built this data set the full one on day two.
+
+01:55.440 --> 02:01.610
+So this is a copy of day two, but it just made much simpler and more narrow to only look at appliances.
+
+02:01.730 --> 02:04.760
+And because it's such a small data set, it will run super fast.
+
+02:04.790 --> 02:06.650
+We connect it to the environment.
+
+02:06.650 --> 02:10.850
+This is will be a throwback to the to the past.
+
+02:10.940 --> 02:14.450
+It's complaining because I've already logged in to Huggingface and I tried to log in a second time,
+
+02:14.450 --> 02:15.770
+but ignore that.
+
+02:16.130 --> 02:23.600
+Um, and now we're just going to take, uh, the data set names, and I've commented everything out
+
+02:23.600 --> 02:28.340
+except for appliances, which you may remember, was one of the really small data sets.
+
+02:28.580 --> 02:35.300
+Um, uh, Hugging Face is really upset with me for, uh, running it multiple times, but there we go.
+
+02:35.330 --> 02:36.200
+Off it runs.
+
+02:36.200 --> 02:43.520
+The total time it takes to load in this data set is, uh, about a 0.2 of a minute, if I remember right.
+
+02:43.880 --> 02:50.900
+Uh, 0.3 of a minute even, uh, and when we do that, we've got 28,000 items.
+
+02:50.990 --> 02:54.890
+Um, so it's a lot smaller than the 400,000 data set we've been working with.
+
+02:54.890 --> 03:01.350
+But it's a perfectly respectable number for Flora, and it has the benefit of being focused on appliances.
+
+03:01.710 --> 03:04.590
+So it's a narrower data set.
+
+03:04.800 --> 03:10.620
+Um, and, uh, yeah, I, um, you can follow the rest of these charts.
+
+03:10.620 --> 03:12.330
+I've taken out the charts that don't matter.
+
+03:12.330 --> 03:14.280
+Like the comparison of different data types.
+
+03:14.280 --> 03:15.270
+This is the price.
+
+03:15.270 --> 03:16.380
+The average is.
+
+03:16.380 --> 03:17.670
+It's a smaller average.
+
+03:17.670 --> 03:20.850
+Um, but still you get all the way up to 999.
+
+03:20.850 --> 03:22.920
+And that is the, the, the curve.
+
+03:23.190 --> 03:27.900
+Um, and then to curate this, there's nothing really to it.
+
+03:27.930 --> 03:30.510
+We're going to take the entire data set.
+
+03:30.510 --> 03:36.840
+This is that same chart now for our smaller data set showing that there isn't a material correlation
+
+03:36.840 --> 03:37.710
+there.
+
+03:38.040 --> 03:44.400
+Um, and we can just quickly confirm that the same thing applies to the tokens as we checked before.
+
+03:44.580 --> 03:50.850
+Um, and then finally when we divide that into a training and test data set, we'll take the 25,000
+
+03:50.880 --> 03:54.840
+items for training and then 2000 for test.
+
+03:55.140 --> 03:58.290
+Um, and everything else will work just great here.
+
+03:58.350 --> 04:00.460
+Uh, you'll see the training prompt.
+
+04:00.460 --> 04:02.140
+The test prompt.
+
+04:02.320 --> 04:05.590
+We can plot the distribution of prices in the test set.
+
+04:05.590 --> 04:05.980
+There we go.
+
+04:06.010 --> 04:08.230
+We've got a perfectly decent spread.
+
+04:08.230 --> 04:16.120
+And then finally we can create the prompts from this, just as we did before, and then upload this
+
+04:16.120 --> 04:21.610
+to Huggingface, potentially give it a different name like I've called it light data here.
+
+04:21.880 --> 04:28.690
+Um, and also make the two pickle files, uh, and yeah, then you can use that in your training instead.
+
+04:28.690 --> 04:36.760
+It will build a model based on smaller populations of data that will be focused on predicting the prices
+
+04:36.760 --> 04:40.030
+of just home appliances, rather than all the different types.
+
+04:40.030 --> 04:41.080
+This will work great.
+
+04:41.080 --> 04:45.160
+I think it'll be a good exercise for you to have to make those small changes in various places in the
+
+04:45.160 --> 04:47.830
+code to focus in on this smaller data set.
+
+04:47.950 --> 04:54.640
+Uh, and I have run this myself, and I can confirm that whatever result we're going to discover, uh,
+
+04:54.640 --> 05:02.010
+from the main run we're doing with the 400,000, the same will apply in this case in terms of how it
+
+05:02.010 --> 05:04.830
+stacks up compared to other models.
+
+05:05.040 --> 05:12.900
+Not as much as will be the case with the the bigger data set, but uh, without giving the game away
+
+05:12.930 --> 05:18.360
+that the the important things will happen even if you're focused on appliances.
+
+05:18.360 --> 05:24.090
+And obviously when you're dealing with the data set at 25,000, uh, you can, uh, get through it very
+
+05:24.090 --> 05:25.620
+quickly indeed.
+
+05:25.680 --> 05:30.930
+Um, but should you do that and should you then get the bug like I have and want to then go and do a
+
+05:30.930 --> 05:31.530
+bigger run?
+
+05:31.530 --> 05:36.720
+Then of course, you can add in more types and you can spend a few dollars and then be doing it for
+
+05:36.720 --> 05:38.010
+the full data set.
+
+05:38.040 --> 05:39.690
+Anyway, I thought I'd go through that.
+
+05:39.690 --> 05:39.930
+This.
+
+05:39.930 --> 05:45.540
+This may be a good revision for people on how we curated the data and should you wish, a smaller data
+
+05:45.570 --> 05:45.930
+set.
+
+05:45.960 --> 05:47.220
+It tells you how to do it.
+
+05:47.250 --> 05:47.700
+All right.
+
+05:47.700 --> 05:53.970
+In the next video, we go to weights and biases, and we look at how the big run with the 400,000 is
+
+05:53.970 --> 05:54.750
+coming along.
+
+05:54.750 --> 05:59.340
+And we poke around weights and biases to see what more can be done there.
+
+05:59.370 --> 06:00.180
+See you there.

@@ -1,0 +1,184 @@
+WEBVTT
+
+00:00.740 --> 00:07.340
+I want to take a moment to talk about something that's very fundamental to an LLM, which is the number
+
+00:07.340 --> 00:13.190
+of parameters that sits inside the LLM parameters, also called weights.
+
+00:13.310 --> 00:16.100
+Generally, parameters and weights are synonymous.
+
+00:16.250 --> 00:19.850
+There is a detail that they're not exactly the same in some situations.
+
+00:19.850 --> 00:23.060
+But but basically think of weights and parameters as the same thing.
+
+00:23.090 --> 00:23.900
+Model weights.
+
+00:23.900 --> 00:32.030
+These are the levers that are within a model that controls what kinds of outputs it generates when it's
+
+00:32.030 --> 00:33.140
+given some inputs.
+
+00:33.140 --> 00:37.040
+How does it go about predicting the next word that's going to follow.
+
+00:37.040 --> 00:41.840
+And these weights are weights that are set when you train an LLM.
+
+00:41.840 --> 00:47.330
+It sees lots and lots of examples, and it uses those examples to shift around its weights until it
+
+00:47.330 --> 00:52.820
+gets better and better at predicting the next thing to come out the next token.
+
+00:52.820 --> 00:56.000
+We'll talk about tokens in a minute, but it gets better and better at that.
+
+00:56.000 --> 00:59.420
+And the way it gets better is by adjusting all of its weights.
+
+00:59.420 --> 01:04.160
+And for some of you that work in data science, this is all stuff you know very, very well for people
+
+01:04.160 --> 01:04.970
+that are new to it.
+
+01:04.970 --> 01:09.440
+During the course of the course, we will be looking at this in different ways, so you'll get a better
+
+01:09.440 --> 01:15.710
+and better intuition to what it means to have these parameters, these weights that control the output.
+
+01:15.710 --> 01:22.370
+But the first thing that one has to come to, to, to realize, to appreciate is how many weights we're
+
+01:22.370 --> 01:28.940
+talking about and what this means in the days of, of the the simpler of traditional data science,
+
+01:28.940 --> 01:35.180
+traditional machine learning, one would build a model such as a linear regression model, which is
+
+01:35.180 --> 01:40.110
+something which sort of takes like a weighted average, and it would typically have somewhere between
+
+01:40.110 --> 01:47.630
+20 and 200 parameters, or weights 20 and 200 is about the range you'd often usually be talking about.
+
+01:47.750 --> 01:54.470
+And one of the somewhat bizarre, remarkable thing about these LMS is that we're talking about such
+
+01:54.470 --> 01:56.570
+a different number of weights.
+
+01:56.600 --> 02:05.280
+GPT one that came out back in 2018, I had 117 million waits.
+
+02:05.310 --> 02:10.230
+Now, this was actually something that was personally galling for me, because at the time we had a
+
+02:10.230 --> 02:16.740
+deep neural network, of which the LMS at types, we had one in my startup, and I used to go around
+
+02:16.740 --> 02:24.210
+showing off that our deep neural network had 200,000 parameters, which I thought was a staggeringly
+
+02:24.210 --> 02:31.230
+large number, and I couldn't imagine any possibility of a model that had more than 200,000 parameters.
+
+02:31.230 --> 02:35.880
+So when GPT one came out with 117 million parameters, I was stumped.
+
+02:36.120 --> 02:41.610
+It really made me appreciate, uh, how how the enormity of GPT one.
+
+02:41.970 --> 02:47.580
+But then, you know, as you can probably see, this, this scale that you're seeing here is a logarithmic
+
+02:47.580 --> 02:51.000
+scale, which means that every tick doesn't mean one more notch.
+
+02:51.030 --> 02:56.940
+It means ten times the number of parameters as the, as the, as the tick before it.
+
+02:57.000 --> 02:59.550
+And let's layer on to this diagram.
+
+02:59.610 --> 03:06.720
+The subsequent versions of GPT, GPT two with 1.5 billion parameters.
+
+03:06.750 --> 03:10.680
+GPT three 175 billion parameters.
+
+03:10.710 --> 03:12.600
+I mean, this is just unspeakable.
+
+03:12.600 --> 03:14.160
+Number of parameters.
+
+03:14.190 --> 03:20.670
+GPT 41.7 6 trillion parameters.
+
+03:20.970 --> 03:24.000
+And then the latest frontier models.
+
+03:24.000 --> 03:27.210
+They haven't actually announced how many parameters they have.
+
+03:27.240 --> 03:32.520
+It is believed that they have around 10 trillion parameters.
+
+03:32.520 --> 03:37.710
+It is an almost unthinkable number of these weights that are running.
+
+03:37.920 --> 03:43.350
+Um, and now let's layer on top of this some of the open source models.
+
+03:43.500 --> 03:46.110
+So Gemma is 2 billion.
+
+03:46.140 --> 03:47.580
+It's a lightweight model.
+
+03:47.580 --> 03:55.260
+And you may also remember that llama 3.2 that we worked on when we were using llama also had 2 billion
+
+03:55.320 --> 03:56.670
+uh parameters.
+
+03:56.820 --> 04:04.450
+Uh, then llama 3.1, which is it's it's uh a Bigger Cousin comes in three varieties an 8 billion version,
+
+04:04.480 --> 04:14.470
+a 70 billion version, and then llama 3.1 405B, which is the largest of the open source models at this
+
+04:14.470 --> 04:21.040
+time and which has similar capabilities really to some of the frontier closed source models.
+
+04:21.040 --> 04:24.970
+And then I mentioned mixed rail here, the mixture of experts model.
+
+04:25.420 --> 04:33.040
+So this is just here to give you some insight into how enormous these models are.
+
+04:33.040 --> 04:39.190
+And it's hard to even comprehend what it means to have 10 trillion different weights, different sort
+
+04:39.220 --> 04:40.870
+of levers, different numbers.
+
+04:40.870 --> 04:49.060
+You can think of them as little knobs within this enormous model that controls the output given an input.
+
+04:49.060 --> 04:54.740
+And again, compare that in your mind to an old fashioned linear regression model that might have between
+
+04:54.740 --> 04:57.280
+20 and 200 parameters.
+
+04:57.280 --> 05:00.970
+Just to get a sense of the enormity of these large language models.

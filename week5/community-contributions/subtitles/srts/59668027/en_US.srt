@@ -1,0 +1,202 @@
+WEBVTT
+
+00:01.040 --> 00:04.070
+And so here we are at the home page for modal.
+
+00:04.100 --> 00:10.790
+At modal.com spelt model not not model which is confusing.
+
+00:11.330 --> 00:13.430
+So what is modal.
+
+00:13.460 --> 00:18.620
+So modal is a service that allows you to take code.
+
+00:18.650 --> 00:25.610
+And it really can be any code and deploy it and run it remotely so that you can run it from, say,
+
+00:25.640 --> 00:28.640
+JupyterLab or just from some Python code running on your box.
+
+00:28.670 --> 00:36.560
+And what makes modal so powerful is that it makes it incredibly easy just to wrap up a function and
+
+00:36.560 --> 00:39.920
+have that be called so that it's almost transparent to you.
+
+00:39.920 --> 00:43.850
+It almost feels like you're calling a function that's running locally on your box.
+
+00:43.850 --> 00:46.820
+And in fact, it's been called out to the cloud.
+
+00:46.820 --> 00:48.740
+And the answer is coming back.
+
+00:48.860 --> 00:56.060
+So it gives you such transparency, and it allows you to work almost seamlessly between your box and
+
+00:56.060 --> 00:56.900
+the cloud.
+
+00:57.170 --> 01:03.170
+Now, a lot of the way it works is that it also allows you to package your code into an API, and have
+
+01:03.170 --> 01:08.120
+it running in such a way that people can use like Rest APIs to to call your code.
+
+01:08.150 --> 01:10.760
+We're not going to do that because we're working in Python.
+
+01:10.760 --> 01:12.230
+And this is all Python code.
+
+01:12.230 --> 01:18.230
+And it's even easier if all you need to do is call Python functions remotely on the cloud.
+
+01:18.440 --> 01:24.770
+Um, and whilst it is, as I say, mostly used by AI teams and for for AI as it's, as it's showing
+
+01:24.770 --> 01:27.290
+right here AI and data and machine learning.
+
+01:27.350 --> 01:32.780
+Um, it can also just be used for really any anything that you can write in Python, you can run on
+
+01:32.780 --> 01:33.560
+the cloud.
+
+01:33.680 --> 01:38.270
+Um, and so it's um, it's it's very versatile indeed.
+
+01:38.300 --> 01:44.510
+One other thing I'll mention that makes it very powerful is that you only pay for the compute time that
+
+01:44.510 --> 01:49.880
+you use, unlike services like, like, uh, you know, AWS or something.
+
+01:50.120 --> 01:55.640
+Um, it's one of these, these things where it will spin up a server on demand, and if it's not used
+
+01:55.640 --> 02:01.700
+for a while, it will, it will, it will, uh, pause that server and you'll only pay for the CPU minutes
+
+02:01.940 --> 02:03.980
+that your server is running for.
+
+02:04.040 --> 02:11.430
+So, uh, also the good news is that if you sign up for a new account, you get $30 of free credit,
+
+02:11.430 --> 02:14.880
+and we won't even come close to spending that $30.
+
+02:15.030 --> 02:16.530
+In this class.
+
+02:16.590 --> 02:19.920
+So you don't need to be concerned about about charges.
+
+02:19.920 --> 02:26.700
+This will be a freebie should you get addicted and you end up using modal for all sorts of purposes,
+
+02:26.820 --> 02:29.370
+then I can't be held accountable for that.
+
+02:29.490 --> 02:36.120
+But you will get hopefully your $30 of, uh, free credits unless they take that away.
+
+02:36.120 --> 02:41.820
+But even if they do that, as you will see, it's not exactly an expensive proposition.
+
+02:42.240 --> 02:47.580
+So when you go to modal comm, you'll need to sign up the first time and create an account if assuming
+
+02:47.580 --> 02:48.480
+you don't have one already.
+
+02:48.480 --> 02:50.910
+And once you've done that, you'll end up in a dashboard.
+
+02:50.910 --> 02:53.280
+And this is my dashboard right here.
+
+02:53.460 --> 02:59.970
+Um, and you can see here my live usage, um, in the time that I've been using modal to prepare for
+
+02:59.970 --> 03:04.260
+this class that has been going on for a while and running it a number of times, I've managed to rack
+
+03:04.290 --> 03:08.580
+up a $5 bill, uh, out of my $30 of free credit.
+
+03:08.580 --> 03:14.960
+So I've barely scratched the surface, and even if I hadn't got the free credit, it would be a $5 price
+
+03:14.960 --> 03:16.270
+tag for everything I've done so far.
+
+03:16.300 --> 03:18.400
+So, as I say, it's it's cheap.
+
+03:18.700 --> 03:23.260
+Um, here I'm looking at at apps, which are the programs that I've deployed.
+
+03:23.260 --> 03:26.920
+And of course we're going to be building a pricer service later.
+
+03:26.950 --> 03:31.960
+And if I go into this, you'll see that you can see all the different deployments that I've made of
+
+03:31.960 --> 03:32.710
+this service.
+
+03:32.740 --> 03:35.230
+And this will all make more sense when we actually do it.
+
+03:35.410 --> 03:38.950
+And you can see it's been called apparently 116 times.
+
+03:39.160 --> 03:42.250
+Uh, and you can see various other things about it.
+
+03:42.550 --> 03:44.170
+Um, but really, that's it.
+
+03:44.200 --> 03:48.580
+The one of the nice things about modal is that whilst one does have tokens and keys and all the rest
+
+03:48.580 --> 03:52.660
+of it, you don't need to go in and set it up and write it down because it's going to do it all for
+
+03:52.660 --> 03:54.370
+you and it's going to be very easy.
+
+03:54.370 --> 03:59.170
+All you have to do is sign up with an account and then everything else will come.
+
+03:59.200 --> 04:01.030
+Will will follow naturally.
+
+04:01.390 --> 04:05.170
+Okay, so with that, once you've signed up with your modal account, do some clicking around.
+
+04:05.170 --> 04:08.320
+You can always read the there's there's really nice docs.
+
+04:08.320 --> 04:09.460
+There's this this guide.
+
+04:09.460 --> 04:11.620
+You don't need to read this because we'll be doing some of this.
+
+04:11.620 --> 04:13.270
+But it gives you a real sense.
+
+04:13.270 --> 04:17.830
+There's a hello World program as well, but we'll be doing that ourselves as you will see.
+
+04:17.860 --> 04:20.140
+We'll get to that in the next video.
+
+04:20.170 --> 04:21.430
+I will see you then.

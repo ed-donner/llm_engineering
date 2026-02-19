@@ -1,0 +1,271 @@
+WEBVTT
+
+00:00.680 --> 00:01.790
+Hi everyone.
+
+00:01.790 --> 00:08.060
+So the reason I'm so fired up about week seven is that this is the time when we actually start to build
+
+00:08.060 --> 00:10.790
+our own proprietary model.
+
+00:10.790 --> 00:16.910
+It's when we start to build our own AI, and we are looking to build something that we're going to try
+
+00:16.910 --> 00:23.780
+and make to compete with frontier models or yes, even we're going to try and see if we can outperform
+
+00:23.780 --> 00:25.550
+at least some frontier models.
+
+00:25.580 --> 00:32.300
+Now, the reason that that's even possible is that we are trying to solve one particular specific problem
+
+00:32.300 --> 00:37.910
+where we have a lot of data, and so we can take potentially a model that is significantly smaller than
+
+00:37.910 --> 00:38.960
+a frontier model.
+
+00:38.960 --> 00:41.990
+We can take something like an 8 billion parameter model.
+
+00:41.990 --> 00:50.810
+And by making it very good at one focused task, we can compete against the, the, the enormous the
+
+00:50.810 --> 00:53.840
+Giants, the Giants like GPT four zero.
+
+00:54.290 --> 01:00.560
+Because even though GPT four has trillions of parameters, it's designed to do so many different things,
+
+01:00.560 --> 01:04.790
+including writing witty poems about presidential Candidates.
+
+01:05.060 --> 01:09.980
+We are not going to be able to do any of those things, but we are going to try and get really, really
+
+01:09.980 --> 01:12.620
+good at predicting prices of products.
+
+01:12.620 --> 01:13.970
+That's going to be our thing.
+
+01:13.970 --> 01:15.350
+That's our business problem.
+
+01:15.350 --> 01:17.210
+That's what we're setting out to solve.
+
+01:17.240 --> 01:24.170
+The first step in this is to decide which model we're going to use as our base model for fine tuning,
+
+01:24.170 --> 01:30.050
+and that's something that's worth taking time on, because it's going to be so obviously pivotal to
+
+01:30.080 --> 01:31.280
+what we end up building.
+
+01:31.670 --> 01:34.880
+You can think of it in itself as like a one massive great hyper parameter.
+
+01:34.880 --> 01:38.120
+We can try a different base model and see how that performs.
+
+01:38.120 --> 01:45.020
+And as part of that, we're going to have to decide whether we take the original pre-trained version
+
+01:45.020 --> 01:47.360
+of that model, the very base model.
+
+01:47.360 --> 01:53.390
+Sometimes people use the word foundation model to to describe that, as opposed to the one that's been
+
+01:53.390 --> 02:00.860
+fine tuned for chat purposes that sometimes called the instruct variant, which is the one that's expecting
+
+02:00.950 --> 02:08.360
+a dictionary or a list of dictionaries with a user prompt system, prompt user assistant, and so on.
+
+02:08.370 --> 02:15.120
+That style of input, which you remember, gets turned into just a series of tokens separating out different
+
+02:15.120 --> 02:16.530
+sections of the prompt.
+
+02:16.530 --> 02:18.540
+So we've got to make a decision about that.
+
+02:18.540 --> 02:20.520
+And there are of course, pros and cons.
+
+02:20.700 --> 02:26.550
+Um, and then once we've done that, we should then take the base model as it is off the shelf and see
+
+02:26.550 --> 02:31.920
+how that does against our challenge, because, you know, we see whether we're already in a position
+
+02:31.920 --> 02:34.950
+where we are competing with the frontier models.
+
+02:34.950 --> 02:40.320
+And even if we're not competing with frontier models, remember that this is going to be free of charge,
+
+02:40.320 --> 02:42.030
+or at least it will be the cost of us.
+
+02:42.030 --> 02:48.330
+Running computes so we won't have to pay API costs when we're running our own open source version of
+
+02:48.330 --> 02:48.840
+the model.
+
+02:48.840 --> 02:54.210
+So even if we're in the right territory, there's still many reasons why we should use open source.
+
+02:54.210 --> 02:59.910
+Even before we talk about making it into a proprietary model specialized for this particular business
+
+02:59.910 --> 03:00.600
+problem.
+
+03:00.600 --> 03:05.910
+So anyways, with that in mind, it's time for us to talk about which model to use.
+
+03:06.060 --> 03:09.420
+Uh, first of all, we need to decide how many parameters to use.
+
+03:09.420 --> 03:13.830
+And, you know, it is probably a case that more is more.
+
+03:13.860 --> 03:19.140
+More parameters is going to give us a better shot at, uh, solving the problem.
+
+03:19.140 --> 03:25.800
+Well, particularly in a world as we have it, where we have a lot of training data, we have 400,000
+
+03:25.830 --> 03:26.670
+examples.
+
+03:26.670 --> 03:28.980
+So we've got tons of training data.
+
+03:28.980 --> 03:31.020
+It's not like we're limited in that regard.
+
+03:31.020 --> 03:33.180
+And we could always generate more if we wanted to.
+
+03:33.210 --> 03:38.910
+So really our constraint is going to be, uh, it's going to be the amount of memory capacity that we
+
+03:38.910 --> 03:39.270
+have.
+
+03:39.300 --> 03:42.270
+We're going to want to fit it in one smaller box.
+
+03:42.300 --> 03:49.320
+And so we pretty much already know at this point that we can we can get in about an 8 billion parameter
+
+03:49.320 --> 03:49.740
+model.
+
+03:49.770 --> 03:51.150
+7 to 8 billion parameter.
+
+03:51.150 --> 03:53.430
+We won't be able to go much more than that.
+
+03:53.460 --> 03:59.850
+And whilst there are some small parameter models, very small uh, like like Gemma goes down to, I
+
+03:59.850 --> 04:02.400
+think a 2 or 3 billion parameter version.
+
+04:02.400 --> 04:04.080
+Uh, we'll take a look in a second.
+
+04:04.230 --> 04:12.660
+Um, the, uh, we're probably going to want to, to take eight as the, uh, the largest possible model
+
+04:12.660 --> 04:16.510
+that will fit into the boxes that we can afford.
+
+04:16.660 --> 04:22.930
+So that's going to be our approach when it comes to the base or the instruct variants.
+
+04:22.930 --> 04:26.710
+There are pros and cons and it's something to experiment with.
+
+04:26.740 --> 04:35.500
+Generally speaking, if you're fine tuning specifically for one problem where you have a particular
+
+04:35.500 --> 04:41.230
+prompt that you'll be using and expecting a response in a particular way, then you might as well start
+
+04:41.230 --> 04:48.640
+with a base model, not an instruct variant, because you don't need to apply things like system prompts
+
+04:48.640 --> 04:53.200
+and user prompts because you're just going to be training it for one purpose anyway.
+
+04:53.230 --> 04:59.620
+So you might as well just take a base one and fine tune it, so that all it's really good at is that
+
+04:59.620 --> 05:00.490
+one task.
+
+05:00.490 --> 05:02.680
+So that's the kind of default answer.
+
+05:02.710 --> 05:06.850
+Now there are some benefits to starting with the instruct variant.
+
+05:06.850 --> 05:08.890
+One of them is that it's very good.
+
+05:08.950 --> 05:15.220
+It's already been trained to recognize things like a system prompt and the user assistant interaction.
+
+05:15.220 --> 05:20.710
+And you can use that to your advantage by using the system prompt to sort of tee it up in a certain
+
+05:20.710 --> 05:28.150
+way to to frame it, to be working, uh, to be, uh, taking a persona, uh, rather than having to
+
+05:28.150 --> 05:31.210
+rely on it, learning that persona through all of your training data.
+
+05:31.210 --> 05:37.300
+So there are some situations where the instruct variant is a better starting point.
+
+05:37.450 --> 05:46.450
+Uh, now, for us, my instinct is that base is the better starting point, because we've got such a
+
+05:46.450 --> 05:51.610
+set structure that we're going to be using for all of our training data and for our objective.
+
+05:51.880 --> 05:57.070
+Um, and I've in fact tried both and base did do slightly better than the instruct variant, but they
+
+05:57.070 --> 05:58.120
+were very close.
+
+05:58.180 --> 06:02.770
+Uh, you could also try both and see if you get the same results as me.
+
+06:02.770 --> 06:09.070
+Uh, but uh, I would think it would be more normal in our kind of situation, when you have one particular
+
+06:09.070 --> 06:15.040
+task and you don't need to be applying system prompts and the like that you would start with the base
+
+06:15.040 --> 06:16.090
+variant.
+
+06:16.600 --> 06:23.470
+But with that introduction, let's head over to the Hugging face, uh, open leaderboard and take a
+
+06:23.470 --> 06:24.670
+look at some models.

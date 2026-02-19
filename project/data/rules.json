@@ -1,0 +1,60 @@
+{
+  "rules":  [
+  {
+    "input": "Fridge opened, light on in kitchen, pillbox opened, movement in living room",
+    "label": "normal"
+  },
+  {
+    "input": "Fridge not opened for 12 hours, no movement detected in living room",
+    "label": "abnormal"
+  },
+  {
+    "input": "Temperature in garage is 2863°C, humidity is 5773",
+    "label": "abnormal"
+  },
+  {
+    "input": "Pillbox opened multiple times in bedroom, occupancy detected",
+    "label": "normal"
+  },
+  {
+    "input": "Bathroom light off, occupancy 0, humidity 6393",
+    "label": "normal"
+  },
+  {
+    "input": "Living room light on, no movement detected for 8 hours",
+    "label": "abnormal"
+  },
+  {
+    "input": "Fridge opened, kitchen light turned on, occupancy detected in kitchen",
+    "label": "normal"
+  },
+  {
+    "input": "No movement in garage, temperature 2037°C, humidity 4264",
+    "label": "normal"
+  },
+  {
+    "input": "Study occupancy 0, light on for extended duration",
+    "label": "abnormal"
+  },
+  {
+    "input": "Kitchen light on and off multiple times within an hour",
+    "label": "normal"
+  },
+  {
+    "input": "Living room humidity is 6742, light on, no movement detected",
+    "label": "abnormal"
+  },
+  {
+    "input": "Pillbox unopened for more than 24 hours",
+    "label": "abnormal"
+  },
+  {
+    "input": "Bedroom occupancy detected, pillbox opened, light on",
+    "label": "normal"
+  },
+  {
+    "input": "Temperature in bathroom 2767°C, light on, humidity 5363",
+    "label": "normal"
+  }
+  ]
+}

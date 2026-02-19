@@ -1,0 +1,124 @@
+WEBVTT
+
+00:00.110 --> 00:04.730
+And for the final piece of background information, I wanted to take another moment to talk about API
+
+00:04.730 --> 00:05.300
+costs.
+
+00:05.300 --> 00:07.910
+It's something that I mentioned before.
+
+00:07.940 --> 00:11.870
+I've also got a section on this, of course, in the readme too.
+
+00:12.110 --> 00:15.260
+So as I said before, there is this.
+
+00:15.290 --> 00:23.060
+It is confusing that there is typically this pro plan associated with the chat web interfaces like ChatGPT,
+
+00:23.150 --> 00:29.900
+which is typically $20 a month, uh, in the US, and similar amounts in other territories, uh, and
+
+00:29.900 --> 00:35.510
+with a monthly subscription, uh, it's somewhat rate limited, but but basically there's no charge
+
+00:35.510 --> 00:36.140
+per call.
+
+00:36.140 --> 00:41.390
+And it's, it feels like you have an almost unlimited ability to be calling the model through the chat
+
+00:41.390 --> 00:42.350
+interface.
+
+00:42.350 --> 00:44.540
+The APIs are different.
+
+00:44.540 --> 00:51.110
+The APIs do not have a monthly subscription, but you pay per call, and the costs that you pay depends
+
+00:51.110 --> 00:56.990
+on the model that you're using, and also on the number of input tokens and the number of output tokens.
+
+00:56.990 --> 00:58.340
+And it charges you.
+
+00:58.340 --> 01:01.040
+The total cost is a combination of those two.
+
+01:01.070 --> 01:06.140
+It's a smaller charge based on the number of input tokens, and a slightly higher charge based on the
+
+01:06.140 --> 01:07.550
+number of output tokens.
+
+01:07.550 --> 01:13.250
+But I should stress that the total costs are overall very low when it comes to the individual calls.
+
+01:13.250 --> 01:17.600
+If you're looking to build a system that will be making large numbers of calls, then the numbers add
+
+01:17.600 --> 01:20.930
+up and you have to be very sensitive and aware of it as you scale.
+
+01:20.960 --> 01:26.030
+But in the kinds of projects we'll be working on, the costs will be quite small, and I would like
+
+01:26.030 --> 01:27.980
+to show you exactly what that is in just a second.
+
+01:28.340 --> 01:34.670
+I do want to say that generally, as far as you're concerned, for this course, probably when it comes
+
+01:34.670 --> 01:41.960
+to API costs, what will matter the most is that these days these platforms seem to require a minimum.
+
+01:41.960 --> 01:47.810
+In the case of OpenAI and Claude, at the moment in the US, they require you to put on at least a $5
+
+01:47.810 --> 01:50.480
+worth of credit that you then draw down on.
+
+01:50.480 --> 01:55.820
+And in this course, we won't scratch the surface of that $5, but you do have to put in that initial
+
+01:55.820 --> 02:01.370
+amount, but there will be plenty of opportunities for you to be using that in your own projects in
+
+02:01.370 --> 02:02.030
+different ways.
+
+02:02.030 --> 02:08.270
+And I think it's a great investment in terms of your education and ability to use these models to build
+
+02:08.270 --> 02:13.130
+new projects for yourself, as well as build your education and your experience.
+
+02:13.160 --> 02:18.080
+Having said that, if that is something that you're not comfortable with, as I say, now that we see
+
+02:18.080 --> 02:24.140
+how to use a llama and you've built that as part of the last exercise, you would be able to use a llama
+
+02:24.140 --> 02:30.290
+instead of using either OpenAI or Claude or Gemini at any point.
+
+02:30.380 --> 02:35.090
+You've got some practice doing that now with the last exercise, and you can put that into action should
+
+02:35.090 --> 02:35.870
+you wish.
+
+02:35.900 --> 02:38.810
+If you're not comfortable with with the API costs.
+
+02:38.810 --> 02:45.080
+But with that background, let me now take you to a site where I can show you a bit more insight into
+
+02:45.080 --> 02:47.360
+the API costs and also the context.
+
+02:47.360 --> 02:48.020
+Windows.
