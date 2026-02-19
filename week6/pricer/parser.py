@@ -31,7 +31,7 @@ def simplify(text_list) -> str:
     )
 
 
-def scrub(title, description, features, details) -> bool:
+def scrub(title, description, features, details) -> str:
     """
     Return a cleansed full string with product numbers and unimportant details removed
     """
