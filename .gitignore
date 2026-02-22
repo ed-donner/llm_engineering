@@ -132,6 +132,9 @@ venv.bak/
 llms/
 llms.bak/
 
+# Cursor
+.cursor/
+
 # Spyder project settings
 .spyderproject
 .spyproject
