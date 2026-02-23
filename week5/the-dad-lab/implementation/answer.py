@@ -44,13 +44,6 @@ def combined_question(question: str, history: list[dict] = []) -> str:
     return prior + "\n" + question
 
 
-def answer_question(question: str, history):
-    docs = retriever.invoke(question)
-    context = "\n\n".join(doc.page_content for doc in docs)
-    system_prompt = SYSTEM_PROMPT.format(context=context)
-    response = llm.invoke([SystemMessage(content=system_prompt), HumanMessage(content=question)])
-    return response.content
-"""
 def answer_question(question: str, history: list[dict] = []) -> tuple[str, list[Document]]:
     combined = combined_question(question, history)
     docs = fetch_context(combined)
@@ -61,7 +54,6 @@ def answer_question(question: str, history: list[dict] = []) -> tuple[str, list[
     messages.append(HumanMessage(content=question))
     response = llm.invoke(messages)
     return response.content, docs
-"""
+
 if __name__ == "__main__":
     gr.ChatInterface(answer_question).launch()
-    #print(answer_question("Help me build an activity with a 3 year old?", []))
