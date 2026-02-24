@@ -83,8 +83,8 @@ class SecurityAgent(Agent):
     name = "Security Agent"
     color = Agent.RED
 
-    def __init__(self, openai_api_key):
-        self.client = OpenAI(api_key=openai_api_key)
+    def __init__(self, openrouter_api_key):
+        self.client = OpenAI(api_key=openrouter_api_key)
 
     def review(self, pr):
         system_prompt = """You are a security expert analyzing GitOps infrastructure changes.

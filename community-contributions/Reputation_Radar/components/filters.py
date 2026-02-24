@@ -74,7 +74,7 @@ def render_sidebar(env_defaults: Dict[str, Optional[str]], openai_notices: Tuple
 
         st.markdown("### API Keys")
         openrouter_key_default = env_defaults.get("OPENROUTER_API_KEY") or _get_secret("OPENROUTER_API_KEY")
-        openrouter_key = st.text_input("OpenAI API Key", value=openrouter_key_default or "", type="password", help="Stored only in this session.")
+        openrouter_key = st.text_input("OpenRouter API Key", value=openrouter_key_default or "", type="password", help="Stored only in this session.")
         _store_secret("OPENROUTER_API_KEY", openrouter_key.strip())
         reddit_client_id = st.text_input("Reddit Client ID", value=env_defaults.get("REDDIT_CLIENT_ID") or _get_secret("REDDIT_CLIENT_ID"), type="password")
         reddit_client_secret = st.text_input("Reddit Client Secret", value=env_defaults.get("REDDIT_CLIENT_SECRET") or _get_secret("REDDIT_CLIENT_SECRET"), type="password")

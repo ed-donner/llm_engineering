@@ -18,18 +18,18 @@ class GitOpsGuardian:
         load_dotenv()
 
         self.github_token = os.getenv('GITHUB_TOKEN')
-        self.openai_api_key = os.getenv('OPENROUTER_API_KEY')
+        self.openrouter_api_key = os.getenv('OPENROUTER_API_KEY')
         self.gitops_repos = os.getenv('GITOPS_REPOS', '').split(',')
 
         if not self.github_token:
             raise ValueError("GITHUB_TOKEN not found")
-        if not self.openai_api_key:
+        if not self.openrouter_api_key:
             raise ValueError("OPENROUTER_API_KEY not found")
         if not self.gitops_repos or self.gitops_repos == ['']:
             raise ValueError("GITOPS_REPOS not found")
 
         self.scanner = GitOpsScannerAgent(self.github_token)
-        self.security_agent = SecurityAgent(self.openai_api_key)
+        self.security_agent = SecurityAgent(self.openrouter_api_key)
         self.compliance_agent = ComplianceAgent(self.github_token)
         self.ensemble_agent = RiskEnsembleAgent()
 

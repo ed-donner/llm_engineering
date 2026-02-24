@@ -187,17 +187,17 @@ def chunked(iterable: Sequence[str], size: int) -> Iterator[Sequence[str]]:
 
 
 def validate_openrouter_key(api_key: Optional[str]) -> Tuple[Optional[str], List[str]]:
-    """Validate an OpenAI key following the guidance from day1 notebook."""
+    """Validate an OpenRouter/API key following the guidance from day1 notebook."""
     warnings: List[str] = []
     if not api_key:
-        warnings.append("No OpenAI API key detected. VADER fallback will be used.")
+        warnings.append("No OpenRouter API key detected. VADER fallback will be used.")
         return None, warnings
     if not api_key.startswith("sk-"):
         warnings.append(
-            "Provided OpenAI API key does not start with the expected prefix (sk-)."
+            "Provided OpenRouter API key does not start with the expected prefix (sk-)."
         )
     if api_key.strip() != api_key:
-        warnings.append("OpenAI API key looks like it has leading or trailing whitespace.")
+        warnings.append("OpenRouter API key looks like it has leading or trailing whitespace.")
         api_key = api_key.strip()
     return api_key, warnings
 
