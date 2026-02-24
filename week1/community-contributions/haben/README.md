@@ -10,7 +10,7 @@ This folder contains a clean, minimal solution that mirrors `week1/day1.ipynb`, 
 
 ### Quickstart
 ```bash
-cd community-contributions/haben/week1
+cd week1/community-contributions/haben
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
 ollama pull llama3.2    # or llama3.2:1b on smaller machines
