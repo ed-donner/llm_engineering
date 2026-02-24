@@ -1,3 +1,0 @@
-gradio
-openai
-python-dotenv
