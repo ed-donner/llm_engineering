@@ -10,7 +10,7 @@ from httpx import Timeout
 
 
 # ---------- utils ----------
-def openai_api_key_loader():
+def openrouter_api_key_loader():
     load_dotenv(dotenv_path=".env", override=True)
     api_key = os.getenv('OPENROUTER_API_KEY')
     if not api_key:
@@ -177,7 +177,7 @@ def warmup(ollama_client: OpenAI, model: str):
 
 # ---------- main ----------
 def main():
-    if not openai_api_key_loader():
+    if not openrouter_api_key_loader():
         return
 
     # contestants (local Ollama)

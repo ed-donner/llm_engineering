@@ -34,7 +34,7 @@ An AI-powered tool that analyzes recipes from the web or text input, calculates 
    
    Create a `.env` file in the same directory:
    ```
-   OPENROUTER_API_KEY=your_openai_api_key_here
+   OPENROUTER_API_KEY=your_openrouter_api_key_here
    ```
 
 3. **Run the notebook:**

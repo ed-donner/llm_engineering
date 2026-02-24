@@ -36,13 +36,13 @@ class AIBrochureConfig:
             raise ValueError(f"Environment variable '{key}' must be an integer")
 
     @property
-    def openai_api_key(self) -> str:
+    def openrouter_api_key(self) -> str:
         """
         Get the OpenAI API key from the environment variables.
         """
-        if self.__openai_api_key == "":
-            self.__openai_api_key = self._get_str("OPENROUTER_API_KEY")
-        return self.__openai_api_key
+        if self.__openrouter_api_key == "":
+            self.__openrouter_api_key = self._get_str("OPENROUTER_API_KEY")
+        return self.__openrouter_api_key
 
     @property
     def model_name(self) -> str:
@@ -55,5 +55,5 @@ class AIBrochureConfig:
 
     def __init__(self) -> None:
         load_dotenv(dotenv_path=".env")
-        self.__openai_api_key: str = ""
+        self.__openrouter_api_key: str = ""
         self.__model_name: str = ""

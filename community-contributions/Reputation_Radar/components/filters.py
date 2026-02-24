@@ -73,9 +73,9 @@ def render_sidebar(env_defaults: Dict[str, Optional[str]], openai_notices: Tuple
         st.session_state["trustpilot_enabled"] = trustpilot_enabled
 
         st.markdown("### API Keys")
-        openai_key_default = env_defaults.get("OPENROUTER_API_KEY") or _get_secret("OPENROUTER_API_KEY")
-        openai_key = st.text_input("OpenAI API Key", value=openai_key_default or "", type="password", help="Stored only in this session.")
-        _store_secret("OPENROUTER_API_KEY", openai_key.strip())
+        openrouter_key_default = env_defaults.get("OPENROUTER_API_KEY") or _get_secret("OPENROUTER_API_KEY")
+        openrouter_key = st.text_input("OpenAI API Key", value=openrouter_key_default or "", type="password", help="Stored only in this session.")
+        _store_secret("OPENROUTER_API_KEY", openrouter_key.strip())
         reddit_client_id = st.text_input("Reddit Client ID", value=env_defaults.get("REDDIT_CLIENT_ID") or _get_secret("REDDIT_CLIENT_ID"), type="password")
         reddit_client_secret = st.text_input("Reddit Client Secret", value=env_defaults.get("REDDIT_CLIENT_SECRET") or _get_secret("REDDIT_CLIENT_SECRET"), type="password")
         reddit_user_agent = st.text_input("Reddit User Agent", value=env_defaults.get("REDDIT_USER_AGENT") or _get_secret("REDDIT_USER_AGENT"))
@@ -117,7 +117,7 @@ def render_sidebar(env_defaults: Dict[str, Optional[str]], openai_notices: Tuple
         },
         "batch_size": llm_batch_size,
         "credentials": {
-            "openai": openai_key.strip(),
+            "openai": openrouter_key.strip(),
             "reddit": {
                 "client_id": reddit_client_id.strip(),
                 "client_secret": reddit_client_secret.strip(),

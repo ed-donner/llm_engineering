@@ -5,7 +5,7 @@ import argparse
 from dotenv import load_dotenv
 from openai import OpenAI
 
-def load_openai_key():
+def load_openrouter_key():
     # Load environment variables in a file called .env
     load_dotenv(override=True)
     api_key = os.getenv('OPENROUTER_API_KEY')
@@ -44,7 +44,7 @@ def main():
     args = parser.parse_args()
 
     if args.provider == "openai":
-        load_openai_key()
+        load_openrouter_key()
         client = OpenAI()
         model = "gpt-4o-mini"
     elif args.provider == "ollama":

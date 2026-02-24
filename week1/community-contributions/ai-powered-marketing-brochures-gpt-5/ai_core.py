@@ -110,7 +110,7 @@ class AICore(ABC, Generic[TAiResponse]):
         Return the cached OpenAI API client, initializing it on first access.
 
         This private helper lazily constructs and caches an openai.OpenAI client using
-        the API key found on self.config.openai_api_key. On the first call, if the
+        the API key found on self.config.openrouter_api_key. On the first call, if the
         client has not yet been created, the method verifies that self.config is set,
         creates the client with openai.OpenAI(api_key=...), stores it on
         self.__ai_api, and returns it. Subsequent calls return the same cached
@@ -131,7 +131,7 @@ class AICore(ABC, Generic[TAiResponse]):
         if self.__ai_api is None:
             if self.config is None:
                 raise ValueError("Configuration must be set before accessing AI API")
-            self.__ai_api = openai.OpenAI(api_key=self.config.openai_api_key)
+            self.__ai_api = openai.OpenAI(api_key=self.config.openrouter_api_key)
         return self.__ai_api
 
     @property

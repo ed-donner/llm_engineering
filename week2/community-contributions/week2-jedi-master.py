@@ -83,16 +83,16 @@ tools = [
 def load_api_keys():
     # Load environment variables in a file called .env
     load_dotenv(override=True)
-    openai_key = os.getenv('OPENROUTER_API_KEY')
+    openrouter_key = os.getenv('OPENROUTER_API_KEY')
     anthropic_key = os.getenv('ANTHROPIC_API_KEY')
-    KEYS = {"openai": openai_key, "anthropic": anthropic_key}
+    KEYS = {"openai": openrouter_key, "anthropic": anthropic_key}
 
     # Check the keys
-    if not openai_key:
+    if not openrouter_key:
         raise RuntimeError("Error: No OpenAI API key was found!")
-    elif not openai_key.startswith("sk-proj-"):
+    elif not openrouter_key.startswith("sk-proj-"):
         raise RuntimeError("Error: An OpenAI API key was found, but it doesn't start sk-proj-; please check you're using the right key")
-    elif openai_key.strip() != openai_key:
+    elif openrouter_key.strip() != openrouter_key:
         raise RuntimeError("Error: An OpenAI API key was found, but it looks like it might have space or tab characters at the start or end - please remove them!")
     if not anthropic_key:
         raise RuntimeError("Error: No Anthropic API key was found!")

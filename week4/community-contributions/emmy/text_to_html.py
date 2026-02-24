@@ -5,14 +5,14 @@ import gradio as gr
 
 # --- Load environment keys ---
 load_dotenv(override=True)
-openai_api_key = os.getenv("OPENROUTER_API_KEY")
+openrouter_api_key = os.getenv("OPENROUTER_API_KEY")
 google_api_key = os.getenv("GOOGLE_API_KEY")
 
 # --- Model config ---
 MODEL_MAP = {
     "GPT-4o-mini": {
         "model": "gpt-4o-mini",
-        "key": openai_api_key,
+        "key": openrouter_api_key,
         "endpoint": "https://api.openai.com/v1"
     },
     "Gemini-Flash": {

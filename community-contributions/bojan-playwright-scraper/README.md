@@ -38,7 +38,7 @@ playwright install
 ### 2. Set environment variables
 Create a `.env` file in `/home/lakov/projects/llm_engineering/` with:
 ```env
-OPENROUTER_API_KEY=your_openai_key
+OPENROUTER_API_KEY=your_openrouter_key
 ```
 (Optional) Define proxy/login parameters if needed.
 

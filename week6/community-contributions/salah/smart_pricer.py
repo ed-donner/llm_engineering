@@ -46,8 +46,8 @@ class ConfidentPrediction:
 
 class SmartPricer:
 
-    def __init__(self, openai_api_key: str = None, fine_tuned_model: str = None):
-        self.client = OpenAI(api_key=openai_api_key or os.getenv('OPENROUTER_API_KEY'))
+    def __init__(self, openrouter_api_key: str = None, fine_tuned_model: str = None):
+        self.client = OpenAI(api_key=openrouter_api_key or os.getenv('OPENROUTER_API_KEY'))
         self.fine_tuned_model = fine_tuned_model or "gpt-4o-mini-2024-07-18"
 
         self.prompt_strategies = {

@@ -186,7 +186,7 @@ def chunked(iterable: Sequence[str], size: int) -> Iterator[Sequence[str]]:
         yield iterable[start : start + size]
 
 
-def validate_openai_key(api_key: Optional[str]) -> Tuple[Optional[str], List[str]]:
+def validate_openrouter_key(api_key: Optional[str]) -> Tuple[Optional[str], List[str]]:
     """Validate an OpenAI key following the guidance from day1 notebook."""
     warnings: List[str] = []
     if not api_key:

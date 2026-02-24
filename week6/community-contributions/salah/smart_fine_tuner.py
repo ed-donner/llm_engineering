@@ -23,8 +23,8 @@ login(hf_token, add_to_git_credential=True)
 
 class SmartFineTuner:
 
-    def __init__(self, openai_api_key: str = None):
-        self.client = OpenAI(api_key=openai_api_key or os.getenv('OPENROUTER_API_KEY'))
+    def __init__(self, openrouter_api_key: str = None):
+        self.client = OpenAI(api_key=openrouter_api_key or os.getenv('OPENROUTER_API_KEY'))
         self.fine_tuned_model_id = None
 
         self.training_templates = [

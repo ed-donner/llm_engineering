@@ -7,7 +7,7 @@ import re
 
 load_dotenv()
 
-openai_api_key = os.getenv("OPENROUTER_API_KEY")
+openrouter_api_key = os.getenv("OPENROUTER_API_KEY")
 
 MODEL = "gpt-4o"
 
