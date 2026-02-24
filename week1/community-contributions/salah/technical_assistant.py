@@ -14,7 +14,7 @@ class TechnicalAssistant:
     """Technical Q&A assistant - works with OpenAI, OpenRouter, or Ollama"""
 
     def __init__(self, model="llama3.2", provider="ollama"):
-        api_key = os.getenv('OPENAI_API_KEY')
+        api_key = os.getenv('OPENROUTER_API_KEY')
 
         if provider == "openai":
             # Use OpenAI API

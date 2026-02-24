@@ -41,7 +41,7 @@ class AIBrochureConfig:
         Get the OpenAI API key from the environment variables.
         """
         if self.__openai_api_key == "":
-            self.__openai_api_key = self._get_str("OPENAI_API_KEY")
+            self.__openai_api_key = self._get_str("OPENROUTER_API_KEY")
         return self.__openai_api_key
 
     @property

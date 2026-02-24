@@ -19,7 +19,7 @@ class AgenticChunker:
         self.print_logging = True
 
         if openai_api_key is None:
-            openai_api_key = os.getenv("OPENAI_API_KEY")
+            openai_api_key = os.getenv("OPENROUTER_API_KEY")
 
         if openai_api_key is None:
             raise ValueError("API key is not provided and not found in environment variables")

@@ -41,7 +41,7 @@ pip install yfinance pandas openai python-dotenv ipykernel beautifulsoup4 reques
 Create a `.env` file in your project root with:
 
 ```env
-OPENAI_API_KEY=your_openai_api_key_here
+OPENROUTER_API_KEY=your_openai_api_key_here
 ```
 
 ### 3. Run the Notebook

@@ -29,7 +29,7 @@ if hf_token and hf_token != 'your-key-if-not-using-env':
     login(hf_token, add_to_git_credential=True)
     print("Logged in to Hugging Face")
 
-client = OpenAI(api_key=os.getenv('OPENAI_API_KEY'))
+client = OpenAI(api_key=os.getenv('OPENROUTER_API_KEY'))
 
 from items import Item
 from testing import Tester
@@ -353,10 +353,10 @@ def main():
     print("Based on reference implementation from day5.ipynb")
     print("=" * 60)
     
-    api_key = os.getenv('OPENAI_API_KEY')
+    api_key = os.getenv('OPENROUTER_API_KEY')
     if not api_key:
-        print("OPENAI_API_KEY not found in environment")
-        print("Set your API key: export OPENAI_API_KEY='your-key-here'")
+        print("OPENROUTER_API_KEY not found in environment")
+        print("Set your API key: export OPENROUTER_API_KEY='your-key-here'")
         return
     
     try:
@@ -418,9 +418,9 @@ def evaluate_only(model_name: str):
     print("EVALUATING EXISTING FINE-TUNED MODEL")
     print("=" * 60)
     
-    api_key = os.getenv('OPENAI_API_KEY')
+    api_key = os.getenv('OPENROUTER_API_KEY')
     if not api_key:
-        print("OPENAI_API_KEY not found in environment")
+        print("OPENROUTER_API_KEY not found in environment")
         return
     
     try:

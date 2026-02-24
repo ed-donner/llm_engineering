@@ -84,7 +84,7 @@ def detect_total_rows_from_prompt(user_prompt: str, openai_model: str = "gpt-4o-
     Extract the number of rows to generate from this instruction:
     \"\"\"{user_prompt}\"\"\" Return only the number.
     """
-    openai.api_key = os.getenv("OPENAI_API_KEY")
+    openai.api_key = os.getenv("OPENROUTER_API_KEY")
     try:
         response = openai.chat.completions.create(
             model=openai_model,

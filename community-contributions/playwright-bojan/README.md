@@ -34,7 +34,7 @@ playwright install
 ### 2. Set environment variables in `.env`
 
 ```env
-OPENAI_API_KEY=your_openai_key
+OPENROUTER_API_KEY=your_openai_key
 BROWSER_PATH=/usr/bin/chromium-browser
 ```
 

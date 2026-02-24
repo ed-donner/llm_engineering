@@ -173,7 +173,7 @@ Quando tiver as chaves, crie um arquivo `.env` no diretório raiz do projeto. O 
 4. Digite suas chaves no nano, substituindo `xxxx` pelo valor correto (ex.: começa com `sk-proj-`):
 
 ```
-OPENAI_API_KEY=xxxx
+OPENROUTER_API_KEY=xxxx
 ```
 
 Se já tiver outras chaves, você pode incluí-las agora ou mais tarde:

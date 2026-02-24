@@ -8,7 +8,7 @@ from openai import OpenAI
 def load_openai_key():
     # Load environment variables in a file called .env
     load_dotenv(override=True)
-    api_key = os.getenv('OPENAI_API_KEY')
+    api_key = os.getenv('OPENROUTER_API_KEY')
 
     # Check the key
     if not api_key:

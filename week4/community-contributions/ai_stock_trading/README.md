@@ -81,7 +81,7 @@ pip install -r requirements.txt
 3. **Set up environment variables**
 Create a `.env` file in the project root:
 ```bash
-OPENAI_API_KEY=your-api-key-here
+OPENROUTER_API_KEY=your-api-key-here
 ```
 
 ### Running the Application

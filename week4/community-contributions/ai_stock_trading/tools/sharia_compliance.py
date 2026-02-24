@@ -23,7 +23,7 @@ class ShariaComplianceChecker:
     """Enhanced Sharia compliance checker for Islamic investing"""
     
     def __init__(self):
-        self.client = OpenAI(api_key=os.getenv('OPENAI_API_KEY'))
+        self.client = OpenAI(api_key=os.getenv('OPENROUTER_API_KEY'))
         
         # Sharia compliance criteria weights
         self.criteria_weights = {

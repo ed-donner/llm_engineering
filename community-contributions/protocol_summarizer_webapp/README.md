@@ -25,7 +25,7 @@ A Streamlit web application for searching and summarizing clinical trial protoco
 
 3. Create a `.env` file in the project root with your OpenAI API key:
    ```
-   OPENAI_API_KEY=your_api_key_here
+   OPENROUTER_API_KEY=your_api_key_here
    ```
 
 ## Usage

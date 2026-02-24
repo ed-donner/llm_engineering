@@ -31,11 +31,11 @@ class AgentConfig:
 
 def load_client(config: AgentConfig) -> OpenAI:
     """Create an OpenAI-compatible client for the given agent."""
-    api_key = os.getenv(config.api_key_env) or os.getenv("OPENAI_API_KEY")
+    api_key = os.getenv(config.api_key_env) or os.getenv("OPENROUTER_API_KEY")
     if not api_key:
         raise RuntimeError(
             f"Missing API key for {config.name}. "
-            f"Set {config.api_key_env} or OPENAI_API_KEY."
+            f"Set {config.api_key_env} or OPENROUTER_API_KEY."
         )
 
     base_url = (
@@ -98,7 +98,7 @@ def extract_text(response) -> str:
 DEBATER_A_CONFIG = AgentConfig(
     name="Debater A",
     model=os.getenv("DEBATER_A_MODEL", "gpt-4o"),
-    api_key_env="OPENAI_API_KEY",
+    api_key_env="OPENROUTER_API_KEY",
     base_url_env="OPENAI_BASE_URL",
     temperature=float(os.getenv("DEBATER_A_TEMPERATURE", 0.7)),
 )

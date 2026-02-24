@@ -67,7 +67,7 @@ pip install -e ".[dev]"
 2. **Set up environment variables**:
    Create a `.env` file in the project directory:
    ```bash
-   OPENAI_API_KEY=your_api_key_here
+   OPENROUTER_API_KEY=your_api_key_here
    ```
 
 ## Usage

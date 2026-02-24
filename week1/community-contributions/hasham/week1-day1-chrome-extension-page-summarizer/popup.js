@@ -1,5 +1,5 @@
 document.getElementById('summarizeBtn').addEventListener('click', async () => {
-  const apiKey = CONFIG.OPENAI_API_KEY;
+  const apiKey = CONFIG.OPENROUTER_API_KEY;
   const summaryDiv = document.getElementById('summary');
   const loadingDiv = document.getElementById('loading');
   const button = document.getElementById('summarizeBtn');

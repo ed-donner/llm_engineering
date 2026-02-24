@@ -30,10 +30,10 @@ from openai import OpenAI
 # ---------------------------------------------------------------------
 
 load_dotenv(override=True)
-api_key = os.getenv("OPENAI_API_KEY")
+api_key = os.getenv("OPENROUTER_API_KEY")
 
 if not api_key:
-    raise ValueError("❌ Missing OPENAI_API_KEY in environment. Add it to your .env file.")
+    raise ValueError("❌ Missing OPENROUTER_API_KEY in environment. Add it to your .env file.")
 
 openai = OpenAI(api_key=api_key)
 

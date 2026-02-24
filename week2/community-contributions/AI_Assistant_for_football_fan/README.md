@@ -4,7 +4,7 @@ Educational Gradio chat app for EPL fans: standings, fixtures, player info, last
 
 ## Main concepts
 
-- **Input:** text or **voice** (record in UI, then "Send voice"; requires `OPENAI_API_KEY` for Whisper).
+- **Input:** text or **voice** (record in UI, then "Send voice"; requires `OPENROUTER_API_KEY` for Whisper).
 - **Stack:** Python, Gradio, OpenAI-compatible API (OpenAI + OpenRouter), SQLite, `requests`.
 - **LLM:** User chooses at runtime — **GPT** (gpt-4.1-mini) or **Claude** (anthropic/claude-3.5-sonnet).
 - **Tools (function calling):** standings, team fixtures, last match result, match goalscorers, player search — all via TheSportsDB (league id 4328); plus `book_ticket` saving to local SQLite (no real ticket provider).
@@ -15,7 +15,7 @@ Educational Gradio chat app for EPL fans: standings, fixtures, player info, last
 
 - **UV** (e.g. from repo root: `uv run jupyter notebook`).
 - **Env** (`.env` in project root):
-  - `OPENAI_API_KEY` — GPT
+  - `OPENROUTER_API_KEY` — GPT
   - `OPENROUTER_API_KEY` — Claude
   - `THE_SPORTS_DB_API_KEY` — **optional**; default `123` (free). Set your own for [Premium](https://www.thesportsdb.com/pricing) (higher limits).
 
@@ -30,7 +30,7 @@ Free key `123` works without signup (~30 req/min). Optional Premium key in env f
 
 ## How to run
 
-1. Set `OPENAI_API_KEY` and `OPENROUTER_API_KEY` in `.env` (and optionally `THE_SPORTS_DB_API_KEY`).
+1. Set `OPENROUTER_API_KEY` and `OPENROUTER_API_KEY` in `.env` (and optionally `THE_SPORTS_DB_API_KEY`).
 2. Open `epl_assistant.ipynb` and run all cells (or from repo root: `uv run jupyter notebook` → open this notebook).
 3. In the UI: choose **GPT** or **Claude**, type a question or use **voice** (record → **Send voice**; uses OpenAI Whisper). Tool calls appear in console as `[EPL Tool] Called: ...`.
 

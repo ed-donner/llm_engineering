@@ -7,7 +7,7 @@ from utils.config import Config
 OLLAMA_API = "http://127.0.0.1:11434/api/chat"
 
 # Initialize OpenAI client with API key
-client = openai.Client(api_key=Config.OPENAI_API_KEY)
+client = openai.Client(api_key=Config.OPENROUTER_API_KEY)
 
 def summarize_with_openai(text, model):
     """Summarize text using OpenAI's GPT model."""

@@ -152,7 +152,7 @@ nano .env
 4. Then type your API keys into nano, replacing xxxx with your API key (starting `sk-proj-`).
 
 ```
-OPENAI_API_KEY=xxxx
+OPENROUTER_API_KEY=xxxx
 ```
 
 If you have other keys, you can add them too, or come back to this in future weeks:  

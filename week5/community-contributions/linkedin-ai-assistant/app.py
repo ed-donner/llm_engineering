@@ -457,7 +457,7 @@ class LinkedInRAGSystem:
 
         # Initialize OpenAI client
         try:
-            api_key = os.getenv('OPENAI_API_KEY')
+            api_key = os.getenv('OPENROUTER_API_KEY')
             if not api_key:
                 print("❌ OpenAI API key not found in environment variables")
                 return False

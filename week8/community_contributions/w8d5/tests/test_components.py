@@ -22,10 +22,10 @@ if deals:
 
 
 print("\n2. OpenAI Connection")
-if os.getenv("OPENAI_API_KEY"):
-    print("OPENAI_API_KEY found")
+if os.getenv("OPENROUTER_API_KEY"):
+    print("OPENROUTER_API_KEY found")
 else:
-    print("OPENAI_API_KEY not found - set in .env file")
+    print("OPENROUTER_API_KEY not found - set in .env file")
 
 print("\n3. Scanner Agent")
 scanner = TravelScannerAgent()

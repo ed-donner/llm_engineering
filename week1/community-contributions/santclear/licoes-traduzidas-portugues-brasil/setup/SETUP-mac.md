@@ -154,7 +154,7 @@ Quando tiver as chaves, crie um arquivo chamado `.env` no diretório raiz do pro
 4. Digite as suas chaves no nano, substituindo `xxxx` pela chave (que começa com `sk-proj-`):
 
 ```
-OPENAI_API_KEY=xxxx
+OPENROUTER_API_KEY=xxxx
 ```
 
 Se tiver outras chaves, você pode adicioná-las agora ou mais tarde:

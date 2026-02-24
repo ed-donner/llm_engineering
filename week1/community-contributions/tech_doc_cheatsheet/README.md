@@ -66,7 +66,7 @@ uv add openai python-dotenv
 Create a `.env` file in the project root:
 
 ```env
-OPENAI_API_KEY=your_openai_api_key_here
+OPENROUTER_API_KEY=your_openai_api_key_here
 ```
 
 ---

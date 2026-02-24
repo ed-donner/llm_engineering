@@ -17,7 +17,7 @@ from langchain_openai import ChatOpenAI
 
 load_dotenv(override=True)
 
-openai_api_key = os.getenv('OPENAI_API_KEY')
+openai_api_key = os.getenv('OPENROUTER_API_KEY')
 if openai_api_key:
     print(f"OpenAI API Key exists and begins {openai_api_key[:8]}")
 else:

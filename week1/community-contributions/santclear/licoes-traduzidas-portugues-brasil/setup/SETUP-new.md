@@ -178,11 +178,11 @@ Se estiver se perguntando por que reforço tanto isso: recebo muitas, muitas men
 
 Selecione o arquivo à esquerda. Você verá um arquivo vazio à direita. Digite isto no conteúdo do arquivo:
 
-`OPENAI_API_KEY=`
+`OPENROUTER_API_KEY=`
 
 Em seguida, cole a sua chave! Você deve ver algo como:
 
-`OPENAI_API_KEY=sk-proj-lots-and-lots-of-digits`
+`OPENROUTER_API_KEY=sk-proj-lots-and-lots-of-digits`
 
 Mas, claro, com a sua chave real, não com as palavras "sk-proj-lots-and-lots-of-digits"...
 

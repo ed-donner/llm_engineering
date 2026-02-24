@@ -60,7 +60,7 @@ It automatically fetches web articles, summarizes them with several models, and 
 4. **Set up OpenAI API key**:
    Create a `.env` file with:
    ```env
-   OPENAI_API_KEY=sk-proj-xxxx...
+   OPENROUTER_API_KEY=sk-proj-xxxx...
    ```
 
 ---

@@ -32,7 +32,7 @@ system_message += "Always be accurate. If you don't know the answer, say so."
 
 load_dotenv(override=True)
 
-openai_api_key = os.getenv('OPENAI_API_KEY')
+openai_api_key = os.getenv('OPENROUTER_API_KEY')
 if openai_api_key:
     print(f"OpenAI API Key exists and begins {openai_api_key[:8]}")
 else:

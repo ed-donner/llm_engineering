@@ -6,7 +6,7 @@ Quick image generator using OpenAI's DALL-E 3. Generates 1024x1024 images from e
 
 You'll need an OpenAI API key. Set it as an environment variable:
 ```bash
-export OPENAI_API_KEY='your-key-here'
+export OPENROUTER_API_KEY='your-key-here'
 ```
 
 Or just enter it when the notebook prompts you.

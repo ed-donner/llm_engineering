@@ -18,13 +18,13 @@ class GitOpsGuardian:
         load_dotenv()
 
         self.github_token = os.getenv('GITHUB_TOKEN')
-        self.openai_api_key = os.getenv('OPENAI_API_KEY')
+        self.openai_api_key = os.getenv('OPENROUTER_API_KEY')
         self.gitops_repos = os.getenv('GITOPS_REPOS', '').split(',')
 
         if not self.github_token:
             raise ValueError("GITHUB_TOKEN not found")
         if not self.openai_api_key:
-            raise ValueError("OPENAI_API_KEY not found")
+            raise ValueError("OPENROUTER_API_KEY not found")
         if not self.gitops_repos or self.gitops_repos == ['']:
             raise ValueError("GITOPS_REPOS not found")
 
@@ -487,7 +487,7 @@ Multi-agent system that scans GitOps repositories and identifies security risks 
 
 Set these in `.env`:
 - `GITHUB_TOKEN` - GitHub personal access token
-- `OPENAI_API_KEY` - OpenAI API key
+- `OPENROUTER_API_KEY` - OpenAI API key
 - `GITOPS_REPOS` - Comma-separated repo names (owner/repo)
         """)
 

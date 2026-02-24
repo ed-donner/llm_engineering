@@ -23,12 +23,12 @@ load_dotenv()
 SCOPES = ["https://www.googleapis.com/auth/gmail.readonly"]
 
 
-OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
+OPENROUTER_API_KEY = os.getenv("OPENROUTER_API_KEY")
 
-if not OPENAI_API_KEY:
-    raise RuntimeError("OPENAI_API_KEY not found in .env")
+if not OPENROUTER_API_KEY:
+    raise RuntimeError("OPENROUTER_API_KEY not found in .env")
 
-client = OpenAI(api_key=OPENAI_API_KEY)
+client = OpenAI(api_key=OPENROUTER_API_KEY)
 
 MODEL = "gpt-4o-mini"  # cheap + good for summaries
 

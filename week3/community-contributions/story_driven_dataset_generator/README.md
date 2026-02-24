@@ -35,7 +35,7 @@ A creative approach to generating interconnected, narrative-driven synthetic dat
 
 1. Ensure you have API keys in your `.env` file:
    ```
-   OPENAI_API_KEY=your_key_here
+   OPENROUTER_API_KEY=your_key_here
    GOOGLE_API_KEY=your_key_here
    ```
 

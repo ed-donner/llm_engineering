@@ -21,7 +21,7 @@ class ScrapingError(Exception): pass
 class ContentAnalysisError(Exception): pass
 
 class EnhancedOpenAIScraper:
-    API_KEY = os.getenv("OPENAI_API_KEY")
+    API_KEY = os.getenv("OPENROUTER_API_KEY")
     BROWSER_EXECUTABLE = os.getenv("BROWSER_PATH", "/usr/bin/chromium-browser")
     MAX_CONTENT_LENGTH = int(os.getenv("MAX_CONTENT_LENGTH", 30000))
 

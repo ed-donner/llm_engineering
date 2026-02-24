@@ -83,7 +83,7 @@ tools = [
 def load_api_keys():
     # Load environment variables in a file called .env
     load_dotenv(override=True)
-    openai_key = os.getenv('OPENAI_API_KEY')
+    openai_key = os.getenv('OPENROUTER_API_KEY')
     anthropic_key = os.getenv('ANTHROPIC_API_KEY')
     KEYS = {"openai": openai_key, "anthropic": anthropic_key}
 

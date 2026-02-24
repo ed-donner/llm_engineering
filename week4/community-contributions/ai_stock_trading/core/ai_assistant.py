@@ -8,7 +8,7 @@ class AIAssistant:
     """Enhanced AI assistant with comprehensive stock analysis tools"""
     
     def __init__(self):
-        self.client = OpenAI(api_key=os.getenv('OPENAI_API_KEY'))
+        self.client = OpenAI(api_key=os.getenv('OPENROUTER_API_KEY'))
         
     def get_enhanced_tools(self) -> List[Dict[str, Any]]:
         """Get comprehensive tool definitions for OpenAI function calling"""

@@ -37,7 +37,7 @@ class Config:
 
     @property
     def openai_api_key(self) -> str:
-        return self.get("OPENAI_API_KEY")
+        return self.get("OPENROUTER_API_KEY")
 
 class Website:
 

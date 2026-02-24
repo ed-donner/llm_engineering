@@ -96,7 +96,7 @@ class WebsiteScrapper:
 class JSWebsiteSummarizer:
     def __init__(self, url, headless=True):
         self.url = url
-        os.environ['OPENAI_API_KEY'] = os.getenv('OPENAI_API_KEY', 'your-key-if-not-using-env')
+        os.environ['OPENROUTER_API_KEY'] = os.getenv('OPENROUTER_API_KEY', 'your-key-if-not-using-env')
         self.openai = OpenAI()
         self.website_scrapper = WebsiteScrapper(url, headless=headless)
         self.system_prompt = "You are an assistant that analyzes the contents of a website \

@@ -183,11 +183,11 @@ class Diagnostics:
                     self.log(f"Arquivo .env localizado em: {env_path}")
                     try:
                         with open(env_path, 'r') as f:
-                            has_api_key = any(line.strip().startswith('OPENAI_API_KEY=') for line in f)
+                            has_api_key = any(line.strip().startswith('OPENROUTER_API_KEY=') for line in f)
                         if has_api_key:
-                            self.log("OPENAI_API_KEY encontrado no arquivo .env")
+                            self.log("OPENROUTER_API_KEY encontrado no arquivo .env")
                         else:
-                            self._log_warning("OPENAI_API_KEY não encontrado no arquivo .env")
+                            self._log_warning("OPENROUTER_API_KEY não encontrado no arquivo .env")
                     except Exception as e:
                         self._log_error(f"Não é possível ler o arquivo .env: {e}")
                 else:
@@ -359,16 +359,16 @@ class Diagnostics:
             for path in sys.path:
                 self.log(f" - {path}")
 
-            # Verifica OPENAI_API_KEY
+            # Verifica OPENROUTER_API_KEY
             from dotenv import load_dotenv
             load_dotenv()
-            api_key = os.environ.get('OPENAI_API_KEY')
+            api_key = os.environ.get('OPENROUTER_API_KEY')
             if api_key:
-                self.log("OPENAI_API_KEY definido após chamar load_dotenv()")
+                self.log("OPENROUTER_API_KEY definido após chamar load_dotenv()")
                 if not api_key.startswith('sk-proj-') or len(api_key) < 12:
-                    self._log_warning("Formato de OPENAI_API_KEY parece incorreto após chamar load_dotenv()")
+                    self._log_warning("Formato de OPENROUTER_API_KEY parece incorreto após chamar load_dotenv()")
             else:
-                self._log_warning("Variável de ambiente OPENAI_API_KEY não está definida após chamar load_dotenv()")
+                self._log_warning("Variável de ambiente OPENROUTER_API_KEY não está definida após chamar load_dotenv()")
         except Exception as e:
             self._log_error(f"Falha na verificação das variáveis de ambiente: {e}")
 

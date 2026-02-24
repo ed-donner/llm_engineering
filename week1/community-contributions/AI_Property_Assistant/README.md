@@ -26,7 +26,7 @@ A Python tool that scrapes UK property rental listings and uses OpenAI's GPT-4o-
    
    Create a `.env` file in the same directory as your script:
    ```
-   OPENAI_API_KEY=your_openai_api_key_here
+   OPENROUTER_API_KEY=your_openai_api_key_here
    ```
 
 3. **Run the script:**

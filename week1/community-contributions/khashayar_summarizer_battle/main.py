@@ -12,7 +12,7 @@ from httpx import Timeout
 # ---------- utils ----------
 def openai_api_key_loader():
     load_dotenv(dotenv_path=".env", override=True)
-    api_key = os.getenv('OPENAI_API_KEY')
+    api_key = os.getenv('OPENROUTER_API_KEY')
     if not api_key:
         print("❌ No API key found. Please check your .env file.")
         return False

@@ -46,7 +46,7 @@ st.caption("Aggregate brand chatter, classify sentiment, and surface actionable 
 def _get_env_defaults() -> Dict[str, Optional[str]]:
     """Read supported credentials from environment variables."""
     return {
-        "OPENAI_API_KEY": os.getenv("OPENAI_API_KEY"),
+        "OPENROUTER_API_KEY": os.getenv("OPENROUTER_API_KEY"),
         "REDDIT_CLIENT_ID": os.getenv("REDDIT_CLIENT_ID"),
         "REDDIT_CLIENT_SECRET": os.getenv("REDDIT_CLIENT_SECRET"),
         "REDDIT_USER_AGENT": os.getenv("REDDIT_USER_AGENT", "ReputationRadar/1.0"),
@@ -284,7 +284,7 @@ def _build_excel(df: pd.DataFrame) -> bytes:
 
 def main() -> None:
     env_defaults = _get_env_defaults()
-    openai_env_key = env_defaults.get("OPENAI_API_KEY") or st.session_state.get("secrets", {}).get("OPENAI_API_KEY")
+    openai_env_key = env_defaults.get("OPENROUTER_API_KEY") or st.session_state.get("secrets", {}).get("OPENROUTER_API_KEY")
     validated_env_key, notices = validate_openai_key(openai_env_key)
     config = render_sidebar(env_defaults, tuple(notices))
 

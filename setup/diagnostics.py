@@ -182,11 +182,11 @@ class Diagnostics:
                     self.log(f".env file exists at: {env_path}")
                     try:
                         with open(env_path, 'r') as f:
-                            has_api_key = any(line.strip().startswith('OPENAI_API_KEY=') for line in f)
+                            has_api_key = any(line.strip().startswith('OPENROUTER_API_KEY=') for line in f)
                         if has_api_key:
-                            self.log("OPENAI_API_KEY found in .env file")
+                            self.log("OPENROUTER_API_KEY found in .env file")
                         else:
-                            self._log_warning("OPENAI_API_KEY not found in .env file")
+                            self._log_warning("OPENROUTER_API_KEY not found in .env file")
                     except Exception as e:
                         self._log_error(f"Cannot read .env file: {e}")
                 else:
@@ -358,16 +358,16 @@ class Diagnostics:
             for path in sys.path:
                 self.log(f" - {path}")
 
-            # Check OPENAI_API_KEY
+            # Check OPENROUTER_API_KEY
             from dotenv import load_dotenv
             load_dotenv()
-            api_key = os.environ.get('OPENAI_API_KEY')
+            api_key = os.environ.get('OPENROUTER_API_KEY')
             if api_key:
-                self.log("OPENAI_API_KEY is set after calling load_dotenv()")
+                self.log("OPENROUTER_API_KEY is set after calling load_dotenv()")
                 if not api_key.startswith('sk-proj-') or len(api_key)<12:
-                    self._log_warning("OPENAI_API_KEY format looks incorrect after calling load_dotenv()")
+                    self._log_warning("OPENROUTER_API_KEY format looks incorrect after calling load_dotenv()")
             else:
-                self._log_warning("OPENAI_API_KEY environment variable is not set after calling load_dotenv()")
+                self._log_warning("OPENROUTER_API_KEY environment variable is not set after calling load_dotenv()")
         except Exception as e:
             self._log_error(f"Environment variables check failed: {e}")
 

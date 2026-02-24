@@ -29,7 +29,7 @@ pip install -r requirements_ai_investment.txt
 ### 2. Set Up API Keys
 Create a `.env` file in the week2 directory with:
 ```env
-OPENAI_API_KEY=your_openai_api_key_here
+OPENROUTER_API_KEY=your_openai_api_key_here
 METAL_PRICE_API_KEY=your_metal_price_api_key_here
 ```
 

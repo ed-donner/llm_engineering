@@ -15,7 +15,7 @@ from openpyxl.styles import Font, Alignment
 
 # Load environment variables
 load_dotenv(override=True)
-api_key = os.getenv('OPENAI_API_KEY')
+api_key = os.getenv('OPENROUTER_API_KEY')
 
 # Validate API Key
 if not api_key:

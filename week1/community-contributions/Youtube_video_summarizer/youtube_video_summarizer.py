@@ -80,9 +80,9 @@ class YouTubeVideo:
 #get api key and openai client
 def get_api_key():
     load_dotenv(override=True)
-    api_key = os.getenv("OPENAI_API_KEY")
+    api_key = os.getenv("OPENROUTER_API_KEY")
     if not api_key:
-        raise ValueError("OPENAI_API_KEY is not set")
+        raise ValueError("OPENROUTER_API_KEY is not set")
     return api_key
 
 def get_openai_client():

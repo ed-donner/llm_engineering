@@ -3,7 +3,7 @@ from langchain_community.document_loaders import YoutubeLoader, UnstructuredURLL
 import validators
 from openai import OpenAI
 import os
-api_key = os.getenv('OPENAI_API_KEY')
+api_key = os.getenv('OPENROUTER_API_KEY')
 client = OpenAI(api_key=api_key)
 
 from dotenv import load_dotenv

@@ -12,11 +12,11 @@ from dotenv import load_dotenv
 load_dotenv()
 
 # Test if OpenAI API key is set
-openai_api_key = os.getenv('OPENAI_API_KEY')
+openai_api_key = os.getenv('OPENROUTER_API_KEY')
 if openai_api_key:
     print(f"✅ OpenAI API Key exists and begins with: {openai_api_key[:8]}")
 else:
-    print("❌ OpenAI API Key not set - add OPENAI_API_KEY to your .env file")
+    print("❌ OpenAI API Key not set - add OPENROUTER_API_KEY to your .env file")
 
 # Test if Metal Price API key is set (optional)
 metal_api_key = os.getenv('METAL_PRICE_API_KEY')

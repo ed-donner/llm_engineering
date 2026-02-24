@@ -47,7 +47,7 @@ pip install python-dotenv openai google-generativeai ollama gradio requests beau
 2.  **Create a `.env` file:**
     Create a file named `.env` in the `ticket_price_agent` directory and add your API keys:
     ```env
-    OPENAI_API_KEY="your_openai_api_key"
+    OPENROUTER_API_KEY="your_openai_api_key"
     GEMINI_API_KEY="your_gemini_api_key"
     GOOGLE_SEARCH_KEY="your_google_search_api_key"
     GOOGLE_CSE_ID="your_google_custom_search_engine_id"

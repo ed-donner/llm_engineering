@@ -5,7 +5,7 @@ import gradio as gr
 
 # --- Load environment keys ---
 load_dotenv(override=True)
-openai_api_key = os.getenv("OPENAI_API_KEY")
+openai_api_key = os.getenv("OPENROUTER_API_KEY")
 google_api_key = os.getenv("GOOGLE_API_KEY")
 
 # --- Model config ---

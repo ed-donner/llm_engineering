@@ -5,7 +5,7 @@ load_dotenv()
 
 class Config:
     def __init__(self):
-        self.openrouter_key = os.getenv('OPENAI_API_KEY')
+        self.openrouter_key = os.getenv('OPENROUTER_API_KEY')
         self.gemini_key = os.getenv('GEMINI_API_KEY')
         
         # Models - all configurable via env
@@ -20,6 +20,6 @@ class Config:
         
     def validate(self):
         if not self.openrouter_key:
-            raise Exception("Missing OPENAI_API_KEY")
+            raise Exception("Missing OPENROUTER_API_KEY")
         if not self.gemini_key:
             raise Exception("Missing GEMINI_API_KEY")

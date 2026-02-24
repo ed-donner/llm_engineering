@@ -92,7 +92,7 @@ pip install -r requirements.txt
 3. Set up your environment variables:
 ```bash
 # Create a .env file with your API keys
-OPENAI_API_KEY=your_key_here
+OPENROUTER_API_KEY=your_key_here
 ```
 
 ## Usage

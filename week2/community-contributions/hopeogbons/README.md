@@ -93,7 +93,7 @@ RoboCare helps families find caregivers through natural conversation:
    Create a `.env` file in the project root:
 
    ```env
-   OPENAI_API_KEY=your_openai_api_key_here
+   OPENROUTER_API_KEY=your_openai_api_key_here
    ```
 
 5. **Run the application**

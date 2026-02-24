@@ -10,7 +10,7 @@ import gradio as gr
 
 # Load environment variables and initialize APIs
 load_dotenv(override=True)
-openai = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
+openai = OpenAI(api_key=os.getenv("OPENROUTER_API_KEY"))
 anthropic = Anthropic(api_key=os.getenv("ANTHROPIC_API_KEY"))
 MACHINE_SPEC = "MacbookPro, Apple M1 Chip"
 

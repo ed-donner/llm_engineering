@@ -5,7 +5,7 @@ from dotenv import load_dotenv
 KEY_CONFIGS = {
     "gpt": {
         "id": "gpt",
-        "api_key_env": "OPENAI_API_KEY",
+        "api_key_env": "OPENROUTER_API_KEY",
     },
     "claude": {
         "id": "claude",
@@ -17,7 +17,7 @@ KEY_CONFIGS = {
     },
     "openai": {
         "id": "openai",
-        "api_key_env": "OPENAI_API_KEY",
+        "api_key_env": "OPENROUTER_API_KEY",
     },
     "deepseek": {
         "id": "deepseek",

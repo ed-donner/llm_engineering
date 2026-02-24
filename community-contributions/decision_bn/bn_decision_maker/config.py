@@ -102,7 +102,7 @@ APP_CONFIG = {
             "litellm_params":{
                 "custom_llm_provider": "openai",
                 "api_base": "https://api.openai.com/v1",
-                "env_key": "OPENAI_API_KEY"
+                "env_key": "OPENROUTER_API_KEY"
             }
         },
         {
