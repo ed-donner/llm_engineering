@@ -213,3 +213,4 @@ week6/*/*.jsonl
 week6/*.pth
 week6/*.joblib
 week8/*.pth
+uv.lock
