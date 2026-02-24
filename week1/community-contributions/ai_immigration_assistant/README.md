@@ -1,0 +1,212 @@
+
+
+# AI Immigration & Citizenship Guidance Assistant
+
+## Overview
+
+This project scrapes official government immigration or citizenship
+guidance pages, extracts visible readable text, and uses an OpenAI model
+to generate a concise, structured, and personalized summary based on a
+defined user profile.
+
+The system demonstrates how web scraping and large language models can
+be combined to transform complex immigration policy pages into clear,
+practical guidance tailored to an individual’s situation.
+
+The assistant works with **any country**, provided you supply an
+official government immigration website.
+
+---
+
+## Key Features
+
+* Scrapes one official government immigration page
+* Extracts clean visible text (no raw HTML sent to the model)
+* Accepts a custom immigration profile
+* Sends structured prompts to an OpenAI model
+* Generates clear, personalized summaries
+* Highlights eligibility, documents, timelines, and next steps
+* Outputs clean Markdown formatting for readability
+
+---
+
+## Use Case
+
+The primary goal is to:
+
+* Analyze official immigration or citizenship guidance
+* Identify eligibility requirements
+* Extract required documents and timelines
+* Highlight important rules or conditions
+* Tailor information to a specific user profile
+
+Example output includes:
+
+### Overview
+
+* What the page covers
+* Who it applies to
+* Legal or policy references (if mentioned)
+
+### Key Requirements
+
+* Eligibility criteria
+* Required documents
+* Fees
+* Application steps
+
+### Personalized Guidance
+
+* What matters most for the user’s profile
+* Risks or common pitfalls
+* Missing information the user should clarify
+
+### Important Notes
+
+* Effective dates (if stated)
+* Limitations
+* Verification reminder
+
+---
+
+## Tech Stack
+
+* Python 3
+* Requests
+* BeautifulSoup
+* OpenAI Python SDK
+* python-dotenv
+* Jupyter Notebook (optional)
+
+---
+
+## Installation
+
+Install dependencies:
+
+```
+pip install requests beautifulsoup4 openai python-dotenv ipython
+```
+
+---
+
+## Environment Setup
+
+Set your OpenAI API key before running the script.
+
+Create a `.env` file in the project directory:
+
+```
+OPENAI_API_KEY=sk-proj-your_api_key_here
+```
+
+Or set it manually:
+
+### macOS / Linux
+
+```
+export OPENAI_API_KEY="your_api_key_here"
+```
+
+### Windows (PowerShell)
+
+```
+setx OPENAI_API_KEY "your_api_key_here"
+```
+
+Restart your terminal or notebook after setting the key.
+
+---
+
+## How It Works
+
+### 1. Scraping Phase
+
+* A single official government immigration page is requested
+* HTML is parsed using BeautifulSoup
+* Scripts, styles, and non-visible elements are removed
+* Clean readable text is extracted
+* Raw HTML is not sent to the model
+
+### 2. AI Analysis Phase
+
+* The page title, URL, extracted text, and user profile are sent to the model
+* The model generates a structured immigration summary
+* The output is formatted in Markdown for clarity
+* The response is tailored specifically to the user’s situation
+
+---
+
+## Example Usage
+
+Define your immigration profile:
+
+```
+user_profile = """
+I am in the UK on a Skilled Worker visa.
+I want to apply for Indefinite Leave to Remain next year.
+"""
+```
+
+Provide the official government website:
+
+```
+website_url = "https://www.gov.uk/indefinite-leave-to-remain"
+```
+
+Run the script:
+
+```
+python your_script_name.py
+```
+
+---
+
+## Supported Countries
+
+This assistant can be used with any official immigration authority,
+including but not limited to:
+
+* France (Service-Public.fr)
+* Canada (Canada.ca / IRCC)
+* United Kingdom (GOV.UK)
+* United States (USCIS.gov)
+* Australia (Home Affairs)
+
+Only official government websites should be used.
+
+---
+
+## Limitations
+
+* Only analyzes one page at a time
+* Does not track historical changes
+* Very large pages are truncated for token safety
+* Website structure changes may affect scraping
+* Does not replace professional legal advice
+
+---
+
+## Possible Improvements
+
+* Multi-page crawling
+* Automatic country detection
+* Change tracking and update alerts
+* Structured JSON output mode
+* Policy impact ranking
+* Web interface (Streamlit / Flask)
+* Database storage for monitoring updates
+
+---
+
+## Project File
+
+ai_immigration_guidance_assistant.py
+
+---
+
+## Purpose
+
+This project demonstrates how web scraping and LLM-based summarization
+can be combined to build lightweight immigration guidance tools that
+convert official policy pages into structured, personalized insights.
