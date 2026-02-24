@@ -89,12 +89,12 @@ if __name__ == "__main__":
 
 def main():
     dotenv.load_dotenv(override=True)
-    os.environ['OPENROUTER_API_KEY'] = os.getenv(
-        'OPENROUTER_API_KEY', 'your-key-if-not-using-env')
+    os.environ['OPENAI_API_KEY'] = os.getenv(
+        'OPENAI_API_KEY', 'your-key-if-not-using-env')
     os.environ['ANTHROPIC_API_KEY'] = os.getenv(
         'ANTHROPIC_API_KEY', 'your-key-if-not-using-env')
 
-    # codeReviser = CodeAccelerator('openai', os.getenv('OPENROUTER_API_KEY'))
+    # codeReviser = CodeAccelerator('openai', os.getenv('OPENAI_API_KEY'))
     codeReviser = CodeAccelerator('anthropic', os.getenv('ANTHROPIC_API_KEY'))
 
     display_ui(codeReviser)

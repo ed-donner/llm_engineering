@@ -7,7 +7,7 @@ import google.generativeai as genai
 load_dotenv()
 openai = OpenAI()
 genai.configure()
-gpt_key = os.getenv("OPENROUTER_API_KEY")
+gpt_key = os.getenv("OPENAI_API_KEY")
 gemini_key = os.getenv("GEMINI_API_KEY")
 
 gemini_model = 'gemini-1.5-flash'

@@ -16,7 +16,7 @@ class Assistant:
         print("Initializing Assistant...")
         print("="*60)
 
-        openrouter_key = os.getenv('OPENROUTER_API_KEY')
+        openrouter_key = os.getenv('OPENAI_API_KEY')
         gemini_key = os.getenv('GEMINI_API_KEY')
 
         print(f"OpenRouter API Key: {openrouter_key[:20]}..." if openrouter_key else "OpenRouter API Key: NOT FOUND")

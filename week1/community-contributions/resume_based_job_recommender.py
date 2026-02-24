@@ -60,7 +60,7 @@ if __name__ == '__main__':
     # load the api key from .env and check if it is valid.
     load_dotenv()
 
-    api_key = os.getenv('OPENROUTER_API_KEY')
+    api_key = os.getenv('OPENAI_API_KEY')
 
     if api_key is None:
         print("No api key was found.")

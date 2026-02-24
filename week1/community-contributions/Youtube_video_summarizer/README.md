@@ -74,7 +74,7 @@ pip install pytest black flake8 mypy
 
 2. **Create a .env file**:
    ```bash
-   echo "OPENROUTER_API_KEY=your_api_key_here" > .env
+   echo "OPENAI_API_KEY=your_api_key_here" > .env
    ```
 
 3. **Update the video URL** in `youtube_video_summarizer.py`:

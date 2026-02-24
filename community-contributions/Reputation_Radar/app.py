@@ -31,7 +31,7 @@ from services.utils import (
     load_sample_items,
     normalize_items,
     parse_date_range,
-    validate_openrouter_key,
+    validate_openai_key,
 )
 
 
@@ -46,7 +46,7 @@ st.caption("Aggregate brand chatter, classify sentiment, and surface actionable 
 def _get_env_defaults() -> Dict[str, Optional[str]]:
     """Read supported credentials from environment variables."""
     return {
-        "OPENROUTER_API_KEY": os.getenv("OPENROUTER_API_KEY"),
+        "OPENAI_API_KEY": os.getenv("OPENAI_API_KEY"),
         "REDDIT_CLIENT_ID": os.getenv("REDDIT_CLIENT_ID"),
         "REDDIT_CLIENT_SECRET": os.getenv("REDDIT_CLIENT_SECRET"),
         "REDDIT_USER_AGENT": os.getenv("REDDIT_USER_AGENT", "ReputationRadar/1.0"),
@@ -284,12 +284,12 @@ def _build_excel(df: pd.DataFrame) -> bytes:
 
 def main() -> None:
     env_defaults = _get_env_defaults()
-    openai_env_key = env_defaults.get("OPENROUTER_API_KEY") or st.session_state.get("secrets", {}).get("OPENROUTER_API_KEY")
-    validated_env_key, notices = validate_openrouter_key(openai_env_key)
+    openai_env_key = env_defaults.get("OPENAI_API_KEY") or st.session_state.get("secrets", {}).get("OPENAI_API_KEY")
+    validated_env_key, notices = validate_openai_key(openai_env_key)
     config = render_sidebar(env_defaults, tuple(notices))
 
     chosen_key = config["credentials"]["openai"] or validated_env_key
-    openrouter_key, runtime_notices = validate_openrouter_key(chosen_key)
+    openai_key, runtime_notices = validate_openai_key(chosen_key)
     for msg in runtime_notices:
         st.sidebar.info(msg)
 
@@ -380,7 +380,7 @@ def main() -> None:
         return
 
     sentiment_service = llm.LLMService(
-        api_key=config["credentials"]["openai"] or openrouter_key,
+        api_key=config["credentials"]["openai"] or openai_key,
         batch_size=config["batch_size"],
     )
     sentiments = sentiment_service.classify_sentiment_batch([item["text"] for item in cleaned])

@@ -6,7 +6,7 @@ An end-to-end agentic system that scans product sources, estimates fair value us
 ## Prerequisites
 - Environment and secrets:
   - `HF_TOKEN`, `MODAL_TOKEN_ID`, `MODAL_TOKEN_SECRET`
-  - Either `OPENROUTER_API_KEY` or `DEEPSEEK_API_KEY`
+  - Either `OPENAI_API_KEY` or `DEEPSEEK_API_KEY`
   - For push notifications: `PUSHOVER_USER`, `PUSHOVER_TOKEN`
   - Optional Twilio SMS: `TWILIO_ACCOUNT_SID`, `TWILIO_AUTH_TOKEN`
 - Dependencies installed: `pip install -r requirements.txt`

@@ -503,9 +503,9 @@ class DevOpsAIAssistant:
 
         self.vectorstore = self.knowledge_base.initialize()
 
-        api_key = os.getenv('OPENROUTER_API_KEY')
+        api_key = os.getenv('OPENAI_API_KEY')
         if not api_key:
-            raise ValueError("OPENROUTER_API_KEY environment variable not set")
+            raise ValueError("OPENAI_API_KEY environment variable not set")
 
         print("\nInitializing OpenAI LLM...")
         self.llm = ChatOpenAI(

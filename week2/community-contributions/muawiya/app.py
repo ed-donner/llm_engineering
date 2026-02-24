@@ -32,9 +32,9 @@ system_message += "Always be accurate. If you don't know the answer, say so."
 
 load_dotenv(override=True)
 
-openrouter_api_key = os.getenv('OPENROUTER_API_KEY')
-if openrouter_api_key:
-    print(f"OpenAI API Key exists and begins {openrouter_api_key[:8]}")
+openai_api_key = os.getenv('OPENAI_API_KEY')
+if openai_api_key:
+    print(f"OpenAI API Key exists and begins {openai_api_key[:8]}")
 else:
     print("OpenAI API Key not set")
 

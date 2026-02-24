@@ -36,8 +36,8 @@ class Config:
         return None
 
     @property
-    def openrouter_api_key(self) -> str:
-        return self.get("OPENROUTER_API_KEY")
+    def openai_api_key(self) -> str:
+        return self.get("OPENAI_API_KEY")
 
 class Website:
 
@@ -122,7 +122,7 @@ class LlmSummarizer:
         Lazy load the OpenAI client. This is done to avoid creating the client if it's not needed.
         """
         if self.__openai is None:
-            self.__openai = OpenAI(api_key=self.config.openrouter_api_key)
+            self.__openai = OpenAI(api_key=self.config.openai_api_key)
         return self.__openai
 
     #endregion

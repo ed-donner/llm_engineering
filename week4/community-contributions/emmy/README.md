@@ -21,7 +21,7 @@ pip install gradio openai python-dotenv
 
 2. Create a `.env` file:
 ```
-OPENROUTER_API_KEY=your_openrouter_key_here
+OPENAI_API_KEY=your_openai_key_here
 GOOGLE_API_KEY=your_google_key_here
 ```
 

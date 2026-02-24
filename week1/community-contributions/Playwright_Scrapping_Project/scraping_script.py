@@ -6,7 +6,7 @@ from playwright.sync_api import sync_playwright
 from bs4 import BeautifulSoup
 
 load_dotenv()
-openai.api_key = os.getenv("OPENROUTER_API_KEY")  # Or set it directly
+openai.api_key = os.getenv("OPENAI_API_KEY")  # Or set it directly
 
 def scrape_website(url):
     # Code to scrape a website using Playwright

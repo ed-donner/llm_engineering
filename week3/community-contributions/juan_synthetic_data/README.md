@@ -94,7 +94,7 @@ cp .env_example .env
 
 2. Edit `.env` and add your OpenAI API key:
 ```
-OPENROUTER_API_KEY=your_api_key_here
+OPENAI_API_KEY=your_api_key_here
 ```
 
 

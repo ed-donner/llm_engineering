@@ -159,7 +159,7 @@ Format your response in markdown.
             )
         else:
             # Use OpenAI
-            client = OpenAI(api_key=os.getenv('OPENROUTER_API_KEY'))
+            client = OpenAI(api_key=os.getenv('OPENAI_API_KEY'))
         
         response = client.chat.completions.create(
             model=model,

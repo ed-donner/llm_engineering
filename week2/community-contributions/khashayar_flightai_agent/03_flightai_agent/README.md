@@ -35,7 +35,7 @@ pip install openai python-dotenv gradio
 Create a `.env` file in the project root:
 
 ```bash
-OPENROUTER_API_KEY=sk-...
+OPENAI_API_KEY=sk-...
 ```
 The script automatically loads this file using `python-dotenv`.
 

@@ -38,7 +38,7 @@ pip install openai streamlit pydantic python-dotenv
 ### 2) Configure
 Create a `.env` file in this folder:
 ```
-OPENROUTER_API_KEY=your_key_here
+OPENAI_API_KEY=your_key_here
 OPENAI_MODEL=gpt-4o-mini
 ```
 

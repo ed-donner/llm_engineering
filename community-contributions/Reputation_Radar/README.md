@@ -67,12 +67,8 @@ Each service returns a normalised payload to keep the downstream sentiment pipel
 ### Optional Docker Run
 ```bash
 docker build -t reputation-radar .
-docker run --rm -p 8501:8501 -e OPENROUTER_API_KEY=your_key reputation-radar
+docker run --rm -p 8501:8501 -e OPENAI_API_KEY=your_key reputation-radar
 ```
-
-### Deploy to the cloud
-- **Render:** From the repo root, use the included `render.yaml`. In [Render](https://render.com) → New → Blueprint → connect this repo, then add `OPENROUTER_API_KEY` (and optional Reddit/Trustpilot vars) in the service Environment. Render will build and deploy from `community-contributions/Reputation_Radar`.
-- **Streamlit Community Cloud:** New app → connect this repo, set *Main file path* to `community-contributions/Reputation_Radar/app.py`, add `OPENROUTER_API_KEY` in Secrets, then Deploy.
 
 ---
 
@@ -81,7 +77,7 @@ The app reads from `.env`, Streamlit secrets, or direct sidebar input. Expected 
 
 | Variable | Purpose |
 | --- | --- |
-| `OPENROUTER_API_KEY` | Enables OpenAI sentiment + executive summary (falls back to VADER if absent). |
+| `OPENAI_API_KEY` | Enables OpenAI sentiment + executive summary (falls back to VADER if absent). |
 | `REDDIT_CLIENT_ID` | PRAW client ID for Reddit API access. |
 | `REDDIT_CLIENT_SECRET` | PRAW client secret. |
 | `REDDIT_USER_AGENT` | Descriptive user agent (e.g., `ReputationRadar/1.0 by you`). |
@@ -102,7 +98,7 @@ Tests cover sentiment fallback behaviour and core sanitisation/deduplication hel
 ## Working Without API Keys
 - Reddit/Twitter/Trustpilot can be toggled independently; missing credentials raise gentle warnings rather than hard failures.
 - Curated fixtures in `samples/` automatically load for any disabled source, keeping charts, exports, and PDF output functional in demo mode.
-- The LLM layer drops to VADER sentiment scoring and skips the executive summary when `OPENROUTER_API_KEY` is absent.
+- The LLM layer drops to VADER sentiment scoring and skips the executive summary when `OPENAI_API_KEY` is absent.
 
 ---
 

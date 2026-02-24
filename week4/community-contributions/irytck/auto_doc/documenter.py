@@ -7,7 +7,7 @@ load_dotenv()
 
 class CodeDocumenter:
     def __init__(self, model: str = "gpt-4o-mini"):
-        self.client = OpenAI(api_key=os.getenv("OPENROUTER_API_KEY"))
+        self.client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
         self.model = model
 
     def document_code(self, code: str) -> str:

@@ -43,7 +43,7 @@ An AI-powered Chrome extension that generates professional company brochures fro
 
 5. **Create a `.env` file in the project root with your OpenAI API key:**
    ```
-   OPENROUTER_API_KEY=your-api-key-here
+   OPENAI_API_KEY=your-api-key-here
    ```
 
 6. **Fix the `programsetup.py` file:**

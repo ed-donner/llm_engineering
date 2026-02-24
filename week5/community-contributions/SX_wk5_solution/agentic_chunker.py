@@ -10,7 +10,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 class AgenticChunker:
-    def __init__(self, openrouter_api_key=None):
+    def __init__(self, openai_api_key=None):
         self.chunks = {}
         self.id_truncate_limit = 5
 
@@ -18,13 +18,13 @@ class AgenticChunker:
         self.generate_new_metadata_ind = True
         self.print_logging = True
 
-        if openrouter_api_key is None:
-            openrouter_api_key = os.getenv("OPENROUTER_API_KEY")
+        if openai_api_key is None:
+            openai_api_key = os.getenv("OPENAI_API_KEY")
 
-        if openrouter_api_key is None:
+        if openai_api_key is None:
             raise ValueError("API key is not provided and not found in environment variables")
 
-        self.llm = ChatOpenAI(model='gpt-4-1106-preview', openrouter_api_key=openrouter_api_key, temperature=0)
+        self.llm = ChatOpenAI(model='gpt-4-1106-preview', openai_api_key=openai_api_key, temperature=0)
 
     def add_propositions(self, propositions):
         for proposition in propositions:

@@ -11,7 +11,7 @@ import json
 
 
 load_dotenv(override=True)
-os.environ["OPENROUTER_API_KEY"] = os.getenv("OPENROUTER_API_KEY", "your-key-if-not-using-env")
+os.environ["OPENAI_API_KEY"] = os.getenv("OPENAI_API_KEY", "your-key-if-not-using-env")
 
 openai = OpenAI()
 

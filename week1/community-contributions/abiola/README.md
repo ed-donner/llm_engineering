@@ -81,11 +81,11 @@ Set your OpenAI API key before running the notebook.
 
 ### macOS / Linux
 
-    export OPENROUTER_API_KEY="your_api_key_here"
+    export OPENAI_API_KEY="your_api_key_here"
 
 ### Windows (PowerShell)
 
-    setx OPENROUTER_API_KEY "your_api_key_here"
+    setx OPENAI_API_KEY "your_api_key_here"
 
 Restart your terminal or notebook after setting the key.
 

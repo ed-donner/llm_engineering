@@ -8,7 +8,7 @@ from openai import OpenAI
 #Function to get API key for OpanAI from .env file
 def get_api_key():
     load_dotenv(override=True)
-    api_key = os.getenv("OPENROUTER_API_KEY")
+    api_key = os.getenv("OPENAI_API_KEY")
     if not api_key:
         print("No API Key found")
     elif not api_key.startswith("sk-"):

@@ -36,7 +36,7 @@ cd week5/community-contributions/week5-challenge-agentic-rag
 uv pip install -e .
 
 # Create .env file with required API keys
-echo "OPENROUTER_API_KEY=your-key-here" > .env
+echo "OPENAI_API_KEY=your-key-here" > .env
 echo "GROQ_API_KEY=your-key-here" >> .env
 ```
 

@@ -20,7 +20,7 @@ class TradingDecisionEngine:
     """Enhanced trading decision engine with AI and algorithmic analysis"""
     
     def __init__(self):
-        self.client = OpenAI(api_key=os.getenv('OPENROUTER_API_KEY'))
+        self.client = OpenAI(api_key=os.getenv('OPENAI_API_KEY'))
         
         # Trading signal weights
         self.signal_weights = {

@@ -55,7 +55,7 @@ JobFinderAI/
 ├── data_processor.py # JSON → Clean CSV (your code)
 ├── job_listings_bengaluru.csv # ✅ OUTPUT
 ├── README.md # This file
-└── .env # OPENROUTER_API_KEY
+└── .env # OPENAI_API_KEY
 
 
 ## 🔮 Next Steps

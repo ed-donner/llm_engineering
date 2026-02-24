@@ -35,12 +35,12 @@ from anthropic import Anthropic
 load_dotenv()
 fake = Faker()
 
-OPENROUTER_API_KEY = os.getenv("OPENROUTER_API_KEY")
+OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 ANTHROPIC_API_KEY = os.getenv("ANTHROPIC_API_KEY")
 MAX_RECORDS_ALLOWED = 5
 
 # Configuración de clientes
-openai.api_key = OPENROUTER_API_KEY
+openai.api_key = OPENAI_API_KEY
 anthropic_client = Anthropic(api_key=ANTHROPIC_API_KEY)
 
 # ============================================================================
@@ -172,7 +172,7 @@ def generate_dataset(provider: str, dataset_type: str, n: int, context: dict,
     model = models.get(provider)
     
     if not api_key:
-        api_key = OPENROUTER_API_KEY if provider == "openai" else ANTHROPIC_API_KEY
+        api_key = OPENAI_API_KEY if provider == "openai" else ANTHROPIC_API_KEY
     
     # Llamar modelo
     call_fn = call_openai if provider == "openai" else call_anthropic

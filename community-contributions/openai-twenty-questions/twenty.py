@@ -2,7 +2,7 @@ import openai
 import os
 import time
 
-# openai.api_key = os.getenv("OPENROUTER_API_KEY")
+# openai.api_key = os.getenv("OPENAI_API_KEY")
 # openai.api_key = "<<Your Open AI Key here>>"
 
 # Models: You can use "gpt-4o", "gpt-4-turbo", or "gpt-3.5-turbo" — but we'll use "gpt-4o" or "gpt-4o-mini" for both players

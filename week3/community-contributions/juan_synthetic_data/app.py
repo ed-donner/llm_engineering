@@ -18,7 +18,7 @@ def main():
 
     # Load the api key
     load_dotenv()
-    openai.api_key = os.getenv("OPENROUTER_API_KEY")
+    openai.api_key = os.getenv("OPENAI_API_KEY")
 
     # Temporary folder for images
     os.makedirs(PROJECT_TEMP_DIR, exist_ok=True)

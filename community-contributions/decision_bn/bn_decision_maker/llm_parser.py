@@ -74,7 +74,7 @@ class CaseParser:
         litellm_params = model_config.get("litellm_params", {})
         
         # Get API key from environment variable specified in config
-        env_key = litellm_params.get("env_key", "OPENROUTER_API_KEY")
+        env_key = litellm_params.get("env_key", "OPENAI_API_KEY")
         api_key = os.getenv(env_key)
         
         if not api_key:

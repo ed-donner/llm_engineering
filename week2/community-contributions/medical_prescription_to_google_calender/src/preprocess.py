@@ -6,7 +6,7 @@ from datetime import datetime, timedelta
 
 load_dotenv()
 
-openai_api = os.getenv("OPENROUTER_API_KEY")
+openai_api = os.getenv("OPENAI_API_KEY")
 MODEL = "gpt-4o-mini"
 openai = OpenAI()
 

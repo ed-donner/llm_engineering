@@ -17,7 +17,7 @@ AI services access configuration:
 
 * A `.env` file with the credentials required to access the different LLMs is required:
 
-  * `OPENROUTER_API_KEY`: Required always as it's used by the *"storyteller"*.
+  * `OPENAI_API_KEY`: Required always as it's used by the *"storyteller"*.
   * `XAI_API_KEY`: Required if Grok's illustrator is used.
     *(Less prude, faster and portrait mode)*
   * `GOOGLE_API_KEY` Required if Gemini's illustrator is used.

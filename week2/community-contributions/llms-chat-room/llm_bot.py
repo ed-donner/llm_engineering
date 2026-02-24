@@ -9,7 +9,7 @@ LLM_BOT_CONFIGS = {
         "id": "gpt",
         "name": "Giorgio",
         "model": "gpt-4.1-nano",
-        "api_key_env": "OPENROUTER_API_KEY",
+        "api_key_env": "OPENAI_API_KEY",
     },
     "claude": {
         "id": "claude",
@@ -28,7 +28,7 @@ LLM_BOT_CONFIGS = {
         "id": "openai",
         "name": "Marco",
         "model": "gpt-4o-mini",
-        "api_key_env": "OPENROUTER_API_KEY",
+        "api_key_env": "OPENAI_API_KEY",
     },
     "deepseek": {
         "id": "deepseek",

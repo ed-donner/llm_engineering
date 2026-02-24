@@ -18,7 +18,7 @@ python -m pip install -U openai chromadb transformers gradio python-dotenv modal
 Create `.env` with your keys:
 
 ```bash
-OPENROUTER_API_KEY=...
+OPENAI_API_KEY=...
 ```
 
 Place Bare Acts as UTF-8 `.txt` files in:

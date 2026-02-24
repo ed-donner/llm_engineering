@@ -5,7 +5,7 @@ from IPython.display import Markdown, display
 
 load_dotenv()
 
-open_key = os.getenv("OPENROUTER_API_KEY") 
+open_key = os.getenv("OPENAI_API_KEY") 
 
 OPEN_MODEL = "gpt-4-turbo"
 ollama_model = "llama3.2"

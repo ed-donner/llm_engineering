@@ -13,7 +13,7 @@ def test_llm_fallback_uses_vader():
     assert results[1].label == "negative"
 
 
-def test_summary_requires_openrouter_key():
+def test_summary_requires_openai_key():
     service = llm.LLMService(api_key=None)
     with pytest.raises(ServiceWarning):
         service.summarize_overall([{"label": "positive", "text": "Example"}])

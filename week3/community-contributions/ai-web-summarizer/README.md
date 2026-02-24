@@ -60,7 +60,7 @@ ai-summarizer/
    Create a `.env` file in the project root and add your OpenAI API key (if using OpenAI):
 
    ```env
-   OPENROUTER_API_KEY=your-api-key-here
+   OPENAI_API_KEY=your-api-key-here
    ```
 
 ## Usage

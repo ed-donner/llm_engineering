@@ -7,7 +7,7 @@ from IPython.display import Markdown, display
 # Get the API keys from the environment variables
 load_dotenv(override=True)
 # Set the API keys to constants
-OPENROUTER_API_KEY = os.getenv("OPENROUTER_API_KEY")
+OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 ANTHROPIC_API_KEY = os.getenv("ANTHROPIC_API_KEY")
 GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY")
 
@@ -16,7 +16,7 @@ anthropic_url = "https://api.anthropic.com/v1/"
 gemini_url = "https://generativelanguage.googleapis.com/v1beta/openai/"
 
 # Initialize the clients
-openai = OpenAI(api_key=OPENROUTER_API_KEY)
+openai = OpenAI(api_key=OPENAI_API_KEY)
 anthropic = OpenAI(api_key=ANTHROPIC_API_KEY, base_url=anthropic_url)
 google = OpenAI(api_key=GOOGLE_API_KEY, base_url=gemini_url)
 

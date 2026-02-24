@@ -70,9 +70,9 @@ def home():
 
 if __name__ == '__main__':
     # Check for OpenAI API key
-    api_key = os.getenv('OPENROUTER_API_KEY')
+    api_key = os.getenv('OPENAI_API_KEY')
     if not api_key:
-        print("WARNING: OPENROUTER_API_KEY not found in environment variables!")
+        print("WARNING: OPENAI_API_KEY not found in environment variables!")
         print("Please create a .env file with your OpenAI API key")
     else:
         print("OpenAI API key loaded successfully")

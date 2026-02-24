@@ -55,7 +55,7 @@ pip install -r requirements.txt
 
 Create a `.env` file in the project root:
 ```env
-OPENROUTER_API_KEY=sk-your-openai-api-key-here
+OPENAI_API_KEY=sk-your-openai-api-key-here
 ANTHROPIC_API_KEY=sk-ant-your-anthropic-api-key-here
 GOOGLE_API_KEY=your-google-api-key-here
 ```

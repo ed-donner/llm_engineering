@@ -38,7 +38,7 @@ Together, they engage in a structured dialogue on cultural topics (e.g., Franz K
 4. Set up environment variables:
 - Create a .env file with your OpenAI API key:
     ```bash
-    OPENROUTER_API_KEY=sk-xxxxxxx
+    OPENAI_API_KEY=sk-xxxxxxx
 
 5. Run Ollama locally:
     ```bash

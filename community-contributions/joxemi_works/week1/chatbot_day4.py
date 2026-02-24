@@ -102,12 +102,12 @@ def elegir_backend():
     # ONLINE
     # --------
     if opcion == "1":
-        api_key = os.getenv("OPENROUTER_API_KEY", "").strip()
+        api_key = os.getenv("OPENAI_API_KEY", "").strip()
 
         # Validamos API key
         if not api_key:
             raise ValueError(
-                "Has elegido ONLINE pero falta OPENROUTER_API_KEY en el entorno/.env."
+                "Has elegido ONLINE pero falta OPENAI_API_KEY en el entorno/.env."
             )
 
         # Creamos cliente para OpenAI online (sin base_url)

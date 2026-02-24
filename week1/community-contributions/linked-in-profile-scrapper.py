@@ -24,10 +24,10 @@ import ollama
 
 
 load_dotenv(override=True)
-api_key = os.getenv('OPENROUTER_API_KEY')
+api_key = os.getenv('OPENAI_API_KEY')
 
 if not api_key:
-   raise ValueError("OPENROUTER_API_KEY not found in environment variables")
+   raise ValueError("OPENAI_API_KEY not found in environment variables")
 
 print("✅ API key loaded successfully!")
 openai = OpenAI()

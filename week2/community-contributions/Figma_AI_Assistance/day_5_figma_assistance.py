@@ -10,7 +10,7 @@ from IPython.display import Audio, display
 import google.generativeai
 import anthropic
 
-client = OpenAI(api_key=os.getenv("OPENROUTER_API_KEY"))
+client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
 # Configure Gemini
 google.generativeai.configure(api_key=os.getenv("GOOGLE_API_KEY"))

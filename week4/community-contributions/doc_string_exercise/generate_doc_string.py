@@ -41,7 +41,7 @@ def main():
 
     # load keys and environment variables
     load_dotenv()
-    os.environ['OPENROUTER_API_KEY'] = os.getenv('OPENROUTER_API_KEY', 'your-key-if-not-using-env')
+    os.environ['OPENAI_API_KEY'] = os.getenv('OPENAI_API_KEY', 'your-key-if-not-using-env')
     os.environ['ANTHROPIC_API_KEY'] = os.getenv('ANTHROPIC_API_KEY', 'your-key-if-not-using-env')
     os.environ['HF_TOKEN'] = os.getenv('HF_INF_TOKEN', 'your-key-if-not-using-env')
 

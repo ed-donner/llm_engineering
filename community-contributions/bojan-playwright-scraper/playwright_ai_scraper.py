@@ -40,7 +40,7 @@ class AnalysisError(Exception):
 
 
 class AIScraper:
-    API_KEY = os.getenv("OPENROUTER_API_KEY")
+    API_KEY = os.getenv("OPENAI_API_KEY")
     MAX_CONTENT = int(os.getenv("MAX_CONTENT_LENGTH", 30000))
 
     def __init__(self, headless=True):

@@ -12,7 +12,7 @@ from rich.markdown import Markdown as RichMarkdown
 
 def get_client_and_headers():
     load_dotenv(override=True)
-    api_key = os.getenv("OPENROUTER_API_KEY")
+    api_key = os.getenv("OPENAI_API_KEY")
     if api_key and api_key.startswith('sk-proj-') and len(api_key)>10:
         # print("API key looks good so far")
         pass

@@ -156,7 +156,7 @@ Quando tiver essas chaves, crie um novo arquivo chamado `.env` no diretório rai
 2. No Notepad, digite o seguinte, substituindo `xxxx` pela sua chave de API (que começa com `sk-proj-`):
 
 ```
-OPENROUTER_API_KEY=xxxx
+OPENAI_API_KEY=xxxx
 ```
 
 Se tiver outras chaves, você pode adicioná-las agora ou voltar a este arquivo nas semanas seguintes:

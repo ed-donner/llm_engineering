@@ -158,7 +158,7 @@ class ToolBox:
     def __init__(self, keys: ApiKeyLoader):
         self.travel_api = TravelAPI(keys.get("client_id"), keys.get("client_secret"))
         self.map_generator = MapGenerator(keys.get("google_map_api_key"))
-        self.openai = OpenAI(api_key=keys.get("openrouter_api_key"))
+        self.openai = OpenAI(api_key=keys.get("openai_api_key"))
         self.tools = _to_openai_tools(_FUNCTION_SPECS)
         self._fn_dispatch = {
             "get_flight": self.get_flight,

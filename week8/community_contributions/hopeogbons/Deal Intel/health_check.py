@@ -19,13 +19,13 @@ logger = init_logger("DealIntel.Health")
 
 def check_env() -> bool:
     ok = True
-    required_any = ["OPENROUTER_API_KEY", "DEEPSEEK_API_KEY"]
+    required_any = ["OPENAI_API_KEY", "DEEPSEEK_API_KEY"]
     required = ["HF_TOKEN", "MODAL_TOKEN_ID", "MODAL_TOKEN_SECRET"]
     push_vars = ["PUSHOVER_USER", "PUSHOVER_TOKEN"]
 
     logger.info("Checking environment variables")
     if not any(os.getenv(k) for k in required_any):
-        logger.warning("Missing OPENROUTER_API_KEY or DEEPSEEK_API_KEY")
+        logger.warning("Missing OPENAI_API_KEY or DEEPSEEK_API_KEY")
         ok = False
     for k in required:
         if not os.getenv(k):

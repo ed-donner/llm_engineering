@@ -6,7 +6,7 @@ from scraper_modified import fetch_website_links, fetch_website_contents
 from openai import OpenAI
 
 load_dotenv(override=True)
-api_key = os.getenv('OPENROUTER_API_KEY')
+api_key = os.getenv('OPENAI_API_KEY')
 
 if not(api_key and api_key.startswith('sk-proj-') and len(api_key)>10):
     print("There might be a problem with your API key.")

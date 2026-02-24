@@ -75,7 +75,7 @@ puts "Chucks count: #{chunks.count}"
 puts "Document types found: #{chunks.map { _1[:metadata]['doc_type']}.uniq.join(', ') }"
 
 # 1. Set up OpenAI client (replace with RubyLLM or HTTP if using HuggingFace)
-# openai = OpenAI::Client.new(access_token: ENV['OPENROUTER_API_KEY']) # OpenAI API, remotely
+# openai = OpenAI::Client.new(access_token: ENV['OPENAI_API_KEY']) # OpenAI API, remotely
 openai = OpenAI::Client.new(uri_base: 'http://localhost:11434/v1', access_token: 'ollama') # LLaMa, locally
 
 # 2. Get embeddings for each chunk

@@ -7,20 +7,20 @@ from dotenv import load_dotenv
 
 # Load environment variables
 load_dotenv()
-OPENROUTER_API_KEY = os.getenv("OPENROUTER_API_KEY")
+OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 anthropic_api_key = os.getenv('ANTHROPIC_API_KEY')
 google_api_key = os.getenv('GOOGLE_API_KEY')
 
 # Verify API keys are loaded
-if not OPENROUTER_API_KEY:
-    raise ValueError("OPENROUTER_API_KEY not found in environment variables")
+if not OPENAI_API_KEY:
+    raise ValueError("OPENAI_API_KEY not found in environment variables")
 if not anthropic_api_key:
     raise ValueError("ANTHROPIC_API_KEY not found in environment variables")
 if not google_api_key:
     raise ValueError("GOOGLE_API_KEY not found in environment variables")
 
 # Initialize clients
-openai_client = OpenAI(api_key=OPENROUTER_API_KEY)
+openai_client = OpenAI(api_key=OPENAI_API_KEY)
 genai.configure(api_key=google_api_key)
 claude_client = anthropic.Anthropic(api_key=anthropic_api_key)
 

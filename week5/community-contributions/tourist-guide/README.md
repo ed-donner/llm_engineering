@@ -30,7 +30,7 @@ An interactive voice-enabled tourist guide that provides information about citie
    ```
 3. Create a `.env` file in the project directory with your API keys:
    ```
-   OPENROUTER_API_KEY=your_openrouter_api_key_here
+   OPENAI_API_KEY=your_openai_api_key_here
    GOOGLE_PLACES_API_KEY=your_google_places_api_key_here
    ```
 4. (Optional) Add PDF files to the `knowledge-base/` directory to enhance the assistant's knowledge about specific locations

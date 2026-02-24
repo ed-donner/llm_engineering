@@ -11,7 +11,7 @@ Enter the credentials including the base URL, API Key, and default_model of your
 For example,
 
 ```
-OPENROUTER_API_KEY=<your OPENAI api key>
+OPENAI_API_KEY=<your OPENAI api key>
 OPENAI_MODEL=gpt-5-nano
 OPENAI_BASE_URL=
 

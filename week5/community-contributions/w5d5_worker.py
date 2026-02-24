@@ -49,7 +49,7 @@ os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 
 # Load environment variables
 load_dotenv(override=True)
-os.environ['OPENROUTER_API_KEY'] = os.getenv('OPENROUTER_API_KEY', 'your-key-if-not-using-env')
+os.environ['OPENAI_API_KEY'] = os.getenv('OPENAI_API_KEY', 'your-key-if-not-using-env')
 
 # Removed Google Drive credentials configuration
 

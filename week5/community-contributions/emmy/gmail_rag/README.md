@@ -27,7 +27,7 @@ Create `.env` file:
 ```env
 GOOGLE_CREDENTIALS_PATH=~/.config/gcp/langchain/credentials.json
 GOOGLE_TOKEN_PATH=~/.config/gcp/langchain/token.json
-OPENROUTER_API_KEY=your_openrouter_api_key_here
+OPENAI_API_KEY=your_openai_api_key_here
 ```
 
 Get OpenAI API key from [platform.openai.com](https://platform.openai.com/api-keys)

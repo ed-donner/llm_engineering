@@ -118,8 +118,8 @@ class StockTradingApp:
     
     def show_api_status(self):
         st.subheader("API Used")
-        openrouter_key = os.getenv('OPENROUTER_API_KEY')
-        if openrouter_key:
+        openai_key = os.getenv('OPENAI_API_KEY')
+        if openai_key:
             st.success("✅ OpenAI Connected")
         else:
             st.error("❌ Not Connected")
