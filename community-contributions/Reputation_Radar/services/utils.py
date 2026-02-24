@@ -192,9 +192,9 @@ def validate_openrouter_key(api_key: Optional[str]) -> Tuple[Optional[str], List
     if not api_key:
         warnings.append("No OpenRouter API key detected. VADER fallback will be used.")
         return None, warnings
-    if not api_key.startswith("sk-"):
+    if not (api_key.startswith("sk-or-") or api_key.startswith("sk-proj-")):
         warnings.append(
-            "Provided OpenRouter API key does not start with the expected prefix (sk-)."
+            "Provided OpenRouter API key does not start with the expected prefix (sk-or- or sk-proj-)."
         )
     if api_key.strip() != api_key:
         warnings.append("OpenRouter API key looks like it has leading or trailing whitespace.")
