@@ -19,7 +19,6 @@ langchain-openai
 langchain-chroma
 langchain-community
 datasets==3.6.0
-matplotlib
 google-generativeai
 anthropic
 chromadb
