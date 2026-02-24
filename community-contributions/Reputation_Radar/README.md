@@ -70,6 +70,10 @@ docker build -t reputation-radar .
 docker run --rm -p 8501:8501 -e OPENROUTER_API_KEY=your_key reputation-radar
 ```
 
+### Deploy to the cloud
+- **Render:** From the repo root, use the included `render.yaml`. In [Render](https://render.com) → New → Blueprint → connect this repo, then add `OPENROUTER_API_KEY` (and optional Reddit/Trustpilot vars) in the service Environment. Render will build and deploy from `community-contributions/Reputation_Radar`.
+- **Streamlit Community Cloud:** New app → connect this repo, set *Main file path* to `community-contributions/Reputation_Radar/app.py`, add `OPENROUTER_API_KEY` in Secrets, then Deploy.
+
 ---
 
 ## Configuration & Credentials
