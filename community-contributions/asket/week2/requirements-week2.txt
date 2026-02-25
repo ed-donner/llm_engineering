@@ -1,0 +1,12 @@
+# Week 2 – Frontier APIs, multi-model chat, Gradio, tools
+# Install from repo root: pip install -r community-contributions/asket/week2/requirements-week2.txt
+python-dotenv
+requests
+openai
+anthropic
+google-generativeai
+google-genai
+langchain-openai
+litellm
+gradio
+Pillow
