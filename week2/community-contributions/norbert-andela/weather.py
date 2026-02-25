@@ -1,3 +1,4 @@
+# importing necessary libraries and defining constants for the geocoding and weather APIs, as well as a mapping of weather codes to descriptions. The main function get_weather takes a city name, geocodes it to get coordinates, fetches the current weather data for those coordinates, and returns a structured result as a dictionary.
 from __future__ import annotations
 
 from dataclasses import asdict, dataclass
