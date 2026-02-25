@@ -1,4 +1,4 @@
-# Sales Brochure Generator
+# # Week 1 Bootcamp Project: Sales Brochure Generator1
 
 This Python script uses **OpenRouter GPT-4.1-mini** to generate a short, professional sales brochure.
 
