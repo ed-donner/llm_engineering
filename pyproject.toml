@@ -40,7 +40,8 @@ dependencies = [
     "setuptools>=80.9.0",
     "speedtest-cli>=2.1.3",
     "tiktoken>=0.11.0",
-    "torch>=2.8.0",
+    "torch>=2.8.0; platform_machine != 'x86_64' or sys_platform != 'darwin'",
+    "torch>=2.0.0; platform_machine == 'x86_64' and sys_platform == 'darwin'",
     "tqdm>=4.67.1",
     "transformers>=4.56.2",
     "wandb>=0.22.1",
@@ -51,3 +52,7 @@ dependencies = [
     "groq>=0.33.0",
     "xgboost>=3.1.1",
 ]
+
+[tool.uv]
+required-environments = ["sys_platform == 'darwin' and platform_machine == 'x86_64'"]
+
