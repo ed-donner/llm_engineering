@@ -11,8 +11,13 @@ The notebook `week3-assignment.ipynb`:
 
 ### Prerequisites
 
-- **Gated model:** Accept the [Llama 3.2 license](https://huggingface.co/meta-llama/Llama-3.2-1B-Instruct) and run `huggingface-cli login`.
-- `pip install transformers torch accelerate`
+- **Gated model:** Accept the [Llama 3.2 license](https://huggingface.co/meta-llama/Llama-3.2-1B-Instruct) on the Hub.
+- **HF token:** In your `.env` (do **not** commit it), add:
+  ```
+  HF_TOKEN=your_huggingface_token_here
+  ```
+  Get a token from [Hugging Face → Settings → Access Tokens](https://huggingface.co/settings/tokens). The notebook calls `login(token=HF_TOKEN)` so the gated model can be loaded. Alternatively, run `huggingface-cli login` once and the notebook will use cached credentials if `HF_TOKEN` is not set.
+- `pip install transformers torch accelerate python-dotenv huggingface_hub`
 
 ### How to run
 
