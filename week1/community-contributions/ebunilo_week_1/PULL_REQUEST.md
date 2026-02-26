@@ -1,44 +1,75 @@
-# Pull Request: Week 1 Exercise – Technical Tutor (OpenAI + Ollama)
+# Pull Request: ebunilo_week_1 – Week 1 notebooks, exercise & containerized brochure app
 
 ## Summary
 
-This PR adds a **technical tutor** notebook for the Week 1 end-of-week exercise. The tool answers technical questions about Python code, software engineering, data science, and LLMs using both **OpenAI (gpt-4o-mini)** and **Ollama (Llama 3.2)**, with streaming responses rendered as Markdown.
+This PR adds Week 1 community contributions: **Day 1 with Ollama**, the **Week 1 Exercise (technical tutor)** using OpenAI and Ollama, shared **scraper** and **env** setup, and a **containerized Company Brochure Generator** (Day 5 business solution) with Docker/Docker Compose and READMEs for deployment on a private cloud server.
 
 ## What’s included
 
-- **`week1 EXERCISE.ipynb`** – Main notebook implementing the technical tutor:
-  - System prompt: *"You are a helpful technical tutor who answers questions about python code, software engineering, data science and LLMs."*
-  - **OpenAI**: `gpt-4o-mini` via the OpenAI API (uses `OPENAI_API_KEY` from env).
-  - **Ollama**: `llama3.2` via the OpenAI-compatible API at `http://localhost:11434/v1`.
-  - Streaming completions from both models with Markdown display.
-  - Example question (editable in-cell) demonstrating a Python snippet explanation (e.g. `yield from` with a set comprehension).
+### Notebooks & shared code
 
-- **Dependencies**: Uses `openai`, `python-dotenv`, and `IPython` (and optionally `scraper` from the same folder if you use other notebooks here; the exercise itself only needs the clients and display).
+- **`day1_with_ollama.ipynb`** – Day 1 notebook using Ollama (local LLM).
+- **`week1 EXERCISE.ipynb`** – Technical tutor: answers technical questions about Python, software engineering, data science, and LLMs using **OpenAI (gpt-4o-mini)** and **Ollama (Llama 3.2)** with streaming Markdown responses.
+- **`scraper.py`** – Shared website scraper (fetch links and page content).
+- **`requirements.txt`** / **`env.example`** – Dependencies and env template for notebooks.
+
+### Company Brochure Generator (Day 5 app)
+
+- **`app/`** – Web API and containerization for the Day 5 “full business solution”:
+  - **`main.py`** – FastAPI app: `GET /health`, `POST /brochure` (company name + URL → markdown brochure).
+  - **`brochure.py`** – Brochure logic: LLM-based link selection and brochure generation (aligned with day5 notebook).
+  - **`scraper.py`** – App-local scraper (timeouts, error handling).
+  - **`requirements.txt`** – FastAPI, uvicorn, openai, requests, beautifulsoup4, etc.
+  - **`Dockerfile`** – Python 3.12-slim, non-root user, port 8000.
+  - **`docker-compose.yml`** – Single service, env_file, healthcheck.
+  - **`.env.example`** – `OPENAI_API_KEY` and optional model/port.
+  - **`.dockerignore`** – Lean build context.
+  - **`app/README.md`** – Local run, Docker, Docker Compose, Nginx, API usage.
+
+### Documentation
+
+- **`README.md`** (repo root for this contribution) – Overview of the folder, table of contents, link to app deployment and requirements.
 
 ## Why it’s useful
 
-- **Dual backends**: Compare cloud (OpenAI) vs local (Ollama) in one notebook.
-- **Reusable**: Change the `question` variable and re-run to get tutor answers on new topics.
-- **Streaming + Markdown**: Responses stream and render as formatted Markdown for readability.
-- **Aligned with course**: Demonstrates OpenAI API and Ollama usage as in Week 1.
+- **Exercise**: Dual backends (OpenAI + Ollama), streaming Markdown, reusable technical tutor aligned with Week 1.
+- **Brochure app**: Day 5 pipeline as a deployable service; one-command run with Docker Compose and clear steps for a private cloud server.
+- **Single PR**: One place for notebooks, shared code, and production-style deployment of the Week 1 Day 5 solution.
 
 ## How to run
 
-1. **Environment**
-   - Create a `.env` with `OPENAI_API_KEY` for the OpenAI part.
-   - For Ollama: run `ollama serve` and `ollama pull llama3.2` (or equivalent).
+### Notebooks
 
-2. **Notebook**
-   - Open `week1 EXERCISE.ipynb` and run cells in order.
-   - Edit the `question` string in the notebook to ask new technical questions.
-   - Run the GPT and/or Llama cells to get streaming tutor answers.
+1. Copy `env.example` to `.env`, set `OPENAI_API_KEY`. For Ollama: `ollama serve` and `ollama pull llama3.2`.
+2. Open `day1_with_ollama.ipynb` or `week1 EXERCISE.ipynb` and run cells.
+
+### Brochure app (local)
+
+```bash
+cd app
+cp .env.example .env   # set OPENAI_API_KEY
+pip install -r requirements.txt
+uvicorn main:app --reload --port 8000
+```
+
+### Brochure app (Docker / private cloud)
+
+```bash
+cd app
+cp .env.example .env   # set OPENAI_API_KEY
+docker compose up -d
+```
+
+See **`app/README.md`** for full deployment options (plain Docker, Nginx, env vars).
 
 ## Checklist
 
-- [x] Implements a tool that takes a technical question and responds with an explanation.
-- [x] Uses the OpenAI API (gpt-4o-mini).
-- [x] Uses Ollama (Llama 3.2) via the OpenAI-compatible API.
-- [x] Suitable for use as a personal technical tutor during the course.
+- [x] Week 1 Exercise: technical tutor with OpenAI and Ollama, streaming Markdown.
+- [x] Day 1 with Ollama notebook.
+- [x] Shared scraper and env example.
+- [x] Day 5 brochure pipeline as FastAPI app.
+- [x] Dockerfile and docker-compose for container deployment.
+- [x] README at contribution root and app-level deployment README.
 
 ## Author
 
