@@ -2,6 +2,7 @@
 # Install from repo root: pip install -r community-contributions/asket/week2/requirements-week2.txt
 python-dotenv
 requests
+beautifulsoup4
 openai
 anthropic
 google-generativeai
