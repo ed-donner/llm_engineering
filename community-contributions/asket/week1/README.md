@@ -1,5 +1,10 @@
-# asket – community contributions
+# Week 1 Exercise (Frank Asket)
 
-Contributions in this folder only; no changes to the rest of the repo.
+This folder contains **only** the Week 1 end-of-week exercise, as a single notebook.
 
-**Before submitting a PR,** see **[GUIDES_CHECKLIST.md](GUIDES_CHECKLIST.md)** so you abide by the [guides](../../guides) and [CONTRIBUTING.md](../../CONTRIBUTING.md).
+| File | Description |
+|------|-------------|
+| **week1_EXERCISE.ipynb** | Part 1: Technical Q&A (OpenRouter + optional Ollama). Part 2: Bilingual website summarizer (Ollama, EN + Guéré). |
+| **PR_WEEK1_EXERCISE.md** | Copy-paste this into the GitHub PR description when opening the pull request. |
+
+See **PR_WEEK1_EXERCISE.md** for how to run and for the full PR text.
