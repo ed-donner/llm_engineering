@@ -1,6 +1,6 @@
 # paperSuMMARiZER
 
-A local AI-powered research paper summarizer. Paste any research paper URL and get a clean, structured markdown summary — including title, authors, methodology, technologies, references, and the research gap — all running locally via Ollama.
+###### A local Ollama-powered research paper summarizer. Paste any research paper URL and get a clean, structured Markdown summary including fields like title, authors, methodology, technologies, references, and the research gap.
 
 ---
 
@@ -18,6 +18,7 @@ A local AI-powered research paper summarizer. Paste any research paper URL and g
 
 - Python 3.10+
 - [Ollama](https://ollama.com) installed and running locally
+- [uv](https://docs.astral.sh/uv/) installed and running locally
 - A [Jina AI](https://jina.ai) API key (free tier available)
 
 ---
@@ -25,50 +26,11 @@ A local AI-powered research paper summarizer. Paste any research paper URL and g
 ### Step 1 — Clone the Repository
 
 ```bash
-git clone https://github.com/your-username/llm_engineering.git
+git clone https://github.com/ed-donner/llm_engineering.git
 cd llm_engineering
 ```
 
-### Step 2 — Create and Activate a Virtual Environment
-
-```bash
-python -m venv .venv
-```
-
-**Windows:**
-
-```bash
-.venv\Scripts\activate
-```
-
-**macOS / Linux:**
-
-```bash
-source .venv/bin/activate
-```
-
-### Step 3 — Install Dependencies
-
-```bash
-pip install -r requirements.txt
-```
-
-Or if you use conda:
-
-```bash
-conda env create -f environment.yml
-conda activate llm_engineering
-```
-
-### Step 4 — Pull the Model with Ollama
-
-Make sure Ollama is running, then pull the required model:
-
-```bash
-ollama pull llama3.2:3b
-```
-
-### Step 5 — Configure Your API Key
+### Step 2 — Configure Your API Key
 
 Create a `.env` file in the project root:
 
@@ -78,13 +40,14 @@ JINA_API_KEY=your_jina_api_key_here
 
 > **Note:** The Jina AI Reader API key is used to scrape research paper pages. You can get a free key at [https://jina.ai](https://jina.ai).
 
-### Step 6 — Run the Notebook
+### Step 3 — Open the Project
 
-Open `AI@Karam's/paperSuMMARiZER/paperSUMMARiZER.ipynb` in VS Code or JupyterLab and run all cells.
+Open the llm_engineering folder in your preferred code editor (like VS Code or Cursor).
+Navigate to the paperSUMMARiZER.ipynb located at:
 
----
-
-## Usage
+```
+community-contribution/karam_sayed/paper-summarizer/paperSUMMARiZER.ipynb
+```
 
 Set your target paper URL in the notebook:
 
@@ -92,80 +55,17 @@ Set your target paper URL in the notebook:
 paper_url = 'https://your-research-paper-url-here'
 ```
 
-Then run the final cell:
+### Step 4 — Select kernel
 
-```python
-display_summary(paper_url)
+Ensure you have installed the required dependencies using uv. Then, select your Jupyter kernel, preferably Python 3.12.x.
+
+### Step 5 — Run all the cells
+
 ```
+Run all the cells in paperSUMMARizer.ipynb
+```
+---
+## Author
+Developed by [Karam Sayed](https://github.com/Karam-999)
 
 ---
-
-## Output Example
-
-Below is a sample output generated for an AI retinal health assessment paper:
-
----
-
-**Title**
-
-AI-Powered, Automated, and Portable Device for Retinal Health Assessment: A Review and Future Directions
-
----
-
-**Abstract**
-
-The advent of AI-powered technologies has revolutionized various fields of science and medicine. In this review article, we explore the development, applications, and future directions of an AI-powered, automated, and portable device designed to assess retinal health.
-
----
-
-**Methods**
-
-A systematic review of existing literature was conducted, including peer-reviewed articles, conference proceedings, and patents. Key characteristics, applications, benefits, limitations, and future directions of AI-powered retinal devices were analysed.
-
----
-
-**Discussion**
-
-The analysis revealed several AI-powered devices capable of detecting various retinal diseases with high accuracy, leveraging computer vision algorithms, deep learning techniques, and machine learning models.
-
----
-
-**Key Results Table**
-
-| Criteria           | Device A          | Device B          | Device C          |
-| ------------------ | ----------------- | ----------------- | ----------------- |
-| Detection accuracy | 95% (sensitivity) | 90% (specificity) | 98.5% (precision) |
-| Portability        | Yes               | No                | Yes               |
-| Affordability      | ~$500             | ~$20,000          | ~$2,000           |
-
----
-
-**Clinical Trial Results**
-
-| Trial ID | Study Design    | Patients | Outcome            |
-| -------- | --------------- | -------- | ------------------ |
-| ITG001   | Case-control    | 100      | Sensitivity: 95.2% |
-| ABT012   | Cross-sectional | 200      | Precision: 93.7%   |
-
----
-
-**Conclusion**
-
-The development of AI-powered, automated, and portable devices for retinal health assessment holds significant promise for improving global healthcare outcomes. Future directions should focus on standardising evaluation protocols and clinical trial methodologies.
-
----
-
-## Tech Stack
-
-| Component    | Tool                       |
-| ------------ | -------------------------- |
-| LLM          | `llama3.2:3b` via Ollama   |
-| Web Scraping | Jina AI Reader API         |
-| Notebook     | Jupyter / VS Code          |
-| Display      | `IPython.display.Markdown` |
-
----
-
-## License
-
-MIT
