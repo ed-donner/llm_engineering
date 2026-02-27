@@ -1,0 +1,183 @@
+
+# Minimal Docker Compose setup for Call Center AI
+# For full features, install optional dependencies separately
+
+services:
+  # PostgreSQL Database
+  postgres:
+    image: postgres:15-alpine
+    container_name: call-center-postgres
+    environment:
+      POSTGRES_USER: ${DB_USER:-postgres}
+      POSTGRES_PASSWORD: ${DB_PASSWORD:-postgres}
+      POSTGRES_DB: ${DB_NAME:-andela_ai_engineering_bootcamp}
+    ports:
+      - "${DB_PORT:-5432}:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${DB_USER:-postgres}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - call-center-network
+
+  # Redis
+  redis:
+    image: redis:7-alpine
+    container_name: call-center-redis
+    ports:
+      - "${REDIS_PORT:-6379}:6379"
+    volumes:
+      - redis_data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - call-center-network
+
+  # API Gateway
+  api-gateway:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: call-center-api-gateway
+    command: python api_gateway.py
+    environment:
+      - DB_HOST=postgres
+      - DB_PORT=5432
+      - DB_USER=${DB_USER:-postgres}
+      - DB_PASSWORD=${DB_PASSWORD:-postgres}
+      - DB_NAME=${DB_NAME:-andela_ai_engineering_bootcamp}
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+      - API_HOST=0.0.0.0
+      - API_PORT=8000
+      - USE_OLLAMA=${USE_OLLAMA:-true}
+      - USE_HUGGINGFACE=${USE_HUGGINGFACE:-false}
+      - OLLAMA_BASE_URL=${OLLAMA_BASE_URL:-http://host.docker.internal:11434/v1}
+      - HUGGINGFACE_API_KEY=${HUGGINGFACE_API_KEY:-}
+      - HUGGINGFACE_ENDPOINT=${HUGGINGFACE_ENDPOINT:-}
+      - LLM_MODEL=${LLM_MODEL:-llama3.2}
+      - LLM_MAX_TOKENS=${LLM_MAX_TOKENS:-1500}
+      - LLM_CONTEXT_CHUNKS=${LLM_CONTEXT_CHUNKS:-8}
+      - LLM_ANALYSIS_INTERVAL=${LLM_ANALYSIS_INTERVAL:-10}
+      - OPENROUTER_API_KEY=${OPENROUTER_API_KEY:-}
+      - OPENAI_API_KEY=${OPENAI_API_KEY:-}
+    ports:
+      - "${API_PORT:-8000}:8000"
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    networks:
+      - call-center-network
+    restart: unless-stopped
+
+  # Streaming Processor
+  streaming-processor:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: call-center-streaming-processor
+    command: python streaming_processor.py
+    environment:
+      - DB_HOST=postgres
+      - DB_PORT=5432
+      - DB_USER=${DB_USER:-postgres}
+      - DB_PASSWORD=${DB_PASSWORD:-postgres}
+      - DB_NAME=${DB_NAME:-andela_ai_engineering_bootcamp}
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+      api-gateway:
+        condition: service_started
+    networks:
+      - call-center-network
+    restart: unless-stopped
+
+  # LLM Processor
+  llm-processor:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: call-center-llm-processor
+    command: python llm_processor.py
+    environment:
+      - DB_HOST=postgres
+      - DB_PORT=5432
+      - DB_USER=${DB_USER:-postgres}
+      - DB_PASSWORD=${DB_PASSWORD:-postgres}
+      - DB_NAME=${DB_NAME:-andela_ai_engineering_bootcamp}
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+      - USE_OLLAMA=${USE_OLLAMA:-true}
+      - USE_HUGGINGFACE=${USE_HUGGINGFACE:-false}
+      - OLLAMA_BASE_URL=${OLLAMA_BASE_URL:-http://host.docker.internal:11434/v1}
+      - HUGGINGFACE_API_KEY=${HUGGINGFACE_API_KEY:-}
+      - HUGGINGFACE_ENDPOINT=${HUGGINGFACE_ENDPOINT:-}
+      - LLM_MODEL=${LLM_MODEL:-llama3.2}
+      - LLM_MAX_TOKENS=${LLM_MAX_TOKENS:-1500}
+      - LLM_CONTEXT_CHUNKS=${LLM_CONTEXT_CHUNKS:-8}
+      - LLM_ANALYSIS_INTERVAL=${LLM_ANALYSIS_INTERVAL:-10}
+      - OPENROUTER_API_KEY=${OPENROUTER_API_KEY:-}
+      - OPENAI_API_KEY=${OPENAI_API_KEY:-}
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+      api-gateway:
+        condition: service_started
+    networks:
+      - call-center-network
+    restart: unless-stopped
+
+  # Ollama (if using local LLM)
+  ollama:
+    image: ollama/ollama:latest
+    container_name: call-center-ollama
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama_data:/root/.ollama
+    networks:
+      - call-center-network
+    restart: unless-stopped
+    profiles:
+      - ollama  # Only start if explicitly requested
+
+  # Frontend
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+      args:
+        - VITE_API_URL=http://localhost:8000
+    container_name: call-center-frontend
+    ports:
+      - "${FRONTEND_PORT:-3000}:80"
+    environment:
+      - VITE_API_URL=http://localhost:8000
+    depends_on:
+      - api-gateway
+    networks:
+      - call-center-network
+    restart: unless-stopped
+
+volumes:
+  postgres_data:
+  redis_data:
+  ollama_data:
+
+networks:
+  call-center-network:
+    driver: bridge
