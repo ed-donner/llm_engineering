@@ -1,8 +1,0 @@
-# Company Brochure Generator (Week 1 Day 5)
-fastapi>=0.115.0
-uvicorn[standard]>=0.32.0
-python-dotenv>=1.0.0
-openai>=1.0.0
-requests>=2.32.0
-beautifulsoup4>=4.12.0
-pydantic>=2.0.0
