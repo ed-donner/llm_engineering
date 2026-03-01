@@ -1,38 +1,5 @@
-# ─────────────────────────────────────────────────────────────
-#  ResumeMatch — Python Dependencies
-#  Install: pip install -r requirements.txt
-# ─────────────────────────────────────────────────────────────
-
-# ── UI Framework ─────────────────────────────────────────────
-gradio>=4.0.0
-
-# ── HuggingFace Ecosystem ────────────────────────────────────
-transformers>=4.36.0          # AutoTokenizer, AutoModel, pipeline()
-tokenizers>=0.15.0            # Fast tokenizer backend (required by transformers)
-huggingface-hub>=0.20.0       # Model download & caching from HF Hub
-safetensors>=0.4.0            # Fast/safe model weight format
-
-# ── Sentence Transformers (Embeddings) ───────────────────────
-sentence-transformers>=2.3.0  # all-MiniLM-L6-v2 wrapper
-
-# ── Deep Learning Backend ────────────────────────────────────
-torch>=2.0.0                  # PyTorch CPU build (GPU: see note below)
-# torchvision>=0.15.0         # Uncomment if you add image features
-
-# ── Numerical & ML Utilities ─────────────────────────────────
-numpy>=1.24.0
-scikit-learn>=1.3.0           # cosine_similarity
-
-# ── Optional: PDF Resume Parsing (future feature) ────────────
-# pdfplumber>=0.10.0
-# pypdf>=3.0.0
-
-# ─────────────────────────────────────────────────────────────
-#  GPU / CUDA NOTE
-#  The default torch install above is CPU-only.
-#  For GPU acceleration, replace with:
-#
-#    pip install torch --index-url https://download.pytorch.org/whl/cu121
-#
-#  Check your CUDA version first:  nvidia-smi
-# ─────────────────────────────────────────────────────────────
+gradio
+sentence-transformers
+transformers
+torch
+scikit-learn
