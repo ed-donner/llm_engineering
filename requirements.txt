@@ -16,7 +16,6 @@ langchain
 langchain-core
 langchain-text-splitters
 langchain-openai
-langchain-google-genai
 langchain-chroma
 langchain-community
 datasets==3.6.0
