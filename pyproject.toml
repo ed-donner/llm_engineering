@@ -50,5 +50,4 @@ dependencies = [
     "langchain-experimental>=0.0.42",
     "groq>=0.33.0",
     "xgboost>=3.1.1",
-    "langchain-google-genai>=4.2.0",
 ]
