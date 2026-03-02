@@ -1,3 +1,5 @@
+# WEEK 1 DAY 2 EXERCISE
+
 A simple Python CLI application that fetches a website’s content and generates a short, snarky, humorous Markdown summary using a locally running Ollama model.
 
 # 🚀 Features
