@@ -1,11 +1,11 @@
-# 💊 Pharma-Aware RAG Pipeline
+# Pharma-Aware RAG Pipeline
 
 > [!IMPORTANT]
 > **API Key Required**: This project requires an `OPENAI_API_KEY` for both Summary Generation (GPT-4o-mini) and Retrieval (Embeddings).
 
 A high-precision Retrieval-Augmented Generation (RAG) pipeline specifically engineered for pharmaceutical data. This system transforms flat, unstructured medical PDFs/JSONs into a compliance-grade knowledge base by preserving medical context.
 
-## 🚀 The Core Engineering "Twists"
+## The Core Engineering "Twists"
 
 Standard RAG often fails in medical contexts because character-based chunking separates crucial warnings from their drug subjects. This pipeline solves that using:
 
@@ -15,7 +15,7 @@ Standard RAG often fails in medical contexts because character-based chunking se
     -   We **Index the Summary** for high-precision semantic search (avoiding "concept bleeding" between sections).
     -   We **Retrieve the Raw Content** from metadata to ensure the LLM generates answers based on the full clinical text.
 
-## 🛠️ Tech Stack
+##  Tech Stack
 
 -   **Data**: OpenFDA API (Drug Labels)
 -   **Vector DB**: ChromaDB (with OpenAI Embeddings)
@@ -24,7 +24,7 @@ Standard RAG often fails in medical contexts because character-based chunking se
 -   **UI**: Gradio
 -   **Environment**: `uv` for lightning-fast dependency management
 
-## 📂 Project Structure
+##  Project Structure
 
 ```text
 rx-research/
@@ -41,7 +41,7 @@ rx-research/
 └── pyproject.toml
 ```
 
-## ⚙️ Setup & Installation
+##  Setup & Installation
 
 1.  **Environment Setup** (from this folder):
     ```bash
@@ -54,7 +54,7 @@ rx-research/
     OPENAI_API_KEY=sk-your-key-here
     ```
 
-## 🏃 Usage
+##  Usage
 
 ### 1. Ingest data and build ChromaDB (required before first run)
 
