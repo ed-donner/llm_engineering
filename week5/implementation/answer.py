@@ -1,3 +1,4 @@
+import os
 from pathlib import Path
 from langchain_openai import ChatOpenAI, OpenAIEmbeddings
 from langchain_chroma import Chroma
@@ -14,7 +15,11 @@ MODEL = "gpt-4.1-nano"
 DB_NAME = str(Path(__file__).parent.parent / "vector_db")
 
 # embeddings = HuggingFaceEmbeddings(model_name="all-MiniLM-L6-v2")
-embeddings = OpenAIEmbeddings(model="text-embedding-3-large")
+embeddings = HuggingFaceEmbeddings(model_name="all-MiniLM-L6-v2", encode_kwargs={
+    "convert_to_numpy": False,"convert_to_tensor": True} )
+# embeddings = OpenAIEmbeddings(model="text-embedding-3-large",
+#                               api_key=os.getenv("OPENAI_API_KEY"),
+#                               )
 RETRIEVAL_K = 10
 
 SYSTEM_PROMPT = """
@@ -28,7 +33,7 @@ Context:
 
 vectorstore = Chroma(persist_directory=DB_NAME, embedding_function=embeddings)
 retriever = vectorstore.as_retriever()
-llm = ChatOpenAI(temperature=0, model_name=MODEL)
+llm = ChatOpenAI(temperature=0, model_name=MODEL, )
 
 
 def fetch_context(question: str) -> list[Document]:

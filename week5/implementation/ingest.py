@@ -15,11 +15,15 @@ MODEL = "gpt-4.1-nano"
 DB_NAME = str(Path(__file__).parent.parent / "vector_db")
 KNOWLEDGE_BASE = str(Path(__file__).parent.parent / "knowledge-base")
 
-# embeddings = HuggingFaceEmbeddings(model_name="all-MiniLM-L6-v2")
+embeddings = HuggingFaceEmbeddings(model_name="all-MiniLM-L6-v2", encode_kwargs={
+    "convert_to_numpy": False,"convert_to_tensor": True} )
 
 load_dotenv(override=True)
 
-embeddings = OpenAIEmbeddings(model="text-embedding-3-large")
+# embeddings = OpenAIEmbeddings(model="text-embedding-3-large",
+#                               api_key=os.getenv("OPENAI_API_KEY"),
+#                               base_url="https://openrouter.ai/api/v1",
+#                               )
 
 
 def fetch_documents():
