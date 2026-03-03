@@ -9,7 +9,7 @@ from langchain_core.documents import Document
 from langchain_openai import OpenAIEmbeddings
 from openai import OpenAI
 from dotenv import load_dotenv
-from pydantic import BaseModel
+from pydantic import BaseModel, EmailStr
 from typing import List, Optional
 import json
 import re
@@ -28,6 +28,15 @@ ANTHROPIC_MODEL = "claude-sonnet-4-6"
 
 llm = ChatAnthropic(model=ANTHROPIC_MODEL, temperature=0)
 
+class ContactInfo(BaseModel):
+  full_name: str
+  email: EmailStr
+  phone: Optional[str] = ""
+  location: Optional[str] = ""
+  linkedin: Optional[str] = ""
+  github: Optional[str] = ""
+  website: Optional[str] = ""
+
 class Experience(BaseModel):
   company: str
   title: str
@@ -36,9 +45,18 @@ class Experience(BaseModel):
   end_date: Optional[str] = ""
   bullets: List[str]
 
+class Education(BaseModel):
+  institution: str
+  degree: str
+  start_date: Optional[str] = ""
+  end_date: Optional[str] = ""
+
 class ResumeSchema(BaseModel):
+  contact: ContactInfo
+  headline: Optional[str] = ""
   summary: Optional[str] = ""
   experience: List[Experience]
+  education: List[Education]
   skills: List[str]
 
 def pdf_to_markdown(pdf_path: str, output_path: Optional[str] = None) -> str:
@@ -105,6 +123,16 @@ def parse_resume(resume_text: str):
 
   Schema:
   {{
+    "contact": {{
+      "full_name": "",
+      "email": "",
+      "phone": "",
+      "location": "",
+      "linkedin": "",
+      "github": "",
+      "website": ""
+    }},
+    "headline": "",
     "summary": "",
     "experience": [{{
         "company": "",
@@ -145,19 +173,36 @@ def parse_resume(resume_text: str):
 def create_documents(resume: ResumeSchema):
   documents = []
 
+  candidate_name = resume.contact.full_name if resume.contact and resume.contact.full_name else "Candidate"
+  headline = resume.headline if resume.headline else ""
+  location = resume.contact.location if resume.contact and resume.contact.location else ""
+
+  # ------------- SUMMARY -------------
   if resume.summary:
     documents.append(
       Document(
-        page_content=resume.summary,
-        metadata={"type": "summary"}
+        page_content=f"""
+{candidate_name}
+{headline}
+
+Professional Summary:
+{resume.summary}
+""".strip(),
+        metadata={"type": "summary", "candidate": candidate_name, "headline": headline}
       )
     )
 
+  # ------------ EXPERIENCE -------------
   for job in resume.experience:
     text = f"""
-{job.title} at {job.company}
-{job.start_date} - {job.end_date}
+{candidate_name} - {headline}
 
+Role: {job.title}
+Company: {job.company}
+Location: {job.location}
+Dates: {job.start_date} - {job.end_date}
+
+Responsibilities and Achievements:
 {' '.join(job.bullets)}
 """
 
@@ -166,17 +211,47 @@ def create_documents(resume: ResumeSchema):
         page_content=text.strip(),
         metadata={
           "type": "experience",
+          "candidate": candidate_name,
           "company": job.company,
-          "title": job.title
+          "title": job.title,
+          "start_date": job.start_date,
+          "end_date": job.end_date,
         }
       )
     )
 
+  # ------------ EDUCATION -------------
+  for edu in resume.education:
+    text = f"""
+{candidate_name}
+
+Education:
+{edu.degree}
+Institution: {edu.institution}
+Dates: {edu.start_date} - {edu.end_date}
+"""
+
+    documents.append(
+      Document(
+        page_content=text.strip(),
+        metadata={
+          "type": "education",
+          "candidate": candidate_name,
+          "institution": edu.institution,
+        }
+      )
+    )
+
+  # ----------- SKILLS -------------
   if resume.skills:
     documents.append(
       Document(
-        page_content=", ".join(resume.skills),
-        metadata={"type": "skills"}
+        page_content=f"""
+{candidate_name} - Skills
+
+{", ".join(resume.skills)}
+""",
+        metadata={"type": "skills", "candidate": candidate_name}
       )
     )
 
@@ -205,7 +280,7 @@ def store_chunks_in_db(chunks, db_name):
 if __name__ == "__main__":
   pdf_file = "./week5/community-contributions/elikeyz/resume.pdf"  # Update this path to your PDF file
   md_output_file = "./week5/community-contributions/elikeyz/resume.md"  # Optional: specify output Markdown file
-  db_name = "./week5/community-contributions/elikeyz/resume_db"
+  db_name = "./week5/community-contributions/elikeyz/resume_db" # Update this path to your desired database directory
 
   print("Starting resume ingestion process...")
   markdown_content = pdf_to_markdown(pdf_file, md_output_file)
