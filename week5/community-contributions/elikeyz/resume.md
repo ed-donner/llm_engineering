@@ -8,17 +8,7 @@
 
 ## Objective
 
-Experienced software developer seeking employment with a fast-growing company, bringing more than seven years of experience working with React, Angular, Next.js, and many other technologies.
-
----
-
-## Skills
-
-| Category | Technologies |
-|---|---|
-| **Frontend** | React, Next.js, Angular, React Native, Expo, TypeScript, JavaScript, HTML, CSS, Tailwind CSS |
-| **Backend** | Node.js, Express |
-| **Databases** | PostgreSQL, MySQL |
+Experienced software developer seeking employment with a fast-growing company. I bring more than seven years of experience working with React, Angular, Next.js, and many others.
 
 ---
 
@@ -79,7 +69,7 @@ Experienced software developer seeking employment with a fast-growing company, b
 - Built the tuition payment module on the Xcel Agent portal.
 - Added multi-currency support on the Kyiara portal.
 - Built the new Kyiara website.
-- Added internationalization across all company platforms to support French, Spanish, and Portuguese.
+- Added internationalization across all company portals to support French, Spanish, and Portuguese.
 
 **Skills:** Angular, ngRx, TypeScript
 
@@ -132,6 +122,18 @@ Experienced software developer seeking employment with a fast-growing company, b
 
 ---
 
+## Skills
+
+| Category | Technologies |
+|---|---|
+| **Frontend** | React, Next.js, Angular, React Native, HTML, CSS |
+| **Languages** | TypeScript, JavaScript |
+| **Backend** | Node.js, Express |
+| **Databases** | PostgreSQL, MySQL |
+| **Mobile** | React Native, Expo |
+
+---
+
 ## Education
 
 ### University of Benin
@@ -144,6 +146,6 @@ Experienced software developer seeking employment with a fast-growing company, b
 
 | Name | Organisation | Email |
 |---|---|---|
-| **Ikechukwu Okorie** | Credipay — Founder | ik.okorie@outlook.com |
+| **Ikechukwu Okorie** | Credipay – Founder | ik.okorie@outlook.com |
 | **Serkan Durusoy** | — | serkan@serkandurusoy.com |
-| **Hamza Zia** | GitStart — Founder & CEO | hamza@gitstart.com |
+| **Hamza Zia** | GitStart – Founder & CEO | hamza@gitstart.com |
