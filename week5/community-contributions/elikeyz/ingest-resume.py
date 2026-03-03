@@ -1,0 +1,218 @@
+# Required imports
+import os
+from typing import Optional
+from pathlib import Path
+from langchain_anthropic import ChatAnthropic
+from langchain_chroma import Chroma
+from langchain_core.prompts import ChatPromptTemplate
+from langchain_core.documents import Document
+from langchain_openai import OpenAIEmbeddings
+from openai import OpenAI
+from dotenv import load_dotenv
+from pydantic import BaseModel
+from typing import List, Optional
+import json
+import re
+
+# You may need to install PyPDF2: pip install PyPDF2
+import PyPDF2
+
+load_dotenv(override=True)
+
+anthropic_api_key = os.getenv('ANTHROPIC_API_KEY')
+
+anthropic_url = "https://api.anthropic.com/v1/"
+
+anthropic = OpenAI(api_key=anthropic_api_key, base_url=anthropic_url)
+ANTHROPIC_MODEL = "claude-sonnet-4-6"
+
+llm = ChatAnthropic(model=ANTHROPIC_MODEL, temperature=0)
+
+class Experience(BaseModel):
+  company: str
+  title: str
+  location: Optional[str] = ""
+  start_date: Optional[str] = ""
+  end_date: Optional[str] = ""
+  bullets: List[str]
+
+class ResumeSchema(BaseModel):
+  summary: Optional[str] = ""
+  experience: List[Experience]
+  skills: List[str]
+
+def pdf_to_markdown(pdf_path: str, output_path: Optional[str] = None) -> str:
+	"""
+	Parses a PDF file and converts its text content to Markdown format for RAG chunking.
+	Args:
+		pdf_path (str): Path to the PDF file.
+		output_path (Optional[str]): If provided, saves the Markdown to this file.
+	Returns:
+		str: The Markdown content as a string.
+	"""
+	pdf_path = Path(pdf_path)
+	if not pdf_path.exists():
+		raise FileNotFoundError(f"PDF file not found: {pdf_path}")
+
+	reader = PyPDF2.PdfReader(str(pdf_path))
+	md_lines = []
+	for i, page in enumerate(reader.pages):
+		text = page.extract_text()
+		if text:
+			# Simple conversion: treat each line as a Markdown paragraph
+			for line in text.splitlines():
+				line = line.strip()
+				if line:
+					md_lines.append(line)
+
+	markdown_content = "\n\n".join(md_lines)
+	refined_markdown = refine_markdown(markdown_content)
+
+	if output_path:
+		with open(output_path, "w", encoding="utf-8") as f:
+			f.write(refined_markdown)
+	return refined_markdown
+
+def refine_markdown(md_content):
+  system_prompt = "You are a helpful assistant that refines Markdown content for better readability and structure. Please improve the formatting, add appropriate headings, and ensure the content is well-organized ideally for chunking."
+
+  user_prompt = f"Here is the Markdown content extracted from a PDF:\n\n{md_content}\n\nPlease refine this Markdown for better readability and structure."
+
+  messages = [
+    {"role": "system", "content": system_prompt},
+    {"role": "user", "content": user_prompt}
+  ]
+
+  response = anthropic.chat.completions.create(
+		model=ANTHROPIC_MODEL,
+    messages=messages,
+  )
+  return response.choices[0].message.content
+
+def parse_resume(resume_text: str):
+  prompt = ChatPromptTemplate.from_template("""
+  You are a resume parser.
+
+  Convert the following resume into structured JSON.
+
+  Rules:
+  - Follow the schema strictly.
+  - Infer missing section headers.
+  - Group bullets under correct job.
+  - Normalize date formats.
+  - Return ONLY valid JSON.
+  - Do not include explanations.
+
+  Schema:
+  {{
+    "summary": "",
+    "experience": [{{
+        "company": "",
+        "title": "",
+        "location": "",
+        "start_date": "",
+        "end_date": "",
+        "bullets": []
+    }}],
+    "education": [{{
+        "institution": "",
+        "degree": "",
+        "start_date": "",
+        "end_date": ""
+    }}],
+    "skills": []
+  }}
+
+  --- RESUME ---
+  {resume}
+  """)
+
+  chain = prompt | llm
+  response = chain.invoke({"resume": resume_text})
+
+  # Remove Markdown JSON code block wrapper if present
+  raw = response.content.strip()
+  # Remove triple backticks and optional 'json' label
+  raw = re.sub(r"^```json\s*|^```|```$", "", raw, flags=re.MULTILINE).strip()
+
+  try:
+    parsed = json.loads(raw)
+  except json.JSONDecodeError as e:
+    raise ValueError(f"LLM did not return valid JSON. Raw response:\n{response.content}") from e
+
+  return ResumeSchema(**parsed)
+
+def create_documents(resume: ResumeSchema):
+  documents = []
+
+  if resume.summary:
+    documents.append(
+      Document(
+        page_content=resume.summary,
+        metadata={"type": "summary"}
+      )
+    )
+
+  for job in resume.experience:
+    text = f"""
+{job.title} at {job.company}
+{job.start_date} - {job.end_date}
+
+{' '.join(job.bullets)}
+"""
+
+    documents.append(
+      Document(
+        page_content=text.strip(),
+        metadata={
+          "type": "experience",
+          "company": job.company,
+          "title": job.title
+        }
+      )
+    )
+
+  if resume.skills:
+    documents.append(
+      Document(
+        page_content=", ".join(resume.skills),
+        metadata={"type": "skills"}
+      )
+    )
+
+  return documents
+
+def store_chunks_in_db(chunks, db_name):
+  embeddings = OpenAIEmbeddings(model="text-embedding-3-large")
+
+  if os.path.exists(db_name):
+    Chroma(persist_directory=db_name, embedding_function=embeddings).delete_collection()
+
+  vectorstore = Chroma.from_documents(
+    documents=chunks,
+    embedding=embeddings,
+    persist_directory=db_name
+  )
+
+  collection = vectorstore._collection
+  count = collection.count()
+
+  sample_embedding = collection.get(limit=1, include=["embeddings"])["embeddings"][0]
+  dimensions = len(sample_embedding)
+  print(f"There are {count:,} vectors with {dimensions:,} dimensions in the vector store")
+
+# Example usage
+if __name__ == "__main__":
+  pdf_file = "./week5/community-contributions/elikeyz/resume.pdf"  # Update this path to your PDF file
+  md_output_file = "./week5/community-contributions/elikeyz/resume.md"  # Optional: specify output Markdown file
+  db_name = "./week5/community-contributions/elikeyz/resume_db"
+
+  print("Starting resume ingestion process...")
+  markdown_content = pdf_to_markdown(pdf_file, md_output_file)
+  print("PDF converted to Markdown successfully.")
+  structured_resume = parse_resume(markdown_content)
+  print("Resume parsed into structured format successfully.")
+  chunks = create_documents(structured_resume)
+  print("Documents created from structured resume successfully.")
+  store_chunks_in_db(chunks, db_name)
+  print("Chunks stored in database successfully.")
