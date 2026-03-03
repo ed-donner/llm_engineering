@@ -1,4 +1,3 @@
-# Required imports
 import os
 from typing import Optional
 from pathlib import Path
@@ -13,8 +12,6 @@ from pydantic import BaseModel, EmailStr
 from typing import List, Optional
 import json
 import re
-
-# You may need to install PyPDF2: pip install PyPDF2
 import PyPDF2
 
 load_dotenv(override=True)
