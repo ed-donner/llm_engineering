@@ -1,0 +1,151 @@
+driver_id,driver_name,license_number,phone_number,email,date_hired,employment_status,base_country,base_city,years_experience,vehicle_type_qualified,performance_rating,total_trips_completed,total_incidents,last_training_date
+DRV-001,Joshua Otieno,DL-UG-131244,+256712575562,ibrahim.ali@eastlogistics.co.ke,2018-04-13,Active,Uganda,Kampala,5,Truck,4.6,396,3,2024-07-15
+DRV-002,Grace Njoroge,DL-TZ-498382,+255712981052,samuel.nsubuga@eastlogistics.co.ke,2022-09-15,Active,Tanzania,Dar es Salaam,9,Truck|Flatbed,4.5,224,1,2024-09-19
+DRV-003,Mary Ali,DL-UG-205907,+256751019678,ahmed.ssemakula@eastlogistics.co.ke,2019-05-27,Active,Uganda,Jinja,3,Flatbed|Van,4.4,410,0,2024-09-25
+DRV-004,Catherine Nakato,DL-KE-383060,+254785899313,almaz.nsengimana@eastlogistics.co.ke,2021-12-26,Active,Kenya,Kisumu,12,Flatbed|Truck,4.4,137,2,2024-10-04
+DRV-005,Getachew Habimana,DL-RW-514850,+250786282117,catherine.korir@eastlogistics.co.ke,2018-08-18,Active,Rwanda,Butare,15,Van,4.1,83,1,2024-11-09
+DRV-006,Faith Korir,DL-UG-757924,+256721472420,tigist.kato@eastlogistics.co.ke,2020-12-12,Active,Uganda,Gulu,8,Van|Truck,5.0,120,2,2024-07-17
+DRV-007,Patrick Akinyi,DL-KE-407757,+254758353204,amina.ssemakula@eastlogistics.co.ke,2023-04-02,Active,Kenya,Kisumu,6,Flatbed,4.6,399,4,2024-10-15
+DRV-008,Rose Okello,DL-ET-612340,+251702614124,faith.nalongo@eastlogistics.co.ke,2020-01-02,Active,Ethiopia,Mekele,3,Flatbed|Truck,3.7,440,1,2025-02-27
+DRV-009,Joseph Bekele,DL-KE-598369,+254773793389,amina.omari@eastlogistics.co.ke,2020-09-13,Active,Kenya,Eldoret,3,Flatbed,4.2,85,6,2025-02-28
+DRV-010,Elizabeth Akinyi,DL-TZ-359947,+255730158366,sarah.musoke@eastlogistics.co.ke,2020-05-17,Active,Tanzania,Mbeya,14,Flatbed,4.0,393,2,2025-01-11
+DRV-011,Zainab Rashid,DL-KE-801474,+254765151231,ibrahim.niyonzima@eastlogistics.co.ke,2020-06-21,Active,Kenya,Eldoret,3,Truck,3.6,66,4,2024-07-07
+DRV-012,Dawit Ochieng,DL-TZ-806073,+255787705310,getachew.wanjiru@eastlogistics.co.ke,2020-09-22,Active,Tanzania,Arusha,14,Truck|Flatbed,3.6,270,1,2024-12-28
+DRV-013,Sarah Mukasa,DL-RW-947272,+250773863413,grace.ochieng@eastlogistics.co.ke,2019-03-24,Active,Rwanda,Cyangugu,5,Flatbed,4.2,266,1,2025-01-23
+DRV-014,James Nakato,DL-RW-378085,+250761070189,aisha.kato@eastlogistics.co.ke,2019-01-18,Active,Rwanda,Cyangugu,4,Van|Flatbed,3.8,255,5,2024-08-24
+DRV-015,Peter Bizimana,DL-UG-599948,+256767491435,innocent.hassan@eastlogistics.co.ke,2023-06-17,Active,Uganda,Mbarara,5,Truck|Flatbed,4.4,327,0,2024-11-08
+DRV-016,Rose Otieno,DL-KE-749468,+254711003626,moses.bekele@eastlogistics.co.ke,2020-02-01,Active,Kenya,Eldoret,11,Flatbed,4.8,256,0,2024-10-05
+DRV-017,Hanna Kimani,DL-KE-109767,+254761510041,christine.mukamazimpaka@eastlogistics.co.ke,2020-12-04,Suspended,Kenya,Nairobi,12,Truck|Van,4.1,393,2,2025-01-21
+DRV-018,Getachew Uwase,DL-TZ-108203,+255789639081,agnes.khamis@eastlogistics.co.ke,2023-09-04,On Leave,Tanzania,Dar es Salaam,4,Truck|Flatbed,4.1,130,2,2024-11-02
+DRV-019,Ibrahim Tesfaye,DL-ET-765046,+251735431319,claude.habimana@eastlogistics.co.ke,2019-07-05,Active,Ethiopia,Addis Ababa,3,Flatbed,4.3,189,1,2024-09-16
+DRV-020,Agnes Worku,DL-KE-548462,+254775283645,james.akinyi@eastlogistics.co.ke,2022-10-01,Active,Kenya,Mombasa,2,Van,4.7,376,6,2024-08-22
+DRV-021,Ibrahim Tesfaye,DL-TZ-361650,+255789514287,grace.nsubuga@eastlogistics.co.ke,2022-02-21,Active,Tanzania,Dodoma,10,Van,3.7,207,1,2024-06-21
+DRV-022,Mulugeta Haile,DL-ET-950132,+251733308443,ahmed.hassan@eastlogistics.co.ke,2019-09-26,Active,Ethiopia,Addis Ababa,15,Truck,4.8,62,1,2024-11-18
+DRV-023,John Bekele,DL-KE-302511,+254753481198,patrick.rashid@eastlogistics.co.ke,2018-06-08,Active,Kenya,Kisumu,5,Van,4.0,470,3,2024-09-25
+DRV-024,Grace Kayitesi,DL-KE-555673,+254746397338,dawit.okello@eastlogistics.co.ke,2023-09-18,Active,Kenya,Eldoret,12,Truck|Flatbed,4.8,183,1,2024-10-14
+DRV-025,Eric Bekele,DL-KE-989208,+254716726926,dawit.khamis@eastlogistics.co.ke,2020-02-18,Active,Kenya,Nakuru,2,Truck|Flatbed,4.0,85,5,2024-11-17
+DRV-026,Paul Khamis,DL-KE-525800,+254773542887,james.khamis@eastlogistics.co.ke,2021-04-26,Active,Kenya,Nakuru,4,Van,4.5,244,3,2024-08-29
+DRV-027,Mary Hamisi,DL-RW-640490,+250789100953,yohannes.mugisha@eastlogistics.co.ke,2021-08-12,Active,Rwanda,Butare,9,Flatbed|Truck,4.3,456,5,2024-08-26
+DRV-028,Moses Tadesse,DL-UG-703634,+256726096655,meseret.girma@eastlogistics.co.ke,2020-07-09,Active,Uganda,Gulu,4,Truck,3.9,293,2,2024-07-08
+DRV-029,Zainab Akinyi,DL-KE-578634,+254717896471,catherine.bekele@eastlogistics.co.ke,2018-01-23,Active,Kenya,Eldoret,14,Truck|Flatbed,4.7,406,2,2024-06-26
+DRV-030,Hanna Bakari,DL-TZ-980660,+255785585469,ahmed.desta@eastlogistics.co.ke,2022-12-18,Active,Tanzania,Dodoma,15,Flatbed|Van,4.8,430,4,2025-01-17
+DRV-031,Rebecca Girma,DL-UG-260227,+256794813972,ibrahim.kimani@eastlogistics.co.ke,2021-01-29,Active,Uganda,Jinja,3,Truck|Van,4.0,326,0,2024-08-17
+DRV-032,Samuel Khamis,DL-TZ-890075,+255752343121,moses.niyonzima@eastlogistics.co.ke,2022-08-31,Active,Tanzania,Mbeya,5,Van|Truck,4.8,441,2,2025-01-31
+DRV-033,Catherine Chebet,DL-RW-752483,+250771688860,john.wasswa@eastlogistics.co.ke,2020-06-22,Active,Rwanda,Kigali,5,Van|Flatbed,3.5,222,3,2024-12-25
+DRV-034,Hanna Nakato,DL-KE-391773,+254756581473,mohammed.njoroge@eastlogistics.co.ke,2022-10-22,Active,Kenya,Eldoret,15,Truck|Flatbed,3.9,217,1,2024-11-15
+DRV-035,Christine Korir,DL-KE-350132,+254716941092,marie.bekele@eastlogistics.co.ke,2021-12-04,Active,Kenya,Mombasa,12,Flatbed,3.6,65,5,2024-09-11
+DRV-036,Tigist Nakato,DL-TZ-515922,+255795967649,hassan.kimani@eastlogistics.co.ke,2020-11-15,Active,Tanzania,Mwanza,4,Truck,4.9,105,2,2024-11-07
+DRV-037,Claude Alemu,DL-KE-457806,+254701698142,moses.habimana@eastlogistics.co.ke,2021-05-20,Active,Kenya,Kisumu,14,Flatbed,4.7,227,2,2024-12-07
+DRV-038,Joshua Kebede,DL-UG-721254,+256736023439,eric.bakari@eastlogistics.co.ke,2023-02-27,Active,Uganda,Kampala,8,Flatbed,4.3,383,1,2025-02-03
+DRV-039,Ibrahim Nsubuga,DL-KE-936587,+254734675473,patrick.rashid@eastlogistics.co.ke,2023-01-21,Active,Kenya,Kisumu,14,Flatbed|Van,4.0,303,4,2024-09-02
+DRV-040,Meseret Habimana,DL-TZ-569945,+255702314351,mary.hamisi@eastlogistics.co.ke,2023-10-18,Active,Tanzania,Mwanza,3,Flatbed,4.1,334,3,2025-01-30
+DRV-041,Faith Kebede,DL-KE-301939,+254742352128,faith.haile@eastlogistics.co.ke,2022-02-20,Active,Kenya,Mombasa,10,Van|Flatbed,4.0,282,1,2024-10-07
+DRV-042,Joseph Rashid,DL-KE-147726,+254707318358,agnes.hamisi@eastlogistics.co.ke,2023-06-07,Active,Kenya,Mombasa,13,Truck|Flatbed,3.9,234,1,2024-06-08
+DRV-043,Mohammed Uwimana,DL-UG-219629,+256708770247,emmanuel.habimana@eastlogistics.co.ke,2023-07-04,Active,Uganda,Kampala,15,Flatbed,3.9,295,2,2024-09-03
+DRV-044,Rebecca Mukasa,DL-KE-564226,+254739910061,francis.kato@eastlogistics.co.ke,2021-05-29,Active,Kenya,Eldoret,5,Flatbed,4.6,360,2,2024-09-24
+DRV-045,James Babirye,DL-KE-572387,+254792525827,rose.uwimana@eastlogistics.co.ke,2019-02-11,Active,Kenya,Mombasa,12,Van,4.5,130,1,2024-07-09
+DRV-046,Faith Niyonzima,DL-KE-335729,+254786924061,daniel.rashid@eastlogistics.co.ke,2021-03-04,Active,Kenya,Nairobi,3,Van,4.7,370,2,2024-09-10
+DRV-047,Beatrice Habimana,DL-KE-559023,+254710796722,rose.otieno@eastlogistics.co.ke,2021-06-13,Active,Kenya,Kisumu,13,Van|Truck,4.2,205,3,2024-10-18
+DRV-048,Innocent Alemu,DL-UG-563711,+256737333543,fatuma.bizimana@eastlogistics.co.ke,2018-04-16,Active,Uganda,Gulu,5,Flatbed,4.7,345,0,2024-08-29
+DRV-049,Mulugeta Wasswa,DL-ET-953085,+251773832717,david.ssemakula@eastlogistics.co.ke,2023-04-10,Active,Ethiopia,Mekele,8,Van|Truck,4.8,218,2,2025-02-09
+DRV-050,Ruth Mugisha,DL-KE-893188,+254766906611,yohannes.mukasa@eastlogistics.co.ke,2022-07-14,Active,Kenya,Mombasa,15,Flatbed,4.8,286,2,2024-09-05
+DRV-051,Agnes Mwangi,DL-KE-679077,+254754759583,mary.ali@eastlogistics.co.ke,2019-06-21,Suspended,Kenya,Nairobi,9,Truck|Flatbed,5.0,361,3,2024-08-21
+DRV-052,Marie Uwimana,DL-TZ-355570,+255761308842,agnes.korir@eastlogistics.co.ke,2019-04-27,Active,Tanzania,Mbeya,15,Van,4.9,199,2,2024-10-18
+DRV-053,Elizabeth Niyonzima,DL-TZ-607868,+255746321751,patrick.nsengimana@eastlogistics.co.ke,2019-07-14,Active,Tanzania,Dodoma,6,Van|Flatbed,4.7,194,3,2025-02-06
+DRV-054,Solomon Uwimana,DL-TZ-839485,+255751167978,rebecca.bekele@eastlogistics.co.ke,2021-08-11,Active,Tanzania,Mwanza,13,Flatbed,4.1,488,3,2024-06-23
+DRV-055,Getachew Korir,DL-TZ-178463,+255763013961,mohammed.musoke@eastlogistics.co.ke,2018-06-01,Active,Tanzania,Dodoma,10,Truck|Van,3.6,283,0,2024-08-13
+DRV-056,Tigist Hamisi,DL-UG-338536,+256712130508,joshua.wanjiru@eastlogistics.co.ke,2021-09-07,Active,Uganda,Kampala,8,Flatbed|Van,4.8,68,2,2024-09-29
+DRV-057,Paul Tesfaye,DL-TZ-931016,+255724166826,amina.juma@eastlogistics.co.ke,2021-05-11,Active,Tanzania,Dodoma,2,Truck|Van,4.0,270,0,2025-02-27
+DRV-058,Aisha Tesfaye,DL-UG-673149,+256721203129,sarah.mukasa@eastlogistics.co.ke,2020-09-13,On Leave,Uganda,Mbarara,11,Truck,4.2,180,2,2024-06-05
+DRV-059,Aisha Girma,DL-KE-409571,+254702944682,mulugeta.wasswa@eastlogistics.co.ke,2022-10-04,Active,Kenya,Eldoret,9,Truck|Van,4.8,104,1,2024-12-01
+DRV-060,Mohammed Tesfaye,DL-RW-892280,+250796761368,sara.bekele@eastlogistics.co.ke,2018-07-20,Active,Rwanda,Butare,13,Van|Truck,4.4,230,1,2024-09-06
+DRV-061,Fatuma Mwinyi,DL-UG-238579,+256772398083,ruth.uwase@eastlogistics.co.ke,2018-06-11,Active,Uganda,Jinja,14,Truck|Van,4.6,96,5,2024-11-15
+DRV-062,Tigist Kebede,DL-RW-807166,+250753339667,agnes.nalongo@eastlogistics.co.ke,2020-11-18,Active,Rwanda,Ruhengeri,14,Flatbed|Van,4.7,289,6,2024-08-12
+DRV-063,John Mugisha,DL-KE-688678,+254744024257,christine.ali@eastlogistics.co.ke,2019-05-22,Active,Kenya,Nakuru,7,Flatbed|Van,4.7,240,0,2024-09-28
+DRV-064,Grace Bakari,DL-ET-663658,+251718208520,rebecca.ssemakula@eastlogistics.co.ke,2021-05-22,Active,Ethiopia,Bahir Dar,8,Truck,3.6,69,1,2025-02-08
+DRV-065,Elizabeth Mukasa,DL-TZ-347582,+255748678896,grace.tesfaye@eastlogistics.co.ke,2019-09-25,Active,Tanzania,Arusha,12,Van,4.4,193,0,2024-12-07
+DRV-066,Zainab Chebet,DL-KE-925206,+254775776373,ibrahim.kimani@eastlogistics.co.ke,2021-02-04,Active,Kenya,Eldoret,3,Truck|Flatbed,4.5,355,6,2024-06-26
+DRV-067,Mohammed Juma,DL-KE-215266,+254788725654,john.chebet@eastlogistics.co.ke,2020-06-03,Active,Kenya,Mombasa,7,Flatbed,3.5,489,7,2024-08-06
+DRV-068,Elizabeth Desta,DL-TZ-479625,+255768885632,francis.wanjiru@eastlogistics.co.ke,2018-03-06,Active,Tanzania,Mwanza,6,Truck,4.6,319,0,2024-07-03
+DRV-069,Jean Worku,DL-ET-565108,+251709863756,mary.okello@eastlogistics.co.ke,2018-06-27,Active,Ethiopia,Addis Ababa,10,Van|Truck,3.6,295,4,2025-01-05
+DRV-070,Elizabeth Ali,DL-KE-533914,+254745490631,catherine.wasswa@eastlogistics.co.ke,2021-08-24,Active,Kenya,Nairobi,11,Van|Flatbed,3.6,409,0,2024-09-19
+DRV-071,Joshua Wanjiru,DL-KE-880758,+254799159520,ruth.chebet@eastlogistics.co.ke,2021-07-04,Active,Kenya,Eldoret,7,Flatbed,4.9,84,0,2024-07-14
+DRV-072,Yusuf Nsubuga,DL-ET-208633,+251777566910,claude.salim@eastlogistics.co.ke,2021-09-12,Active,Ethiopia,Gondar,8,Flatbed|Van,4.8,419,0,2024-10-26
+DRV-073,Mulugeta Girma,DL-KE-380439,+254703886030,fatuma.rashid@eastlogistics.co.ke,2019-03-20,Active,Kenya,Kisumu,15,Truck|Van,4.4,463,2,2024-06-14
+DRV-074,Solomon Uwase,DL-ET-325583,+251750491958,moses.ssemakula@eastlogistics.co.ke,2021-12-08,Active,Ethiopia,Mekele,4,Flatbed,4.5,85,0,2024-06-16
+DRV-075,Elizabeth Bekele,DL-KE-544611,+254765184410,rose.mukasa@eastlogistics.co.ke,2021-08-21,Active,Kenya,Mombasa,11,Truck,3.7,436,2,2024-07-12
+DRV-076,Halima Wasswa,DL-RW-728437,+250707352710,james.salim@eastlogistics.co.ke,2019-04-12,Active,Rwanda,Butare,8,Van,4.5,353,2,2024-11-05
+DRV-077,Meseret Ali,DL-RW-624563,+250774990607,mulugeta.nsubuga@eastlogistics.co.ke,2020-11-12,Active,Rwanda,Kigali,7,Truck,4.2,270,1,2024-12-12
+DRV-078,Emmanuel Kamau,DL-TZ-440544,+255723068427,christine.ssemakula@eastlogistics.co.ke,2023-02-27,Active,Tanzania,Arusha,15,Flatbed|Van,4.4,413,2,2024-10-27
+DRV-079,Sara Hassan,DL-KE-180089,+254768515906,yohannes.akinyi@eastlogistics.co.ke,2019-03-10,Active,Kenya,Mombasa,8,Flatbed|Truck,4.1,208,3,2024-09-22
+DRV-080,Sarah Juma,DL-ET-910389,+251784281857,jean.ssemakula@eastlogistics.co.ke,2021-12-02,Active,Ethiopia,Bahir Dar,13,Truck,3.7,181,1,2024-08-18
+DRV-081,Peter Nsubuga,DL-TZ-631981,+255709957701,yusuf.ssemakula@eastlogistics.co.ke,2021-08-16,Active,Tanzania,Dar es Salaam,7,Van,3.6,276,2,2024-10-19
+DRV-082,Paul Alemu,DL-KE-297383,+254743154591,rose.uwimana@eastlogistics.co.ke,2021-03-21,Active,Kenya,Nairobi,12,Flatbed,4.4,246,2,2024-06-22
+DRV-083,Christine Hassan,DL-TZ-481574,+255750043345,aisha.nakato@eastlogistics.co.ke,2021-11-07,Active,Tanzania,Arusha,10,Truck,3.9,274,8,2025-02-24
+DRV-084,Rose Korir,DL-UG-449555,+256710939011,francis.bekele@eastlogistics.co.ke,2018-08-03,Active,Uganda,Jinja,12,Truck|Van,3.6,397,1,2024-10-08
+DRV-085,Mary Alemu,DL-KE-803024,+254756828640,claude.nalongo@eastlogistics.co.ke,2022-05-25,Active,Kenya,Kisumu,11,Van,4.3,379,3,2024-08-05
+DRV-086,Sara Niyonzima,DL-KE-975686,+254799139119,innocent.otieno@eastlogistics.co.ke,2020-05-27,Active,Kenya,Eldoret,14,Truck|Flatbed,5.0,129,0,2024-07-22
+DRV-087,Moses Nalongo,DL-KE-809217,+254796581154,zainab.mukasa@eastlogistics.co.ke,2022-03-24,Active,Kenya,Nakuru,4,Flatbed,4.7,464,5,2025-01-11
+DRV-088,Sara Nakato,DL-KE-627335,+254770794454,moses.hassan@eastlogistics.co.ke,2020-09-06,Active,Kenya,Eldoret,14,Truck|Van,4.5,342,7,2025-01-23
+DRV-089,Hanna Hassan,DL-KE-386042,+254760306604,claude.korir@eastlogistics.co.ke,2020-10-21,Active,Kenya,Nairobi,12,Van|Truck,4.6,314,4,2024-10-24
+DRV-090,Ruth Ali,DL-ET-129556,+251742773159,grace.worku@eastlogistics.co.ke,2020-06-28,Active,Ethiopia,Dire Dawa,7,Van,3.6,307,1,2024-12-15
+DRV-091,Mohammed Salim,DL-KE-975522,+254720068183,agnes.kebede@eastlogistics.co.ke,2021-03-21,Active,Kenya,Nakuru,13,Flatbed,4.2,365,0,2024-07-11
+DRV-092,Faith Habimana,DL-KE-725726,+254771947921,john.tadesse@eastlogistics.co.ke,2021-03-26,Active,Kenya,Mombasa,6,Truck,3.9,377,3,2025-01-21
+DRV-093,Innocent Niyonzima,DL-UG-631971,+256768131950,agnes.kamau@eastlogistics.co.ke,2021-04-08,Active,Uganda,Gulu,2,Truck|Van,3.8,392,0,2024-12-02
+DRV-094,Solomon Abebe,DL-KE-448671,+254717905932,david.nsubuga@eastlogistics.co.ke,2022-05-04,Active,Kenya,Mombasa,6,Van,4.7,226,1,2024-07-24
+DRV-095,Hassan Otieno,DL-RW-929538,+250726772387,david.okello@eastlogistics.co.ke,2023-03-19,On Leave,Rwanda,Cyangugu,12,Truck,3.6,447,5,2024-06-19
+DRV-096,Faith Nalongo,DL-KE-558176,+254753690013,solomon.mukasa@eastlogistics.co.ke,2023-04-24,Active,Kenya,Nakuru,2,Van,4.0,449,0,2024-11-17
+DRV-097,Fatuma Niyonzima,DL-KE-408036,+254743112268,grace.njoroge@eastlogistics.co.ke,2020-02-05,Active,Kenya,Kisumu,13,Van|Flatbed,4.7,422,2,2025-01-07
+DRV-098,Yohannes Ochieng,DL-KE-178686,+254790084776,yohannes.wasswa@eastlogistics.co.ke,2022-10-12,Active,Kenya,Mombasa,13,Van|Flatbed,3.6,495,5,2025-01-09
+DRV-099,Paul Otieno,DL-ET-734487,+251720594121,tigist.mukasa@eastlogistics.co.ke,2019-08-08,On Leave,Ethiopia,Mekele,12,Truck|Flatbed,3.6,448,2,2024-12-03
+DRV-100,Jean Uwase,DL-TZ-505785,+255775386435,faith.omari@eastlogistics.co.ke,2018-11-11,Active,Tanzania,Dodoma,4,Van|Flatbed,4.5,177,6,2024-06-14
+DRV-101,Tigist Okello,DL-KE-800280,+254746630633,meseret.kimani@eastlogistics.co.ke,2021-03-15,Active,Kenya,Kisumu,5,Truck,4.8,281,1,2025-01-14
+DRV-102,John Nalongo,DL-RW-680933,+250776809773,ruth.ssemakula@eastlogistics.co.ke,2019-10-08,Active,Rwanda,Cyangugu,4,Flatbed|Truck,3.7,152,3,2024-09-30
+DRV-103,Eric Alemu,DL-KE-177767,+254760394554,catherine.tesfaye@eastlogistics.co.ke,2018-12-20,Active,Kenya,Mombasa,6,Flatbed|Van,4.3,443,2,2024-07-08
+DRV-104,Samuel Uwase,DL-RW-397846,+250710584397,mohammed.mwinyi@eastlogistics.co.ke,2020-01-16,Active,Rwanda,Cyangugu,8,Truck,4.3,205,1,2024-11-13
+DRV-105,Mulugeta Mugisha,DL-KE-855638,+254781220369,patrick.mukamazimpaka@eastlogistics.co.ke,2021-05-25,Active,Kenya,Nairobi,10,Flatbed,4.5,353,5,2024-08-18
+DRV-106,Zainab Tesfaye,DL-KE-525818,+254739920898,catherine.kimani@eastlogistics.co.ke,2020-12-20,Active,Kenya,Mombasa,5,Flatbed|Truck,4.2,371,2,2024-11-02
+DRV-107,Joseph Abebe,DL-TZ-488539,+255769119463,agnes.wanjiru@eastlogistics.co.ke,2023-06-07,Active,Tanzania,Dodoma,5,Flatbed|Truck,4.0,417,1,2024-11-24
+DRV-108,Amina Okello,DL-KE-705748,+254796788219,eric.mwinyi@eastlogistics.co.ke,2023-01-16,Active,Kenya,Nakuru,4,Truck,3.9,246,4,2025-01-01
+DRV-109,Francis Nsubuga,DL-ET-151021,+251706783418,aisha.habimana@eastlogistics.co.ke,2023-03-28,Active,Ethiopia,Gondar,6,Truck|Flatbed,4.9,308,2,2024-10-02
+DRV-110,Peter Mukamazimpaka,DL-KE-689107,+254726126192,ruth.nsengimana@eastlogistics.co.ke,2018-02-03,Active,Kenya,Nakuru,8,Van,4.6,441,2,2024-06-24
+DRV-111,Ruth Abebe,DL-TZ-251275,+255726717096,rose.mukamana@eastlogistics.co.ke,2021-02-19,Active,Tanzania,Dar es Salaam,12,Truck,5.0,251,1,2024-11-21
+DRV-112,Emmanuel Mugisha,DL-KE-875232,+254740162553,francis.musoke@eastlogistics.co.ke,2019-07-16,Active,Kenya,Eldoret,14,Flatbed|Van,3.7,313,0,2024-11-11
+DRV-113,John Kayitesi,DL-TZ-597643,+255735638891,getachew.desta@eastlogistics.co.ke,2021-05-12,Active,Tanzania,Mwanza,15,Van,4.0,106,6,2024-11-05
+DRV-114,Eric Babirye,DL-UG-258787,+256755426567,almaz.salim@eastlogistics.co.ke,2023-05-22,Active,Uganda,Mbarara,10,Truck|Flatbed,3.5,408,0,2024-06-10
+DRV-115,Fatuma Ssemakula,DL-ET-659024,+251745946354,beatrice.nsubuga@eastlogistics.co.ke,2018-09-13,Active,Ethiopia,Mekele,10,Flatbed,4.0,389,2,2024-12-10
+DRV-116,Marie Nsubuga,DL-UG-687713,+256796860153,ahmed.hamisi@eastlogistics.co.ke,2020-02-27,Active,Uganda,Mbarara,6,Truck|Van,4.7,410,1,2025-02-06
+DRV-117,Mohammed Haile,DL-KE-602351,+254728720823,hassan.niyonzima@eastlogistics.co.ke,2022-06-05,Active,Kenya,Eldoret,14,Van,3.6,415,0,2025-01-13
+DRV-118,Grace Babirye,DL-UG-446337,+256796282168,marie.wanjiru@eastlogistics.co.ke,2019-07-17,Active,Uganda,Entebbe,11,Truck,3.6,321,1,2024-09-28
+DRV-119,Getachew Mukamazimpaka,DL-KE-343500,+254771826922,solomon.kebede@eastlogistics.co.ke,2019-10-09,Active,Kenya,Nairobi,12,Van|Truck,4.6,197,1,2024-07-01
+DRV-120,David Mwangi,DL-ET-412886,+251776230551,rose.wanjiru@eastlogistics.co.ke,2019-12-19,On Leave,Ethiopia,Mekele,15,Truck,5.0,253,3,2024-09-04
+DRV-121,Mohammed Worku,DL-KE-295243,+254701890348,solomon.musoke@eastlogistics.co.ke,2023-11-18,Active,Kenya,Eldoret,4,Van|Truck,4.7,219,1,2025-01-21
+DRV-122,Eric Bakari,DL-UG-107161,+256735002007,rebecca.bakari@eastlogistics.co.ke,2020-03-02,Active,Uganda,Jinja,11,Van|Flatbed,3.6,392,0,2024-08-11
+DRV-123,Yusuf Hassan,DL-ET-525110,+251792083242,claude.worku@eastlogistics.co.ke,2021-05-21,Active,Ethiopia,Addis Ababa,13,Van,4.5,404,1,2024-07-31
+DRV-124,Almaz Nsengimana,DL-UG-593699,+256772144402,mulugeta.salim@eastlogistics.co.ke,2021-04-23,Active,Uganda,Mbarara,11,Truck,4.9,294,1,2024-12-09
+DRV-125,Beatrice Korir,DL-RW-272529,+250744039203,innocent.mukasa@eastlogistics.co.ke,2018-12-02,Active,Rwanda,Butare,9,Truck|Flatbed,3.6,330,5,2024-09-12
+DRV-126,Catherine Tesfaye,DL-UG-946112,+256741361818,dawit.kamau@eastlogistics.co.ke,2023-06-26,Active,Uganda,Kampala,10,Truck|Van,3.7,262,2,2024-06-30
+DRV-127,David Hamisi,DL-UG-528728,+256724156684,sara.chebet@eastlogistics.co.ke,2018-10-27,Active,Uganda,Gulu,8,Flatbed|Truck,4.3,80,5,2024-07-06
+DRV-128,Samuel Akinyi,DL-KE-287143,+254772109613,emmanuel.uwase@eastlogistics.co.ke,2022-04-16,Active,Kenya,Mombasa,15,Van|Truck,4.5,388,4,2024-08-08
+DRV-129,Hassan Kebede,DL-RW-902674,+250715145751,david.bekele@eastlogistics.co.ke,2018-04-04,Active,Rwanda,Kigali,9,Flatbed|Van,4.7,176,2,2024-08-19
+DRV-130,Emmanuel Mukasa,DL-KE-345722,+254772445335,ibrahim.abebe@eastlogistics.co.ke,2018-10-03,Active,Kenya,Nairobi,11,Van,4.4,410,4,2024-10-04
+DRV-131,Moses Khamis,DL-KE-388519,+254708181595,agnes.bizimana@eastlogistics.co.ke,2021-03-30,Active,Kenya,Mombasa,15,Flatbed|Van,3.9,498,0,2025-02-22
+DRV-132,Almaz Babirye,DL-UG-528090,+256720027648,yusuf.nakato@eastlogistics.co.ke,2022-10-16,Active,Uganda,Mbarara,9,Van,4.9,393,1,2025-02-24
+DRV-133,Innocent Chebet,DL-TZ-507286,+255732595918,mohammed.salim@eastlogistics.co.ke,2020-07-12,Active,Tanzania,Dar es Salaam,15,Van,4.9,337,2,2024-12-31
+DRV-134,Hassan Abebe,DL-ET-716126,+251797214603,mulugeta.nsengimana@eastlogistics.co.ke,2022-02-28,Active,Ethiopia,Dire Dawa,10,Truck,3.9,394,2,2024-06-21
+DRV-135,Almaz Kayitesi,DL-RW-837954,+250727449289,emmanuel.bakari@eastlogistics.co.ke,2021-09-25,Active,Rwanda,Gisenyi,2,Truck,4.9,110,3,2025-02-01
+DRV-136,Ibrahim Nalongo,DL-KE-428122,+254755556767,david.mukamazimpaka@eastlogistics.co.ke,2023-12-26,Active,Kenya,Mombasa,7,Van|Flatbed,4.3,304,2,2025-01-27
+DRV-137,Getachew Tesfaye,DL-KE-453961,+254734537812,hanna.habimana@eastlogistics.co.ke,2022-09-07,On Leave,Kenya,Nakuru,4,Van,3.8,341,4,2025-02-11
+DRV-138,Moses Chebet,DL-TZ-983472,+255784651342,halima.kimani@eastlogistics.co.ke,2021-12-13,Active,Tanzania,Dar es Salaam,4,Truck|Flatbed,4.3,479,4,2024-06-25
+DRV-139,Innocent Kebede,DL-KE-388086,+254771905550,aisha.kamau@eastlogistics.co.ke,2023-02-11,Active,Kenya,Nakuru,2,Flatbed|Van,3.5,322,2,2024-06-07
+DRV-140,Emmanuel Njoroge,DL-RW-491172,+250754496076,catherine.mukamazimpaka@eastlogistics.co.ke,2020-01-05,Active,Rwanda,Butare,3,Truck,3.8,319,1,2024-11-29
+DRV-141,James Girma,DL-KE-279708,+254711097943,jean.kato@eastlogistics.co.ke,2018-11-27,Active,Kenya,Kisumu,15,Truck,4.1,243,2,2024-06-29
+DRV-142,David Kimani,DL-TZ-817675,+255737631028,beatrice.mukamazimpaka@eastlogistics.co.ke,2019-01-26,Active,Tanzania,Mwanza,2,Truck,4.9,404,4,2025-01-30
+DRV-143,Rebecca Tesfaye,DL-ET-666820,+251744524025,rebecca.abebe@eastlogistics.co.ke,2021-07-12,Active,Ethiopia,Addis Ababa,5,Flatbed,4.7,89,1,2024-10-02
+DRV-144,John Tadesse,DL-TZ-386604,+255760471823,jean.ali@eastlogistics.co.ke,2021-11-17,Active,Tanzania,Dodoma,3,Truck|Flatbed,4.0,443,2,2024-12-21
+DRV-145,Eric Nalongo,DL-TZ-211726,+255712283664,james.khamis@eastlogistics.co.ke,2022-04-06,Active,Tanzania,Arusha,14,Truck|Flatbed,3.6,128,1,2024-08-18
+DRV-146,Rose Okello,DL-KE-503951,+254701656329,aisha.babirye@eastlogistics.co.ke,2018-12-24,Active,Kenya,Nairobi,8,Flatbed|Van,3.7,95,1,2024-07-18
+DRV-147,Daniel Kimani,DL-UG-275329,+256758341261,ahmed.babirye@eastlogistics.co.ke,2020-09-21,Active,Uganda,Kampala,10,Flatbed,4.1,121,1,2024-10-16
+DRV-148,Christine Nakato,DL-KE-943135,+254744230340,elizabeth.musoke@eastlogistics.co.ke,2020-10-07,Active,Kenya,Eldoret,9,Van,3.7,205,0,2024-12-20
+DRV-149,Jean Mukamazimpaka,DL-KE-919959,+254732537638,eric.nakato@eastlogistics.co.ke,2021-08-06,Active,Kenya,Nakuru,13,Van,4.0,253,6,2024-10-28
+DRV-150,Elizabeth Hamisi,DL-KE-971662,+254792990777,sarah.babirye@eastlogistics.co.ke,2020-03-29,Active,Kenya,Mombasa,10,Flatbed,4.7,63,6,2025-01-23
