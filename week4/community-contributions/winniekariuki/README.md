@@ -6,7 +6,7 @@
 
 - **Models**: OpenAI (gpt-4o-mini) and Llama 3.2 via Ollama — same setup as Week 2 & 3.
 - **Actions**: Convert Python to C++, add docstrings/comments, write pytest unit tests.
-- **Gradio UI**: Tabs for each action; paste Python code, pick action and model, generate output.
+- **Gradio UI**: Dropdown to select action; paste Python code, pick action and model, generate output.
 - **Output**: Raw code only (strips markdown code blocks when present).
 
 ## How to run
