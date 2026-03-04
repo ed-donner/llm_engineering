@@ -71,7 +71,8 @@ def read_ingest_constants() -> dict:  # Defines helper to read ingest2 constants
 def build_config_markdown() -> str:  # Defines helper to generate UI markdown showing current configuration.
     ingest_cfg = read_ingest_constants()  # Reads ingestion-side constants from ingest2 source.
     retriever_backend = "Chroma"  # Declares active vector backend used by answer2/eval2 flow.
-    return f"""  # Returns formatted markdown for UI display.
+    # Returns formatted markdown for UI display.
+    return f"""
 ### Current Configuration
 - **Vector Backend:** `{retriever_backend}`
 - **Retrieval top_k (answer2):** `{RETRIEVAL_K}`
