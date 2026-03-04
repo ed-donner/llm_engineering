@@ -8,7 +8,7 @@ load_dotenv(override=True)
 def format_context(context):
     result = "<h2 style='color: #ff7800;'>Relevant Context</h2>\n\n"
     for doc in context:
-        result += "<span style='color: #ff7800;'>==========================================</span>\n\n"
+        result += f"<span style='color: #ff7800;'>Source: {doc.metadata['source_file']}</span>\n\n"
         result += doc.page_content + "\n\n"
     return result
 
