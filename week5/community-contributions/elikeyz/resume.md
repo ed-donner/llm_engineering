@@ -8,14 +8,29 @@
 
 ## Objective
 
-Experienced software developer seeking employment with a fast-growing company. I bring more than seven years of experience working with React, Angular, Next.js, and many others.
+Experienced software developer seeking employment with a fast-growing company, bringing more than seven years of experience working with React, Angular, Next.js, and many other technologies.
+
+---
+
+## Skills
+
+| Frontend | Backend | Database | Mobile |
+|---|---|---|---|
+| React | Node.js | PostgreSQL | React Native |
+| Next.js | Express | MySQL | Expo |
+| Angular | | | |
+| TypeScript | | | |
+| JavaScript | | | |
+| HTML & CSS | | | |
+| Tailwind CSS | | | |
 
 ---
 
 ## Experience
 
-### GitStart — Software Engineer / Project Manager / Team Lead
-**September 2021 – September 2025**
+### GitStart
+**Software Engineer / Project Manager / Team Lead**
+*September 2021 – September 2025*
 
 - Worked as a team lead, mentoring developers and helping them grow in their careers.
 - Built a product listing page for a mobile e-commerce app with React Native and Expo.
@@ -36,8 +51,9 @@ Experienced software developer seeking employment with a fast-growing company. I
 
 ---
 
-### Mochi Health — Full Stack Engineer
-**November 2022 – June 2023**
+### Mochi Health
+**Full Stack Engineer**
+*November 2022 – June 2023*
 
 - Built the frontend interface for the company's telehealth platform.
 - Built the new company website.
@@ -47,8 +63,9 @@ Experienced software developer seeking employment with a fast-growing company. I
 
 ---
 
-### Runa HR — Frontend Engineer
-**April 2022 – July 2022**
+### Runa HR
+**Frontend Engineer**
+*April 2022 – July 2022*
 
 - Added new features to the Events module of the company's HR management platform.
 - Fixed underlying bugs and made improvements to the code structure.
@@ -58,21 +75,23 @@ Experienced software developer seeking employment with a fast-growing company. I
 
 ---
 
-### eTranzact Global — Frontend Engineer
-**April 2021 – April 2022**
+### eTranzact Global
+**Frontend Engineer**
+*April 2021 – April 2022*
 
 - Built the Xcel support portal.
 - Built the tuition payment module on the Xcel Agent portal.
 - Added multi-currency support on the Kyiara portal.
 - Built the new Kyiara website.
-- Added internationalization across all company portals to support French, Spanish, and Portuguese.
+- Added internationalization across all company platforms to support French, Spanish, and Portuguese.
 
 **Skills:** Angular, ngRx, TypeScript
 
 ---
 
-### Commsworth — Frontend DevOps-Analytics Engineer
-**March 2021 – June 2022**
+### Commsworth
+**Frontend DevOps-Analytics Engineer**
+*March 2021 – June 2022*
 
 - Worked with the development team to build the Credicity loan and mortgage application.
 - Facilitated the development of a food-ordering e-commerce PWA, Mealstock.
@@ -82,8 +101,9 @@ Experienced software developer seeking employment with a fast-growing company. I
 
 ---
 
-### JHELY — Full Stack Engineer
-**March 2021 – December 2021**
+### JHELY
+**Full Stack Engineer**
+*March 2021 – December 2021*
 
 - Added multi-currency support to enable agents to list property prices in US Dollars and Bolivian Bolivianos.
 - Built custom agent domain listing pages on the platform.
@@ -94,8 +114,9 @@ Experienced software developer seeking employment with a fast-growing company. I
 
 ---
 
-### Mira Technologies — Software Developer
-**June 2020 – March 2021**
+### Mira Technologies
+**Software Developer**
+*June 2020 – March 2021*
 
 - Redesigned the interface for the company's payment application, Habopay, and its website.
 - Built and maintained various web applications for the company's clients.
@@ -115,28 +136,18 @@ Experienced software developer seeking employment with a fast-growing company. I
 
 ---
 
-## Skills
-
-| Category | Technologies |
-|---|---|
-| **Frontend** | React, Next.js, Angular, React Native, HTML, CSS |
-| **Languages** | TypeScript, JavaScript |
-| **Backend** | Node.js, Express |
-| **Databases** | PostgreSQL, MySQL |
-
----
-
 ## Education
 
 ### University of Benin
-**Bachelor of Engineering (Electrical/Electronics) — 2015**
+**Bachelor of Engineering (Electrical/Electronics)**
+*2015*
 
 ---
 
 ## References
 
-| Name | Organization | Contact |
+| Name | Company / Role | Contact |
 |---|---|---|
-| **Ikechukwu Okorie** | Credipay — Founder | ik.okorie@outlook.com |
+| **Ikechukwu Okorie** | Credipay – Founder | ik.okorie@outlook.com |
 | **Serkan Durusoy** | — | serkan@serkandurusoy.com |
-| **Hamza Zia** | GitStart — Founder & CEO | hamza@gitstart.com |
+| **Hamza Zia** | GitStart – Founder & CEO | hamza@gitstart.com |

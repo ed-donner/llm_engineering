@@ -9,7 +9,7 @@ MODEL = "claude-sonnet-4-6"
 db_name = "./week5/community-contributions/elikeyz/resume_db"
 load_dotenv(override=True)
 
-llm = ChatAnthropic(model=MODEL, temperature=0)
+llm = ChatAnthropic(model=MODEL, temperature=0, streaming=True)
 
 system_prompt = """
 You are a helpful assistant that answers questions about a candidate's experience based on their resume. You have access to the candidate's resume content, which has been retrieved in response to the user's question. Use ONLY the provided resume content to answer the question. Do not make assumptions or use any information that is not included in the provided context. Be accurate, relevant and complete in your answer. If the provided resume content does not contain the information needed to answer the question, say that you don't know. Always base your answer solely on the provided resume content.
@@ -58,16 +58,22 @@ def retrieve_relevant_chunks(job_description: str):
 
   return chunks
 
-def generate_tailored_cover_letter(retrieved_chunks, job_description):
+def generate_tailored_cover_letter(job_description):
+  retrieved_chunks = retrieve_relevant_chunks(job_description)
+
   context = "\n\n".join([doc.page_content for doc in retrieved_chunks])
 
   chain = cover_letter_prompt | llm
   try:
-    response = chain.invoke({
+    stream = chain.stream({
       "context": context,
       "job_description": job_description
     })
-    return response.content
+
+    output = ""
+    for chunk in stream:
+      output += chunk.content
+      yield output
   except Exception as e:
     # Anthropic OverloadedError or other errors
     if hasattr(e, 'args') and e.args and 'Overloaded' in str(e.args[0]):
@@ -85,11 +91,6 @@ with gr.Blocks(title="Tailored Cover Letter Generator") as ui:
     with gr.Column(scale=1):
       cover_letter_output = gr.Markdown(label="Generated Cover Letter", value="*Your tailored cover letter will appear here after generation.*", container=True)
 
-  def on_generate_click(job_description):
-    chunks = retrieve_relevant_chunks(job_description)
-    cover_letter = generate_tailored_cover_letter(chunks, job_description)
-    return cover_letter
-
-  generate_button.click(on_generate_click, inputs=job_description, outputs=cover_letter_output)
+  generate_button.click(generate_tailored_cover_letter, inputs=job_description, outputs=cover_letter_output)
 
 ui.launch(inbrowser=True)
