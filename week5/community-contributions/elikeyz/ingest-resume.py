@@ -3,9 +3,11 @@ from typing import Optional
 from pathlib import Path
 from langchain_anthropic import ChatAnthropic
 from langchain_chroma import Chroma
+from langchain_core import documents
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.documents import Document
 from langchain_openai import OpenAIEmbeddings
+from langchain_text_splitters import RecursiveCharacterTextSplitter
 from openai import OpenAI
 from dotenv import load_dotenv
 from pydantic import BaseModel, EmailStr
@@ -167,7 +169,7 @@ def parse_resume(resume_text: str):
 
   return ResumeSchema(**parsed)
 
-def create_documents(resume: ResumeSchema):
+def create_chunks(resume: ResumeSchema):
   documents = []
 
   candidate_name = resume.contact.full_name if resume.contact and resume.contact.full_name else "Candidate"
@@ -252,7 +254,12 @@ Dates: {edu.start_date} - {edu.end_date}
       )
     )
 
-  return documents
+  text_splitter = RecursiveCharacterTextSplitter(chunk_size=600, chunk_overlap=100)
+  chunks = text_splitter.split_documents(documents)
+
+  print (f"Created {len(chunks)} chunks from {len(documents)} sections of the resume.")
+
+  return chunks
 
 def store_chunks_in_db(chunks, db_name):
   embeddings = OpenAIEmbeddings(model="text-embedding-3-large")
@@ -284,7 +291,7 @@ if __name__ == "__main__":
   print("PDF converted to Markdown successfully.")
   structured_resume = parse_resume(markdown_content)
   print("Resume parsed into structured format successfully.")
-  chunks = create_documents(structured_resume)
+  chunks = create_chunks(structured_resume)
   print("Documents created from structured resume successfully.")
   store_chunks_in_db(chunks, db_name)
   print("Chunks stored in database successfully.")

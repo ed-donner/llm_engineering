@@ -38,20 +38,26 @@ def retrieve_relevant_chunks(job_description: str):
   )
 
   retriever = vectorstore.as_retriever()
-  docs = retriever.invoke(job_description)
-  return docs
+  chunks = retriever.invoke(job_description)
+  print(f"Retrieved {len(chunks)} relevant chunks from the resume database for the given job description.")
+  return chunks
 
-def generate_tailored_cover_letter(retrieved_docs, job_description):
-  context = "\n\n".join([doc.page_content for doc in retrieved_docs])
+def generate_tailored_cover_letter(retrieved_chunks, job_description):
+  context = "\n\n".join([doc.page_content for doc in retrieved_chunks])
 
   chain = cover_letter_prompt | llm
-
-  response = chain.invoke({
+  try:
+    response = chain.invoke({
       "context": context,
       "job_description": job_description
-  })
-
-  return response.content
+    })
+    return response.content
+  except Exception as e:
+    # Anthropic OverloadedError or other errors
+    if hasattr(e, 'args') and e.args and 'Overloaded' in str(e.args[0]):
+      return ("**Error:** The Anthropic API is currently overloaded. "
+          "Please try again in a few minutes.")
+    return f"**Error:** {str(e)}"
 
 with gr.Blocks(title="Tailored Cover Letter Generator") as ui:
   gr.Markdown("# Tailored Cover Letter Generator")
@@ -64,8 +70,8 @@ with gr.Blocks(title="Tailored Cover Letter Generator") as ui:
       cover_letter_output = gr.Markdown(label="Generated Cover Letter", value="*Your tailored cover letter will appear here after generation.*", container=True)
 
   def on_generate_click(job_description):
-    docs = retrieve_relevant_chunks(job_description)
-    cover_letter = generate_tailored_cover_letter(docs, job_description)
+    chunks = retrieve_relevant_chunks(job_description)
+    cover_letter = generate_tailored_cover_letter(chunks, job_description)
     return cover_letter
 
   generate_button.click(on_generate_click, inputs=job_description, outputs=cover_letter_output)
