@@ -38,8 +38,24 @@ def retrieve_relevant_chunks(job_description: str):
   )
 
   retriever = vectorstore.as_retriever()
-  chunks = retriever.invoke(job_description)
+
+  query = f"""
+  Given this job description:
+
+  {job_description}
+
+  Retrieve resume content that demonstrates:
+  - Matching technical skills
+  - Relevant project experience
+  - Systems integration experience
+  - AI-native or LLM experience if applicable
+  Include both skills sections and experience sections.
+  """
+
+  chunks = retriever.invoke(query)
+
   print(f"Retrieved {len(chunks)} relevant chunks from the resume database for the given job description.")
+
   return chunks
 
 def generate_tailored_cover_letter(retrieved_chunks, job_description):
