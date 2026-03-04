@@ -175,6 +175,11 @@ def create_chunks(resume: ResumeSchema):
   candidate_name = resume.contact.full_name if resume.contact and resume.contact.full_name else "Candidate"
   headline = resume.headline if resume.headline else ""
   location = resume.contact.location if resume.contact and resume.contact.location else ""
+  email = resume.contact.email if resume.contact and resume.contact.email else ""
+  linkedin = resume.contact.linkedin if resume.contact and resume.contact.linkedin else ""
+  github = resume.contact.github if resume.contact and resume.contact.github else ""
+  website = resume.contact.website if resume.contact and resume.contact.website else ""
+  phone = resume.contact.phone if resume.contact and resume.contact.phone else ""
 
   # ------------- SUMMARY -------------
   if resume.summary:
@@ -187,7 +192,17 @@ def create_chunks(resume: ResumeSchema):
 Professional Summary:
 {resume.summary}
 """.strip(),
-        metadata={"type": "summary", "candidate": candidate_name, "headline": headline}
+        metadata={
+          "type": "summary",
+          "candidate": candidate_name,
+          "location": location,
+          "headline": headline,
+          "email": email,
+          "linkedin": linkedin,
+          "github": github,
+          "website": website,
+          "phone": phone
+        }
       )
     )
 
@@ -211,6 +226,11 @@ Responsibilities and Achievements:
         metadata={
           "type": "experience",
           "candidate": candidate_name,
+          "email": email,
+          "linkedin": linkedin,
+          "github": github,
+          "website": website,
+          "phone": phone,
           "company": job.company,
           "title": job.title,
           "start_date": job.start_date,
@@ -237,6 +257,11 @@ Dates: {edu.start_date} - {edu.end_date}
           "type": "education",
           "candidate": candidate_name,
           "institution": edu.institution,
+          "email": email,
+          "linkedin": linkedin,
+          "github": github,
+          "website": website,
+          "phone": phone
         }
       )
     )
@@ -250,7 +275,15 @@ Dates: {edu.start_date} - {edu.end_date}
 
 {", ".join(resume.skills)}
 """,
-        metadata={"type": "skills", "candidate": candidate_name}
+        metadata={
+          "type": "skills",
+          "candidate": candidate_name,
+          "email": email,
+          "linkedin": linkedin,
+          "github": github,
+          "website": website,
+          "phone": phone
+        }
       )
     )
 
