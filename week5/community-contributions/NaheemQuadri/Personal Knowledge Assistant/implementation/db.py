@@ -17,9 +17,6 @@ CALL_TYPES = {
 }
 
 
-# ─────────────────────────────────────────────
-# DATE PARSING
-# ─────────────────────────────────────────────
 
 def parse_date(date_ms: str, readable_date: str = "") -> tuple[str, int]:
     try:
@@ -32,9 +29,6 @@ def parse_date(date_ms: str, readable_date: str = "") -> tuple[str, int]:
         return date_ms, 0
 
 
-# ─────────────────────────────────────────────
-# SCHEMA
-# ─────────────────────────────────────────────
 
 def create_tables(conn):
     conn.execute("""
@@ -74,9 +68,6 @@ def create_tables(conn):
     conn.commit()
 
 
-# ─────────────────────────────────────────────
-# INGEST INTO SQL
-# ─────────────────────────────────────────────
 
 def ingest_sms_to_sql(conn):
     folder = str(Path(KNOWLEDGE_BASE) / "sms")
@@ -202,9 +193,7 @@ def build_sql_db():
     print(f"\nSQL DB built at {DB_PATH}")
 
 
-# ─────────────────────────────────────────────
-# QUERY FUNCTIONS
-# ─────────────────────────────────────────────
+#query functions
 
 def query_sql(
     start_ms: int = None,
@@ -217,7 +206,6 @@ def query_sql(
     conn.row_factory = sqlite3.Row
     results = []
 
-    # always query both tables unless restricted
     query_sms = doc_types is None or "sms" in doc_types
     query_calls = doc_types is None or "calls" in doc_types
 
@@ -277,26 +265,3 @@ def format_sql_results(results: list[dict]) -> str:
                 f"Number: {r['number']} | Type: {r['call_type']} | Duration: {r['duration_str']}"
             )
     return "\n\n".join(lines)
-
-
-if __name__ == "__main__":
-    
-    #build_sql_db()
-        conn = sqlite3.connect(DB_PATH)
-
-        sms_2026 = conn.execute("""
-            SELECT COUNT(*) FROM sms 
-            WHERE date_ms >= 1735689600000 
-            AND date_ms <= 1767225599000
-        """).fetchone()[0]
-
-        calls_2026 = conn.execute("""
-            SELECT COUNT(*) FROM calls 
-            WHERE date_ms >= 1735689600000 
-            AND date_ms <= 1767225599000
-        """).fetchone()[0]
-
-        print(f"SMS/MMS in 2026: {sms_2026}")
-        print(f"Calls in 2026: {calls_2026}")
-
-        conn.close()

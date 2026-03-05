@@ -12,13 +12,11 @@ from implementation.db import query_sql, format_sql_results
 
 load_dotenv(override=True)
 
-# ─────────────────────────────────────────────
-# CREDENTIALS & CONFIG
-# ─────────────────────────────────────────────
+#credentials and config
 
 openrouter_api_key = os.getenv('OPENROUTER_API_KEY')
 openrouter_base_url = os.getenv('OPENROUTER_BASE_URL')
-# openai_api_key = os.getenv('OPENAI_API_KEY')
+
 
 if not openrouter_api_key:
     raise ValueError("OPENROUTER_API_KEY is not set")
@@ -28,8 +26,7 @@ if not openrouter_api_key.startswith("sk"):
     raise ValueError("OPENROUTER_API_KEY is not a valid API key")
 if not openrouter_base_url.startswith("https://"):
     raise ValueError("OPENROUTER_BASE_URL is not a valid base URL")
-# if not openai_api_key:
-#     raise ValueError("OPENAI_API_KEY is not set")
+
 
 MODEL = "openai/gpt-4.1-nano"
 embedding_model = "openai/text-embedding-3-large"
@@ -43,9 +40,6 @@ llm = ChatOpenAI(
 )
 
 
-# ─────────────────────────────────────────────
-# DATE EXTRACTION — done in Python, not by LLM
-# ─────────────────────────────────────────────
 
 MONTHS = {
     'january': 1, 'jan': 1, 'february': 2, 'feb': 2,
@@ -68,46 +62,46 @@ def extract_date_range(question: str) -> tuple[int, int] | None:
     now = datetime.now()
     q = question.lower()
 
-    # today
+    #today
     if 'today' in q:
         start = now.replace(hour=0, minute=0, second=0, microsecond=0)
         end = now.replace(hour=23, minute=59, second=59, microsecond=0)
         return to_ms(start), to_ms(end)
 
-    # yesterday
+    #yesterday
     if 'yesterday' in q:
         yesterday = now - timedelta(days=1)
         start = yesterday.replace(hour=0, minute=0, second=0, microsecond=0)
         end = yesterday.replace(hour=23, minute=59, second=59, microsecond=0)
         return to_ms(start), to_ms(end)
 
-    # last week
+    #last week
     if 'last week' in q:
         start = (now - timedelta(days=7)).replace(hour=0, minute=0, second=0, microsecond=0)
         end = now
         return to_ms(start), to_ms(end)
 
-    # last month
+    #last month
     if 'last month' in q:
         first_of_this_month = now.replace(day=1, hour=0, minute=0, second=0, microsecond=0)
         end_of_last_month = first_of_this_month - timedelta(seconds=1)
         start_of_last_month = end_of_last_month.replace(day=1, hour=0, minute=0, second=0)
         return to_ms(start_of_last_month), to_ms(end_of_last_month)
 
-    # last N days
+    #last N days
     match = re.search(r'last (\d+) days?', q)
     if match:
         days = int(match.group(1))
         start = now - timedelta(days=days)
         return to_ms(start), to_ms(now)
 
-    # this year
+    #this year
     if 'this year' in q:
         start = now.replace(month=1, day=1, hour=0, minute=0, second=0, microsecond=0)
         end = now.replace(month=12, day=31, hour=23, minute=59, second=59)
         return to_ms(start), to_ms(end)
 
-    # month + year e.g. "January 2025", "jan 2024"
+    #month + year
     pattern = r'\b(' + '|'.join(MONTHS.keys()) + r')\s+(20\d{2})\b'
     match = re.search(pattern, q)
     if match:
@@ -120,7 +114,7 @@ def extract_date_range(question: str) -> tuple[int, int] | None:
             end = datetime(year, month + 1, 1, 0, 0, 0) - timedelta(seconds=1)
         return to_ms(start), to_ms(end)
 
-    # year only e.g. "2026", "in 2024"
+    #year only
     match = re.search(r'\b(20\d{2})\b', q)
     if match:
         year = int(match.group(1))
@@ -135,15 +129,13 @@ def has_date_in_question(question: str) -> bool:
     return extract_date_range(question) is not None
 
 
-# ─────────────────────────────────────────────
-# RETRIEVAL
-# ─────────────────────────────────────────────
+#retrival
 
 def fetch_from_sql(question: str, date_range: tuple[int, int]) -> str:
     start_ms, end_ms = date_range
     print(f"  [SQL] Querying from {datetime.fromtimestamp(start_ms/1000)} to {datetime.fromtimestamp(end_ms/1000)}")
     
-    # check if question is specifically about calls or sms
+    # check if question is about calls or sms
     q = question.lower()
     if 'call' in q:
         doc_types = ['calls']
@@ -164,9 +156,6 @@ def fetch_from_chroma(question: str, k: int = 30) -> tuple[str, list[Document]]:
     return context, docs
 
 
-# ─────────────────────────────────────────────
-# SYSTEM PROMPT
-# ─────────────────────────────────────────────
 
 def build_system_prompt(context: str) -> str:
     now = datetime.now()
@@ -187,9 +176,6 @@ Context:
 """
 
 
-# ─────────────────────────────────────────────
-# MAIN
-# ─────────────────────────────────────────────
 
 def combined_question(question: str, history: list[dict] = []) -> str:
     prior = "\n".join(m["content"] for m in history if m["role"] == "user")
@@ -197,15 +183,15 @@ def combined_question(question: str, history: list[dict] = []) -> str:
 
 
 def answer_question(question: str, history: list[dict] = []) -> tuple[str, list[Document]]:
-    # extract date from CURRENT question only, not history
+    # extract date from current question
     date_range = extract_date_range(question)
     docs = []
 
     if date_range:
-        # date/time detected — use SQL
+        
         context = fetch_from_sql(question, date_range)
     else:
-        # no date — use Chroma semantic search on combined history for better context
+        
         combined = combined_question(question, history)
         context, docs = fetch_from_chroma(combined)
 
@@ -230,24 +216,3 @@ def fetch_context(question: str, history: list[dict] = []):
         combined = combined_question(question, history)
         return fetch_from_chroma(combined)
 
-# if __name__ == "__main__":
-    
-#     #build_sql_db()
-#     conn = sqlite3.connect(DB_PATH)
-
-#     sms_2026 = conn.execute("""
-#             SELECT COUNT(*) FROM sms 
-#             WHERE date_ms >= 1735689600000 
-#             AND date_ms <= 1767225599000
-#         """).fetchone()[0]
-
-#     calls_2026 = conn.execute("""
-#             SELECT COUNT(*) FROM calls 
-#             WHERE date_ms >= 1735689600000 
-#             AND date_ms <= 1767225599000
-#         """).fetchone()[0]
-
-#     print(f"SMS/MMS in 2026: {sms_2026}")
-#     print(f"Calls in 2026: {calls_2026}")
-
-#     conn.close()
