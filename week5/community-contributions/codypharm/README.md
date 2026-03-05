@@ -60,15 +60,10 @@ rx-research/
 
 ChromaDB is not in the repo; you create it locally from raw data.
 
-**Option A – Download raw labels from OpenFDA , then ingest:**
+**Download raw labels from OpenFDA , then ingest:**
 ```bash
 # From the project folder (week5/community-contributions/codypharm)
 uv run python -m src.ingestion.data_loader
-uv run python -m src.ingestion.ingest
-```
-
-**Option B – You already have `data/raw/*.json` (e.g. from the repo):**
-```bash
 uv run python -m src.ingestion.ingest
 ```
 
