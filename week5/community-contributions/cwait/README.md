@@ -10,9 +10,7 @@ Personal knowledge worker for the **Week 5 RAG** exercise. This solution powers 
 
 ## Run
 
-**Option A — Jupyter notebook (recommended)**
-
-Open and run all cells:
+Open the notebook and run all cells:
 
 ```bash
 jupyter notebook week5/community-contributions/cwait/week5_igniters_cwait.ipynb
@@ -22,45 +20,25 @@ jupyter lab week5/community-contributions/cwait/week5_igniters_cwait.ipynb
 
 Run from the repo root so the notebook finds `knowledge-base/company`. The last cell launches the Gradio chat UI.
 
-**Option B — Python script**
-
-From the **repo root** (`llm_engineering/`):
-
-```bash
-python week5/community-contributions/cwait/week5_igniters_cwait.py
-```
-
-Or from this directory (with repo root on `PYTHONPATH`):
-
-```bash
-cd week5/community-contributions/cwait
-python week5_igniters_cwait.py
-```
-
-Requires:
+**Requires**
 
 - `.env` with `OPENAI_API_KEY` (for the chat model)
 - Dependencies from the main project (`uv sync` or `pip install -e .` from repo root)
 
 ## Rebuild the vector DB
 
-To re-ingest and rebuild Chroma from the company docs:
-
-```bash
-REBUILD_DB=1 python week5/community-contributions/cwait/week5_igniters_cwait.py
-```
+To re-ingest and rebuild Chroma from the company docs, set `REBUILD_DB = True` in the **Config** cell of the notebook, then re-run the cells that load documents, chunk, and build the vector store.
 
 ## Files
 
 | File | Purpose |
 |------|--------|
-| `week5_igniters_cwait.ipynb` | **Notebook**: ingest, Chroma, RAG + Gradio chat (run all cells, launch UI in last cell) |
-| `week5_igniters_cwait.py` | Script version: same pipeline, run from repo root |
+| `week5_igniters_cwait.ipynb` | Ingest, Chroma, RAG + Gradio chat (run all cells, launch UI in last cell) |
 | `company_chroma_db/` | Created on first run; persisted Chroma vector store |
 
 ## Tech
 
 - **LangChain**: `DirectoryLoader`, `RecursiveCharacterTextSplitter`, `Chroma`, `ChatOpenAI`
 - **Embeddings**: HuggingFace `all-MiniLM-L6-v2` (no extra API key)
-- **LLM**: OpenAI `gpt-4.1-nano` (set in script; override via env if needed)
+- **LLM**: OpenAI `gpt-4.1-nano` (set in notebook config; override via env if needed)
 - **UI**: Gradio `ChatInterface`
