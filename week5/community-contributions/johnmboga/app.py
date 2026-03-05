@@ -403,7 +403,7 @@ This app demonstrates a **production-grade RAG (Retrieval-Augmented Generation)*
 ### 📥 Ingestion (Run Once)
 1. **Load** — Documents are loaded from a folder (`.txt`, `.pdf`)
 2. **Chunk** — Text is split into overlapping chunks (800 tokens, 150 overlap) using `RecursiveCharacterTextSplitter`
-3. **Encode** — Each chunk is encoded using OpenAI `text-embedding-3-small`
+3. **Encode** — Each chunk is encoded using OpenAI `text-embedding-3-large`
 4. **Store** — Vectors are persisted in **ChromaDB** (local vector database)
 
 ---
@@ -420,7 +420,7 @@ This app demonstrates a **production-grade RAG (Retrieval-Augmented Generation)*
 | Component | Tool |
 |-----------|------|
 | Vector DB | ChromaDB |
-| Embeddings | OpenAI text-embedding-3-small |
+| Embeddings | OpenAI text-embedding-3-large |
 | LLM | GPT-4o-mini |
 | Orchestration | LangChain |
 | UI | Gradio |
