@@ -1,0 +1,27 @@
+[
+  {
+    "question": "How can I reset my password?",
+    "answer": "You can reset your password by clicking on 'Forgot Password' on the login page and following the instructions sent to your email.",
+    "category": "Account Management"
+  },
+  {
+    "question": "What should I do if I encounter a login error?",
+    "answer": "If you encounter a login error, ensure that you are using the correct credentials. If the problem persists, try clearing your browser's cache or contact support.",
+    "category": "Technical Support"
+  },
+  {
+    "question": "How do I update my profile information?",
+    "answer": "To update your profile information, log in to your account, navigate to 'Profile Settings', and make your desired changes.",
+    "category": "Account Management"
+  },
+  {
+    "question": "Can I delete my account?",
+    "answer": "Yes, you can delete your account by going to 'Account Settings' and selecting the 'Delete Account' option. Please note that this action is irreversible.",
+    "category": "Account Management"
+  },
+  {
+    "question": "What is the minimum age requirement to create an account?",
+    "answer": "The minimum age requirement to create an account is 13 years old. Users under 18 must have parental consent.",
+    "category": "User Policy"
+  }
+]
