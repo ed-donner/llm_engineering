@@ -7,10 +7,10 @@ from langchain_core.documents import Document
 from dotenv import load_dotenv
 import xml.etree.ElementTree as ET
 from datetime import datetime
-from implementation.db import build_sql_db
-# from db import build_sql_db
-# import sqlite3
-# from db import DB_PATH
+# from implementation.db import build_sql_db
+from db import build_sql_db
+import sqlite3
+from db import DB_PATH
 load_dotenv(override=True)
 
 openrouter_api_key = os.getenv('OPENROUTER_API_KEY')
@@ -25,16 +25,7 @@ if not openrouter_api_key.startswith("sk"):
     raise ValueError("OPENROUTER_API_KEY is not a valid API key")
 if not openrouter_base_url.startswith("https://"):
     raise ValueError("OPENROUTER_BASE_URL is not a valid base URL")
-# if not openai_api_key:
-#     raise ValueError("OPENAI_API_KEY is not set")
 
-# ─────────────────────────────────────────────
-# CREDENTIALS & CONFIG
-# ─────────────────────────────────────────────
-
-# openai_api_key = os.getenv('OPENAI_API_KEY')
-# if not openai_api_key:
-#     raise ValueError("OPENAI_API_KEY is not set")
 
 embedding_model = "text-embedding-3-large"
 DB_NAME = str(Path(__file__).parent.parent / "vector_db")
@@ -42,9 +33,8 @@ KNOWLEDGE_BASE = str(Path(__file__).parent.parent / "knowledge-base")
 
 
 embeddings = OpenAIEmbeddings(model=embedding_model, openai_api_key=openrouter_api_key, openai_api_base=openrouter_base_url)
-# ─────────────────────────────────────────────
+
 # DATE PARSING
-# ─────────────────────────────────────────────
 
 def parse_date(date_ms: str, readable_date: str = "") -> tuple[str, int]:
     try:
@@ -65,9 +55,7 @@ def get_year_month(date_ms_int: int) -> tuple[str, str]:
         return "", ""
 
 
-# ─────────────────────────────────────────────
 # SMS + MMS PARSING
-# ─────────────────────────────────────────────
 
 def parse_sms(folder):
     documents = []
@@ -83,6 +71,8 @@ def parse_sms(folder):
                 continue
 
             contact = sms.get('contact_name', '(Unknown)')
+            if contact == '(Unknown)':
+                contact = sms.get('address', '')
             address = sms.get('address', '')
             sms_type = sms.get('type', '1')
             date_str, date_ms_int = parse_date(sms.get('date', '0'), sms.get('readable_date', ''))
@@ -152,9 +142,7 @@ Message: {role}: {body}"""
     return documents
 
 
-# ─────────────────────────────────────────────
 # CALL PARSING
-# ─────────────────────────────────────────────
 
 CALL_TYPES = {
     '1': 'Incoming', '2': 'Outgoing', '3': 'Missed',
@@ -211,9 +199,7 @@ Duration: {duration_str}"""
     return documents
 
 
-# ─────────────────────────────────────────────
 # MAIN PIPELINE
-# ─────────────────────────────────────────────
 
 def fetch_documents():
     documents = []
@@ -238,28 +224,9 @@ def create_chroma_embeddings(documents):
 
 
 if __name__ == "__main__":
-    # build both stores
+    # build sql db and vector db
     print("=== Building SQL DB ===")
     build_sql_db()
-
-    # conn = sqlite3.connect(DB_PATH)
-
-    # sms_2026 = conn.execute("""
-    #         SELECT COUNT(*) FROM sms 
-    #         WHERE date_ms >= 1735689600000 
-    #         AND date_ms <= 1767225599000
-    #     """).fetchone()[0]
-
-    # calls_2026 = conn.execute("""
-    #         SELECT COUNT(*) FROM calls 
-    #         WHERE date_ms >= 1735689600000 
-    #         AND date_ms <= 1767225599000
-    #     """).fetchone()[0]
-
-    # print(f"SMS/MMS in 2026: {sms_2026}")
-    # print(f"Calls in 2026: {calls_2026}")
-
-    # conn.close()
 
     print("\n=== Building Chroma Vector Store ===")
     documents = fetch_documents()

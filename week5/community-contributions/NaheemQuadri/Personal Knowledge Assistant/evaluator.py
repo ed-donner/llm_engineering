@@ -7,7 +7,7 @@ from evaluation.eval import evaluate_all_retrieval, evaluate_all_answers
 
 load_dotenv(override=True)
 
-# Color thresholds
+#color thresholds
 MRR_GREEN = 0.9
 MRR_AMBER = 0.75
 NDCG_GREEN = 0.9
@@ -61,7 +61,7 @@ def format_metric_html(
     """
 
 
-# Retrieval
+#retrieval
 
 def run_retrieval_evaluation(progress=gr.Progress()):
     total_mrr = total_ndcg = total_coverage = 0.0
@@ -98,7 +98,7 @@ def run_retrieval_evaluation(progress=gr.Progress()):
     return final_html, df
 
 
-#  Answer 
+#answer 
 
 def run_answer_evaluation(progress=gr.Progress()):
     total_accuracy = total_completeness = total_relevance = 0.0
@@ -135,7 +135,6 @@ def run_answer_evaluation(progress=gr.Progress()):
     return final_html, df
 
 
-#  App
 
 def main():
     theme = gr.themes.Soft(font=["Inter", "system-ui", "sans-serif"])
