@@ -180,11 +180,11 @@ If you're wondering why I rant about this: I get many, many frustrated people co
 
 Select the file on the left. You should see an empty blank file on the right. And type this into the contents of the file in the right:
 
-`OPENAI_API_KEY=`
+`OPENROUTER_API_KEY=`
 
 And then press paste! You should now see something like this:
 
-`OPENAI_API_KEY=sk-proj-lots-and-lots-of-digits`
+`OPENROUTER_API_KEY=sk-proj-lots-and-lots-of-digits`
 
 But obviously with your actual key there, not the words "sk-proj-lots-and-lots-of-digits"..
 

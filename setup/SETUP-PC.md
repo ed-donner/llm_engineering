@@ -164,7 +164,7 @@ When you have these keys, please create a new file called `.env` in your project
 2. In the Notepad, type this, replacing xxxx with your API key (starting `sk-proj-`).
 
 ```
-OPENAI_API_KEY=xxxx
+OPENROUTER_API_KEY=xxxx
 ```
 
 If you have other keys, you can add them too, or come back to this in future weeks:  
