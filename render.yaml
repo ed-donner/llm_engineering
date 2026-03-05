@@ -1,0 +1,22 @@
+# Deploy Reputation_Radar to Render (https://render.com)
+# 1. Push this repo to GitHub
+# 2. Render Dashboard → New → Blueprint → connect this repo
+# 3. Add OPENROUTER_API_KEY (and optional Reddit/Trustpilot keys) in Environment
+# 4. Deploy
+
+services:
+  - type: web
+    name: reputation-radar
+    runtime: python
+    rootDir: community-contributions/Reputation_Radar
+    buildCommand: pip install -r requirements.txt
+    startCommand: streamlit run app.py --server.port=$PORT --server.address=0.0.0.0
+    envVars:
+      - key: OPENROUTER_API_KEY
+        sync: false
+      - key: REDDIT_CLIENT_ID
+        sync: false
+      - key: REDDIT_CLIENT_SECRET
+        sync: false
+      - key: REDDIT_USER_AGENT
+        sync: false

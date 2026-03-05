@@ -1,0 +1,5 @@
+# Dependencies for Week 1 Day 2 (Chat Completions API, OpenRouter, Gemini, Ollama)
+# Install from repo root: pip install -r community-contributions/asket/requirements-day2.txt
+python-dotenv
+requests
+openai
