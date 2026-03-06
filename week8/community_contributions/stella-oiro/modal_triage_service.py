@@ -16,7 +16,7 @@ import modal
 
 APP_NAME = "clinical-triage-service"
 # Set this to your HuggingFace model repo from Week 7
-HF_MODEL_NAME = os.getenv("HF_MODEL_NAME", "your-hf-username/clinical-triage-llama")
+HF_MODEL_NAME = os.getenv("HF_MODEL_NAME", "AcharO/clinical-triage-llama")
 BASE_MODEL = "meta-llama/Llama-3.2-3B"
 TRIAGE_LEVELS = ["Immediate", "Urgent", "Semi-urgent", "Non-urgent"]
 
