@@ -6,12 +6,15 @@ from dotenv import load_dotenv
 from langchain_chroma import Chroma
 from langchain_core.documents import Document
 from langchain_openai import OpenAIEmbeddings
+from huggingface_hub import snapshot_download
 
 MODEL = "gpt-4.1-nano"
 
 DB_NAME = str(Path(__file__).parent.parent / "vector_db")
-KNOWLEDGE_BASE = str(Path(__file__).parent.parent / "knowledge-base")
-
+KNOWLEDGE_BASE = snapshot_download(
+    repo_id="gathondu/east-logistics",
+    repo_type="dataset",
+)
 load_dotenv(override=True)
 
 embeddings = OpenAIEmbeddings(model="text-embedding-3-large")
@@ -21,6 +24,9 @@ def create_row_documents():
     documents = []
 
     for file in os.listdir(KNOWLEDGE_BASE):
+        if not file.endswith(".csv"):
+            continue
+
         file_path = os.path.join(KNOWLEDGE_BASE, file)
         df = pd.read_csv(file_path)
 
