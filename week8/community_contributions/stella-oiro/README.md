@@ -1,3 +1,9 @@
+---
+title: stella-oiro
+app_file: app.py
+sdk: gradio
+sdk_version: 5.49.1
+---
 # Multi-Agent Clinical Triage System — Week 8
 
 A multi-agent system for emergency department triage that combines a fine-tuned offline model, RAG over clinical guidelines, and a frontier LLM — orchestrated by an autonomous planning agent.
@@ -88,3 +94,7 @@ uv run modal deploy modal_triage_service.py
 ### 6. Run the notebook
 
 Open `clinical_triage_multiagent.ipynb` and run all cells.
+
+## Live Demo
+
+[https://huggingface.co/spaces/AcharO/stella-oiro](https://huggingface.co/spaces/AcharO/stella-oiro)
