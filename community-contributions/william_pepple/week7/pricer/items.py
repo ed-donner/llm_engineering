@@ -1,7 +1,10 @@
+from __future__ import annotations
+from typing import TYPE_CHECKING, Optional
 from pydantic import BaseModel
 from datasets import Dataset, DatasetDict, load_dataset
-from typing import Optional, Self
 
+if TYPE_CHECKING:
+    from typing import Self
 
 PREFIX = "Price is $"
 QUESTION = "What does this cost to the nearest dollar?"
@@ -23,9 +26,11 @@ class Item(BaseModel):
     id: Optional[int] = None
 
     def make_prompt(self, text: str):
+        """Build a full prompt string including the rounded price."""
         self.prompt = f"{QUESTION}\n\n{text}\n\n{PREFIX}{round(self.price)}.00"
 
     def test_prompt(self) -> str:
+        """Return the prompt with the price answer stripped off."""
         return self.prompt.split(PREFIX)[0] + PREFIX
 
     def __repr__(self) -> str:
@@ -73,6 +78,7 @@ class Item(BaseModel):
         return len(tokens)
 
     def to_datapoint(self) -> dict:
+        """Convert to a prompt/completion dict for SFT training."""
         return {"prompt": self.prompt, "completion": self.completion}
 
     @staticmethod
