@@ -1,0 +1,20 @@
+[
+  {
+    "source": "reddit",
+    "id": "t3_sample1",
+    "url": "https://www.reddit.com/r/technology/comments/sample1",
+    "author": "techfan42",
+    "timestamp": "2025-01-15T14:30:00+00:00",
+    "text": "ReputationRadar did an impressive job resolving our customer issues within hours. Support has been world class!",
+    "meta": {"score": 128, "num_comments": 24, "subreddit": "technology", "type": "submission"}
+  },
+  {
+    "source": "reddit",
+    "id": "t1_sample2",
+    "url": "https://www.reddit.com/r/startups/comments/sample2/comment/sample",
+    "author": "growthguru",
+    "timestamp": "2025-01-14T10:10:00+00:00",
+    "text": "Noticed a spike in downtime alerts with ReputationRadar this week. Anyone else seeing false positives?",
+    "meta": {"score": 45, "subreddit": "startups", "type": "comment", "submission_title": "Monitoring tools"}
+  }
+]

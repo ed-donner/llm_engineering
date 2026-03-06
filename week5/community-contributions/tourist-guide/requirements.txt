@@ -1,0 +1,11 @@
+openai>=1.0.0
+gradio>=4.0.0
+python-dotenv>=1.0.0
+pydub>=0.25.1
+pypdf>=4.0.0
+langchain>=0.1.0
+langchain-openai>=0.0.5
+langchain-community>=0.0.13
+faiss-cpu>=1.7.4
+tiktoken>=0.5.2
+requests>=2.31.0

@@ -1,0 +1,92 @@
+/* Styling for Tourist Assistant */
+
+.container {
+    max-width: 850px;
+    margin: auto;
+    background-color: rgba(255, 255, 255, 0.95);
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.title {
+    text-align: center;
+    font-size: 2.5rem !important;
+    margin-bottom: 0.5rem;
+    color: #2563EB;
+    font-weight: 600;
+}
+
+.subtitle {
+    text-align: center;
+    font-size: 1.1rem !important;
+    margin-bottom: 1.5rem;
+    color: #4B5563;
+}
+
+.footer {
+    text-align: center;
+    margin-top: 1rem;
+    color: #6B7280;
+    font-size: 0.9rem !important;
+}
+
+.mic-container {
+    text-align: center;
+    margin: 1rem auto;
+}
+
+.clear-button {
+    max-width: 120px;
+    margin-left: auto;
+}
+
+.chatbot-container {
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    background-color: white;
+}
+
+/* Styling for the microphone button */
+#mic-btn {
+    width: 150px !important;
+    margin: 0 auto !important;
+}
+
+#mic-btn .wrap {
+    display: flex;
+    justify-content: center;
+}
+
+/* Make the mic button more prominent and attractive */
+#mic-btn button.record-button {
+    width: 60px !important;
+    height: 60px !important;
+    border-radius: 50% !important;
+    background-color: #3B82F6 !important;
+    color: white !important;
+    font-size: 24px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    margin: 0 auto !important;
+    border: none !important;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1) !important;
+    transition: all 0.2s ease !important;
+    margin-bottom: 10px !important;
+}
+
+#mic-btn button.record-button:hover {
+    transform: scale(1.05) !important;
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15) !important;
+}
+
+/* Hide the audio controls */
+#mic-btn .audio-controls {
+    display: none !important;
+}
+
+/* Hide the audio playback */
+#mic-btn audio {
+    display: none !important;
+}
