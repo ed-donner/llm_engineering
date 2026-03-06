@@ -1,3 +1,4 @@
+import os
 from typing import Optional, List, Dict
 from agents.agent import Agent
 from agents.deals import Deal, Opportunity
@@ -6,12 +7,15 @@ from agents.ensemble_agent import EnsembleAgent
 from agents.messaging_agent import MessagingAgent
 from openai import OpenAI
 import json
+import os
 
 
 class AutonomousPlanningAgent(Agent):
     name = "Autonomous Planning Agent"
     color = Agent.GREEN
-    MODEL = "gpt-5.1"
+    MODEL = "openai/gpt-4.1-nano"
+    openrouter_base_url = "https://openrouter.ai/api/v1"
+    openrouter_api_key = os.getenv("OPENROUTER_API_KEY")
 
     def __init__(self, collection):
         """
@@ -21,7 +25,7 @@ class AutonomousPlanningAgent(Agent):
         self.scanner = ScannerAgent()
         self.ensemble = EnsembleAgent(collection)
         self.messenger = MessagingAgent()
-        self.openai = OpenAI()
+        self.openai = OpenAI(base_url=self.openrouter_base_url, api_key=self.openrouter_api_key)
         self.memory = None
         self.opportunity = None
         self.log("Autonomous Planning Agent is ready")

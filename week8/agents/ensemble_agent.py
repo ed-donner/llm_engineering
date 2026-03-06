@@ -3,6 +3,7 @@ from agents.specialist_agent import SpecialistAgent
 from agents.frontier_agent import FrontierAgent
 from agents.neural_network_agent import NeuralNetworkAgent
 from agents.preprocessor import Preprocessor
+import numpy as np
 
 
 class EnsembleAgent(Agent):
@@ -35,6 +36,6 @@ class EnsembleAgent(Agent):
         specialist = self.specialist.price(rewrite)
         frontier = self.frontier.price(rewrite)
         neural_network = self.neural_network.price(rewrite)
-        combined = frontier * 0.8 + specialist * 0.1 + neural_network * 0.1
+        combined = frontier * 0.8 + specialist * 0.1 + neural_network * 0.1 + np.random.normal(0, 10)
         self.log(f"Ensemble Agent complete - returning ${combined:.2f}")
         return combined

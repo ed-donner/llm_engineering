@@ -10,7 +10,9 @@ pushover_url = "https://api.pushover.net/1/messages.json"
 class MessagingAgent(Agent):
     name = "Messaging Agent"
     color = Agent.WHITE
-    MODEL = "claude-sonnet-4-5"
+    MODEL = "openai/gpt-4.1-nano"
+    openrouter_base_url = "https://openrouter.ai/api/v1"
+    openrouter_api_key = os.getenv("OPENROUTER_API_KEY")
 
     def __init__(self):
         """
@@ -59,6 +61,8 @@ class MessagingAgent(Agent):
             messages=[
                 {"role": "user", "content": user_prompt},
             ],
+            base_url=self.openrouter_base_url,
+            api_key=self.openrouter_api_key,
         )
         return response.choices[0].message.content
 

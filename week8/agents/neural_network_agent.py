@@ -4,7 +4,7 @@ from agents.deep_neural_network import DeepNeuralNetworkInference
 
 class NeuralNetworkAgent(Agent):
     name = "Neural Network Agent"
-    color = Agent.MAGENTA
+    color = Agent.MAGENTA 
 
     def __init__(self):
         """

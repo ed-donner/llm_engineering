@@ -3,10 +3,13 @@ from typing import List, Dict
 from openai import OpenAI
 from sentence_transformers import SentenceTransformer
 from agents.agent import Agent
+import os
 
 
 class FrontierAgent(Agent):
-    name = "Frontier Agent"
+    MODEL = "openai/gpt-4.1-nano"
+    openrouter_base_url = "https://openrouter.ai/api/v1"
+    openrouter_api_key = os.getenv("OPENROUTER_API_KEY")
     color = Agent.BLUE
 
     MODEL = "gpt-4o-mini"
@@ -17,8 +20,8 @@ class FrontierAgent(Agent):
         And setting up the vector encoding model
         """
         self.log("Initializing Frontier Agent")
-        self.client = OpenAI()
-        self.MODEL = "gpt-5.1"
+        self.client = OpenAI(base_url=self.openrouter_base_url, api_key=self.openrouter_api_key)
+        self.MODEL = "openai/gpt-4.1-nano"
         self.log("Frontier Agent is setting up with OpenAI")
         self.collection = collection
         self.model = SentenceTransformer("sentence-transformers/all-MiniLM-L6-v2")

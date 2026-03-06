@@ -13,7 +13,7 @@ Category: eg Electronics
 Brand: Brand name
 Description: 1 sentence description
 Details: 1 sentence on features"""
-
+ 
 
 class Preprocessor:
     def __init__(

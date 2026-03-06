@@ -1,3 +1,4 @@
+import os
 from typing import Optional, List
 from openai import OpenAI
 from agents.deals import ScrapedDeal, DealSelection
@@ -5,7 +6,7 @@ from agents.agent import Agent
 
 
 class ScannerAgent(Agent):
-    MODEL = "gpt-5-mini"
+    MODEL = "openai/gpt-4.1-nano"
 
     SYSTEM_PROMPT = """You identify and summarize the 5 most detailed deals from a list, by selecting deals that have the most detailed, high quality description and the most clear price.
     Respond strictly in JSON with no explanation, using this format. You should provide the price as a number derived from the description. If the price of a deal isn't clear, do not include that deal in your response.
@@ -32,7 +33,7 @@ class ScannerAgent(Agent):
         Set up this instance by initializing OpenAI
         """
         self.log("Scanner Agent is initializing")
-        self.openai = OpenAI()
+        self.openai = OpenAI(base_url="https://openrouter.ai/api/v1", api_key=os.getenv("OPENROUTER_API_KEY"))
         self.log("Scanner Agent is ready")
 
     def fetch_deals(self, memory) -> List[ScrapedDeal]:
