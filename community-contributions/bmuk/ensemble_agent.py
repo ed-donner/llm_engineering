@@ -1,8 +1,8 @@
-from agents.agent import Agent
-from agents.specialist_agent import SpecialistAgent
-from agents.frontier_agent import FrontierAgent
-from agents.neural_network_agent import NeuralNetworkAgent
-from agents.preprocessor import Preprocessor
+from agent import Agent
+from specialist_agent import SpecialistAgent
+from frontier_agent import FrontierAgent
+from neural_network_agent import NeuralNetworkAgent
+from preprocessor import Preprocessor
 import numpy as np
 
 
