@@ -1,0 +1,43 @@
+# Applicant Tracking System (ATS) Parser Fine-Tuning Pipeline
+
+This repository contains a complete pipeline for fine-tuning and evaluating a LLM to act as an expert ATS parser. It is designed to take full, unstructured text scraped from career websites and accurately extract core responsibilities, required skills, and educational requirements into a strict JavaScript Object Notation (JSON) format. 
+
+This serves as a reliable content generation and extraction engine, acting as a critical downstream step after web scraping for a job aggregator platform. It is built to ensure strict accuracy and penalize hallucinations.
+
+## Project Structure
+
+The project consists of two core scripts:
+
+1. **`finetune_ats_parser.py`**: Handles data ingestion, formatting, and the OpenAI fine-tuning process.
+2. **`evaluate_ats_parser.py`**: Runs an A/B evaluation between the base model and the fine-tuned model, visualizing the results in a local web dashboard.
+
+## Features
+
+* **Automated Data Preparation:** Downloads the `jacob-hugging-face/job-descriptions` dataset and formats it into JavaScript Object Notation Lines (JSONL) format.
+* **Strict Schema Enforcement:** Trains the model to output a specific JSON structure without Markdown formatting or conversational filler.
+* **LLM-as-a-Judge Evaluation:** Uses `gpt-4o` to automatically score the generated outputs against a holdout test set based on JSON Validity, Data Accuracy, and Hallucination Control.
+* **Interactive Dashboard:** Leverages Gradio and Plotly to render a grouped bar chart comparing the performance of the base model against the fine-tuned model.
+
+## Usage
+
+1. Fine-Tune the Model
+Run the fine-tuning script to generate the training dataset and submit the job to OpenAI.
+
+uv run finetune_ats_parser.py
+
+2. Update the Evaluation Script
+Once your fine-tuning job is successful, copy the generated model ID (e.g., ft:gpt-4.1-nano-2025-04-14:personal:ats-json-parser:DGHESpdj) and update the FINE_TUNED_MODEL variable in evaluate_ats_parser.py.
+
+3. Run the Evaluation Dashboard
+Launch the evaluation pipeline to process a fresh 50-row holdout test set.
+
+uv run evaluate_ats_parser.py
+
+## Evaluation Metrics
+The evaluation script utilizes a judge model (gpt-4o) to score the outputs on a scale of 1.0 to 5.0:
+
+JSON Validity: Checks if the output is perfectly structured JSON.
+
+Data Accuracy: Verifies if the responsibilities, skills, and education were accurately captured from the raw text.
+
+Hallucination Control: Heavily penalizes the model if it invents skills or education requirements not explicitly present in the source text.
