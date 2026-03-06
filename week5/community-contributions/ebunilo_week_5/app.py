@@ -1,9 +1,15 @@
+import os
 import gradio as gr
 from dotenv import load_dotenv
 
-from implementation.answer import answer_question
-
 load_dotenv(override=True)
+
+# Use the advanced pipeline (pro_implementation: rerank, query rewrite, dual retrieval)
+# when USE_PRO_RAG is set. Requires preprocessed_db from pro_implementation ingest.
+if os.environ.get("USE_PRO_RAG"):
+    from pro_implementation.answer import answer_question
+else:
+    from implementation.answer import answer_question
 
 
 def format_context(context):

@@ -1,3 +1,4 @@
+import os
 import sys
 import math
 from pydantic import BaseModel, Field
@@ -5,10 +6,18 @@ from litellm import completion
 from dotenv import load_dotenv
 
 from evaluation.test import TestQuestion, load_tests
-from implementation.answer import answer_question, fetch_context
-
 
 load_dotenv(override=True)
+
+# Which RAG pipeline to evaluate. Set RAG_ANSWER_MODULE=pro_implementation.answer
+# to evaluate the advanced pipeline (rerank, query rewrite, dual retrieval).
+# Default: implementation.answer (simple retriever). Notebooks can patch these
+# after import to evaluate their own pipeline.
+_rag_module = os.environ.get("RAG_ANSWER_MODULE", "implementation.answer")
+if _rag_module == "pro_implementation.answer":
+    from pro_implementation.answer import answer_question, fetch_context
+else:
+    from implementation.answer import answer_question, fetch_context
 
 MODEL = "gpt-4.1-nano"
 db_name = "vector_db"
