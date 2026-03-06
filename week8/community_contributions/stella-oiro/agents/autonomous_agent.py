@@ -39,7 +39,7 @@ TOOLS = [
                         "description": "Agent votes dict.",
                     },
                 },
-                "required": ["presentation", "triage_level", "votes"],
+                "required": ["presentation", "triage_level"],
             },
         },
     },
@@ -98,7 +98,7 @@ class AutonomousAgent(BaseAgent):
                         result = self._triage_patient(args["presentation"])
                     elif call.function.name == "notify_doctor":
                         result = self._notify_doctor(
-                            args["presentation"], args["triage_level"], args["votes"]
+                            args["presentation"], args["triage_level"], args.get("votes", {})
                         )
                     else:
                         result = {"error": "Unknown tool"}
@@ -113,7 +113,7 @@ class AutonomousAgent(BaseAgent):
                 self.log("Autonomous agent complete.")
                 # Return the triage result from the last tool call
                 for m in reversed(messages):
-                    if m.get("role") == "tool":
+                    if isinstance(m, dict) and m.get("role") == "tool":
                         tool_result = json.loads(m["content"])
                         if "triage_level" in tool_result:
                             return {
