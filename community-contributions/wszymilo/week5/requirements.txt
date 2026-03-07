@@ -1,0 +1,9 @@
+gradio
+langchain-core
+langchain-community
+langchain-ollama
+faiss-cpu
+litellm
+pydantic>=2
+pypdf
+docx2txt
