@@ -4,7 +4,7 @@
 
 ## What's included
 
-- **Knowledge base**: `knowledge-base/` — markdown files on compliance, red flags, hiring best practices, reference verification, trust scores, child safety.
+- **Knowledge base**: `knowledge-base/safehire_knowledge.md` — consolidated guidelines on compliance, red flags, hiring best practices, reference verification, trust scores, child safety.
 - **Nanny profiles**: `profiles/nanny_profiles.json` — structured profiles; when you ask about a nanny by name, their profile is injected into the prompt.
 - **RAG pipeline**: Load → chunk (RecursiveCharacterTextSplitter 500/50) → embed (OpenAI) → Chroma → retrieve (top‑3) → generate (gpt-4o-mini).
 - **Gradio UI**: Simple chat — question input, response output.
