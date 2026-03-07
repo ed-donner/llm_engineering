@@ -1,0 +1,12 @@
+# Core dependencies
+openai>=1.0.0
+python-dotenv>=1.0.0
+frontmatter>=1.0.0
+
+# Optional dependencies for enhanced functionality
+# Uncomment if you need these features:
+# requests>=2.31.0          # For additional HTTP functionality
+# rich>=13.0.0              # For enhanced terminal output
+# typer>=0.9.0              # For advanced CLI features
+# pydantic>=2.0.0           # For data validation
+
