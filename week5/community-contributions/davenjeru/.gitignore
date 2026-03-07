@@ -1,0 +1,15 @@
+# Generated data files
+knowledge/*.json
+
+# Vector database
+vector_db/
+
+# Environment
+.env
+
+# Python
+__pycache__/
+*.pyc
+
+# Jupyter
+.ipynb_checkpoints/
