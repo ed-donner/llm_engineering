@@ -1,5 +1,0 @@
-requests 
-beautifulsoup4 
-playwright 
-openai 
-tiktoken 
