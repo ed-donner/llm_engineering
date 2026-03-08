@@ -51,6 +51,7 @@ PRICE_REGEX = re.compile(r"[-+]?\d*\.\d+|\d+")
 PROMPT = "Estimate the price of this product. Respond with only the price."
 DEFAULT_DATASET_OWNER = "ed-donner"
 OPENROUTER_BASE_URL = "https://openrouter.ai/api/v1"
+DEFAULT_REMOTE_MODEL = "openai/gpt-4.1-mini"
 
 
 def get_openrouter_client() -> OpenAI:
@@ -65,6 +66,18 @@ def get_openai_client() -> OpenAI:
     if not api_key:
         raise ValueError("Set OPENAI_API_KEY for OpenAI fine-tuning commands.")
     return OpenAI(api_key=api_key)
+
+
+def resolve_remote_model(cli_value: str | None) -> str:
+    """Pick remote model from CLI/env; default when OpenRouter key exists."""
+    if cli_value:
+        return cli_value
+    env_model = os.getenv("REMOTE_MODEL") or os.getenv("FINE_TUNED_MODEL")
+    if env_model:
+        return env_model
+    if os.getenv("OPENROUTER_API_KEY"):
+        return DEFAULT_REMOTE_MODEL
+    return ""
 
 
 @dataclass
@@ -329,10 +342,11 @@ def command_evaluate(args: argparse.Namespace) -> None:
     bundle = load_bundle()
 
     report = {"local_bundle": evaluate_predictor(bundle.predict, test, size=len(test))}
-    if args.remote_model:
+    remote_model = resolve_remote_model(args.remote_model)
+    if remote_model:
         sample = test[: min(args.fine_tuned_sample, len(test))]
         ft_metrics = evaluate_predictor(
-            lambda item: predict_with_remote_model(args.remote_model, item.summary or item.full or item.title),
+            lambda item: predict_with_remote_model(remote_model, item.summary or item.full or item.title),
             sample,
             size=len(sample),
         )
@@ -379,7 +393,7 @@ def command_status_finetune(args: argparse.Namespace) -> None:
 
 def command_deploy(args: argparse.Namespace) -> None:
     bundle = load_bundle()
-    remote_model = args.remote_model or os.getenv("REMOTE_MODEL") or os.getenv("FINE_TUNED_MODEL")
+    remote_model = resolve_remote_model(args.remote_model)
 
     def infer(product_text: str) -> tuple[str, str, str]:
         if not product_text.strip():
@@ -388,7 +402,7 @@ def command_deploy(args: argparse.Namespace) -> None:
         local_price = bundle.predict(item)
 
         local_msg = f"${local_price:.2f}"
-        ft_msg = "Not configured"
+        ft_msg = "Not configured (set OPENROUTER_API_KEY or --remote-model)"
         if remote_model:
             try:
                 ft_price = predict_with_remote_model(remote_model, product_text)
@@ -470,7 +484,11 @@ def build_parser() -> argparse.ArgumentParser:
 
 
 def main() -> None:
-    load_dotenv(override=True)
+    # Load env vars from both repo root and project folder.
+    # Shell-provided env vars keep priority (override=False).
+    load_dotenv(REPO_ROOT / ".env", override=False)
+    load_dotenv(HERE.parent / ".env", override=False)
+    load_dotenv(override=False)
     parser = build_parser()
     args = parser.parse_args()
     args.func(args)
