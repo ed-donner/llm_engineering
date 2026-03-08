@@ -1,0 +1,8 @@
+# Autonomous multi-agent: Africa flight prices (adeyemi-kayode)
+# Install from repo root or this folder: pip install -r requirements.txt
+datasets>=2.14.0
+pandas>=1.5.0
+pydantic>=2.0.0
+requests>=2.28.0
+python-dotenv>=1.0.0
+openai>=1.0.0
