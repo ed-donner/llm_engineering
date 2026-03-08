@@ -50,6 +50,21 @@ from pricer.items import Item  # noqa: E402
 PRICE_REGEX = re.compile(r"[-+]?\d*\.\d+|\d+")
 PROMPT = "Estimate the price of this product. Respond with only the price."
 DEFAULT_DATASET_OWNER = "ed-donner"
+OPENROUTER_BASE_URL = "https://openrouter.ai/api/v1"
+
+
+def get_openrouter_client() -> OpenAI:
+    api_key = os.getenv("OPENROUTER_API_KEY") or os.getenv("OPENAI_API_KEY")
+    if not api_key:
+        raise ValueError("Set OPENROUTER_API_KEY (or OPENAI_API_KEY fallback) for remote inference.")
+    return OpenAI(base_url=OPENROUTER_BASE_URL, api_key=api_key)
+
+
+def get_openai_client() -> OpenAI:
+    api_key = os.getenv("OPENAI_API_KEY")
+    if not api_key:
+        raise ValueError("Set OPENAI_API_KEY for OpenAI fine-tuning commands.")
+    return OpenAI(api_key=api_key)
 
 
 @dataclass
@@ -246,7 +261,7 @@ def write_finetune_jsonl(items: list[Item], path: Path) -> None:
 
 
 def start_finetune(train_path: Path, val_path: Path, base_model: str, epochs: int) -> dict[str, str]:
-    client = OpenAI()
+    client = get_openai_client()
     with train_path.open("rb") as f:
         train_file = client.files.create(file=f, purpose="fine-tune")
     with val_path.open("rb") as f:
@@ -264,7 +279,7 @@ def start_finetune(train_path: Path, val_path: Path, base_model: str, epochs: in
 
 
 def fine_tune_status(job_id: str) -> dict[str, Any]:
-    client = OpenAI()
+    client = get_openai_client()
     job = client.fine_tuning.jobs.retrieve(job_id)
     events = client.fine_tuning.jobs.list_events(fine_tuning_job_id=job_id, limit=5)
     return {
@@ -276,8 +291,8 @@ def fine_tune_status(job_id: str) -> dict[str, Any]:
     }
 
 
-def predict_with_finetuned_model(model_id: str, product_text: str) -> float:
-    client = OpenAI()
+def predict_with_remote_model(model_id: str, product_text: str) -> float:
+    client = get_openai_client() if model_id.startswith("ft:") else get_openrouter_client()
     response = client.chat.completions.create(
         model=model_id,
         messages=[{"role": "user", "content": f"{PROMPT}\n\n{product_text}"}],
@@ -314,14 +329,14 @@ def command_evaluate(args: argparse.Namespace) -> None:
     bundle = load_bundle()
 
     report = {"local_bundle": evaluate_predictor(bundle.predict, test, size=len(test))}
-    if args.fine_tuned_model:
+    if args.remote_model:
         sample = test[: min(args.fine_tuned_sample, len(test))]
         ft_metrics = evaluate_predictor(
-            lambda item: predict_with_finetuned_model(args.fine_tuned_model, item.summary or item.full or item.title),
+            lambda item: predict_with_remote_model(args.remote_model, item.summary or item.full or item.title),
             sample,
             size=len(sample),
         )
-        report["fine_tuned_model"] = ft_metrics
+        report["remote_model"] = ft_metrics
     print(json.dumps(report, indent=2))
 
 
@@ -364,7 +379,7 @@ def command_status_finetune(args: argparse.Namespace) -> None:
 
 def command_deploy(args: argparse.Namespace) -> None:
     bundle = load_bundle()
-    fine_tuned_model = args.fine_tuned_model or os.getenv("FINE_TUNED_MODEL")
+    remote_model = args.remote_model or os.getenv("REMOTE_MODEL") or os.getenv("FINE_TUNED_MODEL")
 
     def infer(product_text: str) -> tuple[str, str, str]:
         if not product_text.strip():
@@ -374,9 +389,9 @@ def command_deploy(args: argparse.Namespace) -> None:
 
         local_msg = f"${local_price:.2f}"
         ft_msg = "Not configured"
-        if fine_tuned_model:
+        if remote_model:
             try:
-                ft_price = predict_with_finetuned_model(fine_tuned_model, product_text)
+                ft_price = predict_with_remote_model(remote_model, product_text)
                 ft_msg = f"${ft_price:.2f}"
             except Exception as exc:  # noqa: BLE001
                 ft_msg = f"Error: {exc}"
@@ -417,7 +432,12 @@ def build_parser() -> argparse.ArgumentParser:
     eval_cmd = sub.add_parser("evaluate", help="Evaluate local model and optional fine-tuned model")
     eval_cmd.add_argument("--lite-mode", action="store_true", help="Use ed-donner/items_lite dataset")
     eval_cmd.add_argument("--test-size", type=int, default=1500, help="Test item count cap")
-    eval_cmd.add_argument("--fine-tuned-model", type=str, default="", help="Fine-tuned OpenAI model id")
+    eval_cmd.add_argument(
+        "--remote-model",
+        type=str,
+        default="",
+        help="Remote model id (OpenRouter model, or OpenAI ft: model)",
+    )
     eval_cmd.add_argument("--fine-tuned-sample", type=int, default=150, help="Eval sample size for fine-tuned model")
     eval_cmd.set_defaults(func=command_evaluate)
 
@@ -437,7 +457,11 @@ def build_parser() -> argparse.ArgumentParser:
     status_cmd.set_defaults(func=command_status_finetune)
 
     deploy_cmd = sub.add_parser("deploy", help="Launch Gradio app for local deployment")
-    deploy_cmd.add_argument("--fine-tuned-model", default="", help="Optional fine-tuned model id")
+    deploy_cmd.add_argument(
+        "--remote-model",
+        default="",
+        help="Remote model id (OpenRouter model, or OpenAI ft: model)",
+    )
     deploy_cmd.add_argument("--host", default="127.0.0.1", help="Gradio host")
     deploy_cmd.add_argument("--port", type=int, default=7866, help="Gradio port")
     deploy_cmd.add_argument("--share", action="store_true", help="Enable temporary public Gradio URL")
