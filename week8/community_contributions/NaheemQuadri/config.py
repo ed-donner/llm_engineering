@@ -6,36 +6,34 @@ from typing import Optional
 
 @dataclass(frozen=True)
 class ModelConfig:
-    sentiment_model: str    = "mrm8488/distilroberta-finetuned-financial-news-sentiment-analysis"
-    embedding_model: str    = "sentence-transformers/all-MiniLM-L6-v2"
-    claude_model: str       = "anthropic/claude-sonnet-4-5"
+    sentiment_model:     str = "mrm8488/distilroberta-finetuned-financial-news-sentiment-analysis"
+    embedding_model:     str = "sentence-transformers/all-MiniLM-L6-v2"
+    claude_model:        str = "anthropic/claude-sonnet-4-5"
     openrouter_base_url: str = "https://openrouter.ai/api/v1"
-    gpt_model: str          = "gpt-4o"
-    claude_max_tokens: int  = 2048
-    gpt_max_tokens: int     = 1024
+    gpt_model:           str = "gpt-4o"
+    claude_max_tokens:   int = 2048
+    gpt_max_tokens:      int = 1024
 
 
 @dataclass(frozen=True)
 class NewsConfig:
-    finnhub_base_url: str       = "https://finnhub.io/api/v1"
-    news_category: str          = "crypto"
-    news_limit: int             = 20
-    interval_minutes: int       = 10
+    finnhub_base_url:  str       = "https://finnhub.io/api/v1"
+    
+    news_categories:   list      = field(default_factory=lambda: ["forex", "merger"])
+    news_limit:        int       = 20        
+    interval_minutes:  int       = 10
 
 
 @dataclass(frozen=True)
 class VectorStoreConfig:
-    persist_directory: str  = "./chroma_db"
-    collection_name: str    = "financial_news"
-    n_results: int          = 5
+    persist_directory: str = "./chroma_db"
+    collection_name:   str = "financial_news"
+    n_results:         int = 5
 
 
 @dataclass(frozen=True)
 class PushoverConfig:
     api_url: str = "https://api.pushover.net/1/messages.json"
-    # Alert only on these conditions
-    negative_threshold: float   = 0.85
-    positive_threshold: float   = 0.85
 
 
 @dataclass(frozen=True)
@@ -52,7 +50,7 @@ class AppConfig:
     pushover_app_token:  Optional[str] = field(default_factory=lambda: os.getenv("PUSHOVER_APP_TOKEN"))
 
     server_port: int  = 7860
-    share: bool       = True
+    share:       bool = False
 
     def validate(self) -> None:
         missing = [

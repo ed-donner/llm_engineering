@@ -25,13 +25,12 @@ from tools import fetch_news
 
 logger = logging.getLogger(__name__)
 
-# Shared state (written by scheduler, read by Gradio)
-# deque with maxlen so memory doesn't grow unbounded
+#shared state (written by scheduler, read by Gradio)
 _results_queue: deque[AnalysisResult] = deque(maxlen=200)
 _queue_lock     = threading.Lock()
 _last_run_at:   str  = "Never"
 _is_running:    bool = False
-_run_callbacks: list[Callable] = []   # Gradio can register a refresh callback
+_run_callbacks: list[Callable] = []   
 
 
 def get_results() -> list[AnalysisResult]:
@@ -53,7 +52,7 @@ def register_callback(fn: Callable) -> None:
     _run_callbacks.append(fn)
 
 
-#Core job
+#core job
 
 def _run_pipeline_job() -> None:
     global _last_run_at, _is_running
@@ -69,7 +68,7 @@ def _run_pipeline_job() -> None:
     try:
         #fetch latest news
         news_data = fetch_news(
-            category=APP_CONFIG.news.news_category,
+            categories=APP_CONFIG.news.news_categories,
             limit=APP_CONFIG.news.news_limit,
         )
         articles = news_data.get("articles", [])
@@ -89,17 +88,17 @@ def _run_pipeline_job() -> None:
                 result = orchestrator.analyse(article)
                 with _queue_lock:
                     _results_queue.append(result)
-            except Exception as exc:          # noqa: BLE001
+            except Exception as exc:          
                 logger.exception("Failed on article %d: %s", i + 1, exc)
 
         logger.info("=== Cycle complete. %d results stored. ===", len(_results_queue))
 
-    except Exception as exc:                  # noqa: BLE001
+    except Exception as exc:                 
         logger.exception("Scheduler job failed: %s", exc)
 
     finally:
         _is_running = False
-        # Notify any registered Gradio callbacks
+        
         for cb in _run_callbacks:
             try:
                 cb()
@@ -107,7 +106,7 @@ def _run_pipeline_job() -> None:
                 pass
 
 
-#Scheduler lifecycle
+#scheduler
 
 class NewsScheduler:
     """
@@ -122,7 +121,7 @@ class NewsScheduler:
     def start(self) -> None:
         if self._scheduler.running:
             return
-        # Fire immediately on start, then repeat every interval
+        #fire immediately on start, then repeat every interval
         self._scheduler.add_job(
             _run_pipeline_job,
             trigger="interval",
