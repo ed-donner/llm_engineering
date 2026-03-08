@@ -1,5 +1,4 @@
-"""
-app.py — Gradio dashboard for the AI Financial News Analyst.
+"""Gradio dashboard for the AI Financial News Analyst.
 
 The pipeline runs automatically every 10 minutes in the background.
 No user interaction is required — results show in the dashboard and pushover notifications sent to user phone.

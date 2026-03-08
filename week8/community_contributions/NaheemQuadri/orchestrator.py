@@ -106,11 +106,10 @@ class AnalysisResult:
 
 class Orchestrator:
     """
-    Drives the agentic loop. Claude decides which tools to call and when.
-    The loop continues until Claude stops calling tools and returns text.
+    Drives the agentic loop.
     """
 
-    MAX_ITERATIONS = 20   # safety cap on tool-call rounds
+    MAX_ITERATIONS = 20   # safety cap
 
     def __init__(self) -> None:
         self._client = openai.OpenAI(
@@ -121,8 +120,6 @@ class Orchestrator:
 
     def analyse(self, article: dict[str, Any]) -> AnalysisResult:
         """
-        Run the full agentic tool-calling loop for one news article.
-
         Parameters
         ----------
         article : dict
@@ -179,10 +176,10 @@ class Orchestrator:
             msg    = response.choices[0].message
             finish = response.choices[0].finish_reason
 
-            # Append assistant turn to conversation
+            #append assistant turn to conversation
             messages.append(msg.model_dump(exclude_unset=False))
 
-            #No more tool calls — Claude is done
+            #no more tool calls
             if finish == "stop" or not msg.tool_calls:
                 result.investment_brief = (msg.content or "").strip()
                 logger.info(
@@ -193,7 +190,7 @@ class Orchestrator:
                 )
                 break
 
-            #process each tool call Claude requested
+            #process each tool call requested
             tool_results: list[dict] = []
             for tc in msg.tool_calls:
                 tool_name = tc.function.name
@@ -211,11 +208,11 @@ class Orchestrator:
 
                 result.tool_calls_made.append(tool_name)
 
-                # Execute the tool
+                #execute
                 tool_output_str = dispatch(tool_name, tool_args)
                 tool_output     = json.loads(tool_output_str)
 
-                # Mirror key results back into AnalysisResult for the UI
+                #mirror key results back into AnalysisResult for the UI
                 self._mirror_to_result(result, tool_name, tool_output, tool_args)
 
                 tool_results.append({
@@ -224,7 +221,7 @@ class Orchestrator:
                     "content":      tool_output_str,
                 })
 
-            # Append all tool results in one turn
+            #append all tool results in one turn
             messages.extend(tool_results)
 
         else:
@@ -256,7 +253,7 @@ class Orchestrator:
             if count == 0:
                 result.rag_summary = "No prior coverage found — first time seeing this topic."
             else:
-                # Build a human-readable summary of what was retrieved
+                #build a human-readable summary of what was retrieved
                 snippets = "; ".join(
                     f"[{a['metadata'].get('ingested_at', 'n/a')[:10]}] "
                     f"{a['metadata'].get('sentiment','?')} "
