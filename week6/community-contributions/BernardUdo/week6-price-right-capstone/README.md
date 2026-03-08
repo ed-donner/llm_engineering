@@ -41,9 +41,10 @@ Create `.env` and set keys:
 
 ```bash
 HF_TOKEN=...
+OPENROUTER_API_KEY=...
 OPENAI_API_KEY=...
 # optional:
-FINE_TUNED_MODEL=ft:...
+REMOTE_MODEL=openai/gpt-4.1-mini
 ```
 
 ## Plan, Build, Evaluate, Deploy
@@ -72,10 +73,10 @@ Artifacts:
 python week6/community-contributions/BernardUdo/week6-price-right-capstone/week6_price_right_capstone.py evaluate --lite-mode --test-size 1500
 ```
 
-Evaluate with fine-tuned model too:
+Evaluate with remote model too (OpenRouter or OpenAI `ft:` model):
 
 ```bash
-python week6/community-contributions/BernardUdo/week6-price-right-capstone/week6_price_right_capstone.py evaluate --lite-mode --fine-tuned-model ft:...
+python week6/community-contributions/BernardUdo/week6-price-right-capstone/week6_price_right_capstone.py evaluate --lite-mode --remote-model openai/gpt-4.1-mini
 ```
 
 ### 4) Prepare and run fine-tuning
@@ -101,7 +102,7 @@ python week6/community-contributions/BernardUdo/week6-price-right-capstone/week6
 ### 5) Deploy locally (Gradio)
 
 ```bash
-python week6/community-contributions/BernardUdo/week6-price-right-capstone/week6_price_right_capstone.py deploy --host 127.0.0.1 --port 7866
+python week6/community-contributions/BernardUdo/week6-price-right-capstone/week6_price_right_capstone.py deploy --host 127.0.0.1 --port 7866 --remote-model openai/gpt-4.1-mini
 ```
 
 ## Notes
@@ -109,5 +110,6 @@ python week6/community-contributions/BernardUdo/week6-price-right-capstone/week6
 - The local model is a practical baseline blend:
   - token-frequency linear model (NumPy ridge) over product text
   - lightweight tabular ridge on weight + text-length signals
-- Fine-tune commands require `OPENAI_API_KEY`.
-- Deployment works with local model only, or local + fine-tuned model when configured.
+- OpenRouter inference uses `OPENROUTER_API_KEY` and endpoint `https://openrouter.ai/api/v1`.
+- Fine-tune commands require `OPENAI_API_KEY` (OpenAI-only workflow).
+- Deployment works with local model only, or local + remote model when configured.
