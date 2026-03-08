@@ -1,5 +1,0 @@
-triage-training-data/
-triage_model/
-*.jsonl
-__pycache__/
-.ipynb_checkpoints/
