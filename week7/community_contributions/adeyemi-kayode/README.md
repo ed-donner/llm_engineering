@@ -1,6 +1,6 @@
-# Africa Flight Price Fine-tuning with QLoRA (adeyemi-kayode)
+# Africa Flight Price Fine-tuning with QLoRA
 
-This fine-tunes an **open-source Llama model** using **QLoRA** on the **Africa flight prices** dataset, building on the **week 6** [adeyemi-kayode](https://github.com/adeyemi-kayode) assessment (GPT-4o mini fine-tuning). The goal is to produce a small, efficient model that can compete with frontier-style behavior on the task: *given a route, respond with the flight price in USD.*
+This fine-tunes an **open-source Llama model** using **QLoRA** on the **Africa flight prices** dataset, building on the **week 6** [adeyemi-kayode](https://github.com/karosi12) assessment (GPT-4o mini fine-tuning). The goal is to produce a small, efficient model that can compete with frontier-style behavior on the task: *given a route, respond with the flight price in USD.*
 
 ---
 
