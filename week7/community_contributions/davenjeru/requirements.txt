@@ -1,0 +1,9 @@
+kagglehub[pandas-datasets]
+pandas
+numpy
+scikit-learn
+xgboost
+torch
+litellm
+wandb
+tqdm
