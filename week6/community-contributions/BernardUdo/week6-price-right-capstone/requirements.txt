@@ -1,0 +1,5 @@
+python-dotenv
+datasets
+numpy
+openai
+gradio
