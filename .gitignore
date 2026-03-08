@@ -216,10 +216,10 @@ week8/*.pth
 
 week5/*
 # Ignore all files in week1, week2, week3, week4
-week1/
-week2/
-week3/
-week4/
+week1/*
+week2/*
+week3/*
+week4/*
 !week5/community-contributions/Andela_Nikhil/week_5_excercise.ipynb
 
 # Ignore everything in week5 by default
