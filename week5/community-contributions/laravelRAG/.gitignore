@@ -1,0 +1,10 @@
+chroma_db/
+
+laravel-docs
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
