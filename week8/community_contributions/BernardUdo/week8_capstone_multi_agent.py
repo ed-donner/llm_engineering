@@ -420,7 +420,16 @@ def command_deploy(_args: argparse.Namespace) -> None:
         title="Week 8 Capstone - BernardUdo",
         description="Multi-agent price estimation demo (specialist + RAG + ensemble).",
     )
-    demo.launch(server_name="127.0.0.1", server_port=7868, share=False)
+    preferred_port = int(os.getenv("WEEK8_GRADIO_PORT", "7868"))
+    candidate_ports = [preferred_port] + list(range(7869, 7881))
+    last_error: Exception | None = None
+    for port in candidate_ports:
+        try:
+            demo.launch(server_name="127.0.0.1", server_port=port, share=False)
+            return
+        except Exception as exc:
+            last_error = exc
+    raise SystemExit(f"Unable to launch Gradio on ports {candidate_ports}: {last_error}")
 
 
 def build_parser() -> argparse.ArgumentParser:
