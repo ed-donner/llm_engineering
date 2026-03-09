@@ -72,13 +72,13 @@ class SpecialistAgent:
     def estimate(self, deal: Deal) -> float:
         text = f"{deal.title} {deal.summary}".lower()
         base = self.CATEGORY_BASE.get(deal.category, 100.0)
-        if "pro" in text or "premium" in text:
+        if re.search(r"\bpro\b", text) or re.search(r"\bpremium\b", text):
             base += 70
-        if "mini" in text or "compact" in text:
+        if re.search(r"\bmini\b", text) or re.search(r"\bcompact\b", text):
             base -= 25
-        if "bundle" in text:
+        if re.search(r"\bbundle\b", text):
             base += 40
-        if "wireless" in text:
+        if re.search(r"\bwireless\b", text):
             base += 20
         return round(max(10.0, base), 2)
 
