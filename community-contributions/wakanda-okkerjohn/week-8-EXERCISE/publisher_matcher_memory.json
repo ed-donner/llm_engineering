@@ -1,0 +1,57 @@
+[
+  {
+    "opportunity": {
+      "name": "Pixel Forge Games \u2013 Submissions",
+      "description": "Indie publisher accepting roguelikes, puzzle, narrative, tactics, survival, arcade. Solo and small teams (up to 15). Playable build or vertical slice required. PC (Steam, Epic, GOG) and/or console (Switch, Xbox). 6\u201318 month scope preferred.",
+      "deadline": "Ongoing",
+      "url": "https://example.com/pixelforge-submissions",
+      "source": "curated",
+      "eligibility_summary": "Indie-friendly genres; solo/small team; 6\u201318 months; PC/console"
+    },
+    "fit_score": 50.0
+  },
+  {
+    "opportunity": {
+      "name": "ID@Xbox",
+      "description": "Microsoft's program for independent developers to publish digital games on Xbox. No fee to apply. Access to dev kits, support, and store presence.",
+      "deadline": "Ongoing",
+      "url": "https://www.xbox.com/en-US/developers/id",
+      "source": "curated",
+      "eligibility_summary": "Indie devs; digital games for Xbox"
+    },
+    "fit_score": 50.0
+  },
+  {
+    "opportunity": {
+      "name": "PlayStation Partners",
+      "description": "Sony's program for indie and third-party publishers. Support for PS5/PS4 development, funding opportunities, and visibility.",
+      "deadline": "Rolling",
+      "url": "https://www.playstation.com/developers/",
+      "source": "curated",
+      "eligibility_summary": "Indie studios; console titles"
+    },
+    "fit_score": 50.0
+  },
+  {
+    "opportunity": {
+      "name": "Humble Bundle \u2013 Publishing",
+      "description": "Humble publishes indie games and helps with visibility, store pages, and bundles. Focus on PC; interest in diverse and narrative-driven games.",
+      "deadline": "Ongoing",
+      "url": "https://www.humblebundle.com/about",
+      "source": "curated",
+      "eligibility_summary": "Indie PC games; narrative and variety"
+    },
+    "fit_score": 50.0
+  },
+  {
+    "opportunity": {
+      "name": "Indie Fund",
+      "description": "Recoupable investment for indie developers. No equity; you repay from revenue. Looking for strong design and scope that can ship.",
+      "deadline": "Application rounds (check site)",
+      "url": "https://indie-fund.com/",
+      "source": "curated",
+      "eligibility_summary": "Indie teams; recoupable funding; no equity"
+    },
+    "fit_score": 50.0
+  }
+]
