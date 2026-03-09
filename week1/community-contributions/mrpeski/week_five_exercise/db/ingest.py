@@ -10,10 +10,10 @@ from dotenv import load_dotenv
 
 load_dotenv(override=True)
 
-MODEL          = "gpt-4.1-nano"
-DB_NAME        = str(Path(__file__).parent / "vector_db")
+MODEL = "gpt-4.1-nano"
+DB_NAME = str(Path(__file__).parent / "vector_db")
 KNOWLEDGE_BASE = Path(__file__).parent / "knowledge-base"
-DOCS_DIR       = KNOWLEDGE_BASE / "docs"
+DOCS_DIR = KNOWLEDGE_BASE / "docs"
 
 embeddings = OpenAIEmbeddings(model="text-embedding-3-large")
 
@@ -36,7 +36,6 @@ def fetch_documents(
     metadata["doc_type"] = top-level folder under knowledge-base/ e.g. "docs", "clients"
     metadata["source"]   = relative path e.g. "docs/next.js/routing/pages.mdx"
     """
-    # 1️⃣ Download HF repo and copy into knowledge-base/docs/
     print(f"Downloading {repo_id}...")
     local_dir = Path(snapshot_download(repo_id=repo_id, repo_type="dataset"))
     print(f"Cached at: {local_dir}")
@@ -65,12 +64,12 @@ def fetch_documents(
         if _is_hidden(file_path, KNOWLEDGE_BASE):
             continue
         relative = file_path.relative_to(KNOWLEDGE_BASE)
-        doc_type = relative.parts[0]   # e.g. "docs", "clients"
+        doc_type = relative.parts[0]  # e.g. "docs", "clients"
         doc = Document(
             page_content=file_path.read_text(encoding="utf-8", errors="ignore"),
             metadata={
                 "doc_type": doc_type,
-                "source":   str(relative),
+                "source": str(relative),
             },
         )
         documents.append(doc)
@@ -95,13 +94,15 @@ def create_embeddings(chunks: list[Document]) -> Chroma:
             persist_directory=DB_NAME, embedding_function=embeddings
         ).delete_collection()
 
-    print(f"Creating embeddings and saving to Chroma. This will take some compute time...")
+    print(
+        f"Creating embeddings and saving to Chroma. This will take some compute time..."
+    )
     vectorstore = Chroma.from_documents(
         documents=chunks, embedding=embeddings, persist_directory=DB_NAME
     )
 
     collection = vectorstore._collection
-    count      = collection.count()
+    count = collection.count()
     dimensions = len(collection.get(limit=1, include=["embeddings"])["embeddings"][0])
     print(f"{count:,} vectors with {dimensions:,} dimensions in the vector store")
 
@@ -110,6 +111,7 @@ def create_embeddings(chunks: list[Document]) -> Chroma:
 
 if __name__ == "__main__":
     documents = fetch_documents()
-    chunks    = create_chunks(documents)
+    chunks = create_chunks(documents)
     create_embeddings(chunks)
     print("Ingestion complete")
+
