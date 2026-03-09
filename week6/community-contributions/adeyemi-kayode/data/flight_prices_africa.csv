@@ -1,0 +1,106 @@
+origin_country,origin_city,destination_country,destination_city,price_usd,currency
+Nigeria,Lagos,Kenya,Nairobi,420,USD
+Nigeria,Lagos,South Africa,Johannesburg,580,USD
+Nigeria,Lagos,Egypt,Cairo,520,USD
+Nigeria,Lagos,Ghana,Accra,320,USD
+Nigeria,Lagos,Senegal,Dakar,450,USD
+Kenya,Nairobi,South Africa,Johannesburg,380,USD
+Kenya,Nairobi,Egypt,Cairo,410,USD
+Kenya,Nairobi,Nigeria,Lagos,435,USD
+Kenya,Nairobi,Ethiopia,Addis Ababa,280,USD
+Kenya,Nairobi,Tanzania,Dar es Salaam,195,USD
+South Africa,Johannesburg,Nigeria,Lagos,595,USD
+South Africa,Johannesburg,Kenya,Nairobi,375,USD
+South Africa,Johannesburg,Egypt,Cairo,550,USD
+South Africa,Johannesburg,Morocco,Casablanca,620,USD
+South Africa,Johannesburg,Zimbabwe,Harare,220,USD
+Egypt,Cairo,Nigeria,Lagos,505,USD
+Egypt,Cairo,Kenya,Nairobi,395,USD
+Egypt,Cairo,South Africa,Johannesburg,545,USD
+Egypt,Cairo,Morocco,Casablanca,340,USD
+Egypt,Cairo,Ethiopia,Addis Ababa,320,USD
+Ghana,Accra,Nigeria,Lagos,310,USD
+Ghana,Accra,Kenya,Nairobi,480,USD
+Ghana,Accra,South Africa,Johannesburg,590,USD
+Ghana,Accra,Senegal,Dakar,380,USD
+Ghana,Accra,United Kingdom,London,720,USD
+Senegal,Dakar,Nigeria,Lagos,440,USD
+Senegal,Dakar,Morocco,Casablanca,290,USD
+Senegal,Dakar,France,Paris,450,USD
+Senegal,Dakar,Ghana,Accra,365,USD
+Senegal,Dakar,Côte d'Ivoire,Abidjan,255,USD
+Morocco,Casablanca,Egypt,Cairo,335,USD
+Morocco,Casablanca,South Africa,Johannesburg,615,USD
+Morocco,Casablanca,Senegal,Dakar,285,USD
+Morocco,Casablanca,Tunisia,Tunis,180,USD
+Morocco,Casablanca,Nigeria,Lagos,530,USD
+Ethiopia,Addis Ababa,Kenya,Nairobi,265,USD
+Ethiopia,Addis Ababa,Nigeria,Lagos,455,USD
+Ethiopia,Addis Ababa,South Africa,Johannesburg,420,USD
+Ethiopia,Addis Ababa,Egypt,Cairo,305,USD
+Ethiopia,Addis Ababa,Tanzania,Dar es Salaam,320,USD
+Tanzania,Dar es Salaam,Kenya,Nairobi,185,USD
+Tanzania,Dar es Salaam,South Africa,Johannesburg,350,USD
+Tanzania,Dar es Salaam,Ethiopia,Addis Ababa,315,USD
+Tanzania,Dar es Salaam,Uganda,Kampala,240,USD
+Tanzania,Dar es Salaam,Zambia,Lusaka,280,USD
+Uganda,Kampala,Kenya,Nairobi,195,USD
+Uganda,Kampala,Tanzania,Dar es Salaam,235,USD
+Uganda,Kampala,South Africa,Johannesburg,385,USD
+Uganda,Kampala,Ethiopia,Addis Ababa,290,USD
+Uganda,Kampala,Rwanda,Kigali,220,USD
+Rwanda,Kigali,Kenya,Nairobi,255,USD
+Rwanda,Kigali,Uganda,Kampala,215,USD
+Rwanda,Kigali,Ethiopia,Addis Ababa,310,USD
+Rwanda,Kigali,South Africa,Johannesburg,410,USD
+Rwanda,Kigali,Tanzania,Dar es Salaam,340,USD
+Zimbabwe,Harare,South Africa,Johannesburg,205,USD
+Zimbabwe,Harare,Kenya,Nairobi,360,USD
+Zimbabwe,Harare,Zambia,Lusaka,180,USD
+Zimbabwe,Harare,Botswana,Gaborone,165,USD
+Zimbabwe,Harare,Tanzania,Dar es Salaam,320,USD
+Zambia,Lusaka,South Africa,Johannesburg,295,USD
+Zambia,Lusaka,Kenya,Nairobi,380,USD
+Zambia,Lusaka,Tanzania,Dar es Salaam,275,USD
+Zambia,Lusaka,Zimbabwe,Harare,175,USD
+Zambia,Lusaka,Ethiopia,Addis Ababa,350,USD
+Côte d'Ivoire,Abidjan,Senegal,Dakar,250,USD
+Côte d'Ivoire,Abidjan,Ghana,Accra,220,USD
+Côte d'Ivoire,Abidjan,Nigeria,Lagos,380,USD
+Côte d'Ivoire,Abidjan,Morocco,Casablanca,420,USD
+Côte d'Ivoire,Abidjan,France,Paris,520,USD
+Tunisia,Tunis,Morocco,Casablanca,175,USD
+Tunisia,Tunis,Egypt,Cairo,255,USD
+Tunisia,Tunis,France,Paris,280,USD
+Tunisia,Tunis,Libya,Tripoli,190,USD
+Tunisia,Tunis,Algeria,Algiers,165,USD
+Botswana,Gaborone,South Africa,Johannesburg,185,USD
+Botswana,Gaborone,Zimbabwe,Harare,160,USD
+Botswana,Gaborone,Namibia,Windhoek,220,USD
+Botswana,Gaborone,Zambia,Lusaka,270,USD
+Botswana,Gaborone,Kenya,Nairobi,395,USD
+Namibia,Windhoek,South Africa,Johannesburg,245,USD
+Namibia,Windhoek,Botswana,Gaborone,215,USD
+Namibia,Windhoek,Angola,Luanda,380,USD
+Namibia,Windhoek,Zambia,Lusaka,320,USD
+Namibia,Windhoek,Kenya,Nairobi,445,USD
+Angola,Luanda,South Africa,Johannesburg,420,USD
+Angola,Luanda,Namibia,Windhoek,375,USD
+Angola,Luanda,Portugal,Lisbon,580,USD
+Angola,Luanda,Nigeria,Lagos,550,USD
+Angola,Luanda,Kenya,Nairobi,510,USD
+Cameroon,Douala,Nigeria,Lagos,280,USD
+Cameroon,Douala,Senegal,Dakar,480,USD
+Cameroon,Douala,France,Paris,620,USD
+Cameroon,Douala,Ethiopia,Addis Ababa,520,USD
+Cameroon,Douala,South Africa,Johannesburg,595,USD
+Algeria,Algiers,Tunisia,Tunis,170,USD
+Algeria,Algiers,Morocco,Casablanca,195,USD
+Algeria,Algiers,France,Paris,310,USD
+Algeria,Algiers,Egypt,Cairo,380,USD
+Algeria,Algiers,Mali,Bamako,420,USD
+Mali,Bamako,Senegal,Dakar,220,USD
+Mali,Bamako,Côte d'Ivoire,Abidjan,265,USD
+Mali,Bamako,Morocco,Casablanca,350,USD
+Mali,Bamako,France,Paris,480,USD
+Mali,Bamako,Algeria,Algiers,415,USD
