@@ -1,0 +1,11 @@
+tx_id,amount,currency,status,failure_reason
+TX10001,250.75,USD,completed,
+TX10002,87.5,EUR,completed,
+TX10003,500.0,GBP,failed,insufficient_funds
+TX10004,1200.0,USD,completed,
+TX10005,300.25,CAD,pending,
+TX10006,45.99,AUD,completed,
+TX10007,600.0,JPY,failed,network_error
+TX10008,75.0,CHF,completed,
+TX10009,1000.0,USD,completed,
+TX10010,250.0,GBP,failed,account_not_verified

@@ -1,0 +1,32 @@
+[
+  {
+    "question": "What is the recommended dosage of Mekinist for adult patients?",
+    "drug": "Mekinist",
+    "expected_section": "dosage_and_administration",
+    "key_fact": "2 mg orally once daily"
+  },
+  {
+    "question": "What are the indications for Mekinist?",
+    "drug": "Mekinist",
+    "expected_section": "indications_and_usage",
+    "key_fact": "unresectable or metastatic melanoma"
+  },
+  {
+    "question": "Does Naproxen have a boxed warning about cardiovascular risk?",
+    "drug": "Naproxen",
+    "expected_section": "boxed_warning",
+    "key_fact": "Cardiovascular Thrombotic Events"
+  },
+  {
+    "question": "Is Glimepiride contraindicated for patients with sulfonamide allergies?",
+    "drug": "Glimepiride",
+    "expected_section": "contraindications",
+    "key_fact": "Sulfonamide derivatives"
+  },
+  {
+    "question": "What cardiovascular adverse events were observed in Varenicline trials?",
+    "drug": "Varenicline",
+    "expected_section": "adverse_reactions",
+    "key_fact": "Angina pectoris"
+  }
+]
