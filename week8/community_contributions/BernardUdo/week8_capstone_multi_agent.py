@@ -12,8 +12,6 @@ from statistics import mean
 from typing import List
 
 
-QUESTION = "What does this cost to the nearest dollar?"
-PRICE_PREFIX = "Price is $"
 ARTIFACTS_DIR = Path(__file__).resolve().parent / "artifacts"
 MEMORY_PATH = ARTIFACTS_DIR / "memory.json"
 
