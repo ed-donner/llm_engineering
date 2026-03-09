@@ -1,8 +1,14 @@
-# Python to TypeScript Code Generator
+# Week 4: Code gen and unit-test AI
 
 ## What it is
 
-A Python-to-TypeScript code generator that uses a frontier LLM via **OpenRouter** to produce idiomatic, typed TypeScript from Python with equivalent behavior. The interface is a **Gradio app** launched from the notebook.
+A **Gradio app** (launched from the notebook) that uses a frontier LLM via **OpenRouter** to:
+
+- **Convert Python → TypeScript** — Generate idiomatic, typed TypeScript from Python with equivalent behavior.
+- **Run code** — Run the Python or TypeScript in the app and compare outputs.
+- **Generate unit tests** — Choose **Python** (pytest) or **TypeScript** (Jest) and generate tests for the code in the corresponding box.
+
+Notebook: **`week4/python_to_typescript.ipynb`**.
 
 ## Setup
 
@@ -22,19 +28,20 @@ A Python-to-TypeScript code generator that uses a frontier LLM via **OpenRouter*
 
 ## How to run
 
-1. Open and run **`week4/IbrahimSheriff/python_to_typescript.ipynb`**.
+1. Open and run **`week4/python_to_typescript.ipynb`**.
 2. Run all cells to load the client and start the Gradio app.
-3. The notebook will print a local URL (e.g. `http://127.0.0.1:7860`). Open it in your browser.
-4. Paste or edit Python code, choose a model, click **Convert** to get TypeScript. Use **Run Python** and **Run TypeScript** to compare outputs.
+3. Use the local URL (e.g. `http://127.0.0.1:7860`) in your browser.
+4. **Convert:** Paste Python, pick a model, click **Convert** to get TypeScript.
+5. **Run:** Use **Run Python** and **Run TypeScript** to see outputs.
+6. **Unit tests:** Choose **Python** or **TypeScript** in the dropdown and click **Generate unit tests** to get pytest or Jest tests.
 
 ## Optional: Run TypeScript in the app
 
-The **Run TypeScript** button runs the generated code with `npx ts-node`. You need:
+The **Run TypeScript** button uses `npx tsx` (or `npx ts-node`). You need:
 
 - **Node.js** installed.
-- **ts-node** available, e.g.:
-  - `npm i -g ts-node`, or
-  - `npx ts-node main.ts` (uses npx to run ts-node).
+- **tsx** or **ts-node**, e.g.:
+  - `npx tsx` (recommended, no global install),
+  - or `npm i -g ts-node`.
 
-If ts-node is not installed, the app will show a message such as:  
-`ts-node not found. Install with: npm i -g ts-node (or use npx ts-node)`.
+If neither is available, the app will show an install message.
