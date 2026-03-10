@@ -32,7 +32,10 @@ class ScannerAgent(Agent):
         Set up this instance by initializing OpenAI
         """
         self.log("Scanner Agent is initializing")
-        self.openai = OpenAI()
+        self.openai = OpenAI(
+            api_key=os.getenv('OPENROUTER_API_KEY'),
+            base_url='https://openrouter.ai/api/v1'
+        )
         self.log("Scanner Agent is ready")
 
     def fetch_deals(self, memory) -> List[ScrapedDeal]:
