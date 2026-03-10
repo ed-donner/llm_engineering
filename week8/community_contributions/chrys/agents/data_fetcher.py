@@ -17,10 +17,10 @@ class DataFetcherAgent(AgentBase):
     name = "DATA_FETCHER"
     logger_name = "aria.data_fetcher"
 
-    def __init__(self, polygon_key: str = "", alpha_key: str = "", metals_key: str = ""):
+    def __init__(self, alpha_key: str = "", metals_key: str = ""):
         super().__init__()
-        self.polygon_key = polygon_key
         self.alpha_key = alpha_key
+        # metals_key = CommodityPriceAPI key for gold (XAU) and silver (XAG)
         self.metals_key = metals_key
 
     def _route(self, symbol: str) -> str:
