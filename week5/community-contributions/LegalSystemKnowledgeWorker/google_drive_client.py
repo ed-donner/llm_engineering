@@ -3,6 +3,10 @@ from typing import List, Dict
 from googleapiclient.discovery import build
 from googleapiclient.http import MediaIoBaseDownload
 from google.oauth2 import service_account
+from google.oauth2.credentials import Credentials
+from google_auth_oauthlib.flow import InstalledAppFlow
+from google.auth.transport.requests import Request
+from googleapiclient.discovery import build
 import io
 
 class GoogleDriveClient:
@@ -10,14 +14,24 @@ class GoogleDriveClient:
     A class to read files from a Google Drive directory, convert their contents to markdown,
     and store them as a collection for later use.
     """
-    def __init__(self, credentials_path: str, folder_id: str):
+
+    SCOPES = [
+        # Per-file access to files created or opened with the app (recommended for most apps)
+        'https://www.googleapis.com/auth/drive.file',
+        # Read-only access to all Drive files
+        'https://www.googleapis.com/auth/drive.readonly',
+        # View metadata for files in your Drive (read-only)
+        'https://www.googleapis.com/auth/drive.metadata.readonly'
+    ]
+
+    def __init__(self, credentials_file: str, folder_id: str):
         """
         Initialize the collector with Google service account credentials and folder ID.
         Args:
-            credentials_path (str): Path to the Google service account credentials JSON file.
+            credentials_file (str): Path to the Google service account credentials JSON file.
             folder_id (str): Google Drive folder ID to read files from.
         """
-        self.credentials_path = credentials_path
+        self.credentials_file = credentials_file
         self.folder_id = folder_id
         self.service = self._authenticate()
         self.collection = {}
@@ -28,10 +42,18 @@ class GoogleDriveClient:
         Returns:
             googleapiclient.discovery.Resource: Authenticated Drive API service.
         """
-        creds = service_account.Credentials.from_service_account_file(
-            self.credentials_path,
-            scopes=['https://www.googleapis.com/auth/drive']
-        )
+        creds = None
+        if os.path.exists('token.json'):
+            creds = Credentials.from_authorized_user_file('token.json', self.SCOPES)
+        if not creds or not creds.valid:
+            if creds and creds.expired and creds.refresh_token:
+                creds.refresh(Request())
+            else:
+                flow = InstalledAppFlow.from_client_secrets_file(
+                    self.credentials_file, self.SCOPES)
+                creds = flow.run_local_server(port=0)
+            with open('token.json', 'w') as token:
+                token.write(creds.to_json())
         return build('drive', 'v3', credentials=creds)
 
     def list_files(self) -> List[Dict]:
@@ -59,7 +81,17 @@ class GoogleDriveClient:
         while not done:
             status, done = downloader.next_chunk()
         fh.seek(0)
-        return fh.read().decode('utf-8')
+        raw = fh.read()
+
+        # Try multiple encodings; some Drive files use Latin-1, cp1252, etc.
+        encodings = ('utf-8', 'utf-8-sig', 'cp1252', 'latin-1', 'iso-8859-1')
+        for encoding in encodings:
+            try:
+                return raw.decode(encoding)
+            except (UnicodeDecodeError, LookupError):
+                continue
+        # Fallback: replace invalid bytes so we never crash
+        return raw.decode('utf-8', errors='replace')
 
     def convert_to_markdown(self, content: str, mime_type: str) -> str:
         """
@@ -80,11 +112,16 @@ class GoogleDriveClient:
         """
         Read all files in the folder, convert their contents to markdown, and store them in the collection.
         """
+        entire_knowledge_base = ""
         files = self.list_files()
         for file in files:
             content = self.read_file(file['id'])
+            entire_knowledge_base += content
+            entire_knowledge_base += "\n\n"
             md_content = self.convert_to_markdown(content, file['mimeType'])
             self.collection[file['name']] = md_content
+        # How many characters in all the documents?
+        print(f"Total characters in knowledge base: {len(entire_knowledge_base):,}")
 
     def get_collection(self) -> Dict[str, str]:
         """
