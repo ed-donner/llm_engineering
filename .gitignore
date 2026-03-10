@@ -213,3 +213,6 @@ week6/*/*.jsonl
 week6/*.pth
 week6/*.joblib
 week8/*.pth
+
+week5/community-contributions/johngorithm/knowledgebase/
+week5/community-contributions/johngorithm/gorithm_vector_db/
