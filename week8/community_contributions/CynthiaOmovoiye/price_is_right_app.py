@@ -2,7 +2,6 @@
 """
 Week 8: The Price is Right — Self-contained local implementation.
 Stage 5 hybrid reuses pricing_pipeline logic. Builds support from items_lite.
-No dependency on Week 7 artifacts.
 """
 
 from __future__ import annotations

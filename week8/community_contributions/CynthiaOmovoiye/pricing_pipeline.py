@@ -1,6 +1,5 @@
 # pricing_pipeline.py – Week 8 price-attack pipeline
 # Data build, retrieval, and evaluation helpers for The Price is Right.
-# Copied from Week 7 for self-contained Week 8 use.
 
 from __future__ import annotations
 
