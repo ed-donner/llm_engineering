@@ -110,7 +110,9 @@ Exercises are retrieved from curated English datasets:
 
 # Architecture
 
-```
+``` 
+Exercise Generation using RAG
+     ↓
 User Speech
      ↓
 Whisper Speech Recognition
@@ -124,6 +126,9 @@ Grammar Evaluation
 RL Curriculum Optimization
      ↓
 Feedback + Next Lesson
+     ↓
+Track Progress
+     
 ```
 
 ---
@@ -157,8 +162,8 @@ Feedback + Next Lesson
 ## 1. Clone repository
 
 ```
-git clone https://github.com/yourname/ai-english-tutor
-cd ai-english-tutor
+git clone  https://github.com/nsikanikpoh/llm_engineering
+cd week8/community_contributions/english_learning_tutor_ns_sly
 ```
 
 ---
