@@ -1,0 +1,32 @@
+# Core ML Libraries
+torch>=2.0.0
+transformers>=4.36.0
+datasets>=2.14.0
+peft>=0.7.0
+trl>=0.7.0
+bitsandbytes>=0.41.0
+accelerate>=0.25.0
+
+# Data Processing
+pandas>=2.0.0
+numpy>=1.24.0
+scikit-learn>=1.3.0
+
+# Visualization
+plotly>=5.17.0
+matplotlib>=3.7.0
+ipywidgets>=8.1.0
+
+# Utilities
+python-dotenv>=1.0.0
+huggingface-hub>=0.19.0
+tqdm>=4.66.0
+pydantic>=2.0.0
+
+# Jupyter
+jupyter>=1.0.0
+notebook>=7.0.0
+ipykernel>=6.25.0
+
+# Optional: For OpenAI comparison
+openai>=1.0.0
