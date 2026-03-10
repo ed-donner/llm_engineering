@@ -131,7 +131,6 @@ env.bak/
 venv.bak/
 llms/
 llms.bak/
-CLAUDE.md
 
 # Spyder project settings
 .spyderproject
