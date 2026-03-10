@@ -4,7 +4,7 @@ Multi-agent pipeline that monitors commodities, stocks, indices, and crypto; run
 
 ## Agents
 
-1. **DATA_FETCHER** — Fetches prices and OHLCV from Alpha Vantage (stocks/indices), Metals-API (gold/silver), CoinGecko (crypto).
+1. **DATA_FETCHER** — Fetches prices and OHLCV from Alpha Vantage (stocks/indices), CommodityPriceAPI (gold/silver), CoinGecko (crypto).
 2. **TECH_ANALYST** — RSI, MACD, Bollinger Bands, EMA cross; scores each asset and assigns a bias (STRONG BUY … STRONG SELL).
 3. **SENTIMENT_AGENT** — NewsAPI headlines + LLM (via LiteLLM) for sentiment and a one-sentence narrative.
 4. **DECISION_AGENT** — Combines tech and sentiment into a final score; applies alert threshold, cooldowns, and market-hours rules.
@@ -16,7 +16,7 @@ Multi-agent pipeline that monitors commodities, stocks, indices, and crypto; run
 cd week8/community_contributions/chrys
 pip install -r requirements.txt
 cp .env.example .env
-# Edit .env with your API keys (Pushover, Alpha Vantage, Metals-API, NewsAPI, OpenAI).
+# Edit .env with your API keys (Pushover, Alpha Vantage, CommodityPriceAPI, NewsAPI, OpenRouter).
 ```
 
 ## Run
@@ -25,6 +25,12 @@ cp .env.example .env
   ```bash
   python app.py
   ```
+- **Notebook** (same Gradio app from Jupyter/VS Code):
+  ```bash
+  cd week8/community_contributions/chrys
+  jupyter notebook ARIA_Gradio_App.ipynb
+  ```
+  Or open `ARIA_Gradio_App.ipynb` in your editor and run all cells. The notebook sets the path and launches the Gradio UI; click **Run pipeline** to run all agents.
 - **CLI one-off run:**
   ```bash
   python main.py run-once
