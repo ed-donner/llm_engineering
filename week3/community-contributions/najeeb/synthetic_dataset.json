@@ -1,0 +1,27 @@
+[
+  {
+    "text": "This vacuum cleaner has powerful suction and comes with multiple attachments for thorough cleaning.",
+    "label": "Product Review",
+    "id": "1"
+  },
+  {
+    "text": "Mop and bucket sets are essential for my hardwood floors. They help prevent scratches and keep the floors shiny.",
+    "label": "Product Usage",
+    "id": "2"
+  },
+  {
+    "text": "I prefer eco-friendly cleaning supplies that are safe for pets and children.",
+    "label": "User Preference",
+    "id": "3"
+  },
+  {
+    "text": "The microfiber cloths are perfect for dusting and don’t leave streaks on glass surfaces.",
+    "label": "Product Feature",
+    "id": "4"
+  },
+  {
+    "text": "Buying a high-quality broom can make a significant difference in how quickly you can clean.",
+    "label": "Product Advice",
+    "id": "5"
+  }
+]
