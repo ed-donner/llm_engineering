@@ -162,7 +162,7 @@ class BugHunterFramework(Agent):
             self.reporter.save_entries(entries)
 
         # Send Pushover notification
-        self.notify_pushover(len(reports))
+        self.notify_pushover(reports)
 
         self.log("\n" + "=" * 60)
         self.log(f"Hunt complete! {len(reports)} bugs analyzed and reported.")
@@ -170,7 +170,7 @@ class BugHunterFramework(Agent):
 
         return reports
 
-    def notify_pushover(self, count: int):
+    def notify_pushover(self, reports: List[BugReport]):
         """Send a Pushover notification with the run summary."""
         user_key = os.getenv("PUSHOVER_USER", "")
         api_token = os.getenv("PUSHOVER_TOKEN", "")
@@ -183,9 +183,18 @@ class BugHunterFramework(Agent):
 
         self.log("Sending Pushover notification...")
         try:
-            message = f"Bug Hunter complete! {count} new bugs found and analyzed."
+            count = len(reports)
             if count == 0:
                 message = "Bug Hunter complete! No new bugs found."
+            else:
+                message = (
+                    f"Bug Hunter complete! {count} new bugs found and analyzed:\n\n"
+                )
+                for i, r in enumerate(reports, 1):
+                    # add a short summary of each bug report
+                    bug_desc = r.entry.description
+                    bug_types = ", ".join(r.entry.bug_types)
+                    message += f"{i}. {bug_desc} ({bug_types})\n"
 
             response = requests.post(
                 "https://api.pushover.net/1/messages.json",
