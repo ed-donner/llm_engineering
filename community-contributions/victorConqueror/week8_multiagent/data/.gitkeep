@@ -1,0 +1,4 @@
+# This folder will contain data files
+# - products_vectorstore/ (ChromaDB database)
+# - Cached embeddings
+# - Deal history

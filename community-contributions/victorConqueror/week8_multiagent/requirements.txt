@@ -1,0 +1,45 @@
+# Core ML Libraries
+torch>=2.0.0
+transformers>=4.36.0
+sentence-transformers>=2.2.0
+
+# Vector Database
+chromadb>=0.4.0
+
+# LLM APIs
+openai>=1.0.0
+litellm>=1.0.0
+
+# Data Processing
+pandas>=2.0.0
+numpy>=1.24.0
+scikit-learn>=1.3.0
+pydantic>=2.0.0
+
+# Visualization
+plotly>=5.17.0
+matplotlib>=3.7.0
+
+# Web & Scraping
+requests>=2.31.0
+feedparser>=6.0.0
+beautifulsoup4>=4.12.0
+
+# UI
+gradio>=4.0.0
+
+# Utilities
+python-dotenv>=1.0.0
+huggingface-hub>=0.19.0
+tqdm>=4.66.0
+
+# Jupyter
+jupyter>=1.0.0
+notebook>=7.0.0
+ipykernel>=6.25.0
+
+# Optional: Modal.com deployment
+modal>=0.55.0
+
+# Optional: Dimensionality reduction
+umap-learn>=0.5.0
