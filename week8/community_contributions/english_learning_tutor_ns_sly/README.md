@@ -136,6 +136,7 @@ Feedback + Next Lesson
 - SpeechBrain
 - wav2vec2
 - GPT OSS 20B
+- GPT 4.1 mini 
 
 ### NLP
 
