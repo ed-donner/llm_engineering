@@ -49,3 +49,9 @@ cp .env.example .env
 ## Audit log
 
 Runs are logged to `data/aria_audit.db` (SQLite). Optional: purge rows older than 90 days (see `db.purge_older_than_days()`).
+
+---
+
+## Screenshot / Preview
+
+![ARIA Gradio app preview](aria-preview.png)
