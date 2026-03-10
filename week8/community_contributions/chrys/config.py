@@ -36,7 +36,6 @@ ASSET_COOLDOWN_HOURS = 2
 SCORE_BUMP_TO_OVERRIDE_COOLDOWN = 15
 
 # API keys (from env)
-POLYGON_API_KEY = os.getenv("POLYGON_API_KEY", "")
 ALPHA_VANTAGE_API_KEY = os.getenv("ALPHA_VANTAGE_API_KEY", "")
 # CommodityPriceAPI for gold/silver (replaces Metals-API)
 COMMODITY_PRICE_API_KEY = os.getenv("COMMODITY_PRICE_API_KEY", "")
