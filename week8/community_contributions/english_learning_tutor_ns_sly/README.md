@@ -135,11 +135,11 @@ Track Progress
 
 # Tech Stack
 
-### AI Models
+### Tools & AI Models
 
 - Whisper
-- SpeechBrain
-- wav2vec2
+- Transformers
+- Wav2Vec2M
 - GPT OSS 20B
 - GPT 4.1 mini 
 
@@ -154,6 +154,7 @@ Track Progress
 - Python
 - Gradio UI
 - HuggingFace datasets
+- Sqlite3
 
 ---
 
@@ -173,33 +174,6 @@ cd week8/community_contributions/english_learning_tutor_ns_sly
 ```
 python -m venv venv
 source venv/bin/activate
-```
-
----
-
-## 3. Install dependencies
-
-```
-pip install -r requirements.txt
-```
-
-Example `requirements.txt`
-
-```
-openai
-gradio
-torch
-torchaudio
-transformers
-speechbrain
-sentence-transformers
-faiss-cpu
-datasets
-phonemizer
-whisper
-librosa
-scipy
-numpy
 ```
 
 ---
