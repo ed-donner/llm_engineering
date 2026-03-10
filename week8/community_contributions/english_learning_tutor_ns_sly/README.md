@@ -4,11 +4,11 @@ English Accent & Conversation Tutor is an **English pronunciation and conversati
 
 The system combines **speech recognition, phoneme analysis, accent similarity scoring, reinforcement learning curriculum, and RAG-based lesson retrieval** to provide personalized English learning in an agentic architecture.
 
-- The choosen architecture implements a lightweight streaming RAG pipeline where documents are sampled dynamically, embedded with OpenAI embeddings (text-embedding-3-small), indexed with FAISS, and searched for similarity.
+- This architecture implements a lightweight streaming RAG pipeline where documents are sampled dynamically, embedded with OpenAI embeddings (text-embedding-3-small), indexed with FAISS, and searched for similarity.
 
-- The LessonAgent uses `gpt-4.1-mini` to Create an English pronunciation exercise for choosen difficulty level and category. 
+- The LessonAgent uses `gpt-4.1-mini` to create an English pronunciation exercise for the difficulty level and category. 
 
-- The GrammarAgent uses `groq/openai/gpt-oss-20b` to evaluate the user's grammer and provide recommendations
+- The GrammarAgent uses `groq/openai/gpt-oss-20b` to evaluate the user's grammar and provide recommendations
 
 ---
 
@@ -16,7 +16,7 @@ The system combines **speech recognition, phoneme analysis, accent similarity sc
 
 ## Accent Similarity Scoring
 
-Uses **phoneme analysis** to Highlights phoneme mistakes and generates learning tips.
+Uses **phoneme analysis** to Highlights phoneme mistakes and generate learning tips.
 Accent similarity scoring using Wav2Vec2 embeddings is achieved by Comparing user's pronunciation with reference pronunciation to estimate accent similarity.  The reference pronunciation is a pretrained model `facebook/wav2vec2-base` accessed through Wav2Vec2Processor.
 
 
