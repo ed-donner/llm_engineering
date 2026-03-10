@@ -39,9 +39,9 @@ class DataFetcherAgent(AgentBase):
                 if route == "metals":
                     out = fetch_metals(symbol, self.metals_key)
                 elif route == "coingecko":
-                    out = fetch_coingecko(symbol, "")
+                    out = fetch_cg(symbol, "")
                 else:
-                    out = fetch_alpha_vantage(symbol, self.alpha_key)
+                    out = fetch_av(symbol, self.alpha_key)
                 if out:
                     return out
             except Exception as e:
