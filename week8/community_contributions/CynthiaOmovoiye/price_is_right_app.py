@@ -31,7 +31,7 @@ except ImportError:
     pass
 
 # --- Config (explicit, fail loudly) ---
-# All caches live in Week 8 submission dir; no dependency on Week 7 artifacts
+# All caches live in Week 8 submission dir
 WEEK8_CACHE_DIR = SUBMISSION_DIR / "cache"
 WEEK8_CACHE_DIR.mkdir(parents=True, exist_ok=True)
 
