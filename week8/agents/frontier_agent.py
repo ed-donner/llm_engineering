@@ -17,7 +17,10 @@ class FrontierAgent(Agent):
         And setting up the vector encoding model
         """
         self.log("Initializing Frontier Agent")
-        self.client = OpenAI()
+        self.client = OpenAI(
+            api_key=os.getenv('OPENROUTER_API_KEY'),
+            base_url='https://openrouter.ai/api/v1'
+        )
         self.MODEL = "gpt-5.1"
         self.log("Frontier Agent is setting up with OpenAI")
         self.collection = collection
