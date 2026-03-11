@@ -1,6 +1,4 @@
-"""
-Evaluation script for the pro implementation using local Ollama generation and judge models.
-"""
+"""V4 evaluation pipeline (local Ollama + HF RAG)."""
 
 import sys
 import math
@@ -8,9 +6,15 @@ from pydantic import BaseModel, Field
 from langchain_ollama import ChatOllama
 from langchain_core.messages import SystemMessage, HumanMessage
 from dotenv import load_dotenv
+from pathlib import Path
 
-from evaluation.test3 import TestQuestion, load_tests
-from pro_implementation.answer3 import answer_question, fetch_context
+# Allow direct execution from evaluation/ with: uv run eval4.py 0
+ROOT = Path(__file__).resolve().parents[1]
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
+
+from evaluation.test4 import TestQuestion, load_tests
+from pro_implementation.answer4 import answer_question, fetch_context
 
 
 load_dotenv(override=True)
@@ -22,7 +26,7 @@ DEBUG = False
 
 def dbg(message):
     if DEBUG:
-        print(f"[EVAL3] {message}")
+        print(f"[EVAL4] {message}")
 
 
 class RetrievalEval(BaseModel):
@@ -214,7 +218,7 @@ def run_cli_evaluation(test_number: int):
 def main():
     """CLI to evaluate a specific test by row number."""
     if len(sys.argv) != 2:
-        print("Usage: python -m evaluation.eval3 <test_row_number>")
+        print("Usage: python -m evaluation.eval4 <test_row_number>")
         sys.exit(1)
     try:
         test_number = int(sys.argv[1])

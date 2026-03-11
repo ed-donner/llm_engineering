@@ -1,5 +1,5 @@
 """
-Evaluation dashboard for the pro implementation using eval3.
+Evaluation dashboard for the pro implementation using eval4.
 """
 
 import gradio as gr
@@ -9,14 +9,14 @@ from collections import defaultdict
 from pathlib import Path
 from dotenv import load_dotenv
 
-from evaluation.eval3 import (
+from evaluation.eval4 import (
     evaluate_all_retrieval,
     evaluate_all_answers,
     GENERATION_MODEL,
     JUDGE_MODEL,
 )
-from evaluation.test3 import TEST_FILE
-from pro_implementation.answer3 import (
+from evaluation.test4 import TEST_FILE
+from pro_implementation.answer4 import (
     embedding_model as ANSWER_EMBEDDING_MODEL,
     RETRIEVAL_K,
     FINAL_K,
@@ -30,7 +30,7 @@ DEBUG = True
 
 def dbg(message):
     if DEBUG:
-        print(f"[EVALUATOR3] {message}")
+        print(f"[EVALUATOR4] {message}")
 
 
 def read_ingest_constants() -> dict:
@@ -71,11 +71,11 @@ def build_config_markdown() -> str:
     return f"""
 ### Current Configuration
 - **Vector Backend:** `{retriever_backend}`
-- **Answer Model (answer3, for rewrite/rerank/final answer):** `{ANSWER_MODEL}`
-- **Retrieval top_k (answer3):** `{RETRIEVAL_K}`
-- **Final context size final_k (answer3):** `{FINAL_K}`
-- **Retriever collection (answer3):** `{ANSWER_COLLECTION_NAME}`
-- **Embedding Model (answer3, for query embedding):** `{ANSWER_EMBEDDING_MODEL}`
+- **Answer Model (answer4, for rewrite/rerank/final answer):** `{ANSWER_MODEL}`
+- **Retrieval top_k (answer4):** `{RETRIEVAL_K}`
+- **Final context size final_k (answer4):** `{FINAL_K}`
+- **Retriever collection (answer4):** `{ANSWER_COLLECTION_NAME}`
+- **Embedding Model (answer4, for query embedding):** `{ANSWER_EMBEDDING_MODEL}`
 - **Ingest Model (ingest3, for document chunking):** `{ingest_cfg.get('MODEL', 'N/A')}`
 - **Embedding Model (ingest3, for document vectors):** `{ingest_cfg.get('embedding_model', 'N/A')}`
 - **Ingest collection (ingest3):** `{ingest_cfg.get('collection_name', 'N/A')}`
@@ -83,8 +83,8 @@ def build_config_markdown() -> str:
 - **Workers (ingest3):** `{ingest_cfg.get('WORKERS', 'N/A')}`
 - **DB Name (ingest3):** `{ingest_cfg.get('DB_NAME', 'N/A')}`
 - **Knowledge Base Path (ingest3):** `{ingest_cfg.get('KNOWLEDGE_BASE_PATH', 'N/A')}`
-- **Generation Model (eval3, answers test questions):** `{GENERATION_MODEL}`
-- **Judge Model (eval3, scores answer quality):** `{JUDGE_MODEL}`
+- **Generation Model (eval4, answers test questions):** `{GENERATION_MODEL}`
+- **Judge Model (eval4, scores answer quality):** `{JUDGE_MODEL}`
 - **Evaluation Test File:** `{TEST_FILE}`
 """
 
@@ -249,9 +249,9 @@ def run_answer_evaluation(progress=gr.Progress()):
 def main():
     """Launch the Gradio evaluation app."""
     dbg("Building evaluator dashboard UI")
-    dbg(f"Generation model (from eval3): {GENERATION_MODEL}")
-    dbg(f"Judge model (from eval3): {JUDGE_MODEL}")
-    dbg(f"Retrieval top_k (from answer3): {RETRIEVAL_K}")
+    dbg(f"Generation model (from eval4): {GENERATION_MODEL}")
+    dbg(f"Judge model (from eval4): {JUDGE_MODEL}")
+    dbg(f"Retrieval top_k (from answer4): {RETRIEVAL_K}")
     theme = gr.themes.Soft(font=["Inter", "system-ui", "sans-serif"])
 
     with gr.Blocks(title="RAG Evaluation Dashboard", theme=theme) as app:

@@ -5,7 +5,7 @@ If you evaluate through `evaluator3.py`, these are the main knobs that change re
 
 1. **Retrieval `top_k`**
 - **What it affects:** context breadth and noise level
-- **Where to change:** `pro_implementation/asnwer3.py`
+- **Where to change:** `pro_implementation/answer3.py`
 - **Parameter:** `RETRIEVAL_K = ...`
 
 2. **Chunking strategy**
@@ -16,7 +16,7 @@ If you evaluate through `evaluator3.py`, these are the main knobs that change re
 
 3. **Embedding model**
 - **What it affects:** semantic matching quality in vector search
-- **Where to change:** `pro_implementation/ingest3.py` and `pro_implementation/asnwer3.py`
+- **Where to change:** `pro_implementation/ingest3.py` and `pro_implementation/answer3.py`
 - **Parameter:** `embedding_model = "intfloat/multilingual-e5-base"`
 - **Important:** it must match in both files, then re-ingest.
 
@@ -32,7 +32,7 @@ If you evaluate through `evaluator3.py`, these are the main knobs that change re
 
 6. **Local Ollama generation**
 - **What it affects:** latency, throughput and hardware pressure
-- **Where to change:** `pro_implementation/ingest3.py` and `pro_implementation/asnwer3.py`
+- **Where to change:** `pro_implementation/ingest3.py` and `pro_implementation/answer3.py`
 - **Parameter:** `MODEL = "ollama/qwen2.5:7b-instruct"`
 
 7. **Parallel ingestion workers**
@@ -42,7 +42,7 @@ If you evaluate through `evaluator3.py`, these are the main knobs that change re
 
 8. **Prompt strictness**
 - **What it affects:** grounding, hallucinations and relevance
-- **Where to change:** `pro_implementation/asnwer3.py`
+- **Where to change:** `pro_implementation/answer3.py`
 - **Parameter block:** `SYSTEM_PROMPT`, `rewrite_query()`, `rerank()`
 
 9. **Evaluation dataset quality**
@@ -58,7 +58,7 @@ If you evaluate through `evaluator3.py`, these are the main knobs that change re
 - Writes vectors and metadata into Chroma.
 - Supports parallel chunk generation with `WORKERS`.
 
-### `pro_implementation/asnwer3.py`
+### `pro_implementation/answer3.py`
 - Opens the Chroma DB.
 - Uses HF embeddings for query embedding.
 - Retrieves top-k context chunks.
@@ -68,7 +68,7 @@ If you evaluate through `evaluator3.py`, these are the main knobs that change re
 
 ### `app3.py`
 - Gradio UI for interactive chat.
-- Calls `pro_implementation/asnwer3.py`.
+- Calls `pro_implementation/answer3.py`.
 - Shows answer and retrieved context side-by-side.
 
 ### `evaluation/test3.py`
@@ -84,14 +84,14 @@ If you evaluate through `evaluator3.py`, these are the main knobs that change re
 ### `evaluator3.py`
 - Gradio dashboard for the full evaluation flow.
 - Displays aggregate metric cards and category charts.
-- Reads runtime config from `eval3.py`, `asnwer3.py` and `ingest3.py`.
+- Reads runtime config from `eval3.py`, `answer3.py` and `ingest3.py`.
 
 ## Evaluation Order
 1. `evaluator3.py` starts the UI.
 2. It calls `evaluation/eval3.py`.
 3. `eval3.py` loads tests via `evaluation/test3.py`.
-4. Retrieval uses `fetch_context()` from `pro_implementation/asnwer3.py`.
-5. Answering uses `answer_question()` from `pro_implementation/asnwer3.py`.
+4. Retrieval uses `fetch_context()` from `pro_implementation/answer3.py`.
+5. Answering uses `answer_question()` from `pro_implementation/answer3.py`.
 6. The local judge model scores the generated answer.
 
 ## Recommended Workflow
@@ -102,11 +102,11 @@ If you evaluate through `evaluator3.py`, these are the main knobs that change re
 5. Compare retrieval and answer metrics.
 
 ## Quick Map
-- Retrieval depth: `asnwer3.py -> RETRIEVAL_K`
+- Retrieval depth: `answer3.py -> RETRIEVAL_K`
 - Chunking and worker count: `ingest3.py -> AVERAGE_CHUNK_SIZE`, `WORKERS`
-- Embeddings: `ingest3.py` + `asnwer3.py -> embedding_model`
+- Embeddings: `ingest3.py` + `answer3.py -> embedding_model`
 - Generator model: `eval3.py -> GENERATION_MODEL`
 - Judge model: `eval3.py -> JUDGE_MODEL`
-- Ollama answer model: `ingest3.py` and `asnwer3.py -> MODEL`
-- Prompt grounding: `asnwer3.py -> SYSTEM_PROMPT`
+- Ollama answer model: `ingest3.py` and `answer3.py -> MODEL`
+- Prompt grounding: `answer3.py -> SYSTEM_PROMPT`
 - Test definitions: `evaluation/tests.jsonl`
