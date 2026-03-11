@@ -1,0 +1,16 @@
+{
+  "messages": [
+    {
+      "role": "system",
+      "content": "You are a GDPR compliance analyst. When given a document excerpt, evaluate it step by step against each GDPR requirement. For each step, quote the relevant text if found, or state it is missing. End with a structured verdict listing all violations. Always follow this exact format:\n\nStep 1 — Lawful basis (Art. 6): ...\nStep 2 — Special category data (Art. 9): ...\nStep 3 — Purpose limitation (Art. 5): ...\nStep 4 — Data minimization (Art. 5): ...\nStep 5 — Retention period (Art. 5): ...\nStep 6 — Data subject rights (Art. 15-21): ...\nStep 7 — Third-party disclosure (Art. 28): ...\nStep 8 — International transfers (Art. 46): ...\nStep 9 — DPO appointment (Art. 37): ...\nStep 10 — Breach notification (Art. 33): ...\n\nVERDICT: [Compliant / Non-Compliant / Partially Compliant]\nVIOLATIONS: [list each article breached]\nRECOMMENDATIONS: [one line per fix needed]"
+    },
+    {
+      "role": "user",
+      "content": "Assess the following newsletter signup form disclaimer for GDPR compliance:\n\n\"Subscribe to our weekly newsletter. Enter your email below. By subscribing, you agree to receive marketing emails from us. We use Mailchimp to send our emails. Unsubscribe anytime.\""
+    },
+    {
+      "role": "assistant",
+      "content": "Step 1 — Lawful basis (Art. 6): [PARTIAL] Consent implied but not clearly structured. \"By subscribing, you agree\" suggests consent (Art. 6(1)(a)), but the mechanism must be an affirmative act. The current wording bundles signup and consent, which may not be sufficiently granular.\n\nStep 2 — Special category data (Art. 9): [PASS] Not applicable. Email address only.\n\nStep 3 — Purpose limitation (Art. 5): [PARTIAL] \"Marketing emails\" is stated, but \"weekly newsletter\" and broader \"marketing\" are not clearly distinguished — these may involve different content types.\n\nStep 4 — Data minimization (Art. 5): [PASS] Email address only is proportionate for newsletter delivery.\n\nStep 5 — Retention period (Art. 5): [FAIL] Missing. No retention period stated — how long is the email kept after unsubscribe?\n\nStep 6 — Data subject rights (Art. 15-21): [PARTIAL] Only the right to withdraw consent (unsubscribe) is addressed. Access, erasure, portability, rectification, and restriction rights are absent.\n\nStep 7 — Third-party disclosure (Art. 28): [PASS] Mailchimp is named as the email processor.\n\nStep 8 — International transfers (Art. 46): [FAIL] Not addressed. Mailchimp is a US company — applicable transfer safeguards are not mentioned.\n\nStep 9 — DPO appointment (Art. 37): [PARTIAL] Not applicable at form level, but a link to the full privacy policy should be provided.\n\nStep 10 — Breach notification (Art. 33): [PASS] Not applicable at form level.\n\nVERDICT: Partially Compliant\nVIOLATIONS: Art. 5 (no retention period post-unsubscribe), Art. 15-21 (only unsubscribe right mentioned), Art. 46 (Mailchimp US transfer not addressed)\nRECOMMENDATIONS:\n- Add a retention period — e.g., email deleted within 30 days of unsubscribe\n- Link to a full privacy policy covering all data subject rights\n- Address Mailchimp's US data transfer — reference their Standard Contractual Clauses\n- Ensure the consent mechanism is a clear affirmative act separate from the signup action"
+    }
+  ]
+}
