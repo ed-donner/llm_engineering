@@ -28,7 +28,7 @@ chroma = PersistentClient(path=DB_NAME)
 collection = chroma.get_or_create_collection(collection_name)
 
 RETRIEVAL_K = 12
-FINAL_K = 6
+FINAL_K = 7
 
 SYSTEM_PROMPT = """
 You are a knowledgeable, friendly assistant representing the company Insurellm.
