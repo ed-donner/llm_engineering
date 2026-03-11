@@ -1,0 +1,26 @@
+[
+  {
+    "listing": {
+      "job_title": "Cloud Systems Engineer",
+      "company": "Accenture Federal Services",
+      "salary": 140000.0,
+      "location": "Remote",
+      "description": "At Accenture Federal Services, the Cloud Systems Engineer will focus on leveraging cloud technology to enhance the US federal government's capabilities. Responsibilities include designing and implementing robust cloud solutions while collaborating closely with cross-functional teams. This role plays a critical part in driving innovation while ensuring compliance and security within government operations.",
+      "url": "https://remoteOK.com/remote-jobs/remote-cloud-systems-engineer-accenture-federal-services-1130678"
+    },
+    "estimate": 122000.0,
+    "premium": 18000.0
+  },
+  {
+    "listing": {
+      "job_title": "Staff Revenue Manager",
+      "company": "Wheelhouse",
+      "salary": 130000.0,
+      "location": "Remote",
+      "description": "In the Staff Revenue Manager position at Wheelhouse, you will focus on creating and scaling revenue management strategies for rental properties. Your role encompasses refining frameworks, developing insights, and collaborating with property operators to optimize their revenue management processes.",
+      "url": "https://remoteOK.com/remote-jobs/remote-staff-revenue-manager-wheelhouse-1130671"
+    },
+    "estimate": 110000.0,
+    "premium": 20000.0
+  }
+]
