@@ -46,4 +46,4 @@ PUSHOVER_TOKEN = os.getenv("PUSHOVER_TOKEN", "")
 # OpenRouter for all LLM calls (sentiment)
 OPENROUTER_API_KEY = os.getenv("OPENROUTER_API_KEY", "")
 # LiteLLM model string: use openrouter/ prefix so litellm uses OPENROUTER_API_KEY
-SENTIMENT_MODEL = os.getenv("ARIA_SENTIMENT_MODEL", "openrouter/openai/gpt-4o-mini")
+SENTIMENT_MODEL = os.getenv("ARIA_SENTIMENT_MODEL", "openrouter/openai/gpt-5-nano")
