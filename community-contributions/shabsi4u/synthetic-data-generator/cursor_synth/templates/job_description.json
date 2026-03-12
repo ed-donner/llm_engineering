@@ -1,0 +1,15 @@
+{
+  "id": "job_description",
+  "schema": {
+    "type": "object",
+    "properties": {
+      "title": { "type": "string" },
+      "level": { "type": "string", "enum": ["Entry", "Mid", "Senior", "Lead", "Principal"] },
+      "team": { "type": "string" },
+      "responsibilities": { "type": "array", "items": { "type": "string" }, "minItems": 3, "maxItems": 6 },
+      "requirements": { "type": "array", "items": { "type": "string" }, "minItems": 4, "maxItems": 8 }
+    },
+    "required": ["title", "level", "team", "responsibilities"]
+  },
+  "prompt_template": "[{\"title\": \"Software Engineer\", \"level\": \"Mid\", \"team\": \"Engineering\", \"responsibilities\": [\"Code\", \"Debug\", \"Test\"], \"requirements\": [\"Java\", \"Python\", \"Git\", \"Agile\"]}, {\"title\": \"Data Scientist\", \"level\": \"Senior\", \"team\": \"Analytics\", \"responsibilities\": [\"Analyze\", \"Model\", \"Report\"], \"requirements\": [\"Python\", \"SQL\", \"ML\", \"Stats\"]}] Generate exactly {{count}} job descriptions as JSON array. Each job must match: {{schema}}. Tone: {{tone}}. Responsibilities: 3-6 strings; Requirements: 4-8 strings. Start with [ and end with ]. No thinking, no explanations, just JSON."
+}

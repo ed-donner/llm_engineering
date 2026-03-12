@@ -1,0 +1,12 @@
+.env
+vector_db/
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Repo guideline: data/PDFs go in Google Drive (or similar), not in the repo
+*.pdf
+data/
+*.csv
+*.xlsx
