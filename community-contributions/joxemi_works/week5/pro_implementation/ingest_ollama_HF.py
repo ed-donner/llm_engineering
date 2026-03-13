@@ -25,7 +25,7 @@ collection_name = "docs"
 # Opcion activa actual:
 embedding_model = "intfloat/multilingual-e5-base"
 KNOWLEDGE_BASE_PATH = Path(__file__).parent.parent / "knowledge-base"
-AVERAGE_CHUNK_SIZE = 300
+AVERAGE_CHUNK_SIZE = 500
 wait = wait_exponential(multiplier=1, min=10, max=120)
 
 WORKERS = 2
