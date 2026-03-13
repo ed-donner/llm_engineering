@@ -1,4 +1,4 @@
-"""V4 evaluation pipeline (local Ollama + HF RAG)."""
+"""Evaluation pipeline for the local Ollama + HF RAG."""
 
 import sys
 import math
@@ -8,13 +8,13 @@ from langchain_core.messages import SystemMessage, HumanMessage
 from dotenv import load_dotenv
 from pathlib import Path
 
-# Allow direct execution from evaluation/ with: uv run eval4.py 0
+# Allow direct execution from evaluation/ with: uv run eval_ollama_HF.py 0
 ROOT = Path(__file__).resolve().parents[1]
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
-from evaluation.test4 import TestQuestion, load_tests
-from pro_implementation.answer4 import answer_question, fetch_context
+from evaluation.test_ollama_HF import TestQuestion, load_tests
+from pro_implementation.answer_ollama_HF import answer_question, fetch_context
 
 
 load_dotenv(override=True)
@@ -26,7 +26,7 @@ DEBUG = False
 
 def dbg(message):
     if DEBUG:
-        print(f"[EVAL4] {message}")
+        print(f"[EVAL_OLLAMA_HF] {message}")
 
 
 class RetrievalEval(BaseModel):
@@ -218,7 +218,7 @@ def run_cli_evaluation(test_number: int):
 def main():
     """CLI to evaluate a specific test by row number."""
     if len(sys.argv) != 2:
-        print("Usage: python -m evaluation.eval4 <test_row_number>")
+        print("Usage: python -m evaluation.eval_ollama_HF <test_row_number>")
         sys.exit(1)
     try:
         test_number = int(sys.argv[1])

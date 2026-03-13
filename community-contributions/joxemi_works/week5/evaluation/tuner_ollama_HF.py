@@ -6,14 +6,14 @@ import sys
 import random
 import math
 
-# Allow direct execution from evaluation/ with: uv run tuner4.py
+# Allow direct execution from evaluation/ with: uv run tuner_ollama_HF.py
 ROOT = Path(__file__).resolve().parents[1]
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
-from evaluation.eval4 import evaluate_answer, evaluate_retrieval
-from evaluation.test4 import load_tests
-import pro_implementation.answer4 as answer4
+from evaluation.eval_ollama_HF import evaluate_answer, evaluate_retrieval
+from evaluation.test_ollama_HF import load_tests
+import pro_implementation.answer_ollama_HF as answer_ollama_HF
 
 
 # Weighted objective for RAG tuning.
@@ -22,17 +22,17 @@ WEIGHTS = {
     "mrr": 0.10,
     "ndcg": 0.08,
     "coverage": 0.07,
-    "accuracy": 0.45,
-    "completeness": 0.18,
-    "relevance": 0.12,
+    "accuracy": 0.5,
+    "completeness": 0.15,
+    "relevance": 0.1,
 }
 
 # Candidate grid to explore.
 # The tuner will evaluate all retrieval_k x final_k combinations.
-RETRIEVAL_GRID = [12,13]
-FINAL_GRID = [6,7]
+RETRIEVAL_GRID = [10,12,14]
+FINAL_GRID = [5,6,7]
 
-RESULTS_DIR = Path(__file__).parent / "results4"
+RESULTS_DIR = Path(__file__).parent / "results_ollama_HF"
 RESULTS_FILE = RESULTS_DIR / "tuning_results.jsonl"
 # If MAX_TESTS is None, the fold size is driven by proportional sampling.
 MAX_TESTS = None
@@ -42,7 +42,7 @@ PROGRESS_EVERY = 10
 PRINT_EACH_TEST = True
 PRINT_ANSWER_PREVIEW = True
 # Proportional sampling controls.
-SAMPLE_RATE = 0.30
+SAMPLE_RATE = 0.3
 MIN_PER_CATEGORY = 3
 
 
@@ -97,8 +97,8 @@ def weighted_score(metrics: dict) -> float:
 def evaluate_candidate(
     retrieval_k: int, final_k: int, tests, fold_idx: int | None = None, n_folds: int | None = None
 ) -> dict:
-    # Apply candidate retrieval settings to answer4 at runtime.
-    answer4.set_retrieval_config(retrieval_k=retrieval_k, final_k=final_k)
+    # Apply candidate retrieval settings to answer_ollama_HF at runtime.
+    answer_ollama_HF.set_retrieval_config(retrieval_k=retrieval_k, final_k=final_k)
 
     total = {
         "mrr": 0.0,

@@ -1,5 +1,5 @@
 """
-Evaluation dashboard for the pro implementation using eval4.
+Evaluation dashboard for the pro implementation using eval_ollama_HF.
 """
 
 import gradio as gr
@@ -9,14 +9,14 @@ from collections import defaultdict
 from pathlib import Path
 from dotenv import load_dotenv
 
-from evaluation.eval4 import (
+from evaluation.eval_ollama_HF import (
     evaluate_all_retrieval,
     evaluate_all_answers,
     GENERATION_MODEL,
     JUDGE_MODEL,
 )
-from evaluation.test4 import TEST_FILE
-from pro_implementation.answer4 import (
+from evaluation.test_ollama_HF import TEST_FILE
+from pro_implementation.answer_ollama_HF import (
     embedding_model as ANSWER_EMBEDDING_MODEL,
     RETRIEVAL_K,
     FINAL_K,
@@ -34,7 +34,7 @@ def dbg(message):
 
 
 def read_ingest_constants() -> dict:
-    ingest_path = Path(__file__).parent / "pro_implementation" / "ingest3.py"
+    ingest_path = Path(__file__).parent / "pro_implementation" / "ingest_ollama_HF.py"
     wanted = {
         "MODEL",
         "embedding_model",
@@ -57,7 +57,7 @@ def read_ingest_constants() -> dict:
                         except Exception:
                             values[target.id] = "non-literal"
     except Exception as exc:
-        dbg(f"Could not read ingest3 constants: {exc}")
+        dbg(f"Could not read ingest_ollama_HF constants: {exc}")
     if values.get("DB_NAME") == "non-literal":
         values["DB_NAME"] = str(Path(__file__).parent / "preprocessed_db")
     if values.get("KNOWLEDGE_BASE_PATH") == "non-literal":
@@ -71,20 +71,20 @@ def build_config_markdown() -> str:
     return f"""
 ### Current Configuration
 - **Vector Backend:** `{retriever_backend}`
-- **Answer Model (answer4, for rewrite/rerank/final answer):** `{ANSWER_MODEL}`
-- **Retrieval top_k (answer4):** `{RETRIEVAL_K}`
-- **Final context size final_k (answer4):** `{FINAL_K}`
-- **Retriever collection (answer4):** `{ANSWER_COLLECTION_NAME}`
-- **Embedding Model (answer4, for query embedding):** `{ANSWER_EMBEDDING_MODEL}`
-- **Ingest Model (ingest3, for document chunking):** `{ingest_cfg.get('MODEL', 'N/A')}`
-- **Embedding Model (ingest3, for document vectors):** `{ingest_cfg.get('embedding_model', 'N/A')}`
-- **Ingest collection (ingest3):** `{ingest_cfg.get('collection_name', 'N/A')}`
-- **Average Chunk Size (ingest3):** `{ingest_cfg.get('AVERAGE_CHUNK_SIZE', 'N/A')}`
-- **Workers (ingest3):** `{ingest_cfg.get('WORKERS', 'N/A')}`
-- **DB Name (ingest3):** `{ingest_cfg.get('DB_NAME', 'N/A')}`
-- **Knowledge Base Path (ingest3):** `{ingest_cfg.get('KNOWLEDGE_BASE_PATH', 'N/A')}`
-- **Generation Model (eval4, answers test questions):** `{GENERATION_MODEL}`
-- **Judge Model (eval4, scores answer quality):** `{JUDGE_MODEL}`
+- **Answer Model (answer_ollama_HF, for rewrite/rerank/final answer):** `{ANSWER_MODEL}`
+- **Retrieval top_k (answer_ollama_HF):** `{RETRIEVAL_K}`
+- **Final context size final_k (answer_ollama_HF):** `{FINAL_K}`
+- **Retriever collection (answer_ollama_HF):** `{ANSWER_COLLECTION_NAME}`
+- **Embedding Model (answer_ollama_HF, for query embedding):** `{ANSWER_EMBEDDING_MODEL}`
+- **Ingest Model (ingest_ollama_HF, for document chunking):** `{ingest_cfg.get('MODEL', 'N/A')}`
+- **Embedding Model (ingest_ollama_HF, for document vectors):** `{ingest_cfg.get('embedding_model', 'N/A')}`
+- **Ingest collection (ingest_ollama_HF):** `{ingest_cfg.get('collection_name', 'N/A')}`
+- **Average Chunk Size (ingest_ollama_HF):** `{ingest_cfg.get('AVERAGE_CHUNK_SIZE', 'N/A')}`
+- **Workers (ingest_ollama_HF):** `{ingest_cfg.get('WORKERS', 'N/A')}`
+- **DB Name (ingest_ollama_HF):** `{ingest_cfg.get('DB_NAME', 'N/A')}`
+- **Knowledge Base Path (ingest_ollama_HF):** `{ingest_cfg.get('KNOWLEDGE_BASE_PATH', 'N/A')}`
+- **Generation Model (eval_ollama_HF, answers test questions):** `{GENERATION_MODEL}`
+- **Judge Model (eval_ollama_HF, scores answer quality):** `{JUDGE_MODEL}`
 - **Evaluation Test File:** `{TEST_FILE}`
 """
 
@@ -249,9 +249,9 @@ def run_answer_evaluation(progress=gr.Progress()):
 def main():
     """Launch the Gradio evaluation app."""
     dbg("Building evaluator dashboard UI")
-    dbg(f"Generation model (from eval4): {GENERATION_MODEL}")
-    dbg(f"Judge model (from eval4): {JUDGE_MODEL}")
-    dbg(f"Retrieval top_k (from answer4): {RETRIEVAL_K}")
+    dbg(f"Generation model (from eval_ollama_HF): {GENERATION_MODEL}")
+    dbg(f"Judge model (from eval_ollama_HF): {JUDGE_MODEL}")
+    dbg(f"Retrieval top_k (from answer_ollama_HF): {RETRIEVAL_K}")
     theme = gr.themes.Soft(font=["Inter", "system-ui", "sans-serif"])
 
     with gr.Blocks(title="RAG Evaluation Dashboard", theme=theme) as app:

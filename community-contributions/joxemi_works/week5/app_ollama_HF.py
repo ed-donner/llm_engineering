@@ -1,7 +1,7 @@
 import gradio as gr
 from dotenv import load_dotenv
 
-from pro_implementation.answer4 import answer_question
+from pro_implementation.answer_ollama_HF import answer_question
 
 load_dotenv(override=True)
 

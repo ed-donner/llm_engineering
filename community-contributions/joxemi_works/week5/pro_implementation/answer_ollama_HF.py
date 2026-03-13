@@ -9,13 +9,20 @@ from langchain_huggingface import HuggingFaceEmbeddings
 
 load_dotenv(override=True)
 
-# Local LLM via Ollama (same model used in day5_ollama_HF_v2.ipynb)
+# Ollama + HF setup, with small runtime tuning helpers.
 MODEL = "ollama/qwen2.5:7b-instruct"
 DB_NAME = str(Path(__file__).parent.parent / "preprocessed_db")
 KNOWLEDGE_BASE_PATH = Path(__file__).parent.parent / "knowledge-base"
 SUMMARIES_PATH = Path(__file__).parent.parent / "summaries"
 
 collection_name = "docs"
+# Modelo anterior, mas ligero:
+# embedding_model = "intfloat/multilingual-e5-base"
+# Alternativa probada:
+# embedding_model = "BAAI/bge-m3"
+# Alternativa grande multilingue:
+# embedding_model = "intfloat/multilingual-e5-large"
+# Opcion activa actual:
 embedding_model = "intfloat/multilingual-e5-base"
 wait = wait_exponential(multiplier=1, min=10, max=120)
 
@@ -51,6 +58,20 @@ class RankOrder(BaseModel):
     order: list[int] = Field(
         description="The order of relevance of chunks, from most relevant to least relevant, by chunk id number"
     )
+
+
+def get_retrieval_config() -> dict:
+    """Expose active retrieval knobs for evaluators/tuners."""
+    return {"RETRIEVAL_K": RETRIEVAL_K, "FINAL_K": FINAL_K}
+
+
+def set_retrieval_config(retrieval_k: int | None = None, final_k: int | None = None) -> None:
+    """Mutate retrieval knobs at runtime for tuning loops."""
+    global RETRIEVAL_K, FINAL_K
+    if retrieval_k is not None:
+        RETRIEVAL_K = retrieval_k
+    if final_k is not None:
+        FINAL_K = final_k
 
 
 @retry(wait=wait)

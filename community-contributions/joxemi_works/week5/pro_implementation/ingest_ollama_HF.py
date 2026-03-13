@@ -16,9 +16,16 @@ MODEL = "ollama/qwen2.5:7b-instruct"
 
 DB_NAME = str(Path(__file__).parent.parent / "preprocessed_db")
 collection_name = "docs"
+# Modelo anterior, mas ligero:
+# embedding_model = "intfloat/multilingual-e5-base"
+# Alternativa probada:
+# embedding_model = "BAAI/bge-m3"
+# Alternativa grande multilingue:
+# embedding_model = "intfloat/multilingual-e5-large"
+# Opcion activa actual:
 embedding_model = "intfloat/multilingual-e5-base"
 KNOWLEDGE_BASE_PATH = Path(__file__).parent.parent / "knowledge-base"
-AVERAGE_CHUNK_SIZE = 400
+AVERAGE_CHUNK_SIZE = 300
 wait = wait_exponential(multiplier=1, min=10, max=120)
 
 WORKERS = 2

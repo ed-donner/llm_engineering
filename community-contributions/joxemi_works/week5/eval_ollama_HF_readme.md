@@ -3,7 +3,7 @@
 ## What Changed vs `*3.py`
 `*4.py` keeps the same local stack (Ollama + HuggingFace embeddings + Chroma), but adds an iterative tuner:
 
-- `evaluation/tuner4.py` to auto-search `RETRIEVAL_K` and `FINAL_K`.
+- `evaluation/tuner_ollama_HF.py` to auto-search `RETRIEVAL_K` and `FINAL_K`.
 - Stratified test sampling by category (not just first rows).
 - Multi-fold scoring to reduce one-shot variance.
 - Combined objective (`score`) and derived `loss = 1 - score`.
@@ -30,7 +30,7 @@ With 7 categories, each fold targets ~35 tests (5 per category), if available.
 This gives reproducible, category-balanced subsets.
 
 ## Objective Function (`score` / `loss`)
-`tuner4.py` combines retrieval + answer metrics:
+`tuner_ollama_HF.py` combines retrieval + answer metrics:
 
 - Retrieval: `mrr`, `ndcg`, `coverage`
 - Answer: `accuracy`, `completeness`, `relevance`
@@ -46,48 +46,48 @@ Current weights:
 `loss = 1 - score`
 
 ## Files and Responsibilities
-### `pro_implementation/answer4.py`
-- Same local RAG logic as `answer3.py`.
+### `pro_implementation/answer_ollama_HF.py`
+- Same local RAG logic as `answer_ollama_HF.py`.
 - Exposes runtime knobs:
   - `set_retrieval_config(retrieval_k, final_k)`
   - `get_retrieval_config()`
 
-### `evaluation/eval4.py`
-- Same evaluation logic as `eval3.py`, now targeting `answer4.py` and `test4.py`.
+### `evaluation/eval_ollama_HF.py`
+- Evaluation logic for the `answer_ollama_HF.py` and `test_ollama_HF.py` pipeline.
 
-### `evaluation/test4.py`
+### `evaluation/test_ollama_HF.py`
 - Test schema + loader for `tests.jsonl`.
 
-### `evaluation/tuner4.py`
+### `evaluation/tuner_ollama_HF.py`
 - Grid-search over `RETRIEVAL_K`/`FINAL_K`.
 - Evaluates each candidate across folds.
 - Logs results to:
   - `evaluation/results4/tuning_results.jsonl`
 
-### `app4.py`
-- Gradio chat UI using `answer4.py`.
+### `app_ollama_HF.py`
+- Gradio chat UI using `answer_ollama_HF.py`.
 
-### `evaluator4.py`
-- Gradio evaluation dashboard using `eval4.py`.
+### `evaluator_ollama_HF.py`
+- Gradio evaluation dashboard using `eval_ollama_HF.py`.
 
 ## Execution (from script folder style)
 You can run directly from `evaluation/`:
 
 ```powershell
 cd .\week5\evaluation
-uv run eval4.py 0
-uv run tuner4.py
+uv run eval_ollama_HF.py 0
+uv run tuner_ollama_HF.py
 ```
 
 Dashboard from `week5/`:
 
 ```powershell
 cd ..\
-uv run python evaluator4.py
+uv run python evaluator_ollama_HF.py
 ```
 
 ## Recommended Workflow
-1. Run `tuner4.py` and keep top candidate.
-2. Validate with `evaluator4.py` (full dashboard run).
-3. If better than baseline, fix those Ks in `answer4.py`.
+1. Run `tuner_ollama_HF.py` and keep top candidate.
+2. Validate with `evaluator_ollama_HF.py` (full dashboard run).
+3. If better than baseline, fix those Ks in `answer_ollama_HF.py`.
 4. Keep `tuning_results.jsonl` as experiment history.
