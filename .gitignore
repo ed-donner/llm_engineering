@@ -8,6 +8,19 @@ __pycache__/
 # C extensions
 *.so
 
+# Ignore .env file
+.env    
+#ignore data files
+*.db
+*.sqlite3
+*.sqlite
+*.sqlite3-journal
+*.sqlite3-shm
+*.sqlite3-wal
+*.sqlite3-journal
+*.sqlite3-shm
+*.sqlite3-wal
+
 # Distribution / packaging
 .Python
 build/
