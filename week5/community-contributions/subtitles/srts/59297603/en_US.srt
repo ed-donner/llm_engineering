@@ -1,0 +1,184 @@
+WEBVTT
+
+00:00.470 --> 00:05.930
+And I'm delighted to welcome you back to LM engineering on the day that we turn to vectors.
+
+00:05.930 --> 00:08.570
+Finally, I've been talking about vectors for so long.
+
+00:08.600 --> 00:11.390
+Today we actually get to play with them.
+
+00:11.540 --> 00:18.380
+We are going to be going into Jupyter Lab soon and creating chunks of.
+
+00:18.380 --> 00:24.320
+We're creating vectors from chunks of text using OpenAI embeddings, the encoding model that I talked
+
+00:24.320 --> 00:25.100
+about before.
+
+00:25.130 --> 00:31.460
+We're going to store those vectors in the very popular open source vector database called chroma.
+
+00:31.640 --> 00:36.440
+And we're then going to visualize the vectors get a sense for what they represent.
+
+00:36.530 --> 00:41.150
+And that will then be an exercise for you to keep playing with vectors.
+
+00:41.270 --> 00:48.140
+Try putting your own things into vectors and get a better and better sense of what it what it means
+
+00:48.140 --> 00:52.430
+to have a meaning by turning text into a bunch of numbers.
+
+00:52.610 --> 00:56.660
+So let me talk for a moment about these different types of of model.
+
+00:56.810 --> 00:58.970
+How how do you turn text into vectors.
+
+00:58.970 --> 01:03.080
+So there's first of all, there's this very simplistic way that you could do it.
+
+01:03.350 --> 01:07.160
+You could for example, say come up with a vocabulary.
+
+01:07.160 --> 01:10.190
+So come up with a list of possible words.
+
+01:10.190 --> 01:15.260
+Let's say the first word in your vocabulary is the word dog, and the second word in your vocabulary
+
+01:15.260 --> 01:16.730
+is the word cat.
+
+01:17.270 --> 01:23.360
+And what you could do is take a block of text and just count the number of times any particular word
+
+01:23.360 --> 01:24.860
+is in that block of text.
+
+01:24.860 --> 01:30.890
+And then if the word dog, for example, is in there twice, then you would put a two in the first location
+
+01:30.890 --> 01:33.320
+in your vector and cat is in there once.
+
+01:33.320 --> 01:36.320
+Then you would put one in that location and so on.
+
+01:36.320 --> 01:42.350
+So it would really just be counting the number of words of a of a particular type and putting that in
+
+01:42.350 --> 01:43.010
+a vector.
+
+01:43.010 --> 01:44.660
+And that would be very simplistic.
+
+01:44.660 --> 01:50.840
+It wouldn't reflect the order in which the words are laid out, and it wouldn't reflect the fact, for
+
+01:50.840 --> 01:56.120
+example, that the same word Java could refer to a type of coffee bean or to a programming language.
+
+01:56.120 --> 01:59.090
+It would just be the count of the number of words.
+
+01:59.420 --> 02:01.430
+So that would be rather simplistic.
+
+02:01.430 --> 02:04.670
+And luckily there are more advanced methods for doing this.
+
+02:04.700 --> 02:11.510
+One of the ones that got a lot of attention was in 2013, the arrival of something called word two vec,
+
+02:11.600 --> 02:20.660
+which was able to use use a deep neural network to start to convert words to vectors in a way that seemed
+
+02:20.660 --> 02:22.550
+to reflect their meaning.
+
+02:22.550 --> 02:28.550
+And it was really it was with word two vec that we started to talk about things like, uh, king minus
+
+02:28.550 --> 02:30.470
+man plus woman equals queen.
+
+02:30.830 --> 02:34.970
+Uh, Burt is the model that I talked about some time ago.
+
+02:35.000 --> 02:41.690
+Now it was, uh, it's a transformer model for encoding that Google produced shortly after publishing
+
+02:41.690 --> 02:43.700
+their paper, Inventing Transformers.
+
+02:43.760 --> 02:48.440
+And the one that we're going to use, OpenAI embeddings, is one that is from OpenAI.
+
+02:48.440 --> 02:52.610
+And the most recent version is with, uh, updates from 2024.
+
+02:52.640 --> 02:57.470
+Um, and so that is going to be the latest and greatest model that we're going to use for converting
+
+02:57.500 --> 03:00.680
+text into numbers vectors.
+
+03:01.760 --> 03:07.160
+So with that, uh, let me just quickly talk about chroma and then we will get to it.
+
+03:07.160 --> 03:14.290
+So chroma is an example of one of the, uh, vector data stores.
+
+03:14.290 --> 03:21.220
+There are quite a few of them, and many of the of the main databases also now support taking vectors
+
+03:21.220 --> 03:23.020
+and searching on vectors.
+
+03:23.140 --> 03:28.690
+An example MongoDB that lots of people use as a NoSQL data store will also take vectors and can act
+
+03:28.690 --> 03:29.950
+as a vector database.
+
+03:29.950 --> 03:33.700
+But Cromer was sort of first and foremost a vector database.
+
+03:33.790 --> 03:37.120
+And this is uh, its website.
+
+03:37.150 --> 03:45.520
+Uh, and you can see it makes a, it's got better pictures than I had with an old school, uh, Mac
+
+03:45.520 --> 03:46.570
+interface here.
+
+03:46.780 --> 03:52.030
+Uh, but the idea that, that you could do a query in your I application and it can retrieve from a
+
+03:52.030 --> 03:56.380
+bunch of vectors and that retrieve data gets put into the prompt and query.
+
+03:56.380 --> 04:01.150
+So it's a fancier version of the diagram that I showed you last time.
+
+04:01.510 --> 04:03.730
+Uh, so this is Cromer.
+
+04:03.760 --> 04:06.460
+This is what we'll be using to store our vectors.
+
+04:06.460 --> 04:08.740
+And I think quite enough chit chat.
+
+04:08.770 --> 04:13.570
+It's time for us to get JupyterLab, and it's time for us to use vectors first hand.
+
+04:13.600 --> 04:14.350
+See you there.

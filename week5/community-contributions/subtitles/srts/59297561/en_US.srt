@@ -1,0 +1,58 @@
+WEBVTT
+
+00:01.160 --> 00:05.570
+And would you believe at this point you're 55% of the way along the journey?
+
+00:05.780 --> 00:09.890
+Uh, it's been a while since I've thrown that stat out there, but congratulations.
+
+00:09.890 --> 00:11.120
+That's really awesome.
+
+00:11.210 --> 00:14.270
+Uh, so we have made progress with rag.
+
+00:14.270 --> 00:18.560
+We're taking it slowly because it's about to get real as we get into vector databases.
+
+00:18.560 --> 00:24.920
+But at this point, uh, not only do you have the sort of foundational understanding of why we're going
+
+00:24.920 --> 00:31.310
+to be using vectors, but you can now use Lang chain to load in documents, to split them, to add in
+
+00:31.310 --> 00:32.120
+metadata.
+
+00:32.120 --> 00:36.620
+And hopefully you've played around with that and you've satisfied yourself about how it's working and
+
+00:36.620 --> 00:39.020
+you're ready for the real deal.
+
+00:39.020 --> 00:46.070
+We next time are going to take these chunks and convert them into vectors using OpenAI's OpenAI embeddings,
+
+00:46.070 --> 00:49.280
+which was one of the encoding llms that we talked about.
+
+00:49.310 --> 00:55.640
+We're then going to store the vectors in an open source vector data store called chroma, which is an
+
+00:55.640 --> 00:59.090
+extremely popular open source vector database.
+
+00:59.090 --> 01:00.080
+And it's terrific.
+
+01:00.080 --> 01:04.790
+And we're going to enjoy putting our vectors in there, because we're then going to visualize them and
+
+01:04.790 --> 01:10.010
+see them and get a sense of what does it even mean to have a vector in a database.
+
+01:10.010 --> 01:11.930
+So lots to be done.
+
+01:11.930 --> 01:13.790
+I will see you next time.

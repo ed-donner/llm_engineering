@@ -1,0 +1,430 @@
+WEBVTT
+
+00:00.080 --> 00:07.280
+Hopefully you found this super satisfying to be able to have this nice business result and have it calling
+
+00:07.370 --> 00:13.340
+an LLM twice, we can make this result a little bit more satisfying by adding in something called streaming,
+
+00:13.340 --> 00:19.310
+which is so common that you see in these tools that we've experienced ourselves in the chat user interfaces
+
+00:19.610 --> 00:26.420
+and streaming is when the information flows back from the LLM and appears in what they call the typewriter
+
+00:26.420 --> 00:27.980
+style interface.
+
+00:28.430 --> 00:31.670
+And the way you do it is remarkably simple.
+
+00:31.760 --> 00:42.350
+Uh, when you are creating your, uh, call to OpenAI chat completions, create, uh, if you want to
+
+00:42.380 --> 00:48.920
+not just receive it all back in one go, but you want it to flow back, you simply pass in another parameter
+
+00:48.920 --> 00:50.480
+stream equals true.
+
+00:50.510 --> 00:55.880
+We'll find when we go and use Claude that it has a slightly different API, but this is one of the rare
+
+00:55.880 --> 00:59.510
+times when GPT and Claude are a bit different.
+
+00:59.510 --> 01:02.200
+But that's how you do it with GPT stream equals true.
+
+01:02.230 --> 01:03.460
+Now what does that mean?
+
+01:03.460 --> 01:10.420
+What it means is that what comes back into stream is no longer the the single text response, but instead
+
+01:10.420 --> 01:16.450
+you get back something that you can iterate over, and as you iterate over, each chunk of the response
+
+01:16.450 --> 01:22.510
+will come through, um, and you can just sort of say for chunk in stream print chunk.
+
+01:22.540 --> 01:27.640
+Now, in our case, we want to be a little bit smarter than that because we're we're showing this in
+
+01:27.640 --> 01:28.750
+markdown.
+
+01:28.960 --> 01:37.090
+Um, and actually it's a little tiny bit fiddly because markdown is something where the, the markdown
+
+01:37.090 --> 01:41.920
+characters, you might it might start to stream some markdown characters, and you would then need it
+
+01:41.920 --> 01:43.990
+to sort of incorporate that in what it's showing.
+
+01:43.990 --> 01:49.600
+So there's a bit of hokey code here to handle the fact that we're going to want to rewrite the full
+
+01:49.600 --> 01:53.230
+markdown version for each chunk so you can look through it.
+
+01:53.230 --> 01:59.100
+But basically I keep a sort of running track of everything in response, a kind of cumulative track
+
+01:59.100 --> 02:01.980
+of all of the chunks that have come back.
+
+02:01.980 --> 02:09.120
+And so for each chunk that comes back, I basically, uh, include that in response.
+
+02:09.120 --> 02:14.070
+Uh, I strip out if the word markdown is actually in there, I strip it out of the response.
+
+02:14.070 --> 02:18.090
+And finally I update the full display to show that.
+
+02:18.090 --> 02:20.850
+So this is all a little bit complex.
+
+02:20.850 --> 02:24.270
+You wouldn't need this if you were just simply writing text.
+
+02:24.270 --> 02:30.450
+Uh, the only reason that you need it this way is because we want to show it in a nice, fancy markdown
+
+02:30.450 --> 02:30.990
+way.
+
+02:30.990 --> 02:32.880
+And let me show you what I mean by that.
+
+02:32.880 --> 02:38.880
+If we now repeat this for anthropic, we'll have to wait a minute while it, uh, while it does that
+
+02:38.880 --> 02:42.780
+first finding the links and getting all these pages, and then here you go.
+
+02:42.810 --> 02:43.560
+Look at that.
+
+02:43.560 --> 02:50.760
+It's the familiar streaming interface that you can see there, and it's done.
+
+02:50.760 --> 02:55.320
+And I love the fact that because it's markdown, we also get things like the links in here.
+
+02:55.320 --> 02:57.680
+And just to show you what I was talking about.
+
+02:57.680 --> 03:03.590
+If you didn't want to have it displaying in markdown, the simpler way that you could do this is that
+
+03:03.590 --> 03:10.550
+you could have it say like, uh, something like, um, for chunk in stream.
+
+03:12.560 --> 03:15.260
+Uh, print chunk.
+
+03:15.260 --> 03:20.060
+And then we'd have to have something like end equals that stops it from printing a new line each time.
+
+03:20.060 --> 03:22.640
+And I think this is now let's see if that works.
+
+03:23.090 --> 03:29.330
+Uh, this this would now just print it as a series of, uh, little, uh, pieces of text so we won't
+
+03:29.330 --> 03:30.890
+get the markdown formatting.
+
+03:31.280 --> 03:33.560
+Oh, that's not going to work.
+
+03:34.040 --> 03:34.940
+Uh, sorry.
+
+03:34.940 --> 03:37.850
+This should of course, be chunk.
+
+03:38.810 --> 03:41.720
+I might as well put in all of this like that.
+
+03:41.720 --> 03:43.940
+Otherwise, we're getting the objects that are flowing back.
+
+03:43.970 --> 03:47.510
+You probably saw me doing that and thought, idiot, there we go.
+
+03:47.600 --> 03:49.340
+It shows you this is real time.
+
+03:49.550 --> 03:51.560
+Uh, okay, let's try that again.
+
+03:51.590 --> 03:53.180
+See if we get a better result now.
+
+03:53.990 --> 03:58.990
+So if we simply put in here the the the the the print statement.
+
+03:58.990 --> 03:59.770
+Like this.
+
+03:59.770 --> 04:01.090
+Then what you'll see coming back.
+
+04:01.090 --> 04:01.930
+Here you go.
+
+04:01.960 --> 04:03.700
+You see it comes back.
+
+04:03.700 --> 04:05.080
+It's super simple.
+
+04:05.080 --> 04:07.450
+It just won't be nicely formatted.
+
+04:07.450 --> 04:10.510
+But obviously the code, if you do it this way is really simple.
+
+04:10.510 --> 04:13.570
+This is all the code you need to be able to stream back results.
+
+04:13.570 --> 04:18.250
+So you set stream equals true and then you iterate back that way.
+
+04:19.180 --> 04:29.170
+Uh, so now let me remove that and I will uncomment this if you don't know by the way then then a command
+
+04:29.170 --> 04:36.250
+and the divide by sign or on the windows it's a windows key and divide by sign, uh is something which
+
+04:36.250 --> 04:39.010
+will comment out or uncomment a block of code like that.
+
+04:39.010 --> 04:44.020
+It's a useful shortcut to know, uh, all right, let's run this again and just see anthropic one more
+
+04:44.020 --> 04:47.530
+time with the nice great formatting.
+
+04:47.800 --> 04:49.180
+Finds the links.
+
+04:49.180 --> 04:50.800
+And here it is again.
+
+04:50.800 --> 04:55.350
+And of course it's going to be amazingly a different brochure every time.
+
+04:55.590 --> 04:58.860
+Uh, and, uh, there it is this time.
+
+04:58.860 --> 05:00.600
+And now let's try a different company.
+
+05:00.600 --> 05:07.530
+Let's try hugging face the ubiquitous open source platform for, uh, AI engineers.
+
+05:07.560 --> 05:09.090
+Let's see how we get.
+
+05:09.120 --> 05:10.800
+We get some links.
+
+05:10.800 --> 05:16.380
+And here comes the hugging face brochure with career opportunities.
+
+05:16.380 --> 05:17.010
+Perks.
+
+05:17.040 --> 05:18.060
+Get in touch.
+
+05:18.060 --> 05:18.780
+And then.
+
+05:18.810 --> 05:21.300
+And together, let's build the future of AI.
+
+05:21.330 --> 05:22.530
+Very nice.
+
+05:22.560 --> 05:25.740
+All right, let's do one more thing to make this fun.
+
+05:25.740 --> 05:31.050
+Let's just go all the way back to where we created the system prompt.
+
+05:31.050 --> 05:32.910
+Where was that?
+
+05:32.940 --> 05:34.710
+All the way back here.
+
+05:34.710 --> 05:36.210
+System prompt.
+
+05:36.210 --> 05:41.220
+So one of the things about the system prompt is that this is the place where you not only describe the
+
+05:41.220 --> 05:49.200
+task that is to be done, but also you talk about the tone and character that the LLM should adopt in
+
+05:49.200 --> 05:50.760
+generating this content.
+
+05:50.760 --> 05:57.690
+So let's comment this and uncomment a variation right here.
+
+05:57.690 --> 05:59.730
+And this variation just includes that.
+
+05:59.730 --> 06:05.610
+It should be a short, humorous, entertaining, jokey brochure and we will run that code.
+
+06:05.820 --> 06:11.970
+Uh, and because I use very naughtily here, system prompt is like a global variable that I refer to
+
+06:12.000 --> 06:12.600
+elsewhere.
+
+06:12.600 --> 06:17.640
+So I do believe I don't need to rerun any of this because I have that like hardcoded, I should be able
+
+06:17.640 --> 06:21.600
+to come all the way down here and just simply rerun this.
+
+06:21.630 --> 06:29.760
+And I believe, if I'm not mistaken, that we're now going to get a jovial, jokey ha ha, here we go.
+
+06:29.790 --> 06:33.900
+Welcome to anthropic, where I gets a safety net.
+
+06:34.380 --> 06:39.240
+Uh, at anthropic, we're building AI systems you can actually trust, ensuring they're more reliable
+
+06:39.240 --> 06:43.920
+than your morning coffee, and easier to understand than your cats mood swings.
+
+06:44.670 --> 06:50.100
+Based on sunny land of San Francisco, we're on a mission to make AI a friend, not a foe.
+
+06:50.130 --> 06:57.620
+So, I mean, it's just It's extraordinary that by making a small change to the system prompt like that,
+
+06:57.650 --> 07:03.740
+we can have such a wonderfully different lens on our company brochure.
+
+07:03.860 --> 07:07.220
+I find that just just really, truly remarkable.
+
+07:07.430 --> 07:12.860
+I will uncomment I will comment that so that it doesn't confuse you when you see it.
+
+07:13.010 --> 07:20.990
+But um, this of course lends me to the first thing I want to say, which is that as you experiment
+
+07:20.990 --> 07:28.460
+with this, this is your opportunity to really understand deeply what it means to use prompting to affect
+
+07:28.460 --> 07:30.560
+the character of what's generated.
+
+07:30.560 --> 07:32.840
+So you can take it a step further.
+
+07:32.840 --> 07:36.740
+Make a snarky brochure that's loaded with sarcasm.
+
+07:36.740 --> 07:38.810
+Make a brochure in Spanish.
+
+07:38.930 --> 07:43.790
+Uh, do add something that will that will translate to a different language.
+
+07:43.790 --> 07:46.010
+Uh, try all of these different things.
+
+07:46.160 --> 07:53.230
+Um, and this is, this will be very important part of learning how you use prompting to affect the
+
+07:53.230 --> 07:54.910
+type of result that you get.
+
+07:55.930 --> 08:01.180
+Okay, let me wrap this up before we start talking about too much about exercises.
+
+08:01.180 --> 08:09.010
+So what we did today was we extended what we did in day one instead of just calling one LM call to summarize
+
+08:09.010 --> 08:15.700
+a website, we ended up making two calls to LM one to collect relevant links and one to then from a
+
+08:15.700 --> 08:21.700
+scrape of all of that data to then build a robust company brochure.
+
+08:22.000 --> 08:28.210
+Uh, and, you know, as I say, this is like a toy starting version of a gigantic AI in a small way,
+
+08:28.210 --> 08:31.600
+because we're dividing up a bigger problem into smaller steps.
+
+08:31.600 --> 08:38.410
+But I did want to impress upon you that this this is very applicable to many different kinds of business
+
+08:38.410 --> 08:43.420
+problem, this kind of synthesizing information and then generating as a result of it.
+
+08:43.480 --> 08:49.810
+Uh, and so you can imagine that you could do this to write marketing content to generate a product.
+
+08:49.930 --> 08:57.240
+Uh, tutorial like a guide from product spec, uh, to create some personalized email content.
+
+08:57.300 --> 08:59.670
+By reading through a bunch of emails.
+
+08:59.670 --> 09:05.310
+So there are so many ways that you can imagine this kind of two step synthesize some data and summarize
+
+09:05.310 --> 09:09.930
+it in JSON, and then use that as a way to build some kind of output.
+
+09:09.960 --> 09:12.120
+Many different applications of that.
+
+09:12.120 --> 09:17.730
+And so what I'd love to see you do is figure out a way to apply this to what you do day to day.
+
+09:17.730 --> 09:19.920
+And interesting commercial angle here.
+
+09:19.950 --> 09:24.990
+Uh, something that would allow you to think about your area of expertise, where you have the greatest
+
+09:24.990 --> 09:25.860
+domain knowledge.
+
+09:25.860 --> 09:31.500
+And now given this new these, these skills you have, how could you put that to good use?
+
+09:31.500 --> 09:33.390
+So have a think about that.
+
+09:33.390 --> 09:39.570
+Feel free to bounce ideas off me at any point, and try and build some examples of that and put them
+
+09:39.570 --> 09:40.380
+in your GitHub.
+
+09:40.380 --> 09:47.700
+So you have some nice examples of using multiple calls to llms to synthesize information and generate
+
+09:47.700 --> 09:48.600
+content.
+
+09:48.630 --> 09:50.400
+I will see you for the next video.

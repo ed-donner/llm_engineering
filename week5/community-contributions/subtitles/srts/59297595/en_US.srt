@@ -1,0 +1,124 @@
+WEBVTT
+
+00:00.560 --> 00:04.640
+So by the time you're watching this, hopefully you have played yourself with vectors.
+
+00:04.640 --> 00:10.370
+You've created your own chunks, you've put them in a data store, and you have looked at them in 2D
+
+00:10.370 --> 00:14.300
+and 3D and made up your mind which of those you prefer?
+
+00:14.780 --> 00:17.090
+Well, that introduces you to chroma.
+
+00:17.120 --> 00:18.260
+Very easy to use.
+
+00:18.260 --> 00:20.720
+You can also try using other data stores.
+
+00:20.750 --> 00:25.010
+Vice is one that's very easy to use using the same kind of code.
+
+00:25.040 --> 00:32.750
+It's a Facebook AI similarity search, and it's an in-memory vector data store that is even it's not
+
+00:32.750 --> 00:34.730
+even easy to the same amount of difficulty.
+
+00:34.760 --> 00:38.270
+It just involves changing 1 or 2 lines of what we already wrote.
+
+00:38.270 --> 00:40.070
+So that could be another exercise for you.
+
+00:40.100 --> 00:46.970
+Repeat this in office and you'll find it's it's trivial to do, and you will get, of course, consistent
+
+00:46.970 --> 00:49.610
+results if you're using OpenAI embeddings.
+
+00:50.420 --> 00:58.520
+Uh, so, uh, it's worth pointing out that what we've just experienced is the very best of long chain
+
+00:58.520 --> 01:03.050
+in that we were able to accomplish a lot in literally just two lines of code.
+
+01:03.050 --> 01:08.600
+There was the line when we said embeddings equals OpenAI embeddings, and that was immediately giving
+
+01:08.600 --> 01:14.960
+us access to OpenAI's API to use for calculating embedding vectors.
+
+01:15.260 --> 01:20.360
+Um, and then there was just that single line where we created our chroma database.
+
+01:20.360 --> 01:22.490
+We said chroma dot from documents.
+
+01:22.490 --> 01:28.180
+And you remember we passed in three things, documents, which in our case were in fact chunks of documents.
+
+01:28.630 --> 01:35.320
+Embeddings, which are the OpenAI embeddings and the database name is the directory that it used.
+
+01:35.320 --> 01:37.480
+And we could have put in any name we wanted.
+
+01:37.750 --> 01:41.860
+And I chose vector DB, but you can put in whatever name you wish.
+
+01:41.980 --> 01:42.970
+The.
+
+01:43.330 --> 01:51.310
+It's worth pointing out that we created these vectors for each chunk from our original, uh, text that
+
+01:51.310 --> 01:52.090
+we read in.
+
+01:52.120 --> 01:54.520
+We could equally well have put in documents there.
+
+01:54.520 --> 01:58.870
+We could have instead created vectors for entire documents instead of for chunks.
+
+01:58.870 --> 01:59.800
+And you can try that.
+
+01:59.830 --> 02:02.650
+Try replacing the word chunks with documents and see what you get.
+
+02:02.680 --> 02:09.310
+Of course, there'll be fewer of them, and you can see whether they are as separated out in the same
+
+02:09.310 --> 02:11.440
+way I'm guessing that they will be.
+
+02:13.000 --> 02:19.330
+So with that, we are finally ready to bring this together and build our Rag pipeline.
+
+02:19.360 --> 02:20.500
+Our Rag solution.
+
+02:20.500 --> 02:24.340
+And at this point, I'm hoping all of the concepts are very clear in your mind.
+
+02:24.370 --> 02:29.530
+Next time we're going to again see the power of Lang Chain to be able to stitch together a full solution
+
+02:29.530 --> 02:36.640
+just with a few lines of code, including a conversation chain and memory, which are some of the things
+
+02:36.640 --> 02:38.740
+that Lang Chain handles very nicely.
+
+02:38.740 --> 02:44.410
+And we'll be able to have question and answer session demonstrating expert knowledge of the space.
+
+02:44.410 --> 02:47.470
+So that's a big milestone for us.
+
+02:47.470 --> 02:50.830
+It's rag coming together and it's happening in the next session.

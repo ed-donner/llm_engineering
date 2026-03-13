@@ -1,0 +1,343 @@
+WEBVTT
+
+00:00.710 --> 00:02.780
+All right, back to the lab.
+
+00:02.780 --> 00:03.950
+Back to our project.
+
+00:03.980 --> 00:06.230
+Time to work with tools.
+
+00:06.530 --> 00:11.210
+I am in the week two folder in JupyterLab, and I'm launching day four.
+
+00:11.240 --> 00:18.110
+It's time for us to bring together what we've done so far to make a customer service assistant for a
+
+00:18.110 --> 00:19.880
+fictitious airline.
+
+00:19.910 --> 00:21.770
+We start with some imports.
+
+00:21.770 --> 00:25.550
+As usual, we initialize a load of key.
+
+00:25.580 --> 00:32.870
+We're going to use GPT four mini today, and the OpenAI initialization is there.
+
+00:32.900 --> 00:33.890
+The system message.
+
+00:33.890 --> 00:39.920
+You're a helpful assistant for an airline called flight I, flight II flight A, however you want to
+
+00:39.920 --> 00:40.520
+call it.
+
+00:40.610 --> 00:41.630
+There it is.
+
+00:41.660 --> 00:45.200
+Give short, courteous answers no more than one sentence.
+
+00:45.200 --> 00:46.400
+Always be accurate.
+
+00:46.400 --> 00:48.770
+If you don't know the answer, say so.
+
+00:48.800 --> 00:54.290
+This, of course, a very good type of, uh, system prompt.
+
+00:54.350 --> 01:00.410
+Um, if you're, uh, want to have a strong focus on lack of hallucinations on truthfulness.
+
+01:00.410 --> 01:01.790
+So we run that.
+
+01:01.820 --> 01:04.370
+Then this is something you're now very familiar with.
+
+01:04.370 --> 01:08.540
+This is the chat function in the style that Gradio expects it.
+
+01:08.570 --> 01:14.630
+It takes a message, it takes history, and it then builds the style that is expected by OpenAI.
+
+01:14.660 --> 01:16.940
+You may notice this looks a bit shorter than before.
+
+01:16.940 --> 01:19.850
+And that's because this time I'm not streaming back results.
+
+01:19.850 --> 01:20.900
+I think we've done enough of that.
+
+01:20.900 --> 01:25.400
+And since we're going with these short responses, streaming is probably overkill.
+
+01:25.400 --> 01:27.230
+Let's see this in action.
+
+01:27.260 --> 01:28.280
+Up it comes.
+
+01:28.280 --> 01:29.870
+We know Gradio so well now.
+
+01:29.870 --> 01:33.440
+We don't need to show off about it and we can say hi there.
+
+01:34.700 --> 01:36.680
+Hello, how can I assist you today?
+
+01:36.710 --> 01:41.360
+I want to go to London, my hometown.
+
+01:41.360 --> 01:42.170
+I always want to go there.
+
+01:42.200 --> 01:42.950
+Great choice.
+
+01:42.950 --> 01:45.800
+Would you like to help finding flights to London?
+
+01:46.460 --> 01:47.450
+Yes.
+
+01:47.450 --> 01:50.300
+How much is a ticket?
+
+01:52.100 --> 01:56.060
+I don't have real time pricing, but you can check our website or app for the latest ticket prices.
+
+01:56.090 --> 01:56.480
+London.
+
+01:56.480 --> 01:59.390
+So you know it's good to see as instructed.
+
+01:59.390 --> 02:00.920
+It does not hallucinate prices.
+
+02:00.920 --> 02:02.900
+It doesn't try and go there.
+
+02:02.900 --> 02:09.200
+It does what it's told, and you can also see it's giving short one line responses just as we asked.
+
+02:09.230 --> 02:11.600
+Okay, back we go.
+
+02:11.630 --> 02:17.780
+So it is time to talk about tools, an incredibly powerful feature provided by the frontier LMS.
+
+02:17.780 --> 02:21.770
+You can write a function, have it call that function as part of its response.
+
+02:21.770 --> 02:24.140
+Sounds almost spooky.
+
+02:24.170 --> 02:27.680
+We're giving it the power to run code on our machine.
+
+02:27.710 --> 02:33.110
+As I said, it's just a kind of story and that will soon be very clear to you.
+
+02:33.530 --> 02:39.470
+So let's start by making ourselves a function, a function that is going to be a useful function that
+
+02:39.470 --> 02:41.510
+we want to arm our alarm with.
+
+02:41.510 --> 02:45.710
+And that function is going to be called get ticket price given a city.
+
+02:45.710 --> 02:49.130
+So uh, it's going to begin by printing.
+
+02:49.130 --> 02:52.490
+Get ticket price called for destination City.
+
+02:52.670 --> 02:58.250
+And we're doing that so that we can watch later to see when this function is called.
+
+02:58.520 --> 03:03.380
+Uh, what we do is we take the destination city and we make it lowercase.
+
+03:03.380 --> 03:10.130
+So this works and we look it up in this dictionary where we've got lowercase cities and prices.
+
+03:10.130 --> 03:13.190
+If it doesn't find it, it says unknown.
+
+03:13.400 --> 03:15.170
+Let's just add one in here.
+
+03:15.200 --> 03:18.650
+Why not change things on the fly?
+
+03:18.680 --> 03:20.180
+Probably break everything.
+
+03:21.110 --> 03:21.770
+Hopefully not.
+
+03:21.800 --> 03:28.100
+Let's give ourselves Berlin and a nice, cheap, special deal for for flights to Berlin.
+
+03:28.100 --> 03:29.000
+Why not?
+
+03:29.330 --> 03:29.900
+Um.
+
+03:29.930 --> 03:31.880
+Okay, let's run that.
+
+03:32.180 --> 03:35.090
+So we will now try this out.
+
+03:35.120 --> 03:44.270
+Get ticket price to Berlin, see what we get.
+
+03:44.300 --> 03:46.400
+And it says tool, get ticket price.
+
+03:46.400 --> 03:49.490
+Called for Berlin for $99.
+
+03:49.520 --> 03:50.990
+Now you might be thinking to yourself.
+
+03:51.020 --> 03:51.980
+What does he mean, tool?
+
+03:51.980 --> 03:54.080
+This isn't a tool, it's just a function.
+
+03:54.110 --> 03:56.630
+And the answer is for now, it's just a function.
+
+03:56.630 --> 03:58.490
+We're about to make it into a tool.
+
+03:58.490 --> 04:02.570
+I don't know if you actually sound that way, but that's how you sound in my mind.
+
+04:02.930 --> 04:07.400
+So anyway, that that is us creating our tool.
+
+04:07.940 --> 04:15.560
+Now, the process of putting these tools into our interface with an LLM is a bit storied.
+
+04:15.560 --> 04:20.420
+It's not going to be as simple as bringing up a Gradio interface.
+
+04:20.420 --> 04:23.660
+Regrettably, uh, it's more involved.
+
+04:23.660 --> 04:24.770
+There's good reason for that.
+
+04:24.770 --> 04:26.180
+And we'll find out why.
+
+04:26.240 --> 04:28.340
+Um, but it is a little bit more involved.
+
+04:28.460 --> 04:34.940
+Um, but the good news is it's very much a sort of cookie cutter style that can be replicated for other
+
+04:34.940 --> 04:36.830
+function calls for other tools.
+
+04:36.830 --> 04:39.740
+So you'll be able to reuse this for your own projects.
+
+04:39.740 --> 04:41.390
+And I very much hope you do.
+
+04:41.420 --> 04:47.630
+One of the intentions of having these useful projects in here is so that you can then take this as a
+
+04:47.630 --> 04:51.290
+resource and use these bits of code for your own projects.
+
+04:51.440 --> 04:55.160
+Um, and I'll certainly be recommending that you try adding your own tools.
+
+04:55.160 --> 04:57.980
+So you should be closely following this.
+
+04:58.550 --> 05:04.130
+Uh, and the first thing I'm going to mention is that we need to build a particular dictionary structure
+
+05:04.130 --> 05:07.700
+that's required to describe the function we just wrote.
+
+05:07.700 --> 05:09.380
+And this is what it looks like.
+
+05:09.410 --> 05:11.150
+Price function, I'll call it.
+
+05:11.150 --> 05:12.050
+You call it anything you want.
+
+05:12.080 --> 05:15.290
+You give it a name and you describe it.
+
+05:15.290 --> 05:21.470
+And the way you describe it is in plain Old English, because this is going to be given to the LLM so
+
+05:21.470 --> 05:25.070
+that it can understand when is it appropriate to call this function.
+
+05:25.070 --> 05:28.460
+So it says get the price of a return ticket to the destination city.
+
+05:28.490 --> 05:30.710
+Call this whenever you need to know the ticket price.
+
+05:30.710 --> 05:34.940
+For example, when a customer asks how much is a ticket to the city?
+
+05:34.970 --> 05:38.360
+So giving it an example is always a good, good technique.
+
+05:38.360 --> 05:39.950
+And that's what we're using here.
+
+05:39.950 --> 05:43.640
+And then you provide the parameters in this setup here.
+
+05:43.640 --> 05:47.060
+And our function has one parameter destination city.
+
+05:47.060 --> 05:50.330
+And that is what the parameter does.
+
+05:50.480 --> 05:54.230
+So that's how you describe the function that you're using.
+
+05:54.230 --> 05:58.070
+And you can see I say that it's a required parameter.
+
+05:58.640 --> 06:00.530
+So that is the setup.
+
+06:00.560 --> 06:03.110
+And at this point I'm going to pause for a moment.
+
+06:03.110 --> 06:05.210
+And in the next video we're going to keep going.
+
+06:05.210 --> 06:09.650
+And we're going to arm the LLM with this function.
+
+06:09.650 --> 06:10.700
+See you there.

@@ -1,0 +1,139 @@
+WEBVTT
+
+00:00.770 --> 00:07.670
+Now, look, I know that I went through that very fast, but maybe, uh, you're still, uh, blinking
+
+00:07.700 --> 00:08.450
+at the end of that.
+
+00:08.450 --> 00:13.490
+But that's because the point is that you should go back now and do this yourself and see it.
+
+00:13.490 --> 00:17.540
+And as you run that code and you see what's going on in the modal screens, I think it's going to make
+
+00:17.540 --> 00:18.770
+complete sense.
+
+00:18.950 --> 00:24.470
+Um, in case you have any problems with that, uh, hugging face token, I'm going to put better instructions
+
+00:24.470 --> 00:25.310
+in the Jupyter lab.
+
+00:25.310 --> 00:26.570
+So that's very clear for you.
+
+00:26.570 --> 00:32.540
+And yeah, if I think you'll find that it will, that it will be fairly straightforward and you'll see
+
+00:32.540 --> 00:34.820
+how that works and why it's working so fast.
+
+00:34.850 --> 00:37.010
+There's the first time you run it for a while.
+
+00:37.010 --> 00:38.660
+There's several minutes for it to warm up.
+
+00:38.660 --> 00:44.120
+But then subsequently, because we've cached the model weights and we've loaded it into memory, it
+
+00:44.120 --> 00:47.390
+should run quickly as it did just then.
+
+00:47.450 --> 00:54.650
+So with that, you have now learned how to take a model and how to deploy it to production so that people
+
+00:54.650 --> 01:02.450
+could call it just with Python code for production purposes within applications outside something like
+
+01:02.480 --> 01:03.590
+a Jupyter Lab.
+
+01:04.040 --> 01:07.490
+And hopefully you're now beginning to appreciate that.
+
+01:07.490 --> 01:12.350
+We do have a big week, and it is an epic project, and there's a lot to be done.
+
+01:12.350 --> 01:16.790
+In fact, uh, the next day's worth of activities is the biggest of the lot.
+
+01:16.820 --> 01:18.740
+There's an awful lot happening.
+
+01:18.860 --> 01:26.700
+Um, but just to remind yourself for today that that this was about deploying models in production using
+
+01:26.700 --> 01:30.390
+modal, the serverless platform.
+
+01:30.600 --> 01:37.350
+In some ways, it's similar to when we deployed a model or I deployed a model to the hugging face using
+
+01:37.380 --> 01:38.940
+hugging face endpoints.
+
+01:39.120 --> 01:44.850
+Um, but you can see the the extra functionality that you get with this, the ability to configure infrastructure
+
+01:44.850 --> 01:49.650
+with code and the way that the pricing works, it's a very, very powerful platform.
+
+01:49.920 --> 01:57.330
+Next time you'll be able to build an advanced Wragg solution, you're saying I already you already got
+
+01:57.330 --> 01:57.690
+Wragg.
+
+01:57.690 --> 01:58.620
+We've done Wragg.
+
+01:58.620 --> 01:59.670
+We know Wragg well.
+
+01:59.670 --> 02:01.140
+You're going to know it even more.
+
+02:01.140 --> 02:01.650
+Next time.
+
+02:01.650 --> 02:03.030
+We're going to use Wragg.
+
+02:03.030 --> 02:05.010
+We're going to do it directly without chain.
+
+02:05.010 --> 02:05.940
+We're pros now.
+
+02:05.940 --> 02:06.930
+We don't need long chain.
+
+02:06.930 --> 02:08.070
+We can do it ourselves.
+
+02:08.070 --> 02:14.820
+We're going to look things up in a Chrome data store and use it to give context to a model, but it's
+
+02:14.820 --> 02:18.180
+going to be an enormous great data store.
+
+02:18.180 --> 02:23.790
+And we're going to build something called an ensemble model, which is a kind of model that combines
+
+02:23.790 --> 02:25.590
+the best of multiple models.
+
+02:25.590 --> 02:32.400
+And we're going to be able to deliver production ready code that will span multiple models.
+
+02:32.400 --> 02:39.360
+So it's going to be about, uh, really strengthening your skill set, building expertise as you make
+
+02:39.360 --> 02:46.140
+the transition from being a knowledgeable in LM engineering to being a master of LM engineering.
+
+02:46.350 --> 02:48.330
+And with that, I'll see you next time.

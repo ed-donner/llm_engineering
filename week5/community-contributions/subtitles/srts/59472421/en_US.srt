@@ -1,0 +1,295 @@
+WEBVTT
+
+00:00.110 --> 00:05.510
+And welcome back to our final time in Jupyter Lab with traditional machine learning.
+
+00:05.510 --> 00:07.100
+It's almost over.
+
+00:07.130 --> 00:09.170
+Personally, I find it a lot of fun.
+
+00:09.260 --> 00:12.290
+I hope, I hope it hasn't been too unbearable for you.
+
+00:12.320 --> 00:17.600
+Uh, it's a great experience to have had, though, and I'm really hoping that you've been playing around
+
+00:17.600 --> 00:23.000
+yourself, adding some more features, doing some more experiments, seeing if you can't get more out
+
+00:23.000 --> 00:23.660
+of this.
+
+00:23.660 --> 00:29.150
+This was the last chart we looked at, which was word two vec getting an error of 115 on average.
+
+00:29.180 --> 00:35.390
+And you may remember that we did better with that with the original Bag of Words NLP model that got
+
+00:35.390 --> 00:39.320
+us to, I think 114 113.6 or something.
+
+00:39.680 --> 00:46.010
+So, um, what we're now going to do is unveil the last two models.
+
+00:46.040 --> 00:54.980
+We're going to use support vector regression from Support Vector Machines, uh, which is a fancy schmancy
+
+00:55.010 --> 00:56.630
+traditional machine learning technique.
+
+00:56.630 --> 01:03.070
+When you take your, your, your data points and you try and fit a hyperplane that separates the data
+
+01:03.100 --> 01:08.560
+using things called support vectors, which are the the vectors with the points that are closest to
+
+01:08.590 --> 01:09.730
+the hyperplane.
+
+01:09.820 --> 01:14.530
+This may be nonsense to you, or it may be stuff that you know back to front and that I'm not explaining
+
+01:14.530 --> 01:15.100
+it well.
+
+01:15.100 --> 01:16.840
+In either case, it doesn't matter.
+
+01:16.840 --> 01:22.630
+We're just going to take the library as it is from scikit learn, which is so easy to use.
+
+01:22.750 --> 01:24.970
+We are using a linear SVR.
+
+01:25.000 --> 01:30.550
+There are other types with different kernels that maybe give better results, but they take ages to
+
+01:30.580 --> 01:31.000
+run.
+
+01:31.000 --> 01:36.700
+This one runs very quickly, almost too quickly, which makes me think maybe I'm not using it to to
+
+01:36.730 --> 01:37.630
+its best.
+
+01:37.720 --> 01:44.380
+Um, but I have already run it and it took about five seconds, but the one I used with a different
+
+01:44.380 --> 01:47.890
+kernel I ran all night and still hadn't finished.
+
+01:47.890 --> 01:53.920
+So maybe that's somewhere in the middle that that is something that you may be able to to, to explore.
+
+01:54.070 --> 01:58.480
+But this was the the best that I could do.
+
+01:58.510 --> 02:02.610
+Uh, and let's see how it performs.
+
+02:02.640 --> 02:03.240
+Are you ready?
+
+02:03.270 --> 02:04.080
+Put in your bets.
+
+02:04.080 --> 02:05.700
+And now I will run it.
+
+02:05.970 --> 02:06.990
+No I won't.
+
+02:07.290 --> 02:09.510
+Oh, there we go.
+
+02:09.600 --> 02:10.470
+That works.
+
+02:10.890 --> 02:12.360
+Uh, okay.
+
+02:12.360 --> 02:17.190
+So lots of yellows, lots of reds, lots of greens.
+
+02:17.190 --> 02:22.740
+It's obviously not crushing it, but there's some, uh, looks not terrible.
+
+02:22.740 --> 02:25.860
+Let's see how that does when we get to the charts.
+
+02:26.940 --> 02:33.210
+Well, so, uh, it is a winner so far.
+
+02:33.240 --> 02:35.220
+112.5.
+
+02:35.250 --> 02:43.170
+It is a hair better than the, uh, the prior winner, which was the bag of words linear regression
+
+02:43.170 --> 02:43.680
+model.
+
+02:43.710 --> 02:49.980
+You can see visually that there's some good things going on, but obviously it's struggling to estimate,
+
+02:50.070 --> 02:52.740
+um, much above the average point.
+
+02:52.860 --> 02:58.950
+Uh, so you can see that there's some progress, but not tremendous progress.
+
+02:59.400 --> 03:03.590
+That is our support vector regression model.
+
+03:03.770 --> 03:11.450
+And now that brings us to our last one, our last model, which is a random forest regression random
+
+03:11.450 --> 03:11.990
+forest.
+
+03:12.020 --> 03:13.610
+A particular technique.
+
+03:13.610 --> 03:19.040
+It's a type of ensemble technique that involves combining lots of smaller models.
+
+03:19.250 --> 03:27.050
+The models that it combines, each of them take a random sample of your data points and a random sample
+
+03:27.050 --> 03:32.270
+of your features, which in our case means different chunks of our vectors.
+
+03:32.390 --> 03:38.900
+Uh, and trains many models based on that and then combines all of those models.
+
+03:38.900 --> 03:45.350
+In the case of a regression, it takes the average across all of these mini models, and that is called
+
+03:45.350 --> 03:47.000
+a random forest.
+
+03:47.090 --> 03:49.610
+So we will see how that works.
+
+03:49.610 --> 03:55.700
+These are generally known to perform well for all shapes and sizes of datasets.
+
+03:55.730 --> 03:59.540
+And they're they're good in that they don't have a lot of hyper parameters.
+
+03:59.570 --> 04:04.520
+Hyper parameters is what people call just extra knobs to tweak extra things.
+
+04:04.520 --> 04:06.800
+You have to try lots of different values for.
+
+04:07.100 --> 04:09.230
+Random forests don't have a lot of them.
+
+04:09.230 --> 04:11.480
+You just use it as it is and see how it does.
+
+04:11.480 --> 04:15.560
+So we've used it as it is and now we will see how it does.
+
+04:15.590 --> 04:19.970
+Tester dot test and we pass in random forest processor.
+
+04:19.970 --> 04:21.680
+And again put in your bets.
+
+04:21.980 --> 04:25.880
+Uh, do you think the random forest is going to do better or worse?
+
+04:25.910 --> 04:28.010
+112 is the number to beat.
+
+04:28.010 --> 04:30.740
+Let's see how traditional machine learning performs.
+
+04:30.740 --> 04:31.790
+We see some greens.
+
+04:31.790 --> 04:34.130
+We see some reds, we see some greens.
+
+04:34.370 --> 04:36.830
+It takes a little bit slower to to run.
+
+04:36.860 --> 04:42.020
+We're seeing some greens, greens, greens, reds, lots of reds.
+
+04:42.320 --> 04:45.230
+But generally there we have it.
+
+04:45.230 --> 04:46.820
+There we have it.
+
+04:46.820 --> 04:50.060
+So random forest for the win.
+
+04:50.090 --> 04:52.940
+The error is $97.
+
+04:52.940 --> 04:54.920
+It's come in under 100.
+
+04:54.950 --> 04:56.780
+We have a nine handle.
+
+04:56.780 --> 04:58.610
+We've come in under $100.
+
+04:58.640 --> 04:59.930
+Our best so far.
+
+04:59.930 --> 05:02.370
+34% of the dots are green.
+
+05:02.550 --> 05:03.840
+Here is our line.
+
+05:03.840 --> 05:05.130
+Here are the green dots.
+
+05:05.130 --> 05:09.450
+It's it's also had a bit of a problem getting predicting above the average but not too bad.
+
+05:09.720 --> 05:11.310
+You see how well it did with that guy there.
+
+05:11.340 --> 05:14.220
+It came in green for the really expensive item.
+
+05:14.340 --> 05:23.340
+Uh, and uh uh, it's generally it's generally fared pretty well I would say certainly are running winner.
+
+05:23.340 --> 05:25.410
+Congratulations to Random Forest.
+
+05:25.500 --> 05:27.450
+Uh, and of course, congratulations to you.
+
+05:27.450 --> 05:34.710
+If you've beaten this, you can do things like you can use random forest, but put in not only the vectors
+
+05:34.710 --> 05:38.160
+that we've just come up with, but you can add in features as well.
+
+05:38.160 --> 05:45.540
+You can manufacture engineer some features and shove them in as well and use that to try and beat beat
+
+05:45.540 --> 05:49.110
+this number, get do better than than 97.
+
+05:49.230 --> 05:55.530
+Uh, and see how you do have fun with traditional machine learning, because this is going to be the
+
+05:55.530 --> 05:59.640
+end of it before we move on to trying out LMS.
+
+05:59.640 --> 06:02.730
+But first, a quick wrap up with the slides.

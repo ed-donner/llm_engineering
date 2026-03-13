@@ -1,0 +1,43 @@
+WEBVTT
+
+00:00.560 --> 00:03.590
+And with that, it concludes our session on tools.
+
+00:03.590 --> 00:08.720
+And at this point, you are probably an expert on tools because you've gone back and you've added in
+
+00:08.720 --> 00:17.120
+the extras, like giving your LLM the ability to book flights in that it can print it to your output.
+
+00:17.360 --> 00:19.940
+So congratulations on getting here.
+
+00:19.970 --> 00:22.550
+Now you are very well versed in transformers.
+
+00:22.550 --> 00:28.340
+You can code against the frontier LLM APIs, and you can build AI assistants with user interfaces and
+
+00:28.340 --> 00:30.890
+using tools for more expertise.
+
+00:30.890 --> 00:38.540
+Tomorrow is completing week two, bringing introducing agents to the mix, a super juicy topic.
+
+00:38.570 --> 00:44.720
+We're going to talk about how agents can carry out more complex sequential activities, breaking them
+
+00:44.720 --> 00:51.350
+down into smaller steps, and having specialist AIS that can handle each of those steps.
+
+00:51.350 --> 00:56.750
+And the specific area we're going to look at is introducing some multi-modality.
+
+00:56.780 --> 01:01.820
+We're going to have specialists that can take care of things like creating images, because that's going
+
+01:01.850 --> 01:08.090
+to be fun, and it is going to allow us to build an even more sophisticated business application.
+
+01:08.090 --> 01:12.920
+So with that, I'll see you for the next one and very much looking forward to it.

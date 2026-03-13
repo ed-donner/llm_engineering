@@ -1,0 +1,292 @@
+WEBVTT
+
+00:01.160 --> 00:02.000
+Wonderful.
+
+00:02.000 --> 00:09.890
+Where we left off is we had just created the Get Features function, which builds our features dictionary
+
+00:09.890 --> 00:11.180
+with our four features.
+
+00:11.210 --> 00:20.180
+Let's look at one so we can call get features for let's say our initial training point.
+
+00:20.180 --> 00:24.980
+And what we get back is this nice little this little dictionary.
+
+00:25.010 --> 00:28.100
+Apparently it's £2.2 in its weight.
+
+00:28.100 --> 00:30.380
+That's its average rank.
+
+00:30.410 --> 00:32.510
+That's the length of the text.
+
+00:32.510 --> 00:35.510
+And it is not a top electronics brand.
+
+00:35.510 --> 00:39.620
+So these become the rather meager features that we have engineered.
+
+00:39.830 --> 00:42.980
+You can do better and I challenge you to do so.
+
+00:43.220 --> 00:43.970
+All right.
+
+00:44.000 --> 00:47.660
+Now it's time for some machine learning.
+
+00:47.660 --> 00:54.260
+There's this little utility function that's going to take a list of items and convert it into a dataframe.
+
+00:54.290 --> 00:55.730
+A pandas dataframe.
+
+00:55.730 --> 01:00.710
+Not going to go through this in detail, because this is not a course about traditional machine learning.
+
+01:00.920 --> 01:05.990
+If you know DataFrames and you'll be familiar with this, and we use this to make a training dataframe
+
+01:05.990 --> 01:11.690
+and a test dataframe, just picking the top 250 points in our test data set.
+
+01:12.020 --> 01:13.250
+So there we go.
+
+01:13.280 --> 01:16.490
+We've made our conversion and now this is the business.
+
+01:16.490 --> 01:20.330
+This is where we run traditional linear regression.
+
+01:20.750 --> 01:23.900
+We set our features.
+
+01:24.170 --> 01:28.880
+Um we specify the names of the columns of our features.
+
+01:28.910 --> 01:31.250
+This is where all the action happens.
+
+01:31.250 --> 01:35.840
+Model equals linear regression is saying we want a linear regression model.
+
+01:35.840 --> 01:43.760
+And then we fit that model to our x values, our features and our y values is the actual prices of our
+
+01:43.760 --> 01:45.050
+training data set.
+
+01:45.080 --> 01:50.540
+And that this this is where the action happens and where the model is actually fit.
+
+01:50.720 --> 01:57.980
+Then going to print the the features and their coefficients or how much weight they got.
+
+01:57.980 --> 02:02.870
+So we can see that and get a sense of how important were each of our features.
+
+02:02.900 --> 02:09.380
+And then we will actually run a prediction on that test set and get things like the, the MSE, the
+
+02:09.380 --> 02:14.300
+mean squared error and the r squared for for the data scientists amongst you that want to have a look
+
+02:14.330 --> 02:14.810
+at that.
+
+02:14.810 --> 02:19.940
+But never fear, we're about to see it of course Using the framework that we built before.
+
+02:19.970 --> 02:22.070
+That's going to show it on the same graph.
+
+02:22.070 --> 02:27.710
+So make your guess where you think this is going to come out compared to the average model.
+
+02:27.710 --> 02:31.460
+Let's quickly look back at the average model to remind ourselves what we're trying to beat.
+
+02:31.460 --> 02:37.310
+So an average guess has an error of 145 $146.
+
+02:37.310 --> 02:41.960
+So hopefully linear regression can do better than average.
+
+02:41.960 --> 02:42.620
+Let's see.
+
+02:42.650 --> 02:44.000
+Let's first run it.
+
+02:45.470 --> 02:46.460
+It's quick.
+
+02:47.090 --> 02:53.030
+Uh, so the different uh, um coefficients, the weights that it gave things, you can see that how
+
+02:53.030 --> 02:58.100
+heavy something is gets a small uh, positive weight.
+
+02:58.130 --> 03:01.400
+How it ranks gets a larger one.
+
+03:01.400 --> 03:05.450
+The text length is very small signal very low.
+
+03:05.480 --> 03:07.460
+Is it a top electronics brand?
+
+03:07.490 --> 03:08.690
+Makes a big difference.
+
+03:08.720 --> 03:11.210
+Things that are top electronics brands get a lot.
+
+03:11.720 --> 03:20.540
+Um, okay, so now, uh, we simply wrap this in a function because this is what we're going to use
+
+03:20.540 --> 03:23.060
+in our cool test visualizer.
+
+03:23.060 --> 03:26.530
+We wrap it in a function called linear regression Pricer.
+
+03:26.560 --> 03:32.710
+And we will then just use we will it passes in an item.
+
+03:32.710 --> 03:34.720
+We will get the features for that item.
+
+03:34.720 --> 03:37.030
+We will then convert that to a data frame.
+
+03:37.030 --> 03:43.030
+And then we will call our linear regression model to predict where that comes.
+
+03:43.060 --> 03:45.220
+And let's see what happens.
+
+03:45.490 --> 03:47.560
+Tester dot test.
+
+03:49.000 --> 03:51.400
+Linear regression Pricer.
+
+03:53.380 --> 03:54.550
+Are you ready for this.
+
+03:54.580 --> 03:55.990
+Remember what the average number was.
+
+03:55.990 --> 03:56.860
+Here we go.
+
+03:57.010 --> 04:00.970
+Oh, uh, execute the cell before.
+
+04:01.480 --> 04:04.270
+Uh, how many times have I done that now?
+
+04:05.650 --> 04:06.340
+Bam!
+
+04:06.340 --> 04:08.680
+Well, we can see the colors.
+
+04:08.680 --> 04:13.210
+We can see that it's got a lot of reds in there, but maybe some more greens than before.
+
+04:13.240 --> 04:15.190
+Maybe it hasn't done terribly.
+
+04:15.190 --> 04:17.050
+It's getting some things right.
+
+04:17.470 --> 04:18.490
+Let's see.
+
+04:18.520 --> 04:20.500
+Well, there we have it.
+
+04:20.530 --> 04:23.860
+It's only done a little bit better than the average.
+
+04:23.860 --> 04:25.480
+Only a little bit better.
+
+04:25.480 --> 04:32.740
+And indeed if you look at the results you can see that basically there's a small increase here, but
+
+04:32.740 --> 04:39.710
+it's clustered Stood around the average kind of point, with some of the points coming in about $200
+
+04:39.710 --> 04:40.250
+more.
+
+04:40.250 --> 04:41.600
+And guess what?
+
+04:41.600 --> 04:47.900
+Those are going to be the ones where is electronics brand is is is true is top electronics brand.
+
+04:48.170 --> 04:53.300
+Uh, and so they got a little uplift which did well for this one point here.
+
+04:53.300 --> 04:57.950
+But otherwise uh, didn't particularly work out well for the model.
+
+04:58.160 --> 05:00.680
+Uh, so it tried its best.
+
+05:00.710 --> 05:06.890
+It got a, uh, 139, um, uh, error.
+
+05:06.890 --> 05:09.170
+And it, it it had a hit.
+
+05:09.200 --> 05:13.040
+It was green, uh, almost 16% of the time.
+
+05:13.340 --> 05:15.410
+So that's our linear regression model.
+
+05:15.410 --> 05:16.580
+You can do better.
+
+05:16.610 --> 05:17.300
+Come on in.
+
+05:17.330 --> 05:18.920
+Now, engineer some features.
+
+05:18.920 --> 05:20.810
+I know it's not new.
+
+05:20.930 --> 05:22.100
+Uh, great.
+
+05:22.250 --> 05:27.650
+LM data science, but it's really good to build this foundational knowledge and doing some old school
+
+05:27.650 --> 05:28.730
+feature engineering.
+
+05:28.730 --> 05:33.200
+And besides, it's going to make it all the more satisfying when we start working with LMS and see how
+
+05:33.200 --> 05:33.710
+they do.
+
+05:33.710 --> 05:37.250
+So come on in there, build some features, see how you do.
+
+05:37.250 --> 05:42.890
+But next time we're going to, uh, look at some more sophisticated baseline models.
+
+05:42.890 --> 05:43.820
+I will see you then.

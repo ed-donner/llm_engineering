@@ -1,0 +1,118 @@
+WEBVTT
+
+00:00.110 --> 00:06.500
+So I realized that day one of week one has been a pretty long day, and I assure you that the other,
+
+00:06.500 --> 00:09.500
+generally speaking, the other days won't be as long.
+
+00:09.560 --> 00:14.930
+We had some foundational work to do to get the environments up and running, and hopefully that you're
+
+00:14.930 --> 00:19.730
+happy that we've got there and you're feeling satisfied that we ran our first big project.
+
+00:19.730 --> 00:27.200
+As a quick recap of what we got done at the very beginning, seems like an age ago we used to run LMS
+
+00:27.200 --> 00:33.500
+open source LMS locally on your box, running them to generate content.
+
+00:33.770 --> 00:41.540
+Then we set up the environment, and then we used open AI in the cloud to make a call to frontier models
+
+00:41.540 --> 00:42.560
+to GPT four.
+
+00:42.800 --> 00:49.670
+Mini was the model we used to generate text there, and obviously we're using here a closed source model
+
+00:49.670 --> 00:53.300
+that is maybe 1000 or 10,000 times larger.
+
+00:53.540 --> 00:59.420
+We pay a small price for that in the form of a fraction of a cent, but we do have to to pay to use
+
+00:59.420 --> 00:59.750
+that.
+
+00:59.750 --> 01:06.500
+But what we get back is much richer in quality than using a small local one.
+
+01:06.890 --> 01:12.590
+Um, we learned how to distinguish between a system prompt and a user prompt just at a high level.
+
+01:12.590 --> 01:15.710
+We'll do a lot more on that, of course, in the coming days.
+
+01:15.770 --> 01:21.860
+Uh, system prompt setting the tone, the context of the conversation, the user prompt, which is the
+
+01:21.860 --> 01:23.240
+conversation itself.
+
+01:23.270 --> 01:24.730
+We used it for the opener.
+
+01:24.760 --> 01:28.030
+Later, we'll be using it for many rounds of conversation.
+
+01:28.030 --> 01:35.320
+And then most importantly, we applied this to the field of summarization and a critical use case that
+
+01:35.320 --> 01:39.550
+comes up so many times it's applicable to many different problems.
+
+01:39.550 --> 01:44.260
+It's something that I hope you'll find ways to use this in your day job, in what you do already.
+
+01:44.260 --> 01:49.090
+And if not, then certainly you should be able to find personal projects that you could come up with
+
+01:49.090 --> 01:50.440
+where you could apply this.
+
+01:50.440 --> 01:53.110
+And I'm really excited to see what people come up with.
+
+01:53.530 --> 01:55.480
+So that's what we got done.
+
+01:55.480 --> 02:02.950
+And would you believe we are already 2.5% through the course on the way to being an LLM engineering
+
+02:03.190 --> 02:07.000
+expert, so it's already progress has been made.
+
+02:07.030 --> 02:12.460
+Tomorrow we're going to talk about what really is that journey like what are the steps.
+
+02:12.460 --> 02:16.600
+So you have a clear sense of what's what's to be done, set you up for success.
+
+02:16.600 --> 02:18.910
+And then we'll do some, some, some content.
+
+02:18.910 --> 02:22.870
+We'll talk about what are the leading frontier models and the different ways to use them.
+
+02:22.870 --> 02:28.900
+And we'll also do some quick lab work, something I promised you that people who would prefer not to
+
+02:28.930 --> 02:31.630
+fork out dollars to OpenAI.
+
+02:31.660 --> 02:37.360
+I'm going to show you how we could use Olama as an alternative with the same code that we just wrote,
+
+02:37.360 --> 02:43.870
+calling Olama running locally instead of calling out to the frontier model on the cloud.
+
+02:43.870 --> 02:46.030
+So we'll do that tomorrow too.
+
+02:46.060 --> 02:47.500
+Very much looking forward to it.
+
+02:47.500 --> 02:48.670
+And I will see you then.

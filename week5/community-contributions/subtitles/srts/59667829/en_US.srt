@@ -1,0 +1,148 @@
+WEBVTT
+
+00:01.010 --> 00:01.580
+Well.
+
+00:01.580 --> 00:02.330
+Hello there.
+
+00:02.360 --> 00:04.550
+Look, I know what you're thinking.
+
+00:04.580 --> 00:07.070
+You're thinking I peaked too early.
+
+00:07.100 --> 00:09.950
+Last week was an amazing climax.
+
+00:09.950 --> 00:13.430
+We built a model that massively outperformed the frontier.
+
+00:13.460 --> 00:15.290
+It can't get better than that.
+
+00:15.320 --> 00:17.000
+Well, I've got news for you.
+
+00:17.090 --> 00:18.860
+It's going to get better than that.
+
+00:18.890 --> 00:22.670
+We are actually going to have the best week yet.
+
+00:22.670 --> 00:24.680
+And it's just getting started.
+
+00:24.860 --> 00:29.960
+So this week, this week it's about reaching the pinnacle.
+
+00:29.960 --> 00:33.770
+It's about becoming a master of LM engineering.
+
+00:33.770 --> 00:34.970
+And we're going to do it.
+
+00:35.000 --> 00:36.680
+We're going to have a blast.
+
+00:36.680 --> 00:38.510
+It's going to be epic.
+
+00:38.870 --> 00:44.030
+Uh, we are going to build a multi-agent framework.
+
+00:44.030 --> 00:48.290
+We're going to build a solution that is going to be really, really awesome.
+
+00:48.290 --> 00:54.740
+And yeah, it's going to do something profound and it's going to do it using everything that we've been
+
+00:54.740 --> 00:56.840
+building for the last eight weeks.
+
+00:57.140 --> 01:02.750
+Uh, for today, though, we're going to be using modal, the serverless platform for AI, so that we
+
+01:02.750 --> 01:09.390
+can deploy the same model that we built last week, our proprietary Three specialized alum, we're going
+
+01:09.390 --> 01:18.120
+to be able to deploy it behind a serverless API on the cloud, and we're going to build the first agent
+
+01:18.150 --> 01:18.930
+of many.
+
+01:18.960 --> 01:24.390
+The first of the seven agents that are going to be part of the solution that we are building this week
+
+01:24.510 --> 01:27.150
+to solve a juicy business problem.
+
+01:27.150 --> 01:35.550
+So without further ado, let's get into week eight, the final week of mastering LLM engineering.
+
+01:35.790 --> 01:40.110
+And of course, it wouldn't be the start of a week without this picture.
+
+01:40.110 --> 01:44.640
+For the last time, let's look at the journey that you've been on.
+
+01:44.670 --> 01:54.210
+You started or seven weeks ago, uh, you first uh, we we spent some time looking at frontier models,
+
+01:54.330 --> 02:00.150
+uh, looking at asking questions, asking how many times that A appeared in this sentence, if you can
+
+02:00.150 --> 02:03.540
+remember that, uh, in week two, we built UIs.
+
+02:03.540 --> 02:05.850
+We experienced gradio for the first time.
+
+02:05.850 --> 02:08.520
+We worked with agent ization in a light way.
+
+02:08.520 --> 02:10.080
+It's going to get a lot heavier.
+
+02:10.200 --> 02:16.340
+Uh, and we played around with Multi-modality in week three, we went open source with hugging face
+
+02:16.340 --> 02:19.760
+with tokenization, with with models.
+
+02:20.150 --> 02:26.930
+In week four, we built that amazing code generation tool that rewrote Python a, C plus, plus.
+
+02:26.930 --> 02:32.000
+And in doing so, we explored how you select the right LLM to solve a business problem.
+
+02:32.060 --> 02:37.760
+In week five, we tackled Rag using Lang Chain and built a question answering project.
+
+02:37.790 --> 02:39.890
+Maybe you built something bigger as well.
+
+02:39.920 --> 02:41.540
+In week six.
+
+02:41.540 --> 02:48.380
+Week six was when we started on training and we fine tuned a frontier model and week seven.
+
+02:48.410 --> 02:55.460
+Of course, week seven we've just come from was when we beat that frontier model using Cultura fine
+
+02:55.460 --> 03:00.410
+tuning to make our own Verticalized specialized LLM.
+
+03:00.890 --> 03:03.650
+And I loved it and I hope you did too.
+
+03:03.680 --> 03:10.430
+And so this week, week eight, the culmination of everything that's come before is when we have a finale.
+
+03:10.460 --> 03:18.860
+We must LLM engineering and we're going to do it by focusing on Agentic AI and building an agent platform.
+
+03:19.520 --> 03:21.350
+Let's talk more about that next time.

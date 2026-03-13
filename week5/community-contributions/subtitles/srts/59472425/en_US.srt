@@ -1,0 +1,295 @@
+WEBVTT
+
+00:00.590 --> 00:03.110
+Welcome to week six, day three.
+
+00:03.140 --> 00:09.950
+Today is going to be a day that you will either love or you will hate, depending on your particular
+
+00:09.950 --> 00:12.470
+preference, but I'm sure there's going to be no middle ground.
+
+00:12.500 --> 00:18.410
+It's either going to be a great day or a miserable day, depending on whether you like or are interested
+
+00:18.410 --> 00:24.380
+in traditional machine learning, because today we're going to take a step back in time and look at
+
+00:24.380 --> 00:31.160
+some foundational machine learning and get some practical examples of how things used to be.
+
+00:31.370 --> 00:36.740
+So with that intro, and it's only for one day, I'm sure you can put up with it, even if it is something
+
+00:36.740 --> 00:38.270
+that you find very unsavory.
+
+00:38.420 --> 00:45.500
+Well, as a quick reminder, what you can already do is work with frontier models, building AI assistants
+
+00:45.500 --> 00:51.020
+with tools, and with open source models like hugging face with pipelines and tokenizers and models.
+
+00:51.020 --> 00:55.520
+You can use long chain to build a complete Rag pipeline.
+
+00:55.520 --> 01:01.010
+And in fact, as you saw, it's actually quite, quite perfectly possible at least to do it without
+
+01:01.010 --> 01:01.910
+long chain as well.
+
+01:01.910 --> 01:06.330
+It's just quicker if you use line chain, but you know that there's not anything particularly magic
+
+01:06.360 --> 01:07.140
+about rag.
+
+01:07.170 --> 01:13.020
+And then we've talked about a five step strategy to solve commercial problems.
+
+01:13.020 --> 01:16.140
+And we've got really, really deep with data.
+
+01:16.140 --> 01:18.030
+I hope it wasn't too deep.
+
+01:18.120 --> 01:20.430
+Hopefully you've survived the experience.
+
+01:20.430 --> 01:21.750
+We did a lot of work with data.
+
+01:21.750 --> 01:23.460
+We saw lots of charts.
+
+01:23.490 --> 01:29.760
+You hopefully by now are very familiar with the item class and the item loader more than than perhaps
+
+01:29.760 --> 01:31.350
+you'd ever intended to be.
+
+01:31.560 --> 01:34.740
+But at this point we know our data back to front.
+
+01:35.010 --> 01:38.250
+So today we talk about baselines.
+
+01:38.280 --> 01:41.550
+I'm going to talk about what a baseline model is and why it's so important.
+
+01:41.550 --> 01:47.790
+And then we are going to at least I'm going to have an absolute blast playing with some baseline models
+
+01:47.790 --> 01:54.270
+and exploring more traditional machine learning to see how good we can do without using all this fancy
+
+01:54.270 --> 01:55.920
+schmancy LM stuff.
+
+01:56.040 --> 02:00.060
+Um, before, uh, tomorrow, we turn to the frontier.
+
+02:00.060 --> 02:04.730
+So without further ado, let's talk a bit about a baseline.
+
+02:04.730 --> 02:11.540
+So it's mostly common sense stuff that if you're looking to tackle a problem you start simple.
+
+02:12.200 --> 02:20.600
+But in particular it's it's something which is fundamentally important in the world of data science
+
+02:20.600 --> 02:22.520
+for really a couple of reasons.
+
+02:22.790 --> 02:29.000
+The obvious one is that it gives us a sort of yardstick, which we can use to measure progress against.
+
+02:29.000 --> 02:36.110
+If we start with something simple and traditional, then we know we're using, uh, sophisticated deep
+
+02:36.110 --> 02:37.190
+neural networks properly.
+
+02:37.190 --> 02:43.070
+When we see the needle moving and we see ourselves achieving far greater heights without that baseline,
+
+02:43.070 --> 02:48.530
+we just don't know whether we're getting fabulous results or whether we're just making small steps in
+
+02:48.530 --> 02:50.570
+a unpleasant direction.
+
+02:50.750 --> 02:52.970
+So obviously it gives us that yardstick.
+
+02:53.090 --> 02:57.920
+Uh, but there's another thing, too, which is that llms are not always the right solutions.
+
+02:57.920 --> 03:03.650
+In fact, in the specific business problem we're setting out to solve around, uh, around predicting
+
+03:03.650 --> 03:05.100
+prices of products.
+
+03:05.100 --> 03:11.220
+It's not immediately obvious at all that llms are the right solution because typically, as I said before,
+
+03:11.250 --> 03:20.370
+generating a price, a number from a description seems like it's more traditional NLP and linear regression,
+
+03:20.370 --> 03:23.970
+so it feels like it belongs in the field of machine learning.
+
+03:24.000 --> 03:25.560
+A traditional machine learning.
+
+03:25.590 --> 03:29.850
+Um, and that makes it even more important to build a baseline, because for all we know, we'll do
+
+03:29.850 --> 03:33.600
+that and then we'll try out frontier models and they won't do any better.
+
+03:33.600 --> 03:38.820
+So it's obvious stuff, but it explains why we do this.
+
+03:39.000 --> 03:43.140
+So what models are we going to be playing with today.
+
+03:43.170 --> 03:44.310
+And it's only one day.
+
+03:44.310 --> 03:46.860
+It's only one time that we're going to spend doing this.
+
+03:46.860 --> 03:50.550
+And you know, it's really worth it if you're already super familiar with these models.
+
+03:50.550 --> 03:55.710
+And it's just going to be an interesting quick experiment with our particular commercial problem if
+
+03:55.710 --> 04:00.990
+you're new to them, I'm not going to go into tons of detail on them, but it will give you a good sense
+
+04:00.990 --> 04:02.550
+of the perspective.
+
+04:02.940 --> 04:06.620
+Um, so the first thing we're going to do is we're going to take our business problem.
+
+04:06.620 --> 04:09.080
+We're going to do something that's very old school.
+
+04:09.080 --> 04:11.870
+We're going to do what they call feature engineering.
+
+04:11.870 --> 04:18.350
+When we understand the data and we say, okay, what do we think are going to be some of the important
+
+04:18.350 --> 04:21.530
+factors which are likely to affect the price?
+
+04:21.530 --> 04:25.220
+And we try and come up with these things that we will call features.
+
+04:25.220 --> 04:32.270
+And we'll come up with some pretty obvious features, like how how do they rank in Amazon's best seller
+
+04:32.270 --> 04:33.680
+rank, that kind of thing.
+
+04:33.980 --> 04:41.060
+And we will then try and see whether some linear combination of these features does a good job of predicting
+
+04:41.060 --> 04:42.500
+the price or not.
+
+04:42.500 --> 04:47.720
+And that is often the place where you start when you're dealing with a machine learning model.
+
+04:48.050 --> 04:54.770
+We're then going to do something called Bag of Words, which is one of the first our first forays into
+
+04:54.860 --> 04:56.180
+natural language processing.
+
+04:56.210 --> 05:02.240
+NLP Bag of Words is a particularly simplistic approach, where you quite literally count up the number
+
+05:02.240 --> 05:08.550
+of words and you build yourself a little vector that consists of just how many times does each particular
+
+05:08.550 --> 05:11.130
+word feature in this description?
+
+05:11.130 --> 05:15.930
+So if you have a word, you one doesn't include what are known as stop words, which are words like
+
+05:15.930 --> 05:19.620
+the which, which aren't going to make much difference to anything.
+
+05:19.830 --> 05:26.880
+But if there's a word like Intel, uh, which may indicate that it's a laptop or a computer that would
+
+05:26.880 --> 05:30.600
+have a certain value, Intel might be one of the words in our vocab.
+
+05:30.600 --> 05:35.580
+And depending on whether that appears or not or if it does, how many times it appears that will affect
+
+05:35.580 --> 05:37.200
+that location.
+
+05:37.290 --> 05:44.670
+Uh, in our in in this bag of words, this list of counts of words in each product.
+
+05:44.850 --> 05:50.250
+And then we're going to take that bag of words and again see if there's some linear combination of these
+
+05:50.250 --> 05:55.470
+different words that, when combined together predicts the price of a product.
+
+05:56.220 --> 06:01.980
+We then going to use something called word two vec, which I mentioned some time ago, which was one
+
+06:01.980 --> 06:10.310
+of the first real sort of, uh, neural network, um, Encoding algorithms that could produce a vector
+
+06:10.310 --> 06:13.100
+in a way that is rather smarter than a bag of words.
+
+06:13.100 --> 06:15.950
+And we'll first use that with linear regression.
+
+06:16.070 --> 06:21.860
+And then we're going to use that with random forests, which is a more sophisticated technique that
+
+06:21.860 --> 06:22.790
+I'll talk about then.
+
+06:22.820 --> 06:30.560
+But it involves taking random chunks of your data and your features in the form of bits of vectors,
+
+06:30.560 --> 06:37.880
+and seeing whether and then creating an ensemble, a series of models that combines averages across
+
+06:37.880 --> 06:40.190
+many of these little samples.
+
+06:40.190 --> 06:47.480
+And then we're going to have something called support vector regression, a type of support vector machines,
+
+06:47.480 --> 06:53.660
+which is another technique, a specific way of trying to separate out your data into different groups.
+
+06:53.810 --> 06:55.880
+So we will try these different techniques.
+
+06:55.880 --> 07:03.050
+We will see which one does best and see how that fares in solving our problem of predicting the price
+
+07:03.050 --> 07:06.710
+of a product based only on its description.
+
+07:07.010 --> 07:09.410
+With that, let's go to JupyterLab.

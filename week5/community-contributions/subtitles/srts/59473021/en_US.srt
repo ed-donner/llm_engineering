@@ -1,0 +1,787 @@
+WEBVTT
+
+00:00.860 --> 00:03.890
+Welcome to our favorite place to be to JupyterLab.
+
+00:03.890 --> 00:06.920
+Here we are again now in day three.
+
+00:06.920 --> 00:08.900
+In week six.
+
+00:09.200 --> 00:13.580
+I'm really looking forward to this notebook again and I hope you enjoy it too.
+
+00:13.580 --> 00:16.130
+I've got some good things cooked up for you.
+
+00:16.310 --> 00:21.650
+So again, our plan today is to look at baseline models.
+
+00:21.650 --> 00:28.190
+And so I'm going to start with a bunch of imports which are all imports that you've seen before.
+
+00:28.190 --> 00:30.080
+Nothing very new here.
+
+00:30.080 --> 00:33.890
+But then some new imports in this second cell that you'll see here.
+
+00:33.890 --> 00:41.150
+Some imports for traditional machine learning pandas that you have probably encountered many times in
+
+00:41.150 --> 00:48.260
+the journey, a wonderful way to organize your data into into things that are a bit like mini spreadsheets.
+
+00:48.380 --> 00:51.320
+Um, numpy, of course, I'm sure is old hat for you.
+
+00:51.320 --> 00:52.760
+And then sklearn.
+
+00:52.790 --> 01:00.620
+Scikit learn is a machine learning library that is incredibly popular, incredibly popular with tons
+
+01:00.620 --> 01:07.550
+and tons of common algorithms that we will be using plenty of today, but most most importantly, linear
+
+01:07.580 --> 01:14.120
+regression, a standard part of any data scientist's toolkit for running linear regression models.
+
+01:14.690 --> 01:20.630
+And then there's another one here, which is a little set of imports related to natural language processing
+
+01:20.660 --> 01:31.100
+NLP, including Gensim, which is a very useful library for NLP related stuffs such as word two vec
+
+01:31.130 --> 01:32.780
+that I mentioned a while ago.
+
+01:32.810 --> 01:40.010
+I mentioned just then and is something that is a powerful model for turning words into vectors.
+
+01:40.010 --> 01:44.450
+So make sure that I run that cell too.
+
+01:44.780 --> 01:47.720
+Oh, and then there is one more, another set of imports.
+
+01:47.810 --> 01:50.630
+Uh, more from uh, scikit learn again.
+
+01:50.630 --> 01:56.810
+But just I kept these ones separate because it's, uh, two different imports we're doing for more advanced
+
+01:56.810 --> 01:57.590
+machine learning.
+
+01:57.590 --> 02:03.600
+One is for the support vector regression, part of the Support Vector Machines and package.
+
+02:03.600 --> 02:06.870
+And then the other is the Random Forest Regressor.
+
+02:06.930 --> 02:12.390
+Uh, we I mentioned random forests a moment ago, so we will bring that in as well.
+
+02:12.840 --> 02:13.800
+Okay.
+
+02:13.830 --> 02:17.700
+Now this these set of constants, they might they might surprise you.
+
+02:17.730 --> 02:19.860
+They they look a bit unusual.
+
+02:20.070 --> 02:22.500
+Uh, I'll tell you to hold that thought.
+
+02:22.500 --> 02:23.670
+They will come in later.
+
+02:23.670 --> 02:26.040
+You may recognize them if you've ever done anything like this before.
+
+02:26.040 --> 02:32.910
+That, um, slightly strangely, for various reasons that are very historic.
+
+02:33.090 --> 02:41.430
+Um, when you print a that particular symbol to the standard out, it changes the color to being in
+
+02:41.430 --> 02:42.960
+the color green.
+
+02:43.200 --> 02:47.370
+Um, and for all sorts of, of reasons that I won't go into.
+
+02:47.490 --> 02:53.820
+Uh, and reset turns the color back to black or white or depending on what your foreground color is.
+
+02:53.850 --> 02:59.250
+And so knowing these constants, having them to hand makes it easy to print things in color, which
+
+02:59.250 --> 03:00.600
+we will be doing today.
+
+03:00.840 --> 03:01.410
+Okay.
+
+03:01.410 --> 03:07.950
+So run that constants run our usual environment setup that we know so well and log in to hugging face.
+
+03:08.280 --> 03:09.510
+Um, I'm not sure.
+
+03:09.510 --> 03:12.660
+I don't think we actually use hugging face today, so I don't think I needed to log into hugging face,
+
+03:12.660 --> 03:14.910
+but we did it anyway just for kicks.
+
+03:15.180 --> 03:18.900
+Um, and then make sure that matplotlib comes in the Jupyter notebook.
+
+03:18.990 --> 03:26.160
+Uh, we will load in our data from the pickle files rather than having to recreate it.
+
+03:26.160 --> 03:33.180
+And so in it comes, uh, let's just take another look at the training data.
+
+03:33.180 --> 03:35.970
+So let's just take the first training data point.
+
+03:35.970 --> 03:39.870
+And I'm just going to ask for its prompt to remind you again of what this was.
+
+03:39.870 --> 03:47.460
+So this is I'm looking for the prompt attribute of one of these item objects that I really belabored
+
+03:47.460 --> 03:48.150
+you with.
+
+03:48.150 --> 03:52.050
+Uh, in, in the past, uh, in the two, two days ago.
+
+03:52.140 --> 03:55.350
+But hopefully this is now something you're becoming more familiar with.
+
+03:55.380 --> 03:58.110
+Let me print that so it prints out nicely.
+
+03:58.560 --> 04:01.740
+Um, there we go.
+
+04:02.010 --> 04:02.880
+Uh, here it is.
+
+04:02.880 --> 04:04.620
+How much this cost to the nearest dollar?
+
+04:04.620 --> 04:08.350
+And then there's the title, and then there's the detail and there is the price.
+
+04:08.380 --> 04:15.070
+Now you might wonder why I'm spending so much time on things like this item class specifically for this
+
+04:15.070 --> 04:15.580
+problem.
+
+04:15.580 --> 04:20.710
+And it is really because this is the kind of stuff that you'll be doing when you come up with your,
+
+04:20.740 --> 04:24.970
+your when you face your own commercial problems and look for ways to engineer it and to massage the
+
+04:24.970 --> 04:25.450
+data.
+
+04:25.450 --> 04:28.420
+So this is real world experience that will come in handy.
+
+04:28.450 --> 04:33.610
+You won't use exactly this code, the item class, and you probably won't have a prompt exactly like
+
+04:33.610 --> 04:34.000
+this.
+
+04:34.000 --> 04:39.190
+But this kind of technique is something you'll be able to replicate, so it's important to understand
+
+04:39.190 --> 04:43.480
+it and understand the decisions that I'm making as we come up with it, so that you'll be able to do
+
+04:43.480 --> 04:46.720
+the same thing with confidence with your own projects.
+
+04:46.780 --> 04:51.160
+So this then, is the training prompt that it came up with.
+
+04:51.190 --> 04:53.500
+And now let's look at a test prompt.
+
+04:53.500 --> 04:57.700
+So I'm going to take the first of our test items.
+
+04:57.700 --> 05:00.790
+And I'm going to call the method test prompt.
+
+05:00.790 --> 05:09.190
+And remember that basically takes its training prompt but strips out the actual price so that we don't
+
+05:09.190 --> 05:11.980
+reveal the answer when we're trying to test our model.
+
+05:11.980 --> 05:14.950
+And its job is to fill in that price.
+
+05:14.950 --> 05:19.810
+And if I want to know what it's supposed to fill in, um, I'll take it for a training point.
+
+05:19.960 --> 05:25.360
+You take a train and then you can just call price like that.
+
+05:25.360 --> 05:31.720
+And that is the actual price, uh, associated with this, you'll see that that this has been rounded
+
+05:31.720 --> 05:34.030
+to the nearest whole dollar.
+
+05:34.120 --> 05:36.700
+But the real price is something slightly different.
+
+05:36.700 --> 05:43.090
+So hopefully this reminds you refreshes your memory on what we're doing with these train and test,
+
+05:43.240 --> 05:51.280
+uh, methods and these these lists of training and test items and how we call them.
+
+05:51.490 --> 05:58.510
+So now I want to reveal something that I'm really quite pleased with, which is a chunk of code, which
+
+05:58.540 --> 06:03.280
+again, whilst you may not use exactly this code in your projects, you'll do similar things.
+
+06:03.280 --> 06:09.800
+So it's a nice kind of principle, a nice way of approaching the problem that you should, uh, take
+
+06:09.800 --> 06:12.800
+on and be able to replicate for your own problems.
+
+06:12.800 --> 06:21.200
+So I wanted to be able to test different models that we come up with in a really quick, simple way.
+
+06:21.410 --> 06:26.900
+Um, and that involves taking a bunch of our test data points and running them through the model and
+
+06:26.900 --> 06:28.850
+being able to visualize the results.
+
+06:28.850 --> 06:33.740
+And this was something I used to have that in a function, and I ended up repeating that lots and having
+
+06:33.740 --> 06:38.180
+to copy and paste my code a lot, because repeatedly I'd want to be doing the same thing.
+
+06:38.180 --> 06:43.910
+And any time you do that, it sounds like it's a time for you to build some kind of a utility to do
+
+06:43.910 --> 06:44.780
+it for you.
+
+06:44.900 --> 06:50.930
+Um, and so what I came up with is this, this class tester, which is going to be able to test a model
+
+06:50.930 --> 06:56.780
+and the way it will work is that you will be able to write any function you want, any function that
+
+06:56.780 --> 07:01.790
+will be called like my, uh, sorry, my prediction function or anything like that.
+
+07:01.790 --> 07:10.130
+And its only job will be to take an item and to respond, return the estimated price that is its job,
+
+07:10.130 --> 07:14.570
+and you put whatever code you want in there to do a particular prediction.
+
+07:14.570 --> 07:19.070
+And once you've written a function like that, you can just call tester.
+
+07:19.100 --> 07:24.800
+This class I'm about to show you dot test and pass in the name of the function.
+
+07:24.800 --> 07:26.720
+And it will take this function.
+
+07:26.720 --> 07:34.910
+It will call it repeatedly, in fact, for 250 different test items and see how good it is at predicting
+
+07:34.910 --> 07:38.600
+the results, and then summarize that information back visually.
+
+07:38.870 --> 07:39.980
+That's the idea.
+
+07:39.980 --> 07:43.190
+And it's going to simplify our workflow distinctly.
+
+07:43.430 --> 07:45.410
+Um, and this is the class itself.
+
+07:45.410 --> 07:46.460
+It's perfectly simple.
+
+07:46.460 --> 07:48.650
+It's got some stuff to deal with with colors.
+
+07:48.650 --> 07:50.720
+I told you we'd be printing some colors.
+
+07:50.720 --> 07:58.280
+It runs a data point, and the run data point is the method that actually does the business for one
+
+07:58.280 --> 08:01.100
+particular data point, it gets that data point.
+
+08:01.130 --> 08:05.030
+This is where it calls the function that you provided.
+
+08:05.030 --> 08:08.730
+It calls it with the data point to get your model's models.
+
+08:08.730 --> 08:12.630
+Guess what your function says it should be worth.
+
+08:12.630 --> 08:18.480
+And then it gets the truth by calling the price attribute that we just looked at just a moment ago.
+
+08:18.480 --> 08:24.510
+And then the error is, of course, the absolute difference between the guess and the truth.
+
+08:24.540 --> 08:25.980
+As simple as that.
+
+08:26.010 --> 08:35.040
+It also calculates the something called the squared log error, and the formula for the squared log
+
+08:35.040 --> 08:37.410
+error is exactly as it is here.
+
+08:37.440 --> 08:43.770
+It's the log of the truth plus one minus the log of the guess plus one.
+
+08:44.160 --> 08:50.700
+Um, and uh, yeah, you can in your, you can probably imagine why there's this plus one in the formula.
+
+08:50.700 --> 08:55.500
+It's because if the truth were zero, you wouldn't want math.log to blow up.
+
+08:55.560 --> 09:01.890
+So this formula works well for, for cases when, for example, the, the, the truth or the guess are
+
+09:01.890 --> 09:02.580
+zero.
+
+09:03.120 --> 09:08.790
+Um, and that gives us then the squared log error is the square of course, of this.
+
+09:09.330 --> 09:14.400
+Uh, and uh, we're then going to, uh, do a little bit of processing.
+
+09:14.400 --> 09:17.850
+We're going to have the ability to draw a little chart, which I will show you in a moment.
+
+09:18.030 --> 09:19.380
+Uh, write a report.
+
+09:19.380 --> 09:23.880
+And this ultimately is the, uh, function I mentioned a moment ago.
+
+09:23.880 --> 09:27.960
+You can just call test to run this this test.
+
+09:28.170 --> 09:28.740
+Okay.
+
+09:28.770 --> 09:30.240
+Let me execute that cell.
+
+09:30.240 --> 09:35.160
+So you don't need to particularly understand everything that I did in this test class.
+
+09:35.160 --> 09:41.310
+It's the the the principle of creating a nice little test harness like this and having it be something
+
+09:41.310 --> 09:46.950
+you invest a bit of time in to make sure you'll be able to get real insight into the results of running
+
+09:46.950 --> 09:47.550
+your model.
+
+09:47.550 --> 09:49.080
+That's the learning here.
+
+09:49.350 --> 09:54.450
+So what's the simplest possible model that you could imagine?
+
+09:54.450 --> 09:56.610
+What is the simplest possible model?
+
+09:56.610 --> 09:59.250
+We're going to come up before we do real baseline models.
+
+09:59.250 --> 10:03.960
+We're going to do two comedy models, silly models that are going to be the most basic thing we can
+
+10:03.960 --> 10:04.560
+imagine.
+
+10:04.560 --> 10:07.110
+And let me challenge you for a moment.
+
+10:07.230 --> 10:11.680
+Have a think about what could be the simplest possible model, and it's probably going to be something
+
+10:11.680 --> 10:12.760
+simpler than that.
+
+10:12.940 --> 10:16.900
+Um, so the first is going to be two very simple models.
+
+10:16.900 --> 10:19.090
+The first one, I reveal the answer already.
+
+10:19.090 --> 10:24.130
+You probably saw that the first one will be we're just going to guess a random number.
+
+10:24.130 --> 10:25.540
+That's all it's going to be.
+
+10:25.540 --> 10:27.640
+So here is a function.
+
+10:27.640 --> 10:31.090
+Here is a function that takes a takes a it doesn't take a prompt.
+
+10:31.090 --> 10:36.820
+It takes an item that not that it matters because it's going to completely ignore the item and instead
+
+10:36.820 --> 10:39.520
+it's going to not care what it's told.
+
+10:39.520 --> 10:43.510
+It will return a random number between 1 and 1000.
+
+10:43.690 --> 10:47.500
+Uh, sorry, that's between 1 and 999 inclusive.
+
+10:47.740 --> 10:53.320
+Uh, we will set the random seed so that it's the same every every time that we run this test.
+
+10:53.440 --> 10:54.880
+And now we run it.
+
+10:54.880 --> 11:00.730
+So the way that we run this test again is I go with my, my tester class, I just showed you dot test.
+
+11:00.730 --> 11:03.700
+And then I simply pass in the name of this function.
+
+11:03.700 --> 11:08.140
+I don't call the function because if I, if I call the function, it will just call it once and that
+
+11:08.140 --> 11:08.920
+will be it.
+
+11:08.950 --> 11:11.590
+I pass in the function itself like so.
+
+11:11.620 --> 11:17.350
+And now I'm going to execute this and you're going to see the results of my program.
+
+11:17.800 --> 11:20.800
+So it happened very fast because this was a very quick model.
+
+11:20.800 --> 11:24.280
+So I'm going to scroll back up and tell you what you're seeing here because it's a lot.
+
+11:24.790 --> 11:28.270
+And it's something you're going to get very familiar with because we're going to do this a lot of times
+
+11:28.270 --> 11:29.770
+in the next few classes.
+
+11:29.770 --> 11:37.060
+So each row you are seeing here is representing a different one of our test data points.
+
+11:37.060 --> 11:40.270
+And it's telling you what the item is over here on the right.
+
+11:40.270 --> 11:47.050
+Like here is a Godox ML 60 by LED, LED light kit, handheld LED.
+
+11:47.050 --> 11:49.270
+And then I cut it short after that.
+
+11:49.270 --> 11:55.630
+And what you're seeing for this particular LED light kit is what did the model what did this function
+
+11:55.630 --> 11:57.760
+guess for the LED light kit.
+
+11:57.760 --> 12:01.810
+And it guessed $143 because it's a random number generator.
+
+12:02.260 --> 12:03.760
+What is the truth?
+
+12:03.760 --> 12:09.940
+Somewhat remarkably, the truth is $289, which is rather more than I would have expected for, uh,
+
+12:10.000 --> 12:12.980
+but only based on that that truncated Description there.
+
+12:12.980 --> 12:13.490
+Maybe.
+
+12:13.790 --> 12:17.150
+Maybe it comes with a laptop on the side or something.
+
+12:17.900 --> 12:19.190
+So that's the error.
+
+12:19.220 --> 12:23.330
+That's how much we this this model gets it wrong by this.
+
+12:23.330 --> 12:26.930
+Here is the squared log error that we'll probably talk about another day.
+
+12:26.930 --> 12:32.630
+But it's something that is meant to better compensate, better reflect the difference between absolute
+
+12:32.630 --> 12:35.720
+errors and relative percentage errors.
+
+12:35.870 --> 12:40.970
+But we're really going to be focusing on this more than anything because it's so easy to understand
+
+12:41.000 --> 12:45.920
+for for us, for, for for humans, just the difference between the guess and the truth.
+
+12:46.310 --> 12:51.200
+Um, and it's colored in red because that's considered a really terrible guess.
+
+12:51.200 --> 12:53.270
+So red is really terrible.
+
+12:53.270 --> 12:56.210
+Yellow is, uh, and green is fair enough.
+
+12:56.210 --> 13:00.530
+And the definitions for those, if we scroll back up, I've just come up with something that's a bit
+
+13:00.560 --> 13:02.540
+bit of a, of a rule of thumb.
+
+13:02.540 --> 13:06.710
+I call it green if it guesses within $40 or 20%.
+
+13:06.740 --> 13:09.950
+If it's within $40 or 20%, then that's that's green.
+
+13:09.950 --> 13:15.140
+You might think that's quite generous of me to say $40, but remember, there's a big range of prices
+
+13:15.140 --> 13:17.510
+here and you're just given the description of something.
+
+13:17.510 --> 13:20.420
+And really it's very hard to do this.
+
+13:20.420 --> 13:25.250
+So I think if something guesses to within 40 bucks then it's doing a fine job.
+
+13:25.430 --> 13:28.070
+So you could of course be stricter if you wish.
+
+13:28.070 --> 13:29.930
+This this is all yours to tweak.
+
+13:30.080 --> 13:32.300
+But that was my principle for this.
+
+13:32.810 --> 13:35.180
+So here are all of the points.
+
+13:35.180 --> 13:38.630
+And at the end there's a nice little visualization.
+
+13:38.660 --> 13:40.730
+So what are we seeing here.
+
+13:40.760 --> 13:41.900
+I love this diagram.
+
+13:41.930 --> 13:43.340
+And we're going to see a lot of these diagrams.
+
+13:43.340 --> 13:44.960
+So so get used to this one.
+
+13:44.990 --> 13:51.530
+The x axis is showing you the ground truth the actual value of a product.
+
+13:51.560 --> 13:58.850
+Uh also sometimes you will hear that described as y by data scientists, whereas this axis is showing
+
+13:58.850 --> 14:04.760
+you y hat as data scientists would say, or what estimate did the model give for the value.
+
+14:04.760 --> 14:10.430
+So we're seeing the model's estimate against the actual true value of the product.
+
+14:10.430 --> 14:17.460
+So the true value is always spread from from 0 to 1000in our data set, the model's value is all over
+
+14:17.460 --> 14:17.940
+the place.
+
+14:17.970 --> 14:20.520
+A total random set of dots.
+
+14:20.520 --> 14:26.310
+This blue line represents, of course, the line of of perfect guessing.
+
+14:26.580 --> 14:33.360
+If the model ever happens to guess along this blue line, then it is guest exactly on the ground truth,
+
+14:33.360 --> 14:34.920
+and you can see that it got lucky.
+
+14:34.920 --> 14:40.530
+Of course it will get lucky a small amount of time, and these green dots that are close to the blue
+
+14:40.530 --> 14:44.310
+line represent where it's done fairly well.
+
+14:44.550 --> 14:52.020
+Yellow dots for where it's a and then red dots is when it has missed the trick and gone right out there.
+
+14:52.500 --> 14:54.690
+Uh, so that was fun.
+
+14:54.690 --> 14:55.860
+I hope you enjoyed it.
+
+14:55.860 --> 14:59.670
+There's another very trivial model that we can do, and it may be the one that you were thinking of
+
+14:59.670 --> 15:00.750
+before when I asked for it.
+
+15:00.750 --> 15:05.520
+For a very basic model, uh, you may have thought one of the really basic one that occurred to me was,
+
+15:05.520 --> 15:09.060
+let's just guess zero for everything, or guess one for everything.
+
+15:09.330 --> 15:11.280
+We can do slightly better than that.
+
+15:11.310 --> 15:18.600
+We can take the training data set and say, what is the average price of a product across all of the
+
+15:18.600 --> 15:19.620
+training data set?
+
+15:19.620 --> 15:22.710
+Because remember our model is provided with the training data set.
+
+15:22.710 --> 15:26.970
+So we can consider that as our as a as a constant guess.
+
+15:27.000 --> 15:33.930
+Let's just guess that everything is is the average price of anything in our training data set.
+
+15:34.140 --> 15:40.470
+Um, so basically we'll calculate the, uh, the, the prices of our training data set and then we'll
+
+15:40.470 --> 15:45.450
+find its average, the sum of all of the training prices divided by the count of them.
+
+15:45.450 --> 15:52.440
+That will give us the, the mean, the mean, uh, price of a point in the training data set.
+
+15:52.470 --> 15:56.820
+And here is our very sophisticated model, our very sophisticated model.
+
+15:56.820 --> 16:02.220
+Again, it takes an item and it simply returns the, uh, the average.
+
+16:02.220 --> 16:05.940
+So it ignores whatever it's passed and it just returns the average.
+
+16:05.940 --> 16:08.490
+So let's have a look at what this is going to look like.
+
+16:08.520 --> 16:13.170
+Test to see if you can picture in your mind what kind of diagram you're about to see.
+
+16:13.290 --> 16:17.320
+Uh, hopefully you can imagine exactly what it's going to look like.
+
+16:18.190 --> 16:20.800
+And if you're ready to see if you're right or not.
+
+16:21.040 --> 16:21.790
+Bam!
+
+16:21.790 --> 16:23.890
+This is, of course, the diagram.
+
+16:23.890 --> 16:29.650
+It guessed at a fixed point, which if you thought it was going to be at 500, then remember that the
+
+16:29.650 --> 16:32.920
+distribution is skewed more towards cheaper items.
+
+16:32.950 --> 16:35.170
+Not not as badly as as it was originally.
+
+16:35.200 --> 16:37.480
+We corrected for it, but only a bit.
+
+16:37.690 --> 16:41.620
+Um, so it guessed this amount for absolutely everything.
+
+16:41.950 --> 16:48.670
+And of course, at the point where that is the same as the value of the product, it got a green, otherwise
+
+16:48.670 --> 16:50.650
+yellow or red.
+
+16:50.680 --> 16:53.140
+So there is the spread.
+
+16:53.170 --> 16:56.590
+Uh, and you can see the result that you expected.
+
+16:56.590 --> 17:02.080
+If we scroll back through the actual results, you'll see that there's a sea of reds with just some
+
+17:02.080 --> 17:07.240
+greens from time to time for things that cost close to the average.
+
+17:08.050 --> 17:11.080
+Well, with that, I hope that you're enjoying it.
+
+17:11.080 --> 17:15.490
+So far, we haven't actually looked at real machine learning models yet, but don't worry, we're just
+
+17:15.490 --> 17:16.360
+about to do that.
+
+17:16.390 --> 17:17.290
+Hang on in there.
+
+17:17.380 --> 17:18.280
+See you next time.

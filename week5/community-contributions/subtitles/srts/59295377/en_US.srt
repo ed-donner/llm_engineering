@@ -1,0 +1,229 @@
+WEBVTT
+
+00:00.770 --> 00:06.050
+Just before we go on to some of the more advanced metrics, I want to mention for a second something
+
+00:06.050 --> 00:12.410
+called the Chinchilla Scaling Law, which is a wonderfully named law coined by the Google DeepMind team
+
+00:12.410 --> 00:15.200
+after one of their models called Chinchilla.
+
+00:15.590 --> 00:22.640
+And it's related to how you think about the number of parameters that you need in a model, the number
+
+00:22.640 --> 00:28.580
+of weights in the neural network, and what the law says is that the number of parameters, how many
+
+00:28.580 --> 00:34.610
+parameters you have, is roughly proportional to the size of your training data to the number of training
+
+00:34.640 --> 00:35.630
+tokens.
+
+00:35.960 --> 00:42.290
+And what that means, basically, is that supposing you've got a model, let's say it's an 8 billion
+
+00:42.290 --> 00:47.000
+parameter model, and you get to the point where you start to see that you're getting diminishing returns.
+
+00:47.030 --> 00:50.660
+Adding in more training data isn't significantly affecting the model.
+
+00:50.660 --> 00:56.720
+So you have this sense, okay, I've got now the right amount of training data for this size of model.
+
+00:56.720 --> 00:58.430
+This is a good a good match up.
+
+00:58.430 --> 01:05.480
+We've we've used our training data successfully for the model to learn to its to its most capacity of
+
+01:05.480 --> 01:06.170
+learning.
+
+01:06.500 --> 01:08.450
+And the question might be all right.
+
+01:08.450 --> 01:15.240
+So if I wanted to add more parameters, give the model more flexibility to learn more and to be more,
+
+01:15.240 --> 01:16.740
+more powerful and nuanced.
+
+01:16.770 --> 01:20.910
+How many more parameters do I need given extra training data?
+
+01:20.940 --> 01:26.310
+And the answer is, if you were then to double the amount of training data from that that point of diminishing
+
+01:26.310 --> 01:31.920
+returns, you would need double the number of weights you'd need to go from 8 billion to 16 billion
+
+01:31.950 --> 01:39.330
+parameters to be able to consume twice the training data and learn from it in an effective way, and
+
+01:39.330 --> 01:42.720
+be that much more powerful and nuanced at the end of it.
+
+01:42.990 --> 01:50.130
+So it gives you a sense of how many more parameters do you need to absorb more training data effectively.
+
+01:50.340 --> 01:58.050
+And it also gives you the sort of the flip side, the opposite, uh, relationship to that.
+
+01:58.050 --> 02:02.970
+If you're if you've been working with a model which is an 8 billion model, and then someone says,
+
+02:02.970 --> 02:07.440
+we'd like to upgrade to a 16 billion parameter model, let's use that instead.
+
+02:07.650 --> 02:11.820
+Uh, and you're thinking, all right, well, obviously, if I'm going to take advantage of all of this
+
+02:11.820 --> 02:18.610
+extra flexibility, all of this extra predictive power in this bigger model with more, more dials,
+
+02:18.610 --> 02:20.170
+more weights to learn from.
+
+02:20.440 --> 02:25.270
+How much more training data am I going to need to be able to to take advantage of that?
+
+02:25.270 --> 02:30.070
+And the answer is you would you would roughly need to double the size of your training data set.
+
+02:30.070 --> 02:36.220
+So that relationship between the number of training tokens and parameters, uh, was, was suggested,
+
+02:36.250 --> 02:38.920
+uh, a few years ago, and it stood the test of time.
+
+02:38.920 --> 02:45.340
+It turns out that that for transformers for the transformer architecture, this scaling law appears
+
+02:45.340 --> 02:46.330
+to apply.
+
+02:46.330 --> 02:46.990
+Well.
+
+02:46.990 --> 02:49.780
+And it's a great rule of thumb to keep to hand.
+
+02:50.710 --> 02:51.580
+All right.
+
+02:51.610 --> 02:56.050
+With that, let's just move on now to benchmarks.
+
+02:56.050 --> 03:03.670
+So benchmarks are the common metrics that people talk about uh, which are used to weigh up different
+
+03:03.670 --> 03:04.630
+models.
+
+03:04.660 --> 03:12.670
+They are a series of tests that are applied and used in various leaderboards, which is where you rank
+
+03:12.670 --> 03:18.400
+different, different LMS, uh, to see the different pros and cons of different models.
+
+03:18.430 --> 03:22.270
+Now I've got this table of different benchmarks.
+
+03:22.270 --> 03:28.320
+I'm going to go through them one at a time and get a sense for each one.
+
+03:28.350 --> 03:32.850
+Now, you don't need to remember what each of these benchmarks are because you can always look it up.
+
+03:32.850 --> 03:36.810
+It's useful for you to have a sense of it so that it comes back to you quickly.
+
+03:36.810 --> 03:41.940
+So definitely focus and take this in and and and do some research.
+
+03:41.940 --> 03:42.870
+If you have questions.
+
+03:42.870 --> 03:47.160
+We're going to see these numbers in some of the analysis that we'll be doing later as we compare different
+
+03:47.160 --> 03:47.940
+models.
+
+03:48.030 --> 03:54.300
+So the first one I'm going to mention of the the seven most common benchmarks you see all over the place.
+
+03:54.300 --> 04:00.510
+The first one is called Arc, which is a benchmark that measures scientific reasoning.
+
+04:00.510 --> 04:03.030
+It's basically a bunch of multiple choice questions.
+
+04:03.060 --> 04:11.310
+Drop is a language comprehension test which involves looking at text, distilling it, and then doing
+
+04:11.310 --> 04:14.760
+things like adding or sorting or counting from that text.
+
+04:14.880 --> 04:21.270
+Hella swag, which stands for harder encodings, long context and low shot activities, is a kind of
+
+04:21.300 --> 04:23.790
+common sense reasoning test.
+
+04:24.240 --> 04:26.820
+MLU is super famous.
+
+04:26.820 --> 04:28.860
+You'll see it all over the place.
+
+04:28.860 --> 04:35.340
+It was a really common metric that involves reasoning across 57 subjects.
+
+04:35.800 --> 04:42.760
+There's been some there were some questions raised about how well formed the questions were.
+
+04:42.760 --> 04:46.000
+And there's some, some doubts on the effectiveness of them.
+
+04:46.030 --> 04:47.680
+Lou, it was perhaps overused.
+
+04:47.680 --> 04:53.860
+And you'll see later that there's a variation on Lou which is now more popular called MLU Pro.
+
+04:54.130 --> 04:55.930
+So this has somewhat been replaced.
+
+04:55.930 --> 05:05.140
+Now, truthful QA is about accuracy and robustness, particularly in adversarial conditions when the
+
+05:05.140 --> 05:07.720
+model is encouraged to not be truthful.
+
+05:08.290 --> 05:19.600
+Winogrand is testing that a model can resolve ambiguity in more confusing contexts, and then GSM eight
+
+05:19.600 --> 05:27.670
+K grade school math at the eight K level is both math and also word problems that are in elementary
+
+05:27.670 --> 05:30.010
+and middle school level.
+
+05:30.010 --> 05:35.110
+So these are seven common benchmarks you come across these a lot.
+
+05:35.200 --> 05:36.760
+Uh, keep note of them.
+
+05:36.790 --> 05:38.470
+They're in the resources.
+
+05:38.470 --> 05:42.910
+And you will as I say, these are these are things you will see a lot.
+
+05:42.940 --> 05:44.770
+And hopefully you will now recognize them.

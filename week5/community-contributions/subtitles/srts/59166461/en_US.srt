@@ -1,0 +1,610 @@
+WEBVTT
+
+00:00.710 --> 00:02.690
+And welcome back to the lab.
+
+00:02.690 --> 00:08.300
+Here we are in Jupyter Lab and we are going to go into week two.
+
+00:08.300 --> 00:10.790
+And we're going to go now to day two.
+
+00:10.820 --> 00:12.440
+Here we are radio day.
+
+00:12.470 --> 00:17.390
+Today we will build user interfaces using the outrageously simple Gradio framework.
+
+00:17.390 --> 00:19.010
+Prepare for joy.
+
+00:19.760 --> 00:20.810
+There you go.
+
+00:20.810 --> 00:22.490
+We will do some imports.
+
+00:22.490 --> 00:27.140
+And then this magical line import Gradio as GR.
+
+00:27.170 --> 00:28.400
+And I said oh yeah.
+
+00:28.430 --> 00:30.200
+So there we go.
+
+00:30.200 --> 00:34.700
+And we load our environment variables in using the usual approach.
+
+00:35.030 --> 00:43.010
+Um, and you'll recognize the next familiar cell, which is the three somewhat analogous commands to
+
+00:43.040 --> 00:46.250
+get our APIs up and ready.
+
+00:46.790 --> 00:47.630
+Okay.
+
+00:47.630 --> 00:53.960
+So, uh, start by setting a system message in a variable, which is going to be the very generic UI,
+
+00:53.990 --> 01:00.380
+a helpful assistant that is often the kind of standard starting point for a system message.
+
+01:00.620 --> 01:02.630
+So that's what we will take.
+
+01:03.080 --> 01:07.490
+Um, and now we're going to wrap a call to GPT four mini.
+
+01:07.490 --> 01:14.540
+Uh, in a simple function like this, a message GPT takes a prompt messages equals.
+
+01:14.540 --> 01:18.380
+Now, by this point, uh, hopefully you were bored of this structure.
+
+01:18.380 --> 01:24.620
+You know it so well, uh, a simple conversation structure, a list of dictionaries system, a system
+
+01:24.620 --> 01:30.620
+message user, a user prompt, and then we call completion OpenAI chat, dot completions, dot create.
+
+01:30.650 --> 01:33.620
+We pass in a model and we pass in the messages.
+
+01:33.620 --> 01:37.400
+And what we return is the completion dot choices.
+
+01:37.400 --> 01:40.370
+We take the first choice dot message content.
+
+01:40.370 --> 01:45.800
+That is a function which we are wrapping to message GPT and return a response.
+
+01:45.800 --> 01:47.510
+Let's run that.
+
+01:47.510 --> 01:49.700
+Let's just quickly try that out.
+
+01:49.730 --> 01:50.450
+What should we say?
+
+01:50.480 --> 01:58.550
+Message GPT we've tried a few things that we know spell that right GPT we know what GPT is good at and
+
+01:58.550 --> 01:59.180
+what it's bad at.
+
+01:59.180 --> 02:00.260
+Let's just try one more thing.
+
+02:00.260 --> 02:02.780
+We know that it's not great at current events.
+
+02:02.780 --> 02:04.730
+Let's just go with something very simple.
+
+02:04.730 --> 02:13.430
+What is today's date and let's see what GPT believes is today's date.
+
+02:14.420 --> 02:18.080
+Today's date is October the 3rd, 2023.
+
+02:18.410 --> 02:19.880
+So a few things to note.
+
+02:19.880 --> 02:24.140
+One is that, as expected, it does not have a good sense of current events.
+
+02:24.140 --> 02:29.660
+And the second is that it does appear that its training data took it up until October 2023, just the
+
+02:29.660 --> 02:34.310
+beginning of October, uh, which is something that I alluded to before when it had said September.
+
+02:34.310 --> 02:39.860
+I thought it was October, but I suppose if it's October the 3rd, then, then maybe it's a moot point.
+
+02:39.860 --> 02:42.290
+It's a it's an end of September.
+
+02:42.320 --> 02:46.310
+Early October would be the answer anyways.
+
+02:46.310 --> 02:48.950
+That is a very simple function that we've got there.
+
+02:48.950 --> 02:52.190
+Put that to the back of your mind because we're going to come back to it later.
+
+02:52.190 --> 02:54.320
+It's time to create user interfaces.
+
+02:54.320 --> 02:56.770
+First of all, nothing to do with data science.
+
+02:56.770 --> 02:59.680
+Let's just see how to create a simple user interface.
+
+02:59.680 --> 03:03.640
+So here then is a very simple function called shout.
+
+03:03.640 --> 03:06.040
+And shout is going to take some text.
+
+03:06.040 --> 03:10.330
+And it's going to reply with that text in uppercase.
+
+03:10.330 --> 03:11.620
+That's a pretty simple one.
+
+03:11.620 --> 03:13.150
+So let's shout hello.
+
+03:13.150 --> 03:17.500
+And it says back hello and uppercase a shouty way.
+
+03:17.890 --> 03:19.060
+Um, okay.
+
+03:19.060 --> 03:29.620
+So I put it to you that building a sophisticated user interface with inputs and outputs that can convert
+
+03:29.650 --> 03:33.250
+a little hello to a big hello, is as simple as this.
+
+03:33.280 --> 03:36.910
+It's a two lines view is great interface.
+
+03:36.910 --> 03:38.380
+That means I want a new interface.
+
+03:38.380 --> 03:41.260
+You tell it the function that you want.
+
+03:41.260 --> 03:46.630
+The function that is this user interface is built around, which in this case is shout.
+
+03:46.660 --> 03:51.730
+This function describes right here I'm passing in the function name and what you pass in.
+
+03:51.730 --> 03:53.560
+You then have to pass in inputs and outputs.
+
+03:53.560 --> 03:57.820
+And Gradio is very flexible about what you can pass in here.
+
+03:57.820 --> 04:01.390
+You can pass in lists of things if you've got multiple inputs and outputs.
+
+04:01.390 --> 04:06.280
+If you've only got one input and one output, you can just say what kind of thing it is as a string.
+
+04:06.280 --> 04:07.240
+That's all it needs.
+
+04:07.240 --> 04:08.950
+It will figure it all out.
+
+04:09.070 --> 04:14.020
+Um, and just because this is two lines of code, but just to show you, we could just do it as one
+
+04:14.020 --> 04:18.070
+line of code because I'm really showing off here like that.
+
+04:18.130 --> 04:23.740
+We can just put it all in one line, uh, and just run that and let's see what happens.
+
+04:23.740 --> 04:26.950
+We have ourselves here a little user interface.
+
+04:26.950 --> 04:28.810
+I'm going to type hello.
+
+04:28.960 --> 04:30.910
+And I'm going to press submit.
+
+04:31.510 --> 04:34.510
+And there is a shouty hello right back at me.
+
+04:34.510 --> 04:38.920
+It's a user interface with great controls around it.
+
+04:38.920 --> 04:46.030
+And it's all been built running within this uh, this this this, uh, browser, just like that.
+
+04:46.150 --> 04:51.430
+Now, one thing you might notice is that there's a flag button here, and a folder has been created
+
+04:51.430 --> 04:52.720
+over here called flagged.
+
+04:52.720 --> 04:58.510
+And this is a feature that comes out of the box with Gradio to allow functionality for users to flag
+
+04:58.510 --> 05:03.250
+your results, which is a kind of common use case with machine learning, where you want users to be
+
+05:03.280 --> 05:08.080
+able to to see what's going on and make note if there's a problem with the results.
+
+05:08.320 --> 05:12.850
+But that out of the box functionality is not something we particularly want, and the way we can remove
+
+05:12.850 --> 05:16.780
+that is by passing in allow flagging equals never instead.
+
+05:16.780 --> 05:22.870
+So if I now run that instead, uh, again, I sort of resent the fact that I put that as two lines when
+
+05:22.870 --> 05:27.970
+I could equally well have done it as one line like that, just to really show you how simple it is.
+
+05:28.000 --> 05:29.320
+A single line.
+
+05:29.320 --> 05:33.850
+Uh, and here we get, um, our user interface.
+
+05:34.780 --> 05:38.110
+Uh, so there's a couple of things I've done about this that I want to mention.
+
+05:38.140 --> 05:43.150
+The first of them is with either of these cases, there's also a link that it gives you at the top here.
+
+05:43.150 --> 05:49.000
+And if you click on this link, uh, it actually brings up your interface in an entirely separate window
+
+05:49.000 --> 05:51.220
+like this, which seems almost magical.
+
+05:51.250 --> 05:51.820
+Let's go.
+
+05:51.850 --> 05:52.750
+Hello.
+
+05:55.030 --> 05:56.830
+And it just works.
+
+05:56.860 --> 06:04.180
+And that's because when you run Gradio, it actually runs a little web server running in the background.
+
+06:04.270 --> 06:08.350
+Uh, running locally at a at whatever the first port it finds that's free.
+
+06:08.350 --> 06:13.390
+After after some, some number, uh, after, I think 760 is where it begins and it starts going on
+
+06:13.390 --> 06:13.750
+from there.
+
+06:13.750 --> 06:15.190
+So I suspect the last one was it.
+
+06:15.490 --> 06:15.880
+Yeah.
+
+06:16.000 --> 06:17.380
+Was it 760?
+
+06:17.530 --> 06:20.830
+Uh, so, um, it will run that little web server.
+
+06:20.830 --> 06:25.600
+And so you can either show that in the same Jupyter notebook in the output, or you can just bring it
+
+06:25.600 --> 06:29.290
+up in a separate screen in its own right, which is amazing.
+
+06:29.290 --> 06:35.500
+But even more than that, the other thing I've shown here is that you can pass share equals true into
+
+06:35.500 --> 06:36.250
+your call.
+
+06:36.250 --> 06:43.960
+And if you do that, then Gradio also serves the same interface on a public URL that you can share with
+
+06:43.960 --> 06:50.010
+other people so that other people, colleagues that you're working with can use your same model and
+
+06:50.010 --> 06:53.430
+be able to come in and work on your prototype.
+
+06:53.430 --> 06:58.740
+And this part is a little bit of the mind bending part of it.
+
+06:58.740 --> 07:05.220
+When someone brings up this user interface, which we'll do right now, it'll take just a second.
+
+07:05.220 --> 07:06.690
+There's a bit more going on behind the scenes.
+
+07:06.690 --> 07:07.380
+Here it comes.
+
+07:07.380 --> 07:08.490
+Here's the user interface.
+
+07:08.490 --> 07:10.560
+It looks it's of course the same as this.
+
+07:10.560 --> 07:11.640
+I'll run hello.
+
+07:11.640 --> 07:13.380
+And we'll see it working.
+
+07:14.940 --> 07:16.530
+What's happening here.
+
+07:16.530 --> 07:19.200
+This is of course being served by Gradio.
+
+07:19.200 --> 07:25.080
+But when you call submit, when you press submit and call the function, that function hello is running
+
+07:25.080 --> 07:29.580
+on, on my local box in this Jupyter environment right here.
+
+07:29.670 --> 07:32.250
+Uh, it's uh, it's a bit crazy.
+
+07:32.280 --> 07:34.920
+It's still running the code as it's running on my box.
+
+07:34.920 --> 07:37.560
+It's just there's a publicly available URL for it.
+
+07:37.590 --> 07:39.000
+It's kind of magic.
+
+07:39.000 --> 07:40.620
+Uh, let me explain what I mean by that.
+
+07:40.620 --> 07:44.340
+By going back here and printing here.
+
+07:46.680 --> 07:52.020
+Shout has been called with input.
+
+07:54.840 --> 07:58.650
+So now we are making very clear what's going on.
+
+07:59.130 --> 08:01.980
+So when I run that it says shout has been called with input.
+
+08:02.010 --> 08:02.550
+Hello.
+
+08:02.580 --> 08:06.480
+So now let's come back here and run this again.
+
+08:07.770 --> 08:12.240
+So now it's running with this again a public URL.
+
+08:13.020 --> 08:14.430
+Here it comes.
+
+08:16.020 --> 08:17.190
+I'm going to type.
+
+08:17.190 --> 08:20.070
+This is very cool.
+
+08:20.400 --> 08:22.110
+And press submit.
+
+08:22.230 --> 08:24.570
+And obviously this is very cool as what comes back.
+
+08:24.600 --> 08:27.570
+This is this is being hosted by Gradio.
+
+08:27.570 --> 08:34.050
+But again the somewhat remarkable thing is if I come back here and look in my output, you'll see that
+
+08:34.050 --> 08:36.030
+shout has been called with input.
+
+08:36.030 --> 08:37.320
+This is very cool.
+
+08:37.320 --> 08:41.340
+So the function that's running is running on my box.
+
+08:41.340 --> 08:47.850
+The user interface is being served up through a public radio Gradio website, but the code is running
+
+08:47.850 --> 08:50.010
+on my local box, which is really amazing.
+
+08:50.010 --> 08:54.690
+And what that means basically is that you can write models running on your local box, and you can build
+
+08:54.690 --> 08:59.370
+interfaces, and you can either bring them up locally for yourself, or you can share them with others.
+
+08:59.370 --> 09:04.740
+And as people work with those shared user interfaces, it's still calling the code that is running on
+
+09:04.740 --> 09:06.870
+your box incredibly useful.
+
+09:06.870 --> 09:12.210
+And as you can imagine, for collaborating with people and sharing your models and getting your co-workers
+
+09:12.210 --> 09:15.600
+to to work with you, uh, it couldn't be easier.
+
+09:16.710 --> 09:20.370
+All right, so let's keep going and show a couple more things.
+
+09:20.370 --> 09:25.590
+I'm now going to bring up an interface which is going to specify inputs and outputs.
+
+09:25.800 --> 09:30.810
+And you can see here what I'm doing is I'm saying that the the inputs it's a list.
+
+09:30.810 --> 09:32.640
+It's just got one thing in there.
+
+09:32.640 --> 09:34.080
+It's a text box.
+
+09:34.080 --> 09:37.740
+It's got a label your message and it's got six lines.
+
+09:37.740 --> 09:41.190
+The outputs is response and it's got eight lines.
+
+09:41.340 --> 09:43.650
+Um, and it's calling the function shout.
+
+09:43.710 --> 09:49.620
+let's have a look at that and let's bring that up here.
+
+09:50.340 --> 09:53.610
+And it comes up just as you'd expect and make it a bit bigger for you.
+
+09:53.610 --> 09:54.480
+There we go.
+
+09:54.510 --> 09:55.710
+There is a message.
+
+09:55.710 --> 09:56.760
+There's a response.
+
+09:56.760 --> 10:02.010
+I can say hello yet again and I can press submit.
+
+10:02.010 --> 10:05.610
+And over here comes the capitalized version.
+
+10:05.700 --> 10:08.220
+Very easy, nice and configurable.
+
+10:08.250 --> 10:10.860
+Looks like a good UI.
+
+10:11.790 --> 10:15.930
+Well, you can probably imagine what I'm going to suggest next.
+
+10:16.380 --> 10:17.820
+Wouldn't it be great?
+
+10:17.850 --> 10:23.460
+Wouldn't it be great if you could just replace that word shout with another function?
+
+10:23.490 --> 10:24.720
+Any function?
+
+10:24.720 --> 10:28.170
+Why not a message GPT function that we wrote earlier?
+
+10:28.170 --> 10:33.780
+You could just simply replace that word shout with that function, and you'd be able to have a user
+
+10:33.780 --> 10:35.820
+interface built on top of an LLM.
+
+10:35.820 --> 10:37.380
+Wouldn't that just be great?
+
+10:37.410 --> 10:38.640
+Wouldn't it be great?
+
+10:38.970 --> 10:40.020
+Ha ha.
+
+10:40.050 --> 10:41.640
+Well, let's have a look.
+
+10:41.640 --> 10:42.770
+Let's have a look.
+
+10:42.800 --> 10:43.700
+Here we go.
+
+10:43.700 --> 10:44.420
+Same.
+
+10:44.420 --> 10:45.500
+Same code.
+
+10:45.500 --> 10:46.910
+We've replaced the function.
+
+10:46.910 --> 10:47.840
+It's no longer shout.
+
+10:47.840 --> 10:49.400
+It's now message GPT.
+
+10:49.610 --> 10:51.290
+Let's see what happens.
+
+10:51.290 --> 10:53.480
+Let's bring that up in a separate window.
+
+10:53.510 --> 10:54.740
+Here it is.
+
+10:54.920 --> 11:02.240
+Please tell me a joke and we will submit that.
+
+11:02.240 --> 11:04.430
+And we'll see what comes back.
+
+11:05.180 --> 11:07.310
+Why did the Scarecrow win an award?
+
+11:07.310 --> 11:10.550
+Because he was outstanding in his field.
+
+11:10.580 --> 11:12.080
+That's a great joke.
+
+11:13.730 --> 11:15.350
+Uh, okay.
+
+11:15.470 --> 11:19.100
+A great joke from GPT four mini.
+
+11:19.100 --> 11:25.730
+And a great example of how easy it is to make that bigger for you to build a user interface that is
+
+11:25.730 --> 11:29.510
+running using an LLM behind the scenes.
+
+11:29.570 --> 11:34.760
+I hope that you are as overjoyed by this experience as I am.
+
+11:34.850 --> 11:37.370
+I think Gradio is awesome.
+
+11:37.400 --> 11:41.330
+All right, I will see you next time when we're going to put Gradio to even more good use.

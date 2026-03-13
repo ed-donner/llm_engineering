@@ -1,0 +1,292 @@
+WEBVTT
+
+00:00.050 --> 00:05.030
+And welcome back to team PC and Team Mac as we come back together again for a quick video.
+
+00:05.030 --> 00:07.640
+In this one, I'm just going to quickly walk through what you do.
+
+00:07.640 --> 00:11.990
+If Anaconda has given you problems, you're not able to get that to work and you want to fall back to
+
+00:12.020 --> 00:14.300
+the simpler virtualenv approach.
+
+00:14.300 --> 00:16.820
+This is a quicker, simpler approach.
+
+00:16.820 --> 00:19.160
+It's less guaranteed to be compatible.
+
+00:19.160 --> 00:24.020
+It's less heavyweight and powerful than the Anaconda environment, but it's perfectly okay.
+
+00:24.020 --> 00:27.020
+And so by all means, use this if you would prefer.
+
+00:27.350 --> 00:29.000
+So I'm going to do it on my Mac.
+
+00:29.000 --> 00:33.680
+But I'll point out when things are different for the PC and it's basically the same, although I'll
+
+00:33.680 --> 00:40.190
+say the the instructions begin where it says alternative setup instructions in the Readme on on the,
+
+00:40.190 --> 00:41.360
+the, the repo.
+
+00:41.360 --> 00:47.930
+And one important difference between PC and Mac is that if you haven't, I imagine that that almost
+
+00:47.930 --> 00:51.680
+everyone on this has has installed Python before on their PC.
+
+00:51.950 --> 00:54.050
+But if you haven't, then you will need to do that.
+
+00:54.260 --> 01:01.790
+Python comes on Macs by default, but not on PCs, so I've got a link in here to go to the Python website.
+
+01:01.820 --> 01:07.080
+When you go to the Python download website, you can choose to download the latest version of Python,
+
+01:07.080 --> 01:14.970
+but it might be better to choose Python 3.11.9, which is the latest version 3.11 to be compatible,
+
+01:15.000 --> 01:20.940
+and you can come down here and do a windows installer to install on windows.
+
+01:20.970 --> 01:25.890
+And if you don't have this version and if you have the time to install this version on windows, that
+
+01:25.890 --> 01:27.060
+would be better.
+
+01:27.210 --> 01:27.990
+Okay.
+
+01:28.020 --> 01:33.060
+Once you have done that, then on a mac, bring up a terminal window on the PC.
+
+01:33.090 --> 01:39.270
+Bring up a normal PowerShell prompt, not the Anaconda prompt, just a regular prompt, and go into
+
+01:39.270 --> 01:45.780
+the projects directory that we created earlier and then into the LM Engineering directory where the
+
+01:45.780 --> 01:47.220
+project sits.
+
+01:47.220 --> 01:49.980
+And now you do a simple command.
+
+01:50.340 --> 01:55.110
+Let's first just quickly check what version of Python we're running Python minus minus version.
+
+01:55.320 --> 01:59.730
+And on my computer my default version is actually 3.12.3.
+
+01:59.760 --> 02:04.200
+It still works as far as I can tell for everything, but it's not as guaranteed to be compatible.
+
+02:04.200 --> 02:06.480
+But still, I'm going to push ahead with this.
+
+02:06.750 --> 02:10.800
+Uh, and what we now do is we type Python minus m.
+
+02:11.410 --> 02:13.450
+Venv venv.
+
+02:13.600 --> 02:18.280
+You might wonder what magic, what strange concoction that is.
+
+02:18.490 --> 02:24.100
+Python is saying I want to create a new virtual environment, and then the name of that virtual environment
+
+02:24.100 --> 02:28.210
+is going to be Venv again, which is something that people usually often use.
+
+02:28.210 --> 02:34.180
+And if I look in this directory, you'll see that there is now a folder called Venv virtual environment,
+
+02:34.180 --> 02:37.750
+which will contain all of the Python files for this virtual environment.
+
+02:37.750 --> 02:40.480
+And so far everything has been the same with a PC.
+
+02:40.720 --> 02:43.960
+What I'm going to do now is different between a mac and a PC.
+
+02:44.170 --> 02:49.510
+On a mac, what we're going to do is activate this virtual environment on a mac.
+
+02:49.540 --> 02:55.840
+You do that by typing source venv slash bin slash, activate.
+
+02:55.990 --> 02:59.830
+And again, all of this is of course I just did that.
+
+02:59.830 --> 03:02.260
+All of this is of course written in the Readme instructions.
+
+03:02.260 --> 03:06.970
+And the way we know we've activated the environment is that Venv appears over here on the left.
+
+03:07.000 --> 03:11.590
+You can see there's also this base here because I've got Anaconda installed.
+
+03:11.590 --> 03:16.180
+You may not see that if you haven't installed Anaconda and on a PC you won't, you won't see that.
+
+03:16.440 --> 03:18.300
+but that can be safely ignored.
+
+03:18.300 --> 03:19.620
+We are in the venv.
+
+03:19.650 --> 03:20.610
+Environment.
+
+03:21.030 --> 03:25.740
+And now what you do, which is something that probably most of you have done many times before, is
+
+03:25.770 --> 03:29.610
+we do pip install because we want to install Python packages.
+
+03:29.610 --> 03:37.500
+Minus R means we have a file of names of packages that we want to specify, and it's called requirements.txt.
+
+03:38.340 --> 03:42.630
+And then when I press enter it is now going to be installing these packages.
+
+03:42.630 --> 03:48.210
+But it's not installing them on my the python that comes with my box.
+
+03:48.210 --> 03:52.560
+It's installing them specifically on this virtual environment called Venv.
+
+03:52.560 --> 03:59.130
+So I'm isolating my environment from anything else that I might be doing on my computer with Python.
+
+03:59.340 --> 04:04.110
+And you can see that there's plenty going on here as it does all of these things.
+
+04:04.140 --> 04:07.890
+It will be slower for you because you can see it's saying it's used cached.
+
+04:08.070 --> 04:12.780
+Because I've done this before, it won't be cached for you presumably.
+
+04:12.780 --> 04:18.540
+So there'll be a lot of downloading going on, but it's still a lot quicker than setting up the Anaconda,
+
+04:18.570 --> 04:19.920
+uh, window.
+
+04:19.920 --> 04:22.720
+And then the business happens at the end.
+
+04:22.750 --> 04:28.990
+Right now it is at the moment, now going ahead and installing all of that.
+
+04:29.020 --> 04:32.290
+And you can see a lot of different packages here.
+
+04:32.320 --> 04:36.400
+Uh, of course, only some of these are the packages we're actually going to use on this course.
+
+04:36.400 --> 04:38.920
+Many of them are things on which they depend.
+
+04:38.950 --> 04:43.690
+So it's installed both the packages we need and all of their dependencies up there.
+
+04:43.750 --> 04:48.280
+Um, but you'll see that there's things like SQL alchemy, and that's because we're going to be using
+
+04:48.280 --> 04:51.430
+an object database that's going to depend on that.
+
+04:51.550 --> 04:53.680
+Um, and you can see other things going on here.
+
+04:53.680 --> 05:00.220
+Chroma is the the vector data store, a wonderful open source vector data store that we'll be using
+
+05:00.310 --> 05:04.150
+Tokenizers part of our Huggingface code.
+
+05:04.360 --> 05:10.780
+So lots of things you can take your time while it's doing this, to look around and see the names of
+
+05:10.810 --> 05:12.730
+some of the packages that we will be using.
+
+05:12.760 --> 05:13.360
+All right.
+
+05:13.360 --> 05:14.800
+That has now happened.
+
+05:14.830 --> 05:16.660
+And it didn't take very long at all.
+
+05:16.660 --> 05:22.630
+And at the end of this, all I have to now do is again, uh oh, I might just quickly mention that the
+
+05:22.630 --> 05:32.730
+the command for a PC to activate your environment is in fact venv and then backslash scripts.
+
+05:32.940 --> 05:34.890
+Backslash activate.
+
+05:34.920 --> 05:41.520
+So you would type that first and then you would type the pip install r requirements.txt.
+
+05:41.520 --> 05:44.010
+And of course that's all specified in the readme.
+
+05:44.430 --> 05:50.880
+But whether you're on a mac or on a PC at this point all you would do is type the simple JupyterLab.
+
+05:50.880 --> 05:57.870
+And with any luck, when I press enter, it is now going to launch the JupyterLab environment.
+
+05:57.900 --> 05:59.040
+Here it comes.
+
+05:59.040 --> 06:03.000
+And this is going to be our home for the next few weeks.
+
+06:03.000 --> 06:04.020
+The next eight weeks.
+
+06:04.020 --> 06:07.710
+Folders for each of the eight weeks and the usual setup.
+
+06:07.710 --> 06:12.270
+The only difference being now we have this Venv folder which contains our virtual environment.
+
+06:12.810 --> 06:15.630
+So that's the fallback plan.
+
+06:15.630 --> 06:16.530
+I hope that makes sense.
+
+06:16.530 --> 06:21.990
+If you have any problems at all with the fallback plan, then please, please, please reach out.
+
+06:21.990 --> 06:22.950
+I will fix it.
+
+06:22.980 --> 06:25.080
+We'll get you on your way quickly.
+
+06:25.110 --> 06:31.590
+All right, on to the next video when we're going to be doing setting up API keys with OpenAI.
+
+06:31.620 --> 06:32.430
+See you there.

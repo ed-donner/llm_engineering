@@ -1,0 +1,532 @@
+WEBVTT
+
+00:01.430 --> 00:06.980
+And this is the first time that we'll be coding against our big project of the course.
+
+00:06.980 --> 00:08.930
+Welcome to Jupyter Lab.
+
+00:08.930 --> 00:14.390
+Welcome to the week six folder as we embark upon our big project.
+
+00:14.390 --> 00:20.870
+So again, our project is to build a model that can estimate how much something costs based on the description
+
+00:20.870 --> 00:21.710
+of the product.
+
+00:21.710 --> 00:26.120
+And today we're going to be doing the first step in data curation.
+
+00:26.120 --> 00:34.220
+And we'll start by looking at a subset of the data for home appliances, washing machines and the like.
+
+00:34.220 --> 00:36.710
+So first let me just show you the data set itself.
+
+00:36.710 --> 00:39.260
+The data set is is at this link right here.
+
+00:39.260 --> 00:46.190
+This is the data set on the hugging face datasets section of the Hugging Face hub.
+
+00:46.580 --> 00:55.520
+Um, and it is a series of um, of scraped Amazon reviews that that goes back in time.
+
+00:55.520 --> 00:59.810
+But this latest scrape that was from 20 was from late 2023.
+
+01:00.020 --> 01:07.450
+Um, it contains a huge number of reviews, but it also contains almost 50 million items in there.
+
+01:07.450 --> 01:15.040
+So there's a lot of different products and they're divided into these different categories.
+
+01:15.250 --> 01:17.410
+We are not going to be working with all of these.
+
+01:17.410 --> 01:22.870
+We're going to pluck out a subset of this that are the kinds of categories that interest us the most
+
+01:22.870 --> 01:24.070
+for this exercise.
+
+01:24.490 --> 01:28.930
+Otherwise, everything would take an awfully long time to train and that wouldn't be any fun.
+
+01:28.930 --> 01:34.000
+So this gives you a good sense of the kind of data that we're working with.
+
+01:34.330 --> 01:41.560
+And if I go into the folder, the hugging face folder that contains the data for what, what the dataset
+
+01:41.590 --> 01:47.380
+calls meta data, which is the data of the products and descriptions and prices themselves, which is
+
+01:47.380 --> 01:48.400
+what we really care about.
+
+01:48.430 --> 01:49.270
+Here it is.
+
+01:49.300 --> 01:56.380
+And you can get a good sense if you look at the data set for things like electronics, you can see that
+
+01:56.380 --> 01:59.320
+it's just over five gigabytes in size.
+
+01:59.320 --> 02:05.110
+So these are big data sets and they're going to have a ton of useful information.
+
+02:05.110 --> 02:08.160
+And it was uploaded seven months ago.
+
+02:08.160 --> 02:10.290
+So this is all quite recent.
+
+02:11.100 --> 02:14.010
+So let's get going.
+
+02:14.010 --> 02:16.410
+We begin with some imports.
+
+02:16.440 --> 02:19.440
+Nothing particularly complicated there.
+
+02:19.470 --> 02:20.700
+Not as yet.
+
+02:20.730 --> 02:22.380
+There will be more to come.
+
+02:22.680 --> 02:24.660
+Uh, we're going to set up our environment.
+
+02:24.690 --> 02:26.550
+Not that we're going to be using any of this today.
+
+02:26.550 --> 02:28.260
+We're just going to be using hugging face.
+
+02:28.290 --> 02:29.970
+Log in to hugging face.
+
+02:30.720 --> 02:37.230
+Um, and, uh, this this makes sure that, uh, matplotlib can show us charts in the Jupyter notebook.
+
+02:37.380 --> 02:41.070
+So the first thing to do is to load in our data set.
+
+02:41.070 --> 02:45.660
+And what we're going to do is we specify the name of the data set, Amazon reviews.
+
+02:45.660 --> 02:49.980
+And we're going to just choose to start with the appliances category.
+
+02:50.010 --> 02:56.970
+Appliances home appliances like like uh fridges and, and uh, washing machines and the like, um,
+
+02:57.000 --> 03:02.550
+are going to be the first things that we're going to load in using hugging faces load data set, uh,
+
+03:02.550 --> 03:03.480
+function.
+
+03:03.780 --> 03:09.330
+Um, and the first time you run this, it will actually download it from the Huggingface hub, since
+
+03:09.350 --> 03:13.370
+I've already done that, that won't be required for me.
+
+03:13.400 --> 03:20.870
+It will just bring in and this has already completed and we'll see how many appliances we have.
+
+03:20.990 --> 03:26.510
+We have 94,000 home appliances in there.
+
+03:26.510 --> 03:28.520
+So let's have a look at one of these guys.
+
+03:28.520 --> 03:34.550
+Let's have a look at uh let's say data point equals data set.
+
+03:35.030 --> 03:36.290
+Let's take the first one.
+
+03:36.290 --> 03:37.100
+Why not.
+
+03:37.370 --> 03:38.360
+Let's have a look at it.
+
+03:42.590 --> 03:44.210
+So this is what it looks like.
+
+03:44.210 --> 03:45.950
+It's got tons of information.
+
+03:45.950 --> 03:49.370
+But in particular you can see it has something called features.
+
+03:49.370 --> 03:54.350
+It has a title and it has a few other things that are probably going to be useful for us.
+
+03:54.530 --> 04:01.910
+And in particular it has a title, a description, features, details and price.
+
+04:01.940 --> 04:04.970
+Let's just print each of them out so we can have a quick look.
+
+04:05.030 --> 04:06.770
+So this is the title.
+
+04:06.770 --> 04:09.860
+This is an ice maker machine countertop.
+
+04:09.890 --> 04:13.280
+This is its description which is empty.
+
+04:13.820 --> 04:16.430
+This is its details.
+
+04:16.460 --> 04:24.830
+So features lots of features, details here and price which we immediately see a problem.
+
+04:24.830 --> 04:26.870
+Price is none in this case.
+
+04:26.870 --> 04:30.080
+So clearly not all of the items have a price.
+
+04:30.560 --> 04:35.780
+And you'll notice that description appears to come in the form of a list.
+
+04:35.780 --> 04:41.090
+So A features whereas details comes in the form of a dictionary.
+
+04:41.090 --> 04:43.790
+Although that is deceiving, it's actually not a dictionary.
+
+04:43.790 --> 04:47.180
+It is a string that contains JSON.
+
+04:47.180 --> 04:54.980
+So this is text that if we want to read into that, we would need to load that in and use A and convert
+
+04:54.980 --> 04:58.940
+it into a dictionary using JSON load string load s.
+
+05:00.020 --> 05:01.310
+Um, okay.
+
+05:01.310 --> 05:05.060
+Let's look at a different data point just to see the next one.
+
+05:05.060 --> 05:12.740
+Looks like an egg holder for a refrigerator, uh, and holds up to ten eggs also none.
+
+05:13.250 --> 05:15.390
+No price for that one either.
+
+05:15.420 --> 05:17.880
+And this third one doesn't have a price either.
+
+05:17.880 --> 05:20.940
+It's a brand new dryer drum slide.
+
+05:20.940 --> 05:24.720
+So at this point we might have our first moment of being concerned.
+
+05:24.750 --> 05:27.300
+We've got 94,000 appliances.
+
+05:27.300 --> 05:30.000
+The first three that we've looked at don't have a price.
+
+05:30.000 --> 05:32.340
+So let's see how many do have a price.
+
+05:32.340 --> 05:37.800
+So a simple way to do that is we will iterate through all of the data points in our data set.
+
+05:37.800 --> 05:40.410
+And we will get the price.
+
+05:40.650 --> 05:44.040
+And we will put that in a try block.
+
+05:44.190 --> 05:50.010
+Because if it doesn't have one, it will fail and we will just skip that data point.
+
+05:50.010 --> 05:53.220
+So we'll also ignore anything that is priced at zero.
+
+05:53.220 --> 05:57.120
+So we're just going to be looking at things that have a price that is a number.
+
+05:57.120 --> 06:01.140
+And that that price is non-zero is more than zero.
+
+06:01.170 --> 06:05.490
+I don't think there are any negative prices in there, but if there are, they're not going to get counted.
+
+06:06.360 --> 06:11.310
+So this is now going to be going through and trying to figure that out.
+
+06:11.310 --> 06:12.540
+And there we go.
+
+06:12.540 --> 06:19.560
+So it tells us that there are 726, which is almost 50%.
+
+06:19.560 --> 06:20.580
+So it's not terrible.
+
+06:20.580 --> 06:22.290
+That's fine, that's fine.
+
+06:22.290 --> 06:26.790
+It's, uh, for a moment might be worried that there would be a, that it would be slim pickings, but
+
+06:26.790 --> 06:29.700
+no, at least for the appliances.
+
+06:29.970 --> 06:35.010
+Um, uh, data set, half of them have prices.
+
+06:35.400 --> 06:36.960
+It's a tiny side point.
+
+06:36.960 --> 06:39.270
+I don't know if you've spotted when I've been printing numbers.
+
+06:39.270 --> 06:45.210
+Generally, they've had a comma to separate the thousands, which I always find so useful when when
+
+06:45.240 --> 06:47.370
+being able to read these kinds of things.
+
+06:47.370 --> 06:53.340
+The way that you do that is, if you're using Python's f strings, you say colon comma like this.
+
+06:53.460 --> 06:59.850
+Um, to you use that for your formatting and then you'll get numbers in this style.
+
+07:00.000 --> 07:02.610
+Just a little a hot tip.
+
+07:02.700 --> 07:06.510
+Uh, you may have known that already, but if not, it's a useful one to be aware of.
+
+07:07.500 --> 07:08.490
+Okay.
+
+07:08.970 --> 07:14.490
+So what we're going to do now is we're going to take all of the ones with prices.
+
+07:14.850 --> 07:22.800
+Um, and we're going to figure out how many characters it has in its title, description, features
+
+07:22.800 --> 07:23.370
+and details.
+
+07:23.370 --> 07:29.130
+We're going to add up the total number of characters and put that into a list of lengths.
+
+07:29.130 --> 07:36.150
+So what we now have is a list of prices and a list of lengths, so we can get a sense of how how many
+
+07:36.180 --> 07:41.610
+characters of detail we have and see if it's uniform or if it's something that's that's in some way
+
+07:41.640 --> 07:42.390
+skewed.
+
+07:42.450 --> 07:50.400
+So now we're going to use matplotlib, which we'll be using a lot, uh, to make a plot of the lengths
+
+07:50.400 --> 07:53.250
+in the form of a histogram.
+
+07:53.250 --> 08:00.360
+And hopefully you remember from statistics classes of some time ago, a histogram is basically going
+
+08:00.360 --> 08:06.930
+to take everything and bucket it into into bins and show how many we have in each bin.
+
+08:06.960 --> 08:09.060
+It's easier to show you what that looks like.
+
+08:09.060 --> 08:10.170
+This is what it looks like.
+
+08:10.170 --> 08:18.330
+So along the x axis we have the lengths of our different, um, uh, appliances, our different washing
+
+08:18.330 --> 08:22.830
+machines or whatever, uh, in terms of how many characters they have in that description.
+
+08:22.830 --> 08:29.240
+And this is the count of how many appliances do we have with that many characters.
+
+08:29.240 --> 08:36.470
+And you can see that there's a nice kind of peak around here, but there is this long tail of more characters
+
+08:36.470 --> 08:38.960
+coming in now.
+
+08:38.960 --> 08:43.610
+This is going to be a challenge for us when we're training, because ultimately we're going to want
+
+08:43.610 --> 08:48.650
+to use our own, uh, open source models and train them.
+
+08:48.650 --> 08:55.730
+And one of the constraints that's very important for us to understand is the maximum number of characters
+
+08:55.730 --> 09:00.680
+that we might pass in, or actually the maximum number of tokens that we might pass in to the model
+
+09:00.680 --> 09:01.490
+at each point.
+
+09:01.490 --> 09:06.770
+And the more tokens that we might need to pass in for each of our training points, the more memory
+
+09:06.770 --> 09:09.950
+that we need for training and the harder it is to achieve.
+
+09:09.980 --> 09:14.990
+Another point is that even when we're using frontier models, whilst they don't have that problem,
+
+09:14.990 --> 09:19.430
+they have a different problem, which is that it's more expensive if we're passing in more tokens than
+
+09:19.430 --> 09:24.710
+they are going to of course cost us more, which doesn't really mean very much for a for a few of these.
+
+09:24.830 --> 09:30.950
+But if we want to do this in anger for a large number of products, then the numbers will start to add
+
+09:30.950 --> 09:31.490
+up.
+
+09:31.520 --> 09:37.430
+So ideally we would pick a cutoff and we would constrain our data at that point.
+
+09:37.550 --> 09:40.820
+Um, and so that's something that we'll be thinking about later.
+
+09:41.120 --> 09:45.200
+Another thing for us to look at is the distribution of the prices.
+
+09:45.200 --> 09:47.270
+So how much do things cost?
+
+09:47.300 --> 09:53.150
+You may have gotten the hint from our earlier analysis that whilst we thought appliances was going to
+
+09:53.150 --> 09:59.900
+be full of fridges and washing machines and the like, the things that we looked at were rather smaller.
+
+09:59.900 --> 10:05.810
+They were egg holders and ice makers, and it shouldn't be that much of a surprise when you think about
+
+10:05.810 --> 10:12.860
+it, that the data is probably going to have a very large number of cheaper things that might sort of,
+
+10:13.010 --> 10:16.730
+um, squash out some of the higher priced items.
+
+10:16.730 --> 10:17.660
+So let's see that.
+
+10:17.690 --> 10:19.100
+Let's see how this looks.
+
+10:20.360 --> 10:22.850
+Well, that does appear to be the case.
+
+10:23.120 --> 10:29.280
+So the average price in our data set is $6.
+
+10:29.310 --> 10:33.360
+The highest price is $21,000.
+
+10:33.390 --> 10:40.290
+There is a home appliance for $21,000 in this list, but you can see that there's a very large number
+
+10:40.290 --> 10:43.140
+that have smaller prices.
+
+10:43.470 --> 10:48.150
+And for those that remember the difference between mean, median and mode.
+
+10:48.180 --> 10:54.930
+Again, from school statistics, this is a nice illustration of where the mean can be pulled up by expensive
+
+10:54.930 --> 11:01.200
+items and is clearly going to be bigger than, well, certainly than the mode and and probably the median
+
+11:01.200 --> 11:01.710
+too.
+
+11:02.730 --> 11:10.080
+Uh, so, um, yes, you can you can certainly see we have skewed distribution where there is a very
+
+11:10.080 --> 11:12.690
+large number of cheap products.
+
+11:12.690 --> 11:19.650
+And that might be challenging during training because the training data is going to be really crowded
+
+11:19.650 --> 11:22.140
+out by these low cost items.
+
+11:22.440 --> 11:26.880
+Let's just have a quick look for this super expensive thing and see what it is.
+
+11:26.880 --> 11:30.630
+This this $21,000, uh, item.
+
+11:30.630 --> 11:35.300
+We will go through our data set and pluck out whatever it is that costs more than $21,000.
+
+11:35.300 --> 11:38.000
+It is, it seems, a turbochef bullet.
+
+11:38.000 --> 11:41.300
+Rapid cook electric microwave convection oven.
+
+11:41.330 --> 11:45.290
+Now, if someone had told me that description, I would never have thought that that was going to cost
+
+11:45.320 --> 11:46.940
+$21,000.
+
+11:47.300 --> 11:52.970
+I did find something not identical, but something that I think is probably the latest version in Amazon
+
+11:52.970 --> 11:53.870
+right now.
+
+11:53.960 --> 12:00.590
+And if we go over to have a look at this, you can see here this is also made by Turbochef.
+
+12:00.590 --> 12:05.420
+It's a bargain price of only $18,000, not $21,000.
+
+12:05.900 --> 12:07.640
+But I don't know about you.
+
+12:07.640 --> 12:12.440
+I had no idea that microwaves could cost this much, but it's clearly a very professional microwave,
+
+12:12.470 --> 12:17.090
+a very high end microwave, and going, as I say, for that bargain price.
+
+12:17.090 --> 12:27.110
+That is the $21,000 version of that is over here somewhere in our way off the scale in our data.
+
+12:28.340 --> 12:35.120
+So it's now time for us to curate our data, and we'll do that in the next video.

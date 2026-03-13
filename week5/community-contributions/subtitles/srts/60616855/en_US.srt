@@ -1,0 +1,322 @@
+WEBVTT
+
+00:00.080 --> 00:01.760
+Now I know what you're thinking.
+
+00:01.790 --> 00:04.190
+We've been building environments for so long.
+
+00:04.220 --> 00:05.330
+Are we not done yet?
+
+00:05.360 --> 00:06.740
+We're almost done.
+
+00:06.770 --> 00:07.940
+We're almost done.
+
+00:07.940 --> 00:13.100
+There's two more steps to go, and then we are through with environment setup and onto projects.
+
+00:13.100 --> 00:21.440
+So the next thing we have to do is set up our keys to use open AI so that we can connect from our JupyterLab
+
+00:21.440 --> 00:26.420
+environment to run with some of the most powerful models on the planet.
+
+00:26.690 --> 00:33.320
+Uh, if you go to the Readme, uh, in our GitHub repository and you scroll down a little bit, we'll
+
+00:33.320 --> 00:39.740
+get to the point where there are the links to the major providers, and we're just going to be using
+
+00:39.740 --> 00:41.480
+open AI for this week.
+
+00:41.480 --> 00:46.820
+And if you click on that link, it will take us to the open AI page.
+
+00:46.820 --> 00:52.820
+If you've never been before, you will have to sign up or sign in using Google credentials or creating
+
+00:52.820 --> 00:53.930
+an account.
+
+00:54.260 --> 00:59.720
+Now, before we go further, I have to explain something that's pretty confusing, which does sometimes,
+
+00:59.720 --> 01:11.550
+uh, throw people all of the major closed source providers like OpenAI and anthropic for Cloud and Google
+
+01:11.550 --> 01:19.110
+for Gemini have two different types of plan that are completely separate and don't have any relationship
+
+01:19.110 --> 01:19.980
+with each other.
+
+01:20.010 --> 01:28.380
+One of them relates to their web tools, the front end tools, which you can use to chat with like famously
+
+01:28.410 --> 01:30.720
+ChatGPT that we all know well.
+
+01:30.750 --> 01:37.980
+ChatGPT has a pro plan that you can pay for if you want to, to be able to use some of the latest models
+
+01:37.980 --> 01:42.990
+that we'll look at later, like, oh one preview and GPT four with canvas and others.
+
+01:43.050 --> 01:46.020
+Uh, that needs a pro plan in some cases.
+
+01:46.050 --> 01:52.440
+Uh, and the Pro plan costs about $20 a month in the US and similar pricing in other regions.
+
+01:52.770 --> 01:57.420
+Um, a fixed monthly price, and then you have almost unlimited access to those models.
+
+01:57.420 --> 01:59.220
+The same is true for anthropic.
+
+01:59.250 --> 02:00.660
+Uh, same same kind of thing.
+
+02:00.660 --> 02:03.180
+And, uh, Google Gemini also.
+
+02:03.830 --> 02:08.720
+But this is entirely separate to the API world.
+
+02:08.720 --> 02:11.810
+The API world is where you can use.
+
+02:11.810 --> 02:18.230
+You can call out to the model directly using code, and it's running on the cloud, and it will respond
+
+02:18.260 --> 02:20.390
+with answers to your questions.
+
+02:20.390 --> 02:23.330
+It's a different type of pricing plan.
+
+02:23.330 --> 02:25.880
+It is there's no monthly subscription.
+
+02:25.880 --> 02:28.670
+There's no no payment whatsoever monthly.
+
+02:28.670 --> 02:32.240
+But you do have to pay per API request.
+
+02:32.240 --> 02:39.200
+It's a pay per request situation, and the payment per request will talk more detail about API costs
+
+02:39.200 --> 02:39.680
+later.
+
+02:39.680 --> 02:44.390
+But it's really tiny for any project that we work on in this course.
+
+02:44.390 --> 02:50.600
+For most of the projects, except where I will mention otherwise, it is a fraction of a cent it is
+
+02:50.600 --> 02:59.300
+tiny, so there is really no harm in trying out some of these APIs and it gets you such power, gives
+
+02:59.300 --> 03:03.710
+you access to such incredible models, even though some of the models will use their open source are
+
+03:03.710 --> 03:04.550
+very powerful.
+
+03:04.550 --> 03:11.010
+These frontier closed source models are super powerful, as you will see, and so it makes sense that
+
+03:11.010 --> 03:16.050
+you have to pay a small amount for the compute that goes behind the processing to to generate these
+
+03:16.050 --> 03:16.980
+responses.
+
+03:17.190 --> 03:20.400
+But having said that, there is a hitch.
+
+03:20.430 --> 03:26.310
+There is something about this pricing, uh, which is uh, in some cases it's uh, it's new and it may
+
+03:26.340 --> 03:33.450
+be different in different regions, but certainly for me and for, for OpenAI, uh, they have a minimum
+
+03:33.450 --> 03:36.180
+that you have to put down to use the API.
+
+03:36.180 --> 03:39.480
+And in my case right now it is a $5 minimum.
+
+03:39.480 --> 03:41.880
+So you have to put in at least $5.
+
+03:41.880 --> 03:46.020
+And then as you use the API, you'll start to charge down against that $5.
+
+03:46.020 --> 03:51.630
+We're not going to use we're going to use a fraction of that and this entire course, uh, but there'll
+
+03:51.660 --> 03:54.660
+be plenty of other ways that you can use that $5.
+
+03:54.660 --> 03:55.500
+I assure you.
+
+03:55.500 --> 03:57.390
+There are so many projects will build.
+
+03:57.390 --> 04:03.090
+There'll be so many exercises for you for real, useful things, ways that you'll be able to spend that
+
+04:03.120 --> 04:05.010
+and have a good outcome from it.
+
+04:05.010 --> 04:08.450
+So my sales pitch to you would be that it is well worth it.
+
+04:08.450 --> 04:12.950
+I would do it, but it is, of course a personal choice.
+
+04:13.220 --> 04:19.400
+If you don't feel comfortable putting down the $5 or you'd rather not, that's fine.
+
+04:19.520 --> 04:25.160
+You can watch me as I go through the exercises, and what I'll do is I'll show you a way that you can
+
+04:25.160 --> 04:26.600
+use open source models.
+
+04:26.600 --> 04:29.330
+Instead, we'll be able to use a llama.
+
+04:29.360 --> 04:34.070
+The thing that we did at the very, very start, and you'll be able to use that as an alternative to
+
+04:34.100 --> 04:35.570
+using a frontier model.
+
+04:35.570 --> 04:38.240
+Now, the results, of course, are not going to be the same.
+
+04:38.360 --> 04:44.420
+The it's a, uh, the llama models will be using as like a 2 billion parameter model, uh, compared
+
+04:44.420 --> 04:52.580
+to GPT four, that is rumored to be about 10 trillion parameters, uh, perhaps like 10,000 times as
+
+04:52.580 --> 04:52.940
+many.
+
+04:52.940 --> 04:58.190
+So it is a different quality of model, but you would have to put down that $5 up front.
+
+04:58.190 --> 05:00.200
+So that's the decision for you.
+
+05:00.290 --> 05:03.590
+And again I my my take is that it is worth it.
+
+05:04.070 --> 05:09.470
+So in order to do this though, what you need to do is once you've come into the OpenAI platform, you've
+
+05:09.470 --> 05:11.040
+logged in, you've got to this point.
+
+05:11.190 --> 05:12.750
+There's just two things you have to do.
+
+05:12.780 --> 05:15.990
+You first have to go to the settings button up here.
+
+05:15.990 --> 05:20.520
+And on settings over here you go to billing and on billing.
+
+05:20.520 --> 05:26.910
+This is where you need to have some credit balance to be able to use the GPT four zero.
+
+05:27.060 --> 05:30.420
+And the minimum that it will take is $5.
+
+05:30.420 --> 05:33.600
+You have to press add to credit balance and then punch in a credit card.
+
+05:33.600 --> 05:37.410
+And it will take $5 and keep auto recharge off.
+
+05:37.440 --> 05:42.030
+You don't want them snapping from your card without your permission.
+
+05:42.030 --> 05:44.340
+As I say this, this has been it.
+
+05:44.550 --> 05:51.450
+I use it all the time, and I barely manage to get beyond a few cents a day because we use the GPT four
+
+05:51.660 --> 05:56.910
+mini, the cheap version, almost exclusively on this project, on this course.
+
+05:57.000 --> 05:57.510
+So.
+
+05:57.510 --> 06:03.870
+So this $5 is more than enough and you'll be able to put it to fine use, I assure you.
+
+06:03.870 --> 06:09.270
+So if you are comfortable doing this then go ahead, go to billing, put on your $5.
+
+06:09.510 --> 06:17.040
+And then the next thing is to go to dashboard over here and then down to API keys here.
+
+06:17.490 --> 06:24.330
+And then you have to come here and press this create new secret key button right here.
+
+06:24.810 --> 06:26.850
+Uh, you have it set to you.
+
+06:26.850 --> 06:28.560
+You can give it a name if you wish.
+
+06:28.560 --> 06:32.850
+You give permissions all and then you press the Create Secret key button.
+
+06:32.850 --> 06:37.830
+And when you do that, it's going to show you a new secret key that you will have created.
+
+06:37.830 --> 06:41.610
+And it will give you a chance to copy that secret key into your clipboard.
+
+06:41.610 --> 06:44.610
+And you need to do that because it won't let you ever see it again.
+
+06:44.640 --> 06:47.250
+This is the most you'll ever see of that secret key again.
+
+06:47.280 --> 06:51.450
+It is your secret and you have to copy it and keep it somewhere safe.
+
+06:51.450 --> 06:53.490
+We will use it in just a second.
+
+06:53.520 --> 06:57.780
+Once you've done that, we'll be ready to actually put this key to use.
+
+06:57.780 --> 06:59.010
+And we are almost there.
+
+06:59.010 --> 07:00.540
+We are almost done.
+
+07:00.540 --> 07:04.080
+So with any luck, you have now got a secret key copied.
+
+07:04.080 --> 07:09.570
+You've forked out $5 or local currency equivalent and you're ready to go.
+
+07:09.570 --> 07:14.190
+And I will see you in the next video for the very final step of setting up our environment.

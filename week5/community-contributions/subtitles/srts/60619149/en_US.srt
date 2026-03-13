@@ -1,0 +1,184 @@
+WEBVTT
+
+00:00.020 --> 00:06.230
+So we're going to start our exploration into the world of frontier models by playing with the famous
+
+00:06.230 --> 00:10.550
+GPT from OpenAI, which most of you are probably quite familiar with.
+
+00:10.580 --> 00:15.680
+I have a pro license, which means I get access to all of the models, and I imagine some of you do
+
+00:15.710 --> 00:16.520
+as well.
+
+00:16.550 --> 00:21.320
+We'll start with a softball question, the kind of question that they're so good at answering, which
+
+00:21.320 --> 00:30.110
+is how do I decide if a business problem is suitable for an LLM solution?
+
+00:30.110 --> 00:34.910
+And it's useful for us because it's the kind of question that one might ask on this course.
+
+00:35.030 --> 00:40.760
+And what we'll get back, of course, is a very carefully structured and reasoned response with an introduction,
+
+00:40.760 --> 00:44.300
+with summaries, the nature of the problem, the scalability needs.
+
+00:44.300 --> 00:50.480
+No doubt there'll be stuff in here about nuance, about unstructured data, contextual understanding,
+
+00:50.480 --> 00:56.810
+cost, maintenance, lots of great, well-reasoned points with a good summary to boot.
+
+00:56.810 --> 01:00.110
+So this is the kind of thing that it's really, really good at.
+
+01:00.140 --> 01:05.300
+Now I'll ask it a question, which it usually gets right, but sometimes amazingly gets wrong.
+
+01:05.330 --> 01:06.920
+Let's see what happens this time.
+
+01:06.950 --> 01:15.500
+How many times does the letter A appear in this sentence?
+
+01:16.640 --> 01:18.560
+Uh, so let's see how it does.
+
+01:18.770 --> 01:20.900
+Uh, it's got it wrong.
+
+01:20.900 --> 01:24.170
+The letter A appears five times in your sentence.
+
+01:24.410 --> 01:27.380
+Sometimes it gets this right, and sometimes it gets it wrong.
+
+01:27.380 --> 01:29.750
+It's, uh, difficult to know, but.
+
+01:29.750 --> 01:33.920
+But, uh, it might shock you that, uh, it gets that wrong.
+
+01:33.920 --> 01:37.610
+It doesn't mean that we humans still have an advantage in some ways.
+
+01:37.940 --> 01:42.710
+But the truth is, it's to do with the way that this information is sent into the LM.
+
+01:42.710 --> 01:45.260
+It's to do with this, this tokenization strategy.
+
+01:45.260 --> 01:47.180
+And we'll be talking more about that later.
+
+01:47.300 --> 01:50.090
+But it is interesting that it gets it wrong.
+
+01:50.360 --> 01:55.160
+Uh, I'm going to ask it one more question, which is a tricky question.
+
+01:55.160 --> 01:59.540
+I'm going to ask it, uh, Choose the word that best completes the analogy.
+
+01:59.570 --> 02:03.440
+Feather is to bird as scale is to.
+
+02:03.470 --> 02:05.390
+And then there's a few different options there.
+
+02:05.390 --> 02:11.390
+And the best answer is in fact, reptile fish is a bit of a trick answer because fish do have scales,
+
+02:11.390 --> 02:15.260
+but it's not as distinguishing feature as it is for reptiles.
+
+02:15.260 --> 02:20.060
+This question I got from a website called vellum, which is a very a company that does a lot of this
+
+02:20.090 --> 02:23.030
+kind of analysis that we will talk about later.
+
+02:23.270 --> 02:23.840
+All right.
+
+02:23.840 --> 02:25.400
+Let's switch to a different model.
+
+02:25.400 --> 02:28.190
+Let's switch to zero one preview.
+
+02:28.220 --> 02:34.490
+This is the model that was originally codenamed strawberry and is the strongest of OpenAI's models,
+
+02:34.490 --> 02:39.260
+only available to Pro subscribers, but it will ultimately be available to everyone, and it gives you
+
+02:39.260 --> 02:40.610
+a sense of what's to come.
+
+02:40.640 --> 02:45.350
+It uses a sort of chain of reasoning approach to think through questions.
+
+02:45.350 --> 02:55.700
+Let's ask it the same question how many times does the letter A appear in this sentence.
+
+02:56.150 --> 02:58.310
+See if it can do better.
+
+02:59.690 --> 03:00.980
+It's thinking.
+
+03:02.480 --> 03:04.970
+You can see how it takes longer for sure.
+
+03:05.000 --> 03:06.710
+Counting letter frequencies.
+
+03:06.710 --> 03:07.850
+That sounds promising.
+
+03:07.880 --> 03:09.320
+Taking a closer look.
+
+03:09.350 --> 03:10.130
+Good to know.
+
+03:10.130 --> 03:12.560
+And it gets the right the answer.
+
+03:12.560 --> 03:13.190
+Correct.
+
+03:13.190 --> 03:16.040
+The letter A appears four times in the sentence.
+
+03:16.040 --> 03:21.320
+Once in many, uh, once within the quotes and twice in the word appear.
+
+03:21.320 --> 03:23.090
+So it is correct.
+
+03:23.090 --> 03:24.230
+Very good.
+
+03:24.230 --> 03:27.080
+Uh, and then let's also ask strawberry.
+
+03:27.110 --> 03:33.650
+Oh, one preview this, uh, this puzzle and let's see how it can approach this.
+
+03:33.710 --> 03:41.300
+It's considering choosing the right analogy that's also promising cultivating.
+
+03:41.300 --> 03:44.510
+And it gives the correct answer reptile.
+
+03:44.510 --> 03:50.750
+So this gives you a sense of the different models, some of the different strengths between them from
+
+03:50.750 --> 03:53.960
+GPT four zero and zero one preview.

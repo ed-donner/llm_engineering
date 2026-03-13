@@ -1,0 +1,790 @@
+WEBVTT
+
+00:01.160 --> 00:06.590
+Well, I'm sure you're fed up of me saying that the moment of truth has arrived, but it really has.
+
+00:06.590 --> 00:07.970
+The moment of truth has arrived.
+
+00:07.970 --> 00:12.440
+I'm extremely excited, as you could probably tell, and I hope you are too.
+
+00:12.500 --> 00:17.270
+This is this is a big deal, a big, a big moment for us.
+
+00:17.270 --> 00:24.680
+So first of all, we are in the week seven day three Colab, and I must confess that I'm doing something
+
+00:24.710 --> 00:35.690
+a bit naughty in that I have picked a super beefy A100 GPU box, which is the most pricey of the Colab
+
+00:35.720 --> 00:37.370
+boxes it consumes.
+
+00:37.370 --> 00:46.790
+It gobbles up 11.77 uh units compute units per hour, and I think the current going rate, if I'm if
+
+00:46.790 --> 00:52.160
+I'm not mistaken, um, it's roughly 100 units cost about $10.
+
+00:52.160 --> 00:56.000
+So this is this is spending about a dollar an hour.
+
+00:56.210 --> 01:00.050
+Um, right now those prices do change from time to time.
+
+01:00.050 --> 01:05.820
+Um, so, yeah, This is this is definitely not as cheap as as things usually are.
+
+01:05.820 --> 01:07.260
+And you don't need to do this.
+
+01:07.260 --> 01:13.050
+You can definitely use a, um, let me see.
+
+01:13.080 --> 01:14.820
+Uh, change runtime type.
+
+01:14.820 --> 01:16.560
+You can be using a t4 GPU.
+
+01:16.590 --> 01:21.030
+I will tell you which parameters to change for that and it will be just fine.
+
+01:21.090 --> 01:25.560
+Um, but if you don't mind spending a few dollars and you want to have a blast and you want to be changing
+
+01:25.560 --> 01:31.320
+hyper parameters and training fast, it's beautiful to have an A100 box for a while and experience the
+
+01:31.320 --> 01:36.540
+raw power of a box with 40GB of GPU Ram, so I love it.
+
+01:36.540 --> 01:42.450
+I don't I I don't mind giving Google a little bit of money for this, because it's a it's such a treat
+
+01:42.450 --> 01:46.080
+to have a juicy, powerful box like this.
+
+01:46.080 --> 01:49.260
+So anyways, we start with some pip installs.
+
+01:49.260 --> 01:56.850
+This includes this library TRL Transformers Reinforcement Learning from Huggingface, which contains
+
+01:56.850 --> 02:02.670
+the SFT trainer supervised Fine Tuning Trainer, which is the trainer that we'll be doing the work for
+
+02:02.670 --> 02:03.730
+us today.
+
+02:04.090 --> 02:10.990
+Um, and I do want to say I should take just a moment to say that I talked, uh, in the last video,
+
+02:11.170 --> 02:17.140
+um, a fair bit about training, and I, I sort of did it almost by the by, I talked about about some
+
+02:17.140 --> 02:22.360
+of the hyperparameters and in doing so talked about a bit of the training process of forward passes
+
+02:22.360 --> 02:23.440
+and backward passes.
+
+02:23.440 --> 02:26.830
+And again, for some people, that's old hat that you're very familiar with this.
+
+02:26.830 --> 02:32.140
+For some people that might have gone over your head and you might be be be saying, you know, can you
+
+02:32.170 --> 02:36.490
+not take more time to better explain the whole training process?
+
+02:36.490 --> 02:43.600
+And one thing I do want to say is that hugging face has made this so accessible, so easy.
+
+02:43.660 --> 02:49.150
+Um, they've made the barrier to entry for training a model so low that whilst it's very helpful to
+
+02:49.180 --> 02:55.360
+have an intuition for what's going on in terms of, of of optimizing, of taking steps in the right
+
+02:55.360 --> 02:57.220
+direction, this is helpful.
+
+02:57.220 --> 03:00.880
+It's not essential to know the detail of the theory.
+
+03:00.940 --> 03:04.390
+Uh, you just have to know enough to be able to tweak the hyperparameters.
+
+03:04.390 --> 03:04.390
+Parameters.
+
+03:04.390 --> 03:07.960
+Hugging face makes it incredibly easy to do the training.
+
+03:07.960 --> 03:13.690
+So if you did feel like some of that went over your head, then rest assured it really doesn't matter.
+
+03:13.690 --> 03:15.760
+The code will make it very clear.
+
+03:15.760 --> 03:20.710
+And if you know this stuff back to front already and you're very familiar with optimization, then great.
+
+03:21.130 --> 03:22.750
+That will make it so much the better.
+
+03:22.750 --> 03:24.220
+It'll make it even easier.
+
+03:24.430 --> 03:27.760
+All right, so we do some some imports.
+
+03:28.120 --> 03:31.180
+And now we have a bunch of parameters to talk about.
+
+03:31.180 --> 03:36.160
+So uh, the base model of course llama 3.18 billion.
+
+03:36.160 --> 03:38.680
+We know it well the project name.
+
+03:38.680 --> 03:42.820
+So this is the project name that will be used in weights and biases.
+
+03:42.820 --> 03:47.980
+Uh, when we get to that, to, to show the, the, uh, the results that will compare.
+
+03:47.980 --> 03:51.010
+And we'll also use it when we upload to the Hugging Face hub.
+
+03:51.010 --> 03:55.990
+And I'm using the name Pricer for this project, as in something that comes up with prices.
+
+03:55.990 --> 04:00.820
+You may remember when we were training a GPT, I called it Pricer GPT.
+
+04:01.360 --> 04:07.520
+I've kept the project separate because the results will be so different That just because we'll be measuring
+
+04:07.520 --> 04:10.640
+different quantities, it will be confusing to have them in the same project.
+
+04:10.910 --> 04:14.600
+Um, so, uh, I've called this just pricer.
+
+04:15.170 --> 04:19.580
+Uh, hugging face user, you should put your hugging face name in here.
+
+04:19.670 --> 04:27.020
+Uh, because you'll be wanting to post push your fine tuned models to the hub for your models because
+
+04:27.020 --> 04:29.180
+you will treasure them and use them in the future.
+
+04:29.180 --> 04:30.860
+And you can keep them private.
+
+04:30.860 --> 04:33.440
+Uh, they're just for your own consumption.
+
+04:34.430 --> 04:38.000
+So when it comes to the data, we need to load in the data set.
+
+04:38.000 --> 04:41.810
+And here you that you have a choice.
+
+04:41.840 --> 04:47.990
+If a few weeks ago when we were doing data curation, you did go all the way through and you uploaded
+
+04:47.990 --> 04:53.960
+the data set to your Hugging Face hub, then you can keep this line in here and it will have your hugging
+
+04:53.960 --> 04:59.210
+face username and then pricer data, which is what we we called it, and you'll be able to load it in.
+
+04:59.330 --> 05:05.330
+Alternatively, if you decided just to watch that one out and watch me doing the data set stuff but
+
+05:05.330 --> 05:08.460
+you didn't, uh, upload it to Huggingface then then.
+
+05:08.460 --> 05:09.030
+Shame.
+
+05:09.030 --> 05:11.460
+But still, I do understand there was quite a lot to it.
+
+05:11.490 --> 05:15.660
+You can simply uncomment this line where I've just hardcoded.
+
+05:15.660 --> 05:17.010
+We don't need the f there.
+
+05:17.220 --> 05:24.150
+Uh, we've just I've just hard coded the the the price of data in my hub, which will be made public.
+
+05:24.150 --> 05:26.460
+So you can just download it there for.
+
+05:26.460 --> 05:26.730
+Fine.
+
+05:26.760 --> 05:27.360
+Fine.
+
+05:27.360 --> 05:29.730
+You don't need to upload your own one.
+
+05:30.090 --> 05:36.180
+And then maximum sequence length, you'll remember the data is always crafted so that it's no more than
+
+05:36.180 --> 05:43.080
+179 tokens, adding on a few tokens for the start of sentence and anything any gumph at the end, uh,
+
+05:43.080 --> 05:46.620
+means that we're going to say maximum sequence length of 182.
+
+05:46.620 --> 05:50.610
+And this is very important because every training data point will be fitted into this.
+
+05:50.610 --> 05:55.080
+So that and this needs to be a small enough number to fit in our GPU's memory.
+
+05:55.260 --> 05:59.640
+And that's why we've cut off our descriptions to fit within this amount.
+
+06:00.450 --> 06:07.110
+So then a few, uh, sort of administrative things, um, I've come up with something called the run
+
+06:07.110 --> 06:11.350
+name for each of these runs, which is quite simply the current date the year.
+
+06:11.350 --> 06:12.010
+Month.
+
+06:12.010 --> 06:13.720
+Day and hour.
+
+06:13.720 --> 06:13.990
+Minute.
+
+06:13.990 --> 06:14.650
+Second.
+
+06:14.800 --> 06:18.550
+Right now of this run and you'll see why in just a second.
+
+06:18.580 --> 06:23.830
+I'm going to have something called the Project Run name, which is Pricer, and then a hyphen, and
+
+06:23.830 --> 06:32.200
+then the date, and then the hub model name where I want to save the model will be the username.
+
+06:32.200 --> 06:34.480
+And then this here.
+
+06:34.810 --> 06:35.290
+Uh.
+
+06:35.290 --> 06:36.670
+And why am I doing this.
+
+06:36.670 --> 06:40.000
+So sometimes people like to just have one model.
+
+06:40.000 --> 06:46.720
+And as you run this you just upload different versions that you store against that same model repository.
+
+06:46.720 --> 06:49.810
+Because remember everything in Huggingface is just a git repo.
+
+06:49.810 --> 06:56.560
+So you could just keep um, you could basically just keep pushing new versions of your model that will
+
+06:56.560 --> 07:03.340
+just be, uh, just new versions of that, like, like checking in new versions of code or pushing versions
+
+07:03.340 --> 07:03.700
+of code.
+
+07:03.700 --> 07:07.600
+It could just be different versions of the model with the same model name.
+
+07:07.600 --> 07:13.240
+But I quite like to separate out my different runs and have them as different models, because within
+
+07:13.240 --> 07:17.230
+them there'll be different versions, potentially as different epochs.
+
+07:17.230 --> 07:21.070
+And I like to keep them separate because I'll have trained them with different hyperparameters, and
+
+07:21.070 --> 07:22.450
+I want to keep notes of that.
+
+07:22.900 --> 07:25.300
+So that's, that's the way I like to do it.
+
+07:25.390 --> 07:28.420
+Um, not strictly necessary, but I find it helpful.
+
+07:28.510 --> 07:33.340
+Uh, and just to give you a sense for that, if I just take some if I take the run name, let's start
+
+07:33.340 --> 07:34.150
+with that.
+
+07:34.480 --> 07:37.450
+If I just show you what run name is right now.
+
+07:37.960 --> 07:45.310
+Um, the run name you can see is just the current date that I'm doing this the 22nd and the current
+
+07:45.340 --> 07:46.150
+time.
+
+07:46.330 --> 07:50.080
+That time is in UTC in universal time.
+
+07:50.080 --> 07:52.690
+I'm not actually, it's not actually four minutes past midnight.
+
+07:53.020 --> 07:55.060
+Uh, so that's the run name.
+
+07:55.060 --> 07:57.220
+And then what was the other thing?
+
+07:57.220 --> 08:00.730
+Uh, there's project run name and then hub model name.
+
+08:00.730 --> 08:07.480
+So project run name is just Pricer followed by that.
+
+08:07.480 --> 08:12.860
+And then hub model name, which is what it will be uploaded as.
+
+08:14.720 --> 08:16.190
+Is that so?
+
+08:16.190 --> 08:20.360
+This will be creating a model with that name after it's run.
+
+08:20.360 --> 08:26.780
+And so if when I look in my models directory, I see a bunch of these because I've run this too many
+
+08:26.780 --> 08:29.150
+times, more times than I'm willing to admit.
+
+08:29.240 --> 08:31.100
+Uh, but it's been great fun.
+
+08:31.160 --> 08:34.070
+Uh, I've got lots of these pricer models.
+
+08:34.070 --> 08:36.770
+Uh, and they've all been running.
+
+08:37.070 --> 08:45.260
+Uh, so just to finish this off, um, I see it just disconnected and reconnected over there.
+
+08:45.500 --> 08:54.170
+Uh, so the hyperparameters then that we are using for training, uh, you know, are, well, the dimensions
+
+08:54.170 --> 08:55.430
+of the matrix.
+
+08:55.490 --> 08:57.110
+Um, and I'm starting with 32.
+
+08:57.140 --> 08:59.540
+As I say, you can bring that down to eight.
+
+08:59.540 --> 09:01.520
+Uh, particularly if you're running on a lower box.
+
+09:01.520 --> 09:02.900
+It'll be just fine.
+
+09:03.050 --> 09:06.140
+Uh, Laura, Alpha should be double R.
+
+09:06.170 --> 09:09.440
+Um, and so if you bring this down to eight, then make this 16.
+
+09:10.040 --> 09:13.050
+Um, the target modules, of course.
+
+09:13.050 --> 09:14.520
+Are you know it too well.
+
+09:14.520 --> 09:15.840
+I don't need to tell you what they are.
+
+09:17.190 --> 09:19.770
+And this is the standard ones for the llama three.
+
+09:19.800 --> 09:21.960
+These are the modules that you target.
+
+09:22.080 --> 09:26.250
+The Lora dropout was the thing that I gave quite the long explanation of last time.
+
+09:26.250 --> 09:33.450
+It's the the the trick to help with regularization, or with making sure that models generalize well
+
+09:33.480 --> 09:40.800
+to new data points by taking 10%, in this case 10% of the neurons, and just wiping them out, setting
+
+09:40.800 --> 09:46.350
+their activations to zero, effectively just removing them from the training process a different 10%
+
+09:46.380 --> 09:47.160
+each time.
+
+09:47.160 --> 09:51.780
+And as a result, the model doesn't become overly dependent on any one neuron.
+
+09:51.810 --> 09:59.160
+It just learns to generally for the whole model to get better at receiving training points and giving
+
+09:59.160 --> 10:03.390
+the right next token so it helps the model generalize.
+
+10:03.540 --> 10:07.020
+10% is 10.1 is a very typical starting point.
+
+10:07.020 --> 10:13.300
+You should try 5% and 20% and see how they perform and quant for bits.
+
+10:13.300 --> 10:13.690
+True.
+
+10:13.720 --> 10:16.150
+Is is quantizing down to four bits.
+
+10:16.690 --> 10:17.530
+Okay.
+
+10:17.560 --> 10:20.740
+The hyperparameters for hyperparameters for training.
+
+10:20.980 --> 10:23.230
+I've set this up to run for three epochs.
+
+10:23.230 --> 10:25.060
+You could do it just for one.
+
+10:25.270 --> 10:30.580
+By all means, you'll have perfectly decent results after one batch size.
+
+10:30.580 --> 10:32.980
+I've got to 16 right here.
+
+10:33.130 --> 10:36.580
+Uh, I would, would you need it with.
+
+10:36.580 --> 10:39.760
+With, um, a juicy A100 box?
+
+10:39.760 --> 10:42.790
+I can pack in a batch size of 16 batches.
+
+10:42.790 --> 10:49.510
+Given that this is the max sequence length, it can cram all of them in and still have just about squeeze
+
+10:49.510 --> 10:51.760
+that into the 40GB of memory.
+
+10:51.820 --> 10:58.210
+Um, but for for for you, if you're going to go with a lower end box like a T4, then this should be
+
+10:58.210 --> 11:00.820
+probably one you could try.
+
+11:00.850 --> 11:01.480
+Try it higher.
+
+11:01.480 --> 11:04.300
+If you get more GPU memory that's still free.
+
+11:04.480 --> 11:09.340
+Um, there's this convention that people tend to use powers of two for batch size.
+
+11:09.340 --> 11:12.640
+So one or 2 or 4 or 8 or 16.
+
+11:12.820 --> 11:20.290
+Um, and in theory, there's a there's various loose bits of evidence that suggest that if you have
+
+11:20.290 --> 11:26.380
+it as a power of two, the GPU is better able to parallelize it, and the the performance is slightly
+
+11:26.380 --> 11:27.160
+better.
+
+11:27.250 --> 11:33.370
+Um, but there's always the data on that is, is always, uh, just a little bit vague.
+
+11:33.370 --> 11:40.240
+And so generally speaking, I imagine if you can cram another a little bit more batch, uh, onto your
+
+11:40.240 --> 11:41.800
+GPU, then you should do so.
+
+11:41.800 --> 11:44.860
+So I wouldn't shy away from having a batch size of three.
+
+11:44.890 --> 11:48.940
+If you can fit that on your GPU, it's going to run faster than a batch size of two.
+
+11:49.000 --> 11:54.340
+Uh, maybe maybe four would would just be that little bit more, be a bit more efficient if it could
+
+11:54.340 --> 11:54.820
+fit.
+
+11:54.820 --> 11:59.860
+But I think the general advice is just whatever will fit on your GPU is what you should pick and start
+
+11:59.860 --> 12:02.080
+with one and see what kind of headroom you have.
+
+12:02.080 --> 12:08.320
+Unless you're splashing out like me, in which case go for 16 gradient accumulation steps.
+
+12:08.320 --> 12:09.430
+I explained that last time.
+
+12:09.430 --> 12:13.570
+I think actually this helps with the improve the memory of the process.
+
+12:13.600 --> 12:16.760
+Uh, you could try, but But I'm staying with one.
+
+12:16.760 --> 12:19.040
+You can try that at 2 or 4 as well.
+
+12:19.340 --> 12:25.670
+Learning rates I think you know understand is super important is how much of a step you take as you
+
+12:25.670 --> 12:29.210
+optimize to try and take a step in the right direction.
+
+12:29.210 --> 12:34.250
+And learning rate is a super important hyperparameter that you need to experiment with.
+
+12:34.370 --> 12:40.130
+Um, and it's one of those things which which, uh, there's no right answer.
+
+12:40.160 --> 12:42.830
+Learning rate could be too high or it could be too low.
+
+12:42.860 --> 12:46.220
+The what you're trying to achieve this is going to be a bit hand-wavy.
+
+12:46.250 --> 12:52.310
+Again, what you're trying to achieve is, if you imagine that the loss, uh, the true the loss of
+
+12:52.310 --> 12:55.910
+your model, uh, is something which has a big dip in it like this.
+
+12:55.910 --> 12:59.540
+And you're trying to find this valley, you're trying to locate this valley.
+
+12:59.540 --> 13:05.330
+Then you want to be taking these steps, uh, along the direction of the valley, dropping so that you
+
+13:05.330 --> 13:07.460
+will end up at the bottom of this valley.
+
+13:07.460 --> 13:13.520
+If your learning rate is too high, you might jump over that valley and jump back again and never actually
+
+13:13.520 --> 13:14.870
+go down into the valley.
+
+13:14.870 --> 13:16.770
+If your learning rate is too low.
+
+13:16.800 --> 13:22.170
+You might take little tiny steps and be making two slower progress towards that valley.
+
+13:22.200 --> 13:24.810
+There's another problem with taking two small steps.
+
+13:24.810 --> 13:31.560
+Supposing that you don't just have one big valley, but you have a smaller valley and then the big valley.
+
+13:31.590 --> 13:37.410
+If your learning rate is too low, you might take small steps and end up sinking down into that little
+
+13:37.410 --> 13:38.010
+valley.
+
+13:38.010 --> 13:43.650
+And actually every small step you take just goes up the two walls of the little valley and never gets
+
+13:43.650 --> 13:45.120
+out of that little valley.
+
+13:45.180 --> 13:50.340
+And so you never realize that there was this much bigger value valley just next door.
+
+13:50.730 --> 13:55.860
+And so that is a key problem.
+
+13:55.860 --> 13:59.040
+It's a common problem with learning rates being too small.
+
+13:59.070 --> 14:02.400
+People call it being stuck in the local minimum.
+
+14:02.400 --> 14:05.370
+This thing is called a minimum and it's local to where you are.
+
+14:05.370 --> 14:10.770
+And you haven't found the the global minimum, which is which is all the way down here because you're
+
+14:10.770 --> 14:12.780
+stuck in the local minimum.
+
+14:12.780 --> 14:16.290
+And that is the problem with having a learning rate that's too low.
+
+14:16.680 --> 14:19.210
+There is this nice trick.
+
+14:19.270 --> 14:25.390
+I picked a learning rate of 0.00011 times ten to the minus four.
+
+14:25.660 --> 14:30.820
+There's a nice trick of using something called a learning rate scheduler, which is something that will
+
+14:30.820 --> 14:36.220
+vary the learning rate and make it get smaller and smaller and smaller over the course of your three
+
+14:36.250 --> 14:40.870
+epochs, until it's pretty much zero by the end of your three epochs.
+
+14:41.200 --> 14:42.340
+Um, and you can give it.
+
+14:42.370 --> 14:45.700
+If you choose to use one of these, you can give it a different shape.
+
+14:45.700 --> 14:53.950
+And cosine is a very nice one, which starts with a learning rate that starts at the slowly decreases,
+
+14:53.950 --> 14:55.390
+and then it decreases quite a lot.
+
+14:55.390 --> 14:57.250
+And then it tails off at the end.
+
+14:57.400 --> 14:59.650
+Uh, you'll see that visually in a moment.
+
+14:59.650 --> 15:01.960
+And that's a really good, good technique.
+
+15:02.110 --> 15:07.510
+Um, and the final learning rate parameter is called the warm up ratio, which is saying at the very
+
+15:07.510 --> 15:13.750
+beginning of your training process, things are quite unstable because your model has a lot to learn
+
+15:13.750 --> 15:15.190
+from the first few data points.
+
+15:15.190 --> 15:20.020
+And it's quite dangerous to have a big learning rate initially because it would jump all over the place.
+
+15:20.020 --> 15:27.190
+So warm up ratio says start with a lower learning rate and then warm it up to the learning rate that
+
+15:27.190 --> 15:28.330
+it becomes the peak.
+
+15:28.330 --> 15:31.960
+And then start your cosine, uh, trail.
+
+15:32.230 --> 15:33.550
+And you'll see that visually.
+
+15:33.550 --> 15:34.420
+So it'll make more sense.
+
+15:34.420 --> 15:36.880
+But these are these are very sensible settings.
+
+15:36.880 --> 15:41.980
+But you can definitely experiment with a higher or lower starting learning rate or different scheduler
+
+15:41.980 --> 15:42.700
+types.
+
+15:43.090 --> 15:45.760
+And finally the optimizer.
+
+15:45.910 --> 15:54.430
+So here I am picking the paged Adam w uh w means with weight decay a paged Adam w 32 bit.
+
+15:54.460 --> 15:57.940
+That is a good optimizer, which has good convergence.
+
+15:57.940 --> 16:04.480
+It does a good job of finding the the optimal spot, but it comes at a cost of consuming memory.
+
+16:04.660 --> 16:10.600
+Um, I've put down here a link to a hugging face writeup on the different optimizers that you could
+
+16:10.600 --> 16:11.260
+pick.
+
+16:11.320 --> 16:15.910
+Um, it's clear that the most common for Transformers is Adam or Adam.
+
+16:15.910 --> 16:25.310
+W um, and that Adam, uh, does does do well because it stores the rolling average of prior gradients,
+
+16:25.550 --> 16:28.820
+and it uses that rather than just the most recent gradient.
+
+16:28.820 --> 16:32.420
+But of course, by storing that, that's going to take an extra memory footprint.
+
+16:32.420 --> 16:34.640
+And so it's a bit greedy for memory.
+
+16:34.640 --> 16:40.820
+So if you're running out of memory then you have an option to choose a cheaper, less greedy optimizer
+
+16:41.000 --> 16:41.990
+to save some memory.
+
+16:41.990 --> 16:48.590
+But the results might be slightly worse than than using the paged Adam w okay.
+
+16:48.620 --> 16:51.680
+And then finally some administrative setup.
+
+16:51.710 --> 16:56.600
+Uh, this number of steps is how many batch steps to take before it.
+
+16:56.630 --> 17:01.310
+It saves progress to weights and biases to show us how things are going.
+
+17:01.460 --> 17:09.860
+Um, and this is how many steps before it actually uploads the model to the hub and saves a proper version
+
+17:09.860 --> 17:10.460
+of it.
+
+17:10.460 --> 17:17.090
+This is whether or not we're logging to weights and biases, so that that is a tour of the parameters.
+
+17:17.090 --> 17:21.770
+And in the next time we really get to to the trainer itself.

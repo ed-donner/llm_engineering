@@ -1,0 +1,493 @@
+WEBVTT
+
+00:00.920 --> 00:02.690
+And you thought we'd never get here.
+
+00:02.720 --> 00:07.910
+Here we are in Jupyter Lab, running our fine tuning for a frontier model.
+
+00:07.910 --> 00:10.580
+So we start with a bunch of imports.
+
+00:10.580 --> 00:12.860
+We also import the test data.
+
+00:12.860 --> 00:19.250
+If you remember, this is that nifty piece of code that is able to run through 250 test examples and
+
+00:19.250 --> 00:21.140
+give us a beautiful chart.
+
+00:21.140 --> 00:28.880
+At the end of it, we load in our environment, we load in hugging face token, which we're not going
+
+00:28.910 --> 00:34.280
+to use this time, but like before, why not always like hugging and hugging face?
+
+00:34.310 --> 00:36.800
+And we are going to use OpenAI.
+
+00:36.830 --> 00:41.000
+So we very much need to run that line there and here.
+
+00:41.000 --> 00:46.610
+And again we're going to do this where we open the training data and the test data from a pickle file
+
+00:46.700 --> 00:51.200
+so that we don't have to recreate everything from scratch in it comes.
+
+00:51.470 --> 00:52.340
+All right.
+
+00:52.340 --> 00:54.500
+So let's talk about what we're going to do now.
+
+00:54.500 --> 01:04.680
+So OpenAI recommends that when you're doing training you use somewhere between 50 and 100 example points
+
+01:04.830 --> 01:06.210
+that you use for training.
+
+01:06.210 --> 01:14.160
+And really the the main intention of fine tuning for a frontier model is about adapting its tone and
+
+01:14.160 --> 01:19.860
+style, and correcting for errors and improving accuracy in some circumstances.
+
+01:20.010 --> 01:28.860
+Um, there's not a massive point in, in putting in enormous numbers of examples, because a model like
+
+01:28.980 --> 01:35.070
+the GPT four series is trained on so much data that what you're really trying to do is just give it
+
+01:35.070 --> 01:39.150
+enough examples of something specific you want it to do, so it can learn from that.
+
+01:39.390 --> 01:46.980
+Um, so yeah, there's um, not not a recommendation to go to a very large number, but I'm at the very
+
+01:46.980 --> 01:50.970
+least going to pick 500 here, which is more than they recommend.
+
+01:51.060 --> 01:55.830
+Uh, and I've tested it and it does better than, than smaller numbers.
+
+01:56.130 --> 01:59.040
+Um, and so I'm picking 500 of our examples.
+
+01:59.070 --> 02:00.540
+Now our examples are very small.
+
+02:00.570 --> 02:07.310
+Our text is very small and I think typically there they are thinking about much bigger training documents.
+
+02:07.310 --> 02:10.220
+So because of that, I don't feel bad about this.
+
+02:10.430 --> 02:14.510
+And at the moment this is actually fine tuning.
+
+02:14.660 --> 02:19.850
+Um, is is free for a period of time until I think it's September the 23rd, but later in September.
+
+02:19.850 --> 02:26.840
+But even when it stops being free, the cost you pay is similar to the cost to actually just run inference
+
+02:26.840 --> 02:30.830
+on 500 of these, which is measured in a few cents again.
+
+02:30.830 --> 02:36.890
+So at this point, I imagine we're talking about about $0.05 to do this, uh, for, for or equivalent
+
+02:36.890 --> 02:38.480
+in, in your currency.
+
+02:38.570 --> 02:41.930
+Um, so it's still small pennies.
+
+02:41.930 --> 02:46.490
+And as I say, it's free at least until late September.
+
+02:46.730 --> 02:54.170
+So with that, I'm dividing into a training set of 500 from the actual training set that we've got,
+
+02:54.200 --> 02:56.600
+which is 400,000.
+
+02:56.780 --> 03:00.020
+Uh, and I'm going to take 50 as validation.
+
+03:00.020 --> 03:05.240
+I mentioned a moment ago, we don't actually need to do validation because our training set, we're
+
+03:05.240 --> 03:07.190
+only going to do one epoch through it.
+
+03:07.460 --> 03:12.470
+Um, but I thought it'd be useful to show it to you so that you know how to do this for the future in
+
+03:12.470 --> 03:13.340
+in your projects.
+
+03:13.340 --> 03:16.970
+Because all of this can be replicated for your projects.
+
+03:16.970 --> 03:18.560
+So we run this.
+
+03:19.010 --> 03:28.160
+So I mentioned to you that the first step is preparing the Jsonl JSON lines data, converting our training
+
+03:28.160 --> 03:30.020
+data into this format.
+
+03:30.020 --> 03:37.730
+So first of all, I wrote a method that a function that you know well messages for uh, which is taken
+
+03:37.730 --> 03:40.040
+exactly from what we did last time.
+
+03:40.130 --> 03:46.580
+Uh, it says you estimate prices of items, reply only with the price, no explanation.
+
+03:46.580 --> 03:51.380
+And then for the user prompt, I take the test prompt from the item.
+
+03:51.590 --> 03:58.850
+Um, and I strip out to the nearest dollar and just replace that with uh, and with with empty.
+
+03:58.850 --> 04:04.780
+So it's not it's not directing it to only go to the nearest dollar, The frontier Labs need no such
+
+04:04.810 --> 04:05.740
+approximation.
+
+04:05.740 --> 04:10.900
+And I also take out that, um, and that's what goes in the user prompt.
+
+04:10.900 --> 04:17.350
+And then I reply with the assistant saying price is and then giving the price.
+
+04:17.350 --> 04:19.090
+So let's run that.
+
+04:19.090 --> 04:24.760
+And just in case it's not clear what's going on, let's just give you an example.
+
+04:24.790 --> 04:34.210
+Messages for train zero, which will be the first one that the model sees.
+
+04:34.210 --> 04:36.910
+And this is what you get roll system.
+
+04:36.910 --> 04:38.560
+And that's the system prompt.
+
+04:38.590 --> 04:42.970
+Check you're happy with that and then roll user.
+
+04:43.090 --> 04:45.070
+And this is the user prompt.
+
+04:45.430 --> 04:51.040
+Uh it's as if we have asked this question how much does this cost question mark.
+
+04:51.040 --> 04:58.270
+And then this spiel about a Delphi or Delphi, Delphi, uh, fuel pump module.
+
+04:58.690 --> 05:04.900
+Um, and then the This is the assistant's response.
+
+05:04.900 --> 05:07.330
+The price is $226.
+
+05:07.330 --> 05:12.310
+I would never have I well, I remember, I didn't guess that it was anything like that.
+
+05:12.520 --> 05:14.080
+Uh, so there you go.
+
+05:14.080 --> 05:15.700
+You learn something every day.
+
+05:15.700 --> 05:20.200
+Anyway, this is the format of the messages, which is something that should be very, very familiar
+
+05:20.200 --> 05:21.040
+to you at this stage.
+
+05:21.040 --> 05:28.270
+And you can see how this is a perfectly crafted test, sorry, training data point that we will be providing
+
+05:28.300 --> 05:29.410
+to the model.
+
+05:29.770 --> 05:36.910
+Okay, so then here is a function make JSON L that is going to do just what you would think it will
+
+05:36.910 --> 05:38.530
+take in a bunch of items.
+
+05:38.530 --> 05:40.570
+It will iterate through those items.
+
+05:40.570 --> 05:47.560
+It will create this text, this, this, uh, object for each one.
+
+05:47.560 --> 05:54.340
+And then it will use Json.dumps dump string to convert that into a simple string.
+
+05:54.340 --> 06:00.820
+And then look, it just simply adds that to this one string with a carriage return at the end of it.
+
+06:00.850 --> 06:05.020
+And then I return that back and I strip out that last carriage return.
+
+06:05.020 --> 06:07.360
+So let's see this in action.
+
+06:07.360 --> 06:10.240
+So let's say let's run it first.
+
+06:10.450 --> 06:12.340
+Don't make my usual blunder.
+
+06:12.640 --> 06:13.600
+There we go.
+
+06:13.600 --> 06:15.730
+And now say make JSON.
+
+06:15.730 --> 06:22.180
+L uh, and let's pass in uh, some of our training data.
+
+06:22.210 --> 06:27.370
+Let's just pass in the first three of that so we don't crowd everything out.
+
+06:27.370 --> 06:29.860
+So here we get back a string, of course.
+
+06:29.860 --> 06:34.090
+And it's a string which has, uh.
+
+06:34.090 --> 06:35.830
+It might be easier if we print it.
+
+06:35.860 --> 06:40.090
+Let's print it so that we get empty lines clearly showing through.
+
+06:40.420 --> 06:48.130
+Okay, so it's a string and you can see one, two, three lines in the string.
+
+06:48.370 --> 06:50.290
+Um, it's sort of wrapping around.
+
+06:50.290 --> 07:00.730
+And you can see that each row has in it, um, the, the full messages exchanged for the represents
+
+07:00.730 --> 07:02.290
+that training data point.
+
+07:02.740 --> 07:03.400
+Okay.
+
+07:03.410 --> 07:04.760
+So far so good.
+
+07:04.940 --> 07:08.240
+Now we have this function just building on that.
+
+07:08.240 --> 07:08.810
+Right?
+
+07:08.840 --> 07:12.110
+Jsonl take items and takes a file name.
+
+07:12.110 --> 07:13.850
+And this is super simple stuff.
+
+07:13.880 --> 07:18.950
+Opens that file name and calls the function above and writes it out.
+
+07:18.950 --> 07:23.270
+So I don't think I need to to give you a demo of that one.
+
+07:23.300 --> 07:26.180
+I do need to execute it, but we can actually run it.
+
+07:26.180 --> 07:33.770
+So we're going to take our training data set, which you remember the fine tuned train which is 500
+
+07:33.800 --> 07:34.190
+items.
+
+07:34.190 --> 07:34.940
+Let's check.
+
+07:34.970 --> 07:40.550
+There it is, 500 items from the training data set overall, which is 400,000.
+
+07:40.580 --> 07:45.590
+We're not going to we're not going to write all of them to a file and upload them to GPT four.
+
+07:45.920 --> 07:52.550
+Uh, so, um, we we write that out to a file called Fine Tune train dot JSON.
+
+07:52.550 --> 07:58.700
+L let's run that and then we'll take the validation set and do exactly the same run that.
+
+07:58.700 --> 08:03.170
+So we've written those two files and you can see they just wrote a couple of seconds ago.
+
+08:03.170 --> 08:05.790
+So if I open this up, I can open it.
+
+08:05.790 --> 08:12.450
+There is actually a fancy JSON lines editor in, uh, in JupyterLab, but we're just going to go over
+
+08:12.450 --> 08:13.530
+a normal editor.
+
+08:13.560 --> 08:18.420
+And here you can see, just as you'd expect, we're expecting 500 rows.
+
+08:18.420 --> 08:24.270
+Here we go, all the way down to the end, 500 rows it is.
+
+08:24.300 --> 08:27.960
+And they all have exactly the structure that you would hope.
+
+08:28.170 --> 08:34.200
+Um, and you can see this actually isn't well-formed JSON because, uh, each line is a well-formed
+
+08:34.200 --> 08:35.010
+JSON document.
+
+08:35.010 --> 08:39.330
+I know I'm belaboring that point, but it is it is important you wouldn't be able to read this in and
+
+08:39.330 --> 08:42.990
+parse it as a JSON document, because it's a not well-formed JSON.
+
+08:42.990 --> 08:44.910
+It's separate lines.
+
+08:45.240 --> 08:50.730
+Um, and the validation file open with editor is just, I think 50.
+
+08:50.760 --> 08:54.780
+We said 50 lines much the same way.
+
+08:54.900 --> 08:58.680
+Uh, I can I'll just show you what it looks like in the JSON lines.
+
+08:58.680 --> 08:59.130
+Editor.
+
+08:59.130 --> 09:01.140
+It's a fancy editor that looks like this.
+
+09:01.140 --> 09:04.290
+And you can open up each one and it's like a JSON object.
+
+09:04.720 --> 09:05.110
+Uh.
+
+09:05.200 --> 09:06.310
+Look at that.
+
+09:07.060 --> 09:08.260
+That's how I should have started.
+
+09:08.260 --> 09:08.980
+Probably.
+
+09:09.010 --> 09:11.380
+It gives you a very good sense of what's going on.
+
+09:11.650 --> 09:17.080
+Uh, it's a very intuitive sense of the way the reason why messages are packaged.
+
+09:17.080 --> 09:18.280
+The way they're packaged.
+
+09:19.180 --> 09:23.950
+All right, so that are those are the files.
+
+09:24.100 --> 09:26.080
+Uh, that's the last step of this.
+
+09:26.080 --> 09:27.310
+This part.
+
+09:27.700 --> 09:33.550
+Um, it will be time for us to upload these files to OpenAI.
+
+09:33.550 --> 09:38.350
+And to do that, we call OpenAI dot files dot create.
+
+09:38.350 --> 09:42.880
+And we pass in the file and we tell it the purpose is fine tune.
+
+09:43.270 --> 09:47.350
+Uh, and just one tiny thing to watch out for.
+
+09:47.350 --> 09:50.560
+When you pass in this file, you have to pass it in.
+
+09:50.590 --> 09:56.680
+You have to open it as a binary file, because it's just going to be the binary bytes in that file that
+
+09:56.680 --> 09:58.270
+will get streamed up to OpenAI.
+
+09:58.300 --> 10:02.980
+So you don't want this to be an R, you want it to be an RB.
+
+10:02.980 --> 10:07.160
+Uh, so just just a small nuance to watch out for.
+
+10:07.160 --> 10:12.140
+We're just sending the entire contents of the file as is to OpenAI.
+
+10:12.290 --> 10:15.950
+So we execute that line takes a second.
+
+10:15.980 --> 10:20.960
+If I just inspect what came back, I get back a file object.
+
+10:21.650 --> 10:24.410
+It's got a certain number of bytes.
+
+10:24.620 --> 10:28.070
+Object is file, purpose is fine tuned, status is processed.
+
+10:28.070 --> 10:32.660
+So already OpenAI is taking that file and has processed it.
+
+10:32.660 --> 10:35.930
+And we will do the same thing for the validation.
+
+10:36.260 --> 10:38.660
+We'll run it and there we go.
+
+10:38.660 --> 10:41.420
+And once again it is processed.
+
+10:41.420 --> 10:45.350
+So at this point we have created two JSON files.
+
+10:45.350 --> 10:50.180
+One for our fine tuned training set, one for our fine tuned validation set.
+
+10:50.180 --> 10:53.000
+We've written them out to our file system.
+
+10:53.000 --> 11:00.560
+And then we have uploaded them to OpenAI, where they are now sitting as file objects in OpenAI.
+
+11:00.590 --> 11:05.150
+In the next session, we will actually do some fine tuning.
+
+11:05.180 --> 11:06.170
+See you there.

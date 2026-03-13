@@ -1,0 +1,469 @@
+WEBVTT
+
+00:00.620 --> 00:05.360
+Welcome back to the JupyterLab on Gradio day, so you'll remember where we left off.
+
+00:05.360 --> 00:14.990
+We'd written two user interfaces, one of them for chatting with GPT four using the function uh, stream
+
+00:14.990 --> 00:19.460
+GPT, and one of them with Claude, with stream Claude.
+
+00:19.580 --> 00:21.980
+Uh, and so now I put it to you.
+
+00:22.010 --> 00:25.310
+Supposing we wrote a function like this.
+
+00:25.310 --> 00:28.160
+This function is like a composite function.
+
+00:28.160 --> 00:32.330
+It's a function that calls others in that it's called stream model.
+
+00:32.330 --> 00:40.040
+And it takes a prompt and it takes a model and it says if the model is GPT, then it calls stream GPT.
+
+00:40.370 --> 00:42.530
+If the model is Claude, it calls stream.
+
+00:42.530 --> 00:44.420
+Claude otherwise throws an error.
+
+00:44.420 --> 00:46.130
+So it needs to be GPT or Claude.
+
+00:46.130 --> 00:51.140
+And then it basically iterates through and yields each chunk in turn.
+
+00:51.140 --> 00:53.420
+So this is in fact I called it a function, but it's not.
+
+00:53.420 --> 00:54.440
+It's a generator.
+
+00:54.590 --> 01:01.970
+Um, and it yields each chunk from one or the other models depending on which model is called.
+
+01:02.000 --> 01:03.500
+Well, obviously that's going to work fine.
+
+01:03.530 --> 01:07.730
+That's now a function which has a few more variables.
+
+01:07.730 --> 01:12.140
+So as far as Gradio is concerned, that's just another function.
+
+01:12.140 --> 01:16.490
+And that means that we can build a user interface very easily around that function.
+
+01:16.490 --> 01:17.660
+Let's look at it.
+
+01:17.690 --> 01:18.800
+Here it is.
+
+01:18.800 --> 01:20.450
+Here's an interface.
+
+01:20.480 --> 01:26.840
+The function it's taking is just this this sort of hybrid generator that we just written the inputs.
+
+01:26.840 --> 01:29.000
+Of course we're now going to have two inputs.
+
+01:29.000 --> 01:30.890
+One of them is going to be your message.
+
+01:30.890 --> 01:34.010
+And the other of them I wish it were this easy.
+
+01:34.040 --> 01:39.230
+Drop down with two values GPT or Claude label select model.
+
+01:39.230 --> 01:41.990
+And then, you know, have that as the output.
+
+01:42.470 --> 01:44.630
+Things are rarely that easy though.
+
+01:44.660 --> 01:47.600
+Oh, but this is gradio, so things really are that easy.
+
+01:47.690 --> 01:50.240
+Uh, sorry, I have to run this first.
+
+01:50.480 --> 01:51.320
+There we go.
+
+01:51.320 --> 01:52.100
+It's not that easy.
+
+01:52.130 --> 01:54.110
+You still do have to execute all of your code.
+
+01:54.290 --> 01:56.390
+Uh, so here we go.
+
+01:56.390 --> 02:05.750
+We bring it up, we say something like, how do I get from times Square to Grand Central?
+
+02:06.210 --> 02:08.160
+and we pick one of our models.
+
+02:08.160 --> 02:12.600
+Let's pick GPT and we submit that and they're streaming back in markdown.
+
+02:12.600 --> 02:17.310
+Is GPT response to that question of directions.
+
+02:17.610 --> 02:19.230
+Enjoy your visit again at the end.
+
+02:19.260 --> 02:20.190
+Very nice.
+
+02:20.310 --> 02:23.760
+Uh, I feel like it's giving more options this time, but there we go.
+
+02:23.790 --> 02:24.480
+Maybe not.
+
+02:24.600 --> 02:25.710
+You'll probably remember.
+
+02:25.980 --> 02:29.640
+Uh, I can then just flip to Claude and ask Claude the same question.
+
+02:29.640 --> 02:32.490
+And here is Claude's answer to the same question.
+
+02:32.640 --> 02:34.260
+Uh, using Claude haiku.
+
+02:34.290 --> 02:37.950
+That might explain why we're getting slightly shorter, more terse answers.
+
+02:37.950 --> 02:40.230
+But, uh, isn't that amazing?
+
+02:40.230 --> 02:40.890
+Isn't that cool?
+
+02:40.890 --> 02:42.300
+We just built this functionality.
+
+02:42.330 --> 02:46.470
+We can flip between two different models, ask the same question, get the responses.
+
+02:46.560 --> 02:51.810
+Uh, you could just have this running sometime if you wanted a nice chat UI of your own and be able
+
+02:51.810 --> 02:53.610
+to bounce it around different models.
+
+02:53.670 --> 02:55.710
+Uh, it's a useful little tool.
+
+02:56.820 --> 03:04.050
+Um, and, uh, yeah, you can imagine an obvious exercise that I'll leave for you is to simply add
+
+03:04.050 --> 03:05.160
+Gemini to the mix.
+
+03:05.160 --> 03:05.670
+Why not?
+
+03:05.700 --> 03:06.450
+You can imagine.
+
+03:06.450 --> 03:07.230
+It's super easy.
+
+03:07.230 --> 03:08.070
+You just add in.
+
+03:08.070 --> 03:09.470
+Gemini is another option.
+
+03:09.470 --> 03:15.680
+I haven't shown you how to stream back from Gemini, but it's very similar and you can quickly google
+
+03:15.680 --> 03:20.900
+it to see the documentation is very clear and then add it into the mix, and then push that code so
+
+03:20.900 --> 03:22.820
+I can have it and share it with other students.
+
+03:22.820 --> 03:23.810
+That would be good.
+
+03:24.770 --> 03:25.700
+All right.
+
+03:25.700 --> 03:30.230
+So the next last for this lab is going to be okay.
+
+03:30.230 --> 03:35.810
+Let's take the company brochure generator we made last time and put a user interface around that.
+
+03:35.840 --> 03:37.070
+Wouldn't that be awesome.
+
+03:37.250 --> 03:41.750
+Uh, so now that you know, as I say, it's going to be really, really simple.
+
+03:41.750 --> 03:44.660
+So I've decided I'm going with the earlier version of the brochure.
+
+03:44.660 --> 03:48.200
+We're just going to use a, we're going to use just the landing page only.
+
+03:48.200 --> 03:52.850
+We're not going to do the, the two step process where we collect all the links, because that's maybe
+
+03:52.850 --> 03:54.350
+more involved than we need right now.
+
+03:54.440 --> 04:00.050
+Um, we're just going to have a simpler version of the website class that has URL, title and text,
+
+04:00.050 --> 04:02.210
+and you'll remember how it works.
+
+04:02.210 --> 04:07.520
+We use the requests package, and we use the wonderful Beautifulsoup to parse to strip out things we
+
+04:07.520 --> 04:10.160
+don't care about and to get the text.
+
+04:10.160 --> 04:18.070
+And there is a little getcontext helper to give us sort of getcontents helper to give us the page title
+
+04:18.070 --> 04:19.840
+and body of the page.
+
+04:19.840 --> 04:21.160
+So that's our helper class.
+
+04:21.190 --> 04:22.180
+Remember to run it.
+
+04:22.210 --> 04:23.170
+System prompt.
+
+04:23.170 --> 04:27.310
+You're in a system that analyzes the contents of a company website landing page and creates a short
+
+04:27.310 --> 04:28.750
+brochure respond.
+
+04:28.750 --> 04:31.180
+In markdown there is a system prompt.
+
+04:31.180 --> 04:41.350
+So here is a stream brochure function that takes a company name, a URL and a model.
+
+04:42.160 --> 04:46.510
+Uh, and it's going to say please generate a company brochure for company name.
+
+04:46.510 --> 04:48.250
+Here is their landing page.
+
+04:48.250 --> 04:54.370
+And then we'll use our website helper class here to read in that URL and get the contents.
+
+04:54.370 --> 04:56.140
+So this is all making sense.
+
+04:56.140 --> 04:59.230
+We're just going to to get the contents of the website.
+
+04:59.230 --> 05:00.790
+We're going to turn that into a prompt.
+
+05:00.790 --> 05:04.330
+And then if it's GPT we're going to stream from GPT.
+
+05:04.360 --> 05:06.640
+If it's Claude, we're going to stream from Claude.
+
+05:06.850 --> 05:14.280
+Um, otherwise we'll raise an error and we will then make this a generator and yield the results chunk
+
+05:14.280 --> 05:15.510
+by chunk.
+
+05:16.830 --> 05:22.920
+Uh, I realize it's a bit bit misleading to call this chunk because it's in fact not actually chunk
+
+05:22.920 --> 05:23.340
+by chunk.
+
+05:23.370 --> 05:25.560
+It's it's the full amount.
+
+05:25.590 --> 05:31.260
+So you might want to rename that something that's, uh, a better reflection of what this this is.
+
+05:32.160 --> 05:33.810
+But you get the idea.
+
+05:33.840 --> 05:36.030
+It should do the trick.
+
+05:36.420 --> 05:37.770
+Uh, so wouldn't it be nice?
+
+05:37.770 --> 05:39.420
+I'm going to stop saying that because it's going to get old.
+
+05:39.450 --> 05:40.470
+But it is nice.
+
+05:40.470 --> 05:45.090
+It is as simple as now just replacing the function with stream brochure.
+
+05:45.090 --> 05:46.560
+And you can see here the inputs.
+
+05:46.560 --> 05:48.570
+We of course have these three inputs.
+
+05:48.600 --> 05:49.800
+Now we have a company name.
+
+05:49.800 --> 05:51.420
+We have a landing page URL.
+
+05:51.420 --> 05:53.490
+And then we can pick the model.
+
+05:53.610 --> 05:56.520
+And let's give that a whirl.
+
+05:56.970 --> 05:58.170
+Uh here we go.
+
+05:58.170 --> 05:59.190
+Running locally.
+
+05:59.190 --> 06:03.960
+Bring it up so we can say company name hugging face.
+
+06:06.240 --> 06:09.510
+Landing page URL we can say.
+
+06:09.750 --> 06:10.830
+And we'll just do a.
+
+06:13.740 --> 06:19.040
+Hugging s.co and select model.
+
+06:19.040 --> 06:26.240
+We will ask GPT to be first add it and then just press submit.
+
+06:26.420 --> 06:27.920
+And here it goes.
+
+06:27.920 --> 06:34.280
+Here is our company brochure for Huggingface streaming back in markdown based on our web scrape.
+
+06:34.280 --> 06:35.540
+It's all there.
+
+06:35.540 --> 06:39.680
+It's even got links down at the bottom for different things.
+
+06:39.770 --> 06:43.220
+Uh, and yeah, that link looks like that is correct.
+
+06:43.220 --> 06:44.270
+That's going to work.
+
+06:44.270 --> 06:49.700
+Some of these links look like they're not going to work because of, uh, how it's been generated.
+
+06:49.700 --> 06:53.900
+But still, that's a pretty impressive web page, I've got to say, an impressive brochure.
+
+06:53.900 --> 06:55.610
+I mean, I love it.
+
+06:55.640 --> 06:58.520
+Let's see what Claude does with this Claude haiku.
+
+06:58.550 --> 06:59.060
+Of course.
+
+06:59.060 --> 07:05.120
+So it's, uh, a slimmer model, but it's perfectly acceptable.
+
+07:05.120 --> 07:07.190
+Let's build the future of AI together.
+
+07:07.280 --> 07:11.150
+Uh, very nice brochure there from haiku.
+
+07:11.570 --> 07:13.880
+Uh, and there we go.
+
+07:13.910 --> 07:14.840
+I'm.
+
+07:14.840 --> 07:21.400
+I'm blown away every time I use gradio by how simple it is, how effective it is.
+
+07:21.400 --> 07:27.250
+We've just built a user interface around our brochure where you can pick between different models and
+
+07:27.250 --> 07:29.650
+let's face it, it was easy.
+
+07:29.860 --> 07:33.880
+So the to dos for you, the ways you can make this better are there are so many.
+
+07:33.940 --> 07:38.260
+You could, as I say, add Gemini not only to the earlier example, but to this one as well.
+
+07:38.410 --> 07:47.050
+Another idea is you could add in another selection, another drop down where you can pick the the style,
+
+07:47.050 --> 07:52.240
+the tone you remember last time, how we could easily change the system prompt so that the brochure
+
+07:52.240 --> 07:55.540
+was in a humorous, jokey, jovial tone.
+
+07:55.840 --> 08:00.940
+Well, why don't you set it so you can pick from that drop down, choose a different tone, and then
+
+08:00.940 --> 08:04.390
+it will generate a company brochure using that tone.
+
+08:04.510 --> 08:07.330
+Uh, it's actually super easy to do that.
+
+08:07.450 --> 08:08.410
+So give it a try.
+
+08:08.440 --> 08:08.980
+Do that.
+
+08:08.980 --> 08:13.990
+And you'll have really beefed up this application to be something that that is increasingly high in
+
+08:14.020 --> 08:14.920
+functionality.
+
+08:14.950 --> 08:16.930
+So I hope you have fun doing that.
+
+08:16.930 --> 08:17.860
+Check in the code afterwards.
+
+08:17.860 --> 08:18.880
+So I get to see it.
+
+08:18.880 --> 08:22.180
+And I will see you in the next lecture for the wrap up.

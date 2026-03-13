@@ -1,0 +1,34 @@
+WEBVTT
+
+00:00.530 --> 00:05.750
+And so at the beginning of this week, we started by talking about hugging face pipelines.
+
+00:05.750 --> 00:08.750
+And you used all the different pipeline.
+
+00:08.750 --> 00:13.130
+Not actually not all of them, because there's so many, but we use many of the most common pipelines
+
+00:13.130 --> 00:15.980
+to do every day inference tasks.
+
+00:15.980 --> 00:23.000
+And now today we looked at Tokenizers and you are well versed in Tokenizers, and hopefully a lot has
+
+00:23.000 --> 00:27.560
+come together in terms of your understanding of what they mean and how they work, and special tokens
+
+00:27.560 --> 00:29.060
+and all the like.
+
+00:29.150 --> 00:37.760
+So next time, next time we start to work with models and this is when we can use the underlying hugging
+
+00:37.790 --> 00:44.870
+face code that is a wrapper around PyTorch or TensorFlow code to generate text and compare the results
+
+00:44.870 --> 00:48.170
+across multiple open source models.
+
+00:48.170 --> 00:51.590
+And that's going to be a ton of fun and I'm looking forward to it.
