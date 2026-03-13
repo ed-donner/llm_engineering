@@ -1,0 +1,26 @@
+[
+  {
+    "job": {
+      "title": "AI Engineer",
+      "company": "Anthropic",
+      "description": "",
+      "salary_text": null,
+      "url": "https://anthropic.com/jobs/101"
+    },
+    "match_score": 57.8,
+    "estimated_salary": 150000.0,
+    "overall_score": 57.8
+  },
+  {
+    "job": {
+      "title": "AI Engineer",
+      "company": "Anthropic",
+      "description": "",
+      "salary_text": null,
+      "url": "https://anthropic.com/jobs/101"
+    },
+    "match_score": 57.8,
+    "estimated_salary": 150000.0,
+    "overall_score": 57.8
+  }
+]
