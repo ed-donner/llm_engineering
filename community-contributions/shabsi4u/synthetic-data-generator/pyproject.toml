@@ -1,0 +1,13 @@
+[project]
+name = "cursor-synth"
+version = "0.1.0"
+description = "Synthetic data generator using Hugging Face Inference API + Gradio"
+requires-python = ">=3.10"
+dependencies = [
+  "gradio>=4.0.0",
+  "httpx>=0.24.0",
+  "python-dotenv>=1.0.0",
+  "jsonschema>=4.19.0",
+  "pytest>=7.0.0",
+  "openai>=1.0.0"
+]
