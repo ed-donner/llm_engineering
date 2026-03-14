@@ -1,0 +1,991 @@
+Product_Name,Catagory,Supplier_Name,Warehouse_Location,Status,Product_ID,Supplier_ID,Date_Received,Last_Order_Date,Expiration_Date,Stock_Quantity,Reorder_Level,Reorder_Quantity,Unit_Price,Sales_Volume,Inventory_Turnover_Rate,percentage
+Bell Pepper,Fruits & Vegetables,Eimbee,20 Pennsylvania Parkway,Discontinued,29-017-6255,43-348-2450,3/1/2024,1/6/2025,1/31/2025,46,64,17,$4.60,96,55,1.96%
+Vegetable Oil,Oils & Fats,Digitube,03643 Oakridge Lane,Backordered,79-569-8856,04-854-7165,4/1/2024,5/19/2024,6/11/2024,51,87,86,$2.00,24,83,0.91%
+Parmesan Cheese,Dairy,BlogXS,73 Graedel Street,Discontinued,28-146-2641,82-995-0739,4/1/2024,12/21/2024,4/8/2024,38,67,66,$12.00,35,24,1.36%
+Carrot,Fruits & Vegetables,Avaveo,44801 Myrtle Center,Discontinued,11-581-9869,22-867-3079,5/1/2024,12/12/2024,9/26/2024,51,60,98,$1.50,44,95,1.36%
+Garlic,Fruits & Vegetables,Katz,6195 Monterey Center,Discontinued,13-202-4809,24-281-7685,5/1/2024,7/28/2024,5/20/2024,27,22,89,$7.00,91,77,2.17%
+Lemon,Fruits & Vegetables,Yata,5141 Anniversary Crossing,Backordered,70-145-2550,75-849-4524,5/1/2024,8/7/2024,8/6/2024,91,6,37,$2.40,38,70,2.56%
+Coconut Sugar,Grains & Pulses,Lazz,38583 2nd Pass,Active,10-626-8536,23-274-3305,5/1/2024,1/29/2025,3/30/2024,17,85,74,$5.00,76,89,2.34%
+Anchovies,Seafood,Zoonder,86 Porter Junction,Discontinued,42-879-9478,00-900-0119,6/1/2024,2/23/2025,8/22/2024,81,22,20,$10.00,95,77,2.13%
+Cheese,Dairy,Oozz,05518 Saint Paul Street,Active,82-380-5378,96-353-3049,6/1/2024,6/3/2024,3/7/2024,78,24,31,$9.00,60,41,2.74%
+Yogurt,Dairy,Jaxnation,14042 Dottie Avenue,Backordered,23-265-8144,31-524-1628,6/1/2024,11/9/2024,10/25/2024,55,50,56,$1.70,62,26,2.56%
+Cheddar Cheese,Dairy,Gabcube,5 Oxford Pass,Active,62-393-9939,93-877-9384,6/1/2024,6/2/2024,10/5/2024,60,9,89,$9.00,95,63,2.83%
+Avocado Oil,Oils & Fats,Dabtype,3622 Anhalt Lane,Backordered,90-343-9640,54-919-9424,7/1/2024,4/6/2024,10/6/2024,53,89,100,$10.00,22,83,2.79%
+Orange,Fruits & Vegetables,Flashdog,3 Bashford Court,Backordered,36-899-5324,02-656-3112,8/1/2024,7/5/2024,12/19/2024,94,58,17,$2.90,57,74,2.36%
+Digestive Biscuit,Bakery,Devshare,2 Carioca Crossing,Backordered,41-538-3129,91-589-9007,9/1/2024,3/17/2024,7/31/2024,77,79,65,$4.00,62,75,2.69%
+Cauliflower,Fruits & Vegetables,Cogilith,01 Northfield Road,Active,47-843-8207,55-838-9088,9/1/2024,4/10/2024,12/27/2024,34,92,26,$2.50,28,71,2.61%
+Pear,Fruits & Vegetables,Roodel,2004 Cody Plaza,Discontinued,94-071-2261,25-706-2146,9/1/2024,3/2/2024,3/30/2024,79,37,98,$4.50,33,20,2.54%
+Egg (Turkey),Dairy,Bluezoom,94862 Beilfuss Terrace,Backordered,12-998-3882,06-151-9076,10/1/2024,8/17/2024,5/26/2024,76,54,76,$2.50,69,27,2.58%
+Ricotta Cheese,Dairy,Skimia,10342 Division Place,Active,36-127-4273,05-719-6858,10/1/2024,7/3/2024,7/31/2024,50,46,38,$6.20,88,70,2.32%
+Eggplant,Fruits & Vegetables,Blogpad,52 Namekagon Junction,Backordered,13-144-2169,11-742-5033,10/1/2024,12/1/2024,9/7/2024,25,62,11,$3.00,57,98,2.67%
+Whole Wheat Flour,Grains & Pulses,Dabjam,21343 Brentwood Circle,Backordered,86-978-6666,43-979-2253,10/1/2024,7/26/2024,9/15/2024,38,43,28,$2.70,34,54,2.61%
+Arabica Coffee,Beverages,Feedmix,36 3rd Place,Discontinued,40-681-9981,54-470-2479,11/1/2024,5/29/2024,5/8/2024,45,77,2,$20.00,85,1,2.55%
+Sweet Potato,Fruits & Vegetables,Trupe,7015 Ramsey Lane,Active,13-962-6263,26-061-5253,12/1/2024,12/23/2024,11/18/2024,49,1,28,$2.00,97,95,2.56%
+Mango,Fruits & Vegetables,Meevee,48 Vahlen Place,Backordered,10-002-6494,47-509-7282,3/2/2024,7/8/2024,11/11/2024,89,92,62,$4.80,46,11,2.57%
+Kale,Fruits & Vegetables,Blogpad,85 Farwell Parkway,Backordered,29-741-8132,49-384-4540,3/2/2024,7/14/2024,6/3/2024,47,22,69,$4.00,26,59,2.62%
+Jasmine Rice,Grains & Pulses,Topicware,07 Pankratz Point,Active,30-806-3823,36-451-3173,3/2/2024,7/4/2024,3/6/2024,53,26,3,$4.75,100,94,2.53%
+Sourdough Bread,Bakery,Plajo,338 Annamark Court,Discontinued,71-074-6292,42-201-4495,4/2/2024,6/10/2024,10/17/2024,65,79,49,$4.00,100,9,2.50%
+Green Coffee,Beverages,Skyndu,35 Golf Course Alley,Backordered,95-738-4658,67-404-3362,4/2/2024,11/26/2024,10/30/2024,90,68,74,$12.00,81,26,2.43%
+Arabica Coffee,Beverages,Yotz,96 Westridge Junction,Backordered,55-154-4728,33-466-7894,4/2/2024,1/7/2025,3/29/2024,65,63,41,$20.00,28,26,2.58%
+Tilapia,Seafood,Vinder,57 Eastwood Junction,Active,46-255-3073,68-230-9130,5/2/2024,1/6/2025,7/11/2024,30,42,8,$7.00,48,23,2.57%
+Arborio Rice,Grains & Pulses,Geba,31 Sullivan Hill,Active,95-640-0293,43-575-2151,5/2/2024,11/2/2024,2/7/2025,34,32,22,$4.50,42,27,2.45%
+Bread Flour,Grains & Pulses,Dazzlesphere,49148 Meadow Ridge Way,Backordered,45-250-4679,80-328-4990,5/2/2024,11/23/2024,7/5/2024,54,78,81,$1.50,41,63,2.36%
+Cucumber,Fruits & Vegetables,Kanoodle,38 Killdeer Point,Active,03-833-3577,87-032-6971,5/2/2024,8/20/2024,10/16/2024,67,14,25,$1.80,81,77,2.34%
+Cheese,Dairy,Eimbee,01 Gateway Plaza,Backordered,08-961-3009,41-825-5869,6/2/2024,12/19/2024,9/8/2024,50,14,6,$9.20,60,72,2.22%
+Milk,Dairy,Centimia,36483 Burning Wood Pass,Backordered,20-405-4865,16-019-7101,6/2/2024,11/5/2024,9/18/2024,13,39,98,$0.90,46,46,1.99%
+Lime,Fruits & Vegetables,Livefish,3 Meadow Valley Court,Backordered,49-377-9731,56-823-5908,6/2/2024,10/3/2024,4/19/2024,18,8,68,$2.00,54,45,1.99%
+Rice Flour,Grains & Pulses,Quatz,47817 Oneill Park,Active,39-810-2042,65-620-9866,6/2/2024,1/25/2025,9/5/2024,24,2,49,$2.00,98,82,1.90%
+Sourdough Bread,Bakery,Rhyloo,94 Mallory Center,Active,53-805-9523,99-864-0256,7/2/2024,3/19/2024,5/14/2024,40,30,65,$4.50,54,29,1.84%
+Cheese,Dairy,Shuffledrive,19 Shoshone Circle,Active,14-305-5348,71-092-6845,8/2/2024,10/12/2024,3/20/2024,53,63,2,$9.00,56,95,1.83%
+Sour Cream,Dairy,Skyvu,805 Center Parkway,Active,51-459-5630,29-567-3732,8/2/2024,9/29/2024,12/14/2024,11,30,4,$4.00,84,4,1.77%
+Whole Wheat Bread,Bakery,Lazz,46 Delaware Place,Backordered,88-183-5781,49-247-1217,8/2/2024,8/24/2024,12/27/2024,17,63,3,$3.50,93,26,1.66%
+Robusta Coffee,Beverages,Devpulse,2374 Chive Court,Discontinued,41-735-9837,35-462-7569,8/2/2024,8/28/2024,9/1/2024,14,77,78,$10.00,32,24,1.52%
+Chocolate Biscuit,Bakery,Yodo,7561 5th Terrace,Active,88-977-0175,58-087-3463,8/2/2024,3/21/2024,7/19/2024,100,1,26,$5.00,47,79,1.32%
+Palm Oil,Oils & Fats,Skipstorm,703 Hermina Center,Active,66-327-2821,82-525-7224,8/2/2024,4/10/2024,5/27/2024,67,57,36,$1.80,78,60,1.21%
+Anchovies,Seafood,Camido,709 Vidon Avenue,Discontinued,08-114-3922,19-418-7213,9/2/2024,2/25/2024,2/15/2025,60,64,36,$10.00,34,48,1.14%
+Sesame Oil,Oils & Fats,Dabtype,0313 Rockefeller Street,Discontinued,95-090-2788,95-715-6047,9/2/2024,4/5/2024,8/26/2024,45,7,58,$6.50,86,77,0.99%
+Lettuce,Fruits & Vegetables,Fadeo,19069 Cordelia Drive,Active,26-690-3784,70-463-6597,10/2/2024,10/14/2024,4/6/2024,58,5,1,$2.00,53,80,0.80%
+Feta Cheese,Dairy,Rhynyx,60356 Derek Lane,Discontinued,46-753-8430,35-042-9391,10/2/2024,11/19/2024,8/5/2024,98,77,7,$7.00,92,29,0.62%
+Apricot,Fruits & Vegetables,Skinix,36687 Maple Avenue,Backordered,15-905-7750,48-176-1622,12/2/2024,1/31/2025,9/29/2024,42,61,52,$5.00,86,99,0.47%
+Peanut Oil,Oils & Fats,Tagopia,13 Westport Hill,Discontinued,11-891-8213,25-741-5987,12/2/2024,12/12/2024,11/13/2024,38,62,47,$4.00,41,34,0.37%
+Olive Oil,Oils & Fats,Realmix,65 Chinook Circle,Discontinued,82-811-7988,41-772-9238,3/3/2024,6/13/2024,12/13/2024,36,3,54,$6.00,74,8,0.21%
+Whole Wheat Flour,Grains & Pulses,Gigaclub,759 Waywood Court,Active,31-746-4951,70-212-0990,4/3/2024,5/20/2024,9/6/2024,67,60,21,$2.75,30,6,089%
+Egg (Duck),Dairy,Katz,45190 Fordem Court,Backordered,97-300-7511,47-687-2255,4/3/2024,7/17/2024,3/21/2024,37,53,61,$1.00,90,89,080%
+Pineapple,Fruits & Vegetables,Brainverse,0 Delladonna Place,Active,88-304-2855,59-570-2020,4/3/2024,1/24/2025,2/12/2025,20,51,33,$3.50,80,41,001%
+Jasmine Rice,Grains & Pulses,Skyba,63 Debra Park,Discontinued,53-008-2419,86-841-6074,4/3/2024,4/10/2024,5/27/2024,62,36,96,$4.75,31,25,049%
+Cucumber,Fruits & Vegetables,Brainverse,157 David Center,Backordered,76-340-4432,79-915-4185,5/3/2024,3/28/2024,3/6/2024,19,36,72,$1.75,31,81,019%
+Trout,Seafood,Blogtag,4508 Shopko Trail,Active,26-010-9519,28-837-4164,5/3/2024,11/26/2024,1/9/2025,29,72,96,$12.00,85,52,-161%
+Onion,Fruits & Vegetables,Oba,74 Menomonie Point,Discontinued,08-940-8578,37-686-1726,5/3/2024,10/4/2024,11/22/2024,34,29,65,$2.00,90,23,039%
+Cream,Dairy,Oyondu,74997 Katie Terrace,Discontinued,54-374-9986,33-818-4917,6/3/2024,10/22/2024,3/21/2024,92,52,80,$2.50,72,96,074%
+Sardines,Seafood,Eayo,7819 Fallview Park,Discontinued,67-625-9704,13-475-1009,6/3/2024,9/26/2024,7/18/2024,33,18,92,$6.00,98,56,-033%
+Sourdough Bread,Bakery,Avamba,744 Green Center,Backordered,56-635-6764,20-257-6927,6/3/2024,1/16/2025,8/5/2024,12,59,62,$4.50,75,92,043%
+Anchovies,Seafood,Mybuzz,31 Loomis Park,Active,10-445-0741,82-470-7146,6/3/2024,7/11/2024,3/31/2024,83,17,39,$10.00,33,20,-023%
+Peanut Oil,Oils & Fats,Twitterwire,1170 Shasta Circle,Backordered,76-584-4790,58-213-1146,6/3/2024,11/4/2024,1/1/2025,21,52,80,$4.00,49,37,039%
+Plum,Fruits & Vegetables,Topicstorm,15068 Scoville Court,Backordered,57-437-1828,54-226-4308,7/3/2024,10/11/2024,10/5/2024,37,30,74,$4.00,62,25,024%
+Sushi Rice,Grains & Pulses,Katz,5743 Superior Place,Backordered,62-777-6010,40-914-7156,7/3/2024,3/6/2024,11/5/2024,77,20,37,$4.25,42,19,060%
+Black Rice,Grains & Pulses,Vinder,3296 Walton Court,Backordered,06-955-3428,54-031-2945,8/3/2024,6/10/2024,9/22/2024,30,38,83,$6.00,31,34,055%
+Wild Rice,Grains & Pulses,Wordpedia,5 Toban Circle,Discontinued,04-758-0410,56-231-2524,8/3/2024,8/16/2024,5/2/2024,26,21,47,$10.00,40,59,-010%
+Wild Rice,Grains & Pulses,Kayveo,8569 Bashford Court,Backordered,06-655-5498,89-574-3430,8/3/2024,7/9/2024,9/28/2024,72,82,52,$9.75,51,95,-048%
+Pomegranate,Fruits & Vegetables,Meeveo,31892 Pennsylvania Street,Active,76-401-7083,29-156-0691,9/3/2024,10/3/2024,7/31/2024,59,79,87,$6.00,47,18,-086%
+Black Rice,Grains & Pulses,Npath,6382 Anniversary Pass,Discontinued,30-429-2162,05-100-7102,10/3/2024,12/6/2024,1/15/2025,34,96,76,$6.15,90,34,062%
+Cream,Dairy,Riffpedia,09189 2nd Drive,Active,49-730-0159,62-766-8232,10/3/2024,12/10/2024,8/26/2024,82,3,82,$2.40,48,31,062%
+Cabbage,Fruits & Vegetables,Lajo,081 Jana Lane,Active,31-745-6850,96-215-2767,10/3/2024,10/24/2024,11/1/2024,94,90,12,$0.90,98,71,035%
+Sourdough Bread,Bakery,Vinte,72083 Acker Crossing,Active,69-468-5468,37-099-6976,11/3/2024,6/10/2024,11/26/2024,59,78,6,$4.50,32,3,028%
+Carrot,Fruits & Vegetables,Gevee,7744 Oxford Pass,Active,68-636-4774,40-436-0171,11/3/2024,8/30/2024,2/19/2025,18,50,77,$1.45,44,19,091%
+All-Purpose Flour,Grains & Pulses,Dabjam,050 Mcbride Avenue,Discontinued,21-120-6238,86-292-4587,12/3/2024,5/26/2024,9/5/2024,55,33,14,$1.75,34,62,057%
+Cheddar Cheese,Dairy,Wordify,1 Merchant Circle,Backordered,92-995-8689,18-682-7828,12/3/2024,10/17/2024,3/6/2024,31,65,94,$9.00,63,7,-082%
+Green Coffee,Beverages,Aibox,97 Thierer Terrace,Discontinued,15-045-8444,29-143-2001,3/4/2024,7/12/2024,3/27/2024,27,12,93,$12.00,88,83,089%
+Whipped Cream,Dairy,Yakitri,069 Basil Center,Active,73-567-6194,81-927-7236,3/4/2024,12/10/2024,9/8/2024,76,81,85,$4.00,65,68,006%
+Plum,Fruits & Vegetables,Mybuzz,29 Vera Drive,Discontinued,48-242-8445,84-941-3034,3/4/2024,6/15/2024,6/24/2024,40,3,5,$4.00,45,69,-005%
+Pineapple,Fruits & Vegetables,Quinu,0584 Lindbergh Alley,Active,33-507-9886,11-445-3951,4/4/2024,8/19/2024,6/27/2024,68,25,16,$3.50,25,83,-053%
+Grapes,Fruits & Vegetables,Thoughtmix,183 Algoma Trail,Discontinued,80-025-6757,49-608-3851,4/4/2024,11/29/2024,1/1/2025,59,29,100,$5.50,74,16,-232%
+Sunflower Oil,Oils & Fats,Photofeed,7 Rutledge Pass,Backordered,36-296-9609,46-041-1131,5/4/2024,6/24/2024,12/1/2024,24,35,14,$2.50,91,71,078%
+Lemon,Fruits & Vegetables,Centimia,01 Straubel Hill,Discontinued,56-054-8664,53-247-1844,5/4/2024,3/25/2024,3/3/2024,59,82,69,$2.45,30,34,022%
+Lemon,Fruits & Vegetables,Mydo,208 Miller Court,Active,64-478-4745,36-780-8625,6/4/2024,4/20/2024,11/19/2024,63,81,94,$2.50,56,2,-013%
+Peanut Oil,Oils & Fats,Edgeify,203 Mariners Cove Junction,Backordered,67-546-1568,10-038-3988,6/4/2024,6/16/2024,3/28/2024,57,36,53,$4.00,56,32,096%
+Egg (Turkey),Dairy,Quinu,6810 Aberg Junction,Backordered,10-218-2680,72-024-1595,6/4/2024,5/28/2024,1/3/2025,39,93,57,$2.50,26,44,043%
+Short Grain Rice,Grains & Pulses,Katz,805 Nancy Crossing,Backordered,46-520-1819,10-762-7936,7/4/2024,10/4/2024,5/15/2024,41,36,78,$4.50,38,75,-069%
+Tuna,Seafood,Meemm,8 Fremont Circle,Active,87-791-5803,89-843-0880,7/4/2024,3/9/2024,9/1/2024,25,44,96,$18.00,36,16,-097%
+Cauliflower,Fruits & Vegetables,Dynabox,52 Victoria Plaza,Discontinued,71-436-5841,87-546-9674,7/4/2024,9/25/2024,6/25/2024,87,91,94,$2.50,47,4,056%
+Onion,Fruits & Vegetables,Wikizz,1991 Kropf Way,Active,07-679-1199,75-406-6250,7/4/2024,7/10/2024,10/15/2024,20,65,61,$2.00,51,78,091%
+Banana,Fruits & Vegetables,Youfeed,3825 Raven Avenue,Discontinued,48-957-8596,40-817-2222,9/4/2024,4/24/2024,10/18/2024,95,25,91,$53.82,87,5,-053%
+Coconut,Fruits & Vegetables,Katz,78884 Union Street,Backordered,20-325-1965,97-155-1262,9/4/2024,4/4/2024,5/21/2024,56,75,13,$5.00,42,53,094%
+Bread Flour,Grains & Pulses,Oloo,3 Anthes Place,Discontinued,51-069-0489,19-978-0708,10/4/2024,3/30/2024,5/30/2024,96,83,50,$1.50,81,89,-026%
+Almond Flour,Grains & Pulses,Trudoo,4627 Amoth Circle,Active,17-493-4579,67-541-7091,10/4/2024,11/8/2024,5/28/2024,76,8,2,$9.50,24,53,-010%
+Jasmine Rice,Grains & Pulses,Topdrive,2 Miller Lane,Discontinued,46-622-3434,85-473-1534,10/4/2024,12/8/2024,7/23/2024,17,19,74,$4.75,58,27,-121%
+Avocado Oil,Oils & Fats,Dabjam,591 Maple Junction,Active,05-899-1428,17-494-5505,10/4/2024,1/25/2025,7/1/2024,14,75,10,$10.00,65,62,053%
+Chocolate Biscuit,Bakery,Trunyx,48 Golf View Pass,Active,60-632-8752,07-948-8632,11/4/2024,4/4/2024,1/26/2025,96,16,48,$5.00,45,68,005%
+Black Rice,Grains & Pulses,BlogXS,752 Mccormick Way,Backordered,65-854-9364,64-800-4141,11/4/2024,12/19/2024,4/22/2024,30,34,96,$6.30,61,13,-051%
+Greek Yogurt,Dairy,Thoughtstorm,550 Clemons Plaza,Active,66-268-8345,32-182-1895,12/4/2024,6/2/2024,1/8/2025,91,84,11,$3.00,56,90,079%
+Peach,Fruits & Vegetables,Youfeed,04 Hagan Crossing,Backordered,13-673-7016,78-726-6352,12/4/2024,7/22/2024,2/23/2025,47,67,57,$4.00,36,48,-061%
+Chocolate Biscuit,Bakery,JumpXS,39 Lakewood Gardens Center,Discontinued,20-054-3716,49-591-1019,3/5/2024,9/16/2024,2/25/2024,11,6,100,$5.00,88,24,-033%
+Plum,Fruits & Vegetables,Voomm,5104 Jana Court,Active,11-073-0189,75-190-3627,4/5/2024,9/21/2024,5/6/2024,95,50,76,$4.00,69,5,073%
+Sour Cream,Dairy,Chatterbridge,68086 Crowley Circle,Discontinued,40-793-7235,89-048-3542,4/5/2024,12/9/2024,5/19/2024,92,67,51,$4.00,23,78,093%
+Yogurt,Dairy,Skinte,897 Independence Circle,Backordered,56-894-3733,57-133-8386,4/5/2024,3/17/2024,2/2/2025,85,83,13,$1.75,49,75,-239%
+Asparagus,Fruits & Vegetables,Yabox,0282 Emmet Hill,Backordered,83-117-7658,61-424-7670,4/5/2024,2/25/2024,12/19/2024,92,3,81,$5.00,62,20,-053%
+Mushrooms,Fruits & Vegetables,Yakijo,61 Waubesa Court,Backordered,72-989-2512,03-117-6217,4/5/2024,6/27/2024,10/28/2024,24,21,4,$6.00,85,17,068%
+Cream,Dairy,Bubblebox,1 Lillian Plaza,Backordered,58-229-1358,66-883-2383,4/5/2024,9/11/2024,9/28/2024,21,24,2,$2.35,87,36,080%
+Anchovies,Seafood,Jatri,4 Doe Crossing Avenue,Active,28-275-5901,44-760-4337,4/5/2024,4/23/2024,1/24/2025,64,1,92,$10.00,49,15,059%
+Black Tea,Beverages,Kare,24 South Trail,Active,85-806-8672,44-646-7502,4/5/2024,10/12/2024,11/21/2024,35,88,87,$4.70,39,62,069%
+Olive Oil,Oils & Fats,Midel,8626 Chinook Parkway,Active,65-718-0492,91-492-8216,5/5/2024,1/23/2025,2/16/2025,100,92,26,$6.00,84,9,-059%
+White Tea,Beverages,Brightbean,5501 Fuller Way,Backordered,86-482-6451,56-965-0404,5/5/2024,10/27/2024,8/10/2024,91,78,61,$25.00,63,15,089%
+Vegetable Oil,Oils & Fats,Browseblab,5 Colorado Park,Active,48-289-0604,94-261-1193,5/5/2024,8/12/2024,6/20/2024,18,72,71,$2.00,25,81,076%
+White Rice,Grains & Pulses,Tagcat,3053 Sachs Center,Discontinued,21-809-7115,57-774-4116,5/5/2024,7/22/2024,2/24/2025,80,86,50,$1.80,46,69,-224%
+Long Grain Rice,Grains & Pulses,Flashspan,49263 Graceland Pass,Discontinued,84-269-9130,88-615-2915,6/5/2024,9/27/2024,8/2/2024,11,10,80,$1.50,48,65,-050%
+Chocolate Biscuit,Bakery,Devcast,865 Eagle Crest Park,Backordered,54-758-4622,94-903-2643,6/5/2024,1/16/2025,11/21/2024,99,3,79,$5.00,65,16,-035%
+Peach,Fruits & Vegetables,Livepath,36124 Carberry Junction,Active,65-867-4029,70-591-9841,6/5/2024,9/3/2024,6/16/2024,40,83,50,$4.00,92,50,075%
+Rye Bread,Bakery,Brainlounge,6 Haas Circle,Backordered,24-310-9184,69-378-2045,7/5/2024,7/26/2024,4/8/2024,69,65,91,$3.00,98,50,046%
+Egg (Goose),Dairy,Gabvine,292 Utah Street,Active,53-930-2215,42-210-6541,7/5/2024,10/4/2024,7/9/2024,60,43,32,$2.50,77,60,049%
+Brown Rice,Grains & Pulses,Viva,7403 Fuller Hill,Discontinued,94-598-3383,39-488-0039,7/5/2024,10/8/2024,9/1/2024,79,38,67,$2.50,43,93,022%
+Asparagus,Fruits & Vegetables,Realmix,2696 Katie Road,Backordered,83-625-3618,64-528-9996,8/5/2024,1/11/2025,7/4/2024,68,12,73,$5.00,84,95,-116%
+Sardines,Seafood,Browsetype,86207 Tennyson Parkway,Active,13-844-2178,66-832-1802,9/5/2024,9/21/2024,3/24/2024,44,67,48,$6.00,90,11,-013%
+Black Coffee,Beverages,Skyndu,57 Di Loreto Circle,Active,05-184-4175,31-676-5646,9/5/2024,10/23/2024,5/3/2024,40,30,60,$15.00,33,84,088%
+Brown Rice,Grains & Pulses,Fivebridge,9 Kipling Road,Active,89-335-0155,83-780-4531,9/5/2024,9/11/2024,1/16/2025,46,81,47,$2.50,48,48,-155%
+White Sugar,Grains & Pulses,Dazzlesphere,1309 Elka Junction,Backordered,38-417-4656,57-202-5756,10/5/2024,4/13/2024,12/23/2024,24,69,2,$2.00,20,20,000%
+Green Coffee,Beverages,Photobean,744 Lakewood Gardens Crossing,Active,74-305-1263,83-076-5024,10/5/2024,7/10/2024,8/16/2024,29,91,48,$12.00,28,40,000%
+Egg (Quail),Dairy,Realpoint,895 Northland Hill,Discontinued,02-508-3777,69-933-2582,11/5/2024,7/7/2024,6/26/2024,97,88,81,$0.80,97,18,-043%
+Herbal Tea,Beverages,Pixonyx,26175 Oxford Way,Discontinued,79-136-9840,07-809-0926,11/5/2024,8/19/2024,6/23/2024,77,45,75,$30.00,25,37,081%
+Coconut Oil,Oils & Fats,Gevee,95 Packers Lane,Discontinued,35-299-0889,16-776-9987,11/5/2024,7/11/2024,4/21/2024,33,78,79,$5.00,60,25,-048%
+Egg (Duck),Dairy,Blogtags,9 Clemons Hill,Discontinued,41-594-5069,45-471-5053,11/5/2024,2/5/2025,3/21/2024,77,1,41,$1.00,58,55,058%
+Buttermilk,Dairy,Zoombox,84336 Haas Place,Active,83-553-9523,89-976-4338,11/5/2024,2/14/2025,1/28/2025,28,90,70,$2.45,76,78,005%
+Tuna,Seafood,Realmix,63787 Arkansas Street,Discontinued,44-112-3331,90-453-4096,11/5/2024,7/2/2024,4/8/2024,85,17,96,$18.00,92,34,-003%
+Mango,Fruits & Vegetables,Skalith,54706 Prairieview Point,Active,93-198-5984,86-441-7850,11/5/2024,5/14/2024,9/17/2024,73,69,1,$5.00,50,67,063%
+Pomegranate,Fruits & Vegetables,Twitterwire,901 Norway Maple Crossing,Backordered,73-874-7534,12-566-2563,11/5/2024,11/8/2024,12/18/2024,88,24,44,$6.00,72,88,-034%
+Evaporated Milk,Dairy,Demivee,55309 6th Junction,Active,18-107-7886,11-466-3182,11/5/2024,11/7/2024,2/27/2024,64,28,35,$2.00,74,50,-022%
+Robusta Coffee,Beverages,Jetwire,6808 Chinook Parkway,Backordered,63-956-0739,17-123-1252,12/5/2024,2/21/2025,12/22/2024,68,12,42,$10.00,39,6,032%
+Cucumber,Fruits & Vegetables,Skinte,61707 Mariners Cove Park,Discontinued,26-177-5690,06-708-1412,3/6/2024,7/15/2024,1/21/2025,85,33,50,$1.80,64,38,085%
+Powdered Sugar,Grains & Pulses,Devbug,502 Sachs Circle,Backordered,47-749-3277,96-551-3929,3/6/2024,2/29/2024,9/13/2024,46,20,30,$2.50,54,24,041%
+Cod,Seafood,Kwimbee,46 Colorado Place,Discontinued,57-763-5501,25-790-1641,3/6/2024,4/7/2024,3/24/2024,72,29,10,$8.00,54,38,056%
+Long Grain Rice,Grains & Pulses,Voonyx,00397 Bay Terrace,Discontinued,90-230-9767,70-515-9048,4/6/2024,5/1/2024,11/17/2024,67,88,32,$1.50,66,42,030%
+Pear,Fruits & Vegetables,Gigashots,7 Bonner Terrace,Backordered,19-214-5762,88-108-3774,4/6/2024,4/24/2024,10/13/2024,41,52,75,$4.50,57,62,036%
+Cauliflower,Fruits & Vegetables,Skinix,6292 Chive Street,Backordered,74-642-2435,52-012-3409,4/6/2024,12/28/2024,4/8/2024,66,31,18,$2.50,85,39,-009%
+Black Coffee,Beverages,Digitube,0023 Upham Road,Active,47-221-3391,21-450-5520,4/6/2024,7/9/2024,9/12/2024,78,38,27,$15.00,54,42,054%
+Whole Wheat Flour,Grains & Pulses,Rhyloo,0 Moose Lane,Backordered,87-104-0187,41-881-1166,4/6/2024,5/28/2024,2/5/2025,86,100,78,$2.75,52,91,022%
+Egg (Goose),Dairy,Skalith,4 Nelson Alley,Discontinued,87-272-6544,93-699-8001,5/6/2024,5/3/2024,2/13/2025,90,3,49,$2.50,51,87,-075%
+Wild Rice,Grains & Pulses,Podcat,84 Rusk Terrace,Active,06-340-6856,11-005-7835,5/6/2024,11/25/2024,2/29/2024,41,56,12,$9.75,93,88,-071%
+Black Rice,Grains & Pulses,Wordware,662 Vernon Point,Active,80-020-8041,66-684-1941,6/6/2024,12/3/2024,7/8/2024,11,58,26,$6.20,49,34,005%
+Kiwi,Fruits & Vegetables,Zooveo,42719 Milwaukee Avenue,Discontinued,48-461-3742,78-381-5054,7/6/2024,5/17/2024,1/23/2025,37,8,50,$6.00,47,62,031%
+Lemon,Fruits & Vegetables,Vimbo,86 Corben Crossing,Backordered,78-362-8578,57-633-6273,7/6/2024,11/17/2024,4/10/2024,72,32,80,$2.45,25,9,-032%
+Haddock,Seafood,Kwimbee,1 Monica Lane,Backordered,60-550-4771,24-568-9517,7/6/2024,10/3/2024,8/24/2024,75,80,87,$9.00,49,40,064%
+Arabica Coffee,Beverages,Feedfire,321 Barby Parkway,Active,11-155-7826,91-788-3177,7/6/2024,1/31/2025,12/26/2024,98,83,5,$20.00,39,79,018%
+Coconut Oil,Oils & Fats,Bluejam,093 Anhalt Crossing,Active,42-907-6946,32-386-9832,7/6/2024,1/1/2025,8/31/2024,90,75,6,$5.00,55,64,-103%
+Tomato,Fruits & Vegetables,Demimbu,43 Lakewood Junction,Discontinued,99-048-8310,70-453-8646,7/6/2024,4/22/2024,5/27/2024,32,49,73,$2.50,80,36,-016%
+Gouda Cheese,Dairy,Kamba,6151 Forster Drive,Backordered,85-440-3667,00-680-5333,8/6/2024,6/3/2024,9/9/2024,68,29,31,$7.00,53,20,055%
+Sushi Rice,Grains & Pulses,Quire,76 Fisk Park,Backordered,93-571-7294,77-842-0920,9/6/2024,11/3/2024,5/22/2024,78,94,7,$4.35,69,40,062%
+Spinach,Fruits & Vegetables,Shuffledrive,58 Corscot Terrace,Active,82-977-7752,57-473-8672,9/6/2024,12/28/2024,11/4/2024,88,78,17,$2.50,58,21,042%
+Chocolate Biscuit,Bakery,Photobean,0 Larry Terrace,Backordered,76-476-9996,88-428-6227,10/6/2024,1/14/2025,12/6/2024,37,96,82,$5.00,35,23,064%
+Canola Oil,Oils & Fats,Thoughtmix,20 Butterfield Lane,Active,50-679-2072,81-588-5701,10/6/2024,5/3/2024,5/30/2024,97,32,43,$2.30,82,98,034%
+Milk,Dairy,Jatri,591 Maple Wood Drive,Backordered,50-329-3145,88-418-3855,11/6/2024,12/20/2024,4/21/2024,12,54,48,$1.00,31,88,-020%
+All-Purpose Flour,Grains & Pulses,Pixonyx,336 Old Shore Lane,Active,52-392-5312,78-092-4768,11/6/2024,2/19/2025,7/24/2024,50,42,20,$1.75,87,59,-184%
+Basmati Rice,Grains & Pulses,Kanoodle,6500 Raven Drive,Discontinued,47-663-5703,52-062-2916,12/6/2024,6/14/2024,9/14/2024,15,49,40,$4.50,68,74,032%
+Black Tea,Beverages,Ozu,96 American Ash Center,Discontinued,58-122-2282,55-773-9118,12/6/2024,6/30/2024,6/12/2024,59,20,17,$5.00,45,15,-009%
+Brown Rice,Grains & Pulses,Avamm,12 Rigney Street,Active,84-151-2114,79-704-1471,12/6/2024,3/6/2024,8/11/2024,39,57,54,$2.50,77,32,067%
+Lime,Fruits & Vegetables,Roomm,2718 Londonderry Plaza,Backordered,93-682-2069,60-038-7810,12/6/2024,6/23/2024,8/16/2024,76,39,15,$2.00,77,70,058%
+Peach,Fruits & Vegetables,Browsetype,41 Stephen Crossing,Backordered,48-789-9187,95-944-5323,12/6/2024,6/26/2024,11/15/2024,45,79,95,$4.00,84,62,009%
+Oatmeal Biscuit,Bakery,Kwimbee,9269 Main Trail,Active,85-806-0613,06-286-2758,3/7/2024,1/1/2025,4/26/2024,41,21,47,$5.00,50,99,026%
+Herbal Tea,Beverages,Wikido,620 Mockingbird Pass,Active,19-244-9890,98-107-0604,3/7/2024,10/2/2024,11/9/2024,61,22,98,$30.00,90,11,-098%
+Mushrooms,Fruits & Vegetables,Youfeed,37973 Parkside Junction,Active,60-285-3783,58-827-9061,4/7/2024,3/28/2024,1/15/2025,51,62,95,$6.00,52,21,088%
+White Rice,Grains & Pulses,Wikibox,18 Comanche Junction,Backordered,34-547-0827,30-853-8580,4/7/2024,1/17/2025,7/5/2024,54,53,33,$1.80,94,82,060%
+Lemon,Fruits & Vegetables,Meejo,30968 Anzinger Court,Discontinued,06-731-2162,17-546-8875,4/7/2024,10/7/2024,7/19/2024,87,1,98,$2.50,61,84,013%
+Canola Oil,Oils & Fats,Omba,339 Paget Place,Discontinued,48-193-1199,63-924-5144,5/7/2024,12/24/2024,6/9/2024,46,51,92,$2.30,47,25,-038%
+White Sugar,Grains & Pulses,Wordtune,2693 6th Court,Discontinued,40-003-7322,41-644-3129,5/7/2024,2/16/2025,10/11/2024,13,32,79,$2.00,38,61,047%
+Grapes,Fruits & Vegetables,Riffwire,1 Elmside Parkway,Discontinued,91-417-0366,28-442-2578,6/7/2024,12/7/2024,12/4/2024,25,74,100,$5.50,41,59,-061%
+Kale,Fruits & Vegetables,Devshare,5325 Milwaukee Lane,Discontinued,24-571-1080,07-520-1107,6/7/2024,2/21/2025,4/11/2024,60,15,89,$4.00,21,29,-044%
+Long Grain Rice,Grains & Pulses,Yodoo,38 Superior Road,Discontinued,22-083-3347,01-431-7544,7/7/2024,4/29/2024,4/30/2024,69,82,58,$1.50,34,22,-038%
+Sushi Rice,Grains & Pulses,Talane,96629 Nova Plaza,Discontinued,09-101-1740,63-836-1262,7/7/2024,12/20/2024,8/31/2024,36,81,54,$4.75,73,60,035%
+Whole Wheat Bread,Bakery,Photobug,657 Texas Street,Backordered,17-274-6898,34-738-1209,7/7/2024,6/1/2024,3/22/2024,36,53,92,$3.50,67,43,018%
+Kale,Fruits & Vegetables,Dabshots,17 Reinke Circle,Backordered,38-655-2312,91-127-7174,8/7/2024,4/9/2024,10/18/2024,79,74,87,$4.00,80,26,036%
+Egg (Turkey),Dairy,Katz,3 Bellgrove Way,Active,60-327-4114,59-968-8346,9/7/2024,11/22/2024,10/17/2024,63,7,23,$2.35,78,100,068%
+Green Beans,Fruits & Vegetables,Viva,00 Ridgeway Plaza,Discontinued,54-281-3746,08-824-4585,9/7/2024,3/10/2024,11/3/2024,26,70,52,$2.00,36,10,-028%
+Spinach,Fruits & Vegetables,Devshare,42 Bunker Hill Junction,Discontinued,25-349-7974,82-737-6019,10/7/2024,5/28/2024,6/22/2024,72,70,99,$2.50,82,32,072%
+Apricot,Fruits & Vegetables,Quinu,701 Logan Court,Active,16-380-0753,24-603-5521,10/7/2024,5/16/2024,5/8/2024,38,22,71,$5.00,33,62,061%
+Oatmeal Biscuit,Bakery,Trunyx,6 Lillian Junction,Active,38-049-9319,90-447-5123,11/7/2024,4/29/2024,5/9/2024,82,6,53,$5.00,21,58,-088%
+Wild Rice,Grains & Pulses,Topdrive,72 Crownhardt Circle,Active,50-329-3360,85-594-2570,11/7/2024,2/16/2025,8/25/2024,19,77,66,$10.00,62,100,-176%
+Whole Wheat Bread,Bakery,Mybuzz,8524 Shelley Way,Active,19-610-2236,53-799-3174,12/7/2024,8/3/2024,3/19/2024,58,48,9,$3.50,98,69,-061%
+Whipped Cream,Dairy,Skippad,9 Meadow Ridge Center,Active,46-632-8420,27-996-8883,3/8/2024,12/21/2024,5/23/2024,98,24,4,$4.10,89,80,030%
+Apple,Fruits & Vegetables,Jabbersphere,2 Hooker Terrace,Active,14-836-2894,82-157-4299,3/8/2024,1/11/2025,9/25/2024,44,92,92,$3.50,41,61,010%
+Peas,Fruits & Vegetables,Youbridge,56 Esker Park,Backordered,08-196-2703,34-315-1199,3/8/2024,11/29/2024,10/17/2024,100,52,2,$3.00,86,70,-049%
+Robusta Coffee,Beverages,Photofeed,236 Gateway Lane,Discontinued,87-097-5691,26-213-7885,4/8/2024,8/29/2024,3/26/2024,62,78,97,$10.00,62,97,019%
+Tomato,Fruits & Vegetables,Quatz,2 Sunbrook Lane,Backordered,04-453-5485,43-880-2879,4/8/2024,1/10/2025,4/2/2024,84,20,58,$2.50,86,64,-056%
+Cottage Cheese,Dairy,Feedmix,6172 Hovde Circle,Backordered,82-678-8097,65-403-0311,4/8/2024,8/24/2024,4/5/2024,68,82,58,$4.80,90,2,026%
+Pineapple,Fruits & Vegetables,Bubblemix,4 Sundown Place,Active,43-703-9939,69-928-4929,5/8/2024,5/22/2024,2/17/2025,55,91,35,$3.50,81,19,098%
+Multigrain Bread,Bakery,Topicware,8 Mayer Trail,Active,28-433-8533,81-694-0300,5/8/2024,2/27/2024,2/2/2025,87,70,77,$3.20,73,44,077%
+Almond Flour,Grains & Pulses,Shuffledrive,2 Veith Crossing,Active,74-234-0628,49-559-7092,5/8/2024,12/15/2024,5/13/2024,12,56,92,$9.50,56,6,040%
+Cauliflower,Fruits & Vegetables,Photobug,880 Calypso Road,Backordered,02-888-9412,22-307-4653,6/8/2024,3/28/2024,2/4/2025,95,66,69,$2.48,92,72,089%
+Mango,Fruits & Vegetables,Wordtune,44051 Old Shore Junction,Backordered,80-658-6456,42-080-6579,6/8/2024,5/19/2024,12/10/2024,84,9,46,$5.00,30,68,022%
+Black Rice,Grains & Pulses,Reallinks,2446 Anhalt Way,Discontinued,70-587-1204,41-399-9203,7/8/2024,7/15/2024,6/23/2024,68,68,97,$6.00,37,31,-127%
+Black Coffee,Beverages,Youfeed,5 Anderson Trail,Active,88-951-9038,14-713-5795,7/8/2024,10/11/2024,2/11/2025,11,72,5,$15.00,89,4,016%
+Palm Oil,Oils & Fats,Wordware,70156 7th Junction,Discontinued,45-317-9731,05-779-0378,7/8/2024,1/7/2025,8/20/2024,44,83,78,$1.80,46,4,096%
+Orange,Fruits & Vegetables,Oloo,183 Buell Park,Discontinued,63-874-9747,22-506-4911,7/8/2024,12/9/2024,11/11/2024,36,59,90,$3.00,25,60,091%
+Peach,Fruits & Vegetables,Blogpad,832 Goodland Alley,Discontinued,44-546-5713,61-382-5182,7/8/2024,1/16/2025,2/13/2025,94,69,68,$4.00,24,20,-140%
+Powdered Sugar,Grains & Pulses,Meeveo,836 Brown Alley,Discontinued,23-070-2433,82-235-9317,8/8/2024,4/11/2024,12/28/2024,68,7,37,$2.50,69,1,017%
+Tilapia,Seafood,InnoZ,10997 Dexter Parkway,Active,91-257-3672,30-438-6295,8/8/2024,12/18/2024,7/5/2024,78,75,3,$7.00,63,100,099%
+Banana,Fruits & Vegetables,Skinix,154 Delladonna Hill,Backordered,69-561-2496,38-790-7081,8/8/2024,3/18/2024,12/9/2024,82,29,62,$15.31,77,27,-059%
+Sushi Rice,Grains & Pulses,Tekfly,07855 Goodland Lane,Active,87-013-6488,77-471-0792,8/8/2024,10/26/2024,4/14/2024,22,10,53,$4.25,64,7,065%
+Arabica Coffee,Beverages,Voomm,993 Kensington Drive,Discontinued,31-969-4614,83-104-8425,9/8/2024,6/6/2024,1/15/2025,62,89,6,$20.00,23,11,089%
+Evaporated Milk,Dairy,Miboo,779 Ridgeway Street,Backordered,96-209-1739,82-930-7733,9/8/2024,2/27/2024,2/29/2024,70,81,75,$2.00,24,54,052%
+Bread Flour,Grains & Pulses,Mydeo,81878 Nobel Point,Discontinued,20-022-3173,54-188-1006,10/8/2024,11/10/2024,2/22/2025,21,63,65,$1.50,38,73,-125%
+Pear,Fruits & Vegetables,Riffwire,6 Charing Cross Circle,Active,44-552-3909,80-863-1186,10/8/2024,2/26/2024,1/19/2025,61,50,9,$4.50,24,92,-092%
+Asparagus,Fruits & Vegetables,Zoomzone,1519 Delaware Court,Backordered,40-902-1995,86-879-7811,10/8/2024,12/8/2024,4/1/2024,46,88,20,$4.80,59,79,-283%
+Jasmine Rice,Grains & Pulses,Tagcat,2 Fair Oaks Pass,Discontinued,07-846-4804,30-605-2164,10/8/2024,7/2/2024,9/25/2024,20,25,73,$4.75,78,1,-034%
+Sweet Potato,Fruits & Vegetables,Jaxworks,18 Daystar Parkway,Active,17-504-3699,81-276-8218,10/8/2024,6/15/2024,8/17/2024,80,60,71,$2.00,98,13,099%
+Whipped Cream,Dairy,Feedbug,7 Spohn Avenue,Backordered,55-522-8242,48-884-5431,11/8/2024,3/30/2024,9/7/2024,29,36,40,$4.00,60,96,087%
+Apple,Fruits & Vegetables,Chatterpoint,39 Dahle Alley,Discontinued,17-022-9721,59-629-0798,11/8/2024,12/13/2024,1/12/2025,43,63,99,$3.50,39,77,-060%
+Sunflower Oil,Oils & Fats,Skibox,27408 Burning Wood Street,Discontinued,03-940-0630,49-762-8263,11/8/2024,10/31/2024,4/3/2024,23,43,75,$2.50,91,86,-097%
+Long Grain Rice,Grains & Pulses,Brightbean,3 Westerfield Crossing,Active,71-594-6552,63-492-7603,12/8/2024,2/19/2025,4/17/2024,12,59,62,$1.50,95,99,005%
+White Tea,Beverages,Skipstorm,5756 Stephen Avenue,Active,20-225-3930,73-069-2753,12/8/2024,2/29/2024,3/17/2024,99,87,10,$25.00,93,70,-004%
+Grapes,Fruits & Vegetables,Flipopia,84239 Meadow Vale Trail,Backordered,53-151-5726,93-180-4005,12/8/2024,1/12/2025,4/20/2024,37,45,62,$5.50,34,23,025%
+Basmati Rice,Grains & Pulses,Skidoo,4784 Farmco Alley,Backordered,77-777-4536,64-396-5538,12/8/2024,9/12/2024,4/4/2024,26,67,46,$4.40,54,46,032%
+Egg (Quail),Dairy,Trunyx,79 Monterey Avenue,Active,07-834-3320,47-831-9154,12/8/2024,3/7/2024,9/20/2024,94,60,78,$0.80,100,42,015%
+Egg (Goose),Dairy,Youopia,587 Vermont Terrace,Backordered,51-761-6320,28-461-1136,3/9/2024,8/30/2024,6/22/2024,43,78,85,$2.50,48,98,058%
+Digestive Biscuit,Bakery,Eimbee,983 Sommers Circle,Discontinued,34-291-4939,39-284-1614,3/9/2024,11/24/2024,2/13/2025,34,49,27,$4.00,78,20,-104%
+Cabbage,Fruits & Vegetables,Chatterbridge,51890 Lindbergh Terrace,Active,67-025-1245,28-575-0716,4/9/2024,3/6/2024,8/12/2024,88,46,55,$1.00,73,63,074%
+Plum,Fruits & Vegetables,Thoughtbeat,95 Kingsford Terrace,Discontinued,63-936-0145,69-415-3675,4/9/2024,6/8/2024,12/3/2024,22,56,72,$4.00,70,39,014%
+Potato,Fruits & Vegetables,Thoughtbridge,12710 Gulseth Circle,Active,27-495-1912,34-667-8907,5/9/2024,2/29/2024,5/24/2024,26,63,88,$1.20,84,70,044%
+Haddock,Seafood,Babbleopia,1 Westport Crossing,Active,47-554-5780,62-979-5038,6/9/2024,6/22/2024,4/17/2024,93,62,65,$9.00,78,87,017%
+Cabbage,Fruits & Vegetables,Meevee,84305 Fair Oaks Plaza,Backordered,21-013-3508,64-489-8494,6/9/2024,6/13/2024,11/10/2024,12,95,49,$1.00,25,23,-012%
+Evaporated Milk,Dairy,Centimia,15 Oriole Park,Discontinued,39-913-2999,74-119-8973,6/9/2024,4/6/2024,4/10/2024,23,99,97,$2.00,68,76,008%
+Chocolate Biscuit,Bakery,Vidoo,43442 Homewood Street,Active,82-395-5070,01-801-9502,7/9/2024,2/17/2025,2/20/2025,75,81,17,$5.00,69,38,-012%
+Sourdough Bread,Bakery,Meevee,56830 Fremont Road,Backordered,62-100-2245,18-110-8314,7/9/2024,11/8/2024,7/12/2024,22,60,73,$4.20,62,3,045%
+Grapes,Fruits & Vegetables,Aibox,10 Golf Course Hill,Backordered,09-712-3630,17-807-6972,7/9/2024,3/25/2024,9/30/2024,87,62,2,$5.50,22,38,095%
+Eggplant,Fruits & Vegetables,Topicblab,357 Maple Park,Active,25-010-9478,24-576-3402,8/9/2024,10/13/2024,7/31/2024,74,30,24,$3.00,82,12,-073%
+Halibut,Seafood,Wikibox,7 Riverside Road,Active,03-919-9890,69-289-8783,8/9/2024,12/7/2024,7/25/2024,47,29,70,$20.00,61,44,085%
+Salmon,Seafood,Kamba,4353 Dixon Circle,Active,61-293-6327,00-023-7719,8/9/2024,12/29/2024,4/4/2024,98,67,49,$15.00,21,61,028%
+Broccoli,Fruits & Vegetables,Abatz,89 Karstens Alley,Discontinued,08-519-5579,32-178-2765,8/9/2024,8/22/2024,8/16/2024,35,4,76,$4.00,90,30,-190%
+Grapes,Fruits & Vegetables,Kimia,898 Rowland Trail,Active,00-366-9496,40-515-1141,8/9/2024,2/8/2025,12/28/2024,30,66,28,$5.50,63,98,067%
+Pomegranate,Fruits & Vegetables,Flipopia,92655 Pond Park,Discontinued,28-840-6096,15-444-8224,9/9/2024,2/14/2025,9/12/2024,19,65,48,$6.00,59,53,-056%
+Bread Flour,Grains & Pulses,Eidel,403 Loomis Way,Backordered,04-542-3863,55-952-9832,10/9/2024,12/11/2024,12/22/2024,34,46,45,$1.50,49,25,010%
+Cheddar Cheese,Dairy,Jayo,87784 Blaine Way,Backordered,18-199-5799,76-870-2139,10/9/2024,4/28/2024,10/30/2024,40,81,40,$9.00,40,48,049%
+Brown Rice,Grains & Pulses,Youtags,32 Cottonwood Pass,Active,56-875-3717,39-257-6162,10/9/2024,8/1/2024,5/3/2024,89,54,15,$2.50,64,63,-020%
+Gouda Cheese,Dairy,Kazu,890 Eggendart Pass,Discontinued,25-522-6043,29-122-7037,10/9/2024,8/19/2024,2/3/2025,71,93,75,$7.00,77,58,002%
+Feta Cheese,Dairy,Quaxo,4 Duke Way,Discontinued,27-459-0724,45-331-8563,11/9/2024,8/12/2024,2/24/2025,91,7,64,$7.00,32,65,025%
+Corn Oil,Oils & Fats,Tagopia,7 Gateway Center,Backordered,75-080-4909,34-726-5887,12/9/2024,4/12/2024,9/9/2024,20,55,15,$2.50,86,61,-103%
+Bell Pepper,Fruits & Vegetables,Tagtune,459 Gateway Pass,Active,07-970-9352,14-724-4622,3/10/2024,5/16/2024,7/12/2024,96,33,72,$4.45,74,100,029%
+Whipped Cream,Dairy,Devcast,4929 Westend Point,Active,26-134-9069,80-068-0825,3/10/2024,11/11/2024,1/30/2025,14,87,8,$4.00,90,14,-035%
+White Sugar,Grains & Pulses,Cogibox,160 Crowley Center,Discontinued,08-396-2704,94-186-9620,3/10/2024,4/1/2024,5/10/2024,42,12,28,$2.00,80,8,084%
+Green Beans,Fruits & Vegetables,Jayo,62494 Longview Drive,Active,24-975-4231,99-145-4924,3/10/2024,7/9/2024,8/17/2024,31,61,28,$2.10,55,70,090%
+Powdered Sugar,Grains & Pulses,Riffwire,8499 Hanover Terrace,Active,28-197-9246,31-281-2352,3/10/2024,7/11/2024,5/23/2024,47,30,16,$2.50,22,81,-027%
+Canola Oil,Oils & Fats,Yodo,48788 Chinook Place,Discontinued,77-013-1553,42-252-5861,4/10/2024,10/13/2024,8/20/2024,79,31,66,$2.30,92,13,-268%
+Halibut,Seafood,Linktype,26266 Esker Point,Backordered,83-716-2177,79-518-8344,4/10/2024,10/10/2024,9/13/2024,18,46,26,$20.00,57,95,086%
+Halibut,Seafood,Gevee,6410 Northwestern Pass,Active,55-164-7723,85-454-9252,4/10/2024,5/17/2024,1/8/2025,82,31,86,$20.00,66,74,-067%
+Cheddar Cheese,Dairy,Quaxo,0782 Dapin Avenue,Active,22-778-3553,49-590-1752,4/10/2024,10/24/2024,2/9/2025,36,77,49,$9.00,30,84,-012%
+Avocado Oil,Oils & Fats,Voolith,8 Thackeray Drive,Discontinued,14-331-3739,87-159-6467,4/10/2024,10/15/2024,3/28/2024,24,89,27,$10.00,99,1,-180%
+Anchovies,Seafood,Jaxspan,5 Forest Run Way,Discontinued,47-578-4161,96-001-5429,5/10/2024,3/10/2024,9/14/2024,88,56,81,$10.00,98,86,099%
+Evaporated Milk,Dairy,Blognation,230 Tony Court,Discontinued,59-857-6577,57-569-7172,5/10/2024,8/10/2024,3/4/2024,23,100,77,$2.00,63,26,012%
+Mango,Fruits & Vegetables,Jaxnation,545 Linden Alley,Discontinued,02-559-8196,44-495-6660,6/10/2024,12/12/2024,7/25/2024,61,14,49,$5.20,74,35,059%
+Bell Pepper,Fruits & Vegetables,Meetz,521 Burning Wood Trail,Discontinued,13-900-9016,63-969-9608,6/10/2024,1/6/2025,9/19/2024,89,96,94,$4.50,38,96,053%
+Strawberries,Fruits & Vegetables,Meevee,3 Buhler Place,Backordered,15-144-9413,08-912-0895,7/10/2024,6/30/2024,7/29/2024,58,15,87,$5.90,52,81,-153%
+Grapes,Fruits & Vegetables,Layo,23704 Algoma Park,Active,65-527-9488,23-482-0516,7/10/2024,6/24/2024,10/10/2024,38,72,39,$5.50,59,8,-056%
+Spinach,Fruits & Vegetables,Eabox,62 Thackeray Center,Backordered,74-818-3306,75-536-2986,8/10/2024,7/27/2024,5/9/2024,45,70,98,$2.45,25,39,086%
+Green Tea,Beverages,Photobug,5306 Arkansas Avenue,Active,60-198-7050,27-493-6787,8/10/2024,11/24/2024,3/19/2024,26,59,54,$8.00,92,49,-056%
+Swiss Cheese,Dairy,Reallinks,285 1st Park,Discontinued,82-041-7211,03-615-0558,9/10/2024,5/19/2024,7/1/2024,49,49,26,$8.00,78,61,047%
+Green Beans,Fruits & Vegetables,Omba,379 Duke Court,Active,17-002-4721,38-310-4533,9/10/2024,2/18/2025,10/29/2024,31,55,5,$2.00,71,46,022%
+Cherry,Fruits & Vegetables,Jabbersphere,07 Maple Wood Drive,Active,74-404-0582,31-628-6696,9/10/2024,11/20/2024,6/11/2024,57,82,59,$8.00,44,57,035%
+Sourdough Bread,Bakery,Eayo,7444 Saint Paul Circle,Discontinued,73-561-2867,60-386-5077,10/10/2024,6/29/2024,9/29/2024,12,86,98,$4.00,75,86,-030%
+Plum,Fruits & Vegetables,Devcast,2 Scofield Street,Active,45-194-4094,65-611-4749,10/10/2024,6/14/2024,10/10/2024,64,71,69,$3.90,60,67,-015%
+Tomato,Fruits & Vegetables,Fivebridge,826 Melvin Pass,Discontinued,92-362-3567,40-056-7748,10/10/2024,5/6/2024,12/25/2024,11,10,60,$2.50,93,53,-012%
+Jasmine Rice,Grains & Pulses,Babbleset,63578 Butternut Hill,Active,96-961-2193,71-467-4910,10/10/2024,8/16/2024,11/10/2024,46,39,11,$4.75,36,54,043%
+Zucchini,Fruits & Vegetables,Quimm,66330 Northridge Street,Backordered,92-652-3737,42-361-6981,11/10/2024,7/30/2024,10/1/2024,89,56,74,$2.50,27,51,-050%
+Digestive Biscuit,Bakery,Lajo,297 Petterle Way,Discontinued,89-673-1543,43-679-7350,11/10/2024,3/28/2024,1/3/2025,72,78,1,$4.00,85,30,-089%
+Butter Biscuit,Bakery,Ozu,175 Sycamore Circle,Active,70-815-4015,89-134-9717,12/10/2024,7/15/2024,8/30/2024,38,93,61,$6.00,67,100,065%
+Black Rice,Grains & Pulses,Bubblemix,92321 Nelson Trail,Backordered,90-737-0044,39-339-3869,12/10/2024,1/17/2025,5/17/2024,79,98,97,$6.00,26,21,-049%
+Black Tea,Beverages,Topicstorm,87417 Forest Pass,Active,67-473-7093,92-830-6986,12/10/2024,3/20/2024,4/19/2024,56,12,85,$5.00,52,46,019%
+Strawberries,Fruits & Vegetables,Babblestorm,00 Drewry Court,Active,22-621-2774,70-901-6191,3/11/2024,6/30/2024,6/14/2024,54,26,16,$6.00,63,97,012%
+Eggplant,Fruits & Vegetables,Mybuzz,25784 Old Gate Crossing,Active,15-240-6267,12-983-3026,3/11/2024,4/10/2024,4/26/2024,91,55,94,$3.00,42,93,-054%
+Pear,Fruits & Vegetables,Voonix,622 Anthes Lane,Backordered,75-152-8731,05-593-1927,4/11/2024,11/12/2024,8/8/2024,82,65,69,$4.45,30,78,-121%
+Egg (Chicken),Dairy,Einti,553 Hooker Trail,Backordered,40-913-9772,51-215-2283,4/11/2024,3/3/2024,5/26/2024,36,30,44,$0.20,68,88,-160%
+Short Grain Rice,Grains & Pulses,Brightdog,9431 Clarendon Pass,Active,29-377-7040,59-979-6740,4/11/2024,5/29/2024,7/29/2024,22,77,15,$3.00,68,46,-029%
+Sunflower Oil,Oils & Fats,Voolith,88721 Dawn Crossing,Discontinued,72-780-6006,81-292-4650,5/11/2024,12/13/2024,4/17/2024,87,24,19,$2.50,83,3,032%
+Orange,Fruits & Vegetables,Oyondu,43211 Anzinger Drive,Active,91-127-7489,86-079-1525,5/11/2024,12/10/2024,8/4/2024,44,8,52,$2.95,42,66,096%
+Cod,Seafood,Katz,0 Village Green Street,Active,17-647-0503,69-416-9493,5/11/2024,5/24/2024,8/20/2024,96,12,8,$8.00,97,92,-057%
+Onion,Fruits & Vegetables,Skyble,13 Corscot Hill,Active,91-848-0606,68-836-0350,6/11/2024,7/23/2024,10/28/2024,39,22,73,$2.00,60,2,005%
+Peach,Fruits & Vegetables,Oyoloo,3104 Ridge Oak Hill,Backordered,11-745-3025,54-711-1582,6/11/2024,2/21/2025,9/3/2024,15,27,21,$4.00,37,67,097%
+Zucchini,Fruits & Vegetables,Trudeo,3 Lawn Park,Discontinued,29-823-6004,10-295-7996,6/11/2024,4/4/2024,3/10/2024,52,79,87,$2.50,36,100,-081%
+Coconut,Fruits & Vegetables,Eamia,277 Pawling Terrace,Discontinued,21-718-6746,96-012-3393,6/11/2024,1/20/2025,6/6/2024,16,53,12,$5.00,21,29,-178%
+Avocado Oil,Oils & Fats,Dazzlesphere,00616 Manitowish Parkway,Active,86-692-2312,77-783-4107,6/11/2024,12/7/2024,4/30/2024,30,48,52,$10.00,22,78,-038%
+Sushi Rice,Grains & Pulses,Linklinks,67 Little Fleur Road,Backordered,54-109-8062,04-726-3363,7/11/2024,1/19/2025,2/16/2025,75,69,100,$4.50,43,18,-255%
+White Bread,Bakery,Tagfeed,0 Saint Paul Center,Active,74-943-9034,15-739-5480,7/11/2024,11/18/2024,5/6/2024,30,91,34,$2.50,97,88,058%
+Broccoli,Fruits & Vegetables,Yamia,7 Heffernan Drive,Active,71-300-2191,98-677-4279,7/11/2024,5/6/2024,5/1/2024,79,72,6,$4.00,67,63,009%
+Long Grain Rice,Grains & Pulses,Gigashots,8 Dovetail Junction,Active,65-145-9672,65-068-1200,8/11/2024,3/16/2024,5/26/2024,71,10,49,$1.50,66,43,006%
+Pineapple,Fruits & Vegetables,Quinu,4 4th Place,Active,93-966-7754,78-787-7171,8/11/2024,1/18/2025,9/27/2024,65,35,3,$3.50,25,13,035%
+Sesame Oil,Oils & Fats,Skilith,4 Browning Terrace,Active,27-216-9671,40-773-7065,8/11/2024,4/12/2024,6/4/2024,100,86,94,$6.50,77,57,048%
+Tuna,Seafood,Realbridge,46 Cardinal Way,Discontinued,44-538-3366,33-898-6242,9/11/2024,4/17/2024,3/30/2024,58,77,96,$18.00,25,17,026%
+Watermelon,Fruits & Vegetables,Latz,0039 Shelley Place,Active,34-075-0371,32-771-2617,9/11/2024,1/10/2025,12/3/2024,75,10,68,$3.00,90,42,032%
+Cheese,Dairy,Twitterbeat,5862 Hooker Pass,Active,24-972-6969,27-532-7847,9/11/2024,5/28/2024,6/13/2024,69,53,32,$9.20,28,56,053%
+Robusta Coffee,Beverages,Katz,0 Ohio Hill,Backordered,92-455-2959,13-109-8639,9/11/2024,7/16/2024,2/25/2024,59,62,57,$10.30,90,94,-100%
+Oatmeal Biscuit,Bakery,Pixope,86 Maryland Junction,Active,58-182-6781,75-328-1709,10/11/2024,6/29/2024,11/15/2024,34,55,22,$5.00,77,85,-004%
+Canola Oil,Oils & Fats,Omba,0087 Bluejay Plaza,Backordered,42-134-9798,16-869-7328,10/11/2024,10/23/2024,12/30/2024,19,80,87,$2.30,33,38,-010%
+Gouda Cheese,Dairy,Skimia,96 American Center,Backordered,18-278-2383,73-210-4267,11/11/2024,9/15/2024,7/2/2024,97,77,13,$7.00,43,40,-015%
+Buttermilk,Dairy,Wordpedia,53 Lawn Circle,Active,03-597-9488,03-983-0515,11/11/2024,7/11/2024,3/28/2024,70,66,74,$2.50,47,77,007%
+White Tea,Beverages,Voolith,95261 Morningstar Way,Backordered,14-681-7035,01-308-0960,12/11/2024,8/7/2024,5/18/2024,36,90,57,$25.00,35,68,-064%
+Sunflower Oil,Oils & Fats,Skidoo,8 Spaight Circle,Discontinued,01-439-6231,08-490-1714,12/11/2024,10/28/2024,12/9/2024,88,100,17,$2.50,25,28,-094%
+Orange,Fruits & Vegetables,Oba,72090 Northfield Place,Backordered,25-911-7736,40-180-0752,12/11/2024,8/17/2024,8/29/2024,75,48,25,$3.00,96,65,-012%
+Green Coffee,Beverages,Kwinu,90865 Sherman Court,Active,36-918-2937,53-844-0478,3/12/2024,2/12/2025,11/28/2024,62,89,18,$12.00,35,36,032%
+Cauliflower,Fruits & Vegetables,Meevee,85276 Lakewood Gardens Alley,Backordered,37-666-3902,58-536-6583,3/12/2024,8/11/2024,6/12/2024,19,73,60,$2.45,70,48,-003%
+Egg (Goose),Dairy,Abatz,27535 Morrow Avenue,Discontinued,27-757-4489,04-456-0715,4/12/2024,1/19/2025,7/4/2024,35,78,68,$2.50,95,91,031%
+Swiss Cheese,Dairy,Gevee,42 Clemons Terrace,Backordered,97-040-3822,78-459-1417,5/12/2024,8/23/2024,5/17/2024,50,99,73,$8.00,42,1,004%
+Cod,Seafood,Roombo,8531 Manley Court,Discontinued,98-445-7372,71-676-6562,5/12/2024,10/3/2024,5/30/2024,65,79,52,$8.00,56,94,098%
+Black Tea,Beverages,Jaloo,0920 Monica Pass,Active,92-152-5820,50-747-2259,5/12/2024,5/1/2024,6/24/2024,18,36,53,$5.30,65,100,-068%
+Vanilla Biscuit,Bakery,Ozu,88 Lighthouse Bay Crossing,Discontinued,24-986-5091,51-076-1164,5/12/2024,6/25/2024,8/14/2024,89,22,23,$5.50,83,25,-054%
+Mushrooms,Fruits & Vegetables,Izio,81533 John Wall Court,Discontinued,22-849-2551,14-231-9135,6/12/2024,12/20/2024,9/8/2024,34,1,79,$6.20,58,36,070%
+Bread Flour,Grains & Pulses,Feedfire,26160 Independence Alley,Active,15-169-8058,14-009-8505,6/12/2024,9/23/2024,4/18/2024,87,97,28,$1.50,58,21,038%
+Canola Oil,Oils & Fats,Tagopia,085 Reinke Pass,Backordered,78-953-2073,28-465-9141,6/12/2024,10/1/2024,1/4/2025,53,20,75,$2.30,83,77,064%
+Basmati Rice,Grains & Pulses,Trilia,1959 Marcy Center,Active,10-255-8579,29-112-1577,7/12/2024,7/24/2024,1/28/2025,56,53,77,$4.50,69,69,007%
+Kiwi,Fruits & Vegetables,Topdrive,555 Butternut Hill,Discontinued,82-948-2298,53-749-6148,7/12/2024,2/17/2025,11/21/2024,38,91,94,$5.70,53,87,000%
+Papaya,Fruits & Vegetables,Twitterwire,561 Pennsylvania Way,Active,60-747-8704,93-793-4398,7/12/2024,9/29/2024,8/22/2024,97,97,71,$4.50,53,31,-064%
+Trout,Seafood,Browsezoom,0258 Shoshone Center,Backordered,40-462-2952,57-323-8059,8/12/2024,10/14/2024,11/19/2024,91,68,80,$11.50,81,85,042%
+Asparagus,Fruits & Vegetables,Devpoint,5 Transport Pass,Active,98-235-2711,23-052-4744,9/12/2024,12/31/2024,1/26/2025,22,40,7,$5.00,98,60,-005%
+White Bread,Bakery,Devpoint,3 Monument Street,Backordered,83-108-1174,56-439-3559,9/12/2024,3/5/2024,12/25/2024,78,68,68,$2.50,89,24,039%
+Watermelon,Fruits & Vegetables,Digitube,848 Old Gate Parkway,Backordered,28-505-8317,61-755-4469,10/12/2024,7/23/2024,1/28/2025,23,85,94,$3.00,92,72,073%
+Asparagus,Fruits & Vegetables,Voonder,64 1st Plaza,Backordered,31-803-5001,14-414-1945,10/12/2024,12/4/2024,6/1/2024,78,16,37,$4.70,25,96,022%
+Sweet Potato,Fruits & Vegetables,Einti,803 5th Alley,Backordered,17-236-0566,32-402-9679,10/12/2024,3/2/2024,8/4/2024,95,87,13,$2.00,61,4,-284%
+Ricotta Cheese,Dairy,Shufflester,15 Loomis Avenue,Active,76-090-4411,82-552-6786,12/12/2024,8/10/2024,4/16/2024,49,94,18,$6.00,38,11,093%
+Plum,Fruits & Vegetables,Feedspan,46758 Hallows Center,Active,43-910-2342,06-569-4690,12/12/2024,6/8/2024,7/19/2024,26,69,90,$4.00,47,35,071%
+Onion,Fruits & Vegetables,Gabspot,49884 Brickson Park Plaza,Discontinued,05-425-0746,23-450-0301,12/12/2024,5/9/2024,6/5/2024,50,68,90,$2.00,40,13,026%
+Sesame Oil,Oils & Fats,Jaxworks,8868 Armistice Place,Backordered,93-815-0565,56-422-1480,12/12/2024,8/12/2024,7/1/2024,50,36,96,$6.50,53,73,068%
+Jasmine Rice,Grains & Pulses,Yadel,7242 Claremont Avenue,Discontinued,67-270-7464,83-960-5274,2/1/2025,8/24/2024,12/7/2024,91,73,77,$4.75,51,49,-038%
+Cod,Seafood,Devbug,29992 Warrior Center,Backordered,61-827-4098,34-850-0377,2/1/2025,7/15/2024,3/24/2024,23,42,87,$8.00,63,5,004%
+Cheese,Dairy,Jaxspan,9307 Kingsford Road,Discontinued,92-291-7089,08-523-5066,2/1/2025,7/26/2024,5/6/2024,76,15,99,$9.50,60,49,092%
+Evaporated Milk,Dairy,Realcube,87578 Stoughton Parkway,Discontinued,76-070-1411,63-528-0643,2/1/2025,2/12/2025,2/14/2025,15,75,78,$1.90,71,21,018%
+Salmon,Seafood,Mycat,21 Golden Leaf Hill,Active,36-330-5036,52-359-1255,2/1/2025,9/20/2024,5/17/2024,79,28,4,$15.00,42,46,070%
+Sour Cream,Dairy,Yodel,96 Brown Drive,Backordered,02-034-6209,34-724-1913,2/1/2025,7/26/2024,10/8/2024,22,43,3,$4.10,45,87,-010%
+Cottage Cheese,Dairy,Midel,46 Hoffman Trail,Active,49-891-4927,89-155-3471,1/2/2025,2/26/2024,11/28/2024,37,5,1,$5.00,68,99,-093%
+Tuna,Seafood,Thoughtstorm,381 Rutledge Place,Active,94-020-6982,72-649-3163,1/2/2025,10/5/2024,5/4/2024,25,75,27,$18.00,31,36,-046%
+Haddock,Seafood,Eire,2 Russell Alley,Active,88-807-8431,66-563-9462,1/2/2025,6/6/2024,2/9/2025,11,87,43,$9.00,86,91,-016%
+Butter,Dairy,Meembee,285 East Plaza,Discontinued,19-672-8982,50-214-3802,1/3/2025,1/23/2025,3/31/2024,21,87,67,$3.10,64,69,-006%
+Egg (Quail),Dairy,Skimia,59 Veith Center,Backordered,07-389-5740,72-784-3292,1/3/2025,3/12/2024,7/17/2024,34,94,69,$0.80,96,30,-008%
+Egg (Goose),Dairy,Muxo,267 International Plaza,Discontinued,39-629-5554,67-679-4930,2/3/2025,4/9/2024,2/5/2025,44,90,17,$2.50,21,91,069%
+Orange,Fruits & Vegetables,Twitterwire,812 Shelley Circle,Discontinued,27-635-8394,87-893-6089,2/3/2025,11/13/2024,3/19/2024,88,37,61,$2.90,63,35,-333%
+Black Coffee,Beverages,Flipbug,40643 Sullivan Lane,Discontinued,14-844-4138,90-534-2165,2/3/2025,10/25/2024,3/3/2024,61,43,29,$15.00,67,6,044%
+Heavy Cream,Dairy,Ntags,00 Luster Alley,Discontinued,65-464-5070,01-517-7793,2/3/2025,3/16/2024,9/1/2024,12,60,73,$4.00,20,35,091%
+Onion,Fruits & Vegetables,Voolia,9171 Norway Maple Trail,Active,46-911-1159,30-820-2883,2/3/2025,10/30/2024,12/19/2024,98,40,100,$2.00,46,9,-075%
+Arabica Coffee,Beverages,Youspan,292 Charing Cross Terrace,Backordered,35-617-3857,90-718-2724,1/4/2025,3/21/2024,3/6/2024,46,31,89,$20.00,59,65,080%
+Cheese,Dairy,Omba,29817 Coleman Drive,Discontinued,41-237-5498,38-643-1626,1/4/2025,12/24/2024,2/6/2025,88,53,44,$9.00,56,14,-010%
+Egg (Goose),Dairy,Einti,18 Troy Avenue,Discontinued,86-672-4191,79-219-8469,1/4/2025,9/29/2024,2/8/2025,88,22,61,$2.50,54,100,075%
+Sourdough Bread,Bakery,Gigashots,8425 New Castle Parkway,Backordered,10-555-5971,30-410-3509,1/4/2025,12/2/2024,9/27/2024,94,56,80,$4.00,47,96,-085%
+Black Rice,Grains & Pulses,Voonder,7 Ridge Oak Pass,Active,45-050-4720,98-791-5014,1/4/2025,7/5/2024,3/13/2024,18,78,43,$6.00,85,97,-104%
+Bell Pepper,Fruits & Vegetables,Livetube,1666 Dayton Terrace,Discontinued,73-997-6251,17-167-4304,1/4/2025,10/15/2024,9/17/2024,94,18,84,$4.50,44,49,-014%
+Orange,Fruits & Vegetables,Skipfire,757 Grasskamp Drive,Discontinued,53-446-8243,51-666-7174,2/4/2025,7/26/2024,4/23/2024,41,94,4,$3.00,88,92,-011%
+Cream,Dairy,Thoughtblab,5 Forster Point,Backordered,12-798-9401,96-609-6152,1/5/2025,5/12/2024,5/25/2024,18,14,77,$2.50,78,4,-005%
+Green Beans,Fruits & Vegetables,BlogXS,6 Bay Road,Active,93-014-4256,37-599-8579,1/5/2025,1/11/2025,10/13/2024,19,92,41,$2.00,51,79,095%
+Black Rice,Grains & Pulses,Blognation,75054 Ramsey Parkway,Backordered,60-911-3745,87-570-0273,1/5/2025,8/31/2024,1/18/2025,98,41,98,$6.35,70,75,-055%
+Powdered Sugar,Grains & Pulses,Skidoo,42 Mandrake Alley,Active,53-146-9979,44-388-2451,2/5/2025,10/11/2024,8/8/2024,21,15,27,$2.50,37,41,-007%
+Butter Biscuit,Bakery,InnoZ,65 Forster Way,Active,65-780-5622,69-460-9770,2/5/2025,5/2/2024,5/27/2024,74,81,41,$6.00,51,67,-011%
+White Rice,Grains & Pulses,Centidel,80930 Briar Crest Point,Backordered,29-896-7926,86-400-4155,1/6/2025,6/1/2024,5/6/2024,20,20,56,$1.80,62,69,-031%
+Mushrooms,Fruits & Vegetables,Twitterbeat,615 Mayer Drive,Backordered,67-027-7269,50-050-5707,1/6/2025,11/30/2024,11/9/2024,35,19,30,$6.50,88,6,-011%
+Papaya,Fruits & Vegetables,Brightbean,59449 Sherman Parkway,Backordered,25-353-2067,01-210-3485,1/6/2025,8/4/2024,7/25/2024,81,16,69,$4.30,23,96,093%
+Heavy Cream,Dairy,Yodo,8682 Golf Course Junction,Discontinued,72-341-1154,84-090-6472,1/6/2025,10/31/2024,9/9/2024,85,66,85,$4.20,65,58,-317%
+Black Tea,Beverages,Zoombeat,22555 Macpherson Plaza,Active,16-187-5729,79-366-7207,1/6/2025,3/21/2024,3/30/2024,45,58,84,$5.00,90,67,011%
+Kiwi,Fruits & Vegetables,Talane,71 Bultman Drive,Discontinued,49-311-3063,15-947-9718,2/6/2025,10/3/2024,7/3/2024,47,75,53,$6.00,70,20,026%
+Butter Biscuit,Bakery,Ooba,32 6th Lane,Discontinued,98-652-9569,65-160-1426,2/6/2025,2/17/2025,6/23/2024,12,7,23,$6.00,72,16,071%
+White Tea,Beverages,Chatterbridge,04 Mesta Parkway,Active,78-689-8958,52-744-6162,1/7/2025,2/27/2024,3/29/2024,20,43,43,$25.00,73,6,078%
+Blueberries,Fruits & Vegetables,Flipbug,88678 Bayside Park,Backordered,66-378-7532,15-365-5585,1/7/2025,6/5/2024,5/6/2024,87,51,67,$10.00,55,100,092%
+Chocolate Biscuit,Bakery,Yakitri,40 Cody Pass,Backordered,14-115-8371,80-833-3051,1/7/2025,9/19/2024,9/1/2024,23,76,70,$5.00,97,38,-082%
+Orange,Fruits & Vegetables,Demimbu,77 Prairie Rose Park,Backordered,76-540-6407,78-644-5877,2/7/2025,1/17/2025,12/13/2024,92,54,73,$3.10,79,1,061%
+Egg (Chicken),Dairy,Topiclounge,20 Marcy Circle,Active,81-573-0943,07-754-2313,2/7/2025,6/28/2024,11/14/2024,22,58,2,$0.20,33,68,099%
+Jasmine Rice,Grains & Pulses,Eimbee,56 Bonner Point,Backordered,68-732-5919,07-500-2023,2/7/2025,10/29/2024,5/17/2024,26,83,24,$4.75,75,12,-106%
+Greek Yogurt,Fruits & Vegetables,Meeveo,3 Hagan Drive,Discontinued,68-734-1585,54-537-5633,1/8/2025,4/16/2024,7/13/2024,62,44,11,$51.17,92,37,084%
+Bread Flour,Grains & Pulses,Realblab,39102 Division Trail,Backordered,93-342-8794,93-688-1260,1/8/2025,12/7/2024,11/22/2024,84,91,86,$1.50,83,95,060%
+Pomegranate,Fruits & Vegetables,Browsetype,72778 Loftsgordon Center,Backordered,42-175-1648,67-272-8844,1/8/2025,1/25/2025,9/9/2024,81,87,15,$6.00,94,10,-014%
+Haddock,Seafood,Devshare,21530 Prentice Place,Active,46-083-7058,26-730-0925,1/8/2025,8/27/2024,6/9/2024,61,91,40,$9.00,34,76,089%
+Cheddar Cheese,Dairy,LiveZ,54 Weeping Birch Lane,Backordered,66-716-8221,67-024-9832,2/8/2025,6/24/2024,1/17/2025,70,96,35,$9.00,63,84,-124%
+Ricotta Cheese,Dairy,Janyx,2003 Delladonna Pass,Discontinued,12-714-5135,97-055-2756,1/9/2025,1/14/2025,4/25/2024,49,28,74,$6.00,70,38,-033%
+Green Coffee,Beverages,Linklinks,581 Oneill Crossing,Active,35-031-1497,84-835-1656,1/9/2025,7/4/2024,11/2/2024,20,68,20,$12.00,38,51,046%
+Jasmine Rice,Grains & Pulses,Linktype,8182 Hazelcrest Place,Active,54-708-7327,46-316-6919,1/9/2025,3/28/2024,4/15/2024,50,14,99,$4.75,52,75,-034%
+Zucchini,Fruits & Vegetables,Skibox,7944 Elgar Alley,Backordered,63-897-8088,82-313-4469,1/9/2025,6/7/2024,10/16/2024,63,56,33,$2.50,35,16,-044%
+Green Beans,Fruits & Vegetables,Kanoodle,1615 Bellgrove Crossing,Active,79-494-2472,04-391-8892,1/9/2025,4/19/2024,4/23/2024,42,48,18,$2.00,39,57,054%
+Grapes,Fruits & Vegetables,Jabbersphere,95 Garrison Plaza,Backordered,15-679-3935,35-906-1010,2/9/2025,6/15/2024,2/20/2025,22,69,87,$5.50,34,26,-046%
+Papaya,Fruits & Vegetables,Ntag,227 Tennyson Plaza,Discontinued,31-608-1445,75-286-4153,2/9/2025,2/15/2025,12/14/2024,84,28,29,$4.40,54,32,024%
+Egg (Quail),Dairy,Meejo,75 High Crossing Junction,Discontinued,70-206-4860,82-527-9395,2/9/2025,3/11/2024,9/17/2024,93,68,71,$0.80,30,37,041%
+Multigrain Bread,Bakery,Topicshots,894 Kingsford Road,Backordered,30-832-5429,41-800-2842,1/10/2025,10/5/2024,9/17/2024,46,43,46,$3.50,68,59,-023%
+Blueberries,Fruits & Vegetables,DabZ,8 Dakota Avenue,Active,01-173-0029,18-880-7910,1/10/2025,7/5/2024,4/12/2024,42,4,53,$10.00,37,53,013%
+Whole Wheat Bread,Bakery,Quire,31208 Westerfield Way,Active,65-235-7676,22-083-3504,1/10/2025,8/1/2024,6/3/2024,91,71,17,$3.50,74,57,-043%
+Mozzarella Cheese,Dairy,Devpoint,4 Warbler Center,Discontinued,79-400-6216,83-361-7509,2/10/2025,3/10/2024,10/2/2024,16,56,13,$7.20,56,28,023%
+Ricotta Cheese,Dairy,Thoughtblab,05 Canary Circle,Backordered,35-836-6718,27-838-4345,2/10/2025,1/25/2025,1/22/2025,91,14,99,$6.00,50,5,050%
+Pomegranate,Fruits & Vegetables,Meevee,03 Little Fleur Pass,Backordered,08-573-9997,95-734-4024,2/10/2025,4/5/2024,12/2/2024,26,1,9,$6.00,82,8,090%
+Kiwi,Fruits & Vegetables,Vitz,50880 Nobel Road,Discontinued,66-854-5736,98-591-1051,1/11/2025,12/23/2024,5/10/2024,63,57,11,$5.80,20,100,090%
+Egg (Goose),Dairy,Gigashots,288 Fair Oaks Place,Backordered,85-835-3445,13-433-4930,1/11/2025,3/2/2024,5/12/2024,50,93,37,$2.45,78,79,-400%
+Multigrain Bread,Bakery,Katz,4 Orin Lane,Backordered,10-768-2443,44-451-2764,2/11/2025,3/5/2024,12/19/2024,93,55,95,$3.25,56,72,-001%
+Lettuce,Fruits & Vegetables,Quamba,7698 Logan Drive,Active,19-112-1616,55-251-3001,1/12/2025,4/12/2024,6/28/2024,88,56,72,$2.00,25,36,-029%
+Grapes,Fruits & Vegetables,Centizu,4346 Columbus Way,Backordered,89-388-3239,28-521-7083,2/12/2025,5/24/2024,4/19/2024,54,88,43,$5.50,81,77,-044%
+Yogurt,Dairy,Bubblemix,09264 Forest Dale Drive,Discontinued,22-760-4605,01-495-9336,2/12/2025,7/7/2024,8/3/2024,86,20,67,$1.75,83,82,005%
+Cauliflower,Fruits & Vegetables,Realpoint,843 Pepper Wood Hill,Discontinued,38-664-2155,10-540-5841,1/13/2025,4/12/2024,5/30/2024,48,27,73,$2.55,52,97,001%
+Sesame Oil,Oils & Fats,Tazz,60 Dottie Hill,Active,89-713-6071,84-123-7159,1/13/2025,11/19/2024,11/25/2024,89,66,28,$6.50,39,25,-087%
+Bread Flour,Grains & Pulses,Bubblebox,844 Schurz Point,Discontinued,56-191-6497,65-395-5947,1/14/2025,10/4/2024,1/7/2025,97,41,68,$1.50,35,16,036%
+Haddock,Seafood,Feedfish,234 Eagle Crest Avenue,Active,27-389-3529,73-201-2803,1/14/2025,4/23/2024,3/9/2024,84,8,54,$9.00,60,38,054%
+Canola Oil,Oils & Fats,Kimia,17640 Cottonwood Place,Backordered,11-604-6002,50-862-4552,1/14/2025,6/18/2024,5/29/2024,69,17,27,$2.30,79,75,037%
+Asparagus,Fruits & Vegetables,Buzzbean,49770 Hoffman Court,Discontinued,20-448-2972,26-920-6626,1/14/2025,1/20/2025,9/16/2024,80,6,92,$5.00,26,71,005%
+Lettuce,Fruits & Vegetables,Gigabox,03 Ryan Circle,Backordered,77-959-1018,00-912-3545,1/15/2025,4/30/2024,6/12/2024,22,22,65,$2.00,62,78,-173%
+Cucumber,Fruits & Vegetables,Yabox,98 Melody Street,Discontinued,69-895-3397,02-575-2074,1/16/2025,1/16/2025,3/4/2024,28,5,9,$1.80,33,9,-026%
+Blueberries,Fruits & Vegetables,Linklinks,57150 Del Sol Alley,Active,32-933-0329,86-760-5412,1/17/2025,7/14/2024,4/15/2024,23,38,54,$10.00,40,15,073%
+Bell Pepper,Fruits & Vegetables,Tagpad,4 6th Plaza,Backordered,33-440-2588,68-596-5506,1/17/2025,9/16/2024,2/24/2025,26,12,43,$4.40,73,20,063%
+Cheddar Cheese,Dairy,Oyonder,2835 Schlimgen Parkway,Backordered,02-085-7218,41-978-3326,1/17/2025,6/25/2024,1/28/2025,85,28,32,$8.90,57,41,073%
+Mozzarella Cheese,Dairy,Roodel,61 Transport Parkway,Discontinued,43-193-9915,23-931-2988,1/17/2025,7/12/2024,9/23/2024,55,58,6,$7.20,48,17,028%
+Evaporated Milk,Dairy,Photobug,9171 Redwing Street,Backordered,62-998-7250,72-002-3904,1/18/2025,7/31/2024,10/5/2024,72,3,10,$2.00,52,14,065%
+Swiss Cheese,Dairy,Cogilith,5 Waxwing Junction,Active,70-871-4536,72-514-7323,1/19/2025,11/13/2024,6/17/2024,29,4,17,$8.00,59,52,073%
+Cucumber,Fruits & Vegetables,Innojam,6 Stang Hill,Backordered,38-822-8005,45-886-1540,1/19/2025,1/12/2025,3/31/2024,47,20,65,$1.75,49,19,012%
+Potato,Fruits & Vegetables,Rhyzio,3 Del Mar Point,Active,38-390-2115,12-433-6490,1/19/2025,3/6/2024,3/1/2024,42,69,54,$1.20,43,96,061%
+Eggplant,Fruits & Vegetables,Blogtag,5 Loftsgordon Trail,Backordered,28-968-4195,17-562-1176,1/19/2025,7/17/2024,10/13/2024,97,52,80,$3.00,22,90,-123%
+Greek Yogurt,Dairy,Skyndu,75 Bunting Junction,Discontinued,09-286-8107,90-727-4816,1/20/2025,9/7/2024,12/15/2024,90,62,54,$3.00,70,83,-309%
+Apple,Fruits & Vegetables,Zava,42 Mallory Court,Discontinued,00-405-7428,42-746-2717,1/20/2025,1/27/2025,1/12/2025,81,74,45,$3.50,42,23,-019%
+Short Grain Rice,Grains & Pulses,Snaptags,6 Orin Place,Discontinued,43-893-5408,25-414-2945,1/21/2025,3/20/2024,8/24/2024,60,90,85,$3.00,47,9,045%
+Kiwi,Fruits & Vegetables,Fiveclub,80 Old Shore Plaza,Backordered,52-481-5224,46-382-2024,1/21/2025,2/7/2025,2/15/2025,45,24,61,$6.00,44,34,081%
+Yogurt,Dairy,Eimbee,44249 Sutteridge Crossing,Discontinued,34-131-8805,84-472-8001,1/21/2025,9/10/2024,12/22/2024,92,92,28,$1.75,50,67,023%
+Mackerel,Seafood,Dabfeed,08545 Lillian Street,Discontinued,36-840-2728,26-454-7297,1/21/2025,8/10/2024,3/14/2024,76,21,3,$7.50,31,47,-034%
+Sunflower Oil,Oils & Fats,Ooba,1 Green Hill,Active,64-418-8356,91-451-2016,1/21/2025,11/13/2024,4/28/2024,80,24,60,$2.50,98,38,-052%
+Lime,Fruits & Vegetables,Vinder,453 Dryden Park,Backordered,51-462-0747,40-417-9838,1/22/2025,2/7/2025,3/10/2024,21,30,32,$2.00,43,54,061%
+Sushi Rice,Grains & Pulses,Meembee,44296 Kropf Avenue,Backordered,74-711-7160,40-662-8853,1/22/2025,12/28/2024,6/1/2024,84,69,77,$4.50,39,69,-026%
+Watermelon,Fruits & Vegetables,Jaxspan,00064 Mosinee Circle,Active,44-637-5512,27-541-2645,1/22/2025,1/12/2025,5/26/2024,58,12,99,$3.00,71,30,-077%
+Green Tea,Beverages,Skalith,1223 Monument Drive,Backordered,27-881-1177,64-807-5250,1/23/2025,7/3/2024,11/23/2024,34,47,99,$8.00,97,47,058%
+Almond Flour,Grains & Pulses,Pixonyx,879 Amoth Terrace,Active,72-404-5581,18-065-8014,1/23/2025,8/7/2024,2/8/2025,54,17,90,$9.50,60,20,052%
+Corn Oil,Oils & Fats,Youbridge,931 Browning Center,Backordered,12-046-2988,37-630-2250,1/25/2025,1/24/2025,11/21/2024,17,63,66,$2.50,23,46,067%
+Black Coffee,Beverages,Realpoint,564 Hazelcrest Crossing,Backordered,21-816-1004,68-482-4786,1/26/2025,12/4/2024,7/22/2024,84,13,88,$15.00,25,34,-100%
+Sardines,Seafood,Shufflester,65721 Caliangt Crossing,Discontinued,81-605-6246,62-086-0407,1/26/2025,3/2/2024,3/6/2024,73,31,49,$6.00,22,47,-036%
+Parmesan Cheese,Dairy,Rhyloo,89 Springs Alley,Active,11-815-7923,98-304-8407,1/26/2025,6/16/2024,8/6/2024,96,9,57,$11.80,78,67,-114%
+Tilapia,Seafood,Geba,1792 Crownhardt Street,Active,26-456-1992,60-159-3514,1/26/2025,12/23/2024,7/29/2024,56,59,87,$7.00,65,45,014%
+Cucumber,Fruits & Vegetables,Bubblemix,0847 Artisan Hill,Active,63-168-6018,01-853-2191,1/26/2025,10/3/2024,5/1/2024,60,63,81,$1.80,74,31,031%
+Sourdough Bread,Bakery,Flashspan,24045 Bluestem Point,Active,70-854-6891,79-575-9351,1/28/2025,11/28/2024,11/12/2024,41,84,90,$4.00,42,65,058%
+Mozzarella Cheese,Dairy,Dazzlesphere,9305 Warrior Way,Discontinued,87-762-1317,58-474-3510,1/28/2025,11/20/2024,2/9/2025,45,63,75,$7.00,83,5,-055%
+Herbal Tea,Beverages,Browsecat,13 Bluejay Way,Backordered,80-374-5711,77-566-9826,1/28/2025,10/5/2024,12/7/2024,48,77,81,$31.00,70,74,094%
+Cheddar Cheese,Dairy,Oyoba,710 Service Park,Backordered,60-456-8169,54-529-4459,1/28/2025,2/28/2024,2/25/2024,21,28,72,$9.00,69,51,-006%
+Lemon,Fruits & Vegetables,Livetube,71796 Waubesa Terrace,Backordered,99-543-5039,63-683-7396,1/28/2025,11/20/2024,7/29/2024,65,88,20,$2.50,89,37,026%
+Sesame Oil,Oils & Fats,Yotz,545 Farwell Lane,Active,72-810-9753,17-359-2527,1/28/2025,2/7/2025,12/12/2024,14,84,15,$6.50,51,73,058%
+Sushi Rice,Grains & Pulses,Photobug,9 Burrows Junction,Discontinued,78-956-4737,76-712-0418,1/29/2025,5/19/2024,4/18/2024,47,1,60,$4.20,32,87,-043%
+Apple,Fruits & Vegetables,Omba,5 Eggendart Parkway,Backordered,46-415-8633,32-497-0478,1/29/2025,11/17/2024,1/2/2025,71,36,45,$3.50,87,2,-172%
+Peanut Oil,Oils & Fats,Bluezoom,16 Autumn Leaf Way,Backordered,06-611-5454,43-786-9229,1/30/2025,10/11/2024,11/16/2024,64,21,13,$4.00,51,26,098%
+Feta Cheese,Dairy,Thoughtstorm,6 Tony Junction,Discontinued,27-783-5470,45-997-6429,1/30/2025,7/27/2024,3/16/2024,74,65,5,$7.00,21,42,049%
+Ricotta Cheese,Dairy,Shufflebeat,19112 Little Fleur Road,Discontinued,55-697-5242,74-726-0855,1/31/2025,6/30/2024,9/24/2024,51,53,88,$6.00,54,59,-100%
+Apricot,Fruits & Vegetables,LiveZ,38 Dawn Street,Discontinued,15-082-9124,02-997-1489,1/31/2025,10/8/2024,5/7/2024,89,35,19,$5.00,49,55,-009%
+Evaporated Milk,Dairy,Buzzshare,579 Schlimgen Alley,Discontinued,06-996-3221,97-821-7402,10/13/2024,12/4/2024,6/10/2024,11,9,65,$2.00,48,96,-012%
+Haddock,Seafood,Rhybox,9 Anhalt Trail,Active,45-634-0679,29-542-9338,10/13/2024,2/28/2024,8/27/2024,98,100,34,$9.00,53,20,-100%
+Rye Bread,Bakery,Kwilith,85 Lunder Court,Active,15-796-3130,45-912-2948,10/14/2024,4/17/2024,5/29/2024,50,58,78,$3.00,83,49,062%
+Green Tea,Beverages,Vidoo,51369 Dawn Hill,Active,51-000-8113,56-825-0880,10/14/2024,1/31/2025,11/20/2024,24,27,35,$8.00,49,58,041%
+Powdered Sugar,Grains & Pulses,Aivee,9050 Dorton Pass,Active,20-387-7746,08-218-9429,10/14/2024,6/5/2024,10/27/2024,64,10,100,$2.50,97,52,-018%
+Asparagus,Fruits & Vegetables,Vitz,856 School Plaza,Discontinued,82-931-7126,67-596-1997,10/14/2024,10/17/2024,5/12/2024,34,95,18,$5.00,41,26,046%
+Greek Yogurt,Dairy,Avamba,82 Drewry Junction,Active,55-631-7937,79-508-5241,10/15/2024,6/19/2024,1/21/2025,26,54,90,$3.00,25,81,037%
+Potato,Fruits & Vegetables,Centimia,9067 Valley Edge Park,Backordered,11-338-4598,72-360-6358,10/16/2024,2/3/2025,2/23/2025,72,58,69,$1.20,96,23,-224%
+Broccoli,Fruits & Vegetables,Plajo,185 Stone Corner Parkway,Active,52-402-9245,37-519-7762,10/16/2024,2/12/2025,9/19/2024,89,40,64,$4.00,93,48,076%
+Olive Oil,Oils & Fats,Fliptune,205 Straubel Court,Active,09-536-2626,14-483-5712,10/17/2024,8/26/2024,3/21/2024,83,52,32,$6.00,47,7,048%
+Arabica Coffee,Beverages,Jetpulse,2 7th Center,Backordered,48-427-0551,01-900-4509,10/17/2024,12/16/2024,11/3/2024,13,55,77,$20.00,67,68,085%
+Green Tea,Beverages,Tanoodle,443 Browning Terrace,Backordered,06-706-6490,85-670-6379,10/18/2024,7/3/2024,3/15/2024,15,66,85,$8.00,60,40,-001%
+Jasmine Rice,Grains & Pulses,Babblestorm,97 Utah Lane,Backordered,29-135-0791,05-050-4384,10/18/2024,12/21/2024,1/11/2025,56,48,82,$4.75,71,65,033%
+Asparagus,Fruits & Vegetables,Jaxspan,25 Drewry Alley,Backordered,89-624-7462,39-506-2186,10/18/2024,2/16/2025,11/24/2024,18,3,39,$5.00,58,61,008%
+Wild Rice,Grains & Pulses,Kayveo,77 Monument Court,Discontinued,82-231-4245,96-177-4040,10/18/2024,8/28/2024,1/16/2025,32,91,80,$10.00,69,80,-005%
+White Sugar,Grains & Pulses,Zooxo,61932 Cascade Crossing,Backordered,42-220-9305,56-092-7992,10/19/2024,12/11/2024,10/14/2024,91,98,6,$2.00,100,20,-016%
+White Bread,Bakery,Skyble,4 Judy Hill,Backordered,02-920-4829,41-587-4864,10/19/2024,6/14/2024,5/22/2024,92,87,84,$2.50,61,31,080%
+Robusta Coffee,Beverages,Demivee,58 La Follette Park,Discontinued,61-801-8665,78-283-9751,10/19/2024,12/6/2024,6/24/2024,42,88,17,$10.50,34,51,049%
+Trout,Seafood,Zazio,52105 Mandrake Place,Active,01-144-5960,80-848-7493,10/20/2024,5/29/2024,7/13/2024,75,25,99,$12.00,89,42,-050%
+Cucumber,Fruits & Vegetables,Flashset,83 Pleasure Street,Active,98-575-4736,44-429-6199,10/20/2024,5/25/2024,9/17/2024,76,11,15,$1.80,22,91,053%
+Green Beans,Fruits & Vegetables,Izio,77 Monterey Avenue,Active,30-996-2526,30-942-0054,10/20/2024,2/28/2024,9/7/2024,86,90,39,$2.10,98,85,-314%
+Cabbage,Fruits & Vegetables,Zoombox,0 Thackeray Point,Discontinued,45-380-4627,20-201-5639,10/20/2024,1/11/2025,2/16/2025,90,1,40,$0.90,52,19,013%
+Onion,Fruits & Vegetables,Devpulse,06 Shopko Pass,Discontinued,47-548-6500,27-061-4764,10/20/2024,3/7/2024,12/25/2024,20,93,37,$2.00,23,2,063%
+Brown Rice,Grains & Pulses,Oyondu,7020 Porter Trail,Backordered,30-591-7275,12-431-9207,10/21/2024,2/19/2025,1/18/2025,17,88,41,$2.50,45,29,091%
+Peas,Fruits & Vegetables,Skipfire,160 Kings Street,Discontinued,38-296-6634,41-083-3955,10/22/2024,3/31/2024,12/10/2024,49,46,8,$3.00,82,21,036%
+Swiss Cheese,Dairy,Janyx,80729 Homewood Plaza,Active,98-858-6323,79-086-1717,10/22/2024,1/7/2025,11/16/2024,20,17,71,$8.00,50,65,074%
+Bread Flour,Grains & Pulses,Twitterwire,583 Loftsgordon Road,Discontinued,69-743-0161,29-774-6779,10/22/2024,8/14/2024,11/21/2024,99,54,71,$1.50,80,10,-030%
+Anchovies,Seafood,Twitterbridge,5521 Wayridge Center,Backordered,71-067-3278,76-797-9430,10/22/2024,5/8/2024,8/16/2024,51,35,95,$10.00,80,89,088%
+Canola Oil,Oils & Fats,Katz,685 Independence Junction,Discontinued,24-143-4957,29-968-4976,10/22/2024,6/22/2024,8/15/2024,25,97,63,$2.30,72,23,-011%
+Parmesan Cheese,Dairy,Buzzbean,854 Kipling Point,Active,31-387-5020,02-811-7933,10/22/2024,12/17/2024,8/14/2024,63,41,98,$11.90,37,7,068%
+Egg (Goose),Dairy,Tagchat,23560 Talmadge Center,Active,33-378-1365,31-483-9201,10/22/2024,12/7/2024,2/4/2025,50,66,1,$2.50,76,73,081%
+Sardines,Seafood,Ntag,7193 Crownhardt Drive,Active,41-729-5410,71-727-8611,10/23/2024,4/5/2024,6/26/2024,91,59,49,$6.00,30,63,004%
+Olive Oil,Oils & Fats,Blogspan,76928 Tennyson Parkway,Active,33-335-9140,08-209-1598,10/24/2024,8/20/2024,8/27/2024,28,17,28,$6.00,38,25,-110%
+Zucchini,Fruits & Vegetables,Katz,265 Columbus Way,Active,40-021-2400,62-648-2577,10/24/2024,11/16/2024,5/11/2024,29,18,86,$2.50,53,69,034%
+Mackerel,Seafood,Kazio,85953 Clyde Gallagher Drive,Active,81-268-5905,36-138-9045,10/24/2024,7/30/2024,6/14/2024,89,26,36,$7.50,48,94,-030%
+Mushrooms,Fruits & Vegetables,Bluezoom,33145 Butterfield Avenue,Active,38-617-7226,91-215-9838,10/24/2024,6/19/2024,7/13/2024,65,42,62,$6.30,54,2,-096%
+Cauliflower,Grains & Pulses,Shufflester,64389 Arkansas Alley,Backordered,54-822-9009,23-197-9965,10/25/2024,6/8/2024,1/3/2025,40,38,32,$3.20,21,45,096%
+Rice Flour,Grains & Pulses,Jabberstorm,6738 Tennyson Road,Discontinued,02-655-3240,95-200-1972,10/25/2024,5/21/2024,6/20/2024,99,44,52,$2.00,36,2,-114%
+Short Grain Rice,Grains & Pulses,Tanoodle,8 Hazelcrest Street,Active,01-839-6534,51-519-4588,10/25/2024,2/4/2025,9/2/2024,56,28,76,$3.00,93,69,094%
+Parmesan Cheese,Dairy,Skidoo,27 School Court,Discontinued,98-499-2220,69-666-2257,10/25/2024,4/22/2024,11/21/2024,37,3,45,$12.00,39,28,026%
+Brown Rice,Grains & Pulses,Livetube,9951 Petterle Alley,Active,69-171-1305,33-733-7313,10/26/2024,6/18/2024,10/11/2024,31,29,57,$2.50,25,22,028%
+White Tea,Beverages,Agivu,38 Banding Lane,Backordered,57-394-4703,52-130-3457,10/26/2024,1/7/2025,10/16/2024,81,83,36,$25.00,74,86,012%
+Bread Flour,Grains & Pulses,Avaveo,06 Lake View Trail,Backordered,58-946-5152,42-201-4328,10/26/2024,11/5/2024,7/10/2024,11,77,7,$1.50,77,46,-016%
+Pear,Fruits & Vegetables,Gigaclub,84642 Clarendon Point,Active,74-587-2065,33-141-1402,10/27/2024,2/20/2025,3/2/2024,29,20,85,$4.50,31,31,040%
+Zucchini,Fruits & Vegetables,Jaxspan,11 Golden Leaf Alley,Active,69-287-9113,20-952-0731,10/27/2024,6/29/2024,12/16/2024,59,91,24,$2.50,54,87,000%
+Yogurt,Dairy,Wordpedia,6 Bobwhite Alley,Backordered,03-441-4252,11-430-6041,10/27/2024,6/28/2024,7/24/2024,12,83,93,$1.75,22,9,-061%
+Lime,Fruits & Vegetables,Yata,7 Talmadge Street,Discontinued,29-344-3658,33-546-5056,10/27/2024,10/25/2024,9/19/2024,75,56,57,$1.90,63,64,059%
+Trout,Seafood,Topicblab,374 Blue Bill Park Point,Active,12-342-4482,71-300-8176,10/27/2024,9/30/2024,8/29/2024,67,83,90,$11.60,66,77,-002%
+White Sugar,Grains & Pulses,Devpoint,185 Saint Paul Road,Backordered,99-894-4351,45-602-6533,10/27/2024,2/24/2025,12/25/2024,29,54,54,$2.00,58,63,-017%
+Carrot,Fruits & Vegetables,Gigaclub,1509 Hoard Circle,Discontinued,34-709-9237,66-680-8738,10/27/2024,3/13/2024,4/24/2024,61,81,99,$1.50,26,76,-009%
+Cauliflower,Fruits & Vegetables,Abata,30408 5th Way,Active,05-498-7751,17-963-6051,10/28/2024,7/10/2024,3/24/2024,52,22,37,$2.50,56,44,-192%
+Greek Yogurt,Fruits & Vegetables,Quaxo,0500 Calypso Pass,Backordered,32-270-1385,81-072-8266,10/28/2024,12/15/2024,8/8/2024,28,38,23,$42.58,48,56,021%
+Bread Flour,Grains & Pulses,Skynoodle,978 Shasta Lane,Active,67-710-5120,00-131-9278,10/29/2024,12/29/2024,2/25/2024,84,92,18,$1.50,92,69,-017%
+Mushrooms,Fruits & Vegetables,Demivee,524 Saint Paul Park,Backordered,37-709-3532,08-439-3820,10/29/2024,11/7/2024,5/11/2024,79,45,39,$6.00,55,20,025%
+Sesame Oil,Oils & Fats,Shuffledrive,9 Meadow Vale Drive,Backordered,60-311-5701,07-578-7055,10/29/2024,10/19/2024,7/17/2024,39,78,97,$6.50,54,89,064%
+Buttermilk,Dairy,Twitterlist,467 Dexter Pass,Discontinued,97-093-4278,38-200-4863,10/29/2024,4/9/2024,6/1/2024,69,98,89,$2.55,29,34,-065%
+Almond Flour,Grains & Pulses,Camido,16 Fair Oaks Pass,Backordered,41-131-3841,55-269-1746,10/29/2024,1/23/2025,3/20/2024,77,19,31,$9.50,27,25,-017%
+Cherry,Fruits & Vegetables,Voomm,8119 Homewood Drive,Discontinued,40-630-1431,61-040-9004,10/29/2024,7/11/2024,11/7/2024,29,66,21,$8.00,74,93,007%
+Palm Oil,Oils & Fats,Dynabox,4571 Fremont Way,Active,64-493-5270,36-964-9838,10/30/2024,5/23/2024,5/22/2024,69,59,29,$1.80,63,91,-026%
+Palm Oil,Oils & Fats,Skibox,357 High Crossing Parkway,Active,07-219-8017,95-148-9287,10/31/2024,8/13/2024,11/8/2024,40,2,58,$1.80,71,10,-044%
+Onion,Fruits & Vegetables,Skyndu,03 Roth Court,Discontinued,73-751-4393,14-486-5626,10/31/2024,6/7/2024,3/23/2024,68,10,29,$2.00,37,11,086%
+Peas,Fruits & Vegetables,Meedoo,7182 Summit Court,Backordered,50-942-2409,69-472-4067,10/31/2024,4/23/2024,12/10/2024,75,91,68,$3.00,96,73,070%
+Chocolate Biscuit,Bakery,Chatterbridge,481 Mifflin Hill,Backordered,01-018-6418,78-888-6073,11/13/2024,9/27/2024,7/16/2024,68,29,100,$5.00,70,26,024%
+Arabica Coffee,Beverages,Zoozzy,697 Hoepker Center,Active,59-725-4038,39-055-1703,11/13/2024,8/26/2024,8/23/2024,78,34,39,$20.50,62,2,063%
+Yogurt,Dairy,Browsecat,5551 Mallory Lane,Backordered,40-997-2786,18-743-4684,11/14/2024,5/23/2024,10/14/2024,76,98,41,$1.75,62,48,097%
+Watermelon,Fruits & Vegetables,Jabbersphere,20 Nelson Way,Discontinued,11-766-8738,96-393-1428,11/14/2024,11/30/2024,3/22/2024,27,64,43,$3.00,70,58,023%
+Arabica Coffee,Beverages,Yadel,988 Southridge Way,Active,40-860-4532,73-625-5112,11/15/2024,2/27/2024,2/5/2025,74,72,18,$21.00,83,54,017%
+Bread Flour,Grains & Pulses,Mynte,52691 8th Drive,Active,55-936-2406,29-689-5014,11/16/2024,3/9/2024,4/5/2024,27,93,88,$1.50,66,13,035%
+Rice Flour,Grains & Pulses,Photobug,04 Blaine Lane,Backordered,62-816-8794,56-110-5754,11/16/2024,6/17/2024,2/6/2025,15,76,81,$2.00,90,26,080%
+Buttermilk,Dairy,Trilia,55095 Northview Drive,Active,04-104-6993,06-776-1072,11/16/2024,8/27/2024,10/15/2024,60,1,42,$2.45,42,91,071%
+Tilapia,Seafood,Fiveclub,509 Carpenter Trail,Backordered,35-835-5591,54-876-4296,11/17/2024,6/5/2024,3/8/2024,95,63,73,$7.00,61,38,-117%
+Arabica Coffee,Beverages,Feedmix,298 Corry Plaza,Discontinued,83-704-6367,41-628-8713,11/17/2024,9/2/2024,9/7/2024,21,87,12,$21.00,20,38,038%
+Blueberries,Fruits & Vegetables,Kayveo,9 Karstens Center,Discontinued,60-771-0879,90-554-0576,11/17/2024,2/11/2025,5/3/2024,89,15,22,$10.00,79,42,-090%
+Pineapple,Fruits & Vegetables,Rhyloo,1661 Springview Terrace,Active,27-269-5260,54-724-8610,11/17/2024,3/15/2024,10/22/2024,14,81,65,$3.50,74,84,047%
+Mango,Fruits & Vegetables,Oyoloo,8239 Laurel Way,Discontinued,20-031-0532,35-835-8848,11/17/2024,7/25/2024,11/9/2024,32,63,92,$4.90,84,34,-014%
+Halibut,Seafood,Skidoo,5 Ohio Lane,Backordered,19-323-0506,28-977-3789,11/17/2024,4/28/2024,10/15/2024,68,43,96,$20.00,75,35,060%
+Egg (Duck),Dairy,Wordify,55782 Welch Hill,Active,46-452-9419,67-137-4215,11/18/2024,11/14/2024,7/8/2024,43,10,15,$1.00,27,69,053%
+Pomegranate,Fruits & Vegetables,Shuffledrive,54 Pawling Crossing,Discontinued,90-492-0564,18-085-1667,11/18/2024,6/25/2024,7/20/2024,92,96,56,$6.00,32,22,-156%
+Plum,Fruits & Vegetables,Lajo,8 Oriole Terrace,Backordered,17-395-1121,67-252-3923,11/18/2024,10/8/2024,12/3/2024,85,16,74,$3.85,58,36,031%
+Mozzarella Cheese,Dairy,Eidel,40 Merchant Terrace,Active,83-400-9746,02-510-0629,11/18/2024,7/12/2024,2/29/2024,24,1,65,$7.00,58,61,038%
+Watermelon,Fruits & Vegetables,Dabjam,4 Dakota Avenue,Backordered,19-854-3663,72-509-7548,11/19/2024,5/5/2024,12/14/2024,13,88,11,$3.00,100,52,-005%
+Haddock,Seafood,Rhybox,1005 Lyons Junction,Discontinued,57-167-0669,30-934-3251,11/21/2024,2/17/2025,12/30/2024,19,99,78,$9.00,29,54,048%
+Arabica Coffee,Beverages,Mynte,43024 Elka Avenue,Backordered,76-954-1442,68-200-8955,11/22/2024,4/24/2024,3/18/2024,97,77,99,$20.00,74,98,-086%
+Buttermilk,Dairy,Jatri,5 Armistice Parkway,Backordered,83-763-5038,26-438-8349,11/22/2024,9/9/2024,10/23/2024,52,64,54,$2.40,21,55,-032%
+Swiss Cheese,Dairy,Centidel,3831 Goodland Road,Discontinued,80-375-9075,86-487-3354,11/23/2024,10/20/2024,6/19/2024,96,34,57,$8.00,71,17,-162%
+Corn Oil,Oils & Fats,Centizu,92486 Laurel Alley,Discontinued,87-391-9658,51-054-1226,11/23/2024,9/18/2024,1/7/2025,26,100,13,$2.50,45,45,076%
+Brown Rice,Grains & Pulses,Quinu,9 Victoria Point,Backordered,67-725-6830,05-727-0033,11/23/2024,8/11/2024,6/18/2024,51,47,6,$2.50,53,4,000%
+Arborio Rice,Grains & Pulses,Feednation,6748 Mitchell Road,Active,12-093-9863,21-416-3796,11/23/2024,2/9/2025,6/26/2024,51,19,96,$4.50,73,42,092%
+Eggplant,Fruits & Vegetables,Eire,81 Oneill Circle,Backordered,44-408-7594,08-828-3804,11/24/2024,5/1/2024,1/8/2025,39,21,5,$3.00,51,98,042%
+Apricot,Fruits & Vegetables,Zoonder,537 Maple Alley,Active,04-637-8815,60-959-6355,11/24/2024,11/27/2024,11/24/2024,90,91,62,$5.00,34,72,-092%
+Onion,Fruits & Vegetables,Skiba,82737 Ryan Place,Active,88-746-9468,06-159-1957,11/25/2024,2/3/2025,11/14/2024,35,92,74,$2.00,76,32,-112%
+Green Tea,Beverages,Zoovu,7 Hallows Alley,Backordered,32-987-5559,01-665-0053,11/25/2024,1/30/2025,5/15/2024,39,88,100,$8.00,28,18,058%
+Short Grain Rice,Grains & Pulses,Quatz,60 Main Pass,Active,02-484-0206,62-011-9357,11/25/2024,8/20/2024,8/2/2024,64,97,91,$3.00,48,100,036%
+Wild Rice,Grains & Pulses,Yoveo,652 High Crossing Lane,Active,80-441-7249,35-979-6839,11/25/2024,4/14/2024,8/10/2024,98,30,39,$10.00,31,26,-108%
+Arborio Rice,Grains & Pulses,Realcube,03416 Valley Edge Circle,Active,41-316-8427,75-867-3635,11/26/2024,9/6/2024,9/21/2024,95,93,16,$4.50,60,19,016%
+Vegetable Oil,Oils & Fats,Vimbo,05686 Golden Leaf Point,Discontinued,56-668-5370,13-526-1392,11/26/2024,9/10/2024,8/3/2024,70,96,21,$2.00,100,15,068%
+Papaya,Fruits & Vegetables,Brightbean,11 Kedzie Avenue,Active,45-172-7012,95-721-9228,11/26/2024,12/13/2024,12/1/2024,20,91,12,$4.50,35,50,085%
+Pineapple,Fruits & Vegetables,Gigashots,1 Pleasure Hill,Discontinued,93-015-0811,07-055-5188,11/26/2024,8/5/2024,6/26/2024,18,7,58,$3.50,88,96,-043%
+Coconut Oil,Oils & Fats,Brightdog,08896 Evergreen Avenue,Discontinued,52-029-2382,16-474-4516,11/26/2024,8/15/2024,4/8/2024,54,86,69,$5.00,29,8,-009%
+Papaya,Fruits & Vegetables,Yakijo,309 Burning Wood Center,Discontinued,28-044-4102,93-358-1118,11/26/2024,3/1/2024,8/27/2024,19,28,83,$4.50,91,73,072%
+Ricotta Cheese,Dairy,Photobug,113 Donald Court,Active,34-861-4446,40-696-4237,11/27/2024,1/18/2025,1/6/2025,66,40,8,$6.00,43,49,020%
+Grapes,Fruits & Vegetables,Camimbo,611 Waubesa Circle,Discontinued,80-334-0215,19-156-3869,11/27/2024,4/30/2024,6/22/2024,88,27,92,$5.50,57,37,-014%
+Sourdough Bread,Bakery,Zoomlounge,44 Thompson Terrace,Discontinued,94-697-2396,34-161-7429,11/27/2024,2/26/2024,7/7/2024,71,97,44,$4.00,58,14,035%
+Onion,Fruits & Vegetables,Tavu,425 Shasta Terrace,Active,76-027-4850,75-256-5638,11/27/2024,8/26/2024,6/24/2024,39,37,48,$2.00,25,19,076%
+Plum,Fruits & Vegetables,Brainsphere,21633 Sycamore Center,Discontinued,15-907-3681,72-931-9828,11/28/2024,1/27/2025,2/20/2025,20,42,21,$3.85,61,25,024%
+Black Coffee,Beverages,Brainverse,797 Mcbride Lane,Discontinued,00-641-8691,34-824-0575,11/28/2024,9/24/2024,8/30/2024,33,22,94,$15.00,96,56,059%
+Lime,Fruits & Vegetables,Tazz,083 Mccormick Park,Backordered,15-762-1058,32-914-1424,11/29/2024,2/7/2025,1/4/2025,29,83,91,$2.00,81,53,042%
+Black Rice,Grains & Pulses,Zazio,38436 Anthes Way,Backordered,57-779-4955,84-869-9980,11/29/2024,12/1/2024,1/20/2025,92,48,22,$6.25,38,61,035%
+Egg (Duck),Dairy,Aivee,1 Mockingbird Parkway,Backordered,68-436-1268,10-694-6636,11/30/2024,8/17/2024,7/11/2024,70,92,74,$1.00,95,26,-061%
+Parmesan Cheese,Dairy,Quatz,3 Bayside Point,Backordered,26-000-1012,60-284-1974,11/30/2024,11/29/2024,4/12/2024,65,54,29,$12.00,69,79,073%
+Rye Bread,Bakery,Vitz,13 Forest Run Place,Discontinued,75-094-1179,57-615-0729,12/13/2024,2/9/2025,7/18/2024,26,79,31,$3.00,47,41,-014%
+Peas,Fruits & Vegetables,Edgepulse,553 Mayfield Crossing,Backordered,11-032-9778,42-380-8881,12/13/2024,1/27/2025,8/19/2024,99,1,4,$3.00,50,53,013%
+Multigrain Bread,Bakery,Bubblebox,55276 Golf Hill,Active,24-478-8277,64-070-7611,12/13/2024,1/12/2025,11/26/2024,47,26,40,$3.25,30,72,-006%
+Potato,Fruits & Vegetables,Tagtune,924 La Follette Alley,Active,12-239-9399,53-584-1853,12/14/2024,7/29/2024,10/27/2024,28,40,27,$1.20,30,56,-140%
+Egg (Duck),Dairy,Yombu,35598 Fuller Terrace,Discontinued,83-321-7887,70-444-9176,12/14/2024,11/29/2024,8/2/2024,44,75,72,$1.00,96,38,-087%
+Cottage Cheese,Dairy,Divape,163 Esch Pass,Backordered,80-371-3695,42-254-7371,12/15/2024,11/30/2024,12/10/2024,89,42,76,$5.00,94,81,060%
+Tomato,Fruits & Vegetables,Thoughtbeat,77 Brown Circle,Discontinued,49-199-6836,81-999-7392,12/15/2024,12/30/2024,8/24/2024,100,64,62,$2.50,84,44,014%
+White Bread,Bakery,Mybuzz,8 Merrick Lane,Discontinued,85-510-2915,55-134-2668,12/16/2024,5/29/2024,10/9/2024,62,49,38,$2.50,42,44,048%
+Lettuce,Fruits & Vegetables,Meemm,9 Cardinal Alley,Backordered,08-637-9335,99-178-0951,12/16/2024,3/6/2024,7/25/2024,100,7,14,$2.00,26,33,-005%
+Egg (Turkey),Dairy,Browsecat,93 Longview Junction,Backordered,85-212-2729,58-226-6435,12/17/2024,12/21/2024,5/16/2024,42,94,79,$2.50,61,92,-027%
+Long Grain Rice,Grains & Pulses,Fivebridge,04776 Saint Paul Park,Discontinued,51-469-4611,62-029-0827,12/18/2024,5/24/2024,1/7/2025,62,81,91,$1.60,100,42,-051%
+Coconut,Fruits & Vegetables,Browseblab,7945 Mayer Center,Discontinued,34-928-2775,07-959-3210,12/18/2024,2/24/2025,1/28/2025,19,47,25,$5.00,96,37,058%
+Salmon,Seafood,Buzzshare,9433 Jenna Lane,Backordered,32-676-1026,98-155-9583,12/18/2024,6/4/2024,4/16/2024,52,46,12,$15.00,43,34,061%
+Sourdough Bread,Bakery,Thoughtstorm,2 Grayhawk Junction,Discontinued,53-080-8252,73-744-7022,12/19/2024,9/24/2024,11/20/2024,30,85,21,$4.50,32,83,021%
+Kale,Fruits & Vegetables,Yodoo,6744 Helena Pass,Active,49-526-7806,66-973-4855,12/19/2024,11/19/2024,5/1/2024,77,52,28,$4.00,48,43,-159%
+Ricotta Cheese,Dairy,Kwideo,803 Cottonwood Crossing,Discontinued,31-157-1822,53-998-1422,12/19/2024,7/30/2024,1/28/2025,96,80,20,$6.10,94,49,010%
+Haddock,Seafood,Geba,269 Dakota Trail,Backordered,91-426-3204,86-184-4829,12/19/2024,4/14/2024,7/8/2024,67,71,4,$9.00,76,34,048%
+Anchovies,Seafood,Voolia,7 Harper Drive,Backordered,64-109-7362,38-603-6412,12/19/2024,7/9/2024,9/29/2024,86,55,96,$10.00,37,53,055%
+Parmesan Cheese,Dairy,Feedspan,49869 Bunker Hill Terrace,Active,68-418-6724,75-465-6257,12/21/2024,1/13/2025,9/30/2024,63,4,85,$12.00,59,71,-043%
+Digestive Biscuit,Bakery,Dynabox,7407 Farragut Pass,Active,93-813-2419,12-264-4503,12/21/2024,4/9/2024,6/22/2024,39,16,57,$4.00,98,12,-020%
+Pomegranate,Fruits & Vegetables,Browsebug,7 Schiller Court,Backordered,52-123-8039,24-087-5935,12/21/2024,9/3/2024,1/16/2025,43,65,66,$6.00,78,73,088%
+Tuna,Seafood,Youspan,11263 Kipling Hill,Backordered,74-666-5671,58-657-7257,12/21/2024,5/10/2024,5/4/2024,37,33,80,$18.00,27,73,006%
+Zucchini,Fruits & Vegetables,Kare,70001 Vahlen Lane,Discontinued,26-161-6692,61-796-7912,12/22/2024,9/7/2024,9/19/2024,61,90,26,$2.50,79,84,-170%
+Corn Oil,Oils & Fats,Devbug,82 Hintze Court,Discontinued,44-368-7112,85-978-7855,12/22/2024,5/2/2024,12/6/2024,28,32,71,$2.50,32,49,-006%
+Egg (Duck),Dairy,Skipfire,6982 Crownhardt Circle,Active,01-820-5784,80-567-5598,12/23/2024,2/12/2025,4/26/2024,63,38,77,$1.00,23,18,-053%
+Cabbage,,Rooxo,2 Butterfield Pass,Discontinued,10-378-9729,83-941-9620,12/23/2024,11/26/2024,9/21/2024,69,21,68,$66.55,36,35,022%
+Tuna,Seafood,Meedoo,14 Talmadge Park,Discontinued,39-479-5147,02-156-7270,12/24/2024,8/18/2024,4/4/2024,92,68,79,$18.00,40,57,003%
+Black Tea,Beverages,Devshare,44662 American Plaza,Discontinued,95-262-6208,66-227-1125,12/24/2024,4/15/2024,7/29/2024,19,78,90,$5.00,72,84,-043%
+Pear,Fruits & Vegetables,Youspan,7051 Calypso Place,Backordered,37-248-6266,75-553-7424,12/24/2024,10/17/2024,5/24/2024,84,74,48,$4.50,64,32,-017%
+Lime,Fruits & Vegetables,Camido,4033 Sloan Hill,Backordered,43-851-9440,67-674-0287,12/24/2024,5/11/2024,3/4/2024,14,75,19,$1.90,100,84,050%
+Cherry,Fruits & Vegetables,Rooxo,734 Thackeray Avenue,Active,11-053-0107,07-410-2867,12/25/2024,7/12/2024,6/28/2024,30,25,11,$8.00,42,76,016%
+Lemon,Fruits & Vegetables,Avavee,31057 Roth Place,Backordered,28-608-0039,26-796-0872,12/26/2024,5/21/2024,4/15/2024,63,60,54,$2.50,33,31,-081%
+White Tea,Beverages,Rhycero,9559 Muir Trail,Active,96-334-2593,64-831-3071,12/26/2024,6/27/2024,11/19/2024,60,27,58,$25.30,43,91,006%
+Tuna,Seafood,Tagcat,811 Dapin Center,Backordered,73-010-8323,80-622-6587,12/26/2024,2/27/2024,4/29/2024,16,34,89,$18.00,35,52,-112%
+White Rice,Grains & Pulses,Eimbee,1 Hollow Ridge Park,Discontinued,86-273-9377,38-330-5543,12/26/2024,12/4/2024,11/29/2024,18,86,20,$1.80,64,34,-049%
+Bread Flour,Grains & Pulses,Jetpulse,8583 Northwestern Terrace,Discontinued,35-353-4068,44-199-6832,12/26/2024,12/18/2024,7/5/2024,64,11,97,$1.50,33,83,047%
+Onion,Fruits & Vegetables,Mudo,42 Green Ridge Terrace,Backordered,02-974-8526,09-387-1119,12/26/2024,4/5/2024,8/7/2024,74,4,39,$2.00,97,24,-152%
+Carrot,Fruits & Vegetables,Skynoodle,57453 Northwestern Alley,Backordered,95-252-9619,38-819-2922,12/27/2024,12/7/2024,11/9/2024,92,39,50,$1.60,30,41,075%
+Arabica Coffee,Beverages,Rhycero,760 Butternut Plaza,Active,43-469-7551,64-361-4238,12/27/2024,5/26/2024,1/25/2025,45,36,97,$20.00,36,6,-037%
+Heavy Cream,Dairy,Yadel,7943 Amoth Parkway,Active,08-495-6853,07-432-0137,12/27/2024,1/13/2025,8/14/2024,74,62,6,$4.00,65,96,083%
+Powdered Sugar,Grains & Pulses,Jabberstorm,53 Forest Run Plaza,Active,83-556-0996,81-234-0741,12/27/2024,2/20/2025,10/30/2024,88,34,94,$2.40,95,63,-048%
+White Tea,Beverages,Feedbug,509 Waywood Center,Active,65-282-0419,85-932-1011,12/28/2024,7/17/2024,12/5/2024,50,100,91,$25.50,29,31,034%
+Egg (Chicken),Dairy,Realfire,1 Jackson Pass,Backordered,95-449-1286,18-260-7354,12/29/2024,12/23/2024,9/8/2024,10,17,70,$0.20,100,63,-007%
+Black Coffee,Beverages,Tagpad,68 Dakota Center,Backordered,00-534-9775,79-955-6260,12/29/2024,5/23/2024,8/17/2024,87,91,23,$14.90,90,75,037%
+White Sugar,Grains & Pulses,Yambee,642 Arizona Point,Discontinued,09-618-2842,68-415-1025,12/29/2024,3/21/2024,8/6/2024,38,82,17,$2.00,52,47,017%
+Green Coffee,Beverages,Lajo,87 Bluestem Parkway,Active,74-610-2295,22-959-6357,12/30/2024,3/16/2024,9/26/2024,61,31,100,$12.50,95,61,010%
+Orange,Fruits & Vegetables,Demimbu,4826 Drewry Center,Backordered,17-265-1899,61-793-0279,12/30/2024,3/25/2024,2/10/2025,81,35,82,$3.00,86,71,036%
+Sardines,Seafood,Voolia,7 Mockingbird Hill,Discontinued,06-336-5482,99-784-4391,12/31/2024,3/8/2024,8/24/2024,89,34,15,$6.00,60,2,017%
+Pear,Fruits & Vegetables,Cogidoo,0 Ruskin Way,Active,20-283-0111,60-394-8955,12/31/2024,4/17/2024,1/6/2025,58,55,5,$4.45,62,89,097%
+White Sugar,Grains & Pulses,Twimm,01 Hansons Crossing,Active,77-937-1108,41-007-0132,12/31/2024,4/23/2024,4/12/2024,39,83,21,$2.00,73,88,-044%
+Cauliflower,Fruits & Vegetables,Twitterwire,4 Loomis Way,Active,07-337-9889,84-949-8378,12/31/2024,8/15/2024,9/29/2024,95,6,59,$2.50,49,77,-021%
+Gouda Cheese,Dairy,Rhyloo,5989 Longview Drive,Active,81-578-7404,90-177-6733,2/13/2025,8/11/2024,4/6/2024,67,79,98,$7.00,73,36,-057%
+Onion,Fruits & Vegetables,Edgewire,6435 Burning Wood Drive,Backordered,90-303-1821,96-786-0667,2/13/2025,8/3/2024,10/5/2024,50,20,74,$2.00,30,57,051%
+Sushi Rice,Grains & Pulses,Latz,91 Gateway Pass,Backordered,42-495-7698,93-625-4768,2/13/2025,10/8/2024,7/22/2024,10,11,29,$4.30,29,72,-090%
+Whole Wheat Flour,Grains & Pulses,Topicstorm,78919 East Crossing,Backordered,57-101-0060,40-070-5881,2/13/2025,1/1/2025,9/11/2024,59,73,86,$2.75,32,56,-148%
+Haddock,Seafood,Buzzdog,952 Rowland Junction,Active,99-561-4871,04-786-5408,2/14/2025,8/20/2024,7/28/2024,17,38,93,$9.00,100,63,-075%
+Carrot,Fruits & Vegetables,Gigashots,28351 Cascade Plaza,Active,40-126-0515,78-379-0369,2/14/2025,3/4/2024,12/18/2024,74,37,57,$1.50,91,18,037%
+Mackerel,Seafood,Skynoodle,884 Sloan Drive,Backordered,19-377-5021,34-014-5873,2/14/2025,8/11/2024,12/24/2024,91,96,90,$7.50,90,75,080%
+Trout,Seafood,Rhynoodle,22 Hudson Pass,Discontinued,60-644-6596,32-745-8366,2/14/2025,1/5/2025,11/10/2024,89,67,89,$12.00,96,42,017%
+Egg (Goose),Dairy,Skyble,463 Oxford Crossing,Active,82-711-0772,78-877-1866,2/15/2025,5/16/2024,10/23/2024,72,58,52,$2.40,36,14,056%
+Bread Flour,Grains & Pulses,Demizz,149 Valley Edge Point,Backordered,55-803-3964,75-906-1086,2/16/2025,8/26/2024,10/30/2024,25,60,36,$1.50,31,41,061%
+Halibut,Seafood,Jaxspan,21 Sunbrook Court,Backordered,00-119-8780,14-703-2550,2/17/2025,7/16/2024,3/4/2024,40,81,78,$20.00,39,65,-032%
+Lime,Fruits & Vegetables,Shufflebeat,1 Logan Road,Active,13-888-0149,09-902-6272,2/17/2025,12/30/2024,3/15/2024,75,18,65,$2.00,32,92,-067%
+Multigrain Bread,Bakery,Devpulse,7 Prairieview Place,Discontinued,51-273-4240,32-506-0556,2/18/2025,9/26/2024,6/20/2024,85,57,25,$3.50,30,42,-188%
+Vegetable Oil,Oils & Fats,Tagtune,74 Sugar Plaza,Backordered,23-395-3157,48-538-8538,2/18/2025,7/30/2024,3/16/2024,41,66,50,$2.00,55,74,-040%
+Whipped Cream,Dairy,Yotz,554 Eliot Point,Discontinued,03-149-9760,08-141-2402,2/19/2025,7/13/2024,3/26/2024,92,99,93,$4.00,43,90,-035%
+Coconut Sugar,Grains & Pulses,Tagchat,2582 Autumn Leaf Park,Discontinued,02-895-7781,23-109-2205,2/19/2025,9/26/2024,1/24/2025,51,55,76,$5.00,21,13,-109%
+Long Grain Rice,Grains & Pulses,Meevee,848 Mariners Cove Junction,Active,95-354-8583,02-057-9401,2/19/2025,2/11/2025,10/20/2024,98,40,93,$1.50,30,53,038%
+Anchovies,Seafood,Flipopia,498 Delladonna Drive,Discontinued,27-681-5588,89-959-2254,2/19/2025,10/26/2024,12/7/2024,100,99,8,$10.00,54,92,-077%
+Zucchini,Fruits & Vegetables,Babblestorm,76106 Anthes Junction,Backordered,70-534-7796,62-044-8874,2/19/2025,6/25/2024,1/17/2025,43,21,31,$2.50,22,25,-070%
+Broccoli,Fruits & Vegetables,Zoovu,03 Fisk Alley,Active,72-066-4597,97-994-0773,2/20/2025,12/8/2024,12/13/2024,31,54,52,$4.00,69,77,-014%
+Cucumber,Fruits & Vegetables,Dabtype,546 Declaration Place,Backordered,79-884-8810,14-108-0409,2/20/2025,12/6/2024,8/15/2024,12,93,29,$1.75,45,12,-012%
+Peach,Fruits & Vegetables,Wikizz,082 Clove Plaza,Backordered,08-703-1382,29-975-3449,2/21/2025,3/6/2024,6/21/2024,40,53,7,$4.00,70,20,073%
+Heavy Cream,Dairy,Yata,850 Glacier Hill Drive,Backordered,39-315-3936,99-034-7010,2/21/2025,9/25/2024,8/10/2024,57,62,72,$4.00,23,4,071%
+Jasmine Rice,Grains & Pulses,Jabbertype,5 Linden Terrace,Discontinued,06-690-2335,66-317-4895,2/22/2025,6/16/2024,5/7/2024,24,15,6,$4.75,35,4,083%
+Vegetable Oil,Oils & Fats,Abata,29815 Bonner Trail,Backordered,43-153-8268,19-809-5654,2/23/2025,1/29/2025,10/2/2024,75,61,19,$2.00,79,69,089%
+Whole Wheat Flour,Grains & Pulses,Quatz,46 Orin Drive,Active,44-634-8292,48-557-5036,2/23/2025,3/9/2024,1/2/2025,60,69,64,$2.75,51,6,013%
+Cod,Seafood,Izio,7369 Thackeray Drive,Discontinued,96-774-0457,71-991-5737,2/24/2025,3/12/2024,10/22/2024,56,50,80,$8.00,99,5,088%
+Salmon,Seafood,Abata,80380 Valley Edge Road,Discontinued,50-930-4751,40-260-8547,2/24/2025,6/24/2024,2/25/2024,88,40,29,$15.00,96,87,095%
+Mango,Fruits & Vegetables,Devpulse,917 Westerfield Terrace,Backordered,63-918-8253,94-157-1762,2/24/2025,7/4/2024,9/29/2024,53,98,23,$5.00,41,84,009%
+Arabica Coffee,Beverages,Chatterpoint,7 Sloan Park,Discontinued,84-629-1532,50-378-4320,2/25/2024,11/27/2024,7/20/2024,22,89,25,$21.00,30,62,-105%
+Spinach,Fruits & Vegetables,Abatz,3616 Carey Pass,Discontinued,77-312-6317,12-950-4397,2/26/2024,9/13/2024,10/1/2024,41,29,76,$2.40,59,4,-107%
+Corn Oil,Oils & Fats,Twinte,32468 Utah Pass,Active,21-693-8216,62-599-8388,2/26/2024,9/3/2024,10/27/2024,70,96,85,$2.50,34,3,093%
+Peach,Fruits & Vegetables,Ainyx,7 Roxbury Circle,Backordered,74-430-8245,51-213-5660,2/26/2024,8/15/2024,3/6/2024,73,90,77,$4.00,75,19,091%
+Feta Cheese,Dairy,Youfeed,195 Portage Junction,Backordered,39-449-0772,84-504-7617,2/27/2024,4/2/2024,10/5/2024,94,13,15,$7.00,20,24,075%
+Cheddar Cheese,Dairy,Jabbersphere,406 Westridge Alley,Active,51-312-8608,06-315-0552,2/27/2024,10/2/2024,4/29/2024,68,60,21,$8.90,79,46,-020%
+Blueberries,Fruits & Vegetables,Jaloo,22782 Oriole Way,Active,89-543-3456,23-178-8962,2/28/2024,6/22/2024,2/6/2025,66,40,96,$10.00,24,61,042%
+Swiss Cheese,Dairy,Feedmix,64407 Marcy Plaza,Backordered,57-861-4379,73-383-4390,2/28/2024,5/15/2024,2/4/2025,93,8,51,$8.00,93,85,-154%
+Egg (Turkey),Dairy,Gigabox,32 Rigney Terrace,Backordered,39-768-8205,07-987-4536,2/28/2024,7/17/2024,11/29/2024,56,97,29,$2.50,82,100,009%
+Heavy Cream,Dairy,Youbridge,2 Canary Street,Active,95-130-9020,75-985-6744,2/28/2024,6/20/2024,1/21/2025,82,12,94,$4.10,69,93,-022%
+Plum,Fruits & Vegetables,Yambee,34832 Autumn Leaf Terrace,Active,02-575-1980,61-100-8296,2/28/2024,7/9/2024,11/24/2024,11,58,32,$4.00,99,94,-035%
+Rice Flour,Grains & Pulses,Topicblab,34642 Carpenter Place,Active,22-895-6595,18-445-5057,2/29/2024,6/4/2024,11/21/2024,31,32,69,$2.00,38,23,005%
+Eggplant,Fruits & Vegetables,Tanoodle,41 Comanche Park,Backordered,85-207-4164,07-067-3439,2/29/2024,2/6/2025,12/10/2024,97,20,72,$3.00,29,59,039%
+Robusta Coffee,Beverages,Mymm,49225 Homewood Place,Active,26-799-3714,50-877-0990,2/29/2024,2/3/2025,4/6/2024,74,2,45,$10.00,37,99,-103%
+Tomato,Fruits & Vegetables,Shuffledrive,34 Linden Court,Active,57-903-6434,30-460-3122,3/13/2024,3/10/2024,3/23/2024,44,67,15,$2.50,82,51,-168%
+Garlic,Fruits & Vegetables,Layo,4374 Corry Terrace,Active,80-227-6886,91-632-7343,3/13/2024,1/12/2025,6/14/2024,33,4,31,$7.00,46,92,038%
+Tuna,Seafood,Centimia,9440 Coleman Drive,Backordered,31-255-9616,11-031-9939,3/14/2024,12/28/2024,3/16/2024,88,71,9,$18.00,28,14,-100%
+Halibut,Seafood,Wikizz,3 John Wall Point,Discontinued,37-610-1999,19-985-9694,3/14/2024,10/19/2024,10/19/2024,14,67,65,$20.00,71,94,050%
+Arabica Coffee,Beverages,Jayo,5818 Twin Pines Place,Backordered,86-330-0214,87-840-7803,3/15/2024,2/18/2025,3/30/2024,36,64,63,$20.00,91,35,-032%
+Arborio Rice,Grains & Pulses,Dabtype,21625 Schlimgen Park,Active,29-592-7315,61-867-3019,3/15/2024,7/4/2024,9/22/2024,56,4,74,$4.50,61,73,062%
+Jasmine Rice,Grains & Pulses,Kwilith,5 Prentice Pass,Discontinued,86-257-4613,70-402-4816,3/15/2024,8/23/2024,8/5/2024,44,26,60,$4.75,63,59,-020%
+Jasmine Rice,Grains & Pulses,Gabvine,75 Cascade Avenue,Discontinued,79-350-5841,81-676-3345,3/15/2024,9/5/2024,4/17/2024,33,44,89,$4.75,93,19,006%
+Watermelon,Fruits & Vegetables,Eidel,50687 Porter Park,Discontinued,22-329-7791,72-013-2438,3/16/2024,1/13/2025,9/19/2024,53,41,30,$3.00,24,77,080%
+Canola Oil,Oils & Fats,Realcube,3 Oakridge Parkway,Discontinued,10-854-5467,40-443-3362,3/16/2024,5/4/2024,11/26/2024,96,51,40,$2.30,61,4,-221%
+Pineapple,Fruits & Vegetables,Flipbug,4 Raven Drive,Discontinued,70-612-2531,94-217-4781,3/17/2024,1/25/2025,10/30/2024,48,48,39,$3.45,51,50,093%
+Corn Oil,Oils & Fats,Tagfeed,12 Truax Court,Active,71-516-1996,04-391-7610,3/18/2024,5/7/2024,6/20/2024,96,52,16,$2.50,67,13,002%
+Mango,Fruits & Vegetables,Meezzy,18 Warrior Circle,Active,71-999-2404,01-285-0018,3/18/2024,8/5/2024,1/29/2025,58,58,28,$4.70,85,63,081%
+Papaya,Fruits & Vegetables,Avaveo,2 Sachtjen Park,Discontinued,29-875-6900,78-098-4468,3/18/2024,1/23/2025,8/22/2024,45,28,6,$4.50,35,16,026%
+Black Coffee,Beverages,Gabspot,094 Carberry Lane,Discontinued,11-922-3342,33-523-9077,3/18/2024,6/10/2024,3/4/2024,24,77,32,$15.50,80,42,054%
+Vanilla Biscuit,Bakery,Linkbridge,79 Ronald Regan Avenue,Backordered,74-562-7431,66-174-9633,3/18/2024,3/20/2024,11/1/2024,94,34,21,$5.50,74,70,048%
+Arborio Rice,Grains & Pulses,Talane,87 Corben Street,Discontinued,95-357-2870,75-365-7696,3/18/2024,5/13/2024,5/20/2024,86,80,80,$4.50,22,67,005%
+Coconut Sugar,Grains & Pulses,Bubblebox,911 Ridgeway Way,Backordered,04-277-5245,90-175-7764,3/19/2024,7/28/2024,6/18/2024,20,51,21,$5.00,71,26,-205%
+Orange,Fruits & Vegetables,Devshare,44022 Barnett Way,Discontinued,91-105-7317,84-047-0017,3/20/2024,12/28/2024,2/2/2025,85,45,71,$3.00,95,72,063%
+Broccoli,Fruits & Vegetables,Skilith,52 Alpine Crossing,Discontinued,37-246-0018,61-907-0994,3/20/2024,1/14/2025,4/11/2024,30,59,76,$4.00,61,3,024%
+Spinach,Fruits & Vegetables,Feedfish,538 Bayside Parkway,Backordered,27-474-0056,56-969-3705,3/20/2024,12/19/2024,6/19/2024,23,6,40,$2.50,95,24,095%
+Eggplant,Fruits & Vegetables,Ainyx,6 Rusk Pass,Backordered,12-439-8428,43-542-6868,3/21/2024,9/14/2024,5/31/2024,17,3,33,$3.00,49,17,075%
+White Bread,Bakery,Meevee,5 Lyons Street,Backordered,56-657-4387,78-629-7560,3/21/2024,2/29/2024,6/22/2024,61,77,45,$2.50,51,48,065%
+Digestive Biscuit,Bakery,Zoonder,9821 Novick Hill,Backordered,91-290-9062,95-609-1485,3/21/2024,4/19/2024,9/25/2024,29,2,84,$4.00,80,85,006%
+Egg (Goose),Dairy,Babblestorm,49646 Derek Lane,Backordered,06-503-5891,19-098-2529,3/22/2024,9/23/2024,3/16/2024,40,22,74,$2.45,76,70,-006%
+Robusta Coffee,Beverages,Skiptube,149 Lawn Way,Discontinued,37-064-7275,63-522-2633,3/22/2024,6/25/2024,9/22/2024,20,42,45,$10.00,72,28,008%
+Watermelon,Fruits & Vegetables,Innotype,16730 Luster Alley,Active,21-993-5632,26-860-4618,3/23/2024,4/14/2024,10/23/2024,51,72,85,$3.00,23,17,061%
+Carrot,Fruits & Vegetables,Linkbridge,2 Northview Avenue,Active,05-720-8792,33-265-4588,3/24/2024,7/8/2024,10/26/2024,80,91,36,$1.50,81,74,026%
+Almond Flour,Grains & Pulses,Skaboo,2 Columbus Drive,Discontinued,36-531-4087,83-172-5527,3/24/2024,10/25/2024,3/14/2024,85,12,94,$9.50,26,32,009%
+Apple,Fruits & Vegetables,Wikido,2 Northridge Street,Discontinued,61-680-9496,75-448-1356,3/24/2024,10/5/2024,4/14/2024,17,14,17,$3.50,36,64,-023%
+Black Rice,Grains & Pulses,Wikivu,451 Grim Hill,Active,36-636-4873,11-098-3982,3/25/2024,1/17/2025,5/30/2024,86,100,74,$6.10,80,94,-078%
+Whole Wheat Flour,Grains & Pulses,Jaxworks,5 Fisk Point,Backordered,45-992-5653,22-050-5775,3/25/2024,7/7/2024,10/19/2024,82,67,67,$2.75,26,1,-018%
+Salmon,Seafood,Avavee,10577 Thierer Plaza,Discontinued,85-781-5386,89-439-6947,3/25/2024,3/20/2024,12/28/2024,78,68,86,$15.00,47,95,096%
+Palm Oil,Oils & Fats,Fivebridge,2005 Mccormick Road,Backordered,76-459-2392,91-030-6609,3/26/2024,4/13/2024,5/24/2024,74,4,67,$1.80,31,34,-102%
+Short Grain Rice,Grains & Pulses,Photobean,739 Grayhawk Trail,Discontinued,92-791-0606,56-050-1773,3/26/2024,4/28/2024,9/6/2024,18,62,2,$3.00,61,78,-010%
+Papaya,Fruits & Vegetables,Demivee,38695 Kenwood Circle,Active,87-199-2743,54-907-6531,3/26/2024,9/15/2024,11/12/2024,59,74,100,$4.50,63,69,-028%
+Rye Bread,Bakery,Realblab,76 Shelley Pass,Discontinued,04-038-1547,61-912-9541,3/26/2024,11/24/2024,6/8/2024,48,2,16,$2.80,27,1,-010%
+Garlic,Fruits & Vegetables,Tavu,3 Ilene Terrace,Discontinued,83-917-7384,84-923-5086,3/27/2024,8/24/2024,5/11/2024,76,97,20,$7.00,52,82,096%
+Rye Bread,Bakery,Kwilith,667 Arkansas Circle,Discontinued,94-525-6925,31-892-6816,3/27/2024,5/16/2024,9/17/2024,50,56,63,$3.00,70,100,-058%
+Arabica Coffee,Beverages,Voonyx,60094 Goodland Junction,Backordered,16-632-1308,45-903-0036,3/27/2024,5/21/2024,11/21/2024,23,13,15,$20.00,31,28,-043%
+Egg (Turkey),Dairy,Twimm,93321 Kennedy Point,Active,13-798-3397,89-992-6472,3/27/2024,5/9/2024,12/20/2024,86,16,37,$2.50,34,66,010%
+Oatmeal Biscuit,Bakery,Skajo,39 Oxford Drive,Discontinued,69-834-2874,51-600-6076,3/27/2024,6/25/2024,10/7/2024,28,62,81,$5.00,28,30,-094%
+Tilapia,Seafood,Vipe,6 Hanover Terrace,Backordered,60-343-3288,22-940-6543,3/28/2024,1/1/2025,5/3/2024,85,92,66,$6.70,54,85,-007%
+White Bread,Bakery,Jazzy,4 Hagan Court,Backordered,21-650-9319,73-445-3017,3/28/2024,1/28/2025,4/24/2024,42,88,95,$2.50,67,94,-057%
+Green Tea,Beverages,Livepath,3 Forster Point,Active,14-550-2152,60-003-2919,3/29/2024,6/18/2024,11/17/2024,51,1,61,$7.60,96,26,-040%
+Apricot,Fruits & Vegetables,Topiczoom,8 Hanover Center,Discontinued,61-582-7399,15-062-6342,3/29/2024,2/5/2025,7/22/2024,73,83,74,$5.00,87,10,073%
+Chocolate Biscuit,Bakery,Babbleblab,29755 Daystar Street,Discontinued,28-107-4953,01-165-8830,3/29/2024,11/12/2024,10/18/2024,53,19,94,$5.00,82,56,089%
+Mackerel,Seafood,Yodoo,9 Cordelia Trail,Backordered,53-050-8242,31-163-5871,3/30/2024,3/16/2024,2/15/2025,82,25,94,$7.50,66,14,032%
+Grapes,Fruits & Vegetables,Edgewire,9469 Bayside Plaza,Active,88-586-8797,02-530-5932,3/30/2024,8/25/2024,2/9/2025,98,62,97,$5.50,59,19,079%
+Banana,Fruits & Vegetables,Edgetag,07359 Porter Park,Active,93-772-3085,61-807-0746,3/30/2024,7/18/2024,1/20/2025,39,19,18,$13.99,58,90,068%
+Green Coffee,Beverages,Oozz,0 Stoughton Terrace,Backordered,04-001-1793,29-359-0109,3/31/2024,2/2/2025,4/9/2024,43,38,63,$12.00,88,65,-055%
+Watermelon,Fruits & Vegetables,Trupe,402 Kings Road,Backordered,10-137-9759,23-688-6256,3/31/2024,9/3/2024,3/10/2024,90,17,17,$3.00,82,84,026%
+Egg (Chicken),Dairy,Kaymbo,97 Walton Avenue,Backordered,96-682-8546,03-882-3517,3/31/2024,10/26/2024,9/17/2024,70,29,24,$0.20,62,55,-002%
+Coconut Sugar,Grains & Pulses,Feedfire,9262 Sullivan Crossing,Active,07-617-6934,48-700-8059,3/31/2024,12/21/2024,11/16/2024,91,39,48,$5.00,48,18,011%
+Butter,Dairy,Shuffletag,70862 Lighthouse Bay Junction,Discontinued,43-164-5984,10-008-6747,4/13/2024,6/17/2024,11/23/2024,36,75,35,$2.90,26,41,063%
+Plum,Fruits & Vegetables,Skajo,27 New Castle Avenue,Backordered,07-074-1196,69-112-6969,4/14/2024,1/10/2025,10/10/2024,11,56,62,$3.90,40,5,-058%
+Grapes,Fruits & Vegetables,Rhynoodle,38 Rutledge Plaza,Backordered,05-193-8096,86-709-5618,4/14/2024,3/19/2024,7/8/2024,82,21,85,$5.50,39,18,088%
+Vegetable Oil,Oils & Fats,Yoveo,95 Lerdahl Park,Discontinued,92-837-8839,95-484-3134,4/14/2024,1/16/2025,8/18/2024,23,71,32,$2.00,63,23,054%
+Multigrain Bread,Bakery,Zoombox,85408 Toban Crossing,Backordered,60-343-7973,06-303-4127,4/15/2024,4/29/2024,4/9/2024,56,86,23,$3.20,67,56,063%
+Eggplant,Fruits & Vegetables,Roombo,55 Morning Terrace,Active,76-264-0748,27-557-2375,4/15/2024,6/1/2024,1/9/2025,47,41,63,$3.00,39,54,016%
+Bell Pepper,Fruits & Vegetables,Devcast,9327 Hanover Way,Backordered,67-130-4114,53-718-1768,4/15/2024,2/27/2024,1/24/2025,84,26,37,$4.50,46,67,-038%
+Heavy Cream,Dairy,Tambee,40113 Blaine Place,Active,99-961-0767,78-954-5649,4/16/2024,10/25/2024,12/6/2024,85,15,30,$4.00,95,63,-046%
+Herbal Tea,Beverages,Myworks,68241 Hanson Circle,Backordered,24-228-6840,26-280-5472,4/16/2024,8/9/2024,11/28/2024,27,1,3,$30.00,34,63,034%
+Sesame Oil,Oils & Fats,Thoughtbeat,84575 Randy Point,Backordered,83-573-4586,91-191-2324,4/17/2024,10/19/2024,7/18/2024,77,95,82,$6.50,29,46,-085%
+Butter Biscuit,Bakery,Bluejam,7 Duke Parkway,Active,80-698-0324,98-587-7923,4/17/2024,2/4/2025,5/25/2024,84,58,28,$6.00,51,12,-059%
+Halibut,Seafood,Camimbo,29150 Farmco Crossing,Backordered,83-568-3475,10-950-0546,4/17/2024,4/4/2024,2/10/2025,35,72,70,$20.00,74,15,076%
+Zucchini,Fruits & Vegetables,Vidoo,6251 Eliot Hill,Discontinued,15-846-7959,47-026-0505,4/17/2024,12/1/2024,3/20/2024,98,14,11,$2.50,48,38,080%
+Egg (Chicken),Dairy,Babblestorm,588 Waywood Trail,Active,98-148-0940,06-175-9657,4/17/2024,4/2/2024,11/5/2024,63,62,18,$0.20,67,17,021%
+Sesame Oil,Oils & Fats,Feedbug,01471 Burrows Lane,Discontinued,76-325-9093,67-922-3399,4/18/2024,10/19/2024,12/18/2024,27,92,56,$6.50,29,32,075%
+Bread Flour,Grains & Pulses,Zava,21 Esker Way,Backordered,10-034-7654,27-292-4656,4/18/2024,10/25/2024,5/28/2024,70,96,92,$1.50,27,58,-010%
+Coconut Sugar,Grains & Pulses,Topiclounge,08492 Gateway Terrace,Discontinued,21-633-8696,89-468-2696,4/18/2024,4/6/2024,5/26/2024,49,59,73,$5.00,93,45,-115%
+Egg (Chicken),Dairy,Meembee,79878 Katie Trail,Discontinued,74-181-4135,00-487-2428,4/18/2024,3/17/2024,9/17/2024,22,19,4,$0.20,88,24,052%
+Mozzarella Cheese,Dairy,Feedfire,109 Twin Pines Avenue,Active,98-064-4465,93-719-9817,4/19/2024,10/1/2024,11/11/2024,96,38,17,$7.00,72,84,073%
+Rye Bread,Bakery,Kwideo,88 Hooker Parkway,Backordered,41-475-5305,93-900-1170,4/19/2024,3/13/2024,9/12/2024,61,20,29,$3.00,71,97,-017%
+Zucchini,Fruits & Vegetables,Livetube,8 Russell Pass,Discontinued,80-988-4653,02-272-0535,4/20/2024,9/14/2024,4/19/2024,43,66,85,$2.50,66,65,-037%
+Digestive Biscuit,Bakery,Kanoodle,83894 Delaware Plaza,Active,51-583-6029,78-024-3286,4/20/2024,8/18/2024,2/18/2025,38,43,91,$4.00,72,64,002%
+Multigrain Bread,Bakery,Roombo,6 Lunder Parkway,Backordered,63-270-7076,85-532-0172,4/21/2024,6/12/2024,1/24/2025,65,36,37,$3.50,32,70,011%
+Heavy Cream,Dairy,Skynoodle,6 Messerschmidt Place,Discontinued,70-149-6756,97-150-9199,4/21/2024,1/6/2025,6/26/2024,14,99,97,$4.20,28,45,-119%
+Cottage Cheese,Dairy,Feedfire,43 Heath Street,Backordered,98-909-9395,74-119-5491,4/22/2024,8/31/2024,12/7/2024,67,98,92,$5.00,35,98,-061%
+Swiss Cheese,Dairy,Skiptube,3 Fairfield Center,Discontinued,35-621-2546,14-190-2260,4/22/2024,4/7/2024,2/15/2025,85,89,41,$8.00,68,93,-180%
+Anchovies,Seafood,Zoovu,4 Stang Place,Active,24-579-6500,60-309-5783,4/22/2024,6/12/2024,9/4/2024,93,51,70,$10.00,81,18,-037%
+Raw Sugar,Grains & Pulses,Cogilith,4029 Lotheville Pass,Backordered,01-703-8441,91-216-7668,4/23/2024,1/1/2025,6/21/2024,100,10,89,$1.50,76,38,078%
+Ricotta Cheese,Dairy,Fliptune,126 Spohn Plaza,Discontinued,61-796-6540,40-002-8400,4/24/2024,6/2/2024,8/14/2024,88,4,79,$6.00,23,39,050%
+Digestive Biscuit,Bakery,BlogXS,66 Raven Pass,Backordered,16-354-8122,61-604-8116,4/25/2024,1/22/2025,11/27/2024,97,99,96,$4.00,57,42,-070%
+Egg (Turkey),Dairy,DabZ,69 Orin Plaza,Discontinued,67-512-9754,35-941-2585,4/25/2024,7/21/2024,3/22/2024,19,100,83,$2.50,66,28,026%
+Mango,Fruits & Vegetables,Twitternation,108 Morning Center,Discontinued,11-316-8405,50-918-1373,4/26/2024,2/24/2025,11/25/2024,24,55,51,$5.00,39,15,058%
+Basmati Rice,Grains & Pulses,Skimia,98 Bartillon Trail,Backordered,36-372-2295,85-823-7428,4/26/2024,10/22/2024,4/14/2024,55,13,71,$4.45,37,4,062%
+Canola Oil,Oils & Fats,Mydeo,51 7th Court,Discontinued,84-075-7647,95-889-8592,4/27/2024,10/21/2024,2/22/2025,91,82,58,$2.30,43,45,089%
+Bell Pepper,Fruits & Vegetables,Zava,81503 Graedel Plaza,Backordered,08-226-5155,64-584-7898,4/27/2024,5/1/2024,4/27/2024,49,93,15,$4.50,52,31,-005%
+Pomegranate,Fruits & Vegetables,Eare,156 Golf Course Alley,Backordered,46-496-2930,29-295-9755,4/27/2024,10/26/2024,8/14/2024,66,28,7,$6.00,85,6,040%
+Egg (Goose),Dairy,Quatz,389 Ridgeway Park,Backordered,00-215-7434,85-272-3969,4/28/2024,2/19/2025,11/28/2024,14,63,74,$2.50,59,63,093%
+Mozzarella Cheese,Dairy,Buzzdog,018 Oxford Crossing,Discontinued,12-828-1063,48-707-5857,4/28/2024,3/29/2024,8/5/2024,36,82,85,$7.10,27,67,-007%
+Egg (Duck),Dairy,Fivebridge,34 Fremont Point,Backordered,48-770-6319,64-452-2395,4/28/2024,11/21/2024,2/2/2025,52,31,18,$1.00,77,16,-148%
+Butter,Dairy,Jayo,51205 Rieder Junction,Discontinued,44-305-1866,25-190-3172,4/29/2024,7/2/2024,8/29/2024,48,71,86,$3.00,95,3,079%
+Palm Oil,Oils & Fats,Browsetype,7232 Ridgeway Center,Backordered,97-283-4840,64-604-1679,4/29/2024,5/12/2024,2/24/2025,58,23,66,$1.80,82,61,097%
+Long Grain Rice,Grains & Pulses,Ainyx,09 Londonderry Hill,Backordered,35-328-8392,52-340-4509,4/29/2024,3/18/2024,4/21/2024,39,2,71,$1.45,20,70,026%
+Butter,Dairy,Kayveo,76 Toban Plaza,Discontinued,43-693-2092,19-469-9841,4/30/2024,10/21/2024,9/22/2024,51,100,70,$3.00,40,21,-250%
+Cod,Seafood,Buzzster,7096 Mcguire Park,Active,47-802-5023,51-010-8144,4/30/2024,10/18/2024,6/7/2024,16,20,45,$8.00,81,62,048%
+White Tea,Beverages,Aivee,99 Duke Lane,Backordered,24-009-1208,96-405-4286,4/30/2024,6/10/2024,2/6/2025,62,31,24,$25.00,89,100,023%
+Pomegranate,Fruits & Vegetables,Dynabox,005 Tomscot Hill,Active,98-556-5323,21-490-8051,5/13/2024,8/12/2024,8/27/2024,60,61,2,$6.00,96,50,-012%
+Buttermilk,Dairy,Vinder,00847 Reindahl Place,Discontinued,14-521-4167,68-609-1972,5/13/2024,6/29/2024,3/6/2024,47,2,76,$2.50,48,36,048%
+Egg (Duck),Dairy,Zoonoodle,329 Helena Park,Discontinued,61-607-7622,77-175-2969,5/13/2024,2/21/2025,1/15/2025,23,38,25,$1.00,84,78,025%
+Sesame Oil,Oils & Fats,Rhycero,041 Paget Alley,Discontinued,06-849-4869,39-464-7300,5/13/2024,2/19/2025,7/15/2024,85,15,16,$6.50,46,24,007%
+Whipped Cream,Dairy,Flashset,38726 Gina Pass,Backordered,41-526-4036,45-923-7206,5/13/2024,3/2/2024,1/29/2025,55,25,87,$4.00,69,48,048%
+Sour Cream,Dairy,Realblab,1823 Elgar Park,Backordered,49-570-8214,17-345-5800,5/13/2024,5/27/2024,12/18/2024,81,76,10,$4.00,68,100,030%
+Kiwi,Fruits & Vegetables,Tazz,1 Lake View Trail,Discontinued,85-561-4694,57-486-8971,5/15/2024,8/15/2024,5/11/2024,28,27,22,$6.00,70,30,-047%
+Rye Bread,Bakery,Jetwire,77563 Russell Lane,Active,26-629-5920,19-264-7608,5/15/2024,7/16/2024,12/14/2024,99,6,88,$3.00,49,9,057%
+Sourdough Bread,Bakery,Eadel,19180 Hagan Parkway,Discontinued,75-029-9003,61-917-4271,5/16/2024,10/7/2024,4/1/2024,34,42,86,$4.00,28,23,082%
+Cabbage,Fruits & Vegetables,Skivee,9 Holmberg Circle,Active,79-428-8753,29-521-7910,5/16/2024,7/6/2024,12/30/2024,62,79,95,$1.00,34,12,018%
+Apricot,Fruits & Vegetables,Fivebridge,0 Lerdahl Parkway,Discontinued,34-369-7712,95-241-9348,5/16/2024,5/11/2024,6/6/2024,55,96,40,$5.00,23,47,065%
+White Sugar,Grains & Pulses,Photobean,6 Nobel Junction,Backordered,22-141-9798,59-849-9942,5/18/2024,9/20/2024,4/30/2024,47,7,63,$2.00,29,20,-104%
+Peas,Fruits & Vegetables,Photolist,6 Anthes Court,Backordered,38-924-3007,83-936-5065,5/18/2024,1/5/2025,4/17/2024,12,28,11,$3.00,46,88,031%
+Apple,Fruits & Vegetables,Skaboo,82955 Dayton Street,Discontinued,70-005-5970,18-490-4140,5/18/2024,10/2/2024,12/24/2024,84,46,80,$3.50,66,84,-091%
+Broccoli,Fruits & Vegetables,Rhyzio,4 Heffernan Lane,Active,19-021-5024,75-369-5047,5/19/2024,2/13/2025,5/7/2024,47,63,86,$4.00,76,29,-027%
+Tuna,Seafood,Thoughtbeat,35 Waxwing Center,Active,31-403-6234,00-258-2525,5/20/2024,11/24/2024,5/4/2024,87,24,66,$18.00,22,34,062%
+Peach,Fruits & Vegetables,Quire,7 West Street,Backordered,19-047-4239,11-146-9880,5/21/2024,3/30/2024,4/30/2024,47,72,73,$4.00,93,27,-055%
+Spinach,Fruits & Vegetables,Youbridge,676 Redwing Trail,Active,29-092-3453,41-867-9911,5/22/2024,5/7/2024,6/17/2024,61,17,69,$2.52,31,29,071%
+Greek Yogurt,Dairy,Thoughtblab,95 Onsgard Way,Discontinued,28-956-1320,01-445-8931,5/23/2024,10/18/2024,9/5/2024,62,2,98,$3.00,50,11,006%
+Cod,Seafood,Buzzshare,01330 Sheridan Way,Active,88-069-5486,95-878-1614,5/23/2024,7/13/2024,5/1/2024,31,87,19,$8.00,41,10,078%
+Rye Bread,Bakery,Tanoodle,0 Miller Pass,Backordered,97-710-2449,39-676-9308,5/23/2024,1/23/2025,6/19/2024,28,94,80,$2.80,31,1,076%
+Blueberries,Fruits & Vegetables,Eidel,53 Caliangt Junction,Backordered,84-272-0790,00-635-4638,5/23/2024,11/18/2024,7/29/2024,28,86,44,$10.00,48,12,097%
+Milk,Dairy,BlogXS,4 Bashford Court,Discontinued,89-602-6755,51-054-3811,5/23/2024,2/7/2025,7/17/2024,74,90,26,$1.00,24,11,075%
+Eggplant,Fruits & Vegetables,Vimbo,04 Rockefeller Terrace,Active,63-162-9244,58-945-2944,5/24/2024,8/11/2024,5/17/2024,49,89,65,$3.00,37,48,054%
+Ricotta Cheese,Dairy,Eadel,6 Anniversary Circle,Discontinued,49-579-4325,98-558-5813,5/24/2024,8/22/2024,5/17/2024,64,95,62,$6.00,55,1,-030%
+White Bread,Bakery,Twitterbridge,84148 Prairie Rose Center,Backordered,96-503-7712,97-325-5889,5/25/2024,7/28/2024,1/19/2025,93,76,82,$2.50,76,51,098%
+Papaya,Fruits & Vegetables,Kwinu,851 Hollow Ridge Center,Backordered,56-213-0577,72-306-8602,5/25/2024,5/23/2024,9/17/2024,24,25,52,$4.50,24,77,033%
+Coconut,Fruits & Vegetables,Eazzy,736 Redwing Parkway,Backordered,24-989-3302,89-159-0852,5/25/2024,6/3/2024,7/30/2024,85,90,16,$5.00,61,80,-221%
+Mushrooms,Fruits & Vegetables,Chatterpoint,911 Merry Junction,Active,79-920-2395,70-825-7341,5/26/2024,5/8/2024,7/16/2024,81,23,17,$6.25,92,78,-031%
+Olive Oil,Oils & Fats,Layo,482 Green Center,Discontinued,73-118-1117,55-557-8544,5/27/2024,5/5/2024,11/13/2024,52,88,55,$6.00,100,46,015%
+Egg (Quail),Dairy,Ntags,9738 Old Shore Trail,Active,65-674-6076,16-933-3355,5/27/2024,10/6/2024,12/18/2024,78,61,6,$0.80,49,60,054%
+Anchovies,Seafood,Skipfire,959 Dorton Pass,Discontinued,66-312-5511,99-553-6838,5/27/2024,4/10/2024,12/15/2024,44,97,76,$10.00,80,33,-022%
+Cucumber,Fruits & Vegetables,Youbridge,43211 Lakeland Place,Discontinued,58-005-5343,83-401-2709,5/27/2024,5/3/2024,8/21/2024,38,94,87,$1.80,89,100,059%
+Raw Sugar,Grains & Pulses,Mydo,66879 Susan Place,Backordered,40-795-0753,47-183-4911,5/28/2024,2/22/2025,5/30/2024,31,43,80,$1.50,46,78,-012%
+Haddock,Seafood,Midel,582 Sauthoff Crossing,Discontinued,73-401-5721,38-622-5251,5/28/2024,10/28/2024,12/26/2024,46,28,73,$9.00,65,57,-070%
+Cheddar Cheese,Dairy,Demizz,97687 Mendota Terrace,Active,53-680-5293,47-732-4446,5/28/2024,5/31/2024,8/24/2024,88,74,97,$9.00,79,5,012%
+Raw Sugar,Grains & Pulses,Eabox,36 Bobwhite Parkway,Discontinued,02-170-5225,90-940-9550,5/28/2024,9/18/2024,2/23/2025,90,75,43,$1.50,80,57,094%
+Green Tea,Beverages,Jetpulse,0 Sutteridge Trail,Discontinued,55-680-0982,57-412-5368,5/28/2024,1/14/2025,8/19/2024,64,66,28,$8.00,25,52,029%
+Arabica Coffee,Beverages,Skivee,17780 Lindbergh Junction,Active,48-414-6162,10-060-8515,5/29/2024,11/8/2024,5/5/2024,55,93,84,$20.00,46,84,-108%
+Salmon,Seafood,Feedfish,13 Loomis Alley,Discontinued,71-631-5875,91-859-1733,5/29/2024,9/9/2024,10/25/2024,88,83,42,$15.00,61,59,-083%
+Sour Cream,Dairy,Voonder,19 Aberg Trail,Backordered,34-538-1180,40-907-4937,5/29/2024,11/3/2024,4/6/2024,29,39,80,$4.00,23,85,003%
+Eggplant,Fruits & Vegetables,Topicstorm,938 Hanover Point,Discontinued,48-957-6116,34-334-6888,5/30/2024,5/16/2024,8/5/2024,31,44,9,$3.00,46,9,-270%
+Heavy Cream,Dairy,Oyoyo,2 Kingsford Center,Discontinued,32-261-0008,26-073-5798,5/30/2024,2/18/2025,7/18/2024,63,48,22,$4.00,21,90,080%
+Bell Pepper,Fruits & Vegetables,Leenti,42397 Knutson Place,Discontinued,34-110-1040,14-427-6604,5/30/2024,6/9/2024,6/24/2024,75,85,27,$4.50,26,68,-329%
+Cauliflower,Fruits & Vegetables,Vinder,611 Fieldstone Drive,Backordered,74-132-5528,41-713-1053,5/30/2024,3/21/2024,1/22/2025,63,62,98,$2.50,62,45,-162%
+Coconut,Fruits & Vegetables,Mudo,25923 Loeprich Junction,Backordered,15-797-4824,46-830-4835,5/30/2024,11/20/2024,1/14/2025,32,27,26,$5.00,38,79,027%
+White Sugar,Grains & Pulses,Mydeo,7834 Cordelia Alley,Backordered,76-854-0095,38-883-3382,5/31/2024,2/8/2025,12/28/2024,65,61,82,$2.00,29,11,-108%
+Cauliflower,Fruits & Vegetables,Flashspan,929 Thierer Lane,Discontinued,94-092-3355,76-641-2070,6/13/2024,12/1/2024,8/4/2024,57,43,46,$2.50,87,88,062%
+Cauliflower,Fruits & Vegetables,Tanoodle,973 Spaight Place,Active,99-194-5600,70-064-6828,6/14/2024,2/25/2024,5/14/2024,57,25,98,$2.50,78,37,-001%
+Multigrain Bread,Bakery,Innojam,883 Marcy Place,Backordered,40-205-8252,68-493-0378,6/14/2024,10/5/2024,7/14/2024,38,37,27,$3.50,45,88,053%
+Yogurt,Dairy,Miboo,6211 Hanson Terrace,Discontinued,69-674-5387,04-313-0298,6/15/2024,6/27/2024,2/1/2025,59,27,63,$1.75,92,82,-096%
+Peach,Fruits & Vegetables,Linktype,0 Oak Valley Lane,Active,04-293-6969,69-087-6645,6/15/2024,9/2/2024,8/20/2024,37,38,24,$4.00,93,32,011%
+Gouda Cheese,Dairy,Avaveo,84 Hoffman Way,Active,21-890-2826,32-371-1686,6/15/2024,5/4/2024,9/19/2024,48,12,62,$7.00,59,23,066%
+Butter Biscuit,Bakery,Vipe,315 Acker Alley,Discontinued,65-759-3721,21-634-5781,6/16/2024,5/24/2024,12/28/2024,33,60,67,$6.00,20,7,061%
+Corn Oil,Oils & Fats,Centizu,7 Anzinger Lane,Discontinued,36-383-3677,88-020-6814,6/16/2024,5/29/2024,2/2/2025,32,38,23,$2.50,52,11,065%
+Cherry,Fruits & Vegetables,Gigazoom,61057 Hallows Junction,Active,84-546-7624,34-730-9079,6/16/2024,4/8/2024,6/1/2024,43,41,100,$8.00,27,78,079%
+Sesame Oil,Oils & Fats,Youopia,8851 Superior Park,Active,77-827-0820,46-590-7639,6/16/2024,11/6/2024,11/9/2024,97,20,8,$6.50,51,51,-189%
+Black Coffee,Beverages,Quamba,00 6th Parkway,Backordered,57-562-2358,22-644-6447,6/17/2024,1/19/2025,2/4/2025,37,94,76,$15.00,94,66,000%
+Heavy Cream,Dairy,Talane,9848 Little Fleur Point,Backordered,93-218-8108,05-966-6460,6/17/2024,5/22/2024,11/17/2024,74,60,27,$4.00,99,68,030%
+Haddock,Seafood,Yabox,12 Luster Terrace,Discontinued,81-354-4203,15-466-5131,6/18/2024,6/27/2024,4/28/2024,76,57,78,$9.00,52,86,031%
+Gouda Cheese,Dairy,Thoughtblab,6 John Wall Plaza,Backordered,57-613-5779,29-009-9132,6/19/2024,3/11/2024,8/29/2024,100,21,64,$7.00,20,13,-065%
+Evaporated Milk,Dairy,Gigabox,3 Dottie Junction,Discontinued,49-919-8798,82-482-3670,6/19/2024,8/4/2024,10/10/2024,64,31,91,$1.90,85,42,035%
+Gouda Cheese,Dairy,Gigazoom,7 Victoria Hill,Active,70-542-4269,27-772-7906,6/19/2024,4/23/2024,4/17/2024,41,22,11,$7.00,86,30,051%
+Orange,Fruits & Vegetables,Camido,3 Logan Trail,Discontinued,43-670-8544,16-656-4821,6/20/2024,5/14/2024,10/7/2024,84,95,22,$2.85,48,82,065%
+Digestive Biscuit,Bakery,Quatz,30590 Bowman Alley,Discontinued,29-436-6570,12-140-7809,6/20/2024,9/27/2024,9/17/2024,61,8,45,$4.00,73,64,-071%
+Peanut Oil,Oils & Fats,Devpulse,0 Lawn Parkway,Active,10-617-7581,86-995-7254,6/20/2024,3/30/2024,6/17/2024,24,14,5,$4.00,98,9,012%
+Cheddar Cheese,Dairy,Roomm,7 Lunder Hill,Backordered,50-772-2613,74-619-4608,6/20/2024,5/19/2024,3/23/2024,86,23,1,$9.00,100,86,091%
+Tilapia,Seafood,Jamia,4 Darwin Circle,Backordered,26-535-4727,17-939-1338,6/21/2024,8/17/2024,4/29/2024,93,25,23,$7.00,72,83,014%
+Avocado Oil,Oils & Fats,Skajo,042 Di Loreto Court,Backordered,88-602-8210,26-411-9126,6/22/2024,6/19/2024,9/28/2024,99,96,39,$10.00,94,89,-015%
+Mackerel,Seafood,Twitterworks,0743 4th Place,Backordered,83-966-3280,50-305-3936,6/22/2024,10/13/2024,9/20/2024,30,29,70,$7.50,80,43,005%
+Corn Oil,Oils & Fats,Shuffletag,32 Charing Cross Pass,Backordered,21-252-1360,28-314-1189,6/22/2024,9/4/2024,7/4/2024,75,23,34,$2.50,100,54,046%
+Whole Wheat Flour,Grains & Pulses,Mudo,11 Thackeray Hill,Active,89-922-4773,99-455-0707,6/22/2024,7/2/2024,12/27/2024,39,53,64,$2.75,92,8,046%
+Apple,Fruits & Vegetables,Geba,6225 Westend Pass,Discontinued,15-884-7413,39-412-7454,6/22/2024,5/23/2024,4/16/2024,77,58,13,$3.50,63,28,091%
+Palm Oil,Oils & Fats,Zooxo,97 Sunnyside Court,Discontinued,82-243-3180,18-631-1458,6/23/2024,7/31/2024,2/11/2025,43,63,80,$1.80,33,96,056%
+Mozzarella Cheese,Dairy,Blogspan,63464 Jana Court,Backordered,33-807-7247,94-453-3755,6/23/2024,7/7/2024,1/3/2025,58,17,26,$7.00,62,89,-191%
+Swiss Cheese,Dairy,Meeveo,6 Susan Alley,Active,07-858-5487,92-991-6167,6/23/2024,5/16/2024,12/29/2024,64,14,44,$8.00,53,33,-044%
+Halibut,Seafood,Camido,1715 Dottie Pass,Active,27-387-0428,62-312-2748,6/23/2024,11/29/2024,4/9/2024,88,42,68,$20.00,92,29,038%
+Mushrooms,Fruits & Vegetables,Photospace,91 Kinsman Terrace,Active,79-741-0770,67-771-7656,6/24/2024,2/24/2025,3/17/2024,72,87,39,$6.00,94,57,068%
+Lemon,Fruits & Vegetables,Layo,867 Merrick Place,Discontinued,34-086-3222,34-017-9457,6/24/2024,12/25/2024,6/5/2024,12,7,48,$2.30,66,4,039%
+White Tea,Beverages,Viva,339 Crescent Oaks Plaza,Active,93-166-3169,21-156-0102,6/24/2024,2/13/2025,1/2/2025,58,81,66,$25.00,85,78,094%
+Mango,Fruits & Vegetables,Meevee,1 Judy Street,Backordered,74-548-9313,69-832-7009,6/24/2024,9/20/2024,2/12/2025,99,59,12,$5.00,52,57,008%
+Rice Flour,Grains & Pulses,Livetube,996 Thierer Center,Backordered,53-710-7630,46-171-9624,6/25/2024,7/9/2024,1/14/2025,25,95,71,$2.00,24,76,-010%
+Bell Pepper,Fruits & Vegetables,Jaxbean,06584 Mendota Avenue,Backordered,64-119-7804,53-497-9614,6/25/2024,3/6/2024,12/29/2024,98,43,9,$4.50,86,62,-217%
+Green Coffee,Beverages,Cogibox,3 Raven Court,Discontinued,40-810-9261,56-554-1762,6/26/2024,12/9/2024,5/23/2024,75,47,33,$12.50,33,12,028%
+Feta Cheese,Dairy,Demivee,84 Washington Crossing,Active,91-553-1774,74-943-4552,6/26/2024,9/5/2024,4/12/2024,80,43,80,$7.00,64,53,064%
+Herbal Tea,Beverages,Dynazzy,428 Oriole Avenue,Discontinued,39-192-3521,74-062-7176,6/26/2024,2/22/2025,3/16/2024,20,9,12,$30.50,46,32,017%
+Oatmeal Biscuit,Bakery,Vidoo,3 Melrose Trail,Discontinued,63-890-1246,29-273-1595,6/27/2024,5/16/2024,10/9/2024,93,50,43,$5.00,76,35,030%
+Anchovies,Seafood,Quatz,290 Rusk Avenue,Discontinued,71-954-4501,26-135-6134,6/27/2024,10/8/2024,7/26/2024,66,49,41,$10.00,27,37,054%
+Avocado Oil,Oils & Fats,Quamba,0 Oxford Crossing,Backordered,00-357-2313,93-619-6639,6/29/2024,11/26/2024,12/13/2024,10,86,23,$10.00,24,52,-037%
+Digestive Biscuit,Bakery,Dabvine,99 Fair Oaks Circle,Discontinued,29-756-7042,20-426-2191,6/29/2024,4/15/2024,5/7/2024,90,52,50,$4.00,63,14,-117%
+Raw Sugar,Grains & Pulses,Livepath,461 Bluejay Circle,Backordered,92-551-8504,22-836-5101,6/29/2024,2/22/2025,12/24/2024,19,81,33,$1.50,39,85,078%
+White Bread,Bakery,Skivee,21844 Artisan Trail,Discontinued,61-317-9944,03-220-5535,6/29/2024,5/17/2024,10/29/2024,72,20,71,$2.50,87,68,-118%
+Mango,Fruits & Vegetables,Oyoloo,081 Bellgrove Place,Active,03-276-3931,42-224-8186,6/30/2024,9/18/2024,12/20/2024,60,36,28,$4.50,26,29,022%
+Potato,Fruits & Vegetables,Edgewire,6891 Mandrake Park,Discontinued,02-275-6061,21-829-0398,6/30/2024,3/26/2024,8/19/2024,26,16,69,$1.20,64,79,-012%
+Sesame Oil,Oils & Fats,Divanoodle,73966 Pond Trail,Backordered,72-970-0239,64-752-3122,6/30/2024,7/24/2024,7/18/2024,85,86,21,$6.50,78,53,-023%
+Bell Pepper,Fruits & Vegetables,Fatz,5 Warner Court,Backordered,36-679-4670,60-508-7567,6/30/2024,2/22/2025,1/13/2025,90,22,20,$4.50,81,88,032%
+White Tea,Beverages,Jazzy,9623 Cottonwood Park,Discontinued,13-409-9040,34-303-5097,6/30/2024,8/5/2024,1/8/2025,35,20,42,$25.25,53,56,-009%
+Corn Oil,Oils & Fats,Flipopia,5 Mesta Center,Active,88-408-0310,91-002-3027,6/30/2024,3/31/2024,8/26/2024,50,40,69,$2.50,28,98,-006%
+Garlic,Fruits & Vegetables,Twiyo,81071 West Alley,Active,57-359-3397,54-659-1177,7/13/2024,10/2/2024,12/19/2024,43,40,30,$7.00,95,26,-250%
+Grapes,Fruits & Vegetables,Gabspot,38 Esch Pass,Discontinued,01-050-2246,80-462-5807,7/13/2024,2/25/2024,9/8/2024,99,68,1,$5.50,59,16,073%
+Parmesan Cheese,Dairy,Tagpad,8 Dawn Court,Active,47-581-0363,08-359-2568,7/14/2024,12/5/2024,1/20/2025,99,10,88,$12.00,69,98,073%
+Mackerel,Seafood,Wikido,2869 Hudson Drive,Discontinued,33-670-6797,74-032-7560,7/14/2024,8/26/2024,7/5/2024,45,56,64,$7.50,35,82,-042%
+Brown Rice,Grains & Pulses,Flipbug,83291 Hansons Crossing,Discontinued,69-578-7930,37-728-5274,7/14/2024,3/18/2024,6/5/2024,44,67,31,$2.50,44,72,-134%
+Pomegranate,Fruits & Vegetables,Eare,4 Esch Point,Backordered,75-672-4378,20-103-9525,7/15/2024,11/16/2024,6/5/2024,62,40,86,$6.00,45,86,-064%
+Oatmeal Biscuit,Bakery,Gigazoom,492 Shoshone Road,Backordered,31-211-5803,75-503-9347,7/16/2024,8/21/2024,2/7/2025,16,9,32,$5.00,50,98,-091%
+Coconut,Fruits & Vegetables,Skippad,26 Graceland Circle,Discontinued,49-861-7823,22-152-0111,7/16/2024,7/13/2024,8/10/2024,99,8,27,$5.00,41,50,-096%
+Bread Flour,Grains & Pulses,Skaboo,9 Eastlawn Crossing,Backordered,84-624-0201,25-769-3792,7/17/2024,11/9/2024,1/20/2025,71,77,30,$1.50,34,57,-022%
+Cucumber,Fruits & Vegetables,Gigazoom,22 Dexter Trail,Backordered,66-993-4234,15-852-0491,7/18/2024,1/16/2025,6/24/2024,13,60,100,$1.80,44,32,-068%
+Milk,Dairy,Thoughtsphere,5030 Moose Junction,Discontinued,00-963-2193,39-521-8484,7/19/2024,2/3/2025,12/23/2024,43,88,33,$1.00,84,75,027%
+Butter Biscuit,Bakery,Quatz,206 Pine View Junction,Active,99-420-3592,88-647-5082,7/19/2024,7/21/2024,11/13/2024,22,24,94,$6.00,47,71,011%
+Egg (Quail),Dairy,Vinte,868 Swallow Point,Discontinued,76-623-7844,84-498-3849,7/19/2024,8/23/2024,5/15/2024,29,33,88,$0.80,50,35,-051%
+Almond Flour,Grains & Pulses,Voonte,65 Merry Circle,Discontinued,28-003-8065,42-579-7177,7/19/2024,2/16/2025,1/28/2025,79,47,51,$9.50,83,69,030%
+Broccoli,Fruits & Vegetables,Buzzster,26 Barnett Junction,Discontinued,28-008-2951,64-118-1480,7/20/2024,1/16/2025,5/20/2024,95,29,28,$4.00,52,46,017%
+Swiss Cheese,Dairy,Quinu,36 Longview Street,Active,45-402-0421,87-201-6047,7/20/2024,12/8/2024,7/14/2024,70,84,72,$8.00,71,20,012%
+Kale,Fruits & Vegetables,Brightbean,1034 2nd Point,Backordered,73-942-0508,37-057-3553,7/20/2024,1/14/2025,10/4/2024,61,100,94,$4.00,76,2,072%
+Sardines,Seafood,Vinder,111 David Hill,Backordered,22-266-9291,15-550-0171,7/20/2024,3/27/2024,4/8/2024,11,17,59,$6.00,69,100,097%
+Buttermilk,Dairy,Twitterbeat,25 Nancy Place,Discontinued,06-068-6793,94-958-6101,7/20/2024,8/6/2024,8/15/2024,39,80,68,$2.50,46,54,-045%
+Bell Pepper,Fruits & Vegetables,Skimia,33424 Express Avenue,Discontinued,58-063-8633,21-932-5200,7/21/2024,6/30/2024,9/22/2024,50,3,88,$4.50,69,73,-017%
+Herbal Tea,Beverages,Yoveo,67677 Lakewood Gardens Way,Active,27-442-3654,57-544-2465,7/21/2024,8/26/2024,12/3/2024,59,17,1,$30.00,69,82,-006%
+Strawberries,Fruits & Vegetables,Yombu,884 Fieldstone Plaza,Backordered,03-043-9933,48-450-4126,7/21/2024,2/9/2025,2/8/2025,16,23,76,$6.10,50,27,-019%
+Bread Flour,Grains & Pulses,Skyndu,4105 Fair Oaks Parkway,Active,99-137-1730,65-797-3468,7/22/2024,2/28/2024,10/18/2024,62,79,23,$1.50,32,80,046%
+Haddock,Seafood,Youtags,665 Sommers Circle,Backordered,09-622-7119,59-781-3399,7/22/2024,1/30/2025,6/15/2024,30,81,99,$9.00,99,3,-150%
+Grapes,Fruits & Vegetables,Rhynyx,622 Buena Vista Trail,Backordered,95-356-1566,57-204-2098,7/22/2024,2/21/2025,1/29/2025,13,61,77,$5.50,42,18,097%
+White Sugar,Grains & Pulses,Skyba,083 Gulseth Pass,Active,22-319-1377,82-266-1796,7/23/2024,3/3/2024,6/21/2024,14,16,93,$2.00,39,30,057%
+Wild Rice,Grains & Pulses,Devbug,022 Prairie Rose Drive,Discontinued,89-181-4523,54-749-3622,7/23/2024,6/23/2024,12/22/2024,46,6,64,$10.00,63,29,023%
+Black Coffee,Beverages,Aimbu,0 Oneill Hill,Discontinued,38-555-9147,35-370-7603,7/23/2024,4/29/2024,3/8/2024,62,23,25,$15.50,34,68,054%
+Onion,Fruits & Vegetables,Voolith,992 East Point,Active,53-667-4109,40-800-4739,7/23/2024,3/21/2024,5/24/2024,16,75,42,$2.00,22,46,-100%
+All-Purpose Flour,Grains & Pulses,Wikibox,21629 Burrows Pass,Discontinued,14-489-8669,28-436-5158,7/24/2024,11/5/2024,5/13/2024,54,69,68,$1.75,77,56,-109%
+Vegetable Oil,Oils & Fats,Trudeo,5414 Linden Point,Backordered,26-031-8070,11-096-4003,7/25/2024,5/25/2024,4/19/2024,57,99,23,$2.00,89,21,027%
+Pomegranate,Fruits & Vegetables,Teklist,60 Messerschmidt Pass,Active,47-221-2470,30-780-7583,7/25/2024,4/3/2024,10/10/2024,17,45,44,$6.00,37,16,076%
+Green Beans,Fruits & Vegetables,Fivespan,92 Bartelt Terrace,Active,67-382-4435,49-901-0828,7/25/2024,12/21/2024,3/2/2024,99,37,74,$2.10,46,46,057%
+Broccoli,Fruits & Vegetables,Jetpulse,071 Nobel Circle,Discontinued,94-029-2717,37-878-9392,7/26/2024,2/6/2025,6/9/2024,40,8,98,$4.00,86,12,000%
+Egg (Duck),Dairy,Dynazzy,30880 Barnett Junction,Discontinued,47-866-6589,78-203-1075,7/26/2024,2/3/2025,7/27/2024,41,61,69,$1.00,30,100,086%
+Tilapia,Seafood,Jabbercube,116 Spaight Park,Discontinued,94-355-3070,73-393-9432,7/26/2024,7/13/2024,7/23/2024,14,52,80,$6.80,64,17,-233%
+Vanilla Biscuit,Bakery,Yozio,317 Anniversary Pass,Backordered,82-342-7339,14-325-9173,7/27/2024,7/31/2024,3/4/2024,80,61,23,$5.50,63,75,073%
+Arabica Coffee,Beverages,Rhyzio,5 Killdeer Trail,Backordered,80-459-5950,04-866-2231,7/27/2024,10/2/2024,3/20/2024,74,10,74,$20.00,100,66,-019%
+Cauliflower,Fruits & Vegetables,Avamm,05 Bartelt Street,Active,67-248-6306,86-173-6891,7/27/2024,10/2/2024,12/22/2024,77,54,10,$2.50,64,73,034%
+Sweet Potato,Fruits & Vegetables,Yodo,55 Cherokee Circle,Discontinued,68-973-8812,31-955-7362,7/27/2024,6/22/2024,5/24/2024,44,77,45,$2.00,89,64,-014%
+Mango,Fruits & Vegetables,Skipfire,387 Jay Point,Discontinued,11-325-7396,98-940-7545,7/28/2024,10/18/2024,3/26/2024,92,46,13,$5.00,24,75,028%
+Zucchini,Fruits & Vegetables,Brainverse,9695 Alpine Trail,Discontinued,68-761-6907,31-199-3683,7/28/2024,7/21/2024,2/2/2025,26,18,62,$2.50,57,86,-213%
+Almond Flour,Grains & Pulses,Brainverse,1468 Meadow Vale Court,Backordered,62-509-0666,16-419-1419,7/28/2024,5/15/2024,7/3/2024,13,88,7,$9.50,24,21,-051%
+Lemon,Fruits & Vegetables,Flashspan,022 Pierstorff Point,Active,44-476-0390,48-562-3582,7/28/2024,4/27/2024,3/14/2024,90,92,56,$2.50,71,13,013%
+Sour Cream,Dairy,Babblestorm,33 Clarendon Hill,Active,08-213-2058,13-179-9553,7/28/2024,9/7/2024,8/26/2024,43,73,14,$4.00,59,65,082%
+Broccoli,Fruits & Vegetables,Jabbersphere,2 School Drive,Discontinued,35-529-2933,57-591-6452,7/28/2024,10/23/2024,7/13/2024,85,54,18,$4.00,85,44,-010%
+Egg (Turkey),Dairy,Topiclounge,120 Gale Circle,Discontinued,24-364-3341,13-290-8513,7/29/2024,4/11/2024,9/25/2024,44,84,63,$2.50,51,67,048%
+Pear,Fruits & Vegetables,Lazz,582 Dahle Center,Active,65-644-1394,23-280-1300,7/29/2024,1/6/2025,2/10/2025,26,95,36,$4.50,92,14,-031%
+Cauliflower,Fruits & Vegetables,Jabberstorm,39014 Randy Court,Discontinued,88-401-3700,39-299-6093,7/29/2024,2/4/2025,1/20/2025,86,66,24,$2.50,30,6,085%
+Digestive Biscuit,Bakery,Vimbo,4247 David Crossing,Discontinued,47-441-7682,90-998-1236,7/29/2024,12/12/2024,11/30/2024,40,91,24,$4.00,28,47,080%
+Grapes,Fruits & Vegetables,Skinix,6482 Ramsey Alley,Backordered,68-977-2498,26-222-1156,7/30/2024,5/20/2024,7/21/2024,88,99,41,$5.50,93,99,-068%
+Almond Flour,Grains & Pulses,Trilia,153 Caliangt Plaza,Backordered,37-567-3218,03-257-4437,7/30/2024,10/31/2024,7/20/2024,37,47,34,$9.50,38,89,-006%
+Peanut Oil,Oils & Fats,Twitterbeat,99 Twin Pines Alley,Active,87-903-3486,90-378-8463,7/30/2024,9/10/2024,2/29/2024,21,25,39,$4.00,79,30,-134%
+Bell Pepper,Fruits & Vegetables,Linklinks,6 Swallow Crossing,Discontinued,96-316-7600,76-671-7104,7/31/2024,7/27/2024,7/7/2024,70,31,55,$4.50,23,80,062%
+Egg (Goose),Dairy,Oba,53894 Myrtle Place,Backordered,00-842-9790,37-079-2530,7/31/2024,1/30/2025,12/28/2024,65,94,4,$2.50,66,36,-248%
+Coconut Oil,Oils & Fats,Browsezoom,1275 Lawn Center,Discontinued,96-164-0607,15-655-3923,7/31/2024,12/20/2024,10/17/2024,89,79,66,$5.00,91,31,045%
+Olive Oil,Oils & Fats,Kamba,504 Green Park,Discontinued,04-240-2226,65-842-6819,8/13/2024,6/28/2024,3/5/2024,47,48,73,$6.00,42,51,066%
+Pineapple,Fruits & Vegetables,Rooxo,9 Bartillon Trail,Discontinued,97-772-2336,19-704-4404,8/13/2024,2/3/2025,7/14/2024,70,30,69,$3.50,44,42,-021%
+Pomegranate,Fruits & Vegetables,Kamba,5900 Vahlen Avenue,Backordered,63-822-5278,27-636-1606,8/13/2024,12/13/2024,2/27/2024,14,66,1,$6.00,86,15,005%
+Short Grain Rice,Grains & Pulses,Yombu,6990 Kings Place,Discontinued,19-967-0632,90-445-1753,8/14/2024,2/4/2025,11/6/2024,53,86,54,$3.00,44,3,083%
+Pomegranate,Fruits & Vegetables,Kwideo,4 Old Shore Avenue,Active,28-986-8001,37-281-2537,8/14/2024,6/15/2024,10/13/2024,65,69,4,$6.00,80,26,093%
+Jasmine Rice,Grains & Pulses,Katz,012 Mockingbird Court,Backordered,44-128-2185,79-091-7381,8/14/2024,7/10/2024,12/30/2024,98,20,81,$4.75,51,23,068%
+Egg (Chicken),Dairy,Bubblemix,739 Rowland Way,Discontinued,84-327-7787,97-571-0561,8/14/2024,8/26/2024,9/6/2024,83,35,43,$0.20,94,68,055%
+Coconut,Fruits & Vegetables,Mydo,772 Golf Course Junction,Active,50-364-5828,17-239-6309,8/15/2024,6/14/2024,12/23/2024,89,57,92,$5.00,38,16,028%
+Egg (Turkey),Dairy,Browsedrive,231 Merry Pass,Active,65-368-2479,99-570-8162,8/15/2024,3/10/2024,10/7/2024,23,21,59,$2.40,81,8,058%
+Greek Yogurt,Dairy,Shufflester,7 Hooker Way,Backordered,17-253-5688,42-638-2086,8/15/2024,7/7/2024,6/20/2024,39,55,39,$3.00,47,59,090%
+Sushi Rice,Grains & Pulses,Jaxnation,48 Del Sol Trail,Discontinued,29-205-1132,38-037-1699,8/16/2024,6/29/2024,9/19/2024,22,72,70,$4.50,32,19,-026%
+Peanut Oil,Oils & Fats,Pixoboo,76 Independence Drive,Discontinued,64-854-8664,19-893-7698,8/16/2024,1/25/2025,8/30/2024,79,3,36,$4.00,46,29,041%
+Trout,Seafood,Jabbertype,08 Randy Junction,Active,66-627-9752,87-839-6400,8/17/2024,10/1/2024,9/3/2024,49,73,48,$12.00,52,62,037%
+Palm Oil,Oils & Fats,Buzzshare,94451 Arkansas Park,Backordered,62-795-7801,08-312-0872,8/17/2024,7/28/2024,11/23/2024,35,41,84,$1.80,62,14,-019%
+White Sugar,Grains & Pulses,Topicshots,322 Birchwood Center,Active,40-683-0283,27-060-9944,8/17/2024,5/4/2024,5/23/2024,27,64,78,$2.00,57,4,077%
+Powdered Sugar,Grains & Pulses,Mybuzz,5 Homewood Street,Discontinued,87-423-8486,12-947-4739,8/17/2024,3/21/2024,3/9/2024,63,4,46,$2.50,40,69,093%
+Pear,Fruits & Vegetables,Centizu,3 Hooker Way,Discontinued,16-499-5059,09-090-6360,8/18/2024,11/19/2024,12/20/2024,77,20,5,$4.50,61,62,-073%
+Bread Flour,Grains & Pulses,Browsezoom,8 Surrey Pass,Discontinued,05-334-2923,41-772-6271,8/18/2024,11/22/2024,5/16/2024,14,74,71,$1.50,37,22,-002%
+Green Tea,Beverages,Oyoyo,2 Petterle Road,Active,74-845-3299,21-792-1000,8/18/2024,2/12/2025,4/29/2024,63,92,26,$8.00,93,99,041%
+Black Rice,Grains & Pulses,Voomm,57598 Russell Center,Backordered,10-249-7928,69-861-0313,8/18/2024,4/3/2024,11/3/2024,85,4,75,$6.50,95,70,-006%
+Tilapia,Seafood,Flipopia,73397 Steensland Circle,Active,08-725-8156,32-196-4714,8/18/2024,11/10/2024,3/15/2024,59,59,10,$7.00,57,50,026%
+Haddock,Seafood,Snaptags,8 Autumn Leaf Drive,Discontinued,41-240-8856,28-162-7486,8/18/2024,5/29/2024,1/10/2025,79,53,12,$9.00,45,95,012%
+Parmesan Cheese,Dairy,Photospace,9463 Northland Court,Backordered,35-257-9312,35-927-4986,8/18/2024,10/12/2024,4/6/2024,80,100,48,$12.00,100,28,-111%
+Sweet Potato,Fruits & Vegetables,Photospace,41 Nelson Center,Backordered,13-980-8804,20-608-1290,8/19/2024,10/1/2024,2/10/2025,100,3,32,$2.00,98,91,072%
+Apricot,Fruits & Vegetables,Blognation,2633 Shasta Alley,Backordered,68-977-6854,73-830-9633,8/19/2024,7/29/2024,3/2/2024,90,30,42,$5.00,76,69,007%
+Butter,Dairy,Npath,904 Del Mar Crossing,Active,90-773-9557,02-165-5779,8/20/2024,6/30/2024,6/12/2024,85,28,21,$3.00,45,89,009%
+Bread Flour,Grains & Pulses,Jazzy,33774 Carberry Circle,Active,89-328-9019,63-057-0462,8/20/2024,4/20/2024,12/8/2024,63,43,8,$1.50,55,72,-098%
+Egg (Goose),Dairy,Dynava,2 Barby Lane,Discontinued,59-075-2457,18-733-2453,8/21/2024,2/3/2025,11/10/2024,97,26,15,$2.50,33,58,-031%
+White Bread,Bakery,Ozu,44638 Corscot Lane,Backordered,31-627-6025,17-084-8551,8/22/2024,9/3/2024,1/20/2025,56,62,64,$2.50,56,73,-076%
+Trout,Seafood,Flipbug,4 Jay Terrace,Discontinued,28-824-9017,93-712-3934,8/22/2024,6/8/2024,6/14/2024,19,94,17,$11.50,96,74,-030%
+Sesame Oil,Oils & Fats,Miboo,49476 Tony Hill,Discontinued,06-858-5680,63-231-2829,8/22/2024,1/12/2025,1/16/2025,15,34,57,$6.50,49,96,023%
+Pineapple,Fruits & Vegetables,Photojam,3645 Ridge Oak Drive,Backordered,38-732-7667,88-663-3393,8/23/2024,10/13/2024,9/28/2024,18,52,22,$3.50,42,32,-096%
+Green Tea,Beverages,Thoughtsphere,20073 Northfield Way,Discontinued,85-237-3505,92-296-1266,8/23/2024,11/13/2024,11/3/2024,88,50,88,$8.00,78,28,024%
+Brown Rice,Grains & Pulses,Skipfire,955 4th Road,Discontinued,73-117-6105,74-729-7466,8/23/2024,9/17/2024,1/23/2025,44,48,77,$2.50,67,79,064%
+Green Tea,Beverages,Fiveclub,226 Calypso Road,Active,46-436-5351,07-471-0050,8/24/2024,9/30/2024,4/16/2024,80,54,21,$8.50,81,37,-018%
+Wild Rice,Grains & Pulses,Babbleopia,3 Hermina Circle,Active,56-303-5256,29-821-5359,8/24/2024,11/17/2024,3/21/2024,58,24,25,$10.00,75,26,054%
+Bread Flour,Grains & Pulses,Roomm,561 Blue Bill Park Road,Discontinued,57-394-1587,59-595-7531,8/25/2024,2/17/2025,10/30/2024,57,63,41,$1.50,53,94,065%
+Sardines,Seafood,Linklinks,05944 Scott Parkway,Active,51-934-9117,34-389-9922,8/25/2024,7/28/2024,1/31/2025,30,55,4,$6.00,56,31,-077%
+Almond Flour,Grains & Pulses,Thoughtblab,6 Acker Street,Active,77-377-1659,64-674-3902,8/25/2024,1/22/2025,6/19/2024,74,22,91,$9.50,24,12,045%
+Swiss Cheese,Dairy,Skidoo,739 Swallow Road,Active,27-262-2437,05-181-2682,8/26/2024,11/20/2024,10/9/2024,80,9,29,$8.10,54,62,050%
+Cucumber,Fruits & Vegetables,Eire,2 Basil Street,Active,71-085-4290,26-593-3478,8/26/2024,10/7/2024,12/4/2024,31,98,72,$1.80,91,29,-015%
+Strawberries,Fruits & Vegetables,Skalith,60241 Portage Point,Discontinued,87-675-1506,21-697-8128,8/26/2024,12/7/2024,5/21/2024,31,89,7,$5.90,46,54,068%
+Almond Flour,Grains & Pulses,Eimbee,5426 Fordem Pass,Backordered,77-224-2227,89-226-5813,8/26/2024,9/30/2024,10/26/2024,75,46,75,$9.50,43,77,-017%
+Sweet Potato,Fruits & Vegetables,Skibox,15 Veith Circle,Backordered,94-658-4945,09-153-0763,8/27/2024,2/12/2025,5/8/2024,65,10,81,$2.00,71,61,-079%
+Cauliflower,Fruits & Vegetables,Yakitri,1 Hudson Hill,Discontinued,15-562-3712,53-243-7800,8/27/2024,6/20/2024,10/28/2024,33,89,15,$2.50,90,52,014%
+Yogurt,Dairy,Thoughtworks,15658 Talisman Lane,Backordered,98-546-7398,37-921-2953,8/27/2024,5/3/2024,4/17/2024,80,69,71,$1.75,41,43,042%
+Egg (Turkey),Dairy,Oyondu,35 Portage Road,Discontinued,36-177-0573,62-687-0951,8/27/2024,10/2/2024,4/13/2024,92,1,23,$2.50,78,36,-005%
+Basmati Rice,Grains & Pulses,Yamia,308 Doe Crossing Pass,Discontinued,39-358-3340,86-841-4440,8/27/2024,3/25/2024,3/14/2024,71,60,62,$4.50,60,63,054%
+Rice Flour,Grains & Pulses,Mynte,127 Eliot Road,Backordered,11-733-1756,27-970-8649,8/28/2024,11/27/2024,2/24/2025,52,81,53,$2.00,95,88,-005%
+Blueberries,Fruits & Vegetables,Buzzbean,3 Bunting Point,Discontinued,01-026-2772,20-532-0144,8/28/2024,6/11/2024,5/27/2024,40,61,47,$10.00,76,10,007%
+Peanut Oil,Oils & Fats,Eidel,6 Harbort Hill,Active,84-198-7276,34-158-6684,8/29/2024,1/16/2025,6/15/2024,60,88,65,$4.00,94,15,087%
+Mackerel,Seafood,Janyx,376 Reinke Court,Backordered,56-810-0550,94-145-9423,8/29/2024,12/2/2024,9/4/2024,71,7,6,$7.50,52,68,084%
+Pineapple,Fruits & Vegetables,Yamia,3 Ronald Regan Center,Discontinued,40-751-8635,48-878-3021,8/30/2024,10/17/2024,3/5/2024,44,80,84,$3.40,96,68,-031%
+Sushi Rice,Grains & Pulses,Dabshots,43107 Schlimgen Circle,Active,14-305-9690,13-457-9946,8/30/2024,6/29/2024,3/10/2024,19,17,14,$4.30,58,23,029%
+Basmati Rice,Grains & Pulses,Yodo,28 Boyd Pass,Active,83-727-0814,79-656-1990,8/30/2024,6/8/2024,6/5/2024,11,87,64,$4.50,29,6,060%
+Pomegranate,Fruits & Vegetables,Tagopia,62238 Mallory Place,Active,71-015-9181,56-196-9896,8/30/2024,8/27/2024,10/26/2024,22,35,55,$6.00,41,27,079%
+Orange,Fruits & Vegetables,Kanoodle,9516 Burrows Circle,Discontinued,51-572-5497,43-035-3382,8/31/2024,2/13/2025,4/28/2024,15,44,88,$3.00,56,12,034%
+Pomegranate,Fruits & Vegetables,Innojam,1008 Welch Street,Active,06-797-4963,41-821-0197,8/31/2024,8/15/2024,8/16/2024,52,8,37,$6.00,38,81,079%
+Cheese,Dairy,Mydeo,1700 Briar Crest Parkway,Backordered,42-141-5718,67-662-3444,9/13/2024,1/6/2025,12/26/2024,100,31,43,$9.00,88,52,-113%
+Milk,Dairy,Jabbercube,53 Homewood Alley,Active,37-606-0510,09-489-6314,9/13/2024,6/9/2024,11/9/2024,18,64,86,$1.00,73,38,041%
+Sunflower Oil,Oils & Fats,Aibox,43591 East Road,Active,44-480-9446,35-000-6015,9/13/2024,2/19/2025,3/14/2024,39,13,13,$2.50,84,93,048%
+Black Tea,Beverages,Brainbox,79 Cardinal Court,Active,78-237-0277,50-314-5433,9/15/2024,9/23/2024,1/13/2025,46,27,76,$5.00,64,96,-011%
+Watermelon,Fruits & Vegetables,Topicblab,26240 Maple Wood Place,Discontinued,87-997-0228,55-156-6528,9/15/2024,10/24/2024,12/27/2024,71,4,37,$3.00,81,25,-050%
+Whole Wheat Flour,Grains & Pulses,Pixonyx,78 Forest Dale Road,Backordered,42-674-3917,26-080-4944,9/15/2024,4/20/2024,6/6/2024,41,76,47,$2.65,50,50,069%
+Robusta Coffee,Beverages,Yozio,25696 Westerfield Alley,Active,28-185-7303,97-143-0641,9/15/2024,1/21/2025,10/22/2024,59,31,3,$10.00,48,51,000%
+Salmon,Seafood,Fanoodle,56 Petterle Circle,Active,45-852-2446,37-567-5710,9/15/2024,6/8/2024,11/29/2024,73,12,28,$15.00,89,92,-006%
+Salmon,Seafood,Innojam,1247 Hoard Hill,Active,56-831-6199,99-680-2351,9/16/2024,2/25/2024,8/14/2024,49,48,62,$15.00,96,37,-003%
+Cabbage,Fruits & Vegetables,Twitternation,700 Northland Crossing,Backordered,82-538-4809,74-357-2990,9/16/2024,11/5/2024,10/24/2024,83,61,4,$1.00,35,7,061%
+Banana,Fruits & Vegetables,Vinder,8 Heffernan Point,Active,87-698-0944,73-717-0190,9/17/2024,8/27/2024,2/2/2025,56,12,59,$98.43,35,16,080%
+Peas,Fruits & Vegetables,Edgeclub,39 Dovetail Terrace,Active,30-964-2694,42-976-2737,9/18/2024,5/12/2024,6/30/2024,48,72,55,$3.00,51,41,054%
+Powdered Sugar,Grains & Pulses,Topicshots,5649 Vidon Plaza,Active,09-335-7793,96-918-7047,9/18/2024,9/7/2024,6/1/2024,66,19,20,$2.40,30,49,020%
+Rice Flour,Grains & Pulses,Zava,289 Longview Point,Active,99-033-5661,32-458-6452,9/19/2024,1/27/2025,9/25/2024,42,3,21,$2.00,35,22,-063%
+Black Rice,Grains & Pulses,Shuffletag,46989 Crescent Oaks Junction,Backordered,90-128-7973,91-417-6283,9/19/2024,10/31/2024,3/13/2024,49,3,7,$6.25,75,46,037%
+Tilapia,Seafood,Plajo,13799 Quincy Park,Discontinued,52-797-6961,75-793-8978,9/19/2024,6/7/2024,6/17/2024,46,80,88,$7.00,62,22,039%
+Arborio Rice,Grains & Pulses,Feedmix,05433 Towne Terrace,Discontinued,39-232-5341,23-319-2681,9/21/2024,10/24/2024,2/15/2025,20,34,74,$4.50,50,83,065%
+Cream,Dairy,Meevee,44 Kensington Road,Discontinued,46-931-6897,22-946-8052,9/21/2024,6/15/2024,9/15/2024,29,32,26,$2.50,64,85,-066%
+Cream,Dairy,Trilith,668 Claremont Place,Discontinued,56-937-8675,37-996-3243,9/21/2024,5/31/2024,12/8/2024,62,91,14,$2.50,41,77,-033%
+Tilapia,Seafood,Dynava,674 Ryan Alley,Backordered,54-830-6971,94-006-6480,9/21/2024,12/25/2024,5/18/2024,100,61,21,$7.00,85,79,-088%
+Powdered Sugar,Grains & Pulses,Kazu,00029 Fisk Point,Discontinued,90-865-9150,58-053-4926,9/22/2024,5/12/2024,7/9/2024,28,24,97,$2.50,82,5,007%
+Long Grain Rice,Grains & Pulses,Geba,61224 Northridge Avenue,Active,42-887-6557,49-092-2735,9/23/2024,7/10/2024,3/30/2024,26,82,19,$1.50,76,88,094%
+Carrot,Fruits & Vegetables,Quinu,24385 Prentice Plaza,Discontinued,94-190-5193,95-778-2888,9/23/2024,11/21/2024,4/9/2024,67,68,50,$1.50,67,82,-016%
+Blueberries,Fruits & Vegetables,Kamba,052 Northland Trail,Active,00-440-9568,43-605-2448,9/23/2024,9/4/2024,12/20/2024,53,98,25,$10.00,55,51,-022%
+Peanut Oil,Oils & Fats,Babblestorm,0109 Stang Terrace,Discontinued,74-294-3760,81-233-6894,9/23/2024,11/30/2024,11/27/2024,49,17,54,$4.00,45,96,007%
+Yogurt,Dairy,Devpulse,8 Kensington Place,Backordered,66-806-6051,19-875-5642,9/23/2024,7/1/2024,5/23/2024,63,12,82,$1.70,56,31,-113%
+Broccoli,Fruits & Vegetables,Realblab,16 Elgar Point,Discontinued,81-844-2979,02-575-7332,9/24/2024,1/15/2025,5/11/2024,73,87,46,$4.00,47,67,045%
+Tuna,Seafood,Viva,239 Anderson Court,Discontinued,80-072-8774,61-222-8413,9/24/2024,7/6/2024,10/15/2024,89,95,41,$18.00,76,96,-043%
+Strawberries,Fruits & Vegetables,Skimia,1 Havey Park,Discontinued,80-039-1261,37-994-7932,9/25/2024,11/28/2024,6/12/2024,26,97,12,$6.00,94,58,-026%
+Avocado Oil,Oils & Fats,Twitterwire,938 Garrison Court,Discontinued,58-219-0241,42-523-1857,9/26/2024,5/12/2024,6/4/2024,50,36,81,$10.00,27,6,038%
+Haddock,Seafood,Zoovu,21379 Stoughton Junction,Active,94-528-8088,68-885-5553,9/26/2024,7/24/2024,3/8/2024,43,7,63,$9.00,66,71,078%
+Feta Cheese,Dairy,Avaveo,60 Towne Hill,Active,95-349-0828,43-977-2343,9/27/2024,8/29/2024,2/6/2025,97,57,84,$7.00,95,28,-008%
+Trout,Seafood,Izio,96420 Briar Crest Lane,Active,03-061-1344,85-211-5357,9/27/2024,7/19/2024,6/27/2024,98,65,76,$12.00,62,47,071%
+Parmesan Cheese,Dairy,Yakidoo,0 Fordem Place,Backordered,67-984-5368,39-714-7313,9/27/2024,10/4/2024,7/28/2024,52,56,34,$12.00,31,69,024%
+Raw Sugar,Grains & Pulses,Flipopia,365 Vera Terrace,Active,44-782-1395,54-132-9762,9/29/2024,6/26/2024,11/17/2024,72,72,68,$1.50,39,78,-123%
+Cabbage,Fruits & Vegetables,Topdrive,43 Washington Street,Discontinued,75-927-9108,27-406-7972,9/29/2024,6/17/2024,7/2/2024,24,32,17,$1.00,55,72,-100%
+Green Beans,Fruits & Vegetables,Gigazoom,37 Browning Trail,Discontinued,78-614-4402,51-014-4287,9/30/2024,2/14/2025,4/25/2024,81,99,28,$2.00,20,85,-031%
+Strawberries,Fruits & Vegetables,Lazz,32525 Marquette Park,Discontinued,01-903-5373,37-902-0286,9/30/2024,6/20/2024,6/21/2024,94,77,89,$6.00,40,84,-325%
