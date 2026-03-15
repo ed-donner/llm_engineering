@@ -213,3 +213,10 @@ week6/*/*.jsonl
 week6/*.pth
 week6/*.joblib
 week8/*.pth
+
+# Chroma / local vector DBs (runtime-generated; no name-specific entries)
+**/chroma.sqlite3
+**/*vectorstore*/
+**/*_vectorstore/
+**/*chroma*db*/
+week8/**/*_db/
