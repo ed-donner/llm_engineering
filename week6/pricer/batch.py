@@ -7,7 +7,6 @@ import pickle
 from tqdm.notebook import tqdm
 
 load_dotenv(override=True)
-groq = Groq(api_key=os.environ.get("GROQ_API_KEY"))
 
 MODEL = "openai/gpt-oss-20b"
 BATCHES_FOLDER = "batches"
@@ -28,6 +27,7 @@ class Batch:
     batches = []
 
     def __init__(self, items, start, end, lite):
+        self.groq = Groq(api_key=os.environ.get("GROQ_API_KEY"))
         self.items = items
         self.start = start
         self.end = end
@@ -69,11 +69,11 @@ class Batch:
     def send_file(self):
         batch_file = self.batches / self.filename
         with batch_file.open("rb") as f:
-            response = groq.files.create(file=f, purpose="batch")
+            response = self.groq.files.create(file=f, purpose="batch")
         self.file_id = response.id
 
     def submit_batch(self):
-        response = groq.batches.create(
+        response = self.groq.batches.create(
             completion_window="24h",
             endpoint="/v1/chat/completions",
             input_file_id=self.file_id,
@@ -81,7 +81,7 @@ class Batch:
         self.batch_id = response.id
 
     def is_ready(self):
-        response = groq.batches.retrieve(self.batch_id)
+        response = self.groq.batches.retrieve(self.batch_id)
         status = response.status
         if status == "completed":
             self.output_file_id = response.output_file_id
@@ -89,7 +89,7 @@ class Batch:
 
     def fetch_output(self):
         output_file = str(self.output / self.filename)
-        response = groq.files.content(self.output_file_id)
+        response = self.groq.files.content(self.output_file_id)
         response.write_to_file(output_file)
 
     def apply_output(self):
