@@ -1,0 +1,11 @@
+langchain
+langchain-openai
+langchain-huggingface
+langchain-chroma
+sentence-transformers
+torch
+transformers
+langchain-community
+chromadb
+pypdf
+gradio
