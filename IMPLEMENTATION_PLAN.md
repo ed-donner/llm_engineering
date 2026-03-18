@@ -1,9 +1,9 @@
 # Implementation Plan - LLM Engineering Course
 
 ## Quick Reference
-- **Current Phase**: Week 1 - Community Contributions (PR submitted)
-- **Last Session**: 2026-03-17
-- **Next Priority**: Monitor PR #2825 for Ed's feedback, continue with Week 2
+- **Current Phase**: Week 2 - Frontier Model APIs (in progress)
+- **Last Session**: 2026-03-18
+- **Next Priority**: Continue Week 2 Day 1 notebook, then Day 2+
 
 ---
 
@@ -23,7 +23,7 @@ Complete the 8-week LLM Engineering course with hands-on projects and community 
 - ✅ Submit PR to community-contributions (PR #2825)
 
 ### Phase 2: Weeks 2-4 - Core LLM Concepts
-- ⬜ Week 2: Advanced prompting techniques
+- 🔄 Week 2: Frontier Model APIs & advanced prompting
 - ⬜ Week 3: Fine-tuning and embeddings
 - ⬜ Week 4: RAG implementations with ChromaDB
 
@@ -89,3 +89,19 @@ Complete the 8-week LLM Engineering course with hands-on projects and community 
 - Monitor PR #2825 for Ed Donner's feedback
 - Address any review comments
 - Continue with Week 2 or other course work
+
+### Session 3: 2026-03-18
+**Duration**: ~15 minutes
+
+**Completed**:
+- [x] Started Week 2 Day 1 - Frontier Model APIs notebook
+- [x] Verified API keys: OpenAI, Anthropic, Google configured; DeepSeek/Groq/Grok/OpenRouter not set (optional)
+- [x] User running through notebook independently
+
+**Key Decisions**:
+- Skip optional provider cells (DeepSeek, Groq, Grok, OpenRouter) since keys aren't configured
+
+**Next Session**:
+- Continue Week 2 (Day 2+)
+- Check PR #2825 status
+- Try Week 2 exercises (3-way chatbot conversation)
