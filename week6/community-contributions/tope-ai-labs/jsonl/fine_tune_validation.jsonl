@@ -1,0 +1,2 @@
+{"messages": [{"role": "user", "content": "Average order value by customer"}, {"role": "assistant", "content": "SELECT customer_id, AVG(total) AS avg_order_value\nFROM orders\nGROUP BY customer_id;"}]}
+{"messages": [{"role": "user", "content": "Delete all expired sessions"}, {"role": "assistant", "content": "DELETE FROM sessions\nWHERE expires_at < NOW();"}]}
