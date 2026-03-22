@@ -2,22 +2,35 @@
 
 ## Your 8 week journey to proficiency starts today
 
-![Voyage](voyage.jpg)
+![Voyage](assets/voyage.jpg)
+
+_If you're looking at this in Cursor, please right click on the filename in the Explorer on the left, and select "Open preview", to view the formatted version._
 
 I'm so happy you're joining me on this path. We'll be building immensely satisfying projects in the coming weeks. Some will be easy, some will be challenging, many will ASTOUND you! The projects build on each other so you develop deeper and deeper expertise each week. One thing's for sure: you're going to have a lot of fun along the way.
 
+## IMPORTANT ANNOUNCEMENT - DECEMBER 2025 - PLEASE READ
+
+The course material has been completely refreshed with all new weeks. If you'd prefer to stick with the code for the original videos, simply do this from your Anaconda Prompt or Terminal:  
+`git fetch`  
+`git checkout original`
+
+Any questions, please ask me on Udemy or at ed@edwarddonner.com. More details at the top of the course resources [here](https://edwarddonner.com/2024/11/13/llm-engineering-resources/).
+
 ### Before you begin
 
-I'm here to help you be most successful with your learning! If you hit any snafus, or if you have any ideas on how I can improve the course, please do reach out in the platform or by emailing me direct (ed@edwarddonner.com). It's always great to connect with people on LinkedIn to build up the community - you'll find me here:  
+I'm here to help you be most successful with your learning. If you hit any snafus, or if you have any ideas on how I can improve the course, please do reach out in the platform or by emailing me direct (ed@edwarddonner.com). It's always great to connect with people on LinkedIn to build up the community - you'll find me here:  
 https://www.linkedin.com/in/eddonner/  
 And this is new to me, but I'm also trying out X/Twitter at [@edwarddonner](https://x.com/edwarddonner) - if you're on X, please show me how it's done 😂  
 
 Resources to accompany the course, including the slides and useful links, are here:  
 https://edwarddonner.com/2024/11/13/llm-engineering-resources/
 
-## Instant Gratification instructions for Week 1, Day 1 - with Llama 3.2 **not** Llama 3.3!
+And a useful FAQ with common questions is here:  
+https://edwarddonner.com/faq/
 
-### Important note: see my warning about Llama3.3 below - it's too large for home computers! Stick with llama3.2! Several students have missed this warning...
+## Instant Gratification instructions for Week 1, Day 1 - with Llama 3.2 **not** Llama 3.3
+
+### Important note: see my warning about Llama3.3 below - it's too large for home computers! Stick with llama3.2 - several students have missed this warning...
 
 We will start the course by installing Ollama so you can see results immediately!
 1. Download and install Ollama from https://ollama.com noting that on a PC you might need to have administrator permissions for the install to work properly
@@ -28,17 +41,22 @@ We will start the course by installing Ollama so you can see results immediately
 
 Any problems, please contact me!
 
-## Then, Setup instructions
+## Before the Setup instructions - a special note
+
+Early on in the course (on Day 2), I give a demo of a very cool, popular product called Claude Code. It's an AI coding tool, similar to Cursor that we use on the course. I'm only showing this as an example of Agentic AI in action; it's not a tool that's covered explicitly on this course, particularly as we're in Cursor. But if you want to use Claude Code yourself, the Quick Start guide from Anthropic is [here](https://docs.claude.com/en/docs/claude-code/quickstart).
+
+## OK - now on to Setup instructions
 
 After we do the Ollama quick project, and after I introduce myself and the course, we get to work with the full environment setup.  
 
 Hopefully I've done a decent job of making these guides bulletproof - but please contact me right away if you hit roadblocks:
 
-- PC people please follow the instructions in [SETUP-PC.md](SETUP-PC.md)
-- Mac people please follow the instructions in [SETUP-mac.md](SETUP-mac.md)  
-- Linux people please follow the instructions in [SETUP-linux.md](SETUP-linux.md)
+NEW INSTRUCTIONS for new version of the course (rolled out October 2025): [New Setup Instructions All Platforms](setup/SETUP-new.md)
 
-The are also PDF versions of the setup instructions in this folder if you'd prefer.
+ORIGINAL INSTRUCTIONS for people on the version prior to October 2025:  
+- PC people please follow the instructions here: [Original PC instructions](setup/SETUP-PC.md)
+- Mac people please follow the instructions here: [Original Mac instructions](setup/SETUP-mac.md)  
+- Linux people please follow the instructions here: [Original Linux instructions](setup/SETUP-linux.md)
 
 ### An important point on API costs (which are optional! No need to spend if you don't wish)
 
@@ -48,31 +66,7 @@ Please do monitor your API usage to ensure you're comfortable with spend; I've i
 
 ### Free alternative to Paid APIs
 
-Early in the course, I show you an alternative if you'd rather not spend anything on APIs:  
-Any time that we have code like:  
-`openai = OpenAI()`  
-You can use this as a direct replacement:  
-`openai = OpenAI(base_url='http://localhost:11434/v1', api_key='ollama')`  
-And also replace model names like **gpt-4o-mini** with **llama3.2**.  
-For week 1 day 1, you can find this in week1/solutions/day1_with_ollama.ipynb.
-
-Below is a full example:
-
-```
-# You need to do this one time on your computer
-!ollama pull llama3.2
-
-from openai import OpenAI
-MODEL = "llama3.2"
-openai = OpenAI(base_url="http://localhost:11434/v1", api_key="ollama")
-
-response = openai.chat.completions.create(
- model=MODEL,
- messages=[{"role": "user", "content": "What is 2 + 2?"}]
-)
-
-print(response.choices[0].message.content)
-```
+See [Guide 9](guides/09_ai_apis_and_ollama.ipynb) in the guides directory for the detailed approach with exact code for Ollama, Gemini, OpenRouter and more!
 
 ### How this Repo is organized
 
@@ -81,7 +75,7 @@ Follow the setup instructions above, then open the Week 1 folder and prepare for
 
 ### The most important part
 
-The mantra of the course is: the best way to learn is by **DOING**. I don't type all the code during the course; I execute it for you to see the results. You should work along with me or after each lecture, running each cell, inspecting the objects to get a detailed understanding of what's happening. Then tweak the code and make it your own. There are juicy challenges for you throughout the course. I'd love it if you wanted to submit a Pull Request for your code (instructions [here](https://chatgpt.com/share/677a9cb5-c64c-8012-99e0-e06e88afd293)) and I can make your solutions available to others so we share in your progress; as an added benefit, you'll be recognized in GitHub for your contribution to the repo. While the projects are enjoyable, they are first and foremost designed to be _educational_, teaching you business skills that can be put into practice in your work.
+The mantra of the course is: the best way to learn is by **DOING**. I don't type all the code during the course; I execute it for you to see the results. You should work along with me or after each lecture, running each cell, inspecting the objects to get a detailed understanding of what's happening. Then tweak the code and make it your own. There are juicy challenges for you throughout the course. I'd love it if you wanted to submit a Pull Request for your code (see the Github guide in the guides folder) and I can make your solutions available to others so we share in your progress; as an added benefit, you'll be recognized in GitHub for your contribution to the repo. While the projects are enjoyable, they are first and foremost designed to be _educational_, teaching you business skills that can be put into practice in your work.
 
 ## Starting in Week 3, we'll also be using Google Colab for running with GPUs
 
@@ -89,20 +83,14 @@ You should be able to use the free tier or minimal spend to complete all the pro
 
 Learn about Google Colab and set up a Google account (if you don't already have one) [here](https://colab.research.google.com/)
 
-The colab links are in the Week folders and also here:  
-- For week 3 day 1, this Google Colab shows what [colab can do](https://colab.research.google.com/drive/1DjcrYDZldAXKJ08x1uYIVCtItoLPk1Wr?usp=sharing)
-- For week 3 day 2, here is a colab for the HuggingFace [pipelines API](https://colab.research.google.com/drive/1aMaEw8A56xs0bRM4lu8z7ou18jqyybGm?usp=sharing)
-- For week 3 day 3, here's the colab on [Tokenizers](https://colab.research.google.com/drive/1WD6Y2N7ctQi1X9wa6rpkg8UfyA4iSVuz?usp=sharing)
-- For week 3 day 4, we go to a colab with HuggingFace [models](https://colab.research.google.com/drive/1hhR9Z-yiqjUe7pJjVQw4c74z_V3VchLy?usp=sharing)
-- For week 3 day 5, we return to colab to make our [Meeting Minutes product](https://colab.research.google.com/drive/1KSMxOCprsl1QRpt_Rq0UqCAyMtPqDQYx?usp=sharing)
-- For week 7, we will use these Colab books: [Day 1](https://colab.research.google.com/drive/15rqdMTJwK76icPBxNoqhI7Ww8UM-Y7ni?usp=sharing) | [Day 2](https://colab.research.google.com/drive/1T72pbfZw32fq-clQEp-p8YQ4_qFKv4TP?usp=sharing) | [Days 3 and 4](https://colab.research.google.com/drive/1csEdaECRtjV_1p9zMkaKKjCpYnltlN3M?usp=sharing) | [Day 5](https://colab.research.google.com/drive/1igA0HF0gvQqbdBD4GkcK3GpHtuDLijYn?usp=sharing)
+The colab links are in the folders for Week 3 and Week 7 - if you open up the lab for each day, you'll find a direct link to the colab.
 
 ### Monitoring API charges
 
-You can keep your API spend very low throughout this course; you can monitor spend at the dashboards: [here](https://platform.openai.com/usage) for OpenAI, [here](https://console.anthropic.com/settings/cost) for Anthropic and [here](https://console.cloud.google.com/apis/api/generativelanguage.googleapis.com/cost) for Google Gemini.
+You can keep your API spend very low throughout this course; you can monitor spend at the dashboards: [here](https://platform.openai.com/usage) for OpenAI, [here](https://console.anthropic.com/settings/cost) for Anthropic.
 
 The charges for the exercsies in this course should always be quite low, but if you'd prefer to keep them minimal, then be sure to always choose the cheapest versions of models:
-1. For OpenAI: Always use model `gpt-4o-mini` in the code instead of `gpt-4o`
+1. For OpenAI: Always use model `gpt-4.1-nano` in the code
 2. For Anthropic: Always use model `claude-3-haiku-20240307` in the code instead of the other Claude models
 3. During week 7, look out for my instructions for using the cheaper dataset
 
@@ -111,7 +99,7 @@ Please do message me or email me at ed@edwarddonner.com if this doesn't work or 
 <table style="margin: 0; text-align: left;">
     <tr>
         <td style="width: 150px; height: 150px; vertical-align: middle;">
-            <img src="resources.jpg" width="150" height="150" style="display: block;" />
+            <img src="assets/resources.jpg" width="150" height="150" style="display: block;" />
         </td>
         <td>
             <h2 style="color:#f71;">Other resources</h2>

@@ -9,6 +9,7 @@ dependencies:
   - requests
   - numpy
   - pandas
+  - hf-xet==1.1.9
   - scipy
   - pytorch
   - jupyterlab

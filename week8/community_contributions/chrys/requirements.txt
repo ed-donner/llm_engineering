@@ -1,0 +1,8 @@
+requests
+pydantic>=2.0
+python-dotenv
+pandas
+numpy
+apscheduler
+gradio
+litellm
