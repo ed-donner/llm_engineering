@@ -1,0 +1,802 @@
+[
+  {
+    "section_number": "IPC 123A",
+    "section_title": "Protection of Digital Intellectual Property Rights",
+    "provision": "Whoever, without the authorization of the owner, reproduces, distributes, or publicly displays any digital work, including software, databases, or multimedia content, shall be punished with imprisonment for a term which may extend to three years, or with fine which may extend to five lakh rupees, or with both. For the purposes of this section, \"digital work\" shall include any creation that exists in a digital format and embodies original intellectual effort. The provisions of this section shall apply in addition to any rights conferred under the Copyright Act, 1957.",
+    "question_type": "examples",
+    "question": "Can you provide examples of actions that would violate IPC 123A regarding the protection of digital intellectual property rights?",
+    "answer": "Yes, actions that would violate IPC 123A include: 1) Downloading and sharing a copyrighted software program without the owner's permission; 2) Reproducing a digital art piece and selling it online without authorization from the artist; 3) Distributing a database containing proprietary information without consent from the database owner; and 4) Publicly displaying a video or multimedia content on a website or social media platform without obtaining the rights from the creator. All these actions constitute unauthorized reproduction, distribution, or public display of digital works, which are punishable under this provision."
+  },
+  {
+    "section_number": "FLA 102",
+    "section_title": "Inheritance Rights of Unmarried Children",
+    "provision": "In the event of the intestate death of a parent, all unmarried children shall be entitled to an equal share in the estate of the deceased, irrespective of the parentage or domicile of the children. The rights conferred herein shall be enforceable against any individual claiming succession rights to the estate, and no testamentary disposition or familial agreement shall supersede the statutory entitlement outlined in this provision. Furthermore, the provisions of this section shall apply retroactively to all intestate estates, regardless of the date of death of the decedent.",
+    "question_type": "rights",
+    "question": "What rights do unmarried children have in the event of an intestate death of a parent according to FLA 102?",
+    "answer": "Unmarried children are entitled to an equal share in the estate of the deceased parent, regardless of their parentage or domicile. This right is enforceable against anyone claiming succession rights to the estate and cannot be overridden by any will or familial agreement. Additionally, this provision applies retroactively to all intestate estates, regardless of when the decedent died."
+  },
+  {
+    "section_number": "IEA 120A",
+    "section_title": "Admissibility of Digital Evidence",
+    "provision": "Notwithstanding any other provisions of this Act, digital evidence, including but not limited to electronic documents, data stored in digital format, and communications transmitted electronically, shall be admissible in any proceeding before a court provided that the party seeking to introduce such evidence demonstrates its authenticity and relevance. The court may require the party to produce a digital forensic report or certificate from a qualified expert to establish the integrity of the digital evidence in question, ensuring that the evidence has not been tampered with and is a true representation of the original data.",
+    "question_type": "procedure",
+    "question": "What steps must a party take to ensure the admissibility of digital evidence in court under IEA 120A?",
+    "answer": "To ensure the admissibility of digital evidence in court under IEA 120A, the party seeking to introduce the evidence must demonstrate both its authenticity and relevance. Additionally, the court may require the party to produce a digital forensic report or a certificate from a qualified expert to establish the integrity of the digital evidence, confirming that it has not been tampered with and accurately represents the original data."
+  },
+  {
+    "section_number": "IPC 456",
+    "section_title": "Offense of Cyber Intimidation",
+    "provision": "Whoever, with intent to cause harm or distress to any person, uses a computer resource or communication device to send threats, intimidate, or coerce such person through electronic means, shall be punished with imprisonment for a term which may extend to three years, or with fine which may extend to fifty thousand rupees, or with both. In the event of repeated offenses, the imprisonment may extend to five years and the fine may be increased to one lakh rupees.",
+    "question_type": "definition",
+    "question": "What constitutes the offense of cyber intimidation under IPC 456?",
+    "answer": "The offense of cyber intimidation under IPC 456 is defined as the act of using a computer resource or communication device to send threats, intimidate, or coerce any person with the intent to cause harm or distress."
+  },
+  {
+    "section_number": "IPC 124A",
+    "section_title": "Protection of Original Works of Authorship",
+    "provision": "Any person who, without the consent of the author or creator, reproduces, distributes, or publicly displays an original work of authorship, including but not limited to literary, artistic, musical, and dramatic works, shall be liable for infringement. Such infringement shall be punishable with imprisonment for a term that may extend to three years, or with fine, or with both. This section shall not apply to uses that fall under the doctrine of fair use as defined by the relevant provisions of this Code.",
+    "question_type": "obligations",
+    "question": "What obligations does a person have regarding the reproduction, distribution, or public display of an original work of authorship under IPC 124A?",
+    "answer": "A person is obligated to obtain the consent of the author or creator before reproducing, distributing, or publicly displaying an original work of authorship. Failure to do so could result in liability for infringement, which may lead to penalties including imprisonment for up to three years, a fine, or both, unless the use falls under the doctrine of fair use as defined by the relevant provisions of the Code."
+  },
+  {
+    "section_number": "IPC 500A",
+    "section_title": "Unauthorized Access and Data Manipulation",
+    "provision": "Whoever, without lawful authority, intentionally gains access to any computer resource or computer system and causes alteration, deletion, or addition of data therein, shall be punished with imprisonment for a term which may extend to three years, or with fine which may extend to one lakh rupees, or with both. For the purposes of this section, \"computer resource\" shall include any data, software, or digital content stored within the device or network, and \"lawful authority\" shall mean permission granted by the owner or authorized custodian of the computer resource.",
+    "question_type": "definition",
+    "question": "What is meant by \"lawful authority\" as defined in IPC 500A regarding unauthorized access to computer resources?",
+    "answer": "\"Lawful authority\" refers to the permission granted by the owner or authorized custodian of the computer resource to access that resource."
+  },
+  {
+    "section_number": "IPC 506A",
+    "section_title": "Cyber Harassment",
+    "provision": "Whosoever, by means of electronic communication or any digital platform, intentionally causes physical or mental harm to another person through threats, intimidation, or coercive messaging, shall be punished with imprisonment for a term which may extend to three years, or with fine which may extend to fifty thousand rupees, or with both. For the purposes of this section, \"electronic communication\" includes, but is not limited to, text messages, emails, social media interactions, and any other forms of digital messaging.",
+    "question_type": "procedure",
+    "question": "What steps should a victim take to file a complaint under IPC 506A for cyber harassment?",
+    "answer": "A victim of cyber harassment under IPC 506A should follow these steps to file a complaint:"
+  },
+  {
+    "section_number": "IEA 102A",
+    "section_title": "Admissibility of Electronic Evidence",
+    "provision": "Notwithstanding the provisions of Section 61 of this Act, electronic evidence shall be admissible in any proceedings before a court provided it is accompanied by a certificate from the producer attesting to its authenticity and integrity, as prescribed under the Information Technology Act, 2000. The court shall assess the credibility of such evidence in accordance with the standards established by the Supreme Court and may require additional corroboration if deemed necessary for the interests of justice. Any objection to the admissibility of electronic evidence shall be raised at the earliest possible stage, failing which the right to contest its admissibility shall be deemed waived.",
+    "question_type": "penalty",
+    "question": "What are the consequences of failing to raise an objection to the admissibility of electronic evidence at the earliest possible stage under IEA 102A?",
+    "answer": "If a party fails to raise an objection to the admissibility of electronic evidence at the earliest possible stage, they will be deemed to have waived their right to contest its admissibility in court. This means that the objection cannot be raised later in the proceedings, potentially impacting the outcome of the case."
+  },
+  {
+    "section_number": "FLA 123",
+    "section_title": "Rights of Inheritance among Lineal Ascendants and Descendants",
+    "provision": "In matters of inheritance, lineal ascendants shall inherit equal shares alongside lineal descendants in the absence of a will. In cases where property is self-acquired, the owner may designate the distribution of their estate; however, such designation shall not infringe upon the statutory rights of the surviving spouse or any children, who shall retain a minimum guaranteed share as prescribed under this Act. In the event of a dispute, such claims shall be adjudicated by the Family Court, taking into consideration the principles of equity and the welfare of all parties involved.",
+    "question_type": "examples",
+    "question": "If a person dies without a will and is survived by their parents and children, how will the inheritance be divided according to FLA 123?",
+    "answer": "According to FLA 123, if a person dies without a will, their lineal ascendants (parents) and lineal descendants (children) will inherit equal shares of the estate. For example, if the estate is worth $120,000 and the deceased is survived by both their parents and children (let's say two children), the estate would be divided equally among them. Each parent would receive $20,000, and each child would also receive $20,000, totaling the estate's value. However, if the deceased had designated a different distribution in a will, it must still respect the minimum guaranteed share for the surviving spouse and children, as mandated by the Act."
+  },
+  {
+    "section_number": "IPC 123A",
+    "section_title": "Protection of Digital Innovations",
+    "provision": "Any individual or entity that creates an original digital work, including but not limited to software, algorithms, and digital media, shall have the exclusive right to control the reproduction, distribution, and adaptation of such work for a period of ten years from the date of creation, subject to the provisions of fair use as outlined in this Code. Unauthorized use or reproduction of a protected digital innovation shall attract civil penalties, including but not limited to injunctions, damages, and the seizure of infringing materials, as deemed appropriate by the court.",
+    "question_type": "obligations",
+    "question": "What obligations do individuals or entities have when creating original digital works under IPC 123A?",
+    "answer": "Individuals or entities that create original digital works have the obligation to control the reproduction, distribution, and adaptation of their work for a period of ten years from the date of creation. They must ensure that any use of their digital innovations is authorized, as unauthorized use or reproduction can result in civil penalties, including injunctions, damages, and the seizure of infringing materials as determined by the court."
+  },
+  {
+    "section_number": "IPC 509A",
+    "section_title": "Intentional Misuse of Digital Identity",
+    "provision": "Whoever, intending to cause annoyance, inconvenience, or harm, knowingly and dishonestly uses or impersonates the digital identity of another person, including but not limited to social media accounts, email addresses, or any other digital platform, shall be punishable with imprisonment for a term that may extend to three years, or with fine which may extend to fifty thousand rupees, or with both. In the case of repeat offenders, the term of imprisonment may extend to five years.",
+    "question_type": "exceptions",
+    "question": "Are there any exceptions to the punishment under IPC 509A for the intentional misuse of digital identity?",
+    "answer": "Yes, exceptions may apply in cases where the individual can demonstrate that their use of another person's digital identity was done with the consent of that person or for legitimate purposes such as parody, satire, or commentary that does not intend to cause annoyance, inconvenience, or harm. However, the burden of proof lies with the individual claiming the exception, and it is essential to establish that the intent was not malicious."
+  },
+  {
+    "section_number": "IPR 145",
+    "section_title": "Rights of Co-Owners in Joint Property",
+    "provision": "In any joint ownership of property, each co-owner shall possess an equal right to utilize, manage, and derive benefit from the property, subject to the terms of their agreement. In the event of a dispute regarding the use or management of the property, any co-owner may seek mediation through the appropriate civil court, which shall have the authority to appoint a neutral arbitrator to facilitate a resolution. Should the parties remain in disagreement following mediation, the court shall adjudicate based on the principles of equity and the specific contributions made by each co-owner toward the property.",
+    "question_type": "procedure",
+    "question": "What steps should a co-owner take if there is a dispute regarding the use or management of jointly owned property?",
+    "answer": "If a co-owner encounters a dispute regarding the use or management of jointly owned property, they should first seek mediation through the appropriate civil court. The court will appoint a neutral arbitrator to help facilitate a resolution. If the parties still cannot reach an agreement after mediation, the court will then adjudicate the dispute based on principles of equity and consider the specific contributions made by each co-owner towards the property."
+  },
+  {
+    "section_number": "CPL 456",
+    "section_title": "Remedies for Breach of Contract",
+    "provision": "In the event of a breach of contract, the aggrieved party shall be entitled to seek specific performance of the contract, or alternatively, claim for damages which shall be calculated based on the loss incurred directly as a result of the breach. The court may, at its discretion, award punitive damages not exceeding the value of the contract, if it finds the breach to have been willful or malicious. Any claims for reliance damages shall be substantiated with adequate evidence demonstrating the expenditures incurred in preparation for the performance of the contract.",
+    "question_type": "procedure",
+    "question": "What steps must the aggrieved party take to claim specific performance or damages in the event of a breach of contract according to CPL 456?",
+    "answer": "The aggrieved party must first determine whether to seek specific performance of the contract or claim for damages. If claiming damages, they should calculate the loss incurred directly due to the breach. If they wish to seek punitive damages, they must demonstrate that the breach was willful or malicious, keeping in mind that such damages cannot exceed the value of the contract. Additionally, if the party wants to claim reliance damages, they must gather and present adequate evidence of expenditures incurred in preparation for the contract's performance. All claims should be filed with the appropriate court as per the procedural rules governing contract disputes."
+  },
+  {
+    "section_number": "IEA 112",
+    "section_title": "Admissibility of Digital Evidence",
+    "provision": "Notwithstanding any other provisions of this Act, digital evidence shall be admissible in judicial proceedings, provided that it is demonstrated to be authentic and relevant to the matter at hand. The party seeking to introduce digital evidence must establish a clear chain of custody and utilize appropriate technological methods for preservation and extraction, ensuring that the integrity of the evidence has not been compromised. Furthermore, the court may consider expert testimony regarding the reliability of the digital medium used to store or transmit such evidence.",
+    "question_type": "examples",
+    "question": "Can you provide an example of how a party might successfully introduce digital evidence in court under IEA 112?",
+    "answer": "Certainly! Imagine a scenario where a company is accused of data theft. The plaintiff wants to introduce an email as digital evidence that allegedly contains confidential information sent to a competitor. To successfully admit this email under IEA 112, the plaintiff would need to demonstrate its authenticity by showing that the email was indeed sent from the company's server. They would establish a clear chain of custody by documenting who accessed the email and how it was preserved, perhaps by using secure storage methods. Additionally, they might engage a digital forensics expert to testify about the reliability of the email server and the methods used to extract the email, ensuring that the integrity of the evidence has not been compromised. If all these criteria are met, the court would likely admit the email as evidence in the proceedings."
+  },
+  {
+    "section_number": "CPL 125",
+    "section_title": "Remedies for Breach of Contract",
+    "provision": "In the event of a breach of contract, the aggrieved party shall be entitled to seek restitution by way of specific performance, or, in lieu thereof, claim for damages not exceeding the actual loss incurred as a direct result of the breach. Furthermore, the court may, at its discretion, award consequential damages if such damages were within the contemplation of the parties at the time of contract formation, provided that the aggrieved party has made reasonable efforts to mitigate the loss.",
+    "question_type": "procedure",
+    "question": "What steps must the aggrieved party take to seek remedies for a breach of contract under CPL 125?",
+    "answer": "To seek remedies for a breach of contract under CPL 125, the aggrieved party should follow these steps: First, clearly identify and document the breach of contract. Next, determine whether they wish to seek specific performance or claim for damages. If claiming damages, the aggrieved party must calculate and document the actual loss incurred as a direct result of the breach, ensuring that it does not exceed the actual loss. Additionally, the aggrieved party should demonstrate that they made reasonable efforts to mitigate the loss. Finally, if the aggrieved party believes consequential damages are applicable, they should provide evidence that such damages were within the contemplation of the parties at the time of contract formation. Once these steps are completed, the aggrieved party can file a claim in court to seek the desired remedies."
+  },
+  {
+    "section_number": "CONST 102",
+    "section_title": "Protection of Fundamental Rights",
+    "provision": "Every citizen shall have the right to freedom from arbitrary arrest and detention, ensuring that no person shall be deprived of their liberty without due process of law. Furthermore, every individual shall have the right to seek redress in a competent court of law for any violation of their fundamental rights, and the State shall be obligated to provide legal assistance to those unable to afford representation. Any law or action infringing upon the rights enumerated in this section shall be deemed unconstitutional and void.",
+    "question_type": "examples",
+    "question": "Can you provide examples of situations where a citizen's right to freedom from arbitrary arrest and detention might be violated, and what steps they can take if their rights are infringed upon?",
+    "answer": "Examples of situations where a citizen's right to freedom from arbitrary arrest and detention might be violated include being arrested without a warrant, being held without charges for an extended period, or being detained based solely on their political beliefs or race. In such cases, the individual has the right to seek redress in a competent court of law by filing a lawsuit against the authorities responsible for the violation. Additionally, if they cannot afford legal representation, the State is obligated to provide legal assistance to ensure that their rights are protected."
+  },
+  {
+    "section_number": "IPC 509A",
+    "section_title": "Cyber Harassment and Intimidation",
+    "provision": "Whoever, with the intent to harass or intimidate another person through the use of electronic communications, sends, posts, or publishes any obscene or threatening material shall be punished with imprisonment for a term that may extend to three years, or with fine which may extend to one lakh rupees, or with both. In cases where such actions lead to severe emotional distress or harm to the reputation of the victim, the imprisonment may extend to five years. The provisions of this section shall apply notwithstanding any other law in force relating to defamation or electronic privacy.",
+    "question_type": "procedure",
+    "question": "What steps should a victim take to file a complaint under IPC 509A for cyber harassment or intimidation?",
+    "answer": "A victim should follow these steps to file a complaint under IPC 509A: 1. Collect evidence of the harassment, such as screenshots of messages or posts. 2. Approach the nearest police station to report the incident, providing the collected evidence. 3. File a formal complaint, ensuring that all relevant details are included, such as dates, times, and the nature of the communications. 4. The police will register the complaint and may initiate an investigation. 5. If the harassment leads to severe emotional distress or harm to reputation, the victim should highlight this to the authorities, as it can lead to an extended prison term for the offender. It is advisable for the victim to seek legal assistance to navigate the process effectively."
+  },
+  {
+    "section_number": "IPC 432",
+    "section_title": "Punishment for Intentional Damage to Public Property",
+    "provision": "Whoever intentionally causes damage to any public property, including but not limited to roads, bridges, or public buildings, shall be punishable with imprisonment for a term which may extend to three years, or with a fine which may extend to five lakh rupees, or with both. In cases where the damage exceeds a value of one lakh rupees, the offender shall be liable to imprisonment for a term which may extend to five years, and the fine may extend to ten lakh rupees. This provision shall not apply to acts of lawful protest or demonstration, provided that such actions do not result in damage to the aforementioned properties.",
+    "question_type": "definition",
+    "question": "What constitutes intentional damage to public property under IPC 432?",
+    "answer": "Intentional damage to public property under IPC 432 refers to the deliberate act of causing harm to any public assets, which includes but is not limited to roads, bridges, or public buildings. Such actions are punishable by imprisonment or fines, depending on the extent of the damage caused."
+  },
+  {
+    "section_number": "IPC 128A",
+    "section_title": "Rights and Resolution of Property Disputes",
+    "provision": "In any dispute concerning the ownership, possession, or title to immovable property, parties shall be entitled to seek resolution through a Mediation and Conciliation Board established under this Section. The Board shall consist of a Chairperson and two members, appointed by the State Government, who shall endeavor to resolve the dispute amicably within a period of six months from the date of reference, failing which the aggrieved party may escalate the matter to the appropriate civil court for adjudication. The provisions of this Section shall not preclude any party from approaching the court for urgent interim relief during the pendency of the mediation process.",
+    "question_type": "exceptions",
+    "question": "Are there any exceptions to the requirement of mediation for resolving property disputes under IPC 128A?",
+    "answer": "Yes, the provisions of IPC 128A do not preclude any party from approaching the court for urgent interim relief during the pendency of the mediation process. This means that if a party needs immediate relief, they can seek it from the court even while the mediation is ongoing."
+  },
+  {
+    "section_number": "CGR 102",
+    "section_title": "Disclosure of Financial Interests",
+    "provision": "Every corporate entity registered under the Companies Act, 2013 shall disclose in its annual report the financial interests of its board members and key managerial personnel, including any directorships, shareholdings, or partnerships in other entities that may pose a conflict of interest. This disclosure must be made in a format prescribed by the Securities and Exchange Board of India (SEBI) and shall be subject to scrutiny by the independent auditors to ensure transparency and accountability within the corporate governance framework. Non-compliance with this provision shall attract penalties as stipulated under Section 234 of the Companies Act, 2013.",
+    "question_type": "exceptions",
+    "question": "Are there any exceptions to the requirement for corporate entities to disclose the financial interests of their board members and key managerial personnel as per CGR 102?",
+    "answer": "Yes, exceptions to the disclosure requirement under CGR 102 may apply in certain circumstances, such as when the financial interests are deemed nominal and not likely to pose a conflict of interest, or if the board member or key managerial personnel is involved in a confidential matter that does not affect the corporate entity's governance. However, such exceptions must be clearly justified and documented, as non-compliance can lead to penalties under Section 234 of the Companies Act, 2013. It is advisable for entities to consult legal counsel to ensure compliance with all applicable regulations."
+  },
+  {
+    "section_number": "IEA 123",
+    "section_title": "Admissibility of Digital Evidence",
+    "provision": "Notwithstanding any other provision of law, digital evidence shall be admissible in any judicial proceeding provided it is accompanied by a certificate of authenticity from a qualified digital forensic expert, which verifies the integrity and accuracy of the data. Such evidence must be presented in a format that is compatible with the court's technological capabilities, and the party seeking to introduce the digital evidence shall bear the burden of proving its reliability and relevance to the matter at hand. The court may, in its discretion, exclude digital evidence if it deems that the probative value is outweighed by the potential for prejudice or misinformation.",
+    "question_type": "examples",
+    "question": "Can you provide an example of when digital evidence would be admissible in court under IEA 123?",
+    "answer": "Digital evidence, such as emails or text messages, would be admissible in court under IEA 123 if the party seeking to introduce this evidence presents it with a certificate of authenticity from a qualified digital forensic expert. For instance, if a plaintiff wants to use a series of text messages as evidence in a contract dispute, they must ensure the messages are verified for integrity and accuracy by a forensic expert. Additionally, the text messages must be presented in a format that the court can access and understand. If these conditions are met and the plaintiff can demonstrate the relevance and reliability of the texts, the court is likely to admit the evidence, unless it determines that the potential for prejudice outweighs its probative value."
+  },
+  {
+    "section_number": "IEA 65A",
+    "section_title": "Admissibility of Digital Evidence",
+    "provision": "Notwithstanding any provision to the contrary, digital evidence shall be admissible in a court of law if it is authenticated by the party seeking its admission. Authentication shall be established through a combination of metadata verification, secure chain of custody, and corroborative testimonial evidence, ensuring the integrity and reliability of the digital record. In instances where the authenticity is challenged, the burden of proof shall rest with the party contesting such admissibility.",
+    "question_type": "procedure",
+    "question": "What steps must a party take to ensure that digital evidence is admissible in court under IEA 65A?",
+    "answer": "To ensure the admissibility of digital evidence in court under IEA 65A, the party seeking its admission must authenticate the evidence through three key steps: (1) verify the metadata associated with the digital record, (2) establish a secure chain of custody for the evidence, and (3) provide corroborative testimonial evidence that supports the integrity and reliability of the digital record. If the authenticity of the evidence is challenged, the burden of proof will shift to the party contesting its admissibility."
+  },
+  {
+    "section_number": "CGR 101",
+    "section_title": "Board Composition and Independence",
+    "provision": "Every public company shall ensure that its Board of Directors comprises a minimum of one-third independent directors, who shall not have any material relationship with the company, its promoters, or its subsidiaries. The independent directors shall be responsible for safeguarding the interests of minority shareholders and enhancing the overall governance of the company. The criteria for independence and the process for appointment shall be prescribed under the Corporate Governance Regulations, ensuring transparency and accountability in the board's operations.",
+    "question_type": "exceptions",
+    "question": "Are there any exceptions to the requirement for a public company to have a minimum of one-third independent directors on its Board of Directors as stated in CGR 101?",
+    "answer": "Yes, exceptions may apply under specific circumstances as outlined in the Corporate Governance Regulations. For instance, if a company has a unique structure or meets certain criteria established by regulatory authorities, it may be allowed to deviate from the one-third independent director requirement. However, such exceptions must adhere to the principles of transparency and accountability, and the company must provide justification for any deviations from the standard composition."
+  },
+  {
+    "section_number": "CPR 101",
+    "section_title": "Right to Constitutional Protections",
+    "provision": "Every individual shall have the right to seek recourse under this Act for any violation of their fundamental rights as enumerated in the Constitution of India. The State shall ensure the protection of these rights against any encroachment by the public or private entities, and a mechanism for redressal of grievances shall be established within six months of any reported infringement. Furthermore, any citizen aggrieved by the denial of such rights may approach the Supreme Court or High Court for enforcement, and the courts shall prioritize such cases to ensure timely justice.",
+    "question_type": "examples",
+    "question": "Can you provide an example of a situation where an individual might seek recourse under the Right to Constitutional Protections as outlined in CPR 101?",
+    "answer": "An example of a situation where an individual might seek recourse under this provision is if a citizen is wrongfully detained by the police without due process, which violates their fundamental rights as guaranteed by the Constitution of India. In this case, the individual can file a complaint under the Act, seeking redress for the infringement of their rights. If the grievance is not resolved satisfactorily within six months, the individual has the option to approach the Supreme Court or High Court to enforce their rights and obtain timely justice."
+  },
+  {
+    "section_number": "CGR 302",
+    "section_title": "Standards of Conduct for Directors",
+    "provision": "Every director of a company shall act in good faith and in the best interests of the company, ensuring transparency and accountability in all dealings. Directors are mandated to disclose any potential conflicts of interest and refrain from participating in discussions or decisions where such conflicts may arise. Failure to comply with these standards shall result in penalties as prescribed under Section CGR 305, which may include disqualification from holding office in the company for a period not exceeding five years.",
+    "question_type": "procedure",
+    "question": "What steps must a director take to comply with the standards of conduct outlined in CGR 302 regarding potential conflicts of interest?",
+    "answer": "To comply with the standards of conduct in CGR 302, a director must take the following steps:"
+  },
+  {
+    "section_number": "IPC 502A",
+    "section_title": "Unauthorized Access and Data Breach",
+    "provision": "Whoever intentionally accesses a computer system or network without authorization, or exceeds authorized access to obtain, alter, or destroy data, shall be punishable with imprisonment for a term which may extend to three years, or with fine which may extend to fifty thousand rupees, or with both. In cases where such access results in a breach of sensitive personal data or causes harm to any individual or entity, the term of imprisonment may extend to five years, and the fine may extend to one lakh rupees.",
+    "question_type": "examples",
+    "question": "Can you provide examples of actions that would violate IPC 502A and the potential consequences for those actions?",
+    "answer": "Yes, under IPC 502A, several actions could constitute unauthorized access and data breach. For example, if an individual hacks into a company's computer system to steal customer data, this would be considered intentional unauthorized access. If the hacker is caught, they could face imprisonment for up to three years and fines up to fifty thousand rupees."
+  },
+  {
+    "section_number": "IPC 456",
+    "section_title": "Offences of Public Disruption and Associated Penalties",
+    "provision": "Whoever, without lawful authority, intentionally causes public disruption by engaging in violent or threatening behavior in a public place shall be punishable with imprisonment for a term which may extend to three years, or with fine which may extend to one lakh rupees, or with both. In the event of causing grievous hurt or significant property damage during such disruption, the offender shall be liable to imprisonment for a term not less than five years, which may extend to seven years, along with a fine that may extend to five lakh rupees.",
+    "question_type": "definition",
+    "question": "What constitutes the offense of public disruption under IPC 456?",
+    "answer": "The offense of public disruption under IPC 456 is defined as intentionally causing public disruption by engaging in violent or threatening behavior in a public place without lawful authority."
+  },
+  {
+    "section_number": "IPC 502",
+    "section_title": "Criminal Intimidation through Digital Means",
+    "provision": "Whoever, using any electronic device or communication service, intentionally threatens another person with injury to their person, reputation, or property, or to cause alarm or distress, shall be punishable with imprisonment of either description for a term which may extend to three years, or with fine, or with both. In addition, if such intimidation is intended to coerce or influence the victim's actions or decisions, the term of imprisonment may extend to five years.",
+    "question_type": "obligations",
+    "question": "What are the obligations of an individual regarding the use of electronic devices to communicate, as outlined in IPC 502?",
+    "answer": "An individual is obligated not to intentionally threaten another person with injury to their person, reputation, or property using any electronic device or communication service. Violating this obligation can result in punishment that includes imprisonment for up to three years, a fine, or both. If the intimidation is intended to coerce or influence the victim's actions or decisions, the imprisonment term may extend to five years."
+  },
+  {
+    "section_number": "CPC 124",
+    "section_title": "Application for Summary Judgment",
+    "provision": "In any civil proceedings, a party may apply to the court for a summary judgment on the ground that there is no genuine dispute as to any material fact and that the party is entitled to judgment as a matter of law. The application shall be supported by an affidavit setting forth the specific facts that demonstrate the absence of a material issue of fact. The court shall hear the application and may grant the summary judgment if it is satisfied that the evidence is clear and unequivocal, and that a trial is not necessary to resolve the issues presented.",
+    "question_type": "rights",
+    "question": "What rights does a party have when applying for a summary judgment under CPC 124?",
+    "answer": "A party has the right to apply for a summary judgment in civil proceedings if they believe there is no genuine dispute regarding any material fact and that they are entitled to judgment as a matter of law. To exercise this right, the party must support their application with an affidavit that specifies the facts demonstrating the lack of a material issue of fact. If the court finds the evidence to be clear and unequivocal, and determines that a trial is unnecessary, it may grant the summary judgment."
+  },
+  {
+    "section_number": "CRPC 128A",
+    "section_title": "Protection of Fundamental Rights in Criminal Proceedings",
+    "provision": "In all criminal proceedings, it shall be the duty of the presiding officer to ensure the protection of an accused person's fundamental rights as guaranteed under Part III of the Constitution of India. Any infringement of these rights during the course of investigation or trial shall render the proceedings voidable, and the court shall have the power to issue directions to remedy such infringement, including the exclusion of unlawfully obtained evidence. The court shall also provide the accused an opportunity to address any violations of their rights at the earliest possible stage of the proceedings.",
+    "question_type": "examples",
+    "question": "Can you provide an example of how CRPC 128A protects an accused person's fundamental rights during a criminal trial?",
+    "answer": "Certainly! For instance, if during a police investigation, evidence is obtained through coercive interrogation methods that violate the accused's right to remain silent, this would constitute an infringement of their fundamental rights. Under CRPC 128A, the presiding officer is required to ensure that such rights are protected. As a result, the court may declare the proceedings voidable and exclude the unlawfully obtained evidence from the trial. Additionally, the accused would be given an opportunity to address this violation at the earliest stage, allowing them to contest the admissibility of the evidence and uphold their rights as guaranteed under the Constitution of India."
+  },
+  {
+    "section_number": "IPC 372",
+    "section_title": "Rights and Disputes Relating to Property Ownership",
+    "provision": "Any individual claiming ownership of a property shall have the right to initiate a civil suit for the determination of title and possession against any person in unlawful occupation of said property. The court shall adjudicate such disputes expeditiously, ensuring that the rights of the rightful owner are protected while balancing the interests of the occupant, who may assert a claim of adverse possession or any lawful entitlement. Furthermore, in cases where property disputes arise among co-owners or joint tenants, the court shall facilitate mediation prior to proceeding to trial, promoting an amicable resolution to conflicts concerning shared property rights.",
+    "question_type": "definition",
+    "question": "What rights does an individual have under IPC 372 regarding property ownership disputes?",
+    "answer": "Under IPC 372, an individual claiming ownership of a property has the right to initiate a civil suit for determining title and possession against anyone unlawfully occupying the property. The court is required to adjudicate these disputes quickly, protecting the rights of the rightful owner while also considering the interests of the occupant, who may claim adverse possession or other lawful entitlements. Additionally, in disputes among co-owners or joint tenants, the court must facilitate mediation before proceeding to trial to encourage an amicable resolution."
+  },
+  {
+    "section_number": "IPC 499A",
+    "section_title": "Unauthorized Access and Data Breach",
+    "provision": "Whosoever, without lawful authority or consent, accesses a computer resource or computer system, and thereby obtains, alters, or destroys any data, information, or program, with the intent to cause harm or facilitate fraud, shall be punished with imprisonment for a term which may extend to three years, or with fine which may extend to five lakh rupees, or with both. In the case of repeat offenses, the term of imprisonment may extend to five years, along with a fine not exceeding ten lakh rupees.",
+    "question_type": "definition",
+    "question": "What constitutes unauthorized access and data breach under IPC 499A?",
+    "answer": "Unauthorized access and data breach under IPC 499A occurs when an individual, without lawful authority or consent, accesses a computer resource or system, and obtains, alters, or destroys any data, information, or program with the intent to cause harm or facilitate fraud."
+  },
+  {
+    "section_number": "PPR 101",
+    "section_title": "Rights of Co-Owners in Joint Property",
+    "provision": "In the event of a dispute arising between co-owners of joint property, each co-owner shall have the right to seek mediation through a designated Property Dispute Resolution Committee, established under this Act, prior to initiating any legal proceedings. The Committee shall endeavor to resolve conflicts amicably within a period of sixty days, failing which the aggrieved co-owner may file a civil suit in the appropriate jurisdiction, whereupon the court shall consider equitable distribution and rights of possession in accordance with the principles of natural justice and prior agreements among co-owners.",
+    "question_type": "procedure",
+    "question": "What steps should a co-owner take if there is a dispute regarding joint property, according to PPR 101?",
+    "answer": "A co-owner should first seek mediation through the designated Property Dispute Resolution Committee established under PPR 101. This mediation process must be initiated prior to any legal proceedings. The Committee will attempt to resolve the conflict amicably within sixty days. If the dispute is not resolved within this period, the aggrieved co-owner may then file a civil suit in the appropriate jurisdiction, where the court will consider equitable distribution and rights of possession based on natural justice and any prior agreements among the co-owners."
+  },
+  {
+    "section_number": "IPC 512",
+    "section_title": "Offense of Digital Harassment",
+    "provision": "Whosoever, through the use of electronic means, intentionally causes harm, distress, or alarm to another person by sending, sharing, or disseminating unsolicited and offensive messages, images, or videos, shall be punishable with imprisonment for a term which may extend to three years, or with fine which may extend to fifty thousand rupees, or with both. In the case of repeated offenses, the term of imprisonment may extend to five years, along with a fine not exceeding one lakh rupees. A victim of digital harassment may file a complaint with the appropriate authority, who shall take necessary action as prescribed under this section.",
+    "question_type": "penalty",
+    "question": "What are the penalties for committing the offense of digital harassment under IPC 512?",
+    "answer": "The penalties for committing digital harassment under IPC 512 include imprisonment for a term that may extend to three years, a fine that may extend to fifty thousand rupees, or both. In the case of repeated offenses, the imprisonment term may extend to five years, with a fine not exceeding one lakh rupees."
+  },
+  {
+    "section_number": "IPC 456A",
+    "section_title": "Unauthorized Access to Digital Systems",
+    "provision": "Whosoever, without lawful authority, intentionally accesses a computer or digital system with the intent to obtain or alter data, or to interfere with the integrity or functioning of such system, shall be punishable with imprisonment of either description for a term that may extend to three years, or with fine which may extend to five lakh rupees, or with both. In the case of repeated offences, the term of imprisonment may extend to five years, and the fine may be increased to ten lakh rupees.",
+    "question_type": "definition",
+    "question": "What constitutes \"unauthorized access to digital systems\" under IPC 456A?",
+    "answer": "\"Unauthorized access to digital systems\" under IPC 456A refers to the act of intentionally accessing a computer or digital system without lawful authority, with the intent to obtain or alter data, or to interfere with the integrity or functioning of that system."
+  },
+  {
+    "section_number": "CPC 204",
+    "section_title": "Consolidation of Civil Proceedings",
+    "provision": "In any suit or proceeding where multiple matters arise out of the same transaction or series of transactions and involve common questions of law or fact, the court may, upon application by any party or suo moto, consolidate such suits or proceedings for the purpose of expedience and efficiency. The court shall ensure that such consolidation does not prejudice the rights of the parties involved and shall determine the procedure for the consolidated hearing, which may include joint trials or the use of a single set of pleadings applicable to all consolidated matters.",
+    "question_type": "obligations",
+    "question": "What obligation does the court have when consolidating civil proceedings under CPC 204?",
+    "answer": "The court has the obligation to ensure that the consolidation of suits or proceedings does not prejudice the rights of the parties involved, and it must determine the appropriate procedure for the consolidated hearing, which may involve joint trials or a single set of pleadings applicable to all consolidated matters."
+  },
+  {
+    "section_number": "IPC 420A",
+    "section_title": "Fraudulent Misrepresentation in Commercial Transactions",
+    "provision": "Whosoever, with intent to deceive or defraud, makes any false representation, whether by words or conduct, in the course of a commercial transaction, shall be punished with imprisonment of either description for a term which may extend to five years, or with fine, or with both. If such misrepresentation causes loss to the victim exceeding one lakh rupees, the term of imprisonment may extend to seven years. This provision shall not apply to representations made in good faith where the individual reasonably believes such representations to be true.",
+    "question_type": "procedure",
+    "question": "What steps should a victim take to report a fraudulent misrepresentation under IPC 420A in a commercial transaction?",
+    "answer": "To report a fraudulent misrepresentation under IPC 420A, the victim should follow these steps:"
+  },
+  {
+    "section_number": "FLA 123",
+    "section_title": "Rights of Inheritance Among Wards and Guardians",
+    "provision": "In any case where a minor is a ward under the guardianship of an individual, such guardian shall have the right to manage the ward's property, but shall not have the authority to alienate or dispose of such property without prior approval from the Family Court. Upon reaching the age of majority, the ward shall inherit all properties acquired during the period of guardianship, along with any rights therein, free from any encumbrances created by the guardian without due process. The Family Court shall ensure that the interests of the minor are adequately protected during the guardianship period, with a view to preventing any potential conflicts of interest.",
+    "question_type": "definition",
+    "question": "What is the role of a guardian in managing a minor's property according to FLA 123?",
+    "answer": "According to FLA 123, a guardian has the right to manage a minor's property but cannot alienate or dispose of it without prior approval from the Family Court."
+  },
+  {
+    "section_number": "IEA 123",
+    "section_title": "Admissibility of Electronic Evidence",
+    "provision": "In any proceeding before a court, electronic evidence shall be deemed admissible if it is produced in a manner that ensures its integrity and authenticity through a secure digital signature or cryptographic verification. The party intending to introduce such evidence must provide a certificate of authenticity from a competent authority, confirming compliance with the standards set forth in the Information Technology Act, 2000. Notwithstanding the aforementioned, any electronic evidence that is deemed to have been tampered with or altered shall be inadmissible unless the party presenting the evidence can demonstrate, beyond reasonable doubt, the absence of such tampering.",
+    "question_type": "definition",
+    "question": "What is required for electronic evidence to be deemed admissible in court according to IEA 123?",
+    "answer": "Electronic evidence is deemed admissible in court if it is produced in a manner that ensures its integrity and authenticity through a secure digital signature or cryptographic verification. Additionally, the party introducing the evidence must provide a certificate of authenticity from a competent authority, confirming compliance with the standards of the Information Technology Act, 2000."
+  },
+  {
+    "section_number": "CPC 157",
+    "section_title": "Remedies for Breach of Contract",
+    "provision": "In the event of a breach of contract, the aggrieved party shall be entitled to seek remedy in the form of specific performance, damages, or rescission, as applicable. The court may award compensatory damages to cover direct losses caused by the breach, and may also consider consequential losses if such losses were within the contemplation of both parties at the time of contract formation. Furthermore, the court shall have discretion to order specific performance where monetary compensation is inadequate to provide a just remedy, particularly in cases involving unique subject matter.",
+    "question_type": "obligations",
+    "question": "What obligations does an aggrieved party have when seeking remedies for a breach of contract under CPC 157?",
+    "answer": "The aggrieved party is entitled to seek remedies such as specific performance, damages, or rescission, depending on the circumstances of the breach. They must demonstrate the direct losses incurred and may also claim consequential losses if those were contemplated by both parties at the time of the contract. Additionally, if seeking specific performance, the aggrieved party must show that monetary compensation is inadequate to address the situation, particularly in cases involving unique subject matter."
+  },
+  {
+    "section_number": "IPC 495A",
+    "section_title": "Offense of Deceptive Co-habitation",
+    "provision": "Whosoever, with intent to deceive, cohabits with a person as if married, while being lawfully married to another person, shall be punished with imprisonment for a term which may extend to five years, or with fine, or with both. The act shall be considered a cognizable offense, and in addition to punishment, the court may direct restitution for any economic or emotional harm caused to the aggrieved party. In any prosecution under this section, evidence of the accused's prior marital status shall be admissible to establish the offense.",
+    "question_type": "exceptions",
+    "question": "Are there any exceptions to the offense of Deceptive Co-habitation under IPC 495A for individuals who are legally separated from their spouse?",
+    "answer": "Yes, individuals who are legally separated from their spouse may not be prosecuted under IPC 495A for Deceptive Co-habitation, provided that the separation is recognized by law and they are not still legally married. However, it is important to note that evidence of their prior marital status may still be considered in court to establish the context of the cohabitation."
+  },
+  {
+    "section_number": "CGR 101",
+    "section_title": "Principles of Corporate Governance",
+    "provision": "Every company incorporated under the Companies Act, 2013 shall adhere to the principles of corporate governance as prescribed by the Securities and Exchange Board of India (SEBI) regulations. These principles shall include, but not be limited to, the establishment of a robust board structure, the separation of the roles of the chairperson and the managing director, and the implementation of transparent disclosure practices that uphold the rights of shareholders. Non-compliance with these principles shall attract penalties as delineated in CGR 202.",
+    "question_type": "procedure",
+    "question": "What steps must a company take to ensure compliance with the corporate governance principles as outlined in CGR 101?",
+    "answer": "To ensure compliance with the corporate governance principles outlined in CGR 101, a company must take the following steps:"
+  },
+  {
+    "section_number": "FLA 123",
+    "section_title": "Rights of Inheritance Among Lineal Descendants",
+    "provision": "In cases of intestate succession, all lineal descendants, including illegitimate offspring, shall inherit an equal share of the estate of the deceased, irrespective of the marital status of the parent at the time of birth. No distinction shall be made based on gender, and the distribution of assets shall occur in accordance with the principles of per stirpes, ensuring that each descendant receives a proportionate share of their ancestor’s estate. Additionally, the provisions of this section shall apply retroactively to estates of deceased individuals who died on or after January 1, 2023, thereby nullifying any pre-existing discriminatory practices in inheritance laws.",
+    "question_type": "rights",
+    "question": "What rights do lineal descendants have regarding inheritance under FLA 123, particularly for illegitimate offspring and regardless of the parent's marital status?",
+    "answer": "Under FLA 123, all lineal descendants, including illegitimate offspring, have the right to inherit an equal share of a deceased individual's estate in cases of intestate succession. This inheritance is granted irrespective of the parent's marital status at the time of the child's birth and without any distinction based on gender. The distribution of the estate will follow the principles of per stirpes, ensuring each descendant receives a proportionate share of their ancestor’s estate. These rights are retroactively applied to estates of individuals who died on or after January 1, 2023, eliminating previous discriminatory inheritance practices."
+  },
+  {
+    "section_number": "CRPC 145",
+    "section_title": "Protection of Constitutional Rights During Detention",
+    "provision": "No person shall be detained in police custody for a period exceeding twenty-four hours without being informed of the grounds of arrest and without being afforded the opportunity to consult a legal practitioner of their choice. Any violation of this provision shall render the detention unlawful, and the detained individual shall be entitled to immediate release and compensation as prescribed by law. The State shall ensure that all law enforcement agencies are adequately trained in upholding these constitutional protections to prevent any infringement of fundamental rights.",
+    "question_type": "obligations",
+    "question": "What obligations do law enforcement agencies have under CRPC 145 regarding the detention of individuals in police custody?",
+    "answer": "Under CRPC 145, law enforcement agencies are obligated to inform any detained individual of the grounds for their arrest and to provide them with the opportunity to consult a legal practitioner of their choice within twenty-four hours. Failure to comply with these obligations will render the detention unlawful, entitling the detained individual to immediate release and compensation as prescribed by law. Furthermore, the State must ensure that all law enforcement personnel are adequately trained to uphold these constitutional protections."
+  },
+  {
+    "section_number": "IPC 227",
+    "section_title": "Rights of Co-owners in Property Disputes",
+    "provision": "In any case where property is jointly owned by two or more individuals, each co-owner shall possess an equal right to use and enjoy the property, subject to the principle of reasonable enjoyment. No co-owner shall be entitled to alienate their share of the property without the express consent of all other co-owners; failure to obtain such consent shall render any transfer voidable at the instance of the non-consenting co-owners. In the event of a dispute arising from the exercise of such rights, the parties shall seek resolution through mediation, failing which they may pursue their claims in a competent civil court.",
+    "question_type": "penalty",
+    "question": "What penalty may arise if a co-owner attempts to alienate their share of jointly owned property without the consent of the other co-owners according to IPC 227?",
+    "answer": "If a co-owner attempts to alienate their share of the property without obtaining the express consent of the other co-owners, such a transfer will be rendered voidable at the request of the non-consenting co-owners. This means that the non-consenting co-owners can challenge the validity of the transfer, potentially leading to legal disputes and the need for resolution through mediation or civil court."
+  },
+  {
+    "section_number": "CNP 101",
+    "section_title": "Protection of Fundamental Rights",
+    "provision": "Every individual shall have the right to seek judicial redress for the infringement of their fundamental rights as enumerated in the Constitution of India. The State is mandated to ensure that no action, law, or policy contravenes the rights guaranteed under Articles 14 to 32, and any violation thereof shall entitle the aggrieved party to compensation as deemed fit by the judiciary. Furthermore, the Supreme Court and High Courts shall possess the authority to issue writs, orders, or directions for the enforcement of such rights, thereby reinforcing the foundational principles of justice and equality within the Republic.",
+    "question_type": "definition",
+    "question": "What is the right of individuals regarding the infringement of their fundamental rights as per CNP 101?",
+    "answer": "Individuals have the right to seek judicial redress for the infringement of their fundamental rights as outlined in the Constitution of India, and are entitled to compensation for any violations, with the Supreme Court and High Courts authorized to issue writs and orders to enforce these rights."
+  },
+  {
+    "section_number": "CPC 123",
+    "section_title": "Application for Interlocutory Relief",
+    "provision": "An application for interlocutory relief shall be made in the prescribed format, detailing the nature of the relief sought and the grounds thereof, along with any supporting affidavits and documents. The court shall, within three days of the filing of such application, schedule a preliminary hearing, during which the party seeking relief must demonstrate the urgency and necessity of the relief sought, based on a prima facie case and the balance of convenience. The court may grant interim orders as it deems fit, subject to the condition that the applicant shall bear the costs of any potential loss incurred by the opposing party due to such interim relief.",
+    "question_type": "exceptions",
+    "question": "Are there any exceptions to the requirement of demonstrating urgency and necessity for an application for interlocutory relief under CPC 123?",
+    "answer": "Yes, while CPC 123 generally requires the applicant to demonstrate urgency and necessity for the relief sought, exceptions may arise in cases where the relief requested is of a nature that inherently addresses imminent harm or where statutory provisions specifically allow for expedited procedures. However, the applicant must still adhere to the prescribed format and provide supporting affidavits and documentation as mandated by the provision."
+  },
+  {
+    "section_number": "IPC 507A",
+    "section_title": "Unauthorized Access and Data Breach",
+    "provision": "Whoever, without lawful authority, accesses a computer resource or a computer network with the intent to cause or knowing that he is likely to cause wrongful loss or damage to any person, or to facilitate the commission of a crime, shall be punished with imprisonment for a term which may extend to three years, or with fine which may extend to five lakh rupees, or with both. Furthermore, if such access results in the theft, alteration, or deletion of data, the offender shall be liable for enhanced penalties as prescribed in this section, including a minimum fine of ten lakh rupees and imprisonment for a term extending to five years.",
+    "question_type": "definition",
+    "question": "What constitutes unauthorized access under IPC 507A?",
+    "answer": "Unauthorized access under IPC 507A is defined as accessing a computer resource or a computer network without lawful authority, with the intent to cause or knowing that one is likely to cause wrongful loss or damage to any person, or to facilitate the commission of a crime."
+  },
+  {
+    "section_number": "IPC 512",
+    "section_title": "Offense of Public Disturbance",
+    "provision": "Whoever intentionally causes a public disturbance by engaging in acts that promote hatred, incite violence, or create fear among members of the community shall be punished with imprisonment for a term which may extend to three years, or with a fine which may extend to fifty thousand rupees, or with both. In determining the severity of the penalty, the court shall consider the magnitude of the disturbance, consequent harm caused to public order, and any prior convictions of the offender under this section or similar offenses.",
+    "question_type": "definition",
+    "question": "What constitutes the offense of public disturbance under IPC 512?",
+    "answer": "The offense of public disturbance under IPC 512 is constituted by intentionally causing a public disturbance through acts that promote hatred, incite violence, or create fear among community members."
+  },
+  {
+    "section_number": "IPC 123A",
+    "section_title": "Protection of Indigenous Knowledge and Cultural Expressions",
+    "provision": "Whoever unlawfully appropriates, uses, or commercializes indigenous knowledge and cultural expressions without obtaining prior informed consent from the relevant indigenous communities, shall be punished with imprisonment for a term not exceeding five years, or with fine, or both. The term \"indigenous knowledge\" includes traditional practices, innovations, and expressions inherent to indigenous communities, and any such appropriation shall be considered a violation of the community's moral rights as custodians of their cultural heritage. The provisions of this section shall be in addition to any other rights or remedies available under existing intellectual property laws.",
+    "question_type": "obligations",
+    "question": "What obligations do individuals have regarding the use of indigenous knowledge and cultural expressions according to IPC 123A?",
+    "answer": "Individuals are obligated to obtain prior informed consent from the relevant indigenous communities before appropriating, using, or commercializing indigenous knowledge and cultural expressions. Failure to comply with this obligation may result in imprisonment for up to five years, a fine, or both, as it constitutes a violation of the moral rights of the indigenous communities as custodians of their cultural heritage."
+  },
+  {
+    "section_number": "IEA 127",
+    "section_title": "Admissibility of Digital Evidence",
+    "provision": "Notwithstanding any provisions to the contrary, electronic records shall be admissible as evidence in any judicial proceedings, provided that such records are generated, stored, and retrieved in a manner that ensures their authenticity and integrity. The party seeking to introduce such evidence shall bear the burden of establishing its reliability through appropriate certification or corroborative witness testimony, unless the opposing party concedes to the admissibility of the digital evidence. The court may, at its discretion, allow for the examination of the digital evidence to ascertain its relevance and evidentiary value.",
+    "question_type": "rights",
+    "question": "What rights do parties have regarding the admissibility of digital evidence in judicial proceedings under IEA 127?",
+    "answer": "Under IEA 127, parties have the right to introduce electronic records as evidence in court, provided they can demonstrate the records' authenticity and integrity. The party presenting the digital evidence has the responsibility to prove its reliability, either through certification or witness testimony. Additionally, if the opposing party does not contest the admissibility, the court may accept the evidence without further scrutiny. The court also has the discretion to examine the digital evidence to determine its relevance and evidentiary value."
+  },
+  {
+    "section_number": "IPC 456",
+    "section_title": "Offense of Public Disorder",
+    "provision": "Whoever, with the intent to cause public alarm or disturbance, engages in behavior that incites violence, fear, or panic among the general populace shall be punishable with imprisonment of either description for a term which may extend to five years, or with fine which may extend to ten thousand rupees, or with both. In determining the sentence, the court shall take into account the nature and extent of the disruption caused, and any prior offenses committed by the accused.",
+    "question_type": "exceptions",
+    "question": "Are there any exceptions to the offense of public disorder under IPC 456 for individuals who engage in behavior that might cause alarm but do so for a legitimate purpose, such as public safety or awareness?",
+    "answer": "Yes, there may be exceptions for individuals who engage in behavior that could cause public alarm or disturbance if their actions are intended for a legitimate purpose, such as ensuring public safety or raising awareness about a critical issue. The court will consider the intent behind the behavior and the context in which it occurred when determining if it constitutes an offense under IPC 456. However, the burden of proof lies with the accused to demonstrate that their actions were justified and not intended to incite violence, fear, or panic."
+  },
+  {
+    "section_number": "IPC 123A",
+    "section_title": "Protection of Digital Copyright",
+    "provision": "Any person who, without the authorization of the copyright owner, reproduces, distributes, or publicly displays a copyrighted digital work in a manner that enables unlawful access or download by a third party shall be punishable with imprisonment for a term which may extend to three years, or with fine which may extend to five lakh rupees, or with both. The courts shall consider the nature of the work, the scale of distribution, and the intent behind the infringement while determining the appropriate penalty. This provision shall not apply to fair use as delineated under the Copyright Act, 1957.",
+    "question_type": "procedure",
+    "question": "What steps should a copyright owner take if they believe their digital work has been reproduced or distributed without authorization under IPC 123A?",
+    "answer": "If a copyright owner suspects unauthorized reproduction or distribution of their digital work under IPC 123A, they should follow these steps:"
+  },
+  {
+    "section_number": "CPC 207",
+    "section_title": "Application for Interim Relief",
+    "provision": "In any suit where a party seeks urgent relief based on a prima facie showing of entitlement, the Court may, upon application, grant interim relief to maintain the status quo pending final adjudication. Such application shall be accompanied by an affidavit detailing the grounds for urgency, and the Court shall endeavor to hear and dispose of such application within seven days of filing, unless shown to be impracticable. The order granting or denying interim relief shall be recorded with reasons and shall be subject to the right of appeal under the provisions of this Code.",
+    "question_type": "procedure",
+    "question": "What is the procedure for applying for interim relief under CPC 207, and what are the requirements for the application to be considered by the Court?",
+    "answer": "To apply for interim relief under CPC 207, a party must file an application demonstrating a prima facie showing of entitlement to urgent relief. This application must be accompanied by an affidavit that details the grounds for urgency. The Court is required to hear and dispose of the application within seven days of filing, unless it is impracticable to do so. The Court will then issue an order granting or denying the interim relief, which must be recorded along with the reasons for the decision. Additionally, the order is subject to the right of appeal as outlined in this Code."
+  },
+  {
+    "section_number": "IPC 456",
+    "section_title": "Criminal Intimidation with Intent to Cause Harm",
+    "provision": "Whoever, with intent to cause harm or alarm, threatens any person with the infliction of death or grievous hurt, or with the destruction of property, shall be punished with imprisonment of either description for a term which may extend to three years, or with fine which may extend to fifty thousand rupees, or with both. If the offense is committed in furtherance of an organized criminal activity, the term of imprisonment may extend to five years.",
+    "question_type": "examples",
+    "question": "Can you provide examples of actions that would be considered criminal intimidation under IPC 456?",
+    "answer": "Yes, under IPC 456, examples of criminal intimidation include a person threatening to kill another individual if they do not pay a debt, or someone warning a neighbor that they will set fire to their property if they do not comply with certain demands. Additionally, if a group engages in organized criminal activity and threatens individuals with serious harm or property destruction to enforce their control, that would also fall under this provision, potentially leading to a longer imprisonment term."
+  },
+  {
+    "section_number": "IEA 115",
+    "section_title": "Admissibility of Electronic Records in Civil Proceedings",
+    "provision": "Notwithstanding any provisions to the contrary, electronic records shall be admissible in civil proceedings as evidence, provided that such records are accompanied by a certificate of authenticity attesting to their integrity and accuracy. The court may, at its discretion, take into account the reliability of the technology used in the creation, storage, and retrieval of these records, as well as any potential alterations that may have occurred. Further, any party seeking to introduce electronic records must notify the opposing party at least seven days prior to the hearing, allowing for adequate preparation to challenge the admissibility of such evidence.",
+    "question_type": "penalty",
+    "question": "What are the potential consequences for a party that fails to notify the opposing party at least seven days prior to a hearing when intending to introduce electronic records as evidence under IEA 115?",
+    "answer": "If a party fails to provide the required seven-day notice before introducing electronic records in a civil proceeding, the court may deem the electronic records inadmissible as evidence. This could hinder the party's ability to substantiate their claims or defenses, potentially resulting in unfavorable outcomes in the case."
+  },
+  {
+    "section_number": "IPC 134A",
+    "section_title": "Remedies for Breach of Contract",
+    "provision": "In the event of a breach of contract, the aggrieved party shall be entitled to pursue remedies as defined herein: (1) Specific performance of the contract may be ordered by a competent court where monetary damages are inadequate to remedy the loss suffered. (2) In cases where the breach is wilful and unexcused, the aggrieved party may also claim punitive damages not exceeding fifty percent of the actual damages incurred. (3) Parties may further stipulate in the contract provisions for liquidated damages, which shall be enforceable unless deemed unconscionable by the court.",
+    "question_type": "definition",
+    "question": "What remedies are available to an aggrieved party in the event of a breach of contract according to IPC 134A?",
+    "answer": "According to IPC 134A, the remedies available to an aggrieved party in the event of a breach of contract include: (1) specific performance of the contract when monetary damages are inadequate, (2) punitive damages not exceeding fifty percent of the actual damages if the breach is wilful and unexcused, and (3) liquidated damages as stipulated in the contract, which are enforceable unless deemed unconscionable by the court."
+  },
+  {
+    "section_number": "CNR 101",
+    "section_title": "Protection of Fundamental Rights",
+    "provision": "Every individual shall have the right to life, liberty, and personal security, which shall be inviolable and protected against arbitrary deprivation by the State. The State shall ensure that any infringement of these rights is subject to judicial review, and appropriate remedies shall be provided to individuals whose rights have been violated. The Parliament shall enact necessary legislation to define, safeguard, and enforce these rights, ensuring that no law or action contravenes the spirit of this provision without just cause.",
+    "question_type": "definition",
+    "question": "What fundamental rights are protected under CNR 101, and what obligations does the State have regarding these rights?",
+    "answer": "Under CNR 101, every individual is guaranteed the rights to life, liberty, and personal security, which are inviolable and protected against arbitrary deprivation by the State. The State is obligated to ensure that any infringement of these rights is subject to judicial review and must provide appropriate remedies to individuals whose rights have been violated. Additionally, the Parliament is required to enact necessary legislation to define, safeguard, and enforce these rights, ensuring no law or action contradicts this provision without just cause."
+  },
+  {
+    "section_number": "IPC 124A",
+    "section_title": "Protection of Unregistered Intellectual Property Rights",
+    "provision": "Any individual or entity claiming ownership of an unregistered intellectual property right, including but not limited to trade secrets, designs, and innovations, shall be entitled to seek legal remedy for unauthorized use or disclosure. The aggrieved party may file a civil suit in the appropriate jurisdiction, whereupon the court shall assess the validity of the claimed rights and may grant injunctive relief, damages, or any other relief deemed appropriate to prevent infringement and preserve the integrity of the intellectual property. This protection shall extend to the duration of the claimant's reasonable efforts to maintain the confidentiality and exclusivity of the intellectual property in question.",
+    "question_type": "definition",
+    "question": "What rights are protected under IPC 124A regarding unregistered intellectual property, and what legal remedies are available to the aggrieved party?",
+    "answer": "IPC 124A protects unregistered intellectual property rights, including trade secrets, designs, and innovations. An individual or entity claiming ownership may seek legal remedies for unauthorized use or disclosure by filing a civil suit in the appropriate jurisdiction. The court will assess the validity of the claimed rights and may grant injunctive relief, damages, or other appropriate remedies to prevent infringement and maintain the integrity of the intellectual property."
+  },
+  {
+    "section_number": "CL 204",
+    "section_title": "Remedies for Breach of Contract",
+    "provision": "In the event of a breach of contract, the aggrieved party shall be entitled to seek remedies including specific performance, rescission of the contract, and damages, which may be either general or consequential in nature. The party seeking damages must provide clear evidence of loss incurred as a result of the breach, and the court shall have discretion to award compensation that is deemed just and equitable, taking into account the nature of the breach and the contractual terms. Furthermore, any limitation on the right to claim damages must be explicitly stated within the contract to be enforceable.",
+    "question_type": "examples",
+    "question": "Can you provide examples of the types of remedies available for breach of contract as outlined in CL 204?",
+    "answer": "Yes, under CL 204, there are several remedies available for breach of contract. For instance, specific performance may be sought if the aggrieved party wants the breaching party to fulfill their contractual obligations, such as delivering a unique piece of art that was promised. Rescission of the contract could be an option if the aggrieved party wishes to cancel the contract entirely and return to their pre-contractual position, for example, if a buyer discovers that a seller misrepresented the condition of a property. Additionally, damages can be claimed, which may include general damages for direct losses, like the cost of hiring a substitute contractor after the original contractor failed to perform, or consequential damages, such as loss of business profits resulting from the delay in project completion due to the breach. It is important to note that the party seeking damages must provide evidence of the loss incurred, and any limitations on claiming damages must be clearly stated in the contract to be enforceable."
+  },
+  {
+    "section_number": "CPC 123A",
+    "section_title": "Provision for Electronic Filing of Pleadings",
+    "provision": "The Court may, upon application by any party, permit the electronic filing of pleadings, documents, and evidence in accordance with the guidelines issued by the Supreme Court. Such electronic submissions shall be deemed to be authentic and shall hold the same legal sanctity as original physical documents, provided that such filings comply with the prescribed digital signature requirements and are submitted within the timelines set forth by the Court. Any failure to comply with the electronic filing protocols may result in the rejection of the documents filed or the imposition of penalties as deemed appropriate by the presiding judge.",
+    "question_type": "examples",
+    "question": "Can you provide an example of a situation where a party might utilize electronic filing of pleadings according to CPC 123A?",
+    "answer": "Sure! For instance, if a plaintiff wishes to file a motion for summary judgment, they can submit their pleading electronically if they apply to the Court and receive permission. They must ensure their electronic submission adheres to the Supreme Court's guidelines, including using a valid digital signature and submitting it by the court's deadline. If they fail to meet these requirements, the court may reject their filing or impose penalties."
+  },
+  {
+    "section_number": "IEA 78",
+    "section_title": "Admissibility of Electronic Evidence",
+    "provision": "Notwithstanding any provision to the contrary, electronic evidence shall be admissible in judicial proceedings provided that such evidence is authenticated through a digital signature, or corroborated by a competent testimony that verifiably establishes its integrity and relevance to the matter in issue. The court may, in its discretion, require the production of the original electronic device or system from which the evidence is derived to determine its authenticity, unless such requirement is waived by mutual consent of the parties involved.",
+    "question_type": "procedure",
+    "question": "What steps must a party take to ensure that electronic evidence is admissible in judicial proceedings according to IEA 78?",
+    "answer": "To ensure that electronic evidence is admissible under IEA 78, a party must authenticate the evidence either through a digital signature or by providing corroborating testimony from a competent witness that verifies the evidence's integrity and relevance to the case. Additionally, the party may need to produce the original electronic device or system from which the evidence was obtained, unless this requirement is waived by mutual consent of the parties involved."
+  },
+  {
+    "section_number": "IEA 67A",
+    "section_title": "Admissibility of Digital Evidence",
+    "provision": "Notwithstanding any provisions to the contrary, any electronic record or digital evidence shall be admissible in a court of law, provided that the party seeking to introduce such evidence demonstrates the authenticity and integrity of the record through a reliable digital signature or encryption method. The court may, at its discretion, require further corroborative evidence to substantiate the reliability of the digital evidence presented, ensuring that the probative value outweighs any potential prejudicial effect.",
+    "question_type": "procedure",
+    "question": "What steps must a party take to ensure the admissibility of digital evidence in court according to IEA 67A?",
+    "answer": "To ensure the admissibility of digital evidence in court under IEA 67A, the party seeking to introduce the evidence must demonstrate the authenticity and integrity of the electronic record by using a reliable digital signature or encryption method. Additionally, the court may require further corroborative evidence to confirm the reliability of the digital evidence, ensuring that its probative value outweighs any potential prejudicial effect."
+  },
+  {
+    "section_number": "IPC 798",
+    "section_title": "Protection of Traditional Knowledge",
+    "provision": "Any person who, without lawful authority, uses, reproduces, or distributes traditional knowledge as defined under this Act, shall be liable for infringement of intellectual property rights. Such traditional knowledge shall include but not be limited to, cultural practices, medicinal formulations, or agricultural methods passed down through generations within indigenous communities. The affected community shall have the right to seek remedies, including injunctions and damages, in accordance with the provisions set forth in this section.",
+    "question_type": "examples",
+    "question": "Can you provide examples of actions that would infringe on traditional knowledge as per IPC 798?",
+    "answer": "Yes, examples of actions that would infringe on traditional knowledge under IPC 798 include:"
+  },
+  {
+    "section_number": "IPC 123A",
+    "section_title": "Protection of Unregistered Trade Secrets",
+    "provision": "Whosoever, in the course of trade or business, unlawfully discloses or uses a trade secret or confidential commercial information obtained through breach of a duty of confidentiality, shall be punishable with imprisonment for a term which may extend to three years or with fine, or with both. For the purposes of this section, \"trade secret\" shall mean any formula, pattern, compilation, program, device, method, technique, or process that derives independent economic value from not being generally known to or readily accessible by others who can obtain economic value from its disclosure or use. The burden of proof regarding the confidentiality of such information shall lie upon the claimant.",
+    "question_type": "obligations",
+    "question": "What obligations do individuals have regarding the disclosure of trade secrets under IPC 123A?",
+    "answer": "Individuals are obligated not to unlawfully disclose or use any trade secret or confidential commercial information that they have obtained through a breach of a duty of confidentiality. If they fail to uphold this obligation, they may face penalties including imprisonment for up to three years, a fine, or both. Additionally, the claimant has the burden of proof to demonstrate that the information in question is confidential."
+  },
+  {
+    "section_number": "FLA 102",
+    "section_title": "Rights of Inheritance for Female Heirs",
+    "provision": "In the event of the demise of a male intestate, female heirs, including daughters and widows, shall have an equal right to inherit the estate of the deceased on par with male heirs. The distribution of such inheritance shall be executed in accordance with the principles of equitable division, ensuring that each female heir receives a share that is not less than one-fourth of the total estate, unless expressly disclaimed by the heir in a legally binding written document. This section aims to uphold gender equality in matters of familial succession and inheritance rights under Hindu, Muslim, and other applicable personal laws in India.",
+    "question_type": "penalty",
+    "question": "What are the penalties for failing to adhere to the inheritance rights outlined in FLA 102 regarding female heirs?",
+    "answer": "While FLA 102 does not specify penalties within the provision itself, failure to comply with the equitable division of the estate as mandated can lead to legal action by female heirs. This may result in the court enforcing the rightful distribution of the estate, which could include the imposition of fines or other sanctions against the estate’s executors or those responsible for the distribution, as determined by the applicable legal framework."
+  },
+  {
+    "section_number": "IPC 123A",
+    "section_title": "Protection of Indigenous Knowledge and Cultural Expressions",
+    "provision": "Any person who unlawfully appropriates, reproduces, or disseminates indigenous knowledge or cultural expressions without the prior consent of the indigenous community shall be liable for infringement of intellectual property rights under this section. The aggrieved indigenous community may seek remedies including injunctions and damages, and the court shall consider the cultural significance and traditional practices associated with such knowledge in its deliberations. This provision aims to safeguard the heritage and intellectual contributions of indigenous communities against unauthorized exploitation.",
+    "question_type": "penalty",
+    "question": "What penalties can a person face for unlawfully appropriating indigenous knowledge or cultural expressions under IPC 123A?",
+    "answer": "A person who unlawfully appropriates, reproduces, or disseminates indigenous knowledge or cultural expressions without the prior consent of the indigenous community may be liable for infringement of intellectual property rights. The aggrieved indigenous community can seek remedies such as injunctions to prevent further infringement and damages for any losses incurred. The court will also consider the cultural significance and traditional practices associated with the knowledge in its decisions."
+  },
+  {
+    "section_number": "FLA 101",
+    "section_title": "Rights of Inheritance Among Hindu Succession",
+    "provision": "In the event of the demise of a Hindu individual, the property held by such individual, whether ancestral or self-acquired, shall devolve upon their legal heirs as defined under this Act, in accordance with the principles of equal partition among male and female heirs. The widow and children of the deceased shall inherit a minimum of one-third of the total estate, notwithstanding any prior testamentary disposition made by the deceased, unless expressly waived in writing by the heirs prior to the individual's death. The provisions herein shall apply irrespective of the religious or customary practices governing succession, aiming to uphold gender equality in inheritance rights.",
+    "question_type": "rights",
+    "question": "What rights do the widow and children of a deceased Hindu individual have regarding inheritance under the Hindu Succession Act?",
+    "answer": "The widow and children of a deceased Hindu individual are entitled to inherit a minimum of one-third of the total estate, regardless of any prior testamentary disposition made by the deceased. This right is upheld under the Act to ensure gender equality in inheritance, and it applies to both ancestral and self-acquired property."
+  },
+  {
+    "section_number": "IPC 420B",
+    "section_title": "Fraudulent Misrepresentation in Commercial Transactions",
+    "provision": "Whosoever, with intent to deceive, misrepresents a material fact regarding goods or services in the course of any commercial transaction, thereby causing financial loss to another party, shall be punished with imprisonment for a term which may extend to three years, or with fine which may extend to fifty thousand rupees, or with both. Explanation: For the purposes of this section, \"material fact\" shall mean any fact that, if known, would likely affect the decision of a reasonable person to enter into the transaction.",
+    "question_type": "exceptions",
+    "question": "Are there any exceptions under IPC 420B where a party may not be held liable for fraudulent misrepresentation in commercial transactions?",
+    "answer": "Yes, an exception under IPC 420B may apply if the misrepresentation was made without the intent to deceive, such as in cases where the party genuinely believed the information provided to be true, or if the misrepresentation pertains to opinions or predictions rather than material facts. Additionally, if the party can demonstrate that the other party had prior knowledge of the facts or waived their right to rely on the misrepresentation, liability may not be established under this section."
+  },
+  {
+    "section_number": "IPC 432",
+    "section_title": "Protection of Trade Secrets and Confidential Information",
+    "provision": "Whoever unlawfully discloses, acquires, or uses a trade secret or any confidential information belonging to another party, without the express consent of the owner, shall be punishable with imprisonment for a term which may extend to three years, or with fine, or with both. For the purposes of this section, \"trade secret\" shall include any formula, practice, process, design, instrument, pattern, or compilation of information that is not generally known or reasonably ascertainable by others and that provides a competitive advantage to the owner. The provisions of this section shall not apply to disclosures made under compulsion of law or in the course of legitimate business practices.",
+    "question_type": "exceptions",
+    "question": "What are the exceptions to the provisions of IPC 432 regarding the unlawful disclosure of trade secrets and confidential information?",
+    "answer": "The provisions of IPC 432 do not apply to disclosures made under compulsion of law or in the course of legitimate business practices. This means that if a person is legally required to disclose trade secrets or if the disclosure occurs as part of lawful business operations, they are exempt from the penalties outlined in this section."
+  },
+  {
+    "section_number": "IPC 123A",
+    "section_title": "Rights Pertaining to Inherited Property",
+    "provision": "In cases where property is inherited, any disputes arising among heirs regarding the rightful ownership, partition, or claim over such property shall be resolved in accordance with the principles of ancestral succession as defined under this Code. Any party claiming a right to the inherited property must provide substantial evidence of lineage and lawful entitlement, failing which the claim shall be deemed invalid. Furthermore, the court shall have the authority to appoint a mediator to facilitate negotiation among parties prior to adjudication, encouraging amicable settlements while safeguarding the rights of all claimants.",
+    "question_type": "rights",
+    "question": "What rights do heirs have regarding inherited property disputes under IPC 123A?",
+    "answer": "Heirs have the right to resolve disputes over inherited property ownership, partition, or claims according to the principles of ancestral succession. However, any heir claiming a right to the property must provide substantial evidence of their lineage and lawful entitlement. If they fail to do so, their claim will be considered invalid. Additionally, the court can appoint a mediator to help facilitate negotiations among the parties, promoting amicable settlements while protecting the rights of all claimants."
+  },
+  {
+    "section_number": "IEA 145",
+    "section_title": "Admissibility of Digital Evidence",
+    "provision": "Notwithstanding any provision to the contrary, digital evidence shall be admissible in any judicial proceeding if it is accompanied by a certificate of authenticity issued by a competent authority, attesting to the integrity, reliability, and original source of the data. The court shall evaluate the probative value of such evidence, taking into consideration the methods of collection, preservation, and transmission, along with any potential alterations, before determining its admissibility. In cases where digital evidence is presented, the burden of proof shall rest upon the party introducing such evidence to establish its authenticity and relevance.",
+    "question_type": "definition",
+    "question": "What is required for digital evidence to be admissible in judicial proceedings according to IEA 145?",
+    "answer": "Digital evidence is admissible in judicial proceedings if it is accompanied by a certificate of authenticity issued by a competent authority, which attests to the integrity, reliability, and original source of the data. Additionally, the court will evaluate its probative value considering the methods of collection, preservation, and transmission, as well as any potential alterations, and the party introducing the evidence must prove its authenticity and relevance."
+  },
+  {
+    "section_number": "IPC 509A",
+    "section_title": "Criminal Intimidation by Means of Digital Platforms",
+    "provision": "Whosoever, by means of any electronic, digital, or computer-based communication, threatens or causes harm to any person, including but not limited to threats of violence, coercion, or defamation, shall be punished with imprisonment for a term which may extend to three years, or with fine, or with both. In the case of aggravated circumstances, such as the use of multiple accounts or persistent harassment, the punishment may extend to five years of imprisonment. The provisions of this section shall be in addition to any other applicable laws concerning harassment or intimidation.",
+    "question_type": "examples",
+    "question": "Can you provide examples of actions that would be considered criminal intimidation under IPC 509A?",
+    "answer": "Yes, several actions can be considered criminal intimidation under IPC 509A. For instance, if an individual sends threatening messages via social media platforms, such as threatening physical harm or coercing someone into doing something against their will, this would qualify. Additionally, if someone uses multiple online accounts to continuously harass another person by spreading false information or defamatory statements about them, this would also fall under the provisions of IPC 509A. Lastly, if a person creates a fake profile to intimidate or threaten someone, this too would be punishable under this section."
+  },
+  {
+    "section_number": "IPC 471A",
+    "section_title": "Protection of Trade Secrets",
+    "provision": "Whoever unlawfully obtains, discloses, or uses a trade secret, knowing or having reason to know that such information was obtained through improper means, shall be punishable with imprisonment for a term which may extend to three years, or with fine which may extend to five lakh rupees, or with both. A trade secret shall be defined as any formula, pattern, compilation, program, device, method, technique, or process that derives independent economic value from not being generally known or readily ascertainable to the public, and is the subject of reasonable efforts to maintain its secrecy.",
+    "question_type": "exceptions",
+    "question": "Are there any exceptions under IPC 471A for disclosing or using trade secrets if the information is obtained through lawful means?",
+    "answer": "Yes, IPC 471A pertains specifically to the unlawful obtaining, disclosing, or using of trade secrets. If a person acquires a trade secret through lawful means, such as independent discovery or legitimate access, they would not be punishable under this provision. Additionally, if the trade secret becomes publicly known or is disclosed as a result of legal obligations, such as during a court proceeding, those actions may also fall outside the scope of punishment under this section."
+  },
+  {
+    "section_number": "IEA 65A",
+    "section_title": "Admissibility of Digital Evidence",
+    "provision": "Notwithstanding any provision to the contrary, digital evidence, including but not limited to electronic records, audio and video files, and data stored in digital devices, shall be admissible in any proceedings if such evidence is accompanied by a certificate from a competent authority confirming the integrity and authenticity of the data. The court may, however, require additional corroborative evidence to substantiate the claims made through such digital materials, ensuring that the principles of fairness and justice are upheld.",
+    "question_type": "examples",
+    "question": "Can you provide examples of digital evidence that would be admissible in court under IEA 65A if accompanied by the proper certification?",
+    "answer": "Yes, examples of digital evidence that would be admissible in court under IEA 65A include electronic records such as emails or digital contracts, audio files like recorded conversations relevant to the case, video files such as surveillance footage, and data stored on digital devices like smartphones or computers, provided that each piece of evidence is accompanied by a certificate from a competent authority verifying its integrity and authenticity. The court may still request additional corroborative evidence to ensure fairness in the proceedings."
+  },
+  {
+    "section_number": "IPC 507A",
+    "section_title": "Unauthorized Access and Data Breach",
+    "provision": "Whoever, without lawful authority or consent, intentionally accesses a computer system or network and obtains, alters, or deletes data shall be punished with imprisonment for a term which may extend to three years, or with fine which may extend to fifty thousand rupees, or with both. In case the unauthorized access results in harm or loss to any person or entity, the term of imprisonment may extend to five years, along with a fine which may be determined by the court based on the gravity of the harm caused.",
+    "question_type": "rights",
+    "question": "What rights do individuals have if they are victims of unauthorized access and data breaches under IPC 507A?",
+    "answer": "Individuals who are victims of unauthorized access and data breaches have the right to seek legal recourse against the perpetrator. They can report the incident to law enforcement, and if the unauthorized access results in harm or loss, they have the right to pursue compensation for damages through the court system. Additionally, they can expect that the law provides for penalties against the offender, which may include imprisonment and fines, thereby reinforcing their rights to safety and protection of their personal data."
+  },
+  {
+    "section_number": "FLA 123",
+    "section_title": "Rights of Inheritance Among Heirs",
+    "provision": "In cases of intestate succession, all heirs shall inherit the estate of the deceased in accordance with the principles of equitable distribution, wherein the surviving spouse shall receive one-half of the estate, while the remaining half shall be divided equally among the legitimate children. In the absence of legitimate children, the estate shall pass to the surviving parents, and if none exist, to the siblings in equal shares. The court shall ensure that the rights of all heirs are protected, preventing any testamentary disposition that contravenes the provisions set forth herein.",
+    "question_type": "exceptions",
+    "question": "Are there any exceptions to the equitable distribution of the estate among heirs as outlined in FLA 123?",
+    "answer": "Yes, exceptions exist where a testamentary disposition may override the standard distribution if it is legally valid and does not contravene the protections established in FLA 123. Additionally, if the deceased has left behind a valid will that specifies different distributions, those instructions may take precedence over intestate succession rules, provided they comply with relevant legal standards. However, the court will still ensure that no such disposition infringes on the rights of the heirs as defined in the provision."
+  },
+  {
+    "section_number": "IPC 482",
+    "section_title": "Rights of Co-Owners in Joint Property",
+    "provision": "In any case where two or more persons are co-owners of an immovable property, no co-owner shall alienate their share of the property without the consent of the other co-owners, unless otherwise stipulated by a prior agreement. In the event of a dispute regarding the use or management of the joint property, any co-owner may apply to the appropriate civil court for a partition of the property, which shall be conducted in accordance with the principles of equity and justice, ensuring that the rights of all parties are duly considered.",
+    "question_type": "obligations",
+    "question": "What obligation do co-owners of immovable property have regarding the alienation of their shares according to IPC 482?",
+    "answer": "Co-owners of immovable property are obligated not to alienate their share without the consent of the other co-owners, unless there is a prior agreement that stipulates otherwise."
+  },
+  {
+    "section_number": "IEA 75",
+    "section_title": "Admissibility of Digital Evidence",
+    "provision": "Digital evidence shall be admissible in any judicial proceedings if it is authenticated by the party presenting it, demonstrating its integrity and reliability. The court shall consider the methods of collection, preservation, and presentation of such evidence, and may require corroboration from independent sources when the authenticity is contested. Any digital evidence obtained in violation of fundamental rights as enshrined in the Constitution shall be deemed inadmissible.",
+    "question_type": "definition",
+    "question": "What is the criterion for the admissibility of digital evidence in judicial proceedings according to IEA 75?",
+    "answer": "Digital evidence is admissible in judicial proceedings if it is authenticated by the presenting party, demonstrating its integrity and reliability, while the court considers the methods of collection, preservation, and presentation. Additionally, such evidence must not violate fundamental rights as outlined in the Constitution, or it will be deemed inadmissible."
+  },
+  {
+    "section_number": "CTP 101",
+    "section_title": "Protection of Fundamental Rights",
+    "provision": "Every individual shall have the right to seek redress for any violation of their fundamental rights as enshrined in the Constitution, through an expedited process in the appropriate constitutional court. The court shall ensure that any infringement of these rights is addressed promptly and judiciously, and may grant interim relief to safeguard the affected individual's rights during the pendency of the proceedings. Furthermore, any public authority found to have acted in contravention of these rights shall be liable to compensate the aggrieved party, as determined by the court.",
+    "question_type": "examples",
+    "question": "Can you provide an example of a situation where an individual might seek redress for a violation of their fundamental rights under CTP 101?",
+    "answer": "An example of such a situation could be if a government agency unlawfully detains an individual without due process, violating their right to liberty. The individual can seek redress in the appropriate constitutional court under CTP 101. They may file a petition to have their detention reviewed and potentially obtain interim relief, such as being released from detention while the case is pending. If the court finds that their fundamental rights were indeed violated, the government agency may be ordered to compensate the individual for the unlawful detention."
+  },
+  {
+    "section_number": "CPC 405",
+    "section_title": "Case Management Conference",
+    "provision": "The Court shall, upon the filing of the first written statement or counterclaim, schedule a Case Management Conference within thirty days to facilitate the expeditious resolution of disputes. At this conference, the parties shall be required to outline their claims and defenses, discuss the possibility of settlement, and establish a timeline for the exchange of evidence and subsequent proceedings, ensuring that the principles of justice and efficiency are upheld. Non-compliance with the directives issued during the conference may result in the imposition of sanctions as deemed appropriate by the Court.",
+    "question_type": "definition",
+    "question": "What is a Case Management Conference as defined in CPC 405?",
+    "answer": "A Case Management Conference is a court-scheduled meeting that occurs within thirty days of filing the first written statement or counterclaim, aimed at facilitating the expeditious resolution of disputes. During this conference, parties outline their claims and defenses, discuss settlement possibilities, and establish a timeline for evidence exchange and further proceedings, with the goal of upholding justice and efficiency."
+  },
+  {
+    "section_number": "IPC 543",
+    "section_title": "Offense of Cyber Harassment",
+    "provision": "Whosoever, by means of a computer resource or communication device, intentionally engages in conduct that causes harm, alarm, or distress to another person, including but not limited to the transmission of offensive messages, threats, or repeated unwanted communications, shall be punished with imprisonment for a term which may extend to three years, or with fine which may extend to fifty thousand rupees, or with both. In the case of a subsequent offense under this section, the term of imprisonment may extend to five years.",
+    "question_type": "obligations",
+    "question": "What obligations do individuals have under IPC 543 regarding the use of computer resources or communication devices to avoid cyber harassment?",
+    "answer": "Individuals are obligated to refrain from intentionally engaging in conduct that could cause harm, alarm, or distress to others through the use of computer resources or communication devices. This includes avoiding the transmission of offensive messages, threats, or repeated unwanted communications, as doing so may result in legal consequences, including imprisonment or fines."
+  },
+  {
+    "section_number": "PRD 102",
+    "section_title": "Rights and Remedies in Property Disputes",
+    "provision": "In any dispute concerning immovable property, the aggrieved party may file a complaint before the designated Property Dispute Tribunal, which shall have exclusive jurisdiction to adjudicate such matters. The Tribunal shall issue a preliminary order within fifteen days of receiving the complaint, and if necessary, appoint a local commissioner to inspect the property and submit a report, thereby ensuring swift resolution and enforcement of rights. Any party dissatisfied with the Tribunal's decision may appeal to the High Court within sixty days from the date of the order, provided that the appeal is accompanied by a certified copy of the original order.",
+    "question_type": "rights",
+    "question": "What rights does an aggrieved party have in a property dispute according to PRD 102?",
+    "answer": "An aggrieved party in a property dispute has the right to file a complaint before the designated Property Dispute Tribunal, which has exclusive jurisdiction over such matters. They are entitled to a preliminary order within fifteen days and may have a local commissioner appointed for property inspection if necessary. Additionally, if they are dissatisfied with the Tribunal's decision, they have the right to appeal to the High Court within sixty days, provided they include a certified copy of the original order."
+  },
+  {
+    "section_number": "FLA 202",
+    "section_title": "Inheritance Rights of Children Born Out of Wedlock",
+    "provision": "Notwithstanding any other law to the contrary, a child born out of wedlock shall have the same rights of inheritance as a legitimate child in the estate of the biological parents, provided that paternity is established through a legally recognized process. The child shall have the right to claim a share in the ancestral property of the biological father's family, subject to the provisions of the Hindu Succession Act, 1956, or the applicable personal law of the parents. Any clause in a will or testament that seeks to exclude such a child from inheritance based solely on their illegitimacy shall be deemed void and unenforceable.",
+    "question_type": "obligations",
+    "question": "What obligations do biological parents have regarding the inheritance rights of a child born out of wedlock according to FLA 202?",
+    "answer": "Biological parents are obligated to ensure that a child born out of wedlock is granted the same inheritance rights as a legitimate child, provided that paternity is established through a legally recognized process. This includes the obligation to allow the child to claim a share in the ancestral property of the biological father's family, and any will or testament that attempts to exclude the child based solely on their illegitimacy is rendered void and unenforceable."
+  },
+  {
+    "section_number": "IPC 890",
+    "section_title": "Protection of Traditional Knowledge",
+    "provision": "Any person who utilizes traditional knowledge for commercial gain without the explicit consent of the community possessing such knowledge shall be liable for infringement of intellectual property rights. The aggrieved community may seek redress through civil courts for remedies including injunctions, damages, and the recognition of their rights as custodians of such knowledge. This provision aims to safeguard the cultural heritage of indigenous populations against unauthorized appropriation and exploitation.",
+    "question_type": "rights",
+    "question": "What rights do communities have under IPC 890 regarding the use of their traditional knowledge for commercial purposes?",
+    "answer": "Communities have the right to give explicit consent before their traditional knowledge is used for commercial gain. If their knowledge is utilized without consent, they can seek redress in civil courts for remedies such as injunctions, damages, and recognition of their rights as custodians of that knowledge, thereby protecting their cultural heritage from unauthorized appropriation and exploitation."
+  },
+  {
+    "section_number": "FLA 202",
+    "section_title": "Rights of Inheritance in Hindu Joint Families",
+    "provision": "In any Hindu joint family, the property acquired by any member through self-acquisition shall devolve upon all coparceners equally upon the demise of the said member, unless a valid testamentary instrument expressly disposes of such property. Furthermore, any coparcener may renounce their right to inherit by a written declaration made in the presence of two witnesses, thereby forfeiting their claim to such property in favor of the remaining coparceners. The provisions of this section shall apply notwithstanding any customary practices that may contravene the equal sharing of self-acquired property within the familial structure.",
+    "question_type": "obligations",
+    "question": "What are the obligations of a coparcener in a Hindu joint family regarding the inheritance of self-acquired property upon the demise of a member?",
+    "answer": "Upon the demise of a member in a Hindu joint family, the obligation of all coparceners is to equally share the self-acquired property of the deceased member, unless there is a valid testamentary instrument that specifies a different distribution. Additionally, any coparcener has the obligation to formally renounce their right to inherit by providing a written declaration in the presence of two witnesses, which will forfeit their claim to the property in favor of the remaining coparceners."
+  },
+  {
+    "section_number": "IPC 123A",
+    "section_title": "Rights of Property Co-Owners and Dispute Resolution",
+    "provision": "In instances where two or more individuals hold co-ownership of a property, any co-owner shall possess the right to access and utilize the entire property, subject to fair usage provisions. In the event of a dispute arising from the use, management, or any aspect of the shared property, the aggrieved co-owner may file a complaint with the Jurisdictional Property Dispute Tribunal, which shall convene a mediation session within fifteen days and issue a binding resolution within sixty days from the date of the complaint. Failure to comply with the Tribunal's resolution may result in penalties or execution of partition proceedings as prescribed under this Act.",
+    "question_type": "rights",
+    "question": "What rights do co-owners of a property have under IPC 123A regarding access and dispute resolution?",
+    "answer": "Under IPC 123A, co-owners have the right to access and utilize the entire property, as long as they adhere to fair usage provisions. If a dispute arises concerning the use or management of the property, any aggrieved co-owner has the right to file a complaint with the Jurisdictional Property Dispute Tribunal, which must convene a mediation session within fifteen days and issue a binding resolution within sixty days. Failure to comply with the Tribunal's resolution may lead to penalties or partition proceedings."
+  },
+  {
+    "section_number": "IPC 512",
+    "section_title": "Causing Harm through Deceptive Practices",
+    "provision": "Whoever, by means of false representations or fraudulent acts, induces any person to part with property, or to confer any benefit, shall be punished with imprisonment for a term which may extend to three years, or with fine which may extend to fifty thousand rupees, or with both. In cases where the deception results in substantial financial loss to the victim, the imprisonment may extend to five years, and the fine may increase to one lakh rupees. This provision aims to penalize not only the act of deception but also to ensure reparation to the aggrieved party.",
+    "question_type": "penalty",
+    "question": "What are the potential penalties for causing harm through deceptive practices under IPC 512?",
+    "answer": "Under IPC 512, the penalties for causing harm through deceptive practices can include imprisonment for a term of up to three years, a fine of up to fifty thousand rupees, or both. If the deception results in substantial financial loss to the victim, the imprisonment may extend to five years, and the fine may increase to one lakh rupees."
+  },
+  {
+    "section_number": "C.R.P. 102",
+    "section_title": "Right to Dignity and Personal Autonomy",
+    "provision": "Every individual shall have the right to live with dignity and personal autonomy, free from discrimination, oppression, or arbitrary interference by the State or any other person. The State shall take all necessary measures to ensure that this right is protected, promoted, and fulfilled, including the implementation of laws that prevent violations of personal autonomy and safeguard against indignities. Any infringement of this right shall be actionable in a competent court, entailing appropriate remedies and compensation for the aggrieved party.",
+    "question_type": "examples",
+    "question": "Can you provide examples of situations where the right to dignity and personal autonomy, as outlined in C.R.P. 102, might be violated?",
+    "answer": "Yes, there are several situations that could violate the right to dignity and personal autonomy. For instance, if a government imposes a law that restricts individuals' freedoms to make personal choices regarding their healthcare, such as mandating a specific medical treatment against their will, this would infringe upon their autonomy. Similarly, if an employer discriminates against an employee based on their gender, sexual orientation, or race, denying them equal opportunities or subjecting them to harassment, this would violate their right to dignity. Another example could be a scenario where law enforcement unlawfully detains an individual without cause, thereby interfering with their personal freedom and dignity. In each of these cases, the affected individuals could seek remedies in a competent court for the infringements they have suffered."
+  },
+  {
+    "section_number": "IPC 456",
+    "section_title": "Trespass with Intent to Commit an Offense",
+    "provision": "Whoever unlawfully enters into or remains in any building or enclosed space with the intent to commit theft, causing harm, or any other punishable offense shall be liable to imprisonment for a term which may extend to three years, or with fine, or with both. If the trespasser is armed with a deadly weapon during such entry, the term of imprisonment may extend to seven years.",
+    "question_type": "procedure",
+    "question": "What steps should law enforcement take when apprehending a suspect under IPC 456 for trespass with intent to commit an offense?",
+    "answer": "Law enforcement should first ensure the safety of the area by assessing if the suspect is armed. If the suspect is armed with a deadly weapon, they should call for backup and use appropriate protocols for armed confrontations. Once the area is secure, officers should identify and detain the suspect, ensuring that they read the suspect their rights. Evidence should be collected, including witness statements and any items related to the offense. The suspect should then be arrested and charged under IPC 456, with the specifics of the intent to commit theft or harm documented for prosecution. Finally, the suspect should be transported to the nearest police station for processing and further legal proceedings."
+  },
+  {
+    "section_number": "IPC 501A",
+    "section_title": "Protection of Constitutional Rights",
+    "provision": "Every individual shall have the right to seek legal recourse against any act or omission of the State or any public authority that infringes upon their fundamental rights as guaranteed under Part III of the Constitution of India. The courts shall have the power to issue writs, orders, or directions to enforce such rights, and any violation thereof shall be deemed a punishable offense, attracting imprisonment for a term which may extend to three years, or a fine, or both. This section shall not preclude any individual from seeking compensation for damages arising from violations of their constitutional rights.",
+    "question_type": "rights",
+    "question": "What rights does IPC 501A provide to individuals regarding violations of their fundamental rights by the State or public authorities?",
+    "answer": "IPC 501A grants every individual the right to seek legal recourse against any act or omission by the State or public authorities that infringes upon their fundamental rights as guaranteed under Part III of the Constitution of India. This includes the ability to request courts to issue writs, orders, or directions to enforce these rights, and individuals can also seek compensation for damages resulting from such violations."
+  },
+  {
+    "section_number": "CPL 204",
+    "section_title": "Remedies for Breach of Contract",
+    "provision": "In the event of a breach of contract, the aggrieved party shall be entitled to seek specific performance or, where specific performance is impracticable, claim damages sufficient to restore the party to the position they would have occupied had the contract been performed. The aggrieved party may elect to pursue any combination of equitable remedies, including injunctions to prevent further breaches, provided that such remedies are sought within a period of three years from the date of the breach. Furthermore, in cases of willful or gross negligence leading to breach, the court may award punitive damages, not exceeding two times the actual damages incurred.",
+    "question_type": "definition",
+    "question": "What are the remedies available to an aggrieved party in the event of a breach of contract according to CPL 204?",
+    "answer": "According to CPL 204, the remedies available to an aggrieved party in the event of a breach of contract include seeking specific performance, claiming damages to restore their position as if the contract had been performed, pursuing a combination of equitable remedies such as injunctions to prevent further breaches, and in cases of willful or gross negligence, the possibility of receiving punitive damages not exceeding two times the actual damages incurred. These remedies must be sought within three years from the date of the breach."
+  },
+  {
+    "section_number": "CPC 123A",
+    "section_title": "Consolidation of Suits",
+    "provision": "In any suit wherein multiple causes of action arise from the same transaction or series of transactions, the Court may, upon application by any party, direct the consolidation of such suits into a single proceeding. The Court shall consider the interests of justice, the convenience of the parties, and the potential for judicial economy in making its determination. The consolidated suit shall proceed under the same procedural rules as a singular action, with all parties given adequate opportunity to present their respective claims and defenses.",
+    "question_type": "examples",
+    "question": "Can you provide an example of a situation where the Court might consolidate multiple suits under CPC 123A?",
+    "answer": "Certainly! Imagine a scenario where a construction company is sued by multiple homeowners for damages caused by the same faulty product used in their homes. Each homeowner files a separate suit against the company, claiming similar damages due to the defective product. In this case, the Court may allow the consolidation of these suits into a single proceeding because all claims arise from the same transaction—the use of the faulty product. The Court would consider factors such as the interests of justice, the convenience for the homeowners and the construction company, and the potential for reducing judicial resources. This way, the consolidated suit can be handled more efficiently under the same procedural rules, allowing all parties to present their claims and defenses together."
+  },
+  {
+    "section_number": "CPC 145",
+    "section_title": "Summary Dismissal of Frivolous Claims",
+    "provision": "The Court shall have the authority to summarily dismiss any civil claim or application that it deems to be frivolous, vexatious, or intended solely to harass the opposing party. The Court, upon motion by the defendant, may conduct a preliminary hearing to ascertain the merits of the claim and, if satisfied that the claim lacks substance or is manifestly unjust, shall issue an order dismissing the claim with costs awarded to the defendant. This provision shall not preclude the Court from imposing penalties for abuse of process as deemed appropriate.",
+    "question_type": "rights",
+    "question": "What rights do defendants have under CPC 145 regarding frivolous claims made against them?",
+    "answer": "Under CPC 145, defendants have the right to request a preliminary hearing to assess the merits of a civil claim they believe to be frivolous or vexatious. If the Court finds that the claim lacks substance or is manifestly unjust, it can dismiss the claim and award costs to the defendant. Additionally, the Court has the authority to impose penalties for any abuse of process, further protecting the defendant's rights against harassing legal actions."
+  },
+  {
+    "section_number": "IPC 123A",
+    "section_title": "Remedies for Breach of Contract",
+    "provision": "In the event of a breach of contract, the aggrieved party shall be entitled to seek either specific performance of the contract or, in lieu thereof, claim damages which shall be quantified based on the actual loss suffered as a direct result of the breach. The court may also grant consequential damages if it is proven that such damages were foreseeable at the time of contract formation. Additionally, if the breach is willful and malicious, the court may impose punitive damages to deter further violations.",
+    "question_type": "exceptions",
+    "question": "Are there any exceptions to the entitlement of the aggrieved party to seek specific performance or claim damages for a breach of contract under IPC 123A?",
+    "answer": "Yes, exceptions may arise in cases where the breach was not willful or malicious, thereby limiting the possibility of punitive damages. Additionally, if the aggrieved party fails to prove that the consequential damages were foreseeable at the time of contract formation, they may not be entitled to such damages. Furthermore, specific performance may not be granted if it is deemed impractical or impossible to enforce the terms of the contract."
+  },
+  {
+    "section_number": "CPC 224",
+    "section_title": "Procedure for Electronic Filing of Civil Suits",
+    "provision": "In any civil proceedings filed before the Court, a party may submit documents and pleadings electronically through the designated digital platform, provided that such filings comply with the prescribed format and electronic signature requirements as established by the Supreme Court of India. The electronic filing shall be deemed equivalent to the physical submission of documents, and the Court shall issue an electronic acknowledgment of receipt, which shall serve as the official record of submission. Any discrepancies in the electronic filing shall be rectified within seven days of notice from the Court, failing which the Court may dismiss the application without prejudice to the party's right to refile.",
+    "question_type": "penalty",
+    "question": "What are the potential penalties for failing to rectify discrepancies in electronic filings within the specified time frame as per CPC 224?",
+    "answer": "If a party fails to rectify discrepancies in their electronic filing within seven days of receiving notice from the Court, the Court may dismiss the application. However, this dismissal is without prejudice, meaning the party retains the right to refile the application in the future."
+  },
+  {
+    "section_number": "IEA 102A",
+    "section_title": "Admissibility of Digital Evidence",
+    "provision": "Notwithstanding the provisions of Section 65B of the Indian Evidence Act, 1872, any digital evidence, including but not limited to data derived from electronic devices, shall be admissible in a court of law provided that the party seeking to introduce such evidence establishes its authenticity through a certified digital signature or a chain of custody that clearly delineates the handling of the evidence from the time of its creation to presentation in court. The court shall also consider the relevance of the evidence in relation to the facts of the case and may exclude it if it is deemed to be unfairly prejudicial, misleading, or if its probative value is substantially outweighed by the danger of confusion of the issues.",
+    "question_type": "procedure",
+    "question": "What steps must a party take to ensure that digital evidence is admissible in court according to IEA 102A?",
+    "answer": "To ensure that digital evidence is admissible in court under IEA 102A, the party seeking to introduce the evidence must establish its authenticity by providing either a certified digital signature or a clear chain of custody. This chain of custody must detail the handling of the evidence from the time of its creation to its presentation in court. Additionally, the court will assess the relevance of the evidence to the case and may exclude it if it is found to be unfairly prejudicial, misleading, or if its probative value is substantially outweighed by the potential for confusion regarding the issues."
+  },
+  {
+    "section_number": "CPC 192A",
+    "section_title": "Conduct of Preliminary Hearings",
+    "provision": "In all civil matters, the court shall conduct a preliminary hearing within thirty days of the filing of the plaint. During this hearing, the court shall ascertain the issues raised, determine the necessity of further pleadings, and establish a timeline for the conduct of the trial. The court may also encourage the parties to explore alternative dispute resolution mechanisms, including mediation or conciliation, prior to proceeding with the formal trial process.",
+    "question_type": "exceptions",
+    "question": "Are there any exceptions to the requirement for the court to conduct a preliminary hearing within thirty days of the filing of the plaint in civil matters under CPC 192A?",
+    "answer": "Yes, exceptions may apply in cases where the court determines that special circumstances exist, such as complex issues requiring additional time for proper assessment, or if the parties have mutually agreed to postpone the preliminary hearing for valid reasons. Additionally, if there are procedural delays or if the court's schedule does not allow for a hearing within the stipulated timeframe, these may also constitute exceptions to the requirement."
+  },
+  {
+    "section_number": "CPC 123A",
+    "section_title": "Interim Relief in Civil Proceedings",
+    "provision": "In any suit pending before the Court, the plaintiff may apply for interim relief, including but not limited to the issuance of a temporary injunction or a stay of proceedings, if it is demonstrated that the delay in granting such relief would cause irreparable harm to the applicant. The Court shall consider the balance of convenience between the parties and the likelihood of success on the merits of the case before granting any interim orders. Such relief may be granted for a period not exceeding six months, subject to renewal upon satisfactory demonstration of continued necessity.",
+    "question_type": "exceptions",
+    "question": "Are there any exceptions to the granting of interim relief under CPC 123A, and what factors must be considered by the Court in such cases?",
+    "answer": "Yes, there are exceptions to the granting of interim relief under CPC 123A. The Court will only grant such relief if the plaintiff demonstrates that a delay would cause irreparable harm and considers the balance of convenience between the parties as well as the likelihood of success on the merits of the case. If these conditions are not satisfactorily met, the Court may deny the application for interim relief."
+  },
+  {
+    "section_number": "IPC 132A",
+    "section_title": "Protection of Innovations in Traditional Knowledge",
+    "provision": "Any individual or entity that seeks to utilize traditional knowledge or practices that have been developed and passed down through generations within a specific community shall obtain prior informed consent from the relevant community. Failure to do so shall constitute an infringement of the intellectual property rights of the community, rendering the infringer liable for damages not less than one lakh rupees and up to five times the profits derived from such unauthorized use. Additionally, courts may impose injunctions to prevent further exploitation of the said traditional knowledge.",
+    "question_type": "procedure",
+    "question": "What steps must an individual or entity take to legally utilize traditional knowledge according to IPC 132A?",
+    "answer": "To legally utilize traditional knowledge, an individual or entity must first obtain prior informed consent from the relevant community that holds the traditional knowledge. This involves engaging with the community to explain the intended use and ensuring that they fully understand and agree to it. Failure to obtain this consent may lead to legal consequences, including liability for damages and potential injunctions against further exploitation."
+  }
+]

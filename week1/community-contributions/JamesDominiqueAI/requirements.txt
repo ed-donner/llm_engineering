@@ -1,0 +1,4 @@
+openai>=1.0.0
+python-docx>=1.1.0
+PyPDF2>=3.0.0
+docx2txt>=0.8

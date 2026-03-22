@@ -1,0 +1,114 @@
+
+import os
+from dotenv import load_dotenv
+from openai import OpenAI
+from IPython.display import Markdown, display
+
+load_dotenv(override=True)
+openai_api_key = os.getenv('OPENAI_API_KEY')
+anthropic_api_key = os.getenv('ANTHROPIC_API_KEY')
+google_api_key = os.getenv('GOOGLE_API_KEY')
+
+openai = OpenAI()
+anthropic_url = "https://api.anthropic.com/v1/"
+gemini_url = "https://generativelanguage.googleapis.com/v1beta/openai/"
+
+anthropic = OpenAI(api_key=anthropic_api_key, base_url=anthropic_url)
+gemini = OpenAI(api_key=google_api_key, base_url=gemini_url)
+
+alex_gpt_model = "gpt-4.1-mini"
+blake_claude_model = "claude-haiku-4-5"
+charlie_gemini_model="gemini-2.5-flash-lite"
+
+alex = "Alex"
+blake="Blake"
+charlie="Charlie"
+conversation = []
+
+def generateConversationHistory(conversation: list[str]):  
+     return "\n\n".join(conversation)
+
+alex_system_prompt = """
+You are Alex, a chatbot who is very argumentative; you disagree with anything in the conversation and you challenge everything, in a snarky way.
+You are in a conversation with Blake and Charlie.
+"""
+blake_system_prompt = """
+You are Blake, a chatbot who is very argumentative; you disagree with anything in the conversation and you challenge everything, in a snarky way.
+You are in a conversation with Alex and Charlie.
+"""
+charlie_system_prompt = """
+You are Charlie, a very polite, courteous chatbot. You try to agree with \
+everything the other person says, or find common ground. If the other person is argumentative, \
+you try to calm them down and keep chatting.
+You are in a conversation with Blake and Alex.
+"""
+
+def alex_call_gpt(conversationHistory : str):
+
+    alex_user_prompt = f"""
+    You are Alex, in conversation with Blake and Charlie.
+    The conversation so far is as follows:
+    {conversationHistory}
+    Now with this, respond with what you would like to say next, as Alex.
+    """
+    messages=[
+        {"role":"system", "content":alex_system_prompt },
+        {"role":"user","content":alex_user_prompt}
+    ]
+    response = openai.chat.completions.create(
+        model=gpt_model,
+        messages=messages
+    )
+    return response.choices[0].message.content,
+
+def blake_call_claude(conversationHistory : str):
+    blake_user_prompt = f"""
+    You are Blake, in conversation with Alex and Charlie.
+    The conversation so far is as follows:
+    {conversationHistory}
+    Now with this, respond with what you would like to say next, as Blake.
+    """
+    messages=[
+        {"role":"system", "content":blake_system_prompt },
+        {"role":"user","content":blake_user_prompt}
+    ]
+    response = anthropic.chat.completions.create(
+        model=blake_claude_model,
+        messages=messages
+    )
+    return response.choices[0].message.content
+
+def charlie_call_gemini(conversationHistory : str):
+   
+    charlie_user_prompt = f"""
+    You are Charlie, in conversation with Alex and Blake.
+    The conversation so far is as follows:
+    {conversationHistory}
+    Now with this, respond with what you would like to say next, as Charlie.
+    """
+    messages=[
+        {"role":"system", "content":charlie_system_prompt },
+        {"role":"user","content":charlie_user_prompt}
+    ]
+    response = gemini.chat.completions.create(
+        model=charlie_gemini_model,
+        messages=messages
+    )
+    return response.choices[0].message.content
+
+
+for i in range(5):
+    conversationHistory = generateConversationHistory(conversation)
+ 
+    alex_next = alex_call_gpt(conversationHistory)
+    display(Markdown(f"### Alex:\n{alex_next}\n"))
+    blake_next = blake_call_claude(conversationHistory)
+    display(Markdown(f"### Blake:\n{blake_next}\n"))
+    charlie_next = charlie_call_gemini(conversationHistory)
+    display(Markdown(f"### Charlie:\n{charlie_next}\n"))    
+
+    conversation.append(f"{alex}: {alex_next}")
+    conversation.append(f"{blake}: {blake_next}")
+    conversation.append(f"{charlie}: {charlie_next}")
+    display(Markdown("--------------"))
+

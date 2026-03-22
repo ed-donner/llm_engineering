@@ -1,0 +1,66 @@
+[
+  {
+    "name": "Pixel Forge Games – Submissions",
+    "description": "Indie publisher accepting roguelikes, puzzle, narrative, tactics, survival, arcade. Solo and small teams (up to 15). Playable build or vertical slice required. PC (Steam, Epic, GOG) and/or console (Switch, Xbox). 6–18 month scope preferred.",
+    "deadline": "Ongoing",
+    "url": "https://example.com/pixelforge-submissions",
+    "source": "curated",
+    "eligibility_summary": "Indie-friendly genres; solo/small team; 6–18 months; PC/console"
+  },
+  {
+    "name": "ID@Xbox",
+    "description": "Microsoft's program for independent developers to publish digital games on Xbox. No fee to apply. Access to dev kits, support, and store presence.",
+    "deadline": "Ongoing",
+    "url": "https://www.xbox.com/en-US/developers/id",
+    "source": "curated",
+    "eligibility_summary": "Indie devs; digital games for Xbox"
+  },
+  {
+    "name": "PlayStation Partners",
+    "description": "Sony's program for indie and third-party publishers. Support for PS5/PS4 development, funding opportunities, and visibility.",
+    "deadline": "Rolling",
+    "url": "https://www.playstation.com/developers/",
+    "source": "curated",
+    "eligibility_summary": "Indie studios; console titles"
+  },
+  {
+    "name": "Humble Bundle – Publishing",
+    "description": "Humble publishes indie games and helps with visibility, store pages, and bundles. Focus on PC; interest in diverse and narrative-driven games.",
+    "deadline": "Ongoing",
+    "url": "https://www.humblebundle.com/about",
+    "source": "curated",
+    "eligibility_summary": "Indie PC games; narrative and variety"
+  },
+  {
+    "name": "Indie Fund",
+    "description": "Recoupable investment for indie developers. No equity; you repay from revenue. Looking for strong design and scope that can ship.",
+    "deadline": "Application rounds (check site)",
+    "url": "https://indie-fund.com/",
+    "source": "curated",
+    "eligibility_summary": "Indie teams; recoupable funding; no equity"
+  },
+  {
+    "name": "Stadia Games and Entertainment Fund (legacy)",
+    "description": "Historical example: funding for cloud-native and cross-platform indies. Some programs have closed; similar funds exist elsewhere.",
+    "deadline": "N/A",
+    "url": "https://example.com/indie-funds",
+    "source": "curated",
+    "eligibility_summary": "Indie; various platforms"
+  },
+  {
+    "name": "Epic MegaGrants",
+    "description": "Epic Games offers grants for projects using Unreal Engine, for open source and media, and for education. Wide scope; no repayment.",
+    "deadline": "Rolling",
+    "url": "https://www.unrealengine.com/en-US/megagrants",
+    "source": "curated",
+    "eligibility_summary": "Unreal projects; games, film, open source, education"
+  },
+  {
+    "name": "Nintendo Indie World",
+    "description": "Nintendo’s visibility channel for indie games on Switch. Submit through your publisher or Nintendo’s partner process for consideration.",
+    "deadline": "Ongoing",
+    "url": "https://developer.nintendo.com/",
+    "source": "curated",
+    "eligibility_summary": "Switch games; via publisher or dev program"
+  }
+]
