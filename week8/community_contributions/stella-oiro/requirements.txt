@@ -1,0 +1,6 @@
+openai
+chromadb
+sentence-transformers
+modal
+requests
+gradio

@@ -1,0 +1,31 @@
+Frequently Asked Questions (FAQ)
+
+1. What are the working hours for employees?
+The standard working hours are from 9:00 AM to 5:00 PM, Monday through Friday. Employees are expected to log into the company system at the beginning of their shift.
+
+2. How many leave days are employees entitled to each year?
+Employees are entitled to 20 days of paid annual leave per year. Leave requests must be submitted in advance through the HR management system.
+
+3. What should I do if I forget my system password?
+If you forget your password, use the password reset option on the company login page. If the issue persists, contact the IT support team for assistance.
+
+4. Can employees work remotely?
+Yes, employees may work remotely up to two days per week with the approval of their direct manager.
+
+5. How do I request technical support?
+Technical support requests can be submitted through the internal IT helpdesk portal. You may also contact the IT department via email for urgent issues.
+
+6. What is the company policy on data security?
+Employees must follow all cybersecurity guidelines, including using strong passwords, avoiding suspicious links, and ensuring company data is not shared with unauthorized individuals.
+
+7. Where can I find company policies and guidelines?
+All official policies, manuals, and guidelines are available on the company intranet under the Human Resources section.
+
+8. Who should I contact for HR-related issues?
+For HR-related inquiries such as leave requests, payroll, or employee benefits, contact the Human Resources department through the HR portal.
+
+9. Are training programs available for employees?
+Yes, the company provides regular training programs to help employees improve their technical and professional skills.
+
+10. What should I do if I experience technical issues with company software?
+If you encounter any technical problems, report them through the IT helpdesk system or contact the IT support team immediately.

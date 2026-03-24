@@ -1,0 +1,8 @@
+# requirements.txt for Timothy's AI News Agent
+requests
+beautifulsoup4
+gradio
+openai
+matplotlib
+wordcloud
+python-dotenv
