@@ -1,0 +1,34 @@
+{
+    "name": "ExampleEquitySim",
+    "base_url": "https://sim.example.com/api",
+    "endpoints": {
+        "get_price": {
+            "path": "/market/price",
+            "method": "GET",
+            "params": ["symbol"]
+        },
+        "place_order": {
+            "path": "/orders",
+            "method": "POST",
+            "body": ["symbol", "side", "quantity", "order_type", "price_optional"]
+        },
+        "cancel_order": {
+            "path": "/orders/{order_id}/cancel",
+            "method": "POST"
+        },
+        "get_balance": {
+            "path": "/account/balance",
+            "method": "GET"
+        },
+        "get_positions": {
+            "path": "/account/positions",
+            "method": "GET"
+        }
+    },
+    "auth": {
+        "type": "api_key_header",
+        "header_name": "X-API-KEY",
+        "api_key_placeholder": "<SIM_API_KEY>"
+    },
+    "notes": "This simulated API uses JSON and returns ISO timestamps in UTC."
+}
