@@ -1,0 +1,10 @@
+# week8-project dependencies
+openai
+httpx
+beautifulsoup4
+lxml
+fake-useragent
+python-dotenv
+modal
+gradio
+pandas
