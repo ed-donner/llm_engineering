@@ -2,5 +2,5 @@
 
 Projects contributed to the LLM Engineering course by Ed Donner.
 
-1. Research Paper Summarizer for Literature Surveys
-2. AI News Analyzer
+1. AI News Analyzer
+2. Brochure Generator
