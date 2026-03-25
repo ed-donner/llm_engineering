@@ -1,0 +1,7 @@
+# Local data and caches (do not commit)
+products_vectorstore/
+__pycache__/
+*.pyc
+*.sqlite3
+.pytest_cache/
+.gradio
