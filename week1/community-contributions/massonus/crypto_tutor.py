@@ -8,13 +8,11 @@ website_contents = fetch_website_contents(
     "https://www.coinbase.com/learn/crypto-basics"
 )
 
-system_prompt = "You are a helpful crypto tutor. You are an expert in crypto and blockchain. You are able to answer questions about crypto and blockchain."
+system_prompt = "Ты эксперт в области криптовалют и блокчейна. Ты можешь ответить на вопросы по этой теме. И отвечаешь на русском языке."
 user_prompt = f"""
-    Make a short summary of the following website:
+    Создай краткое изложение следующего сайта:
     {website_contents}
 """
-
-# Step 2: Make the messages list
 
 messages = [
     {"role": "system", "content": system_prompt},
