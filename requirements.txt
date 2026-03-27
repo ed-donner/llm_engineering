@@ -25,7 +25,6 @@ chromadb
 plotly
 jupyter-dash
 beautifulsoup4
-playwright
 pydub
 modal
 ollama
