@@ -202,7 +202,7 @@ class TutorApp(App):
     }
 
     /* Welcome markdown */
-    #welcome {
+    .welcome {
         padding: 0 0 1 0;
         color: #8b949e;
         background: #0d1117;
@@ -247,7 +247,7 @@ class TutorApp(App):
     def compose(self) -> Generator[ComposeResult, None, None]:
         yield Header()
         with ScrollableContainer(id="chat-view"):
-            yield MarkdownWidget(WELCOME_MD, id="welcome")
+            yield MarkdownWidget(WELCOME_MD, classes="welcome")
         with Horizontal(id="input-bar"):
             yield Input(
                 placeholder=" Ask a question… (/help for commands)",
@@ -418,7 +418,7 @@ class TutorApp(App):
         self._thinking_widget = None
         chat = self.query_one("#chat-view")
         chat.remove_children()
-        chat.mount(MarkdownWidget(WELCOME_MD))
+        chat.mount(MarkdownWidget(WELCOME_MD, classes="welcome"))
         self._add_system("🗑️   Chat cleared — history, context and turn counter reset.")
         self.sub_title = "Type /help for commands"
 
