@@ -1,4 +1,26 @@
 # imports
+
+"""
+agent.py — LLM Agent and Tool Orchestration
+
+This module contains the core agent logic for the clinic booking assistant.
+It manages the conversation flow, calls the appropriate tools based on LLM decisions,
+and returns responses to the Gradio UI.
+
+Components:
+- get_system_message(): Builds the system prompt with the current date and time,
+  and the step-by-step booking flow instructions for the LLM.
+
+- handle_tool_calls(): Receives tool call requests from the LLM, routes them to
+  the correct database or email function, and returns results back to the LLM.
+  All tool calls and results are logged for debugging.
+
+- chat(): The main conversation function. Builds the message history, calls the LLM,
+  runs the tool call loop until the LLM produces a final response, and returns the reply.
+  Handles errors gracefully and retries on tool_use_failed errors.
+
+Model: GPT-4.1 Mini via OpenAI library
+"""
 import sys
 print(sys.path)
 import os
@@ -30,14 +52,6 @@ else:
 OPENAIMODEL = "gpt-4.1-mini"
 openai = OpenAI()
 
-# groq_api_key = os.getenv('GROQ_API_KEY')
-# if groq_api_key:
-#     print(f"Groq API Key exists and begins {groq_api_key[:4]}")
-# else:
-#     print("Groq API Key not set (and this is optional)")
-# groq_url = "https://api.groq.com/openai/v1"
-# groq = OpenAI(api_key=groq_api_key, base_url=groq_url)
-# GROQMODEL = 
 
 
 
@@ -139,13 +153,8 @@ def handle_tool_calls(message):
 
     return responses
 
-def talker(message):
-    response = openai.audio.speech.create(
-      model="gpt-4o-mini-tts",
-      voice="coral",    
-      input=message
-    )
-    return response.content
+
+
 
 def chat(message, history):
     try:
