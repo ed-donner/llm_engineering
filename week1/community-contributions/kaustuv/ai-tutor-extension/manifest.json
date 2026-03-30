@@ -1,0 +1,16 @@
+{
+    "manifest_version": 3,
+    "name": "Selective Writing Coach",
+    "version": "1.0",
+    "permissions": ["activeTab", "scripting"],
+    "host_permissions": ["http://localhost:8000/*"],
+    "background": { "service_worker": "background.js" },
+   "content_scripts": [{
+  "matches": ["*://*.office.com/*", "*://*.live.com/*", "*://*.officeapps.live.com/*"],
+  "js": ["content.js"],
+  "all_frames": true,
+  "match_about_blank": true
+}]
+
+}
+  
