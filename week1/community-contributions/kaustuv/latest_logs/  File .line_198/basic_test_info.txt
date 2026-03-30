@@ -1,0 +1,19 @@
+  File .py:198:SB
+--------------------------------------------------------------------
+Last Page: chrome://new-tab-page/
+ Duration: 0.01s
+  Browser: Chrome 146.0.7680.154
+   Driver: chromedriver 146.0.7680.153
+Timestamp: 1773986414  (Unix Timestamp)
+     Date: Friday, 20 March 2026
+     Time: 5:00:14 PM  (AEDT, UTC+11:00)
+--------------------------------------------------------------------
+Traceback:
+  File "/Users/km/AI/projects/llm_engineering/.venv/lib/python3.12/site-packages/IPython/core/interactiveshell.py", line 3699, in run_code
+    exec(code_obj, self.user_global_ns, self.user_ns)
+  File "/var/folders/vc/vk7vc7953218mqrhmzft77200000gn/T/ipykernel_21903/3843383045.py", line 45, in <module>
+    main()
+  File "/var/folders/vc/vk7vc7953218mqrhmzft77200000gn/T/ipykernel_21903/3843383045.py", line 28, in main
+    print(f"✅ Found {len(listings)} offerts\n")
+                          ^^^^^^^^
+Exception: name 'listings' is not defined
