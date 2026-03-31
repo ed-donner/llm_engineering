@@ -94,7 +94,7 @@ class Batch:
 
     def apply_output(self):
         output_file = str(self.output / self.filename)
-        with open(output_file, "r") as f:
+        with open(output_file, "r", encoding="utf-8") as f:
             for line in f:
                 json_line = json.loads(line)
                 id = int(json_line["custom_id"])
