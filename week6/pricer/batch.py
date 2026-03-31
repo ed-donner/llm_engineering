@@ -5,6 +5,7 @@ from pathlib import Path
 import json
 import pickle
 from tqdm.notebook import tqdm
+import sys
 
 load_dotenv(override=True)
 groq = Groq(api_key=os.environ.get("GROQ_API_KEY"))
@@ -94,11 +95,14 @@ class Batch:
 
     def apply_output(self):
         output_file = str(self.output / self.filename)
-        with open(output_file, "r") as f:
+        encoding = "utf-8" if sys.platform == "win32" else None
+        with open(output_file, "r", encoding=encoding) as f:
             for line in f:
                 json_line = json.loads(line)
                 id = int(json_line["custom_id"])
-                summary = json_line["response"]["body"]["choices"][0]["message"]["content"]
+                summary = json_line["response"]["body"]["choices"][0]["message"][
+                    "content"
+                ]
                 self.items[id].summary = summary
         self.done = True
 
