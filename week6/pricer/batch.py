@@ -100,9 +100,7 @@ class Batch:
             for line in f:
                 json_line = json.loads(line)
                 id = int(json_line["custom_id"])
-                summary = json_line["response"]["body"]["choices"][0]["message"][
-                    "content"
-                ]
+                summary = json_line["response"]["body"]["choices"][0]["message"]["content"]
                 self.items[id].summary = summary
         self.done = True
 
