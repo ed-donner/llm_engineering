@@ -28,6 +28,7 @@ def _first_line(s: str) -> str:
 
 
 def _which(name: str) -> str:
+    # shutil.which returns the absolute path if 'name' is already a valid absolute path
     return shutil.which(name) or ""
 
 
@@ -193,28 +194,89 @@ def _cpu_block():
 def _toolchain_block():
     def ver_line(exe, args=("--version",)):
         p = _which(exe)
+        # Fallback: if 'exe' is a full path that exists, use it even if _which didn't find it in PATH
+        if not p and os.path.exists(exe) and os.path.isabs(exe):
+            p = exe
+            
         if not p:
             return ""
         out = _run([p, *args])
         return _first_line(out)
 
+    sysname = platform.system()
+    
+    # --- Advanced Windows Detection (MSVC & Clang fallback) ---
+    found_msvc_info = ""
+    found_clang_path = ""
+    
+    if sysname == "Windows":
+        # 1. Attempt to find MSVC via 'vswhere.exe' (standard VS installer tool)
+        vswhere = r"C:\Program Files (x86)\Microsoft Visual Studio\Installer\vswhere.exe"
+        vs_install_path = ""
+        
+        if os.path.exists(vswhere):
+            # Ask vswhere for the installation path of the latest VS with C++ tools
+            vs_install_path = _run([
+                vswhere, "-latest", 
+                "-products", "*", 
+                "-requires", "Microsoft.VisualStudio.Component.VC.Tools.x86.x64", 
+                "-property", "installationPath"
+            ])
+            
+            if vs_install_path and os.path.isdir(vs_install_path):
+                # Look for the version number in VC/Tools/MSVC
+                msvc_tools_dir = os.path.join(vs_install_path, "VC", "Tools", "MSVC")
+                if os.path.isdir(msvc_tools_dir):
+                    versions = sorted([d for d in os.listdir(msvc_tools_dir) if d[0].isdigit()], reverse=True)
+                    if versions:
+                        found_msvc_info = f"MSVC {versions[0]} (found at {msvc_tools_dir})"
+
+        # 2. Attempt to find Clang in standard locations if not in PATH
+        if not _which("clang"):
+            candidates = [
+                r"C:\Program Files\LLVM\bin\clang.exe",
+                r"C:\Program Files (x86)\LLVM\bin\clang.exe",
+            ]
+            # Also check the "Clang for Windows" component inside Visual Studio if detected
+            if vs_install_path:
+                vs_clang = os.path.join(vs_install_path, "VC", "Tools", "Llvm", "x64", "bin", "clang.exe")
+                candidates.append(vs_clang)
+                
+            for c in candidates:
+                if os.path.exists(c):
+                    found_clang_path = c
+                    break
+
+    # --- Compiler Checks ---
+
     gcc = ver_line("gcc")
     gpp = ver_line("g++")
-    clang = ver_line("clang")
+    
+    # Clang: Use found path if PATH lookup failed
+    clang_exe = found_clang_path if found_clang_path else "clang"
+    clang = ver_line(clang_exe)
 
-    # MSVC cl (only available inside proper dev shell; handle gracefully)
+    # MSVC: 
+    # If we are in a Dev Prompt, "cl" will work.
+    # If not, we use the version we found via file system checks.
     msvc_cl = ""
-    cl_path = _which("cl")
-    if cl_path:
+    cl_in_path = _which("cl")
+    if cl_in_path:
         msvc_cl = _first_line(_run("cl 2>&1"))
+    elif found_msvc_info:
+        msvc_cl = found_msvc_info
 
     # Build tools (presence + short version line)
     cmake = ver_line("cmake")
-    ninja = _first_line(_run([_which("ninja"), "--version"])) if _which("ninja") else ""
+    ninja = ""
+    if _which("ninja"):
+         ninja = _first_line(_run(["ninja", "--version"]))
+    
     make = ver_line("make")
 
     # Linker (we only care if lld is available)
     lld = ver_line("ld.lld")
+
     return {
         "compilers": {"gcc": gcc, "g++": gpp, "clang": clang, "msvc_cl": msvc_cl},
         "build_tools": {"cmake": cmake, "ninja": ninja, "make": make},
