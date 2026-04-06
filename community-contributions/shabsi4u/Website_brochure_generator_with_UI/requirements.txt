@@ -1,0 +1,20 @@
+# Core dependencies for Website Brochure Generator
+openai>=1.0.0
+requests>=2.28.0
+beautifulsoup4>=4.11.0
+python-dotenv>=0.19.0
+gradio>=4.0.0
+lxml>=4.9.0
+
+# Optional: For better HTML parsing performance
+html5lib>=1.1
+
+# Optional: For enhanced web scraping capabilities
+selenium>=4.0.0
+
+# Development dependencies (uncomment if needed)
+# pytest>=7.0.0
+# pytest-cov>=4.0.0
+# black>=22.0.0
+# flake8>=5.0.0
+# mypy>=1.0.0
