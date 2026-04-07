@@ -1,6 +1,6 @@
-🔎 Data Lineage Search App (Streamlit + Gradio)
+🔎 Data Lineage Search RAG App (Streamlit + Gradio)
 
-This project is a data lineage and search application that allows users to search for:
+This project is a data lineage and search RAG application that allows users to search for:
 
 Columns
 Tables
