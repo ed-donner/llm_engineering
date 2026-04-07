@@ -13,6 +13,7 @@ It supports both Streamlit and Gradio UIs and is powered by a FastAPI backend.
 🔍 Search across mapping files and SQL scripts
 🧠 Understand complex DMLs and transformations
 📊 View structured lineage and metadata
+
 🖥️ Dual UI support:
 Streamlit (interactive dashboard)
 Gradio (lightweight UI)
@@ -25,8 +26,8 @@ Backend
 FastAPI service (api/app.py)
 Processing
 SQL parsing and lineage extraction
-Mapping file interpretation
-Optional LLM support via OpenAI
+Mapping file and SQL files interpretation using LLM via OpenAI
+
 📦 Prerequisites
 Python 3.10+
 uv package manager
