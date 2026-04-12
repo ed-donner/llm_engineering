@@ -17,6 +17,7 @@ It supports both Streamlit and Gradio UIs and is powered by a FastAPI backend.
 Streamlit (interactive dashboard)
 Gradio (lightweight UI)
 ⚡ FastAPI backend for scalable processing
+
 🏗️ Architecture
 Frontend
 Streamlit UI (ui/streamlit_app.py)
@@ -27,6 +28,10 @@ Processing
 SQL parsing and lineage extraction
 Mapping file interpretation
 Optional LLM support via OpenAI
+
+Adding Data:
+Create a folder data at the same level as api or ingestion, and add your sql files and csv,xslx,xsl files.
+
 📦 Prerequisites
 Python 3.10+
 uv package manager
@@ -51,6 +56,7 @@ http://localhost:8000
 uv run streamlit run ui/streamlit_app.py
 3. Run Gradio UI
 uv run ui/gradio_app.py
+
 🧪 Usage
 Enter a table name or column name in the search bar
 The system will:
