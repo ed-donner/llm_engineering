@@ -1,6 +1,6 @@
-🔎 Data Lineage Search App (Streamlit + Gradio)
+🔎 Data Lineage Search RAG App (Streamlit + Gradio)
 
-This project is a data lineage and search application that allows users to search for:
+This project is a data lineage and search RAG application that allows users to search for:
 
 Columns
 Tables
@@ -13,6 +13,7 @@ It supports both Streamlit and Gradio UIs and is powered by a FastAPI backend.
 🔍 Search across mapping files and SQL scripts
 🧠 Understand complex DMLs and transformations
 📊 View structured lineage and metadata
+
 🖥️ Dual UI support:
 Streamlit (interactive dashboard)
 Gradio (lightweight UI)
@@ -28,6 +29,7 @@ Processing
 SQL parsing and lineage extraction
 Mapping file interpretation
 Optional LLM support via OpenAI
+Mapping file and SQL files interpretation using LLM via OpenAI
 
 Adding Data:
 Create a folder data at the same level as api or ingestion, and add your sql files and csv,xslx,xsl files.
