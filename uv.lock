@@ -2599,7 +2599,7 @@ requires-dist = [
     { name = "langchain-ollama", specifier = ">=1.0.0" },
     { name = "langchain-openai", specifier = ">=0.3.33" },
     { name = "langchain-text-splitters", specifier = ">=0.3.11" },
-    { name = "litellm", specifier = ">=1.77.5" },
+    { name = "litellm", specifier = ">=1.77.5,!=1.82.7,!=1.82.8" },
     { name = "matplotlib", specifier = ">=3.10.6" },
     { name = "modal", specifier = ">=1.1.4" },
     { name = "nbformat", specifier = ">=5.10.4" },
