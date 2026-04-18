@@ -6,7 +6,7 @@ from openai import OpenAI
 from scraper import fetch_website_contents
 
 OLLAMA_BASE_URL = "http://localhost:11434/v1"
-MODEL = "llama3.2"
+MODEL = "qwen3:14b"
 
 system_prompt = """
 You are a snarky assistant that analyzes the contents of a website,
