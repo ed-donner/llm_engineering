@@ -1,0 +1,283 @@
+WEBVTT
+
+00:00.890 --> 00:03.800
+That concludes a mammoth project.
+
+00:03.830 --> 00:05.780
+Three weeks in the making.
+
+00:05.780 --> 00:12.440
+In the course of those three weeks, starting with the data curation, the working with frontier models,
+
+00:12.440 --> 00:20.360
+and then ending with the complete user interface in Gradio with even that very unnecessary but great
+
+00:20.360 --> 00:27.650
+plot 3D chart on the bottom right, together with the trace from the agents and the results of the memory.
+
+00:27.770 --> 00:30.110
+Um, and all of it came together.
+
+00:30.110 --> 00:32.360
+Remember, the user interface was not really the point.
+
+00:32.360 --> 00:34.820
+The user interface was a bit extra, so we can monitor it.
+
+00:34.820 --> 00:41.420
+The main point is that that just runs and it just keeps running, and as it runs, it will be continually
+
+00:41.420 --> 00:47.090
+notifying me every few minutes with a new deal that it hasn't surfaced before.
+
+00:47.150 --> 00:55.070
+And that is the conclusion of a very satisfying, great project that we have built end to end.
+
+00:55.910 --> 01:03.310
+And so with that, let's take a moment to do a retro of the last eight weeks.
+
+01:03.310 --> 01:04.510
+One more time.
+
+01:04.510 --> 01:10.930
+I've gone on about this so many times, and so you'll be happy, or maybe a bit sad that this is the
+
+01:10.930 --> 01:14.590
+final retrospective you started eight weeks ago.
+
+01:14.590 --> 01:23.260
+Over on the left, we wanted to get to being an LM engineer, someone who had mastered LM engineering,
+
+01:23.260 --> 01:27.070
+highly proficient, advanced, and this is how we got there.
+
+01:27.070 --> 01:29.530
+In the first week we played with lots of models.
+
+01:29.530 --> 01:32.920
+We found out how many times the letter A appeared in sentences.
+
+01:32.920 --> 01:35.920
+We took a quick look at one preview amongst other things.
+
+01:35.920 --> 01:42.610
+In week two we first saw gradient and we played with some multi-modality, which was fun.
+
+01:42.610 --> 01:46.600
+We also saw an early version of agent ization.
+
+01:46.600 --> 01:49.540
+In week three we got stuck into hugging face.
+
+01:49.540 --> 01:52.750
+We had pipelines, we had tokenizers, we had models.
+
+01:52.750 --> 01:55.810
+In week four we got deeper into hugging face.
+
+01:55.810 --> 02:02.710
+We selected Llms, we generated code and we had that remarkable project, with the 60 000 time performance
+
+02:02.710 --> 02:04.480
+improvement in week five.
+
+02:04.510 --> 02:13.930
+We built our Rag solution for insert film, which used chroma, and also briefly we used face as well
+
+02:14.170 --> 02:16.390
+and created our expert.
+
+02:16.390 --> 02:19.210
+And maybe you did the big project associated with that.
+
+02:19.240 --> 02:24.670
+Week six we fine tuned a frontier model, although most of which six was spent curating data.
+
+02:24.670 --> 02:26.950
+But that is such an important activity.
+
+02:27.160 --> 02:27.910
+Week seven.
+
+02:27.910 --> 02:34.600
+We did fine tune an open source model that then beat the frontier, and in week eight, we packaged
+
+02:34.600 --> 02:43.480
+it together to a genetic AI solution complete with seven agents and a user interface.
+
+02:43.480 --> 02:45.700
+And it was fabulous.
+
+02:45.700 --> 02:48.580
+So that was the journey.
+
+02:49.600 --> 02:52.270
+I need to take a moment to thank you.
+
+02:52.300 --> 02:55.750
+Thank you so much for staying through to the end.
+
+02:55.780 --> 03:00.160
+You can't, I can't I can't explain how much I appreciate it.
+
+03:00.190 --> 03:06.900
+It's really, uh, so, so wonderful to have had people come all the way through the course, gone through
+
+03:06.900 --> 03:12.330
+the eight week journey, and take advantage of everything that we've been doing and get to this point.
+
+03:12.330 --> 03:17.910
+And I've, I've heard from several of you along the way, and it's been really, really rewarding for
+
+03:17.910 --> 03:19.530
+me to experience this.
+
+03:19.560 --> 03:21.330
+Uh, super grateful.
+
+03:21.480 --> 03:23.250
+I hope you've enjoyed it.
+
+03:23.280 --> 03:25.350
+I obviously I've enjoyed it a lot.
+
+03:25.380 --> 03:26.280
+Uh, far too much.
+
+03:26.310 --> 03:28.020
+I hope you've enjoyed it as well.
+
+03:28.050 --> 03:29.820
+I really hope you can stay in touch.
+
+03:29.820 --> 03:32.340
+By all means, please do LinkedIn with me if you're open to that.
+
+03:32.340 --> 03:34.470
+If you're okay with that, I'm very much welcome.
+
+03:34.470 --> 03:35.880
+LinkedIn connections.
+
+03:35.880 --> 03:40.890
+And we can have a community, um, and message me if you've got to this point, I definitely want to
+
+03:40.890 --> 03:41.550
+hear it.
+
+03:41.700 --> 03:44.160
+Uh, and of course, you've got this big challenge.
+
+03:44.160 --> 03:48.150
+Now, can you take what you've learned and use it to build your own project?
+
+03:48.180 --> 03:52.260
+Maybe that idea I had about using the finance data would be an interesting one.
+
+03:52.290 --> 03:55.230
+See if you can build something that could make some money.
+
+03:55.230 --> 03:57.840
+If you do, then I expect a lunch out of it.
+
+03:57.870 --> 03:59.340
+At the very least, perhaps.
+
+03:59.550 --> 04:01.280
+Uh, but that would be a fun challenge.
+
+04:01.520 --> 04:04.010
+Whatever you do with it, I want to hear about it.
+
+04:04.040 --> 04:10.130
+If you built a great platform that is using some of this learning, then please share it.
+
+04:10.160 --> 04:16.940
+I'd love other students to see that too, and it's great to have that kind of output as a tiny little
+
+04:16.940 --> 04:17.360
+extra.
+
+04:17.390 --> 04:21.170
+I don't know if you remember all the way, way, way, way back in week one, I did mention there was
+
+04:21.170 --> 04:25.100
+going to be a little extra juicy nugget at the very end, and this is what it is.
+
+04:25.130 --> 04:30.590
+I wanted to tell you that I did a personal project where I fine tuned an LLM.
+
+04:30.590 --> 04:37.880
+It was in fact a llama two LLM from the beginning of this year, uh, on all of my text message history.
+
+04:37.910 --> 04:45.050
+It turns out that I have 240,000 text messages that have built up over time on my iPhone, uh, since
+
+04:45.050 --> 04:47.300
+I had the first iPhone some time ago.
+
+04:47.420 --> 04:53.180
+And so I had a lot of text message history, and I was able to use that to train llama two to make a
+
+04:53.180 --> 04:54.800
+simulation of me.
+
+04:54.890 --> 04:59.600
+Uh, and there's a write up on my website, on my blog, Edward Dot com.
+
+04:59.600 --> 05:03.200
+You can take a look and there's instructions for how you can do it too.
+
+05:03.230 --> 05:09.560
+And of course, I was using llama two and now llama 3.1 is so much better along with some of the others
+
+05:09.590 --> 05:11.030
+like like Kwan and so on.
+
+05:11.210 --> 05:16.640
+So you could definitely have a stab at this, and you will probably have even better results than I
+
+05:16.640 --> 05:16.880
+had.
+
+05:16.910 --> 05:19.010
+And the results I had were spooky.
+
+05:19.310 --> 05:21.230
+They really were very good indeed.
+
+05:22.310 --> 05:27.410
+And so with that, I have to bring up the final slide.
+
+05:27.470 --> 05:29.300
+Congratulations.
+
+05:29.690 --> 05:32.270
+I hope that you're proud of what you've accomplished.
+
+05:32.300 --> 05:38.150
+I hope you do feel that sense that you have now reached an advanced point in your learning.
+
+05:38.180 --> 05:41.120
+You have got to the summit of the mountain.
+
+05:41.360 --> 05:43.610
+I'm so, so very happy.
+
+05:43.820 --> 05:51.200
+And I hope, I really, really hope that you're able to take this and use it in your day job, in your
+
+05:51.200 --> 05:52.580
+career to move forwards.
+
+05:52.580 --> 05:54.860
+And I very much want to hear all about it.
+
+05:54.860 --> 05:56.540
+So do stay in touch.
+
+05:56.540 --> 05:58.280
+Thank you once again.
+
+05:58.280 --> 06:01.250
+And a huge congratulations.

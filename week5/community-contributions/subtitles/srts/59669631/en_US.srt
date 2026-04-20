@@ -1,0 +1,427 @@
+WEBVTT
+
+00:00.860 --> 00:07.880
+Here we are in our favorite place to be in JupyterLab, ready for some coding and a lot of coding that's
+
+00:07.880 --> 00:08.780
+going to be today.
+
+00:08.810 --> 00:15.800
+The first thing you may spot, it may have caught your eye that there isn't a day two Jupyter Notebook.
+
+00:15.830 --> 00:21.590
+There are, in fact, five day two Jupyter notebooks, which is a clue that we've got some work cut
+
+00:21.590 --> 00:22.610
+out for us.
+
+00:22.730 --> 00:27.080
+And it does also mean that I might be going a bit faster through the notebook than usual, and that's
+
+00:27.080 --> 00:31.670
+just an opportunity for you to come back and do it yourself and and experiment.
+
+00:31.910 --> 00:39.260
+Um, so today we're going to be building a more complex approach to estimating prices of goods, the
+
+00:39.260 --> 00:41.390
+same thing we've been working on for a while.
+
+00:41.630 --> 00:48.260
+Um, and the biggest part of today is that we're going to try and approach a rag pipeline solution for
+
+00:48.260 --> 00:49.970
+doing the same thing.
+
+00:50.030 --> 00:55.520
+Uh, the the intuition is surely this is actually a really great use case for Rag.
+
+00:55.520 --> 01:01.160
+We've got 400,000 prices of products in our training data set.
+
+01:01.220 --> 01:08.810
+Uh, what if we put all of them in a data store, and when we're calling a model, we give it some similar
+
+01:08.810 --> 01:13.460
+products and say, hey, please, can you give me the price of this electric toothbrush?
+
+01:13.460 --> 01:20.600
+And by the way, here are five similar electric toothbrushes from our training data and give that to
+
+01:20.630 --> 01:22.070
+a model to help it.
+
+01:22.070 --> 01:24.890
+And it will make total sense to use a frontier model for that.
+
+01:24.890 --> 01:30.710
+And you've got to imagine that armed with some similarities, we're giving a huge head start to the
+
+01:30.710 --> 01:32.030
+frontier model.
+
+01:32.120 --> 01:39.350
+And so it is a great example of where rag should shine, because we've got a repository of accurate
+
+01:39.350 --> 01:40.100
+data.
+
+01:40.130 --> 01:44.090
+So it's definitely fits right within the sweet spot.
+
+01:44.180 --> 01:50.030
+So what we're going to do in this notebook, the 2.0 notebook that I'm in right now in the week eight
+
+01:50.030 --> 01:57.260
+folder, we're going to create our vector data store with 400,000 training data points.
+
+01:57.260 --> 01:58.370
+So that's a big deal.
+
+01:58.370 --> 02:02.060
+That's a lot more than what we did in week five.
+
+02:02.540 --> 02:05.810
+In the next notebook day 2.1.
+
+02:05.810 --> 02:09.380
+We're going to visualize it in 2D and then we're going to visualize it in 3D.
+
+02:09.500 --> 02:10.910
+So those are quick notebooks.
+
+02:10.910 --> 02:16.910
+But it's great to get a hands on sense of these things in day 2.3.
+
+02:16.940 --> 02:20.330
+We're then going to build our Rag pipeline and test it.
+
+02:20.330 --> 02:25.910
+And in day 2.4 this is where we do a lot in 1 in 1 notebook.
+
+02:25.940 --> 02:31.970
+We're going to bring back the random forest processor that we looked at back in week six.
+
+02:32.270 --> 02:34.760
+And but we're going to do an improved version of it.
+
+02:34.760 --> 02:38.780
+And then we're going to build what's called an ensemble which which allows all of the models.
+
+02:38.780 --> 02:41.660
+Essentially, you can think of it as a sort of voting together.
+
+02:41.690 --> 02:46.400
+They're working together on the problem, and it's picking a linear combination of them that is going
+
+02:46.400 --> 02:47.660
+to give the best results.
+
+02:47.660 --> 02:49.460
+So a lot to get through.
+
+02:49.460 --> 02:55.910
+I did want to to mention, look, that we've already built a powerful product processor in the form
+
+02:55.910 --> 02:57.410
+of a specialized LLM.
+
+02:57.410 --> 03:00.590
+So you might be thinking, why are we spending so much time working on this?
+
+03:00.590 --> 03:02.060
+And the answer is simple.
+
+03:02.090 --> 03:03.620
+It's what I said a moment ago.
+
+03:03.620 --> 03:07.400
+This is see this as really about solidifying your expertise.
+
+03:07.400 --> 03:10.790
+We're doing this so you can get more practice with rag.
+
+03:11.000 --> 03:20.030
+More practice with other kinds of aspects of building sort of agent based functions, whilst also working
+
+03:20.030 --> 03:20.840
+on the same project.
+
+03:20.840 --> 03:24.740
+So we know what we're doing and it's satisfying, and we don't have to curate more data because we have
+
+03:24.740 --> 03:25.370
+the data.
+
+03:25.370 --> 03:29.180
+So hopefully that that sort of motivates you for what we're about to do.
+
+03:29.750 --> 03:36.170
+All right, without further ado, we will run some imports environment variables, log in to hugging
+
+03:36.200 --> 03:38.300
+face stuff we know.
+
+03:38.300 --> 03:44.900
+And I'm going to again I'm going to load in the training data, the pickle file that we have from before
+
+03:44.930 --> 03:47.930
+to simplify things just loaded in the training data.
+
+03:47.930 --> 03:53.180
+So you may remember we can look at the first of the training data points fuel pump module.
+
+03:53.180 --> 03:56.930
+We can call prompts if you remember this.
+
+03:56.930 --> 04:00.980
+And we will get the familiar prompt that's used for training.
+
+04:00.980 --> 04:02.660
+How much this cost to the nearest dollar.
+
+04:02.660 --> 04:07.280
+And then the price is and the value right there.
+
+04:07.280 --> 04:08.210
+Okay.
+
+04:08.240 --> 04:11.760
+With that time to create our Chroma Datastore.
+
+04:11.760 --> 04:20.010
+So you may remember back in week five, we created this store with it had 123 documents, if I remember
+
+04:20.010 --> 04:29.340
+that right, 123 chunks which were taken from our documents, um, of the fictional company ensure ensure
+
+04:29.370 --> 04:31.740
+um, that we used.
+
+04:31.740 --> 04:36.840
+So this time we're going to create a chroma datastore with 400,000 documents.
+
+04:36.840 --> 04:37.830
+That's a lot.
+
+04:37.890 --> 04:38.940
+We're not going to chunk it up.
+
+04:38.970 --> 04:39.840
+Of course we don't need to.
+
+04:39.870 --> 04:41.610
+These are already small chunks.
+
+04:41.760 --> 04:46.530
+Each each product is going to go in chroma as its own item.
+
+04:46.800 --> 04:53.910
+Um, so, uh, we're not going to be using Lang chain for this rag pipeline because it's good for us
+
+04:53.910 --> 04:56.190
+to, to actually build it ourselves.
+
+04:56.280 --> 05:00.270
+Uh, Lang chain gives some good, useful abstractions, but it's not necessary.
+
+05:00.300 --> 05:05.970
+And once you get to the level of proficiency that you are now at, you can just be working directly
+
+05:05.970 --> 05:12.750
+with Llms often you won't need necessarily these these sorts of abstraction layers built on top of it.
+
+05:13.110 --> 05:15.900
+Um, so that's what we're going to do.
+
+05:15.990 --> 05:25.560
+Uh, so we are going to create a chroma database, and I called it somewhere up here, I think.
+
+05:26.520 --> 05:30.810
+Um, I might have taken that constant out earlier.
+
+05:30.810 --> 05:32.190
+Let's do that right now.
+
+05:32.220 --> 05:33.330
+Apologies.
+
+05:33.600 --> 05:42.210
+Uh, we will add in here another constant DB equals products underscore vector store.
+
+05:42.930 --> 05:47.760
+I was cleaning up this notebook to make it useful, and I cleaned it up too much.
+
+05:48.150 --> 05:50.070
+Uh, if I spelled that right, I have products.
+
+05:50.070 --> 05:51.090
+Vector store.
+
+05:51.120 --> 05:52.620
+There we go.
+
+05:52.710 --> 05:55.710
+All right, so back we go.
+
+05:55.740 --> 05:57.270
+Momentary diversion.
+
+05:57.270 --> 06:00.840
+So we're going to create a chroma data store with that path.
+
+06:00.870 --> 06:02.070
+There we go.
+
+06:02.220 --> 06:06.450
+We're going to check if it exists and delete it if it does already exist.
+
+06:06.540 --> 06:07.680
+I'm not going to run that.
+
+06:07.680 --> 06:10.950
+It will delete this products vector store which I have created.
+
+06:10.950 --> 06:13.170
+And which takes a little bit of time.
+
+06:13.230 --> 06:15.060
+Uh, although not that much time, but.
+
+06:15.060 --> 06:17.940
+But I will let you run this yourself.
+
+06:18.450 --> 06:23.670
+So we are going to use a new a different type of embedding.
+
+06:23.670 --> 06:27.990
+We are going to use something called the sentence transformer.
+
+06:27.990 --> 06:34.800
+It's a useful model from hugging face it maps text chunks to 384 dimensions.
+
+06:34.920 --> 06:38.310
+Um, and it's ideal for things like semantic search.
+
+06:38.310 --> 06:41.640
+It's a transformer model that produces these vector embeddings.
+
+06:41.640 --> 06:47.130
+You may remember we used OpenAI embeddings when we built our Rag pipeline before.
+
+06:47.130 --> 06:52.980
+So if you compare the two of those together, this hugging face one, uh, it's it doesn't have the
+
+06:52.980 --> 06:54.330
+same dimensionality.
+
+06:54.330 --> 07:00.240
+So and it's probably not as accurate as the OpenAI embeddings one.
+
+07:00.240 --> 07:03.690
+But it's free, it's fast and we can run it locally.
+
+07:03.690 --> 07:08.250
+And that last point is super important because there are some cases where you might not want the data
+
+07:08.250 --> 07:09.420
+to leave your box.
+
+07:09.420 --> 07:13.650
+For example, if you're working on that project I assigned you from week five and you're looking to
+
+07:13.680 --> 07:19.220
+build your own personal Rag database with your own stuff like your emails and things.
+
+07:19.220 --> 07:23.990
+You might not want to send them all to OpenAI, even though it should be safe, you just might prefer
+
+07:23.990 --> 07:28.220
+to do it yourself, and this is an easy way to do it without it leaving your box.
+
+07:28.220 --> 07:31.100
+So we load in that model from hugging face.
+
+07:31.130 --> 07:35.960
+It gives a warning that I think we can ignore about in the future, that something will have to be set
+
+07:35.990 --> 07:36.740
+differently.
+
+07:37.010 --> 07:42.920
+Um, so what you can then do once you've created this model is you can call model dot encode.
+
+07:42.950 --> 07:47.000
+You pass in a list of text documents.
+
+07:47.000 --> 07:49.220
+What you'll get back is a numpy array.
+
+07:49.220 --> 07:54.590
+And you can just I can pluck the first one out of that and I will get my vector.
+
+07:54.590 --> 07:55.550
+And it was pretty quick.
+
+07:55.550 --> 07:57.680
+And it works well in bulk as well.
+
+07:57.680 --> 08:06.080
+So if we if we look at the length of this vector we will see it's got 384 dimensions to it.
+
+08:06.110 --> 08:08.450
+We can just print it and we'll see.
+
+08:08.450 --> 08:09.920
+It will be a big old vector.
+
+08:09.920 --> 08:10.490
+There it is.
+
+08:10.490 --> 08:18.260
+So that vector in some way represents well hi there in numbers in a way that is a multi-dimensional
+
+08:18.260 --> 08:21.260
+reflection According to the LM.
+
+08:21.470 --> 08:27.770
+So that is, uh, is worth, uh, um, playing with and getting a sense of it.
+
+08:28.430 --> 08:33.920
+So what I'm now going to do is write this utility method description that takes an item, one of our
+
+08:33.920 --> 08:36.950
+items, and turns it into just a chunk of text.
+
+08:36.950 --> 08:41.600
+So if I run that just to show you, if you remember, if we look at something like the first training
+
+08:41.600 --> 08:45.320
+point and we look at its prompt, that's what the prompt looks like.
+
+08:45.350 --> 08:54.320
+If instead of that I now call description on that item, I just get the same thing, but without the
+
+08:54.320 --> 08:59.870
+stuff at the front and without the price, it's just a description of the product on its own.
+
+09:00.050 --> 09:05.660
+And what we now do is we go and put that into our vector data store.
+
+09:05.900 --> 09:08.720
+So we run that code and it will take a while.
+
+09:08.720 --> 09:13.910
+And by the time it's finished, it will be in the vector data store and you'll be ready for business.
+
+09:13.910 --> 09:16.820
+I've already run it, so it's already created my vector data store.
+
+09:16.820 --> 09:18.380
+You can see over on the left.
+
+09:18.380 --> 09:19.760
+You should do that now.
+
+09:19.760 --> 09:22.580
+And when you're done, I will see you for the next video.

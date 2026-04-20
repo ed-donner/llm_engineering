@@ -1,0 +1,565 @@
+WEBVTT
+
+00:00.350 --> 00:08.060
+So here we are in Google Colab for our first collaborative session on the cloud using a GPU box.
+
+00:08.090 --> 00:15.110
+On that note, I've actually connected to a T4 box, one of the lower spec boxes.
+
+00:15.350 --> 00:16.880
+You can see my resources here.
+
+00:16.880 --> 00:24.170
+You can see that I just ran this and managed to fill up most of the GPU, but then I've just gone to
+
+00:24.200 --> 00:31.520
+runtime and done a restart session, which is why the GPU memory has come slamming down to nothing.
+
+00:31.520 --> 00:36.230
+Anyway, we'll now, uh, remove this screen so that it's not in our way.
+
+00:36.680 --> 00:37.550
+There we go.
+
+00:37.940 --> 00:41.210
+Uh, and look at our colab.
+
+00:41.210 --> 00:47.930
+So I begin by introducing you to the world of pipelines, a reminder that the Transformers library with
+
+00:47.960 --> 00:51.710
+hugging face has these two API levels the pipelines.
+
+00:51.710 --> 00:55.670
+And then later we will come to Tokenizers and models for today.
+
+00:55.670 --> 01:02.920
+It's all about pipelines, high level API that allows you to run inference for common tasks in just
+
+01:02.920 --> 01:11.440
+a couple of lines of code, which makes it frictionless and easy to be using open source models in production.
+
+01:11.950 --> 01:16.360
+The way that we use it is, as I say, super simple.
+
+01:16.690 --> 01:23.920
+You first call pipeline and you pass in a string with the task that you want to do.
+
+01:23.920 --> 01:28.960
+So there's various things you can pass in here, various, uh, strings, and you will see what they
+
+01:28.960 --> 01:29.830
+are in just a moment.
+
+01:29.830 --> 01:35.200
+You get back a pipeline object and you can then call it with your input, and you get back the result.
+
+01:35.200 --> 01:36.760
+That's all there is to it.
+
+01:36.760 --> 01:37.930
+Simple as that.
+
+01:38.020 --> 01:43.390
+So I'm going to start by doing the installs the Transformers library of course, which is the heart
+
+01:43.390 --> 01:44.170
+of everything.
+
+01:44.170 --> 01:48.640
+Datasets is a library that gives us access to hugging faces, datasets.
+
+01:48.640 --> 01:53.890
+Diffusers actually are sort of companion library to transformers when you're talking about diffusion
+
+01:53.890 --> 01:55.210
+models that generate images.
+
+01:55.240 --> 02:02.110
+Often when I say transformers, I'm really referring to both transformers and its sibling library diffusers
+
+02:02.110 --> 02:05.250
+as well for any times that we're generating images.
+
+02:05.250 --> 02:07.920
+So I'm doing a pip install.
+
+02:08.040 --> 02:13.830
+When you have an exclamation mark like that in front of a of a cell, it means that you want to run
+
+02:13.830 --> 02:15.330
+that as a terminal command.
+
+02:15.330 --> 02:16.530
+And so that's going to run.
+
+02:16.530 --> 02:23.970
+And if you didn't know that minus Q is it puts it on quiet mode so that we don't get all of the outputs
+
+02:24.000 --> 02:28.020
+of installing all of the packages, but it installs now installed particularly quickly for me because
+
+02:28.020 --> 02:29.790
+I already ran this notebook earlier.
+
+02:29.790 --> 02:33.210
+It may take 30s for you while those packages install.
+
+02:33.510 --> 02:36.030
+And then we're going to do some imports.
+
+02:37.590 --> 02:43.020
+And then once we've done that we're going to get started with pipelines.
+
+02:43.050 --> 02:44.490
+Get ready for this.
+
+02:44.490 --> 02:50.220
+So first of all sentiment analysis is something positive or negative a bit of text.
+
+02:50.220 --> 02:56.670
+And we're going to start by saying I am super excited to be on the way to LM mastery.
+
+02:56.790 --> 02:59.940
+I wonder if that's positive or negative.
+
+03:00.120 --> 03:03.500
+So a few things to note immediately.
+
+03:03.710 --> 03:10.250
+First of all, it warns us that no model was supplied and it's defaulted to this particular model.
+
+03:10.250 --> 03:16.700
+What it means there is that you can say model equals and tell it which of the models from the hugging
+
+03:16.730 --> 03:19.790
+face hub you would like to use as part of this pipeline.
+
+03:19.790 --> 03:25.160
+If you don't supply one, it just picks the default for that task, which is great for our purposes
+
+03:25.160 --> 03:25.880
+today.
+
+03:26.090 --> 03:32.600
+The other thing it's telling us is that the GPU is available in the environment, but we didn't tell
+
+03:32.600 --> 03:37.430
+it to use a GPU, which it correctly thinks is a bit strange of us.
+
+03:37.460 --> 03:46.100
+And we can make it do that by saying device equals Cuda like that, and that command will tell it that
+
+03:46.100 --> 03:51.290
+we would like to use this pipeline, and we would like to take advantage of the GPU that we have.
+
+03:52.130 --> 03:57.050
+And so now we've run it, it's run on our GPU.
+
+03:57.050 --> 03:59.330
+And maybe we should also look at the results.
+
+03:59.330 --> 04:05.050
+The result is that it's considered a positive statement and its score, which is its level of confidence,
+
+04:05.080 --> 04:06.460
+is very high indeed.
+
+04:06.460 --> 04:08.080
+So that sounds good.
+
+04:08.080 --> 04:11.560
+I think that's probably a good interpretation of the sentence.
+
+04:11.560 --> 04:13.960
+Let's just try putting in the word not.
+
+04:13.990 --> 04:18.010
+I'm not super excited to be on the way to LLM mastery.
+
+04:18.040 --> 04:18.970
+Perish the thought.
+
+04:18.970 --> 04:22.120
+I hope you're not thinking that for a moment, but we should just check that.
+
+04:22.120 --> 04:27.940
+If we say that, it clearly identifies, then that the label is negative and it's pretty confident that
+
+04:27.940 --> 04:31.090
+that is indeed a negative statement to be making.
+
+04:31.090 --> 04:35.440
+So that works well, let's leave it on an enthusiastic note.
+
+04:35.470 --> 04:37.630
+We would want it to think otherwise.
+
+04:38.080 --> 04:40.720
+Named entity recognition is the next task.
+
+04:40.720 --> 04:44.890
+I'm just going to be rattling through these pipelines and you should try all of this yourself.
+
+04:44.920 --> 04:50.530
+Of course, named entity recognition is when you provide some text and you ask the model to identify
+
+04:50.530 --> 04:53.080
+what kinds of things are being referred to.
+
+04:53.110 --> 04:56.500
+This is a standard one that that I took.
+
+04:56.530 --> 05:00.310
+Barack Obama was the 44th president of the United States.
+
+05:00.670 --> 05:13.350
+Uh, and we ask it to analyze that, And it responds here that the there's it responds with, um, two
+
+05:13.380 --> 05:15.840
+different named entities.
+
+05:15.960 --> 05:22.590
+If you can see it in this text right here, the first named entity is of type per as in person.
+
+05:22.950 --> 05:27.030
+Uh, it's got high confidence and the word is Barack Obama.
+
+05:27.120 --> 05:33.510
+And the second one is a lock for a location and the word is United States.
+
+05:33.510 --> 05:38.850
+And of course, it shows you tells you where that is in the input.
+
+05:39.300 --> 05:45.570
+It's a very common use case in data science, a great thing to have at your disposal and to be able
+
+05:45.570 --> 05:46.860
+to do so quickly.
+
+05:47.160 --> 05:53.010
+Question answering with context, you can create a question answering pipeline.
+
+05:53.010 --> 05:59.250
+And again, I'm using this device's Cuda to run it on the GPU and say, who was the 44th president of
+
+05:59.250 --> 06:02.640
+the US and provide it with some context here.
+
+06:02.640 --> 06:09.770
+So it has something to look up against and ask it to print the result there, and it's simply no surprise
+
+06:09.770 --> 06:11.480
+answers that result.
+
+06:11.480 --> 06:12.170
+I think.
+
+06:12.170 --> 06:14.750
+I'm not trying to show off the power of this model right now.
+
+06:14.750 --> 06:17.930
+I'm trying to show off the simplicity of the pipeline API.
+
+06:17.960 --> 06:23.420
+You can play with more sophisticated context and better questions, and I'd also encourage you to try
+
+06:23.660 --> 06:29.540
+passing in different models to explore some of the different models available on the Hugging Face hub.
+
+06:30.110 --> 06:32.780
+Text summarization is just as easy.
+
+06:32.810 --> 06:35.360
+You then of course the pipeline.
+
+06:35.360 --> 06:39.770
+The type is summarization and you can put in a ton of text.
+
+06:39.800 --> 06:44.840
+Here I'm talking about I'm generally gushing about the hugging face Transformers library.
+
+06:45.290 --> 06:52.760
+I ask for the summarizer, I give it a min and a max length, and I get back a nice short and sharp
+
+06:52.760 --> 06:56.180
+sentence that summarizes that text.
+
+06:56.300 --> 07:00.530
+Um, and I think it's mostly just a sort of chop of what I already put in.
+
+07:00.530 --> 07:03.590
+So it didn't do a wonderful job, but it's a pretty simple model.
+
+07:03.590 --> 07:07.650
+Again, you can explore better summarizations from better models.
+
+07:07.920 --> 07:11.400
+When you have a moment, we can translate.
+
+07:11.430 --> 07:13.740
+Translation on to English.
+
+07:13.740 --> 07:14.610
+To French.
+
+07:15.060 --> 07:21.450
+The data scientists were truly amazed by the power and simplicity of the hugging Face pipeline API.
+
+07:21.930 --> 07:28.260
+And let's see how it performs for all of you French speakers out there.
+
+07:28.290 --> 07:34.350
+I'm not going to try and say that my high school French is good enough, but you can say, astonished
+
+07:34.350 --> 07:39.720
+at the power and simplicity of the API of the hugging face pipeline.
+
+07:39.720 --> 07:45.330
+And as far as my limited French skills can tell, that seems like it's a pretty robust translation.
+
+07:45.330 --> 07:52.230
+Very easy classification, or what's called zero shot classification, when we just give it an example
+
+07:52.230 --> 07:57.600
+and ask it to label it with some labels without giving it any prior examples.
+
+07:57.810 --> 08:03.720
+So we're giving it the text hugging face Transformers library is amazing, and asking it to classify
+
+08:03.750 --> 08:06.150
+technology or sports or politics.
+
+08:06.150 --> 08:08.660
+And let's see how it performs.
+
+08:09.050 --> 08:15.200
+Um, and it says labels, uh, for technology.
+
+08:15.230 --> 08:20.810
+It gives it a score of 95% and then a tiny score for sports and politics.
+
+08:20.810 --> 08:21.500
+Politics.
+
+08:21.500 --> 08:23.090
+Low of them all.
+
+08:23.180 --> 08:29.360
+Uh, and that seems especially as we didn't particularly have any words that were directly tech related.
+
+08:29.360 --> 08:31.100
+That's not bad at all.
+
+08:31.430 --> 08:37.340
+And then last on this series of the really simple ones is text generation.
+
+08:37.370 --> 08:42.980
+Let's say if there's one thing I want you to remember about using Huggingface pipelines, it's and let's
+
+08:42.980 --> 08:43.160
+see.
+
+08:43.190 --> 08:46.910
+Obviously we're using a vanilla model, but let's see how it handles it.
+
+08:48.830 --> 08:53.240
+It's that any application that runs on Nautilus will generate the hugging face package as the target,
+
+08:53.240 --> 08:54.350
+just as if it had been compiled.
+
+08:54.350 --> 08:55.340
+So that's a bit random.
+
+08:55.340 --> 08:59.720
+It did better in some of my, uh, uh, prior tests.
+
+08:59.900 --> 09:02.030
+Uh, it's how good and resilient they are.
+
+09:02.060 --> 09:04.400
+As with any project, you'll need to remember your risk tolerance.
+
+09:04.430 --> 09:05.630
+Remember when to push it to the point.
+
+09:05.660 --> 09:09.520
+So of course, it's rambling based on how it thinks that begins.
+
+09:09.520 --> 09:13.210
+You can try some more amusing starts and see how it performs.
+
+09:13.210 --> 09:17.260
+You could also try bigger, beefier models and you'll get something.
+
+09:17.290 --> 09:20.980
+Of course, that is more accurate in terms of the text generation.
+
+09:21.700 --> 09:22.420
+Okay.
+
+09:22.420 --> 09:30.100
+And then of course, since you are now all experts in Multi-modality, let's just show you some image
+
+09:30.100 --> 09:30.970
+generation.
+
+09:30.970 --> 09:35.800
+Everything up to this point has been using the Transformers library, and we're now flipping to the
+
+09:35.800 --> 09:41.590
+diffusers or diffusion style models, which is the architecture that generates images.
+
+09:41.860 --> 09:49.870
+And we are using the well-known stable diffusion model, the parameters a few more need to be passed
+
+09:49.870 --> 09:50.080
+in.
+
+09:50.110 --> 09:51.010
+As you'll see here.
+
+09:51.040 --> 09:54.010
+We need to tell it the kind of data type that we're using.
+
+09:54.400 --> 10:00.640
+And then once we've done that and and put it on the GPU, we can give it some text.
+
+10:00.640 --> 10:08.130
+And I'm saying here a class of data scientists learning about AI in the surreal style of Salvador Dali,
+
+10:08.400 --> 10:11.010
+and let's generate that image.
+
+10:11.010 --> 10:13.050
+This will take a little bit longer.
+
+10:13.050 --> 10:15.510
+It's a bit more of a meaty task.
+
+10:15.750 --> 10:21.390
+Um, it might take even longer for you because I have the benefit of having already run this once.
+
+10:21.390 --> 10:26.880
+And so the model has been downloaded from Huggingface and stored in its local directory.
+
+10:26.880 --> 10:30.960
+So it may take more like a minute when you run it.
+
+10:31.200 --> 10:32.970
+Um, but here we go.
+
+10:32.970 --> 10:43.500
+Here are here is the room full of, uh, uh, class of data scientists learning about AI in the surreal
+
+10:43.500 --> 10:44.490
+style of Dali.
+
+10:44.490 --> 10:45.960
+I love it, I love it.
+
+10:45.990 --> 10:47.760
+Do you look anything like these guys?
+
+10:47.970 --> 10:52.320
+Uh, I hope not only in your worst nightmare, but there we go.
+
+10:52.320 --> 10:55.110
+This is the surreal Dali.
+
+10:55.140 --> 10:57.840
+Scary, strange world.
+
+10:57.930 --> 11:01.350
+Uh, for a class of data scientists, I love it.
+
+11:01.380 --> 11:07.530
+Now, you can substitute this for the flux model that I mentioned before, and you may remember, I
+
+11:07.560 --> 11:11.450
+flashed up the code at the last, uh, lectures.
+
+11:11.630 --> 11:13.160
+Uh, by all means, use that.
+
+11:13.160 --> 11:18.170
+You'll find it does take longer, and you will need to be running on a beefier box than the T4.
+
+11:18.200 --> 11:24.710
+If you do it on an A100, it'll take a couple of minutes and you will get a breathtakingly good image
+
+11:24.740 --> 11:28.070
+like the one that I showed in the last lecture.
+
+11:28.280 --> 11:34.520
+Uh, but, um, this seems pretty good for a quick, cheap model to me.
+
+11:35.120 --> 11:39.680
+And last but not least, some audio generation.
+
+11:39.680 --> 11:45.200
+Uh, we are going to use the text to speech pipeline now, and we are going to tell it which model we
+
+11:45.200 --> 11:45.440
+want.
+
+11:45.470 --> 11:49.040
+We want Microsoft's Speech five TTS.
+
+11:49.040 --> 11:55.820
+There is a little bit more that you have to provide into the model, something about the type of voice
+
+11:55.820 --> 11:56.900
+that it should use.
+
+11:56.900 --> 12:01.340
+And so there's a couple of lines to load that data set from hugging face.
+
+12:01.490 --> 12:04.460
+Um, and, and get it into the right shape.
+
+12:04.460 --> 12:10.270
+But once you've done that, we can just call our pipeline and we're going to say hi to an artificial
+
+12:10.270 --> 12:17.140
+intelligence engineer on the way to mastery and pass in this this speech voice.
+
+12:17.410 --> 12:24.460
+Um, then this is some code to then, uh, write that to, uh, to a wav file.
+
+12:24.820 --> 12:34.360
+Um, and uh, we will then be able to play it within the, um, this, uh, Colab notebook.
+
+12:34.360 --> 12:36.220
+So it ran pretty fast.
+
+12:36.220 --> 12:38.050
+Let's see how it sounds.
+
+12:38.050 --> 12:38.830
+Hi.
+
+12:38.860 --> 12:43.450
+To an artificial intelligence engineer on the way to mastery.
+
+12:44.200 --> 12:45.520
+Seems pretty good to me.
+
+12:45.520 --> 12:50.590
+That would be an example of using pipeline for text to speech generation.
+
+12:50.800 --> 12:55.180
+And that wraps up this colab walkthrough of pipeline APIs.
+
+12:55.180 --> 13:00.910
+I, of course, will share this colab so that you can have access to this and very much encourage you
+
+13:00.910 --> 13:06.460
+to go through and try these yourself, experiment with different inputs and also experiment with different
+
+13:06.460 --> 13:09.880
+models that you'll find on the Huggingface hub.
+
+13:10.180 --> 13:10.990
+Enjoy.

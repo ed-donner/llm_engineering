@@ -1,0 +1,337 @@
+WEBVTT
+
+00:00.980 --> 00:06.350
+When I left you, we had just created this simple user interface for converting from Python to C plus
+
+00:06.350 --> 00:09.290
+plus using different frontier models.
+
+00:09.290 --> 00:11.000
+And I said, you know what?
+
+00:11.000 --> 00:15.380
+Let's make this into a proper prototype UI and let's do that.
+
+00:15.380 --> 00:21.680
+So if I come back here to this Jupyter notebook, we're going to do, we're going to write a few more
+
+00:21.680 --> 00:22.340
+methods.
+
+00:22.340 --> 00:30.680
+So first of all this one execute Python takes code is going to do the same slightly dangerous thing
+
+00:30.680 --> 00:31.100
+here.
+
+00:31.130 --> 00:32.510
+Execute that code.
+
+00:32.510 --> 00:35.480
+So again this particular prototype is really just for you.
+
+00:35.480 --> 00:40.550
+This is not one to share because if you share this with anybody, they will have a way to execute Python
+
+00:40.550 --> 00:42.200
+code directly on your box.
+
+00:42.200 --> 00:43.370
+And that would be a bad thing.
+
+00:43.370 --> 00:50.270
+So share should always very much be false in in this particular Gradio app.
+
+00:50.360 --> 00:53.600
+Uh, but it's, it's a great prototype for you to work with.
+
+00:53.960 --> 00:57.170
+Um, so what this does is, is execute that code.
+
+00:57.170 --> 01:02.600
+And the reason there's some stuff, some gubbins around it is because we want to capture the standard
+
+01:02.600 --> 01:09.840
+out that comes from this Python code, and return it so that this becomes a function that takes code,
+
+01:09.840 --> 01:15.030
+executes it, and returns the output because we want to display it in gradio.
+
+01:15.030 --> 01:17.700
+So that's an execute Python.
+
+01:17.910 --> 01:24.510
+And now some slightly heftier code to execute C plus plus um given some code.
+
+01:24.510 --> 01:28.830
+So the first thing I do is I call that that that function we wrote a while back to actually write it
+
+01:28.830 --> 01:31.260
+out to the file optimized.
+
+01:31.590 --> 01:39.330
+Um, and then what I do is something which involves, uh, running the compile command.
+
+01:39.360 --> 01:46.350
+I use something called subprocess dot run, which is a way that you can, uh, have spawn a subprocess
+
+01:46.350 --> 01:48.180
+to, to carry something out.
+
+01:48.480 --> 01:49.920
+Um, and that's what I do.
+
+01:49.920 --> 01:53.370
+Now, you may notice this is slightly longer than before.
+
+01:53.370 --> 01:59.520
+I mentioned a while back what we're going to do this this, this is a really using all of the flags
+
+01:59.520 --> 02:02.430
+to make sure that the code is optimized for my computer.
+
+02:02.430 --> 02:06.750
+It's actually barely scratching the surface for people that are that know all about this stuff.
+
+02:06.760 --> 02:11.050
+There are a gazillion flags that you could add in, but I.
+
+02:11.080 --> 02:16.000
+After a while I figured this is good enough, so we put in a bunch of flags to do this.
+
+02:16.150 --> 02:27.520
+Um, and um, then we run the optimized program, and then we return the we, we capture the standard
+
+02:27.520 --> 02:28.720
+out and return that.
+
+02:28.750 --> 02:30.970
+Or if there's an error, we return standard error.
+
+02:31.210 --> 02:38.140
+So that is the method to execute C plus plus code and return the response.
+
+02:38.140 --> 02:41.200
+It's really compile and execute would be more accurate.
+
+02:41.470 --> 02:48.520
+Um here I've just got a little CSS string because I want to do some uh, a little bit of coloring in,
+
+02:48.850 --> 02:50.440
+um, as you will see.
+
+02:50.440 --> 02:53.740
+And then this is the extent of the user interface, that's all.
+
+02:53.740 --> 02:55.240
+We're not doing any more coding.
+
+02:55.240 --> 02:55.990
+It's just this.
+
+02:55.990 --> 03:02.410
+So let me quickly tell you, um, I've got again, I'm using the GR blocks, which is the the lower
+
+03:02.410 --> 03:07.570
+level Gradio API that lets you have more flexibility on your user interface, not using one of radio's
+
+03:07.600 --> 03:09.070
+off the shelf UIs.
+
+03:09.280 --> 03:12.770
+Um, you can pass in your own CSS, which is what I'm doing here.
+
+03:12.800 --> 03:15.140
+CSS equals this variable.
+
+03:15.320 --> 03:18.740
+Um, and that lets you do a little bit more customization.
+
+03:18.860 --> 03:22.100
+This dot markdown gives me a nice heading at the top.
+
+03:22.100 --> 03:26.510
+And then I've got one, two, three, four, five rows of widgets.
+
+03:26.690 --> 03:30.110
+Um you'll recognize Python code and C plus plus code.
+
+03:30.110 --> 03:35.000
+That's exactly what I had before setting the the the default value to be the pi code.
+
+03:35.510 --> 03:39.800
+Uh, then this is as before, the drop down to pick GPT or Claude.
+
+03:40.040 --> 03:42.680
+Uh, the button to convert code.
+
+03:42.680 --> 03:45.050
+And then I've got some more buttons.
+
+03:45.050 --> 03:51.770
+Python run to run Python and C plus plus CP run to run C plus plus.
+
+03:51.770 --> 03:58.580
+And then I've got a Python out with Python's output CP out for the C plus plus output.
+
+03:58.610 --> 04:02.720
+Hopefully you're following, but if not, when you see the user interface, this is all going to be
+
+04:02.750 --> 04:03.650
+utterly clear.
+
+04:03.650 --> 04:07.580
+And then you can look back at this and you'll say, wow, that's that's so simple.
+
+04:08.000 --> 04:13.000
+Um, so then we've got three buttons convert, Python run and C plus plus run.
+
+04:13.000 --> 04:16.600
+So we have to say what happens when you click any of those three buttons?
+
+04:16.630 --> 04:19.120
+If you press the convert button, it's just as before.
+
+04:19.120 --> 04:25.810
+It should run the optimize method function, passing in the inputs, the Python code, and the model.
+
+04:25.840 --> 04:30.640
+The output goes to the C plus plus code, so when you press convert it will take the Python code.
+
+04:30.640 --> 04:35.290
+It will use the model to convert it and put that into C plus plus.
+
+04:35.500 --> 04:42.220
+If you press the press the Python run button it's going to execute Python with the Python code to Python
+
+04:42.250 --> 04:42.910
+out.
+
+04:42.940 --> 04:49.270
+If you press C plus plus run, it's going to execute the C plus plus code with the C plus plus inputs.
+
+04:49.300 --> 04:51.310
+C plus plus output.
+
+04:51.610 --> 04:53.140
+That's all there is to it.
+
+04:53.170 --> 05:00.850
+If that sounded, uh, like a like a lot of spaghetti stuff that it's, it's gonna nicely unravel and
+
+05:00.880 --> 05:04.510
+be super clear when you see what you're about to see.
+
+05:04.780 --> 05:06.520
+Uh, let's run this.
+
+05:06.550 --> 05:08.470
+Here is the user interface.
+
+05:08.470 --> 05:11.080
+Welcome to a more colorful user interface.
+
+05:11.290 --> 05:14.830
+Uh, so there's Python code here, C plus plus code.
+
+05:14.830 --> 05:20.600
+And then we get to select a model convert code and we can run Python run C plus plus.
+
+05:20.600 --> 05:22.100
+So let's start.
+
+05:22.100 --> 05:25.640
+We can press Run Python to run this code here.
+
+05:25.790 --> 05:28.520
+Uh right from this user interface.
+
+05:28.550 --> 05:31.460
+It's calling that exact method right now.
+
+05:31.460 --> 05:33.530
+And we see the results here.
+
+05:33.680 --> 05:35.060
+Uh, there it is.
+
+05:35.210 --> 05:37.640
+Um, there is indeed Pi.
+
+05:37.640 --> 05:39.890
+And it took 8.4 seconds.
+
+05:40.070 --> 05:45.950
+Uh, and we will now flip to, uh, we will now convert that to C plus.
+
+05:45.950 --> 05:46.670
+Plus.
+
+05:46.820 --> 05:47.930
+Here it is.
+
+05:47.960 --> 05:50.930
+And we can now run the C plus plus.
+
+05:51.800 --> 05:55.550
+And there we have it the C plus plus.
+
+05:55.550 --> 06:00.890
+You'll see that that's significantly faster than before when if I remember right it was about 0.2 seconds.
+
+06:00.920 --> 06:08.090
+Uh, and that's because we've got these extra flags to really optimize this, uh, this code.
+
+06:08.120 --> 06:15.410
+Um, and so you can see we are now more than 100 times faster between the two implementations.
+
+06:15.410 --> 06:24.270
+And for sort of loop loopy mathy Math code, you would usually expect that a straight up compiled C
+
+06:24.300 --> 06:30.450
+plus plus, uh, compiled natively like this can be, uh, at least 100 times faster.
+
+06:30.450 --> 06:33.690
+So it's not not not too surprising, but it's a good result.
+
+06:33.960 --> 06:39.420
+Um, and of course, the numbers are, uh, well, they're off by a teeny bit, which is probably which
+
+06:39.420 --> 06:41.550
+is all down to floating point rounding stuff.
+
+06:41.550 --> 06:43.980
+Let's see how Claude does and just confirm.
+
+06:46.830 --> 06:50.460
+And let's run Claude's C plus plus code.
+
+06:50.760 --> 06:53.520
+And it's very similar, of course.
+
+06:53.520 --> 06:58.350
+Same number, similarly super blazingly fast.
+
+06:58.500 --> 07:05.010
+Um, and it has generated, I'm sure, very similar uh, c plus plus code which is being compiled to
+
+07:05.040 --> 07:07.260
+the same machine code I would expect.
+
+07:07.530 --> 07:08.400
+All right.
+
+07:08.400 --> 07:14.850
+One more, uh, flip to the next video, and then we will run for our hard problem through here.
+
+07:14.850 --> 07:17.730
+Uh, and then we will call it a day, but it's been.
+
+07:17.730 --> 07:19.620
+I hope you've enjoyed it as much as I have.
+
+07:19.650 --> 07:21.780
+This is a great a great little product.
+
+07:21.810 --> 07:22.770
+See you in a second.

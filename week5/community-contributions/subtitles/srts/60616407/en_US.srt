@@ -1,0 +1,217 @@
+WEBVTT
+
+00:00.560 --> 00:03.110
+And now over to my Mac people.
+
+00:03.110 --> 00:04.130
+And I have news for you.
+
+00:04.130 --> 00:05.570
+It's exactly the same thing.
+
+00:05.570 --> 00:10.640
+You go to a favorite browser, you go to Alarm.com, you'll see the same screen.
+
+00:10.640 --> 00:14.600
+You press download and then download for Mac OS.
+
+00:14.630 --> 00:17.150
+It will of course download it locally.
+
+00:17.150 --> 00:20.390
+You will then run the installer and it will install it.
+
+00:20.390 --> 00:25.460
+You then bring up a terminal window and you bring up a terminal window by going to applications and
+
+00:25.460 --> 00:26.990
+utilities and then terminal.
+
+00:27.050 --> 00:32.960
+And when you bring up that terminal window as it comes up here, you type the same instruction Olama
+
+00:33.830 --> 00:34.640
+run.
+
+00:34.640 --> 00:42.320
+And now the name of the model, which in our case is llama 3.2, the very latest small model from meta.
+
+00:42.320 --> 00:44.360
+And it will then come up.
+
+00:44.420 --> 00:49.190
+It will probably take a minute or two because it will need to download the 2 billion parameters associated
+
+00:49.190 --> 00:53.030
+with with 3.2, but then it will be running just like this.
+
+00:53.030 --> 00:56.180
+And now again we can try and put it to good use.
+
+00:56.270 --> 00:58.550
+We can ask it this time will use a different language.
+
+00:58.550 --> 00:58.910
+Why not?
+
+00:58.940 --> 01:04.470
+Let's say I am trying to learn French.
+
+01:05.400 --> 01:07.620
+I am a complete beginner.
+
+01:09.870 --> 01:17.400
+Please have a conversation with me to teach me French.
+
+01:18.480 --> 01:19.980
+And let's see how it does.
+
+01:20.010 --> 01:22.530
+The first thing you'll notice is that it's a lot faster.
+
+01:22.530 --> 01:25.470
+And that's because I'm actually running on a mac with an M1 chip.
+
+01:25.470 --> 01:27.870
+And what we were seeing earlier was an emulation of a PC.
+
+01:27.870 --> 01:29.850
+So of course this is a bit faster.
+
+01:29.940 --> 01:34.080
+Your computer may be somewhere in between those two, depending on your architecture.
+
+01:34.350 --> 01:39.360
+So off it's gone with the start and you can see that it's done a fab job.
+
+01:39.360 --> 01:42.000
+It's clearly given a bunch of different options.
+
+01:42.000 --> 01:43.230
+It's explained itself.
+
+01:43.230 --> 01:45.150
+It's super impressive.
+
+01:45.150 --> 01:48.240
+Uh, let's say uh, sure.
+
+01:49.890 --> 01:54.960
+So I'm not actually answering his question, but there we go.
+
+01:54.960 --> 01:56.070
+You get the idea.
+
+01:56.070 --> 02:01.770
+And the point I wanted to make again is that this is, in fact, a paid commercial product on an app
+
+02:01.770 --> 02:02.520
+that I'm using.
+
+02:02.520 --> 02:03.540
+And here we have it.
+
+02:03.570 --> 02:10.120
+We have built effectively a commercial project for free, using open source in a matter of minutes,
+
+02:10.150 --> 02:14.290
+just immediately unleashing the power of an LLM on your computer.
+
+02:15.220 --> 02:18.670
+So I now have an exercise for you right away.
+
+02:18.670 --> 02:20.380
+I'd like you to of course, do this.
+
+02:20.410 --> 02:22.150
+Install it, make sure that it works.
+
+02:22.150 --> 02:26.110
+If you have any problems whatsoever, then you can always contact me at any point.
+
+02:26.140 --> 02:31.570
+Feel free to message me or send me an email or LinkedIn with me and ask for help.
+
+02:31.570 --> 02:35.530
+But hopefully this is a really easy install that will have you up and running.
+
+02:35.560 --> 02:36.370
+Do this.
+
+02:36.370 --> 02:39.040
+Have a quick experiment with a with a language.
+
+02:39.040 --> 02:41.950
+Pick a language maybe one you don't know and try it out.
+
+02:42.040 --> 02:46.060
+And then the next thing to try is I'd like you to experiment with different models.
+
+02:46.060 --> 02:50.650
+So if we go back to the llama page, you'll see that there's a model heading up here.
+
+02:50.650 --> 02:53.710
+And for both PC and Mac people, it's the same thing.
+
+02:53.710 --> 02:57.070
+You can see some different models and read about the story behind them.
+
+02:57.070 --> 03:03.700
+Llama 3.2 from Meta Jama from Google, which is its open source low parameter version.
+
+03:03.700 --> 03:10.130
+Quan, which is a powerhouse of a model from Alibaba Cloud, which is less well known, but it is one
+
+03:10.130 --> 03:11.360
+of the strongest.
+
+03:11.390 --> 03:16.970
+You can click on a model and you will then see the different versions of it, and over here is the way
+
+03:16.970 --> 03:17.750
+that you can run it.
+
+03:17.750 --> 03:23.030
+You can simply press that button there to copy it to the clipboard, and then paste it into your PowerShell
+
+03:23.030 --> 03:24.170
+or your terminal.
+
+03:24.260 --> 03:27.650
+And these are the various different versions of it.
+
+03:27.650 --> 03:31.310
+And you can just go back to models, browse through them.
+
+03:31.310 --> 03:34.250
+Experiment 53.5 from Microsoft.
+
+03:34.400 --> 03:39.350
+Also very powerful model and you can read more about them.
+
+03:39.350 --> 03:40.580
+Uh, experiment with them.
+
+03:40.580 --> 03:43.580
+And I would like to ask you to try this out for a new language.
+
+03:43.670 --> 03:49.550
+Try exploring, maybe try and learn something completely different and use different models and see
+
+03:49.550 --> 03:52.820
+if you can figure out which models are best for you.
+
+03:52.850 --> 03:57.590
+As you pick some of the larger models, they may be slower on your computer, so find out which models
+
+03:57.590 --> 04:00.320
+perform the best and give you the best results.
+
+04:00.320 --> 04:03.890
+That's your exercise and then I will see you for the next time when we will.
+
+04:03.920 --> 04:06.920
+Then do things like introductions and course and all that stuff.
+
+04:07.010 --> 04:07.700
+See you then.

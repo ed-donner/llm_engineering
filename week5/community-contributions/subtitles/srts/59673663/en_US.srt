@@ -1,0 +1,184 @@
+WEBVTT
+
+00:00.890 --> 00:03.080
+But wait, there's more.
+
+00:03.110 --> 00:07.670
+We need to add some more to the user interface just to make it look more cool.
+
+00:07.760 --> 00:13.370
+And so I put a little bit more work into this, and it's not particularly worth going through the code
+
+00:13.370 --> 00:17.660
+in that much detail other than to really show you what, what I came up with.
+
+00:17.660 --> 00:24.650
+But it occurred to me that whilst it is satisfactory to see the log messages appearing so you can watch
+
+00:24.650 --> 00:28.550
+to see what's going on, it will be much nicer if we could surface them to the user interface.
+
+00:28.580 --> 00:34.070
+And that's a bit harder because typically the user interface with Gradio, it's a matter of making a
+
+00:34.070 --> 00:38.330
+request and getting back a response, but it's perfectly doable.
+
+00:38.450 --> 00:45.350
+And so whilst it's not necessarily worth us going through exactly how I approached it, but the I've
+
+00:45.350 --> 00:50.750
+now turned to a new, uh, um, file, a new module called prices.
+
+00:50.750 --> 00:51.080
+Right.
+
+00:51.080 --> 00:54.590
+Final dot pi and in the Price is Right final.
+
+00:54.590 --> 01:02.420
+I've added in some stuff at the top to handle being able to subscribe to long log messages.
+
+01:02.660 --> 01:06.540
+Um, and then I've thrown in just a little bit of extra stuff as well.
+
+01:06.780 --> 01:13.590
+So with that in mind, let's just create a new terminal window and have a look at this user interface
+
+01:13.590 --> 01:14.340
+now.
+
+01:14.700 --> 01:19.650
+So we can say um, Python price.
+
+01:19.680 --> 01:22.050
+Oh sorry I need to activate my conda environment.
+
+01:22.080 --> 01:26.760
+Obviously conda activate LMS.
+
+01:26.850 --> 01:36.360
+And now now we can say python price is right final.py.
+
+01:36.660 --> 01:38.820
+And we can see what comes up.
+
+01:38.880 --> 01:42.360
+Uh so again it thinks for a little while.
+
+01:42.390 --> 01:43.680
+Up it comes.
+
+01:43.680 --> 01:46.830
+And you're going to notice 1 or 2 changes here.
+
+01:46.890 --> 01:56.070
+Uh, so first of all, uh, as I promised, we've got this very attractive looking, uh, log here that
+
+01:56.070 --> 02:03.270
+shows you what's going on and allows you to look across the different, uh, agents as they run, see
+
+02:03.270 --> 02:04.920
+who is doing what.
+
+02:05.040 --> 02:08.730
+Uh, as before, we have our table up here, and that's going to allow us.
+
+02:08.730 --> 02:12.830
+I just clicked on that and I saw out of the corner of my eye that of course I got a push notification
+
+02:12.830 --> 02:13.940
+right away.
+
+02:14.120 --> 02:16.070
+Uh, and what do we have here?
+
+02:16.100 --> 02:22.580
+Well, what we have here is a 3D representation of our chroma database that's being used to look up
+
+02:22.580 --> 02:27.170
+the products to send to the frontier model when it appears over here.
+
+02:27.380 --> 02:29.210
+Uh, now, I know what you're thinking.
+
+02:29.270 --> 02:36.500
+You're thinking, okay, but what's the business purpose of having this particular rag knowledge store
+
+02:36.500 --> 02:38.930
+being surfaced on this user interface?
+
+02:39.020 --> 02:43.070
+Uh, and it's an important question and an important answer.
+
+02:43.190 --> 02:45.410
+Um, is that there's no purpose whatsoever.
+
+02:45.440 --> 02:47.690
+No purpose to having this diagram.
+
+02:47.720 --> 02:48.920
+It just looks great.
+
+02:48.920 --> 02:49.850
+And I want it to.
+
+02:49.880 --> 02:51.050
+And it's my course.
+
+02:51.080 --> 02:52.730
+And so I'll do it if I want to.
+
+02:53.870 --> 02:59.450
+Uh, so yeah, I mean, in all seriousness there, uh, it was nice to be able to surface some data
+
+02:59.450 --> 03:04.730
+and be able to illustrate how easy it is to get a plot to show on a Gradio user interface.
+
+03:04.850 --> 03:10.850
+Um, but, uh, this this is running, uh, just, uh, in to show off.
+
+03:10.850 --> 03:17.660
+What would perhaps be useful over time is to show in this the memory and actually be able to show in
+
+03:17.660 --> 03:21.710
+vector format the different points on the memory, and you can hover over it and see it.
+
+03:21.890 --> 03:27.560
+So maybe I'll make that adjustment myself, but or you could do it for me and push the code that would
+
+03:27.560 --> 03:32.450
+make this a little bit more useful and less of a gratuitous change.
+
+03:32.510 --> 03:36.800
+Now, the other thing that you might have noticed while I've been speaking is that the memory suddenly
+
+03:36.800 --> 03:41.630
+went blank, and you may be wondering why on earth did the memory go blank?
+
+03:41.660 --> 03:47.240
+And the reason the memory went blank is, of course, because the run has kicked off over here.
+
+03:47.330 --> 03:53.570
+And actually, again, there are ways around this, but right now, when the run is in progress, that
+
+03:53.570 --> 03:59.360
+table goes blank and then it will repopulate when the run completes, which is a bit janky and can be
+
+03:59.360 --> 03:59.750
+fixed.
+
+03:59.750 --> 04:02.420
+And that could be an exercise for you to improve the UI.
+
+04:02.630 --> 04:07.280
+Um, but you can see right now it's got to the point where it's calling modal.
+
+04:07.280 --> 04:09.890
+And so modal will be warming up.
+
+04:10.340 --> 04:16.550
+So with that, because this will take a minute, I will pause and I will come back when it has completed.
+
+04:16.580 --> 04:17.660
+See you then.

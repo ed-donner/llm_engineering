@@ -1,0 +1,361 @@
+WEBVTT
+
+00:00.950 --> 00:06.440
+And so it gives me great pleasure to introduce to you the project that I've lined up for you this week.
+
+00:06.440 --> 00:08.810
+And boy, is it a meaty one.
+
+00:08.840 --> 00:11.930
+Here it is, the capstone project of the course.
+
+00:11.930 --> 00:14.120
+I've called it The Price is Right.
+
+00:14.120 --> 00:17.060
+It's something which brings together what we've been doing to date.
+
+00:17.090 --> 00:18.890
+The idea is we're going to build.
+
+00:18.890 --> 00:26.420
+The challenge that's been set for us is to build a platform which can look for deals being published
+
+00:26.420 --> 00:31.970
+on the internet, subscribe to RSS feeds so it can it can spot deals that have been published.
+
+00:31.970 --> 00:38.780
+When it finds a potential deal, a promising looking deal, it will read it, it will interpret it,
+
+00:38.780 --> 00:45.200
+and it will then use a number of LMS, including the proprietary one that we built last week to make
+
+00:45.200 --> 00:51.290
+its own estimate of how much that's worth, and if it finds a good opportunity, it will then automatically
+
+00:51.290 --> 00:58.310
+send a text message or a push notification to to you or to me telling us that there is a deal that we
+
+00:58.310 --> 01:03.830
+should know about and it will run autonomously all the time, just sitting around running in the background,
+
+01:03.830 --> 01:10.940
+and every so often you will get a push notification to say there's a new deal that's been posted online,
+
+01:10.940 --> 01:17.510
+where the model has decided that this price is a really great price because the item should cost a lot
+
+01:17.510 --> 01:18.170
+more.
+
+01:18.380 --> 01:24.110
+And I hope you agree, if we can pull that off, if we can build that platform, we've built something
+
+01:24.110 --> 01:26.720
+special that is an advanced platform.
+
+01:26.720 --> 01:31.190
+It's something which brings together a lot of different bits of functionality, and it's something that
+
+01:31.190 --> 01:36.350
+that hopefully I will be proud of, and I hope you'll be proud of it too, when it's built.
+
+01:36.770 --> 01:38.780
+There are going to be seven agents.
+
+01:38.780 --> 01:40.340
+I already said it, but I say it again.
+
+01:40.370 --> 01:42.650
+Seven agents are going to collaborate.
+
+01:42.800 --> 01:45.500
+Um, not all of them are built on LMS.
+
+01:45.500 --> 01:50.780
+Some of them are more sort of Python processes, but they're sort of seven pieces to the puzzle that
+
+01:50.780 --> 01:52.010
+are collaborating.
+
+01:52.280 --> 02:01.430
+We will use GPT four or GPT four mini to take information from RSS feeds and parse it and understand
+
+02:01.430 --> 02:05.060
+it and turn it into something which is a potential deal.
+
+02:05.060 --> 02:11.630
+We will use our frontier busting model that outperforms GPT four.
+
+02:11.840 --> 02:15.500
+And Claude will use it to estimate how much things are worth.
+
+02:15.500 --> 02:16.520
+But that's not all.
+
+02:16.520 --> 02:18.650
+We're going to use other models as well.
+
+02:18.650 --> 02:23.960
+We are going to build another Rag pipeline, another rag based model.
+
+02:24.140 --> 02:26.300
+Um, but this time we're not going to use langue chain.
+
+02:26.300 --> 02:27.470
+We're going to roll our own.
+
+02:27.470 --> 02:29.420
+And it's going to be very, very easy.
+
+02:29.510 --> 02:37.580
+Um, but it's going to use all 400,000 products that we, we had taken from the Amazon scrape before.
+
+02:37.580 --> 02:45.680
+We're going to put all of them in a mega Croma database and use that to add context as part of our Rag
+
+02:45.680 --> 02:48.080
+pipeline to a frontier model.
+
+02:48.170 --> 02:51.020
+And you can start wondering right now, maybe you already thought of this.
+
+02:51.020 --> 02:59.330
+Maybe you're already wondering whether or not that a a frontier model that's armed with similar prices
+
+02:59.330 --> 03:05.670
+of similar products, whether that is going to outperform the model that we fine tuned last week.
+
+03:05.700 --> 03:06.510
+You'll find out.
+
+03:06.510 --> 03:07.320
+We'll see.
+
+03:07.470 --> 03:11.670
+But we're going to have both models working together to try and get the best possible price.
+
+03:11.670 --> 03:14.940
+And another model as well as as all will be revealed.
+
+03:15.390 --> 03:17.820
+So it's going to be it's going to be a huge week.
+
+03:17.850 --> 03:22.080
+The most important point, of course, was this capstone project is designed to bring it all together
+
+03:22.080 --> 03:26.070
+in a very satisfying way, in a way that's going to feel tangible and real.
+
+03:26.070 --> 03:32.160
+But the real point is that this gives you a chance to revise and everything that we've learned and also
+
+03:32.190 --> 03:39.480
+just build expertise, build experience, have some real hands on work at making production caliber
+
+03:39.480 --> 03:40.290
+models.
+
+03:40.380 --> 03:42.510
+And that's that's really the main point of this.
+
+03:42.540 --> 03:47.910
+We're doing it in a fun context, something that's going to actually send you push notifications when
+
+03:47.910 --> 03:54.510
+there's a when there's a useful product, but it's going to be about learning and solidifying the learning
+
+03:54.510 --> 03:57.930
+that we've done over the course of the last seven weeks.
+
+03:59.550 --> 04:05.670
+But let me just tell you for a moment, the architecture of our agent platform, we're going to have
+
+04:05.670 --> 04:06.780
+a user interface.
+
+04:06.780 --> 04:09.060
+Of course, it's going to be built in Gradio.
+
+04:09.390 --> 04:15.840
+It's going to be using an agent framework that we'll write, which will just be a simple kind of environment,
+
+04:15.930 --> 04:21.150
+which will have memory so that the agents can know what they've recommended in the past, and it will
+
+04:21.150 --> 04:24.930
+support things like logging, so we can understand what's going on in our framework.
+
+04:25.260 --> 04:27.900
+There will be an agent responsible for planning.
+
+04:27.900 --> 04:31.770
+It's going to be coordinating activities across the other agents.
+
+04:31.770 --> 04:33.960
+And then we'll have these agents.
+
+04:33.960 --> 04:38.160
+We'll have a scanner agent that is going to identify promising deals.
+
+04:38.160 --> 04:40.590
+By looking at RSS feeds.
+
+04:40.620 --> 04:46.650
+We're going to have something I'm calling the ensemble agent, which is something there is a technical
+
+04:46.680 --> 04:47.910
+term ensemble.
+
+04:47.910 --> 04:52.560
+When you when you bring together multiple models, this agent is going to be responsible for bringing
+
+04:52.590 --> 04:57.240
+together different estimating models that will estimate the price of products.
+
+04:57.720 --> 05:01.830
+And we will have a messaging agent that will send us push notifications.
+
+05:01.890 --> 05:05.250
+Now this is just the high level architecture because there are more agents than this.
+
+05:05.250 --> 05:10.740
+Because of course, that ensemble agent is itself going to collaborate with three other agents.
+
+05:10.740 --> 05:13.230
+That will be our three estimating agents.
+
+05:13.410 --> 05:16.230
+But I'm not showing them on this diagram because that would be too cluttered.
+
+05:16.230 --> 05:19.440
+But I will do, I'm sure, in the future when we get there.
+
+05:19.530 --> 05:23.610
+So this is the high level architecture to give you a sense of what we're going to build.
+
+05:23.760 --> 05:28.140
+And for today, we're going to focus on just one of these.
+
+05:28.170 --> 05:30.210
+And we're not going to look much at this architecture.
+
+05:30.210 --> 05:35.340
+We're just going to be talking about taking the model we built last time and putting it up on the internet
+
+05:35.340 --> 05:38.130
+using this wonderful service called modal.
+
+05:38.850 --> 05:45.030
+Just before we talk about modal, one more thing I wanted to mention that as we're moving now towards
+
+05:45.030 --> 05:52.050
+writing more serious code, JupyterLab is a wonderful platform for being iterative and experimental
+
+05:52.050 --> 05:55.170
+and quickly turning out different solutions.
+
+05:55.170 --> 06:02.310
+But as as we move along the path from R&amp;D into something which is ready to be productionized, there
+
+06:02.340 --> 06:06.270
+are some aspects of the coding that will be changing.
+
+06:06.600 --> 06:10.560
+For a start, I'm going to start to have type hints in some of the code.
+
+06:10.740 --> 06:13.470
+Maybe something that you're super familiar with already.
+
+06:13.470 --> 06:15.660
+If not, I'll explain it and it will.
+
+06:15.870 --> 06:16.860
+You'll see why.
+
+06:16.860 --> 06:22.800
+And it's something which is a good, best practice when building this kind of production caliber code.
+
+06:23.280 --> 06:25.830
+Uh, also going to be writing some more comments.
+
+06:25.860 --> 06:29.610
+It's something that when you've got a nice Jupyter notebook and you've got like lots of time to put
+
+06:29.640 --> 06:34.800
+text and stuff and explain it, maybe you don't need quite the same kind of commenting approach, but
+
+06:34.800 --> 06:40.080
+now, at least at the at the method at the function level will put comments in there.
+
+06:40.500 --> 06:44.190
+And logging is a good thing to do as well, and we will do that.
+
+06:44.400 --> 06:49.800
+Now there's one other thing which is a very good best practice, which is to write unit tests.
+
+06:49.830 --> 06:54.570
+Uh, it's very important, of course, to write good unit tests for code that's going into production.
+
+06:54.570 --> 06:58.170
+And I'm not going to be doing that because I'm a cowboy.
+
+06:58.290 --> 07:00.990
+Uh, and, uh, yeah, I certainly should do that.
+
+07:01.020 --> 07:03.960
+But what I will say is that it's a great exercise.
+
+07:03.960 --> 07:09.580
+Uh, should you wish to go in and write unit tests behind some of the code that we are productionizing.
+
+07:09.580 --> 07:10.600
+That will be wonderful.
+
+07:10.630 --> 07:11.920
+I hugely appreciate it.
+
+07:11.920 --> 07:18.370
+And if you then wanted of course to do a git push, I will merge it in with delight and will give you,
+
+07:18.400 --> 07:23.350
+of course, full attribution and credit for writing the unit tests, which is something that certainly
+
+07:23.350 --> 07:24.910
+I should I should be doing.
+
+07:25.210 --> 07:27.850
+Um, and it's a very much a good best practice.
+
+07:29.020 --> 07:30.160
+Okay.
+
+07:30.250 --> 07:36.700
+Uh, the, the brings me to, to introducing modal, which is the platform that we're going to be using
+
+07:36.730 --> 07:37.510
+today.
+
+07:37.540 --> 07:44.110
+Uh, modal, uh, a platform which allows us to run code remotely on a server, and you only pay for
+
+07:44.110 --> 07:45.460
+the time that you use.
+
+07:45.490 --> 07:47.410
+It's a very powerful platform.
+
+07:47.410 --> 07:52.930
+It's it's become heavily used in the AI world for deploying production models.
+
+07:52.960 --> 07:58.900
+Um, but it can also be used just for, for for many different purposes, just for CPU usage to deploy
+
+07:58.900 --> 08:01.960
+any function onto the cloud, as we will see.
+
+08:02.260 --> 08:06.730
+So without further ado, in the next video, we're going to go to modal and give it a try.
+
+08:06.760 --> 08:07.660
+I'll see you there.

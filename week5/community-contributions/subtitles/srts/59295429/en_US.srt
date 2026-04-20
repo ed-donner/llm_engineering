@@ -1,0 +1,286 @@
+WEBVTT
+
+00:00.650 --> 00:06.260
+Continuing our investigation of benchmarks, and this will become more real when we actually see some
+
+00:06.290 --> 00:06.650
+action.
+
+00:06.650 --> 00:11.480
+So bear with me while we do this, but it is very important and useful background information.
+
+00:11.480 --> 00:18.230
+We're going to look at three specific benchmarks used to test, uh, more, more, uh, specialized
+
+00:18.230 --> 00:19.130
+skills.
+
+00:19.310 --> 00:27.920
+And the first of them is is used for evaluating chat between models, um, particularly in the in face
+
+00:27.950 --> 00:31.430
+offs between models in things like arenas, as we will see.
+
+00:31.430 --> 00:34.730
+And the benchmark is an Elo rating.
+
+00:34.850 --> 00:43.280
+Uh, if you are a chess player or familiar with with chess Elo ratings, Elo is a rating that you can
+
+00:43.280 --> 00:51.080
+give to competitors in a sport or some sort of a game where there is a loser for every winner, where
+
+00:51.080 --> 00:58.370
+it's a zero sum game, um, and uh, uh, based on the outcomes of these kinds of, of games, uh,
+
+00:58.370 --> 01:05.680
+you can give people this relative measure that affects their strength compared to others based on their
+
+01:05.680 --> 01:08.140
+performance in head to head face offs.
+
+01:08.140 --> 01:16.000
+So you'll see examples of of those from an arena later and that will that will bring it to life.
+
+01:16.090 --> 01:21.460
+Um, but it's a, it's used in particular the ones that I'm going to show you are used to evaluate the
+
+01:21.460 --> 01:26.770
+chat abilities, the instruct abilities of these models.
+
+01:27.400 --> 01:30.130
+And then the next two are about coding.
+
+01:30.220 --> 01:34.480
+Human eval is a very well known Python coding test.
+
+01:34.480 --> 01:37.180
+It's 164 problems.
+
+01:37.180 --> 01:41.050
+Uh, it's about writing code actually based on Python doc strings.
+
+01:41.110 --> 01:48.310
+Uh, and it's something where models have become increasingly effective at and then, uh, multiple
+
+01:48.340 --> 01:49.720
+or maybe it's pronounced multiple.
+
+01:50.590 --> 01:57.280
+Uh, I expect just multiple is the same thing, but translated to 18 different programming languages.
+
+01:57.280 --> 02:03.700
+So this is more of a wider variety of programming skills across different areas.
+
+02:04.870 --> 02:12.890
+Let me take a moment now to mention Mentioned the limitations of these benchmarks, which is such an
+
+02:12.890 --> 02:16.940
+important point, and it's something that that cannot be stressed enough.
+
+02:17.030 --> 02:24.050
+Benchmarks are useful for us for comparing, of course, the different where different models shine
+
+02:24.050 --> 02:26.300
+and where they're not not intended to be used.
+
+02:26.300 --> 02:30.350
+But there are problems with benchmarks, and you need to be aware of them when you look at them.
+
+02:30.560 --> 02:33.710
+One of them is that they are not consistently applied.
+
+02:33.710 --> 02:38.690
+So, um, depending on where you're seeing the benchmark, particularly if it's something like a press
+
+02:38.690 --> 02:44.510
+release from a company, they it's really up to them how they measured the benchmark, what kind of
+
+02:44.510 --> 02:46.310
+hardware they used and stuff like that.
+
+02:46.520 --> 02:52.190
+It's not like there's a gold standards that, that, um, put these measurements on rails.
+
+02:52.190 --> 02:55.400
+So everything has to be taken with a pinch of salt.
+
+02:55.400 --> 03:01.820
+If it's been published by a third party, there can be too narrow in scope, particularly when you think
+
+03:01.820 --> 03:05.930
+about like multiple choice style questions and a very similar point.
+
+03:05.960 --> 03:12.390
+Uh, it's hard to use these kinds of benchmarks to measure nuanced reasoning if you're dealing with
+
+03:12.390 --> 03:17.880
+with either multiple choice or very specific kinds of answers, it's that that's something that's hard
+
+03:17.880 --> 03:18.720
+to do.
+
+03:18.900 --> 03:25.290
+Um, another problem is training data leakage, which it's just very hard to make sure that there is
+
+03:25.290 --> 03:33.150
+no way that any of these answers can be found within the data that's used to train models, particularly
+
+03:33.150 --> 03:38.400
+as models get trained with more and more recent data that presumably involves lots of information about
+
+03:38.400 --> 03:39.480
+these benchmarks.
+
+03:39.480 --> 03:44.490
+Uh, it becomes harder and harder to control for training data leakage.
+
+03:44.970 --> 03:50.880
+And then the next one here is is a very important overfitting, a common term from traditional data
+
+03:50.880 --> 03:51.480
+science.
+
+03:51.480 --> 03:54.360
+The problem is and this is this is a bit subtle.
+
+03:54.360 --> 04:01.050
+Again you could get to a point where you've managed to make your model do really, really well on benchmarks,
+
+04:01.050 --> 04:05.850
+partly because you've just tried out lots of things, like you've tweaked lots of hyperparameters,
+
+04:05.850 --> 04:10.890
+lots of the sort of settings around a model, and you've kept rerunning it until you've tweaked all
+
+04:10.890 --> 04:14.910
+the hyperparameters, and now it's crushing this particular benchmark.
+
+04:14.930 --> 04:17.720
+and it might be something of a coincidence.
+
+04:17.720 --> 04:22.610
+It's like you've because you've had all of these different knobs that you've you've turned you've turned
+
+04:22.610 --> 04:27.980
+them specifically in such a way that it solves these benchmarks really, really well.
+
+04:27.980 --> 04:29.480
+And what's the problem with that?
+
+04:29.480 --> 04:33.470
+The problem with that is that you've just solved for this particular benchmark test.
+
+04:33.470 --> 04:39.350
+And if you ask another question, which is still trying to get to the heart of the same test, but it's
+
+04:39.350 --> 04:44.720
+just asked differently, or it's just a, you know, a different maths question or something like that,
+
+04:44.720 --> 04:50.300
+the model might fail spectacularly because you've overfit it, you've trained it, you've, you've,
+
+04:50.330 --> 04:54.530
+you've, you've, you've set all of its various dials so that it does really, really well on these
+
+04:54.530 --> 05:00.920
+very specific benchmark questions and doesn't do so well when it goes out of sample, when it goes out
+
+05:00.920 --> 05:05.300
+of these benchmarks, questions to other questions designed to test the same kind of thing.
+
+05:05.300 --> 05:08.990
+In other words, the results of the benchmark can end up being misleading.
+
+05:09.020 --> 05:13.670
+It can make it look like it's really good at Python coding or at maths problems or something like that,
+
+05:13.670 --> 05:19.420
+when really it's just really good at answering the specific questions that were in these benchmarks.
+
+05:19.420 --> 05:21.250
+So that's the problem of overfitting.
+
+05:21.250 --> 05:29.650
+It's very important that you're aware of that and take some healthy skepticism to reviewing benchmarks
+
+05:30.370 --> 05:31.690
+with this in mind.
+
+05:32.080 --> 05:38.800
+There is a new interesting point that's been raised recently, which isn't yet proven.
+
+05:38.800 --> 05:40.480
+It's not yet well understood.
+
+05:40.480 --> 05:47.740
+It's still a bit speculative, but there is some evidence that the latest frontier models, the really
+
+05:47.740 --> 05:57.880
+strong GPT four Claude 3.5 sonnet level models have some kind of awareness that they are being evaluated,
+
+05:57.880 --> 06:05.260
+that when they are being asked various benchmark style questions, and that some of their answers have
+
+06:05.260 --> 06:11.350
+indicated to experts that they are aware of the context, that they're being asked this because they
+
+06:11.380 --> 06:12.880
+are being evaluated.
+
+06:13.210 --> 06:17.800
+Um, and that might distort some of their answers.
+
+06:17.830 --> 06:22.600
+Now, you may wonder, why does that matter if we're testing things like how good they are at maths.
+
+06:22.630 --> 06:25.210
+Whether they know they're being evaluated or not doesn't matter.
+
+06:25.210 --> 06:27.130
+That's sure they can know they're being evaluated.
+
+06:27.130 --> 06:31.000
+And still, whether they do well or not in maths questions is is useful.
+
+06:31.060 --> 06:33.430
+Well, here's an example of where it matters.
+
+06:33.430 --> 06:40.240
+Supposing you're asking questions about things like safety and alignment, and some of the questions
+
+06:40.240 --> 06:44.050
+we saw about responding truthfully in adversarial conditions.
+
+06:44.050 --> 06:50.230
+If that's what you're trying to assess, then obviously if the model is aware that it's being assessed,
+
+06:50.230 --> 06:54.220
+that might change its approach to answering those questions.
+
+06:54.220 --> 07:01.150
+And perhaps, for example, give an impression that a model is highly truthful or well aligned, when
+
+07:01.180 --> 07:02.410
+in fact it is not.
+
+07:02.410 --> 07:07.510
+So it's premature for us to say that this is a real concern or a real problem.
+
+07:07.510 --> 07:14.320
+It's it's a it's a it's a risk that people are analysing and researching not yet known if it is a real
+
+07:14.320 --> 07:19.090
+problem, but at this point, it certainly is something that's a concern that's being explored.
+
+07:19.360 --> 07:19.900
+All right.
+
+07:19.930 --> 07:21.340
+Hope that was interesting to you.
+
+07:21.340 --> 07:24.070
+This gives you some of the limitations of benchmarks.
+
+07:24.070 --> 07:26.350
+And now we're going to move on to some more.

@@ -1,0 +1,400 @@
+WEBVTT
+
+00:01.400 --> 00:08.090
+And continuing on our strategy to solve commercial problems with LMS, we get to step four, which is
+
+00:08.090 --> 00:13.040
+about optimizing our model to solve problems really, really well.
+
+00:13.310 --> 00:19.220
+Taking it beyond the pre-trained model that we might have, um, either or an existing frontier model
+
+00:19.220 --> 00:21.530
+and getting more juice out of it.
+
+00:21.770 --> 00:26.930
+So there are these three different approaches that two of them we've used, and one of them talked about
+
+00:27.110 --> 00:33.170
+there is prompting that we've used a ton now, which is things like multi-shot prompting, chaining
+
+00:33.170 --> 00:36.170
+when we have multiple prompts and using tools.
+
+00:36.170 --> 00:39.800
+These are all ways to get better outcomes.
+
+00:39.920 --> 00:44.360
+There is Rag, of course, that you're now super familiar with.
+
+00:44.360 --> 00:50.270
+I do hope you've built that extra project to be doing a knowledge work on on your own life.
+
+00:50.540 --> 00:59.240
+Uh, so there is rag and then the new thing, Fine tuning, which is about training the model to be
+
+00:59.240 --> 01:00.140
+even better.
+
+01:00.140 --> 01:03.260
+So these these are the three techniques.
+
+01:03.260 --> 01:07.160
+And there's certainly a lot of confusion out there.
+
+01:07.190 --> 01:08.870
+There's a lot of questions I get asked about.
+
+01:08.870 --> 01:12.140
+How do you decide which technique to use in which situation.
+
+01:12.140 --> 01:17.390
+And of course, it's possible to use all the techniques together, but one does typically, uh, focus
+
+01:17.390 --> 01:19.730
+on one, uh, at least initially.
+
+01:19.730 --> 01:25.520
+And it's worth pointing out that the first two techniques there are inference time techniques.
+
+01:25.520 --> 01:31.070
+These are about taking a trained model and at inference time, figuring out how to get more juice out
+
+01:31.070 --> 01:31.490
+of it.
+
+01:31.490 --> 01:35.930
+And the third one is a training time, uh, technique.
+
+01:35.930 --> 01:41.720
+It's about saying, all right, let's take a pre-trained model and figure out how to supply more data,
+
+01:41.720 --> 01:46.790
+to tweak the weights to make it even better at solving its problem.
+
+01:47.510 --> 01:55.700
+So to talk about the benefits of each of those techniques just very quickly in prompting, obviously
+
+01:55.700 --> 01:57.470
+it's super fast to do this.
+
+01:57.500 --> 02:05.960
+We've done this so quickly, so easily having different prompting strategies, uh, with maybe the exception
+
+02:05.960 --> 02:08.990
+of tools, was a little bit more involved, but still, you get the idea.
+
+02:08.990 --> 02:10.280
+You can just replicate that.
+
+02:10.280 --> 02:17.900
+You can quite easily get to a point where you are continually improving, uh, the prompt messages to
+
+02:17.930 --> 02:20.480
+an LLM and getting better and better results.
+
+02:20.600 --> 02:25.280
+And you typically see very quick direct improvement from it.
+
+02:25.280 --> 02:31.040
+You add in some multi-shot, uh, prompt, uh, background, some context into your prompts, and you
+
+02:31.040 --> 02:32.450
+immediately get the improvement.
+
+02:32.450 --> 02:34.100
+And it's a low cost too.
+
+02:34.130 --> 02:36.650
+So lots of benefits of using prompting.
+
+02:37.520 --> 02:47.240
+So rag, uh, has the benefit of bringing about this, this strong accuracy because you can pluck out,
+
+02:47.300 --> 02:54.650
+uh, this, uh, this very specific fact of information to arm the LLM with.
+
+02:54.680 --> 03:02.240
+It's, it's very scalable in that you can have huge quantities of data that can pour in, and your Rag
+
+03:02.240 --> 03:07.250
+pipeline can pluck out the relevant context, so you don't have to spend all the extra money pumping
+
+03:07.250 --> 03:09.560
+bigger and bigger prompts to your model.
+
+03:09.710 --> 03:14.630
+And that ties to the third point, which is that it's efficient because you can you can do that.
+
+03:15.140 --> 03:17.390
+Um, so fine tuning.
+
+03:17.390 --> 03:19.670
+So what are the benefits?
+
+03:19.700 --> 03:27.080
+So it allows you to build deep expertise, specialist skill sets into your model.
+
+03:27.080 --> 03:33.530
+You can build a model that is really great at doing something in a way that is very nuanced.
+
+03:33.530 --> 03:36.470
+So it's not just being given an extra fact.
+
+03:36.590 --> 03:38.600
+Um, about the CEO.
+
+03:38.630 --> 03:39.620
+What was our CEO's name?
+
+03:39.650 --> 03:40.730
+Avery Lancaster.
+
+03:40.730 --> 03:45.320
+It's not just being given a specific fact about Avery and what she used to do.
+
+03:45.500 --> 03:48.350
+Uh, it's something which over time is learning.
+
+03:48.380 --> 03:56.060
+I don't know the careers of CEOs, or it's learning about the insurer Elm Company and more about its
+
+03:56.060 --> 03:59.000
+culture and about its communications.
+
+03:59.000 --> 04:07.790
+So it gets this deeper insight, which allows it to show a kind of almost human like ability to reason
+
+04:07.790 --> 04:10.160
+about the data that it's being showed.
+
+04:10.160 --> 04:20.660
+So it's it's much more of a, um, it's, it's a much deeper way to change the abilities and capabilities
+
+04:20.660 --> 04:25.040
+of the model than the inference time techniques.
+
+04:25.280 --> 04:29.210
+It allows a model to learn a different style and tone.
+
+04:29.360 --> 04:34.190
+Of course, you can achieve some of that by just prompting, as we saw early on when we just added a
+
+04:34.190 --> 04:41.270
+system prompt and asked for for snarky comedic style, or when we had llms battling and we had a GPT
+
+04:41.300 --> 04:42.710
+four zero being the adversary.
+
+04:42.710 --> 04:45.410
+So you can do that with with system prompts.
+
+04:45.410 --> 04:52.250
+But if you want a very subtle tone, like you want a model that's going to emulate the the style of
+
+04:52.250 --> 04:57.740
+your customer service specialists who've been trained over many years, then they need it will need
+
+04:57.740 --> 04:58.970
+to see a lot of data.
+
+04:59.000 --> 05:01.280
+A lot of examples to learn from.
+
+05:01.700 --> 05:09.620
+Um, and then the fourth point is that whilst this is something which requires a big investment in training,
+
+05:09.620 --> 05:13.550
+once you've trained it, you can then run it at inference time.
+
+05:13.550 --> 05:16.250
+And you don't need to do things like in Rag.
+
+05:16.250 --> 05:21.050
+You have to then go and look up the context and provide that in the context that's no longer needed,
+
+05:21.050 --> 05:24.740
+because you've already baked that into the model's weights.
+
+05:24.770 --> 05:26.210
+So it's faster.
+
+05:27.020 --> 05:28.820
+So what about the cons?
+
+05:28.850 --> 05:33.110
+Well, many of these cons follow from the pros of the others, as you will see.
+
+05:33.110 --> 05:38.810
+Uh, in the case of prompting, one con is that it's limited by the total context window.
+
+05:38.810 --> 05:44.270
+Of course, you can only shove so much in the prompt, and even if you do use up, even if you've got
+
+05:44.270 --> 05:50.780
+mega context windows like Gemini one five flash, uh, the million tokens, if you remember that, um,
+
+05:50.780 --> 05:56.150
+you still find that if you pump lots and lots into that context, then you get somewhat diminishing
+
+05:56.220 --> 06:03.270
+Returns from how much it learns from that at inference times, and obviously.
+
+06:03.300 --> 06:06.990
+Inference itself becomes slower and more expensive.
+
+06:07.020 --> 06:10.080
+The more context you are pumping in.
+
+06:10.080 --> 06:16.380
+And if you're doing something like a prompt chaining when you're making multiple inference calls to
+
+06:16.410 --> 06:19.890
+solve a bigger problem, then of course that slows everything down.
+
+06:20.670 --> 06:26.370
+So rag some of the cons it's more of a lift to build it.
+
+06:26.580 --> 06:29.100
+Um, you need the vector database.
+
+06:29.100 --> 06:31.080
+You need to populate that vector database.
+
+06:31.380 --> 06:38.460
+Um, it needs the, uh, sort of the, it needs the knowledge base to be supplied and kept up to date,
+
+06:38.460 --> 06:44.370
+presumably if it's giving accurate data, if Avery Lancaster steps down as CEO, will need to make sure
+
+06:44.370 --> 06:47.310
+that the rag, uh, effect reflects that.
+
+06:47.550 --> 06:49.710
+Um, and it lacks nuance.
+
+06:49.800 --> 06:57.450
+Um, it doesn't have the same, um, ability to to learn the deeper meaning behind the data.
+
+06:57.450 --> 07:03.420
+It's just taking facts and the negatives of fine tuning.
+
+07:03.450 --> 07:04.710
+Of course it is.
+
+07:04.740 --> 07:05.820
+It's hard.
+
+07:06.150 --> 07:07.920
+It's harder to to build it.
+
+07:07.950 --> 07:11.640
+It's going to be we're going to have a lot of fun with it, but it's going to be that we're going to
+
+07:11.640 --> 07:12.180
+be sweating.
+
+07:12.180 --> 07:13.410
+It's going to be difficult.
+
+07:13.710 --> 07:16.320
+Um, you need a ton of data.
+
+07:16.350 --> 07:18.510
+You need a lot of examples.
+
+07:18.570 --> 07:24.360
+Uh, it's, uh, depends on on how specialized you want to be and your objectives.
+
+07:24.360 --> 07:29.400
+But generally speaking, we'll see that there's going to be a high data need, and there's going to
+
+07:29.400 --> 07:30.960
+be a training cost.
+
+07:30.960 --> 07:37.260
+There's one more con that's that's often talked about, which is known as catastrophic forgetting,
+
+07:37.260 --> 07:38.910
+which sounds very serious.
+
+07:38.910 --> 07:46.320
+Uh, catastrophic forgetting, if you hear that, is saying that, um, if you take a pre-trained model
+
+07:46.680 --> 07:54.480
+like llama 3.1 and you fine tune it with a large amount of data, it will get better and better at solving
+
+07:54.480 --> 07:57.480
+your particular problem, but over time it will.
+
+07:57.510 --> 08:05.220
+Over over training time it will start to forget some of the base information in the base model, and
+
+08:05.220 --> 08:10.680
+as a result, some of its quality might degrade if it's taken outside the specific kinds of questions
+
+08:10.680 --> 08:11.880
+you're training it for.
+
+08:12.090 --> 08:20.130
+Um, and so that's a that's a behavior that's been noticed and that has, has some, some concerning
+
+08:20.130 --> 08:21.120
+ramifications.
+
+08:21.120 --> 08:27.450
+So if you need to make sure that you don't lose any of the information in the base model, if that will
+
+08:27.450 --> 08:30.270
+affect your performance, then you need to be careful about this.
+
+08:31.410 --> 08:32.160
+All right.
+
+08:32.160 --> 08:39.570
+So just to wrap up these then let me finish by saying that, uh, the the times when you typically use
+
+08:39.570 --> 08:44.430
+them with prompting, it's often used as the starting point for a project.
+
+08:44.460 --> 08:49.830
+Often your first version of your model will be perhaps a frontier model, and you will use prompting
+
+08:49.830 --> 09:00.780
+as a way to, to add, uh, performance Rag is in the specific case where you want, you need the accuracy.
+
+09:00.930 --> 09:06.780
+You don't want to spend the extra money on training and you have an existing knowledge base of data.
+
+09:06.810 --> 09:07.020
+Then.
+
+09:07.050 --> 09:13.770
+Then you're in perfectly suited for a Rag kind of workflow, and fine tuning is you have a specialized
+
+09:13.800 --> 09:19.110
+task, you have a very high volume of data, and you need top performance.
+
+09:19.350 --> 09:22.980
+Um, and, and you want nuance as well.
+
+09:22.980 --> 09:28.650
+And that, of course, is a situation that we are in with our product price predictor.
+
+09:28.650 --> 09:30.060
+We have tons of data.
+
+09:30.060 --> 09:31.650
+We have a specialized task.
+
+09:31.650 --> 09:39.030
+We want top performance, and we do want a nuanced understanding of products so much that it can differentiate
+
+09:39.030 --> 09:43.410
+between a great variety in product prices.
+
+09:44.430 --> 09:51.030
+Okay, I will pause here for one moment, and we will come back to wrap up the strategy section before
+
+09:51.030 --> 09:55.170
+we then turn back to our data and get to curation.

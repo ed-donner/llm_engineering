@@ -1,0 +1,85 @@
+WEBVTT
+
+00:00.440 --> 00:07.280
+Before we move on, let me show you one more time this fabulous slide that describes the simple three
+
+00:07.310 --> 00:13.130
+abstractions and one method call to build a rag pipeline the abstractions.
+
+00:13.160 --> 00:16.190
+Again, you create the LM, you create your memory.
+
+00:16.220 --> 00:20.690
+You create your retriever just by calling your chroma vector store or whatever vector store you're working
+
+00:20.690 --> 00:22.520
+with dot as retriever.
+
+00:22.520 --> 00:28.190
+And then you can simply create your conversation retrieval chain with this one line passing in your
+
+00:28.190 --> 00:30.770
+LM, your retriever, your memory, and you're done.
+
+00:30.770 --> 00:36.080
+And of course, with this conversation chain you call invoke and you pass in a dictionary with your
+
+00:36.080 --> 00:43.400
+question and with what you get back, you can simply call you look up the answer key and you will get
+
+00:43.400 --> 00:46.010
+back the response from the model.
+
+00:46.340 --> 00:51.770
+And so with that I would say that you have leveled up your skills.
+
+00:51.770 --> 00:53.540
+You are upskilled.
+
+00:53.540 --> 00:59.030
+You are now accomplished in the art of building rag pipelines.
+
+00:59.030 --> 01:00.380
+Congratulations!
+
+01:00.740 --> 01:06.170
+You can build your own rag knowledge worker not just for a fictitious company like Endure Elm, but
+
+01:06.170 --> 01:11.060
+hopefully for real companies too, including your own using lamp chain.
+
+01:11.060 --> 01:12.200
+And you can use chroma.
+
+01:12.230 --> 01:19.370
+You could also see how easy it is to switch that up for other vector data stores, and using models
+
+01:19.370 --> 01:23.480
+other than OpenAI, Lang chain makes that very simple indeed.
+
+01:23.570 --> 01:29.810
+Next time we're going to talk about lang chains declarative language briefly, it's not something we're
+
+01:29.810 --> 01:31.100
+going to use, but I'll show it to you.
+
+01:31.130 --> 01:32.900
+So you could use it if you wish to.
+
+01:33.200 --> 01:38.390
+Uh, I'm going to talk a bit about how Lang Chain works under the covers, just so you have more insight.
+
+01:38.390 --> 01:44.750
+And in particular, we're going to look at a common problem with Rag, diagnose it and then talk about
+
+01:44.750 --> 01:45.770
+how to fix it.
+
+01:45.770 --> 01:53.300
+So that will all, uh, equip you to be able to use rag in anger in production projects as you'll really
+
+01:53.300 --> 01:54.950
+understand the inner workings.
+
+01:55.040 --> 01:57.200
+And with that, I will see you next time.

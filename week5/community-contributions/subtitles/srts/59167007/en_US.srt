@@ -1,0 +1,205 @@
+WEBVTT
+
+00:00.500 --> 00:02.780
+Well, how fabulous is that?
+
+00:02.780 --> 00:09.620
+I hope that you are as wowed as I am by our new airline, I assistant and everything it can do.
+
+00:09.620 --> 00:16.610
+I've taken another screenshot here of of a conversation I'd had, and you can see again that gorgeous
+
+00:16.610 --> 00:17.690
+image of London.
+
+00:17.720 --> 00:18.740
+A very different approach now.
+
+00:18.740 --> 00:22.430
+Not the montage, but something rather rather simpler.
+
+00:22.430 --> 00:28.790
+Uh, it I find it astounding that you get such variety, such diversity of images.
+
+00:28.850 --> 00:34.280
+Um, and I also find it astounding that it's so easy to put together these sophisticated frameworks
+
+00:34.280 --> 00:36.140
+involving lots of functionality.
+
+00:36.230 --> 00:39.890
+Remember, we also had our tool running there, looking up the prices.
+
+00:39.890 --> 00:46.400
+Uh, everything we had together was a very sophisticated, complex app, complete with user interface.
+
+00:46.400 --> 00:51.470
+And we did it all just in a few hours worth of work.
+
+00:53.000 --> 00:56.030
+So it's a congratulations.
+
+00:56.030 --> 01:01.370
+But as always, there's a challenge for you and if I may say, one more time, the best way to learn
+
+01:01.370 --> 01:02.150
+is by doing.
+
+01:02.150 --> 01:07.160
+It is incredibly important that you now go and do some exercises and work on this to improve it.
+
+01:07.190 --> 01:09.930
+It's also a lot of fun as an extra bonus.
+
+01:09.930 --> 01:11.880
+So here are some of the things you can do.
+
+01:11.910 --> 01:16.590
+We talked before about adding in another tool to make a booking.
+
+01:16.620 --> 01:21.360
+In theory, not obviously a real booking, but make a booking and then it should print to an output
+
+01:21.360 --> 01:22.680
+that a booking has been made.
+
+01:22.680 --> 01:27.120
+Or maybe if you if you want, you could have it write to a file or something like that to give you a
+
+01:27.120 --> 01:28.740
+sense that the booking has happened.
+
+01:28.770 --> 01:29.940
+Add that as a tool.
+
+01:29.940 --> 01:33.270
+Hopefully you've done it already, but if not, now's a good time to do it.
+
+01:33.360 --> 01:35.400
+Then add another agent.
+
+01:35.400 --> 01:41.040
+Uh, have an agent that is able to translate all of the responses to a different language.
+
+01:41.040 --> 01:43.500
+Uh, something that we'd suggested for a previous project.
+
+01:43.500 --> 01:48.060
+But do that and then show it on the right hand side and use a different frontier model.
+
+01:48.090 --> 01:54.240
+How about Claude, for example, use Claude as a way to translate to another language of your choosing,
+
+01:54.240 --> 01:58.140
+and then you'd have to do some radio work to add another panel.
+
+01:58.290 --> 02:00.450
+With that translation.
+
+02:00.450 --> 02:03.510
+There will be a little bit of futzing around with Gradio when you do that.
+
+02:03.510 --> 02:09.660
+So you may you may find that that requires a little bit of googling, but hopefully you'll get an idea
+
+02:09.690 --> 02:10.770
+or you don't need to Google.
+
+02:10.770 --> 02:17.520
+You could actually ask, uh, Claude yourself for some advice on how to extend that Gradio app to add
+
+02:17.520 --> 02:23.970
+in that extra section to reflect the translation that it makes into another language.
+
+02:23.970 --> 02:28.650
+You'll find that when you do something like that, you provide a bunch of code and ask it to extend
+
+02:28.650 --> 02:35.520
+it, to do more, to add more capabilities, that these models are excellent at that kind of, uh,
+
+02:35.520 --> 02:37.410
+that kind of iterating on code.
+
+02:37.800 --> 02:45.870
+And then finally, since we've been enjoying multi-modality, one more multimodal task for you is audio
+
+02:45.870 --> 02:52.890
+to text, uh, add an agent that can listen to audio from your audio input source and turn it into text
+
+02:52.890 --> 02:55.560
+as the input to the AI assistant.
+
+02:55.560 --> 02:57.150
+And then you've really completed the loop.
+
+02:57.150 --> 03:01.950
+You'll be able to talk to it, and it will be able to talk back and draw images.
+
+03:01.950 --> 03:05.040
+When you were looking to ask for ticket prices.
+
+03:05.040 --> 03:08.640
+And that will then complete the week two challenge.
+
+03:08.640 --> 03:15.780
+And at that point you will be very familiar with Multi-modality and with using these, uh, stitching
+
+03:15.810 --> 03:19.860
+together these different agents to carry out a bigger task.
+
+03:21.960 --> 03:24.790
+And at that point, May I tell you?
+
+03:24.820 --> 03:29.260
+You are now 25% of the way to mastering LM engineering.
+
+03:29.290 --> 03:30.460
+25% of the way.
+
+03:30.490 --> 03:31.720
+A quarter of the way through.
+
+03:31.750 --> 03:36.520
+You can describe Transformers comfortably, including all of the terminology.
+
+03:36.520 --> 03:43.900
+You can code against the APIs, and you can build multimodal assistance using UIs, using tools, using
+
+03:43.900 --> 03:44.560
+agents.
+
+03:44.590 --> 03:47.710
+This is practically second nature to you at this point.
+
+03:48.010 --> 03:48.340
+Uh.
+
+03:48.370 --> 03:57.910
+Next week, change in topic to something that is absolutely wonderful the thriving open source community
+
+03:57.910 --> 04:05.110
+and and thriving capabilities that you have access to through open source, you're going to get to know
+
+04:05.140 --> 04:07.720
+hugging face really well, really, really well.
+
+04:07.720 --> 04:14.050
+You're going to work with pipelines and also with Tokenizers and with the models themselves with transformer
+
+04:14.050 --> 04:15.040
+models.
+
+04:15.280 --> 04:21.430
+And ultimately you're going to be running inference of open source models using Google Colab on their
+
+04:21.430 --> 04:23.020
+boxes with GPUs.
+
+04:23.020 --> 04:30.010
+And so by the end of the week, you'll be highly proficient with inference of open source models.
+
+04:30.010 --> 04:31.540
+And I can't wait to get to it.
+
+04:31.540 --> 04:32.740
+And I will see you then.

@@ -1,0 +1,655 @@
+WEBVTT
+
+00:00.620 --> 00:03.530
+And now the time has come to curate our data set.
+
+00:03.530 --> 00:09.110
+And the way we're going to do this is we're going to take each of the data points that we got from hugging
+
+00:09.140 --> 00:14.780
+face, and we're going to convert it into a Python object, an object, a class that we're going to
+
+00:14.780 --> 00:16.430
+create called an item.
+
+00:16.430 --> 00:22.310
+And it's so important that I've actually set up a different module items.py, where I have written this
+
+00:22.310 --> 00:29.450
+class, and I've done it as Python code, not in a Jupyter notebook, but in its own own module, so
+
+00:29.450 --> 00:34.670
+that it can be reused from different places, and so that we don't clutter our Jupyter notebook with
+
+00:34.670 --> 00:35.630
+the code behind it.
+
+00:35.630 --> 00:42.770
+And it contains some messy code to do some data munging, some unraveling of the data to clean it up,
+
+00:42.770 --> 00:47.750
+I'm going to show you this item, this module now and talk through it.
+
+00:47.750 --> 00:52.520
+But really there's an exercise for you to go and look through this in more detail and understand it
+
+00:52.520 --> 00:54.050
+a little bit more closely.
+
+00:54.110 --> 00:59.870
+So as I say it's in its own module items.py and it defines a class item.
+
+00:59.890 --> 01:05.980
+And I should point out, before we even get going with it, that we start by setting a constant called
+
+01:06.010 --> 01:11.560
+base model to be the llama 3.18 billion variant base model.
+
+01:11.920 --> 01:16.960
+Now, you might say to me, what on earth has the llama model got to do with what we're doing at the
+
+01:16.960 --> 01:17.380
+moment?
+
+01:17.380 --> 01:20.080
+We're not going on to open source until next week.
+
+01:20.080 --> 01:23.560
+This week it's all about using frontier models for for fine tuning.
+
+01:23.950 --> 01:25.330
+And here's the answer.
+
+01:25.330 --> 01:33.460
+We're going to be crafting our data set so that it fits within a certain fixed number of tokens as a
+
+01:33.460 --> 01:36.970
+maximum tokens for the llama tokenizer.
+
+01:36.970 --> 01:41.200
+And the reason we're going to do that is because that's going to make it cheaper and easier to train
+
+01:41.200 --> 01:43.900
+when we end up using our open source model.
+
+01:43.900 --> 01:48.610
+It's also, as I say, going to make it cheaper when we use the frontier model as well, and we want
+
+01:48.610 --> 01:50.530
+everyone to be on the same playing field.
+
+01:50.530 --> 01:56.710
+So when we craft our prompts and we fix them to a certain number of tokens, we want to make sure that
+
+01:56.710 --> 02:01.690
+both the frontier model and the open source model gets the same amount of information.
+
+02:01.690 --> 02:09.190
+If you have more budget and you have ability to train on bigger GPUs, or to use, uh, or more budget
+
+02:09.190 --> 02:13.600
+with frontier models, then you can extend the cutoff so that we can have bigger and bigger amounts
+
+02:13.600 --> 02:14.260
+of text.
+
+02:14.260 --> 02:19.570
+But I think we've got we're going to you'll see, we'll have plenty of text in each of these data points.
+
+02:19.570 --> 02:25.270
+And so it's perfectly sufficient for our frontier models and our open source models to be training against.
+
+02:25.870 --> 02:30.670
+Anyway, that is why we're looking at the llama model, because we're going to be using its tokenizer
+
+02:30.670 --> 02:34.660
+to when we check whether or not we have the right number of characters.
+
+02:34.840 --> 02:42.280
+So the class item, then it is something which each item is going to have a title, a price of course,
+
+02:42.310 --> 02:49.000
+a category which will be things like appliances, a token count, how many tokens does it contain.
+
+02:49.000 --> 02:55.990
+And then most importantly, a prompt which is going to be the text which will be fed into an LLM, which
+
+02:56.020 --> 03:00.660
+it will then use to either train or to test against.
+
+03:01.770 --> 03:07.080
+So just very briefly, the the takeaway is that you must look through this code yourself and satisfy
+
+03:07.080 --> 03:13.950
+yourself that I'm not doing anything evil and that all of this is just good, uh, wholesome housekeeping
+
+03:13.950 --> 03:15.810
+and cleaning up of strings.
+
+03:15.810 --> 03:22.680
+I have a function called scrub details, which removes stuff from the text that feels like it's going
+
+03:22.710 --> 03:24.360
+to be distracting to the model.
+
+03:24.390 --> 03:27.030
+Stuff like batteries included.
+
+03:27.150 --> 03:33.060
+Um, and, uh, some other things you see in there, the word manufacturer by manufacturer.
+
+03:33.060 --> 03:39.870
+So a bunch of things where it's not relevant or it's not massively relevant, and it seemed better to
+
+03:39.900 --> 03:44.310
+remove it than to have it use up precious tokens by being in there.
+
+03:45.030 --> 03:52.410
+There's this, uh, method scrub, which goes through and cleans out weird characters, and it also
+
+03:52.440 --> 03:59.990
+turns multiple spaces into one space, using some regex for regex ninjas out there.
+
+04:00.080 --> 04:03.500
+This is probably, uh, easy stuff for you.
+
+04:03.530 --> 04:11.450
+For others, this is one of the kinds of bits of script that you can reuse as ways to remove different
+
+04:11.450 --> 04:13.280
+problems in your in your strings.
+
+04:13.280 --> 04:17.840
+And you can also test this out at a Jupyter notebook to satisfy yourself that it's doing what it says
+
+04:17.870 --> 04:18.680
+on the tin.
+
+04:19.070 --> 04:24.890
+I will mention this line here, because this is just a little extra trick I put in there that is useful
+
+04:24.890 --> 04:29.270
+for our particular case, and it's an example of the kind of thing you only discover when you really
+
+04:29.270 --> 04:30.500
+dig into the data.
+
+04:30.530 --> 04:38.180
+I noticed that there were a lot of products on Amazon which quote part numbers in their description.
+
+04:38.180 --> 04:42.650
+So they say this is compatible with part number, blah blah and blah.
+
+04:42.650 --> 04:49.790
+And those part numbers are often eight digits, eight characters long or longer and contain letters
+
+04:49.790 --> 04:50.720
+and numbers.
+
+04:50.720 --> 04:56.570
+And the problem with that is that when that gets turned into tokens, it uses up a lot of tokens because
+
+04:56.600 --> 04:59.360
+obviously it's not in the vocabulary in any way.
+
+04:59.360 --> 05:06.500
+And so you end up cramming all of your, your token, your unlimited capacity for tokens with tokens
+
+05:06.500 --> 05:11.330
+that represent part numbers that are going to be totally irrelevant for our model.
+
+05:11.360 --> 05:19.190
+So what this line here does is it says if there's any, any word that has eight or more characters and
+
+05:19.190 --> 05:23.180
+contains a number inside it, then scrap that word.
+
+05:23.180 --> 05:24.950
+It's going to be a distraction.
+
+05:25.160 --> 05:30.440
+Um, so the reason I highlight this is, is really, again, to show that, that you only come across
+
+05:30.440 --> 05:32.720
+this kind of discovery when you dig into your data.
+
+05:32.750 --> 05:37.190
+You look at lots of examples and you see this happening, and then you come across this.
+
+05:37.190 --> 05:39.410
+You have the moment you try this out.
+
+05:39.410 --> 05:44.630
+And when you rerun your model, uh, which you can imagine I've done once or twice in the last few weeks,
+
+05:44.930 --> 05:51.290
+you find that you've made an improvement because your data is richer and has more, more accuracy to
+
+05:51.320 --> 05:51.860
+it.
+
+05:52.460 --> 05:56.080
+So that's an important part of the process.
+
+05:56.530 --> 06:06.040
+And we will then use a method parse, which takes a data point, and then does all of the various scrubbing
+
+06:06.040 --> 06:10.180
+and stripping and ends up turning it into a prompt.
+
+06:10.420 --> 06:14.890
+And along with the prompt, it counts the number of tokens in that prompt.
+
+06:14.890 --> 06:17.440
+And you're going to see the prompt in just a second.
+
+06:17.440 --> 06:22.600
+But the prompt is the thing that's going to get passed into an LLM, and it will be asked to complete
+
+06:22.600 --> 06:23.110
+it.
+
+06:23.230 --> 06:25.510
+And it's going to say, how much does this cost?
+
+06:25.510 --> 06:27.490
+And it's going to have a cost.
+
+06:28.390 --> 06:31.870
+There's going to be an ability to look at a look at a prompt.
+
+06:31.900 --> 06:36.580
+There's also going to be something called the test prompt, which is the same as the prompt, but it
+
+06:36.580 --> 06:38.410
+doesn't reveal the answer.
+
+06:38.440 --> 06:42.370
+The prompt will be used during training and it has the answer in there.
+
+06:42.370 --> 06:48.160
+So during training, the model will get better and better at predicting the answer during test time.
+
+06:48.160 --> 06:50.620
+We don't want to show it the answer.
+
+06:50.620 --> 06:54.540
+We want to give it the text and see whether or not it gets the right answer.
+
+06:54.540 --> 06:58.680
+So we have those two different prompts the training prompt and the test prompt.
+
+06:58.710 --> 07:03.660
+Later we're going to talk about breaking down your data into a training set and a test set.
+
+07:03.900 --> 07:05.520
+You'll see you'll see more.
+
+07:05.550 --> 07:07.350
+It will become much more clear later on.
+
+07:08.160 --> 07:10.740
+So this is the item class.
+
+07:10.740 --> 07:13.650
+And I really suggest that you take more of a look through this.
+
+07:13.650 --> 07:17.880
+But never fear, we're going to be spending a lot of time with these items and looking at them.
+
+07:17.880 --> 07:21.840
+And so you're going to get a good handle for for what this functionality does.
+
+07:21.990 --> 07:30.720
+So back here, what we're now going to do is create one of these items objects for everything in in
+
+07:30.720 --> 07:33.120
+the data set that has a price.
+
+07:33.450 --> 07:36.090
+So let's run that right now.
+
+07:37.110 --> 07:40.620
+So the this is running through that code.
+
+07:40.620 --> 07:43.200
+It's it's doing the scrubbing.
+
+07:43.200 --> 07:45.540
+It's removing things like part numbers.
+
+07:45.540 --> 07:51.540
+It's replacing weird characters with with with with spaces.
+
+07:51.870 --> 08:00.140
+And it's creating a prompt and then making sure that the prompt will fit into a decent number of tokens.
+
+08:00.140 --> 08:08.060
+So all of that is happening right now, and it's going to be doing that for the 40 odd thousand appliances,
+
+08:08.060 --> 08:11.450
+home appliances that have a price.
+
+08:11.570 --> 08:14.870
+So it should be just about wrapping up now.
+
+08:17.240 --> 08:20.990
+While it's finishing that off I will prepare for us to look at.
+
+08:20.990 --> 08:21.680
+It's done.
+
+08:21.830 --> 08:22.490
+There we go.
+
+08:22.490 --> 08:26.750
+So let's say let's just have a look at the first first one in there.
+
+08:28.040 --> 08:33.440
+So the first one in there is a rack roller and stud assembly kit.
+
+08:33.440 --> 08:37.580
+Full pack by Ami parts replaces blah blah blah blah blah.
+
+08:37.610 --> 08:43.940
+So this is the the title of the item and that's how much it costs $9.
+
+08:43.940 --> 08:46.910
+And you will indeed see that in the title of the item.
+
+08:46.910 --> 08:50.390
+There are these part numbers, these long part numbers.
+
+08:50.420 --> 08:51.260
+Let's see another one.
+
+08:51.260 --> 08:52.980
+Let's see the first item in there.
+
+08:53.760 --> 08:56.310
+Again, the first item which is.
+
+08:56.340 --> 09:00.750
+A compatible A door pivot block compatible.
+
+09:00.780 --> 09:01.680
+Kenmore KitchenAid.
+
+09:01.680 --> 09:03.480
+Maytag whirlpool refrigerator.
+
+09:03.510 --> 09:06.090
+Again, lots of part numbers in there.
+
+09:06.300 --> 09:15.960
+So let's now look at what happens if I look at the prompt that that I say that this function created
+
+09:17.580 --> 09:18.390
+items.
+
+09:18.390 --> 09:20.070
+Even try that again.
+
+09:21.060 --> 09:22.260
+Let's print that.
+
+09:22.260 --> 09:25.740
+So it comes up formatted with nice empty lines.
+
+09:28.410 --> 09:30.930
+So this is what the prompt says.
+
+09:30.930 --> 09:33.570
+How much does this cost to the nearest dollar.
+
+09:33.600 --> 09:35.640
+I'll talk more about that to the nearest dollar.
+
+09:35.670 --> 09:36.810
+In a later times.
+
+09:36.810 --> 09:42.300
+We'll talk about why I ended up going with that and and the pros and cons.
+
+09:42.300 --> 09:45.210
+So how much does this cost to the nearest dollar.
+
+09:45.960 --> 09:51.910
+And here then is there's actually one line for the, for the, for the heading and one line for the
+
+09:51.910 --> 09:52.780
+description.
+
+09:52.780 --> 09:58.870
+And what you'll see is that, sure enough, these part numbers have been plucked out from this description,
+
+09:58.870 --> 10:00.970
+and you'll see that it has been truncated.
+
+10:00.970 --> 10:03.760
+When we've got to the end of a certain number of tokens.
+
+10:03.760 --> 10:09.100
+It's actually, uh, comes to just under 180 tokens, is what I've kept.
+
+10:09.100 --> 10:10.930
+And that's what you can see here.
+
+10:11.110 --> 10:16.300
+And you can tell from reading this that it's a rich description of the item itself.
+
+10:16.300 --> 10:18.730
+That should be sufficient for training.
+
+10:19.330 --> 10:21.760
+Let's take a look at the next one.
+
+10:22.000 --> 10:25.570
+This of course, is our pivot block.
+
+10:25.600 --> 10:27.130
+Our door pivot block.
+
+10:27.160 --> 10:33.070
+Let's go for number 100 and Ice Maker mech.
+
+10:33.190 --> 10:35.650
+This is a Samsung replacement part.
+
+10:36.100 --> 10:41.200
+So you'll also notice there are a lot of things in here that are parts and replacement parts.
+
+10:41.200 --> 10:46.990
+Again consistent with what we saw before that this space could be crowded out by some of the bits and
+
+10:46.990 --> 10:50.400
+pieces like like replacement parts that are lower cost.
+
+10:50.400 --> 10:56.460
+Although somewhat surprisingly, this this part is $118, so it's not not such a simple part.
+
+10:56.880 --> 11:02.310
+I hope I never need this particular, uh, Samsung Assembly ice maker mech.
+
+11:03.180 --> 11:09.120
+Um, okay, so this is looking at the training prompt.
+
+11:09.120 --> 11:12.330
+This is what we'll be passing in during training time.
+
+11:12.330 --> 11:20.940
+And so the model will be will be given this and it will start to learn how best to recreate this price
+
+11:20.940 --> 11:22.830
+here during training time.
+
+11:22.830 --> 11:24.810
+What about during test time.
+
+11:24.810 --> 11:29.010
+What about when it's time to assess whether or not the model is doing any good?
+
+11:29.010 --> 11:35.880
+So let's look at this guy at item number 100 and see what we will do when it comes to test time.
+
+11:35.880 --> 11:37.260
+We will then.
+
+11:39.660 --> 11:42.600
+Provide the model with this.
+
+11:42.630 --> 11:46.590
+It's exactly the same but it ends here.
+
+11:46.620 --> 11:54.420
+And of course the idea is that the model will have seen so many examples of this, covering such a wide
+
+11:54.420 --> 12:01.980
+variety of different items that when it's shown this again at runtime, it will know how to complete
+
+12:01.980 --> 12:09.120
+it will it will have a good nuanced understanding based on this description that will help it to complete
+
+12:09.120 --> 12:10.740
+this price.
+
+12:12.030 --> 12:12.960
+All right.
+
+12:12.990 --> 12:22.230
+Let's look at how many tokens we typically have in these items by doing another of our diagrams.
+
+12:22.230 --> 12:28.860
+And what you'll see is that the highest number of tokens is 178.
+
+12:28.890 --> 12:32.850
+Never quite get to 180, and the average is 176.
+
+12:32.850 --> 12:35.010
+It's really sort of crammed in there.
+
+12:35.340 --> 12:43.650
+So we've generally generally selected and and crafted data sets that have about this much information.
+
+12:43.650 --> 12:47.250
+And it comes to up to 180 tokens.
+
+12:47.250 --> 12:51.470
+And as I say, this is going to be very helpful during training because we're going to know the maximum
+
+12:51.470 --> 12:57.830
+number of tokens we need to be able to support in any item, and it's also going to keep costs lower
+
+12:57.830 --> 13:00.350
+when we end up using frontier models for this.
+
+13:01.640 --> 13:02.450
+Okay.
+
+13:02.450 --> 13:09.800
+And then let's just have another look at the distribution of prices in these items that we have selected.
+
+13:10.160 --> 13:11.450
+Here we go.
+
+13:12.020 --> 13:16.190
+So the average price is $100.
+
+13:16.340 --> 13:21.560
+Uh, over here the highest price is, uh, almost $11,000.
+
+13:21.560 --> 13:28.430
+So in the process of doing some weeding out, we have actually removed that super expensive microwave
+
+13:28.430 --> 13:29.450
+along the way.
+
+13:29.570 --> 13:31.760
+But we've still got something that's fairly expensive.
+
+13:31.790 --> 13:36.440
+You can figure out what that is by by by replicating what I had above.
+
+13:36.590 --> 13:43.640
+Um, and you can still see that the distribution is very heavily skewed towards super cheap things that
+
+13:43.640 --> 13:46.730
+are presumably replacement parts, as we have been seeing.
+
+13:46.730 --> 13:51.010
+So that is another area for us to investigate next time.
+
+13:51.910 --> 13:57.790
+Uh, and so I did want to mention something that that visualizing these data sets is something we'll
+
+13:57.790 --> 13:58.810
+be doing a lot.
+
+13:58.840 --> 14:01.420
+And you will be doing a lot in different ways.
+
+14:01.450 --> 14:06.280
+Uh, it's it's nice to be able to take advantage of various features in matplotlib.
+
+14:06.280 --> 14:12.100
+And one of them is that it allows you to produce charts with many a huge array of different colors.
+
+14:12.100 --> 14:16.660
+And if you would like to know what those colors are, I've included a link that will take you to the
+
+14:16.660 --> 14:23.110
+page, uh, in matplotlib, where it will describe the different color schemes that you can use, including,
+
+14:23.110 --> 14:25.360
+uh, something called xkcd's colors.
+
+14:25.360 --> 14:27.610
+And it's good to take a look at that.
+
+14:27.760 --> 14:32.680
+Uh, so this is, uh, just a by the by as a little extra thing for you to bookmark.
+
+14:32.710 --> 14:38.800
+Uh, another another little pro tip for today, but the real to do's, what you have to do now, please,
+
+14:38.830 --> 14:40.570
+is go and look at the item class.
+
+14:40.570 --> 14:42.100
+I realize I went through it quickly.
+
+14:42.100 --> 14:49.660
+It's because it's got some of the more gruesome data A scrubbing the data munging that one does based
+
+14:49.660 --> 14:53.770
+on real examples of data to make the data as high quality as possible.
+
+14:54.130 --> 14:59.680
+And I haven't bored you with all of the details, but that's partly because I trust that you will now
+
+14:59.680 --> 15:01.780
+go in and look at the details yourself.
+
+15:01.810 --> 15:10.510
+Use JupyterLab to to investigate, try out and understand how these functions have cleaned up some of
+
+15:10.510 --> 15:18.310
+the data and got us to a point where we have about 180 tokens of rich description, rich wording for
+
+15:18.310 --> 15:25.990
+each of our data points, each of our items that will be used as training prompts and test prompts in
+
+15:25.990 --> 15:26.890
+the future.
+
+15:27.220 --> 15:34.000
+So next time we'll be expanding this to combine many, many other types of products.
+
+15:34.000 --> 15:39.700
+And if you thought this data set was a large data set, you ain't seen nothing yet.
+
+15:39.700 --> 15:41.260
+So prepare for that.
+
+15:41.260 --> 15:45.730
+But first, a couple more slides to wrap up this day.

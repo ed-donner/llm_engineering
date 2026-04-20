@@ -1,0 +1,2525 @@
+[
+    {
+      "input": [
+        {
+          "timestamp": 1737806400,
+          "room": "pillbox",
+          "nodeId": 1,
+          "onOff": true
+        },
+        {
+          "timestamp": 1737806460,
+          "room": "bedroom",
+          "nodeId": 2,
+          "onOff": true
+        },
+        {
+          "timestamp": 1737806700,
+          "room": "bathroom",
+          "nodeId": 2,
+          "onOff": true
+        },
+        {
+          "timestamp": 1737807000,
+          "room": "bathroom",
+          "nodeId": 3,
+          "humidity": 6500
+        },
+        {
+          "timestamp": 1737807300,
+          "room": "bathroom",
+          "nodeId": 2,
+          "onOff": false
+        },
+        {
+          "timestamp": 1737807600,
+          "room": "kitchen",
+          "nodeId": 2,
+          "onOff": true
+        },
+        {
+          "timestamp": 1737807660,
+          "room": "kitchen",
+          "event": "fridge_opened"
+        },
+        {
+          "timestamp": 1737808200,
+          "room": "kitchen",
+          "nodeId": 2,
+          "onOff": false
+        },
+        {
+          "timestamp": 1737808500,
+          "room": "livingroom",
+          "nodeId": 2,
+          "onOff": true
+        },
+        {
+          "timestamp": 1737808800,
+          "room": "livingroom",
+          "nodeId": 1,
+          "occupancy": 1
+        },
+        {
+          "timestamp": 1737810000,
+          "room": "livingroom",
+          "nodeId": 2,
+          "onOff": false
+        },
+        {
+          "timestamp": 1737811200,
+          "room": "hall",
+          "nodeId": 1,
+          "occupancy": 1
+        },
+        {
+          "timestamp": 1737811800,
+          "room": "porch",
+          "nodeId": 1,
+          "occupancy": 1
+        },
+        {
+          "timestamp": 1737811860,
+          "room": "hall",
+          "nodeId": 1,
+          "occupancy": 0
+        },
+        {
+          "timestamp": 1737828000,
+          "room": "porch",
+          "nodeId": 1,
+          "occupancy": 1
+        },
+        {
+          "timestamp": 1737828060,
+          "room": "hall",
+          "nodeId": 1,
+          "occupancy": 1
+        },
+        {
+          "timestamp": 1737828120,
+          "room": "kitchen",
+          "nodeId": 2,
+          "onOff": true
+        },
+        {
+          "timestamp": 1737828180,
+          "room": "kitchen",
+          "event": "fridge_opened"
+        },
+        {
+          "timestamp": 1737829200,
+          "room": "kitchen",
+          "nodeId": 2,
+          "onOff": false
+        },
+        {
+          "timestamp": 1737831600,
+          "room": "livingroom",
+          "nodeId": 2,
+          "onOff": true
+        },
+        {
+          "timestamp": 1737831660,
+          "room": "livingroom",
+          "nodeId": 1,
+          "occupancy": 1
+        },
+        {
+          "timestamp": 1737835200,
+          "room": "livingroom",
+          "nodeId": 2,
+          "onOff": false
+        },
+        {
+          "timestamp": 1737838800,
+          "room": "bedroom",
+          "nodeId": 2,
+          "onOff": true
+        },
+        {
+          "timestamp": 1737838860,
+          "room": "pillbox",
+          "nodeId": 1,
+          "onOff": true
+        },
+        {
+          "timestamp": 1737839400,
+          "room": "bedroom",
+          "nodeId": 2,
+          "onOff": false
+        },
+        {
+          "timestamp": 1737849600,
+          "room": "kitchen",
+          "nodeId": 2,
+          "onOff": true
+        },
+        {
+          "timestamp": 1737849660,
+          "room": "kitchen",
+          "event": "fridge_opened"
+        },
+        {
+          "timestamp": 1737850800,
+          "room": "kitchen",
+          "nodeId": 2,
+          "onOff": false
+        },
+        {
+          "timestamp": 1737852000,
+          "room": "livingroom",
+          "nodeId": 2,
+          "onOff": true
+        },
+        {
+          "timestamp": 1737852060,
+          "room": "livingroom",
+          "nodeId": 1,
+          "occupancy": 1
+        },
+        {
+          "timestamp": 1737855600,
+          "room": "livingroom",
+          "nodeId": 2,
+          "onOff": false
+        },
+        {
+          "timestamp": 1737859200,
+          "room": "bedroom",
+          "nodeId": 2,
+          "onOff": true
+        },
+        {
+          "timestamp": 1737859260,
+          "room": "pillbox",
+          "nodeId": 1,
+          "onOff": true
+        },
+        {
+          "timestamp": 1737859800,
+          "room": "bedroom",
+          "nodeId": 2,
+          "onOff": false
+        }
+      ],
+      "result": "normal",
+      "reason": "The data reflects a consistent daily routine, including medication times, meal preparation, and relaxation periods. No unusual activity is detected."
+    },
+    {
+      "input": [
+        {
+          "timestamp": 1737892800,
+          "room": "pillbox",
+          "nodeId": 1,
+          "onOff": true
+        },
+        {
+          "timestamp": 1737892860,
+          "room": "bedroom",
+          "nodeId": 2,
+          "onOff": true
+        },
+        {
+          "timestamp": 1737893100,
+          "room": "bathroom",
+          "nodeId": 2,
+          "onOff": true
+        },
+        {
+          "timestamp": 1737893400,
+          "room": "bathroom",
+          "nodeId": 3,
+          "humidity": 6500
+        },
+        {
+          "timestamp": 1737893700,
+          "room": "bathroom",
+          "nodeId": 2,
+          "onOff": false
+        },
+        {
+          "timestamp": 1737894000,
+          "room": "kitchen",
+          "nodeId": 2,
+          "onOff": true
+        },
+        {
+          "timestamp": 1737894060,
+          "room": "kitchen",
+          "event": "fridge_opened"
+        },
+        {
+          "timestamp": 1737894600,
+          "room": "kitchen",
+          "nodeId": 2,
+          "onOff": false
+        },
+        {
+          "timestamp": 1737894900,
+          "room": "livingroom",
+          "nodeId": 2,
+          "onOff": true
+        },
+        {
+          "timestamp": 1737895200,
+          "room": "livingroom",
+          "nodeId": 1,
+          "occupancy": 1
+        },
+        {
+          "timestamp": 1737896400,
+          "room": "livingroom",
+          "nodeId": 2,
+          "onOff": false
+        },
+        {
+          "timestamp": 1737897600,
+          "room": "hall",
+          "nodeId": 1,
+          "occupancy": 1
+        },
+        {
+          "timestamp": 1737898200,
+          "room": "porch",
+          "nodeId": 1,
+          "occupancy": 1
+        },
+        {
+          "timestamp": 1737898260,
+          "room": "hall",
+          "nodeId": 1,
+          "occupancy": 0
+        },
+        {
+          "timestamp": 1737914400,
+          "room": "porch",
+          "nodeId": 1,
+          "occupancy": 1
+        },
+        {
+          "timestamp": 1737914460,
+          "room": "hall",
+          "nodeId": 1,
+          "occupancy": 1
+        },
+        {
+          "timestamp": 1737914520,
+          "room": "kitchen",
+          "nodeId": 2,
+          "onOff": true
+        },
+        {
+          "timestamp": 1737914580,
+          "room": "kitchen",
+          "event": "fridge_opened"
+        },
+        {
+          "timestamp": 1737915600,
+          "room": "kitchen",
+          "nodeId": 2,
+          "onOff": false
+        },
+        {
+          "timestamp": 1737918000,
+          "room": "livingroom",
+          "nodeId": 2,
+          "onOff": true
+        },
+        {
+          "timestamp": 1737918060,
+          "room": "livingroom",
+          "nodeId": 1,
+          "occupancy": 1
+        },
+        {
+          "timestamp": 1737921600,
+          "room": "livingroom",
+          "nodeId": 2,
+          "onOff": false
+        },
+        {
+          "timestamp": 1737925200,
+          "room": "bedroom",
+          "nodeId": 2,
+          "onOff": true
+        },
+        {
+          "timestamp": 1737925260,
+          "room": "pillbox",
+          "nodeId": 1,
+          "onOff": true
+        },
+        {
+          "timestamp": 1737925800,
+          "room": "bedroom",
+          "nodeId": 2,
+          "onOff": false
+        },
+        {
+          "timestamp": 1737936000,
+          "room": "kitchen",
+          "nodeId": 2,
+          "onOff": true
+        },
+        {
+          "timestamp": 1737936060,
+          "room": "kitchen",
+          "event": "fridge_opened"
+        },
+        {
+          "timestamp": 1737937200,
+          "room": "kitchen",
+          "nodeId": 2,
+          "onOff": false
+        },
+        {
+          "timestamp": 1737938400,
+          "room": "livingroom",
+          "nodeId": 2,
+          "onOff": true
+        },
+        {
+          "timestamp": 1737938460,
+          "room": "livingroom",
+          "nodeId": 1,
+          "occupancy": 1
+        },
+        {
+          "timestamp": 1737942000,
+          "room": "livingroom",
+          "nodeId": 2,
+          "onOff": false
+        },
+        {
+          "timestamp": 1737945600,
+          "room": "bedroom",
+          "nodeId": 2,
+          "onOff": true
+        },
+        {
+          "timestamp": 1737945660,
+          "room": "pillbox",
+          "nodeId": 1,
+          "onOff": true
+        },
+        {
+          "timestamp": 1737946200,
+          "room": "bedroom",
+          "nodeId": 2,
+          "onOff": false
+        }
+      ],
+      "result": "normal",
+      "reason": "The data shows a consistent routine similar to Day 1, with no deviations. All activities align with expected behavior."
+    },
+    {
+      "input": [
+        {
+          "timestamp": 1737979200,
+          "room": "pillbox",
+          "nodeId": 1,
+          "onOff": true
+        },
+        {
+          "timestamp": 1737979260,
+          "room": "bedroom",
+          "nodeId": 2,
+          "onOff": true
+        },
+        {
+          "timestamp": 1737979500,
+          "room": "bathroom",
+          "nodeId": 2,
+          "onOff": true
+        },
+        {
+          "timestamp": 1737979800,
+          "room": "bathroom",
+          "nodeId": 3,
+          "humidity": 6500
+        },
+        {
+          "timestamp": 1737980100,
+          "room": "bathroom",
+          "nodeId": 2,
+          "onOff": false
+        },
+        {
+          "timestamp": 1737980400,
+          "room": "kitchen",
+          "nodeId": 2,
+          "onOff": true
+        },
+        {
+          "timestamp": 1737980460,
+          "room": "kitchen",
+          "event": "fridge_opened"
+        },
+        {
+          "timestamp": 1737981000,
+          "room": "kitchen",
+          "nodeId": 2,
+          "onOff": false
+        },
+        {
+          "timestamp": 1737981300,
+          "room": "livingroom",
+          "nodeId": 2,
+          "onOff": true
+        },
+        {
+          "timestamp": 1737981600,
+          "room": "livingroom",
+          "nodeId": 1,
+          "occupancy": 1
+        },
+        {
+          "timestamp": 1737982800,
+          "room": "livingroom",
+          "nodeId": 2,
+          "onOff": false
+        },
+        {
+          "timestamp": 1737984000,
+          "room": "hall",
+          "nodeId": 1,
+          "occupancy": 1
+        },
+        {
+          "timestamp": 1737984600,
+          "room": "porch",
+          "nodeId": 1,
+          "occupancy": 1
+        },
+        {
+          "timestamp": 1737984660,
+          "room": "hall",
+          "nodeId": 1,
+          "occupancy": 0
+        },
+        {
+          "timestamp": 1738000800,
+          "room": "porch",
+          "nodeId": 1,
+          "occupancy": 1
+        },
+        {
+          "timestamp": 1738000860,
+          "room": "hall",
+          "nodeId": 1,
+          "occupancy": 1
+        },
+        {
+          "timestamp": 1738000920,
+          "room": "kitchen",
+          "nodeId": 2,
+          "onOff": true
+        },
+        {
+          "timestamp": 1738000980,
+          "room": "kitchen",
+          "event": "fridge_opened"
+        },
+        {
+          "timestamp": 1738002000,
+          "room": "kitchen",
+          "nodeId": 2,
+          "onOff": false
+        },
+        {
+          "timestamp": 1738004400,
+          "room": "livingroom",
+          "nodeId": 2,
+          "onOff": true
+        },
+        {
+          "timestamp": 1738004460,
+          "room": "livingroom",
+          "nodeId": 1,
+          "occupancy": 1
+        },
+        {
+          "timestamp": 1738008000,
+          "room": "livingroom",
+          "nodeId": 2,
+          "onOff": false
+        },
+        {
+          "timestamp": 1738011600,
+          "room": "bedroom",
+          "nodeId": 2,
+          "onOff": true
+        },
+        {
+          "timestamp": 1738011660,
+          "room": "pillbox",
+          "nodeId": 1,
+          "onOff": true
+        },
+        {
+          "timestamp": 1738012200,
+          "room": "bedroom",
+          "nodeId": 2,
+          "onOff": false
+        },
+        {
+          "timestamp": 1738022400,
+          "room": "kitchen",
+          "nodeId": 2,
+          "onOff": true
+        },
+        {
+          "timestamp": 1738022460,
+          "room": "kitchen",
+          "event": "fridge_opened"
+        },
+        {
+          "timestamp": 1738023600,
+          "room": "kitchen",
+          "nodeId": 2,
+          "onOff": false
+        },
+        {
+          "timestamp": 1738024800,
+          "room": "livingroom",
+          "nodeId": 2,
+          "onOff": true
+        },
+        {
+          "timestamp": 1738024860,
+          "room": "livingroom",
+          "nodeId": 1,
+          "occupancy": 1
+        },
+        {
+          "timestamp": 1738028400,
+          "room": "livingroom",
+          "nodeId": 2,
+          "onOff": false
+        },
+        {
+          "timestamp": 1738032000,
+          "room": "bedroom",
+          "nodeId": 2,
+          "onOff": true
+        },
+        {
+          "timestamp": 1738032060,
+          "room": "pillbox",
+          "nodeId": 1,
+          "onOff": true
+        },
+        {
+          "timestamp": 1738032600,
+          "room": "bedroom",
+          "nodeId": 2,
+          "onOff": false
+        }
+      ],
+      "result": "normal",
+      "reason": "The data shows a typical day with all expected activities occurring at regular times."
+    },
+    {
+      "input": [
+        {
+          "timestamp": 1738065600,
+          "room": "pillbox",
+          "nodeId": 1,
+          "onOff": true
+        },
+        {
+          "timestamp": 1738065660,
+          "room": "bedroom",
+          "nodeId": 2,
+          "onOff": true
+        },
+        {
+          "timestamp": 1738065900,
+          "room": "bathroom",
+          "nodeId": 2,
+          "onOff": true
+        },
+        {
+          "timestamp": 1738066200,
+          "room": "bathroom",
+          "nodeId": 3,
+          "humidity": 7500
+        },
+        {
+          "timestamp": 1738066500,
+          "room": "bathroom",
+          "nodeId": 2,
+          "onOff": false
+        },
+        {
+          "timestamp": 1738066800,
+          "room": "bathroom",
+          "nodeId": 3,
+          "humidity": 7500
+        },
+        {
+          "timestamp": 1738067100,
+          "room": "bathroom",
+          "nodeId": 3,
+          "humidity": 7500
+        },
+        {
+          "timestamp": 1738067400,
+          "room": "bathroom",
+          "nodeId": 3,
+          "humidity": 7500
+        },
+        {
+          "timestamp": 1738067700,
+          "room": "bathroom",
+          "nodeId": 3,
+          "humidity": 7500
+        },
+        {
+          "timestamp": 1738068000,
+          "room": "bathroom",
+          "nodeId": 3,
+          "humidity": 7500
+        },
+        {
+          "timestamp": 1738068300,
+          "room": "bathroom",
+          "nodeId": 3,
+          "humidity": 7500
+        },
+        {
+          "timestamp": 1738068600,
+          "room": "bathroom",
+          "nodeId": 3,
+          "humidity": 7500
+        },
+        {
+          "timestamp": 1738068900,
+          "room": "bathroom",
+          "nodeId": 3,
+          "humidity": 7500
+        },
+        {
+          "timestamp": 1738069200,
+          "room": "bathroom",
+          "nodeId": 3,
+          "humidity": 7500
+        },
+        {
+          "timestamp": 1738069500,
+          "room": "bathroom",
+          "nodeId": 3,
+          "humidity": 7500
+        }
+      ],
+      "result": "anomalous",
+      "reason": "High humidity persists in the bathroom with no movement or room transitions for over 45 minutes, suggesting a potential fall during shower."
+    },
+    {
+      "input": [
+        {
+          "timestamp": 1738152000,
+          "room": "pillbox",
+          "nodeId": 1,
+          "onOff": true
+        },
+        {
+          "timestamp": 1738152060,
+          "room": "bedroom",
+          "nodeId": 2,
+          "onOff": true
+        },
+        {
+          "timestamp": 1738152300,
+          "room": "bathroom",
+          "nodeId": 2,
+          "onOff": true
+        },
+        {
+          "timestamp": 1738152600,
+          "room": "bathroom",
+          "nodeId": 3,
+          "humidity": 6500
+        },
+        {
+          "timestamp": 1738152900,
+          "room": "bathroom",
+          "nodeId": 2,
+          "onOff": false
+        },
+        {
+          "timestamp": 1738153200,
+          "room": "kitchen",
+          "nodeId": 2,
+          "onOff": true
+        },
+        {
+          "timestamp": 1738153260,
+          "room": "kitchen",
+          "event": "fridge_opened"
+        },
+        {
+          "timestamp": 1738153800,
+          "room": "kitchen",
+          "nodeId": 2,
+          "onOff": false
+        },
+        {
+          "timestamp": 1738154100,
+          "room": "livingroom",
+          "nodeId": 2,
+          "onOff": true
+        },
+        {
+          "timestamp": 1738154400,
+          "room": "livingroom",
+          "nodeId": 1,
+          "occupancy": 1
+        },
+        {
+          "timestamp": 1738155600,
+          "room": "livingroom",
+          "nodeId": 2,
+          "onOff": false
+        },
+        {
+          "timestamp": 1738156800,
+          "room": "hall",
+          "nodeId": 1,
+          "occupancy": 1
+        },
+        {
+          "timestamp": 1738157400,
+          "room": "porch",
+          "nodeId": 1,
+          "occupancy": 1
+        },
+        {
+          "timestamp": 1738157460,
+          "room": "hall",
+          "nodeId": 1,
+          "occupancy": 0
+        },
+        {
+          "timestamp": 1738173600,
+          "room": "porch",
+          "nodeId": 1,
+          "occupancy": 0
+        },
+        {
+          "timestamp": 1738184400,
+          "room": "porch",
+          "nodeId": 1,
+          "occupancy": 0
+        },
+        {
+          "timestamp": 1738195200,
+          "room": "porch",
+          "nodeId": 1,
+          "occupancy": 0
+        },
+        {
+          "timestamp": 1738206000,
+          "room": "porch",
+          "nodeId": 1,
+          "occupancy": 0
+        }
+      ],
+      "result": "anomalous",
+      "reason": "Person left home in the morning but did not return, missing all subsequent daily activities including medications and meals."
+    },
+    {
+      "input": [
+        {
+          "timestamp": 1738238400,
+          "room": "pillbox",
+          "nodeId": 1,
+          "onOff": true
+        },
+        {
+          "timestamp": 1738238460,
+          "room": "bedroom",
+          "nodeId": 2,
+          "onOff": true
+        },
+        {
+          "timestamp": 1738238700,
+          "room": "bathroom",
+          "nodeId": 2,
+          "onOff": true
+        },
+        {
+          "timestamp": 1738239000,
+          "room": "bathroom",
+          "nodeId": 3,
+          "humidity": 6500
+        },
+        {
+          "timestamp": 1738239300,
+          "room": "bathroom",
+          "nodeId": 2,
+          "onOff": false
+        },
+        {
+          "timestamp": 1738239600,
+          "room": "kitchen",
+          "nodeId": 2,
+          "onOff": true
+        },
+        {
+          "timestamp": 1738239660,
+          "room": "kitchen",
+          "event": "fridge_opened"
+        },
+        {
+          "timestamp": 1738240200,
+          "room": "kitchen",
+          "nodeId": 2,
+          "onOff": false
+        },
+        {
+          "timestamp": 1738240500,
+          "room": "livingroom",
+          "nodeId": 2,
+          "onOff": true
+        },
+        {
+          "timestamp": 1738240800,
+          "room": "livingroom",
+          "nodeId": 1,
+          "occupancy": 1
+        },
+        {
+          "timestamp": 1738242000,
+          "room": "livingroom",
+          "nodeId": 2,
+          "onOff": false
+        },
+        {
+          "timestamp": 1738243200,
+          "room": "hall",
+          "nodeId": 1,
+          "occupancy": 1
+        },
+        {
+          "timestamp": 1738243800,
+          "room": "porch",
+          "nodeId": 1,
+          "occupancy": 1
+        },
+        {
+          "timestamp": 1738243860,
+          "room": "hall",
+          "nodeId": 1,
+          "occupancy": 0
+        },
+        {
+          "timestamp": 1738260000,
+          "room": "porch",
+          "nodeId": 1,
+          "occupancy": 1
+        },
+        {
+          "timestamp": 1738260060,
+          "room": "hall",
+          "nodeId": 1,
+          "occupancy": 1
+        },
+        {
+          "timestamp": 1738260120,
+          "room": "kitchen",
+          "nodeId": 2,
+          "onOff": true
+        },
+        {
+          "timestamp": 1738260180,
+          "room": "kitchen",
+          "event": "fridge_opened"
+        },
+        {
+          "timestamp": 1738261200,
+          "room": "kitchen",
+          "nodeId": 2,
+          "onOff": false
+        },
+        {
+          "timestamp": 1738263600,
+          "room": "livingroom",
+          "nodeId": 2,
+          "onOff": true
+        },
+        {
+          "timestamp": 1738263660,
+          "room": "livingroom",
+          "nodeId": 1,
+          "occupancy": 1
+        },
+        {
+          "timestamp": 1738267200,
+          "room": "livingroom",
+          "nodeId": 2,
+          "onOff": false
+        },
+        {
+          "timestamp": 1738270800,
+          "room": "bedroom",
+          "nodeId": 2,
+          "onOff": true
+        },
+        {
+          "timestamp": 1738270860,
+          "room": "pillbox",
+          "nodeId": 1,
+          "onOff": true
+        },
+        {
+          "timestamp": 1738271400,
+          "room": "bedroom",
+          "nodeId": 2,
+          "onOff": false
+        },
+        {
+          "timestamp": 1738281600,
+          "room": "kitchen",
+          "nodeId": 2,
+          "onOff": true
+        },
+        {
+          "timestamp": 1738281660,
+          "room": "kitchen",
+          "event": "fridge_opened"
+        },
+        {
+          "timestamp": 1738282800,
+          "room": "kitchen",
+          "nodeId": 2,
+          "onOff": false
+        },
+        {
+          "timestamp": 1738284000,
+          "room": "livingroom",
+          "nodeId": 2,
+          "onOff": true
+        },
+        {
+          "timestamp": 1738284060,
+          "room": "livingroom",
+          "nodeId": 1,
+          "occupancy": 1
+        },
+        {
+          "timestamp": 1738287600,
+          "room": "livingroom",
+          "nodeId": 2,
+          "onOff": false
+        },
+        {
+          "timestamp": 1738291200,
+          "room": "bedroom",
+          "nodeId": 2,
+          "onOff": true
+        },
+        {
+          "timestamp": 1738291260,
+          "room": "pillbox",
+          "nodeId": 1,
+          "onOff": true
+        },
+        {
+          "timestamp": 1738291800,
+          "room": "bedroom",
+          "nodeId": 2,
+          "onOff": false
+        }
+      ],
+      "result": "normal",
+      "reason": "All activities follow the expected pattern with normal timing and sequence."
+    },
+    {
+      "input": [
+        {
+          "timestamp": 1738324800,
+          "room": "pillbox",
+          "nodeId": 1,
+          "onOff": true
+        },
+        {
+          "timestamp": 1738324860,
+          "room": "bedroom",
+          "nodeId": 2,
+          "onOff": true
+        },
+        {
+          "timestamp": 1738325100,
+          "room": "bathroom",
+          "nodeId": 2,
+          "onOff": true
+        },
+        {
+          "timestamp": 1738325400,
+          "room": "bathroom",
+          "nodeId": 3,
+          "humidity": 6500
+        },
+        {
+          "timestamp": 1738325700,
+          "room": "bathroom",
+          "nodeId": 2,
+          "onOff": false
+        },
+        {
+          "timestamp": 1738326000,
+          "room": "kitchen",
+          "nodeId": 2,
+          "onOff": true
+        },
+        {
+          "timestamp": 1738326600,
+          "room": "kitchen",
+          "nodeId": 2,
+          "onOff": false
+        },
+        {
+          "timestamp": 1738326900,
+          "room": "livingroom",
+          "nodeId": 2,
+          "onOff": true
+        },
+        {
+          "timestamp": 1738327200,
+          "room": "livingroom",
+          "nodeId": 1,
+          "occupancy": 1
+        },
+        {
+          "timestamp": 1738328400,
+          "room": "livingroom",
+          "nodeId": 2,
+          "onOff": false
+        },
+        {
+          "timestamp": 1738329600,
+          "room": "hall",
+          "nodeId": 1,
+          "occupancy": 1
+        },
+        {
+          "timestamp": 1738330200,
+          "room": "porch",
+          "nodeId": 1,
+          "occupancy": 1
+        },
+        {
+          "timestamp": 1738330260,
+          "room": "hall",
+          "nodeId": 1,
+          "occupancy": 0
+        },
+        {
+          "timestamp": 1738346400,
+          "room": "porch",
+          "nodeId": 1,
+          "occupancy": 1
+        },
+        {
+          "timestamp": 1738346460,
+          "room": "hall",
+          "nodeId": 1,
+          "occupancy": 1
+        },
+        {
+          "timestamp": 1738346520,
+          "room": "kitchen",
+          "nodeId": 2,
+          "onOff": true
+        },
+        {
+          "timestamp": 1738347600,
+          "room": "kitchen",
+          "nodeId": 2,
+          "onOff": false
+        },
+        {
+          "timestamp": 1738350000,
+          "room": "livingroom",
+          "nodeId": 2,
+          "onOff": true
+        },
+        {
+          "timestamp": 1738350060,
+          "room": "livingroom",
+          "nodeId": 1,
+          "occupancy": 1
+        },
+        {
+          "timestamp": 1738353600,
+          "room": "livingroom",
+          "nodeId": 2,
+          "onOff": false
+        },
+        {
+          "timestamp": 1738357200,
+          "room": "bedroom",
+          "nodeId": 2,
+          "onOff": true
+        },
+        {
+          "timestamp": 1738357260,
+          "room": "pillbox",
+          "nodeId": 1,
+          "onOff": true
+        },
+        {
+          "timestamp": 1738357800,
+          "room": "bedroom",
+          "nodeId": 2,
+          "onOff": false
+        },
+        {
+          "timestamp": 1738368000,
+          "room": "kitchen",
+          "nodeId": 2,
+          "onOff": true
+        },
+        {
+          "timestamp": 1738369200,
+          "room": "kitchen",
+          "nodeId": 2,
+          "onOff": false
+        },
+        {
+          "timestamp": 1738370400,
+          "room": "livingroom",
+          "nodeId": 2,
+          "onOff": true
+        },
+        {
+          "timestamp": 1738370460,
+          "room": "livingroom",
+          "nodeId": 1,
+          "occupancy": 1
+        },
+        {
+          "timestamp": 1738374000,
+          "room": "livingroom",
+          "nodeId": 2,
+          "onOff": false
+        },
+        {
+          "timestamp": 1738377600,
+          "room": "bedroom",
+          "nodeId": 2,
+          "onOff": true
+        },
+        {
+          "timestamp": 1738377660,
+          "room": "pillbox",
+          "nodeId": 1,
+          "onOff": true
+        },
+        {
+          "timestamp": 1738378200,
+          "room": "bedroom",
+          "nodeId": 2,
+          "onOff": false
+        }
+      ],
+      "result": "anomalous",
+      "reason": "No fridge activity detected throughout the entire day despite multiple kitchen visits, suggesting potential eating issues or forgetfulness."
+    },
+    {
+      "input": [
+        {
+          "timestamp": 1738411200,
+          "room": "pillbox",
+          "nodeId": 1,
+          "onOff": true
+        },
+        {
+          "timestamp": 1738411260,
+          "room": "bedroom",
+          "nodeId": 2,
+          "onOff": true
+        },
+        {
+          "timestamp": 1738411500,
+          "room": "bathroom",
+          "nodeId": 2,
+          "onOff": true
+        },
+        {
+          "timestamp": 1738411800,
+          "room": "bathroom",
+          "nodeId": 3,
+          "humidity": 6500
+        },
+        {
+          "timestamp": 1738412100,
+          "room": "bathroom",
+          "nodeId": 2,
+          "onOff": false
+        },
+        {
+          "timestamp": 1738412400,
+          "room": "kitchen",
+          "nodeId": 2,
+          "onOff": true
+        },
+        {
+          "timestamp": 1738412460,
+          "room": "kitchen",
+          "event": "fridge_opened"
+        },
+        {
+          "timestamp": 1738413000,
+          "room": "kitchen",
+          "nodeId": 2,
+          "onOff": false
+        },
+        {
+          "timestamp": 1738413300,
+          "room": "bedroom",
+          "nodeId": 2,
+          "onOff": true
+        },
+        {
+          "timestamp": 1738413600,
+          "room": "bedroom",
+          "nodeId": 1,
+          "occupancy": 1
+        },
+        {
+          "timestamp": 1738417200,
+          "room": "bedroom",
+          "nodeId": 1,
+          "occupancy": 1
+        },
+        {
+          "timestamp": 1738420800,
+          "room": "bedroom",
+          "nodeId": 1,
+          "occupancy": 1
+        },
+        {
+          "timestamp": 1738424400,
+          "room": "bedroom",
+          "nodeId": 1,
+          "occupancy": 1
+        },
+        {
+          "timestamp": 1738428000,
+          "room": "bedroom",
+          "nodeId": 1,
+          "occupancy": 1
+        },
+        {
+          "timestamp": 1738431600,
+          "room": "bedroom",
+          "nodeId": 1,
+          "occupancy": 1
+        },
+        {
+          "timestamp": 1738435200,
+          "room": "bedroom",
+          "nodeId": 1,
+          "occupancy": 1
+        },
+        {
+          "timestamp": 1738438800,
+          "room": "bedroom",
+          "nodeId": 1,
+          "occupancy": 1
+        },
+        {
+          "timestamp": 1738442400,
+          "room": "bedroom",
+          "nodeId": 1,
+          "occupancy": 1
+        },
+        {
+          "timestamp": 1738446000,
+          "room": "bedroom",
+          "nodeId": 1,
+          "occupancy": 1
+        },
+        {
+          "timestamp": 1738449600,
+          "room": "bedroom",
+          "nodeId": 1,
+          "occupancy": 1
+        },
+        {
+          "timestamp": 1738453200,
+          "room": "bedroom",
+          "nodeId": 1,
+          "occupancy": 1
+        },
+        {
+          "timestamp": 1738456800,
+          "room": "bedroom",
+          "nodeId": 1,
+          "occupancy": 1
+        },
+        {
+          "timestamp": 1738460400,
+          "room": "bedroom",
+          "nodeId": 1,
+          "occupancy": 1
+        },
+        {
+          "timestamp": 1738464000,
+          "room": "bedroom",
+          "nodeId": 1,
+          "occupancy": 1
+        },
+        {
+          "timestamp": 1738467600,
+          "room": "bedroom",
+          "nodeId": 1,
+          "occupancy": 1
+        },
+        {
+          "timestamp": 1738471200,
+          "room": "bedroom",
+          "nodeId": 1,
+          "occupancy": 1
+        },
+        {
+          "timestamp": 1738474800,
+          "room": "bedroom",
+          "nodeId": 1,
+          "occupancy": 1
+        }
+      ],
+      "result": "anomalous",
+      "reason": "Person remains in bedroom all day after breakfast, missing meals, medications, and normal daily activities. This could indicate illness or other health issues."
+    },
+    {
+      "input": [
+        {
+          "timestamp": 1738497600,
+          "room": "pillbox",
+          "nodeId": 1,
+          "onOff": true
+        },
+        {
+          "timestamp": 1738497660,
+          "room": "bedroom",
+          "nodeId": 2,
+          "onOff": true
+        },
+        {
+          "timestamp": 1738497900,
+          "room": "bathroom",
+          "nodeId": 2,
+          "onOff": true
+        },
+        {
+          "timestamp": 1738498200,
+          "room": "bathroom",
+          "nodeId": 3,
+          "humidity": 6500
+        },
+        {
+          "timestamp": 1738498500,
+          "room": "bathroom",
+          "nodeId": 2,
+          "onOff": false
+        },
+        {
+          "timestamp": 1738498800,
+          "room": "kitchen",
+          "nodeId": 2,
+          "onOff": true
+        },
+        {
+          "timestamp": 1738498860,
+          "room": "kitchen",
+          "event": "fridge_opened"
+        },
+        {
+          "timestamp": 1738499400,
+          "room": "kitchen",
+          "nodeId": 2,
+          "onOff": false
+        },
+        {
+          "timestamp": 1738499700,
+          "room": "livingroom",
+          "nodeId": 2,
+          "onOff": true
+        },
+        {
+          "timestamp": 1738500000,
+          "room": "livingroom",
+          "nodeId": 1,
+          "occupancy": 1
+        },
+        {
+          "timestamp": 1738501200,
+          "room": "livingroom",
+          "nodeId": 2,
+          "onOff": false
+        },
+        {
+          "timestamp": 1738502400,
+          "room": "hall",
+          "nodeId": 1,
+          "occupancy": 1
+        },
+        {
+          "timestamp": 1738503000,
+          "room": "porch",
+          "nodeId": 1,
+          "occupancy": 1
+        },
+        {
+          "timestamp": 1738503060,
+          "room": "hall",
+          "nodeId": 1,
+          "occupancy": 0
+        },
+        {
+          "timestamp": 1738519200,
+          "room": "porch",
+          "nodeId": 1,
+          "occupancy": 1
+        },
+        {
+          "timestamp": 1738519260,
+          "room": "hall",
+          "nodeId": 1,
+          "occupancy": 1
+        },
+        {
+          "timestamp": 1738519320,
+          "room": "kitchen",
+          "nodeId": 2,
+          "onOff": true
+        },
+        {
+          "timestamp": 1738519380,
+          "room": "kitchen",
+          "event": "fridge_opened"
+        },
+        {
+          "timestamp": 1738520400,
+          "room": "kitchen",
+          "nodeId": 2,
+          "onOff": false
+        },
+        {
+          "timestamp": 1738522800,
+          "room": "livingroom",
+          "nodeId": 2,
+          "onOff": true
+        },
+        {
+          "timestamp": 1738522860,
+          "room": "livingroom",
+          "nodeId": 1,
+          "occupancy": 1
+        },
+        {
+          "timestamp": 1738526400,
+          "room": "livingroom",
+          "nodeId": 2,
+          "onOff": false
+        },
+        {
+          "timestamp": 1738530000,
+          "room": "bedroom",
+          "nodeId": 2,
+          "onOff": true
+        },
+        {
+          "timestamp": 1738530060,
+          "room": "pillbox",
+          "nodeId": 1,
+          "onOff": true
+        },
+        {
+          "timestamp": 1738530600,
+          "room": "bedroom",
+          "nodeId": 2,
+          "onOff": false
+        },
+        {
+          "timestamp": 1738540800,
+          "room": "kitchen",
+          "nodeId": 2,
+          "onOff": true
+        },
+        {
+          "timestamp": 1738540860,
+          "room": "kitchen",
+          "event": "fridge_opened"
+        },
+        {
+          "timestamp": 1738542000,
+          "room": "kitchen",
+          "nodeId": 2,
+          "onOff": false
+        },
+        {
+          "timestamp": 1738543200,
+          "room": "livingroom",
+          "nodeId": 2,
+          "onOff": true
+        },
+        {
+          "timestamp": 1738543260,
+          "room": "livingroom",
+          "nodeId": 1,
+          "occupancy": 1
+        },
+        {
+          "timestamp": 1738546800,
+          "room": "livingroom",
+          "nodeId": 2,
+          "onOff": false
+        },
+        {
+          "timestamp": 1738550400,
+          "room": "bedroom",
+          "nodeId": 2,
+          "onOff": true
+        },
+        {
+          "timestamp": 1738550460,
+          "room": "pillbox",
+          "nodeId": 1,
+          "onOff": true
+        },
+        {
+          "timestamp": 1738551000,
+          "room": "bedroom",
+          "nodeId": 2,
+          "onOff": false
+        }
+      ],
+      "result": "normal",
+      "reason": "All activities follow the expected daily routine with normal timing and sequence."
+    },
+    {
+      "input": [
+        {
+          "timestamp": 1738584000,
+          "room": "bedroom",
+          "nodeId": 2,
+          "onOff": true
+        },
+        {
+          "timestamp": 1738584300,
+          "room": "bathroom",
+          "nodeId": 2,
+          "onOff": true
+        },
+        {
+          "timestamp": 1738584600,
+          "room": "bathroom",
+          "nodeId": 3,
+          "humidity": 6500
+        },
+        {
+          "timestamp": 1738584900,
+          "room": "bathroom",
+          "nodeId": 2,
+          "onOff": false
+        },
+        {
+          "timestamp": 1738585200,
+          "room": "kitchen",
+          "nodeId": 2,
+          "onOff": true
+        },
+        {
+          "timestamp": 1738585260,
+          "room": "kitchen",
+          "event": "fridge_opened"
+        },
+        {
+          "timestamp": 1738585800,
+          "room": "kitchen",
+          "nodeId": 2,
+          "onOff": false
+        },
+        {
+          "timestamp": 1738586100,
+          "room": "livingroom",
+          "nodeId": 2,
+          "onOff": true
+        },
+        {
+          "timestamp": 1738586400,
+          "room": "livingroom",
+          "nodeId": 1,
+          "occupancy": 1
+        },
+        {
+          "timestamp": 1738587600,
+          "room": "livingroom",
+          "nodeId": 2,
+          "onOff": false
+        },
+        {
+          "timestamp": 1738588800,
+          "room": "hall",
+          "nodeId": 1,
+          "occupancy": 1
+        },
+        {
+          "timestamp": 1738589400,
+          "room": "porch",
+          "nodeId": 1,
+          "occupancy": 1
+        },
+        {
+          "timestamp": 1738589460,
+          "room": "hall",
+          "nodeId": 1,
+          "occupancy": 0
+        },
+        {
+          "timestamp": 1738605600,
+          "room": "porch",
+          "nodeId": 1,
+          "occupancy": 1
+        },
+        {
+          "timestamp": 1738605660,
+          "room": "hall",
+          "nodeId": 1,
+          "occupancy": 1
+        },
+        {
+          "timestamp": 1738605720,
+          "room": "kitchen",
+          "nodeId": 2,
+          "onOff": true
+        },
+        {
+          "timestamp": 1738605780,
+          "room": "kitchen",
+          "event": "fridge_opened"
+        },
+        {
+          "timestamp": 1738606800,
+          "room": "kitchen",
+          "nodeId": 2,
+          "onOff": false
+        },
+        {
+          "timestamp": 1738609200,
+          "room": "livingroom",
+          "nodeId": 2,
+          "onOff": true
+        },
+        {
+          "timestamp": 1738609260,
+          "room": "livingroom",
+          "nodeId": 1,
+          "occupancy": 1
+        },
+        {
+          "timestamp": 1738612800,
+          "room": "livingroom",
+          "nodeId": 2,
+          "onOff": false
+        },
+        {
+          "timestamp": 1738616400,
+          "room": "bedroom",
+          "nodeId": 2,
+          "onOff": true
+        },
+        {
+          "timestamp": 1738617000,
+          "room": "bedroom",
+          "nodeId": 2,
+          "onOff": false
+        },
+        {
+          "timestamp": 1738627200,
+          "room": "kitchen",
+          "nodeId": 2,
+          "onOff": true
+        },
+        {
+          "timestamp": 1738627260,
+          "room": "kitchen",
+          "event": "fridge_opened"
+        },
+        {
+          "timestamp": 1738628400,
+          "room": "kitchen",
+          "nodeId": 2,
+          "onOff": false
+        },
+        {
+          "timestamp": 1738629600,
+          "room": "livingroom",
+          "nodeId": 2,
+          "onOff": true
+        },
+        {
+          "timestamp": 1738629660,
+          "room": "livingroom",
+          "nodeId": 1,
+          "occupancy": 1
+        },
+        {
+          "timestamp": 1738633200,
+          "room": "livingroom",
+          "nodeId": 2,
+          "onOff": false
+        },
+        {
+          "timestamp": 1738636800,
+          "room": "bedroom",
+          "nodeId": 2,
+          "onOff": true
+        },
+        {
+          "timestamp": 1738637400,
+          "room": "bedroom",
+          "nodeId": 2,
+          "onOff": false
+        }
+      ],
+      "result": "anomalous",
+      "reason": "All three daily medications were missed (morning, afternoon, and evening), while other activities remained normal. This suggests a serious deviation in medication adherence."
+    },
+    {
+      "input": [
+        {
+          "timestamp": 1738670400,
+          "room": "pillbox",
+          "nodeId": 1,
+          "onOff": true
+        },
+        {
+          "timestamp": 1738670460,
+          "room": "bedroom",
+          "nodeId": 2,
+          "onOff": true
+        },
+        {
+          "timestamp": 1738670700,
+          "room": "bathroom",
+          "nodeId": 2,
+          "onOff": true
+        },
+        {
+          "timestamp": 1738671000,
+          "room": "bathroom",
+          "nodeId": 3,
+          "humidity": 6500
+        },
+        {
+          "timestamp": 1738671300,
+          "room": "bathroom",
+          "nodeId": 2,
+          "onOff": false
+        },
+        {
+          "timestamp": 1738671600,
+          "room": "kitchen",
+          "nodeId": 2,
+          "onOff": true
+        },
+        {
+          "timestamp": 1738671660,
+          "room": "kitchen",
+          "event": "fridge_opened"
+        },
+        {
+          "timestamp": 1738672200,
+          "room": "kitchen",
+          "nodeId": 2,
+          "onOff": false
+        },
+        {
+          "timestamp": 1738672500,
+          "room": "livingroom",
+          "nodeId": 2,
+          "onOff": true
+        },
+        {
+          "timestamp": 1738672800,
+          "room": "livingroom",
+          "nodeId": 1,
+          "occupancy": 0
+        },
+        {
+          "timestamp": 1738672860,
+          "room": "kitchen",
+          "nodeId": 1,
+          "occupancy": 1
+        },
+        {
+          "timestamp": 1738672920,
+          "room": "hall",
+          "nodeId": 1,
+          "occupancy": 1
+        },
+        {
+          "timestamp": 1738672980,
+          "room": "bathroom",
+          "nodeId": 1,
+          "occupancy": 1
+        },
+        {
+          "timestamp": 1738673040,
+          "room": "bedroom",
+          "nodeId": 1,
+          "occupancy": 1
+        },
+        {
+          "timestamp": 1738673100,
+          "room": "livingroom",
+          "nodeId": 1,
+          "occupancy": 1
+        },
+        {
+          "timestamp": 1738673160,
+          "room": "kitchen",
+          "nodeId": 1,
+          "occupancy": 1
+        },
+        {
+          "timestamp": 1738673220,
+          "room": "hall",
+          "nodeId": 1,
+          "occupancy": 1
+        },
+        {
+          "timestamp": 1738673280,
+          "room": "bathroom",
+          "nodeId": 1,
+          "occupancy": 1
+        },
+        {
+          "timestamp": 1738673340,
+          "room": "bedroom",
+          "nodeId": 1,
+          "occupancy": 1
+        },
+        {
+          "timestamp": 1738673400,
+          "room": "livingroom",
+          "nodeId": 1,
+          "occupancy": 1
+        },
+        {
+          "timestamp": 1738673460,
+          "room": "kitchen",
+          "nodeId": 1,
+          "occupancy": 1
+        },
+        {
+          "timestamp": 1738673520,
+          "room": "hall",
+          "nodeId": 1,
+          "occupancy": 1
+        },
+        {
+          "timestamp": 1738673580,
+          "room": "bathroom",
+          "nodeId": 1,
+          "occupancy": 1
+        },
+        {
+          "timestamp": 1738673640,
+          "room": "bedroom",
+          "nodeId": 2,
+          "onOff": true
+        },
+        {
+          "timestamp": 1738673700,
+          "room": "bedroom",
+          "nodeId": 1,
+          "occupancy": 1
+        },
+        {
+          "timestamp": 1738674000,
+          "room": "bedroom",
+          "nodeId": 1,
+          "occupancy": 1
+        },
+        {
+          "timestamp": 1738677600,
+          "room": "bedroom",
+          "nodeId": 1,
+          "occupancy": 1
+        },
+        {
+          "timestamp": 1738681200,
+          "room": "bedroom",
+          "nodeId": 1,
+          "occupancy": 1
+        },
+        {
+          "timestamp": 1738684800,
+          "room": "bedroom",
+          "nodeId": 1,
+          "occupancy": 1
+        },
+        {
+          "timestamp": 1738688400,
+          "room": "bedroom",
+          "nodeId": 1,
+          "occupancy": 1
+        }
+      ],
+      "result": "anomalous",
+      "reason": "Unusual rapid transitions between rooms followed by extended bedroom stay suggests potential confusion or disorientation. Missing subsequent daily activities and medications adds to the concern."
+    },
+    {
+      "input": [
+        {
+          "timestamp": 1738756800,
+          "room": "pillbox",
+          "nodeId": 1,
+          "onOff": true
+        },
+        {
+          "timestamp": 1738756860,
+          "room": "bedroom",
+          "nodeId": 2,
+          "onOff": true
+        },
+        {
+          "timestamp": 1738757100,
+          "room": "bathroom",
+          "nodeId": 2,
+          "onOff": true
+        },
+        {
+          "timestamp": 1738757400,
+          "room": "bathroom",
+          "nodeId": 3,
+          "humidity": 6500
+        },
+        {
+          "timestamp": 1738757700,
+          "room": "bathroom",
+          "nodeId": 2,
+          "onOff": false
+        },
+        {
+          "timestamp": 1738758000,
+          "room": "kitchen",
+          "nodeId": 2,
+          "onOff": true
+        },
+        {
+          "timestamp": 1738758060,
+          "room": "kitchen",
+          "event": "fridge_opened"
+        },
+        {
+          "timestamp": 1738758600,
+          "room": "kitchen",
+          "nodeId": 2,
+          "onOff": false
+        },
+        {
+          "timestamp": 1738758900,
+          "room": "livingroom",
+          "nodeId": 2,
+          "onOff": true
+        },
+        {
+          "timestamp": 1738759200,
+          "room": "livingroom",
+          "nodeId": 1,
+          "occupancy": 1
+        },
+        {
+          "timestamp": 1738760400,
+          "room": "livingroom",
+          "nodeId": 2,
+          "onOff": false
+        },
+        {
+          "timestamp": 1738761600,
+          "room": "hall",
+          "nodeId": 1,
+          "occupancy": 1
+        },
+        {
+          "timestamp": 1738762200,
+          "room": "porch",
+          "nodeId": 1,
+          "occupancy": 1
+        },
+        {
+          "timestamp": 1738762260,
+          "room": "hall",
+          "nodeId": 1,
+          "occupancy": 0
+        },
+        {
+          "timestamp": 1738778400,
+          "room": "porch",
+          "nodeId": 1,
+          "occupancy": 1
+        },
+        {
+          "timestamp": 1738778460,
+          "room": "hall",
+          "nodeId": 1,
+          "occupancy": 1
+        },
+        {
+          "timestamp": 1738778520,
+          "room": "kitchen",
+          "nodeId": 2,
+          "onOff": true
+        },
+        {
+          "timestamp": 1738778580,
+          "room": "kitchen",
+          "event": "fridge_opened"
+        },
+        {
+          "timestamp": 1738779600,
+          "room": "kitchen",
+          "nodeId": 2,
+          "onOff": false
+        },
+        {
+          "timestamp": 1738782000,
+          "room": "livingroom",
+          "nodeId": 2,
+          "onOff": true
+        },
+        {
+          "timestamp": 1738782060,
+          "room": "livingroom",
+          "nodeId": 1,
+          "occupancy": 1
+        },
+        {
+          "timestamp": 1738785600,
+          "room": "livingroom",
+          "nodeId": 2,
+          "onOff": false
+        },
+        {
+          "timestamp": 1738789200,
+          "room": "bedroom",
+          "nodeId": 2,
+          "onOff": true
+        },
+        {
+          "timestamp": 1738789260,
+          "room": "pillbox",
+          "nodeId": 1,
+          "onOff": true
+        },
+        {
+          "timestamp": 1738789800,
+          "room": "bedroom",
+          "nodeId": 2,
+          "onOff": false
+        },
+        {
+          "timestamp": 1738800000,
+          "room": "kitchen",
+          "nodeId": 2,
+          "onOff": true
+        },
+        {
+          "timestamp": 1738800060,
+          "room": "kitchen",
+          "event": "fridge_opened"
+        },
+        {
+          "timestamp": 1738801200,
+          "room": "kitchen",
+          "nodeId": 2,
+          "onOff": false
+        },
+        {
+          "timestamp": 1738802400,
+          "room": "livingroom",
+          "nodeId": 2,
+          "onOff": true
+        },
+        {
+          "timestamp": 1738802460,
+          "room": "livingroom",
+          "nodeId": 1,
+          "occupancy": 1
+        },
+        {
+          "timestamp": 1738806000,
+          "room": "livingroom",
+          "nodeId": 2,
+          "onOff": false
+        },
+        {
+          "timestamp": 1738809600,
+          "room": "bedroom",
+          "nodeId": 2,
+          "onOff": true
+        },
+        {
+          "timestamp": 1738809660,
+          "room": "pillbox",
+          "nodeId": 1,
+          "onOff": true
+        },
+        {
+          "timestamp": 1738810200,
+          "room": "bedroom",
+          "nodeId": 2,
+          "onOff": false
+        }
+      ],
+      "result": "normal",
+      "reason": "All activities follow the expected daily routine with normal timing and sequence."
+    },
+    {
+      "input": [
+        {
+          "timestamp": 1738843200,
+          "room": "pillbox",
+          "nodeId": 1,
+          "onOff": true
+        },
+        {
+          "timestamp": 1738843260,
+          "room": "bedroom",
+          "nodeId": 2,
+          "onOff": true
+        },
+        {
+          "timestamp": 1738843500,
+          "room": "bathroom",
+          "nodeId": 2,
+          "onOff": true
+        },
+        {
+          "timestamp": 1738843800,
+          "room": "bathroom",
+          "nodeId": 3,
+          "humidity": 6500
+        },
+        {
+          "timestamp": 1738844100,
+          "room": "bathroom",
+          "nodeId": 2,
+          "onOff": false
+        },
+        {
+          "timestamp": 1738844400,
+          "room": "kitchen",
+          "nodeId": 2,
+          "onOff": true
+        },
+        {
+          "timestamp": 1738844460,
+          "room": "kitchen",
+          "event": "fridge_opened"
+        },
+        {
+          "timestamp": 1738844520,
+          "room": "kitchen",
+          "nodeId": 2,
+          "onOff": false
+        },
+        {
+          "timestamp": 1738844580,
+          "room": "kitchen",
+          "nodeId": 2,
+          "onOff": true
+        },
+        {
+          "timestamp": 1738844640,
+          "room": "kitchen",
+          "event": "fridge_opened"
+        },
+        {
+          "timestamp": 1738844700,
+          "room": "kitchen",
+          "nodeId": 2,
+          "onOff": false
+        },
+        {
+          "timestamp": 1738844760,
+          "room": "kitchen",
+          "nodeId": 2,
+          "onOff": true
+        },
+        {
+          "timestamp": 1738844820,
+          "room": "kitchen",
+          "event": "fridge_opened"
+        },
+        {
+          "timestamp": 1738844880,
+          "room": "kitchen",
+          "nodeId": 2,
+          "onOff": false
+        },
+        {
+          "timestamp": 1738844940,
+          "room": "kitchen",
+          "nodeId": 2,
+          "onOff": true
+        },
+        {
+          "timestamp": 1738845000,
+          "room": "kitchen",
+          "event": "fridge_opened"
+        },
+        {
+          "timestamp": 1738845060,
+          "room": "kitchen",
+          "nodeId": 2,
+          "onOff": false
+        },
+        {
+          "timestamp": 1738866400,
+          "room": "kitchen",
+          "nodeId": 2,
+          "onOff": true
+        },
+        {
+          "timestamp": 1738866460,
+          "room": "kitchen",
+          "event": "fridge_opened"
+        },
+        {
+          "timestamp": 1738866520,
+          "room": "kitchen",
+          "nodeId": 2,
+          "onOff": false
+        },
+        {
+          "timestamp": 1738866580,
+          "room": "kitchen",
+          "nodeId": 2,
+          "onOff": true
+        },
+        {
+          "timestamp": 1738866640,
+          "room": "kitchen",
+          "event": "fridge_opened"
+        },
+        {
+          "timestamp": 1738866700,
+          "room": "kitchen",
+          "nodeId": 2,
+          "onOff": false
+        },
+        {
+          "timestamp": 1738875600,
+          "room": "bedroom",
+          "nodeId": 2,
+          "onOff": true
+        },
+        {
+          "timestamp": 1738875660,
+          "room": "pillbox",
+          "nodeId": 1,
+          "onOff": true
+        },
+        {
+          "timestamp": 1738876200,
+          "room": "bedroom",
+          "nodeId": 2,
+          "onOff": false
+        },
+        {
+          "timestamp": 1738888400,
+          "room": "kitchen",
+          "nodeId": 2,
+          "onOff": true
+        },
+        {
+          "timestamp": 1738888460,
+          "room": "kitchen",
+          "event": "fridge_opened"
+        },
+        {
+          "timestamp": 1738888520,
+          "room": "kitchen",
+          "nodeId": 2,
+          "onOff": false
+        },
+        {
+          "timestamp": 1738888580,
+          "room": "kitchen",
+          "nodeId": 2,
+          "onOff": true
+        },
+        {
+          "timestamp": 1738888640,
+          "room": "kitchen",
+          "event": "fridge_opened"
+        },
+        {
+          "timestamp": 1738888700,
+          "room": "kitchen",
+          "nodeId": 2,
+          "onOff": false
+        }
+      ],
+      "result": "anomalous",
+      "reason": "Unusually frequent kitchen visits and fridge openings throughout the day suggest potential memory issues or compulsive behavior. While other activities remain normal, the repeated kitchen pattern is concerning."
+    },
+    {
+      "input": [
+        {
+          "timestamp": 1738929600,
+          "room": "pillbox",
+          "nodeId": 1,
+          "onOff": true
+        },
+        {
+          "timestamp": 1738929660,
+          "room": "bedroom",
+          "nodeId": 2,
+          "onOff": true
+        },
+        {
+          "timestamp": 1738929900,
+          "room": "bathroom",
+          "nodeId": 2,
+          "onOff": true
+        },
+        {
+          "timestamp": 1738930200,
+          "room": "bathroom",
+          "nodeId": 2,
+          "onOff": false
+        },
+        {
+          "timestamp": 1738930260,
+          "room": "bathroom",
+          "nodeId": 2,
+          "onOff": true
+        },
+        {
+          "timestamp": 1738930320,
+          "room": "bathroom",
+          "nodeId": 2,
+          "onOff": false
+        },
+        {
+          "timestamp": 1738930380,
+          "room": "bathroom",
+          "nodeId": 2,
+          "onOff": true
+        },
+        {
+          "timestamp": 1738930440,
+          "room": "bathroom",
+          "nodeId": 2,
+          "onOff": false
+        },
+        {
+          "timestamp": 1738930500,
+          "room": "bathroom",
+          "nodeId": 2,
+          "onOff": true
+        },
+        {
+          "timestamp": 1738930560,
+          "room": "bathroom",
+          "nodeId": 2,
+          "onOff": false
+        },
+        {
+          "timestamp": 1738944000,
+          "room": "bathroom",
+          "nodeId": 2,
+          "onOff": true
+        },
+        {
+          "timestamp": 1738944060,
+          "room": "bathroom",
+          "nodeId": 2,
+          "onOff": false
+        },
+        {
+          "timestamp": 1738944120,
+          "room": "bathroom",
+          "nodeId": 2,
+          "onOff": true
+        },
+        {
+          "timestamp": 1738944180,
+          "room": "bathroom",
+          "nodeId": 2,
+          "onOff": false
+        },
+        {
+          "timestamp": 1738952400,
+          "room": "kitchen",
+          "nodeId": 2,
+          "onOff": true
+        },
+        {
+          "timestamp": 1738952460,
+          "room": "kitchen",
+          "event": "fridge_opened"
+        },
+        {
+          "timestamp": 1738953000,
+          "room": "kitchen",
+          "nodeId": 2,
+          "onOff": false
+        },
+        {
+          "timestamp": 1738957600,
+          "room": "bathroom",
+          "nodeId": 2,
+          "onOff": true
+        },
+        {
+          "timestamp": 1738957660,
+          "room": "bathroom",
+          "nodeId": 2,
+          "onOff": false
+        },
+        {
+          "timestamp": 1738957720,
+          "room": "bathroom",
+          "nodeId": 2,
+          "onOff": true
+        },
+        {
+          "timestamp": 1738957780,
+          "room": "bathroom",
+          "nodeId": 2,
+          "onOff": false
+        },
+        {
+          "timestamp": 1738962000,
+          "room": "bedroom",
+          "nodeId": 2,
+          "onOff": true
+        },
+        {
+          "timestamp": 1738962060,
+          "room": "pillbox",
+          "nodeId": 1,
+          "onOff": true
+        },
+        {
+          "timestamp": 1738962600,
+          "room": "bedroom",
+          "nodeId": 2,
+          "onOff": false
+        }
+      ],
+      "result": "anomalous",
+      "reason": "Unusually frequent bathroom visits throughout the day, with multiple entries and exits in short succession. While other activities remain normal, this pattern suggests potential health issues requiring attention."
+    }
+  ]

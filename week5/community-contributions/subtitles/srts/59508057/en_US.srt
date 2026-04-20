@@ -1,0 +1,91 @@
+WEBVTT
+
+00:01.100 --> 00:02.660
+Actually slight change in plan.
+
+00:02.660 --> 00:04.910
+I'm going to wrap up the day.
+
+00:04.940 --> 00:11.540
+Day three at this point, and say that we'll take day four to look at the results in weights and biases,
+
+00:11.540 --> 00:16.460
+and to examine the progress of training, because I think that we should let it run for a bit and then
+
+00:16.460 --> 00:18.620
+take some, some serious time to do that.
+
+00:18.860 --> 00:23.150
+Um, I'll also at that point be able to show you the model in the Huggingface hub.
+
+00:23.150 --> 00:28.820
+And I also I do I feel like I might have been a bit glib about the amount of money that it costs to
+
+00:28.850 --> 00:30.050
+train these models.
+
+00:30.050 --> 00:35.660
+I want to be clear that you really don't need to spend any material amount of money for for to have
+
+00:35.660 --> 00:41.960
+a lot of fun with this and investigate hyperparameter optimization as part of this course, it would
+
+00:41.960 --> 00:43.370
+only cost cents.
+
+00:43.580 --> 00:49.280
+Um, and so I want to quickly explain how you can do things like reduce your training data set to a
+
+00:49.280 --> 00:56.720
+more manageable size, and have more sensible parameters so that you could train on a, um, a normal
+
+00:56.720 --> 01:02.120
+spec GPU box and be spending only a few cents on this project.
+
+01:02.120 --> 01:07.890
+That's that's all that's required if you wish to be a complete nerd like me and go all out and run lots
+
+01:07.890 --> 01:15.180
+of runs with top end boxes and spend 5 or $10 then then, uh, on your head, be it as it will be on
+
+01:15.180 --> 01:15.690
+mine.
+
+01:15.990 --> 01:18.060
+But it's not necessary at all.
+
+01:18.810 --> 01:26.580
+But you do need absolutely to take a moment to congratulate yourself on where you've got to.
+
+01:26.610 --> 01:28.830
+You have a training run happening.
+
+01:28.860 --> 01:32.880
+I do hope right now while while I speak it is running.
+
+01:33.300 --> 01:35.700
+And you are in a position now that you can explain.
+
+01:35.700 --> 01:38.730
+Q Laura pretty well for fine tuning open source models.
+
+01:38.730 --> 01:45.360
+You're so fed up with me talking about target modules, I'm sure, uh, and now, uh, explaining things
+
+01:45.360 --> 01:52.410
+like learning rates, uh, ah and alpha, uh, and uh, dropout and all of the various other things
+
+01:52.410 --> 01:57.330
+like optimizers and the like, it's all second nature to you, and it's all complex stuff.
+
+01:57.330 --> 02:00.030
+This is, uh, upskilling in a big way.
+
+02:00.030 --> 02:01.800
+So congratulations.
+
+02:01.800 --> 02:03.780
+It's tremendous progress.
+
+02:03.810 --> 02:08.730
+And next time we'll go over to weights and biases and see what's happening.

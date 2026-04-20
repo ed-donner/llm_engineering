@@ -1,0 +1,334 @@
+WEBVTT
+
+00:00.050 --> 00:05.810
+Well, I'm delighted to welcome you to day three of our eight week journey together.
+
+00:05.810 --> 00:09.470
+And today we're going to be looking at Frontier Models.
+
+00:09.470 --> 00:16.760
+The idea that the goal of today is to get deep into these different models so that you can get a true
+
+00:16.760 --> 00:21.920
+intuition for where are they strong, where are they weak, what are the differences between them?
+
+00:21.920 --> 00:26.840
+And so that's what I want you to keep in mind throughout today's material, learning about the differences
+
+00:26.840 --> 00:31.970
+between them and thinking about how you would apply them commercially to your business or to future
+
+00:31.970 --> 00:35.570
+projects, and understanding when you would pick which model.
+
+00:35.600 --> 00:37.040
+Let's get to it.
+
+00:37.100 --> 00:42.320
+So we're going to be talking about six different models today from six different companies, starting
+
+00:42.350 --> 00:44.750
+of course, with OpenAI's models.
+
+00:44.780 --> 00:47.270
+OpenAI needs no introduction really.
+
+00:47.420 --> 00:50.300
+GPT is the most famous model.
+
+00:50.300 --> 00:53.090
+And we'll also, of course look at 0101 preview.
+
+00:53.240 --> 01:01.310
+The the newest of their models and ChatGPT is their user interface, the screens where you can interact
+
+01:01.310 --> 01:02.150
+with it.
+
+01:02.360 --> 01:05.180
+We'll also look at the models from anthropic.
+
+01:05.210 --> 01:12.510
+Anthropic is OpenAI's top competitor, based in San Francisco as well, and founded by some people that
+
+01:12.510 --> 01:16.380
+left OpenAI, and their model is called Claude and Claude.
+
+01:16.380 --> 01:19.200
+In fact, you may know, comes in sort of three powers.
+
+01:19.200 --> 01:21.300
+The smallest one is called haiku.
+
+01:21.330 --> 01:23.310
+Claude haiku, and then the sonnet.
+
+01:23.310 --> 01:24.750
+And then there's opus.
+
+01:24.810 --> 01:31.770
+But actually, because sonnet has had much more recent versions, the latest version of sonnet is stronger
+
+01:31.770 --> 01:35.190
+than the bigger, more expensive opus, as we'll see.
+
+01:35.190 --> 01:36.930
+That will make more sense later.
+
+01:37.050 --> 01:42.360
+But Claude Claude 3.5 sonnet is the strongest of Claude's models.
+
+01:43.050 --> 01:50.580
+Google has Google Gemini, probably latest to the party, and most of us know Gemini most well because
+
+01:50.580 --> 01:55.530
+nowadays when we do a Google search, very often we see Gemini's responses.
+
+01:55.650 --> 02:00.720
+Gemini is, of course, the next generation of what was originally called Bard from Google.
+
+02:01.320 --> 02:04.290
+Cohere is one that you may have heard less about.
+
+02:04.290 --> 02:11.880
+It's a Canadian AI company, and their model is most well known for being using using a technique called
+
+02:11.880 --> 02:14.220
+Rag to make sure that it has expertise.
+
+02:14.220 --> 02:15.630
+So we will see that.
+
+02:15.720 --> 02:18.930
+And then we know the llama model from meta.
+
+02:18.930 --> 02:20.940
+We've used it ourselves through llama.
+
+02:20.970 --> 02:25.710
+This is an open source model, and you may not know that the meta actually also has a website, meta
+
+02:25.950 --> 02:30.300
+AI, that lets you interact with the llama model.
+
+02:30.300 --> 02:32.220
+And we will have a look at that.
+
+02:32.310 --> 02:39.540
+And then perplexity is a bit different, because perplexity is actually a search engine powered by AI,
+
+02:39.570 --> 02:43.230
+powered by Llms, and it can use some of the other models that we'll talk about.
+
+02:43.230 --> 02:48.360
+But they do also have their own model too, so it's a slightly different beast, but we'll be looking
+
+02:48.360 --> 02:50.190
+at perplexity as well.
+
+02:51.240 --> 02:58.290
+So overall, these llms are astonishing in what they are capable of.
+
+02:58.320 --> 03:06.330
+They are really very effective indeed at taking a detailed question, a nuanced question, and providing
+
+03:06.330 --> 03:10.260
+a structured summary that appears well researched.
+
+03:10.260 --> 03:15.660
+It often has a sort of introduction and a summary, and this is one of the ways that I use it all the
+
+03:15.660 --> 03:16.470
+time.
+
+03:16.660 --> 03:22.900
+and I find that across the board, these llms are shocking in how good they are at this.
+
+03:22.930 --> 03:28.300
+It's something that a couple of years ago, none of us would have imagined that we could get this far
+
+03:28.300 --> 03:29.290
+this quickly.
+
+03:30.040 --> 03:36.010
+There are also really good, and I imagine that many of you do this a lot yourselves, and I do it if
+
+03:36.040 --> 03:41.080
+you put in a few bullets, just a few notes on something and say, hey, can you turn this into an email
+
+03:41.110 --> 03:44.230
+or can you turn this into a slide?
+
+03:44.560 --> 03:51.820
+They are really good at fleshing it out and building, say, a blog post, and they're very good at
+
+03:51.850 --> 03:52.600
+iterating.
+
+03:52.600 --> 03:55.360
+So they'll do something and are like some of it I won't like others.
+
+03:55.360 --> 03:58.330
+And you can give feedback and keep going backwards and forwards.
+
+03:58.330 --> 04:00.340
+And it's a really effective way of working.
+
+04:00.340 --> 04:05.260
+It's the kind of copilot construct that is so, so, so effective.
+
+04:06.220 --> 04:09.340
+And then coding, of course.
+
+04:09.340 --> 04:17.050
+And perhaps this for many of us is is the thing that is most staggering is how very good the llms are
+
+04:17.050 --> 04:21.010
+at writing code and debugging problems and solving them.
+
+04:21.190 --> 04:24.320
+It's something which is really remarkable.
+
+04:24.320 --> 04:28.610
+I've had experiences myself when I've been working on something that's very complex, and it's something
+
+04:28.610 --> 04:34.040
+that I believe I have deep subject matter expertise in, and I've got a fairly intricate error, and
+
+04:34.040 --> 04:41.720
+I put the details and the stack trace in into Claude, say, and I get back not only a very precise
+
+04:41.720 --> 04:46.880
+explanation of what's going wrong, but also the code that will fix it appearing as an artifact on the
+
+04:46.880 --> 04:47.750
+right in Claude.
+
+04:47.750 --> 04:50.330
+And it's it's it's amazing.
+
+04:50.330 --> 04:51.830
+It's absolutely amazing.
+
+04:52.010 --> 04:56.210
+And in fact, these are often things which I if I try and paste them, if I look for it in Stack Overflow,
+
+04:56.240 --> 04:57.470
+there's no answer there.
+
+04:57.470 --> 05:02.840
+Somehow it's it's able to look beyond just, just a regurgitating Stack Overflow answers.
+
+05:02.840 --> 05:05.990
+And it seems to have real insight into what's going on.
+
+05:06.020 --> 05:13.280
+And I suppose that's why it's not surprising, really, that Stack Overflow has seen a big falloff in
+
+05:13.280 --> 05:14.120
+its traffic.
+
+05:14.150 --> 05:21.650
+You can see that something started to happen in a big way after Q4 2022, which is when ChatGPT was
+
+05:21.650 --> 05:22.370
+released.
+
+05:22.610 --> 05:31.800
+So, you know, it's obviously changed the paradigm of how uh, how we how technology people work with
+
+05:31.800 --> 05:33.930
+with researching our problems.
+
+05:33.960 --> 05:35.100
+It's very effective.
+
+05:35.100 --> 05:41.640
+And I encourage you, if you get stuck with some of the things we work on to give Claude or OpenAI GPT
+
+05:41.670 --> 05:42.570
+a shot.
+
+05:43.560 --> 05:45.510
+So what about where are they weak?
+
+05:45.510 --> 05:47.010
+What are the things that they struggle with?
+
+05:47.010 --> 05:49.230
+Where does humanity still have a chance in all of this?
+
+05:49.260 --> 05:56.730
+Well, so first of all, they tend to not be as strong with specialized subject matter if it's something
+
+05:56.730 --> 05:59.190
+that requires detailed knowledge.
+
+05:59.280 --> 06:02.250
+Most llms are not yet at PhD level.
+
+06:02.280 --> 06:09.090
+Now, I had to put the word most in there because literally just just just a few weeks ago for me in
+
+06:09.090 --> 06:16.620
+October, uh, Claude, the newest version of Claude came out, uh, the latest Claude 3.5 sonnet,
+
+06:16.710 --> 06:23.070
+uh, and it has surpassed PhD level in maths, physics, chemistry.
+
+06:23.190 --> 06:29.220
+Uh, and so this is something where very quickly we're seeing these models achieving PhD level.
+
+06:29.220 --> 06:30.360
+So far just Claude.
+
+06:30.360 --> 06:36.540
+But the others I'm sure are not far behind, but those are in those specific sciences and in a particular
+
+06:36.540 --> 06:42.180
+domain, like a business domain, they still won't have the specialist knowledge of an expert in that
+
+06:42.180 --> 06:42.960
+space.
+
+06:43.530 --> 06:46.260
+And secondly, recent events.
+
+06:46.260 --> 06:52.170
+So the models have been trained up until a knowledge cutoff, which is for GPT.
+
+06:52.200 --> 06:53.370
+October of last year.
+
+06:53.370 --> 06:58.470
+And so they won't be able to answer questions on information that has come since then.
+
+06:58.500 --> 07:01.740
+And then they have some strange blind spots.
+
+07:01.740 --> 07:04.260
+There are some questions which they will just get wrong.
+
+07:04.260 --> 07:08.580
+And when they get them wrong, one of the things that's quite concerning is that they do tend to be
+
+07:08.580 --> 07:10.440
+confident in their responses.
+
+07:10.440 --> 07:14.550
+They often don't volunteer the fact that they're uncertain.
+
+07:14.550 --> 07:19.320
+They just state an answer with the same level of conviction as with something where they do get the
+
+07:19.320 --> 07:20.160
+answer right.
+
+07:20.280 --> 07:28.530
+And that that is something which of course causes concern when you see models hallucinate or come up
+
+07:28.530 --> 07:32.190
+with with new information which it doesn't know and do so with confidence.
+
+07:32.190 --> 07:38.670
+And we'll see some examples of that and talk about what are the reasons behind those blind spots.

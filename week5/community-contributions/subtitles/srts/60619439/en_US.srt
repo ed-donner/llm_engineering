@@ -1,0 +1,133 @@
+WEBVTT
+
+00:00.110 --> 00:06.650
+This now brings us to an extremely important property of LMS called the context window that I want to
+
+00:06.680 --> 00:07.760
+explain clearly.
+
+00:07.760 --> 00:16.640
+The context window is telling you the total number of tokens that an LLM can examine at any one point
+
+00:16.640 --> 00:20.300
+when it's trying to generate the next token, which is its big job.
+
+00:20.300 --> 00:26.150
+Its job is to generate the most likely next token, given a number of tokens that have come before and
+
+00:26.150 --> 00:31.190
+the number of tokens that it can examine, that it can look at in order to make that prediction is limited
+
+00:31.190 --> 00:37.070
+by the context window, which is limited itself by the size, the number of parameters in the LLM and
+
+00:37.070 --> 00:40.910
+the the the way that it's been constructed, the architecture of the LLM.
+
+00:40.910 --> 00:42.380
+So what does that mean?
+
+00:42.380 --> 00:47.030
+Is that just saying that's how many input tokens that you can have for it to make an output token.
+
+00:47.030 --> 00:47.660
+Kind of.
+
+00:47.690 --> 00:51.080
+But it's worth clarifying what that really means in practice.
+
+00:51.320 --> 00:56.450
+You remember at the beginning we had when we were when we were first working with our first LLM, our
+
+00:56.450 --> 01:00.800
+first OpenAI call, we had a system prompt and then a user prompt.
+
+01:00.800 --> 01:07.070
+This was all part of our input to the LLM, and it was then predicting the most likely next token in
+
+01:07.070 --> 01:07.730
+our input prompt.
+
+01:07.760 --> 01:11.150
+We passed in a website and it was then and we said, now summarize.
+
+01:11.150 --> 01:15.800
+And then the most likely next token was a summary of that website.
+
+01:15.830 --> 01:22.220
+Now when you have a chat with something like ChatGPT, you pass in some input and it then produces some
+
+01:22.250 --> 01:25.400
+output, and then you might ask another question.
+
+01:25.430 --> 01:31.340
+Now in practice, it appears that ChatGPT seems to have some kind of a memory of what you're talking
+
+01:31.340 --> 01:31.640
+about.
+
+01:31.670 --> 01:36.710
+It maintains context between your discussion threads, but this is something of an illusion.
+
+01:36.710 --> 01:38.360
+It's a bit of a conjuring trick.
+
+01:38.360 --> 01:45.410
+What's really happening is that every single time that you talk to ChatGPT the entire conversation so
+
+01:45.410 --> 01:53.300
+far, the user prompts the inputs and its responses are passed in again, as are the long prompt.
+
+01:53.300 --> 02:00.170
+And then it ends with okay, what is most likely to come next given all of this conversation so far?
+
+02:00.380 --> 02:05.450
+So what the context window is telling you is that this is the total amount of tokens.
+
+02:05.480 --> 02:09.750
+The total amount of information, including perhaps the original prompt the system prompt.
+
+02:09.780 --> 02:12.990
+The user prompt the question you made its response.
+
+02:12.990 --> 02:18.960
+Your next follow on question, its response to that, your follow on question then and now.
+
+02:18.960 --> 02:25.350
+It's having to generate new contacts, new contacts, new tokens to come at the end of this, this long
+
+02:25.380 --> 02:27.180
+chain of backwards and forwards.
+
+02:27.180 --> 02:33.870
+So the context window then is the total of all of the conversations so far, the inputs and the subsequent
+
+02:33.870 --> 02:38.130
+conversation up until the next token that it's predicting.
+
+02:38.370 --> 02:43.590
+So it's it's it's important to have that in mind when you're first starting a conversation.
+
+02:43.590 --> 02:47.130
+The context window only needs to fit just the current prompt.
+
+02:47.130 --> 02:52.530
+But as the conversation keeps going, it needs to be able to fit more and more of what's been said before,
+
+02:52.530 --> 02:54.990
+to be able to keep that context.
+
+02:55.200 --> 02:59.070
+Um, and so this is particularly important in things like multi-shot prompting and so on.
+
+02:59.070 --> 03:03.180
+And for example, if you wanted to ask a question about the complete works of Shakespeare, you would
+
+03:03.180 --> 03:09.060
+need to have in the context window, the 1.2 million tokens all at one time.
+
+03:09.060 --> 03:10.560
+That's how it works.
+
+03:10.560 --> 03:13.770
+So in a nutshell, that is the context window.

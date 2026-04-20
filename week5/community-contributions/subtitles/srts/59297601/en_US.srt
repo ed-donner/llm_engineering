@@ -1,0 +1,202 @@
+WEBVTT
+
+00:01.130 --> 00:05.450
+I'm not going to lie, at this point you have every reason to be impatient with me.
+
+00:05.480 --> 00:10.340
+We've been yammering away for ages about raga, and you've not actually had a chance to use rag yet.
+
+00:10.340 --> 00:11.840
+We've just talked about vectors.
+
+00:11.840 --> 00:16.520
+We've talked about prompts and context and cheap versions of Rag.
+
+00:16.910 --> 00:18.890
+Finally, it's time for the real deal.
+
+00:18.920 --> 00:22.100
+Today, it's time that we put a rag pipeline into action.
+
+00:22.100 --> 00:23.330
+And it's going to be stupid.
+
+00:23.330 --> 00:23.750
+Easy.
+
+00:23.750 --> 00:25.250
+Just you wait.
+
+00:25.280 --> 00:27.440
+So what's going to happen today?
+
+00:27.440 --> 00:32.480
+We're going to create a conversation chain in long chain, which is where long chain comes together
+
+00:32.480 --> 00:38.720
+to put the different pieces glued together to give you a conversation with retrieval with Rag.
+
+00:38.750 --> 00:44.840
+We're going to ask questions and get answers that demonstrate an expert understanding and will build
+
+00:44.870 --> 00:48.410
+ultimately a knowledge worker assistant with a chat UI.
+
+00:48.410 --> 00:51.560
+And because of all the wonderful things that you've already learned, you're going to see that it's
+
+00:51.560 --> 00:53.870
+going to be incredibly easy, of course.
+
+00:54.050 --> 01:00.080
+So first of all, just to give you a briefing, there are some abstractions in long chain, some some
+
+01:00.080 --> 01:03.920
+concepts that long chain has defined that make things easier.
+
+01:03.920 --> 01:07.490
+And here are the three of them that we will be using today.
+
+01:07.520 --> 01:10.250
+First of all, there's an abstraction around an LLM.
+
+01:10.250 --> 01:13.730
+An LLM is just represents, in our case, OpenAI.
+
+01:13.760 --> 01:15.350
+But it could represent others.
+
+01:15.350 --> 01:20.690
+And Liangcheng gives you that one object that represents your abstraction around a model.
+
+01:20.870 --> 01:23.750
+Then there is an abstraction called a retriever.
+
+01:23.750 --> 01:28.130
+And that is a sort of interface onto something like a vector store.
+
+01:28.130 --> 01:32.420
+In our case, it will be Cromer, which will be used for Rag retrieval.
+
+01:32.420 --> 01:38.090
+So that is a retriever interface around something that can take vectors and can enrich your prompt.
+
+01:38.150 --> 01:41.090
+And then the third abstraction is memory.
+
+01:41.090 --> 01:48.470
+And that represents some kind of a of a history of a discussion with a chatbot in some way, some memory.
+
+01:48.470 --> 01:55.040
+So this in practice, what we're used to here is that list of dicts, that list that comprises of a
+
+01:55.070 --> 01:59.090
+sort of a system message at the top, and then user assistant, user assistant.
+
+01:59.360 --> 02:05.990
+But that has been abstracted away into a concept called memory for long chain, which behind under the
+
+02:05.990 --> 02:11.390
+covers it will handle that list or whatever other kind of format different models might need.
+
+02:11.390 --> 02:19.090
+So these are the three key, uh, wrappers around more functionality that you get from long Chain.
+
+02:19.090 --> 02:26.020
+And with that in mind, take a look at how simple it's going to be to put together a rag pipeline.
+
+02:26.080 --> 02:29.650
+It's going to be done with four lines of code.
+
+02:29.650 --> 02:33.070
+And here are the four lines of code in front of you right now.
+
+02:33.310 --> 02:37.720
+And this is the brilliance that is in the first line.
+
+02:37.900 --> 02:42.280
+LM is chat open AI that is creating a lang chain ln object.
+
+02:42.370 --> 02:46.120
+LM object for open AI.
+
+02:46.450 --> 02:50.890
+And you can imagine there's similar objects that you could create for anything else.
+
+02:51.670 --> 02:53.860
+That's the first line, the first abstraction.
+
+02:53.890 --> 02:55.480
+LM the second line.
+
+02:55.480 --> 02:56.470
+The second abstraction.
+
+02:56.470 --> 02:57.130
+Memory.
+
+02:57.160 --> 03:01.210
+You create a lang chain object called a conversation buffered memory.
+
+03:01.630 --> 03:03.580
+You have to provide this a couple of things.
+
+03:03.580 --> 03:10.660
+The key is just the the how it will organize, what it will, what you can use to look up that memory
+
+03:10.660 --> 03:16.210
+and chat history is what it has to be, because that's what's going to be expected later and return
+
+03:16.210 --> 03:21.040
+messages is telling Lang that you're going to want this to be stored in a way that what comes back are
+
+03:21.040 --> 03:26.020
+going to be a series of messages, not just a big block of text representing the conversation.
+
+03:26.020 --> 03:30.910
+So you just need to know that these are what you have to use for this kind of chat application.
+
+03:31.810 --> 03:40.720
+The next line is quite simply saying we have a vector store that we've created its chroma, and we're
+
+03:40.720 --> 03:44.290
+going to call this this this method as retriever.
+
+03:44.290 --> 03:48.100
+And it's going to wrap that in an interface object called a retriever.
+
+03:48.100 --> 03:55.210
+And that is the the kind of, uh, object that Lang chain is expecting in order to be able to, to have
+
+03:55.210 --> 03:56.710
+a Rag workflow.
+
+03:56.980 --> 04:01.570
+So those are our three abstractions the LM, the memory and the retriever.
+
+04:01.600 --> 04:02.680
+They've all been created.
+
+04:02.680 --> 04:07.600
+And now that last line puts it together into something called a conversation chain.
+
+04:07.900 --> 04:14.470
+Uh, and that is something which is a conversation retrieval chain that you create, uh, and you call,
+
+04:14.500 --> 04:20.170
+you create it by calling that, that, um, uh, method from LM, and you just pass in three things
+
+04:20.170 --> 04:25.030
+the LM, the retriever and the memory, the three things we just created.
+
+04:25.030 --> 04:26.920
+And so it's as simple as that.
+
+04:26.920 --> 04:32.620
+With that fourth line of code, we have just created a Rag pipeline.
+
+04:33.490 --> 04:34.450
+You don't believe me?
+
+04:34.450 --> 04:37.150
+Let's go over to JupyterLab and give it a try ourselves.

@@ -1,0 +1,211 @@
+WEBVTT
+
+00:00.950 --> 00:08.210
+Now I want to take a quick moment to give you a flyby of five different ways that llms are used commercially,
+
+00:08.210 --> 00:15.710
+and you probably know of 50 more, but it's good to take a moment to look at them and to be food for
+
+00:15.710 --> 00:20.840
+thought for you to consider other commercial applications of llms.
+
+00:20.840 --> 00:25.850
+And while we're doing this, also be thinking about how you would assess the right model for these different
+
+00:25.850 --> 00:31.700
+problems, using the kinds of leaderboards and the arena that we've already talked about.
+
+00:31.730 --> 00:37.970
+The first one I wanted to show you is a company called Harvey, which uses llms in the field of law,
+
+00:37.970 --> 00:43.610
+and you can read through their site, but it gives products for lawyers that will do things like answering
+
+00:43.610 --> 00:47.390
+questions on on law, what what is a claim of disloyalty?
+
+00:47.660 --> 00:53.630
+And I believe it also does things like looking through legal documents to find key terms and the like.
+
+00:53.630 --> 01:01.370
+It makes so much sense to be applying llms to the field of law that it's a no brainer.
+
+01:01.370 --> 01:09.820
+It's a classic example of needing to use language and nuance and apply it to difficult business Challenges.
+
+01:09.970 --> 01:11.140
+Here's another.
+
+01:11.140 --> 01:14.200
+And this is near and dear to my heart because this is my day job.
+
+01:14.200 --> 01:15.730
+This is Nebula.
+
+01:15.790 --> 01:24.160
+Uh, Nebula io, which is using llms to apply to the world of talent and recruitment, helping managers
+
+01:24.160 --> 01:27.160
+to hire and engage with great candidates.
+
+01:27.160 --> 01:33.310
+But it's also helping people to explore and understand where they can be most satisfied and successful.
+
+01:33.340 --> 01:37.210
+Using Llms to understand the content of people's careers.
+
+01:37.240 --> 01:41.230
+Again, it's the kind of use case that makes so much sense.
+
+01:42.610 --> 01:46.420
+This one is one that I find particularly annoying.
+
+01:46.420 --> 01:50.950
+I am, uh, upset by this particular company.
+
+01:50.950 --> 01:58.480
+Blooper AI um bloop, which is a platform that ports.
+
+01:58.510 --> 02:00.790
+Legacy code into Java.
+
+02:00.790 --> 02:06.220
+And the reason that I find this, uh, galling is because I wish I had thought of it.
+
+02:06.250 --> 02:07.870
+It's such a great idea.
+
+02:07.870 --> 02:09.310
+It's such an obvious idea.
+
+02:09.340 --> 02:09.700
+Obviously.
+
+02:09.700 --> 02:10.450
+Brilliant.
+
+02:10.480 --> 02:14.260
+As soon as I heard it, I thought, oh, that's a great idea.
+
+02:14.410 --> 02:21.180
+Uh, so of course there is tons of COBOL code out there and other legacy code.
+
+02:21.180 --> 02:27.150
+And it's it's a huge challenge for large corporations to figure out how to maintain this code, as people
+
+02:27.150 --> 02:29.700
+increasingly don't want to work with languages like COBOL.
+
+02:29.700 --> 02:33.600
+And there's a lot of legacy code that people can't read and understand.
+
+02:33.720 --> 02:42.270
+Um, and it's such a perfect use case for coding models that can learn different programming languages
+
+02:42.270 --> 02:48.480
+and then can use that to port from one language to another, and presumably can do things like adding
+
+02:48.480 --> 02:52.290
+in comments and test cases and everything else.
+
+02:52.440 --> 02:56.700
+Um, so, uh, yes, it's uh, dang it.
+
+02:56.730 --> 03:03.270
+They've they've obviously, uh, really struck on a fantastic idea.
+
+03:03.270 --> 03:09.420
+Uh, I think this is a great looking product from a Y Combinator backed company.
+
+03:09.420 --> 03:12.780
+And, uh, yes, congratulations to to bloop.
+
+03:13.530 --> 03:15.210
+And I love the name bloop.
+
+03:15.420 --> 03:24.570
+Uh, on on less uh, memorable name would be, uh, this Salesforce product Salesforce's Einstein copilot
+
+03:24.600 --> 03:31.110
+health actions Quite a mouthful, but I will say that aside from the slightly clunky name, the product
+
+03:31.110 --> 03:34.680
+itself again is one of those ones that's like, oh yes, that makes sense.
+
+03:34.830 --> 03:42.810
+Uh, a sort of, uh, dashboard that can be used by healthcare practitioners, for example, to do things
+
+03:42.810 --> 03:51.420
+like summarize for a care coordinator, the outcomes of a medical appointment, saving presumably tons
+
+03:51.420 --> 03:58.320
+of time, and giving this kind of very compelling summary of what happened, uh, which for all we know,
+
+03:58.350 --> 04:00.600
+could be a Gradio app because that easy.
+
+04:00.720 --> 04:08.190
+Uh, but it's probably something Salesforce, uh, but it's such a good use case makes a lot of sense.
+
+04:08.190 --> 04:12.990
+And obviously, uh, no doubt Salesforce is going to do really well with that product.
+
+04:13.650 --> 04:16.140
+And then I came across Khan.
+
+04:16.140 --> 04:17.550
+Mingo Khan.
+
+04:17.580 --> 04:17.940
+Yes.
+
+04:17.940 --> 04:20.070
+I think it's probably how it's pronounced conmigo.
+
+04:20.310 --> 04:24.810
+Um, uh, which is, uh, the Khan Academy.
+
+04:24.810 --> 04:28.710
+Uh, presumably, uh, with a mingo at the end of it.
+
+04:28.770 --> 04:35.780
+Uh, and this is an LLM based platform to be a companion for teachers, learners and parents.
+
+04:35.780 --> 04:37.760
+And what a great idea again.
+
+04:37.760 --> 04:44.450
+And the Khan Academy is a obviously a fabulous resource, and I'm sure that this is something that this
+
+04:44.450 --> 04:47.750
+solution is something that will be immensely valuable.
+
+04:47.750 --> 04:55.610
+And the application of LMS to education is something which is again a no brainer, absolute no brainer.
+
+04:55.610 --> 05:05.540
+So across these different examples, law, talent, coding, the medical field and education, you can
+
+05:05.540 --> 05:10.100
+see the impact that LMS will be able to make in each of these products.
+
+05:10.100 --> 05:15.140
+And I'm sure you have many other examples yourself, but hopefully, as I say, this has given you food
+
+05:15.140 --> 05:21.350
+for thought and also interesting to think about how you would be assessing different models that you
+
+05:21.350 --> 05:23.210
+would pick to solve any of these problems.
+
+05:23.210 --> 05:29.750
+To state the obvious, of course, for this one, no doubt we'd be looking at the medical LMS leaderboard
+
+05:29.750 --> 05:35.660
+and hugging face, and here we'd be looking at many of the coding metrics, not just human eval for
+
+05:35.660 --> 05:39.650
+Python, but the coding metrics for other languages too.
+
+05:40.610 --> 05:43.850
+Okay, with that we will go over to wrap up.

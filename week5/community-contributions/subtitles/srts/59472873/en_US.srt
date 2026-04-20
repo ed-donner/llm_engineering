@@ -1,0 +1,157 @@
+WEBVTT
+
+00:00.590 --> 00:07.130
+So it's quite an adventure that we had at the frontier of what's capable with Llms today, solving a
+
+00:07.130 --> 00:15.140
+particular problem that required world knowledge and to take you through what we saw from the performance
+
+00:15.140 --> 00:18.710
+of everything as a reminder from last time we started.
+
+00:18.830 --> 00:22.490
+Well, actually, we started with the random model, but we'll forget about that because that was silly.
+
+00:22.520 --> 00:28.760
+We're proper first starting point was a constant model that just predicted an average number.
+
+00:29.150 --> 00:32.300
+We obviously were able to do better, but not that much better.
+
+00:32.300 --> 00:37.850
+With a model that used feature engineering, you may have improved on that with better features.
+
+00:38.060 --> 00:45.470
+Um, but our best one was a random forest model based on a not a bag of words.
+
+00:45.500 --> 00:47.990
+A word to vec vectorized.
+
+00:48.050 --> 00:53.690
+Uh, look at the prompts with 400 dimensional vectors.
+
+00:53.840 --> 00:55.610
+And that brought our error.
+
+00:55.640 --> 01:01.740
+The average difference between the prediction and the actual price of a product based on its description
+
+01:01.740 --> 01:09.240
+down to $97 being after being trained on 400,000 example data points.
+
+01:09.690 --> 01:14.010
+We then, uh, unveiled the human today.
+
+01:14.010 --> 01:15.810
+That was our first model.
+
+01:15.930 --> 01:20.490
+Uh, and the human got 127 in terms of error.
+
+01:20.490 --> 01:27.810
+So you'll see, I was able to, uh, at least do better than the very primitive feature engineering.
+
+01:27.810 --> 01:30.270
+And at least I did better than than constant.
+
+01:30.270 --> 01:34.530
+I think I wouldn't have, uh, I might not have included the whole result if I hadn't done better than
+
+01:34.530 --> 01:36.060
+a constant number.
+
+01:36.360 --> 01:43.260
+Uh, but, uh, obviously, uh, the next, uh, Claude clearly, uh, did significantly better than
+
+01:43.260 --> 01:43.470
+me.
+
+01:43.470 --> 01:48.390
+And Claude was very, very similar to Random Forest, uh, so very much on par.
+
+01:48.390 --> 01:53.430
+And again, one has to bear in mind, Claude is doing this without seeing any training data.
+
+01:53.430 --> 01:56.490
+It's just purely based on its world knowledge.
+
+01:56.490 --> 01:58.560
+And then being given this product.
+
+01:58.600 --> 02:03.550
+And I can tell you from bitter personal experience that that is a challenging task.
+
+02:04.210 --> 02:13.870
+But GPT four mini did better and got down to an $80 error, and GPT four did even better yet and brought
+
+02:13.870 --> 02:17.020
+it down to $76 in terms of the difference.
+
+02:17.020 --> 02:23.620
+So it shows you that out of the box, working with frontier models and APIs, you can build solutions
+
+02:23.620 --> 02:27.280
+to problems, even problems which feel like they are regression problems.
+
+02:27.280 --> 02:27.670
+They're not.
+
+02:27.670 --> 02:29.410
+They're numerical problems.
+
+02:29.560 --> 02:30.160
+They're not.
+
+02:30.190 --> 02:36.160
+They don't necessarily naturally sound like they should be ones where just text completion will be able
+
+02:36.160 --> 02:36.820
+to solve them.
+
+02:36.820 --> 02:46.870
+But even given that kind of problem still out of the box, GPT four mini is able to outperform a random
+
+02:46.870 --> 02:52.360
+forest model, a traditional machine learning model with 400,000 training data points.
+
+02:52.360 --> 03:00.130
+So it just goes to show you how powerful these models are and how they can be applied to so many types
+
+03:00.130 --> 03:01.510
+of commercial problem.
+
+03:02.320 --> 03:09.640
+But with that, we can now finally move on to the world of training.
+
+03:09.670 --> 03:16.720
+The next subject is going to be about how we take this further, by fine tuning a frontier model to
+
+03:16.750 --> 03:20.680
+take what it's got and do better with training examples.
+
+03:20.710 --> 03:22.870
+The thing that it hasn't had so far.
+
+03:22.870 --> 03:25.780
+So that is a big and exciting topic.
+
+03:25.780 --> 03:29.530
+It will then complete this week before next week.
+
+03:29.530 --> 03:36.790
+We take it to a whole different world where we try and fine tune our own open source model to see if
+
+03:36.790 --> 03:42.220
+we can compete, bearing in mind that we'll be dealing with something with massively fewer parameters.
+
+03:42.220 --> 03:44.350
+So a very different world.
+
+03:44.590 --> 03:51.040
+And to see whether or not we have a hope of beating traditional machine learning or frontier models.
+
+03:51.070 --> 03:52.930
+Lots to be excited about.
+
+03:53.020 --> 03:57.280
+But first, I will see you tomorrow for fine tuning.

@@ -1,0 +1,115 @@
+WEBVTT
+
+00:00.080 --> 00:03.050
+And with that, we've reached an important milestone.
+
+00:03.080 --> 00:07.940
+The first week of our eight week journey is complete, and there's been an awful lot covered.
+
+00:07.970 --> 00:10.490
+And congratulations for making it to this point.
+
+00:10.520 --> 00:16.160
+At this point, just to recap, you're in a position to describe the history of Transformers and the
+
+00:16.160 --> 00:17.540
+shocking last few years.
+
+00:17.540 --> 00:23.210
+The use of tokens, tokenization, the importance of context windows and exactly what that means, where
+
+00:23.240 --> 00:27.230
+to go to look up API costs, and a lot more like that.
+
+00:27.410 --> 00:32.780
+You've really got hands on experience looking at a bunch of different frontier models, both the big
+
+00:32.780 --> 00:37.400
+six companies, but also some of the models within them and some of the very latest innovations.
+
+00:37.400 --> 00:42.770
+And we've seen how something like count, how many times letter A appears in the sentence is something
+
+00:42.770 --> 00:45.890
+surprisingly hard for Llms, even some of the very top ones.
+
+00:45.920 --> 00:50.660
+And now, with your understanding of tokenization, you probably have a very good sense as to why.
+
+00:50.720 --> 00:57.590
+And then most importantly, you're at this point, hopefully you are confidently able to use the OpenAI
+
+00:57.620 --> 01:02.070
+API, Including adding in things like streaming and markdown.
+
+01:02.070 --> 01:07.920
+You've built your own tool with the assignment, and you've also used the exercise we did.
+
+01:07.950 --> 01:12.330
+You made multiple calls to LMS and you've played around with the system prompts.
+
+01:12.330 --> 01:18.900
+You've got a good understanding of how you can use the system prompt for things like setting tone,
+
+01:18.900 --> 01:22.680
+character of the response, as well as giving the specific instructions.
+
+01:22.800 --> 01:30.330
+And you also understand about using both single shot and Multi-shot prompting as a way to get more accurate,
+
+01:30.330 --> 01:33.930
+robust, repeatable results from the LM.
+
+01:34.230 --> 01:42.960
+And to boot, you've also added in using the llama API to call the models running on your box directly.
+
+01:42.960 --> 01:45.780
+It's not something that we'll be doing, particularly going forwards.
+
+01:45.780 --> 01:47.760
+When we get to using open source models.
+
+01:47.760 --> 01:53.340
+We'd rather use hugging face code when we can actually really get into the internals and start examining
+
+01:53.340 --> 01:54.900
+things like tokens and stuff.
+
+01:54.990 --> 01:59.340
+Um, but at any point you can always flip to using the Ulama API.
+
+01:59.370 --> 02:02.730
+If you would like to reduce API costs.
+
+02:02.880 --> 02:10.950
+So with that, that would be a wrap for a very substantive week, one with a lot of ground covered.
+
+02:11.190 --> 02:16.800
+Next week we will be getting into using APIs for all of the frontier models.
+
+02:16.800 --> 02:21.240
+So we'll be using OpenAI and Anthropic and Gemini.
+
+02:21.270 --> 02:23.490
+You'll do some work a little bit more.
+
+02:23.520 --> 02:30.300
+Another step in the direction of agent ization of agentic AI with a little bit more work on agents.
+
+02:30.300 --> 02:37.470
+But most importantly, we're going to be building some data science UIs using the fabulous Gradio platform
+
+02:37.470 --> 02:38.430
+that I love.
+
+02:38.460 --> 02:44.730
+And we'll be doing that, including building a complete multimodal customer support agent that is able
+
+02:44.730 --> 02:51.240
+to do things like show pictures and make audio and use tools where it calls into your computer.
+
+02:51.270 --> 02:53.220
+So a lot to cover next week.
+
+02:53.220 --> 02:56.670
+It's going to be a super exciting week and I can't wait to see you there.

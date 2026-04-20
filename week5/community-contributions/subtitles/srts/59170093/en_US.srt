@@ -1,0 +1,229 @@
+WEBVTT
+
+00:00.410 --> 00:02.180
+I'm delighted to see you again.
+
+00:02.180 --> 00:10.130
+As we get started with day three of week three of our adventure and the, uh, things are going to get
+
+00:10.130 --> 00:11.900
+get deeper this time.
+
+00:11.900 --> 00:18.140
+We're going to roll our sleeves up as we get into the lower level APIs of hugging Face Transformers
+
+00:18.140 --> 00:18.890
+library.
+
+00:19.490 --> 00:24.800
+And as always, just a quick reminder you can code against frontier models, you can build AI assistants,
+
+00:24.800 --> 00:26.330
+and you can use pipelines.
+
+00:26.330 --> 00:26.870
+Pipelines.
+
+00:26.870 --> 00:35.150
+What we did last time, such an easy way to use the wide variety of open source inference tasks available
+
+00:35.150 --> 00:36.290
+from Hugging Face.
+
+00:36.290 --> 00:39.260
+Today, though, we get lower level.
+
+00:39.350 --> 00:45.470
+As I mentioned, there are these these these two things, tokenizers and models that are part of the
+
+00:45.470 --> 00:49.430
+way we interact with transformers at a lower level than pipelines.
+
+00:49.430 --> 00:50.630
+And that's what we're going to be doing today.
+
+00:50.630 --> 00:53.000
+We're going to be starting with Tokenizers.
+
+00:53.000 --> 00:58.100
+We're going to be learning how to translate between text and tokens for different models, and we're
+
+00:58.100 --> 01:02.600
+going to be understanding something called chat templates, which I'm hoping is going to make a few
+
+01:02.600 --> 01:03.890
+different things come together.
+
+01:03.920 --> 01:06.170
+It's quite an important moment.
+
+01:06.440 --> 01:13.700
+Um, so first, to introduce this type of object called a tokenizer in hugging face, it is an object
+
+01:13.700 --> 01:20.870
+which translates as you can imagine between text, a string and tokens, a list of numbers.
+
+01:21.020 --> 01:23.930
+Um, and there are very simply two functions.
+
+01:23.930 --> 01:26.960
+Two things you need to know about encoding and decoding.
+
+01:26.960 --> 01:32.060
+Encode takes you from strings to tokens, and decode takes you back again.
+
+01:32.060 --> 01:33.590
+And we will see that.
+
+01:33.590 --> 01:38.810
+And of course, there's just a little bit of nuance and fiddly stuff, but that's basically all there
+
+01:38.810 --> 01:39.920
+is to it.
+
+01:40.370 --> 01:48.290
+A tokenizer contains a vocab, which is all of the different fragments of characters of one character,
+
+01:48.290 --> 01:53.150
+two, three, four characters shoved together that make up that token.
+
+01:53.360 --> 01:57.110
+Um, and it can also include as well as these fragments of characters.
+
+01:57.110 --> 01:59.870
+It can include something called a special token.
+
+01:59.900 --> 02:07.880
+A few of these special tokens where a special token is again a single token that is going to tell the
+
+02:07.880 --> 02:15.620
+the model something that it represents, like start of a sentence or beginning of a chat with the assistant
+
+02:15.620 --> 02:17.210
+or something like that.
+
+02:17.660 --> 02:23.150
+And as I mentioned before, if you're thinking, okay, but how do we train a neural network architecture,
+
+02:23.150 --> 02:28.730
+how do we how do we how do we construct a neural network architecture so that it expects a particular
+
+02:28.730 --> 02:33.470
+token to represent something like start of sentence or something like that?
+
+02:33.470 --> 02:35.420
+And there's no magic answer.
+
+02:35.420 --> 02:37.370
+It just simply comes down to training.
+
+02:37.370 --> 02:43.130
+If it's seen enough examples in its training data that has that special token being used for that purpose,
+
+02:43.160 --> 02:46.550
+it learns that that is the objective of that special token.
+
+02:46.550 --> 02:52.400
+But there's nothing fundamental in the architecture, generally speaking, that expects one particular
+
+02:52.400 --> 02:57.890
+type of token over another and also a tokenizer.
+
+02:57.890 --> 03:02.810
+In addition to doing this, mapping text to tokens and having a vocab also has something called a chat
+
+03:02.840 --> 03:03.590
+template.
+
+03:03.590 --> 03:07.320
+At least for a specific type of model, as we'll see.
+
+03:07.320 --> 03:14.160
+And that knows how to take a set of messages where you've had system message, user message and so on
+
+03:14.160 --> 03:16.950
+and turn that into just a set of tokens.
+
+03:16.950 --> 03:20.940
+And that will all make sense when you see a real example.
+
+03:21.630 --> 03:29.520
+So every model in hugging face, every open source model has its own tokenizer associated with it.
+
+03:29.520 --> 03:34.590
+There's not just one general tokenizer that applies to models because it depends on how the model was
+
+03:34.590 --> 03:35.190
+trained.
+
+03:35.220 --> 03:40.920
+The tokenizer, um, I mean, obviously multiple models could share the same tokenizer, but but what
+
+03:40.920 --> 03:46.200
+matters is which tokenizer was used when the model was trained, because you have to use exactly the
+
+03:46.200 --> 03:53.040
+same tokenizer during inference time when you're running it, otherwise you will get back bad results.
+
+03:53.130 --> 03:57.390
+Uh, maybe that's an experiment we should try at some point, but I'll you'll see why.
+
+03:57.390 --> 04:01.380
+That would be a very unproductive experiment in just a moment.
+
+04:01.380 --> 04:10.590
+So for today we're going to look at the tokenizer for llama 3.1 which is the iconic family of models
+
+04:10.590 --> 04:12.120
+from Larma that paved.
+
+04:12.240 --> 04:12.420
+Sorry.
+
+04:12.450 --> 04:12.660
+From.
+
+04:12.690 --> 04:13.230
+From Larma.
+
+04:13.230 --> 04:13.890
+From Mehta.
+
+04:13.920 --> 04:17.010
+That paved the way for open source models.
+
+04:17.010 --> 04:20.670
+And we're going to look at a model called Phi three from Microsoft.
+
+04:20.670 --> 04:26.760
+And we're going to look at Quinn two again, the powerhouse from Alibaba Cloud, which leads the way
+
+04:26.760 --> 04:29.400
+in many of the different metrics.
+
+04:29.400 --> 04:35.790
+We're also going to look at something very different, which is a model called Star Coder two, which
+
+04:35.790 --> 04:41.010
+is a model for, for for generating code.
+
+04:41.010 --> 04:44.970
+We're going to look at its tokenizer to see any differences.
+
+04:45.270 --> 04:51.660
+Um, and the reason that these two have similar looking graphics is that Lama 3.1 and Phi three are
+
+04:51.660 --> 04:53.520
+extremely similar.
+
+04:53.550 --> 05:00.780
+Quantu perhaps it's also very similar, but it's it's got more of a focus on, uh, Chinese as well
+
+05:00.780 --> 05:01.650
+as English.
+
+05:01.650 --> 05:05.580
+And Star Coder two is of course more about coding.
+
+05:05.700 --> 05:12.120
+So with that introduction, we're going to head over to Google Colab and we're going to do some tokenizing.

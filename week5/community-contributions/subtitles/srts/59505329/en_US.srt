@@ -1,0 +1,160 @@
+WEBVTT
+
+00:00.920 --> 00:02.120
+Welcome back.
+
+00:02.150 --> 00:06.920
+You may, like me, have just gone off and got a coffee while things loaded back up again.
+
+00:07.220 --> 00:09.140
+And back here.
+
+00:09.350 --> 00:14.960
+Uh, after the restart your session box, you needed to have come back and rerun the.
+
+00:14.990 --> 00:17.660
+You don't need to rerun the installs, but you need to rerun the imports.
+
+00:17.660 --> 00:20.270
+The constants log in to hugging face again.
+
+00:20.300 --> 00:21.740
+Do not run this.
+
+00:21.740 --> 00:24.800
+Otherwise we'll be back where we were with a big model in memory.
+
+00:24.830 --> 00:27.470
+Uh, skip back to restart your session.
+
+00:27.470 --> 00:31.520
+And here we are loading the base model using eight bit.
+
+00:31.520 --> 00:33.770
+So again, you've seen this before.
+
+00:33.770 --> 00:35.060
+We did briefly.
+
+00:35.060 --> 00:39.080
+Uh, at least have this in the code if I didn't mention much about it.
+
+00:39.350 --> 00:45.890
+Um, and it uses this wonderfully named there's a package called Bits and Bytes, uh, which is a great
+
+00:45.890 --> 00:47.090
+name for a package.
+
+00:47.210 --> 00:52.850
+Uh, and you create a class called Bits and Bytes config, which is where you specify, uh, what kind
+
+00:52.880 --> 00:58.310
+of quantization config you want, how, how much you want to reduce the precision of your model.
+
+00:58.310 --> 01:01.940
+And we are saying load in eight bit is true.
+
+01:02.060 --> 01:07.520
+Uh, and then you when you load the base model, you pass that in as a parameter.
+
+01:07.520 --> 01:11.000
+As I said, we did do this in the past, I think, but we didn't talk much about it.
+
+01:11.420 --> 01:20.660
+Um, so this is how we load in the llama 3.1 base model, with the precision reduced from 32 bits down
+
+01:20.660 --> 01:21.980
+to eight bits.
+
+01:22.250 --> 01:26.300
+Um, so I've run that because it takes a couple of minutes.
+
+01:26.330 --> 01:30.230
+And now let's look at the memory footprint that that's using up.
+
+01:30.260 --> 01:34.730
+It's using up nine gigabytes just over nine gigs.
+
+01:34.790 --> 01:40.820
+Uh, as you can see, if you look over here at the resources that we're using up nine gigs and we're
+
+01:40.820 --> 01:44.090
+no longer having to spill into system memory.
+
+01:44.300 --> 01:48.320
+Uh, and let's have a look at that base model's architecture.
+
+01:49.130 --> 01:54.350
+So here then, is the model architecture after quantization.
+
+01:54.740 --> 01:59.030
+Um, and now let me pause for a bit while, uh, to, for you to spot the difference.
+
+01:59.060 --> 02:01.910
+Let's see what's changed in the architecture.
+
+02:01.940 --> 02:09.620
+Uh, now that we've quantized, I'll give you just a second to identify that challenge for you.
+
+02:09.740 --> 02:11.330
+And your time is up.
+
+02:11.330 --> 02:14.690
+And, of course, you know that there's no difference in architecture.
+
+02:14.720 --> 02:15.770
+Trick question.
+
+02:16.040 --> 02:17.120
+Oh, don't hate me.
+
+02:17.300 --> 02:19.640
+Uh, so, yeah, there's no difference in architecture.
+
+02:19.640 --> 02:24.520
+This is identical because the whole idea of quantization is that whilst we've reduced the precision
+
+02:24.550 --> 02:29.020
+of each of the numbers, each of the weights in the model, we haven't actually changed the architecture
+
+02:29.020 --> 02:30.160
+of the model at all.
+
+02:30.340 --> 02:35.470
+And somewhat surprisingly, it's not going to have a massive effect on the performance of the model.
+
+02:35.470 --> 02:42.010
+So hopefully unless I've made some horrible gaffe, this architecture is identical to the one above.
+
+02:42.040 --> 02:44.290
+You can just confirm and double check.
+
+02:44.320 --> 02:51.850
+I haven't made any terrible mistake, but that's that is the whole idea of quantization.
+
+02:51.850 --> 03:04.900
+We've got from 32GB down to nine gigabytes without, it seems, any, um, uh, well, we haven't yet
+
+03:04.900 --> 03:09.370
+seen, but without without without significant consequences.
+
+03:09.370 --> 03:10.810
+There will be some consequences.
+
+03:10.810 --> 03:13.930
+Just not as big as you might expect.
+
+03:14.620 --> 03:17.830
+Uh, so we will have to restart our sessions once more.
+
+03:17.830 --> 03:23.920
+Uh, so for the final time, if I could ask you to restart your session as before, uh, runtime restart
+
+03:23.920 --> 03:26.410
+session and then meet me back here again.
+
+03:26.440 --> 03:33.010
+Uh, after this point, once you've run the imports, the constants, uh, and logged into huggingface
+
+03:33.010 --> 03:35.080
+again, I will see you in one second.

@@ -1,0 +1,154 @@
+WEBVTT
+
+00:00.830 --> 00:01.940
+Welcome.
+
+00:01.940 --> 00:02.870
+It's week three.
+
+00:02.870 --> 00:03.800
+It's day four.
+
+00:03.830 --> 00:11.720
+We are back on the adventure in open source land, back investigating how to run inference over open
+
+00:11.720 --> 00:12.890
+source models.
+
+00:13.130 --> 00:17.120
+And today it is time to look at the model class in Hugging Face.
+
+00:17.120 --> 00:20.390
+We talked originally about pipeline API, the high level API.
+
+00:20.420 --> 00:26.090
+Then we started talking about the low level API, beginning with Tokenizers and now onto the model.
+
+00:26.150 --> 00:28.580
+So what can you already do?
+
+00:28.610 --> 00:33.290
+Of course, in addition to coding with frontier models, building multimodal AI assistants or you can
+
+00:33.290 --> 00:38.270
+now do is use hugging faces, pipelines and tokenizers today.
+
+00:38.300 --> 00:41.270
+New skills, new classes.
+
+00:41.270 --> 00:49.010
+We're going to get into the models part of hugging face, which is when you actually create a transformer
+
+00:49.010 --> 00:51.860
+and run it to generate text.
+
+00:51.860 --> 00:56.300
+And we'll be comparing results across five different models.
+
+00:56.300 --> 01:02.090
+I'm actually going to be doing three of them with you and leaving you to experiment with the other two,
+
+01:02.210 --> 01:07.910
+uh, so that you can have an extra exercise, but I'll have all of the code ready for you.
+
+01:08.300 --> 01:10.700
+Um, so it should be a lot of fun.
+
+01:10.970 --> 01:13.380
+So the models then to introduce them.
+
+01:13.380 --> 01:21.330
+We are going to again be working with llama 3.1 from meta, their flagship and groundbreaking model.
+
+01:21.330 --> 01:29.670
+We are going to be looking at Phi three, which is Microsoft's open source model, and Gemma from Google.
+
+01:29.670 --> 01:32.190
+It's a the small.
+
+01:32.190 --> 01:36.450
+The small cousin of Gemini is Google's Gemma.
+
+01:36.510 --> 01:41.880
+There are two other models that I'll be leaving you with to experiment with on your own.
+
+01:41.910 --> 01:49.830
+One of them is Mistral from Mistral and the other, the other is the powerhouse that is Quinn two.
+
+01:50.040 --> 01:53.190
+And I hope that you will enjoy using Quantu.
+
+01:54.270 --> 02:01.320
+So we're also going to be covering three aspects of working with open source models in the hugging face
+
+02:01.320 --> 02:02.160
+framework.
+
+02:02.430 --> 02:05.610
+Um, the first of them is called quantization.
+
+02:05.640 --> 02:13.080
+And this is about reducing the precision of the weights in the model so that it is easier to fit into
+
+02:13.080 --> 02:16.860
+memory and loads in and also can run faster.
+
+02:16.860 --> 02:23.820
+So quantization, a very important technique that allows us to work with, say, a one of the lower
+
+02:23.820 --> 02:25.290
+end GPU boxes.
+
+02:25.330 --> 02:29.650
+and when we get to training, it's going to be absolutely critical to be able to use quantization,
+
+02:29.650 --> 02:34.480
+to be able to train large open source models.
+
+02:34.510 --> 02:39.160
+In fact, you've heard me saying, now the Q Laura, that is the name of the technique that we're going
+
+02:39.190 --> 02:42.040
+to be using in a couple of weeks time.
+
+02:42.040 --> 02:45.460
+And the Q and Q, Laura stands for quantization.
+
+02:45.460 --> 02:49.960
+So we will be coming up against quantization a few times on this journey.
+
+02:50.650 --> 02:54.580
+Today we're also going to be looking inside a model.
+
+02:54.580 --> 03:00.310
+So generally again this is a class that is more practical than theoretical.
+
+03:00.460 --> 03:02.050
+But this will be one of those moments.
+
+03:02.050 --> 03:10.750
+And we'll just take a peek inside at what what do the PyTorch layers look like that sit behind the hugging
+
+03:10.780 --> 03:12.970
+face Transformers library.
+
+03:13.720 --> 03:20.050
+And then also, we're so familiar with streaming at this point that it hardly needs to be said that
+
+03:20.050 --> 03:21.520
+we want to be able to stream results.
+
+03:21.520 --> 03:26.290
+So I will show you how you can work with open source models to stream results as well.
+
+03:26.290 --> 03:32.440
+So these are some of the little extra bits that we're going to look into in our voyage into running
+
+03:32.440 --> 03:35.710
+inference over the lower level APIs for hugging face.
+
+03:35.740 --> 03:36.940
+There's quite enough talk.
+
+03:36.940 --> 03:38.350
+Let's get to it.

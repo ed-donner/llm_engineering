@@ -1,0 +1,325 @@
+WEBVTT
+
+00:01.040 --> 00:05.300
+So I'm aware that there's a big risk that you are getting fed up of leaderboards, because we've done
+
+00:05.300 --> 00:11.000
+a lot of talking about leaderboards, and perhaps you are becoming fatigued to looking at benchmarks
+
+00:11.000 --> 00:12.020
+and leaderboards.
+
+00:12.020 --> 00:13.010
+You've bookmarked them all.
+
+00:13.010 --> 00:14.780
+You're thinking, okay, I get it.
+
+00:14.780 --> 00:18.110
+There are lots of great resources when it comes to choosing an LMS.
+
+00:18.110 --> 00:21.590
+I will look through your leaderboards and I will do it then.
+
+00:21.590 --> 00:22.280
+But enough.
+
+00:22.280 --> 00:23.390
+Enough with the leaderboards.
+
+00:23.390 --> 00:25.400
+But wait, there is one more.
+
+00:25.400 --> 00:26.480
+And it's a really fun one.
+
+00:26.480 --> 00:27.770
+And it's one you're going to love.
+
+00:27.800 --> 00:32.390
+So you're not going to mind this final leaderboard for us to look at.
+
+00:32.390 --> 00:35.240
+And it is in fact not a normal leaderboard.
+
+00:35.240 --> 00:38.810
+It is an arena and it's called the LMS Chatbot Arena.
+
+00:38.810 --> 00:43.550
+And you may have come across this already because it's so popular and fun and lots of people talk about
+
+00:43.550 --> 00:43.820
+it.
+
+00:43.820 --> 00:48.860
+So if you know it already, then hang on, bear with me because we're going to use it together and have
+
+00:48.860 --> 00:49.610
+some fun.
+
+00:49.610 --> 00:57.290
+So the idea is that the LMS chatbot arena, which is incredibly popular, is a place where models are
+
+00:57.290 --> 01:02.030
+assessed by humans and they're assessed for their chat abilities.
+
+01:02.090 --> 01:05.830
+It is, as they say, a crowdsourced open platform.
+
+01:05.830 --> 01:15.760
+They've collected over a million human votes, ranking llms and to display results in as as I say,
+
+01:15.790 --> 01:20.440
+in what's called an Elo rating type that will be familiar to chess players.
+
+01:20.440 --> 01:28.360
+It's a way of assessing an overall kind of leaderboard based on the outcomes of head to head battles.
+
+01:28.720 --> 01:32.410
+And you can see here some of the results.
+
+01:32.710 --> 01:43.570
+And we will now take a look at what we see in first place is a variant of GPT four called ChatGPT 4.0
+
+01:43.600 --> 01:45.640
+that came out very recently.
+
+01:45.640 --> 01:54.820
+As of recording this video, it came out in early August 2024, and that previously GPT four was a little
+
+01:54.850 --> 01:56.170
+bit further down on this list.
+
+01:56.170 --> 02:05.470
+But with this latest trained, fine tuned model, uh ChatGPT four has taken the top position in the
+
+02:05.470 --> 02:10.490
+arena with an Elo of 1.316.
+
+02:10.700 --> 02:11.270
+Uh.
+
+02:11.420 --> 02:16.400
+A useful thing here is that the knowledge cut off is quoted over on the right.
+
+02:16.400 --> 02:20.210
+And so it's a if you want one place to go to see all the knowledge cut offs.
+
+02:20.240 --> 02:26.180
+Actually, the, uh, open the LMS chatbot arena is a good place to go, so that's worth knowing.
+
+02:26.210 --> 02:30.860
+I don't think it's it's intended to be its primary reason, but it's a useful tidbit.
+
+02:31.490 --> 02:39.770
+Um, you'll see that Gemini 1.5 Pro actually is is doing really well in this human evaluated assessment.
+
+02:40.040 --> 02:49.730
+Um, grok two, which is the latest model from X, uh, formerly known as Twitter is in strong place
+
+02:49.730 --> 02:50.600
+here.
+
+02:50.630 --> 02:52.430
+Uh, grok one had not done so well.
+
+02:52.460 --> 02:54.860
+Grok two is really doing very well.
+
+02:55.250 --> 03:01.220
+Um, and it's beating the earlier GPT four zero from, from May.
+
+03:01.610 --> 03:05.410
+Um, and uh, it's, uh, yeah.
+
+03:05.410 --> 03:10.310
+Uh, and you can see there's not much in that ELO difference, but at this point there is fairly significant
+
+03:10.550 --> 03:17.720
+difference from the the leader Claude 3.5 Sonet, which at one point was was the front runner by by
+
+03:17.750 --> 03:26.240
+I think by quite a way, if I remember right when it came out has now come down to, uh, I guess equal,
+
+03:26.240 --> 03:27.650
+equal sixth or so.
+
+03:27.650 --> 03:38.450
+Um, uh, right down here in, in, uh, Elo of 1270 compared to 1316 for the top, uh, GPT chat,
+
+03:38.450 --> 03:44.930
+GPT four zero, um, then Gemini 1.5 flash, which of course is a somewhat smaller model.
+
+03:44.930 --> 03:52.610
+And here comes llama 3.1 405 billion at 1266.
+
+03:52.820 --> 03:57.140
+Uh, so, uh, yeah, very interesting to see this lineup.
+
+03:57.140 --> 03:59.840
+You can keep going to find your favorite models.
+
+03:59.840 --> 04:02.570
+Claude three opus is way down here.
+
+04:02.780 --> 04:11.810
+Uh, and, uh, yeah, this is a great place to get a sense of how humans consider the experience of
+
+04:11.820 --> 04:17.550
+chatting with different, uh, instruction tuned uh, chatbots.
+
+04:17.580 --> 04:23.400
+Uh, you'll see that, uh, um, command r that we were looking at before.
+
+04:23.400 --> 04:27.120
+Uh, I just saw command R that features somewhere here.
+
+04:27.420 --> 04:30.810
+Uh, you will have to find that yourself.
+
+04:31.050 --> 04:32.310
+I've now lost it.
+
+04:32.310 --> 04:32.940
+There it is.
+
+04:32.940 --> 04:34.830
+Command R plus found it.
+
+04:34.950 --> 04:37.680
+Uh, there it is at 1213.
+
+04:37.680 --> 04:41.760
+Uh, it's one of the ones we looked at all the way back at the start in week one.
+
+04:41.940 --> 04:51.210
+So this is the famous LM, uh, LMS chatbot arena, and you can vote by clicking on this link, and
+
+04:51.210 --> 04:53.910
+it will bring up this voting screen.
+
+04:53.910 --> 04:55.290
+And here's how it works.
+
+04:55.290 --> 04:58.620
+You get presented with two models model A and model B.
+
+04:58.650 --> 05:02.160
+You don't know which one is which and you have to chat with them both.
+
+05:02.160 --> 05:05.910
+And so let's do one of our favorite little chat things.
+
+05:05.940 --> 05:19.930
+Uh, please tell me a light hearted light hearted joke suitable for a room full of data scientists.
+
+05:19.930 --> 05:26.920
+So this question will be asked to both models together and we will see how they answer.
+
+05:26.950 --> 05:31.990
+So the model A why do the data scientists break up with a computer?
+
+05:31.990 --> 05:37.270
+Because it had too many commitment issues with its null values.
+
+05:37.660 --> 05:43.480
+Okay, they did sciency, but not funny, I don't think.
+
+05:43.510 --> 05:44.860
+Maybe you found it funny.
+
+05:45.280 --> 05:47.200
+And model B, please tell me a joke.
+
+05:47.200 --> 05:48.310
+Here is a light hearted joke.
+
+05:48.310 --> 05:49.990
+Why does scientists go to the library?
+
+05:49.990 --> 05:52.720
+Because they heard it had a lot of volumes.
+
+05:52.840 --> 05:54.670
+Oh, yeah, that's pretty good, right?
+
+05:54.670 --> 05:58.030
+That's that's different plays on the dual meaning word volumes.
+
+05:58.030 --> 05:59.050
+It gives a little explanation.
+
+05:59.080 --> 05:59.770
+The joke is simple.
+
+05:59.770 --> 06:04.540
+It's kind of pun that data scientists tend to appreciate as it combines technical expertise with a bit
+
+06:04.540 --> 06:05.410
+of wordplay.
+
+06:05.440 --> 06:06.790
+I think that's solid.
+
+06:06.790 --> 06:07.900
+That's solid.
+
+06:08.140 --> 06:10.630
+Uh, I think B is better, is what I want to go with.
+
+06:10.660 --> 06:12.310
+Hopefully you agree with me.
+
+06:12.340 --> 06:17.560
+Uh, if not, you need to go into the arena and do, uh, do a ask a similar question and make your
+
+06:17.560 --> 06:23.570
+own vote, but I'm going to vote on your behalf on all of our behalves by pressing the B is better button,
+
+06:23.570 --> 06:25.730
+and it will then reveal the models.
+
+06:25.730 --> 06:26.600
+Let's see.
+
+06:26.900 --> 06:34.490
+Uh, interestingly, the we picked Claude three haiku and we picked that against grok two.
+
+06:34.610 --> 06:39.740
+Uh, if I remember right, grok two was quite significantly higher than Claude three haiku.
+
+06:39.740 --> 06:45.050
+So we have slightly fractionally shifted that balance through our vote.
+
+06:45.050 --> 06:47.030
+So I hope you enjoyed that.
+
+06:47.060 --> 06:52.130
+Of course, that was somewhat unscientific, but the idea is it's meant to be a human decision based
+
+06:52.130 --> 06:53.690
+on your interaction.
+
+06:53.900 --> 06:57.260
+And the ask for you now is go and do this.
+
+06:57.290 --> 06:59.270
+It's an important way to add back to the community.
+
+06:59.300 --> 07:00.980
+It is data that will be used.
+
+07:01.010 --> 07:03.020
+Uh, plus it's a it's a lot of fun.
+
+07:03.050 --> 07:09.620
+Uh, and it gives you a bit of sense of the capabilities and scope of the different models and some
+
+07:09.620 --> 07:14.630
+hands on experience whilst contributing back to the data science community.
+
+07:14.630 --> 07:20.930
+So enjoy spending some time on the chatbot arena, and I will see you next time to talk about commercial
+
+07:20.930 --> 07:21.710
+uses.

@@ -1,0 +1,208 @@
+WEBVTT
+
+00:00.500 --> 00:07.280
+So we're now going to run a large language model directly on your box using a platform called llama,
+
+00:07.280 --> 00:14.330
+which lets you run C plus plus code version of Llms compiled directly on your machine.
+
+00:14.360 --> 00:17.810
+I'm going to start by showing you on windows, and then we'll flip over to Mac.
+
+00:17.840 --> 00:21.560
+So to start with llama you bring up your favorite browser.
+
+00:21.590 --> 00:22.880
+Let's go to Microsoft Edge.
+
+00:22.880 --> 00:24.950
+And you can simply go to llama.
+
+00:24.980 --> 00:31.310
+Com or just search llama llama it's O followed by llama.
+
+00:31.820 --> 00:35.660
+And the first hit here in the search results will be Alarm.com.
+
+00:35.660 --> 00:36.650
+And here it is.
+
+00:36.680 --> 00:42.230
+It's called llama because it was initially built around a model that's called llama, which is the open
+
+00:42.230 --> 00:47.480
+source model from meta, which really stole the show a couple of years ago when it first came out.
+
+00:47.480 --> 00:51.230
+So downloading is as simple as pressing the download button.
+
+00:51.230 --> 00:56.210
+And once you press the download button, you press download for windows and it will start to download
+
+00:56.210 --> 00:57.740
+the windows version.
+
+00:57.950 --> 01:02.930
+And if I look here at my downloads, I will see that it has downloaded.
+
+01:02.930 --> 01:04.380
+There's a Setup.exe.
+
+01:04.560 --> 01:07.530
+If I press the open file button, it will prompt me.
+
+01:07.530 --> 01:08.100
+Oh, it's still.
+
+01:08.130 --> 01:09.000
+It's still downloading again.
+
+01:09.030 --> 01:09.630
+I just ran this.
+
+01:09.660 --> 01:15.240
+It will prompt me to install it locally, which I will do as soon as it's installed locally.
+
+01:15.600 --> 01:21.060
+You then go to the start menu and you're probably familiar with this, but you bring up a PowerShell
+
+01:21.090 --> 01:27.630
+by typing power in here, and as soon as you do, it prompts you and you press open and up comes a PowerShell,
+
+01:27.630 --> 01:31.920
+which is where we are going right now to run a large language model.
+
+01:31.920 --> 01:36.780
+Minutes into this course and the way we do it is we simply type once.
+
+01:36.810 --> 01:44.280
+Once that install is completed and you pressed okay, you can just simply say olama o l l a m a run.
+
+01:44.280 --> 01:49.290
+And now you put the name of the model next, and the name of the model we're going to use is going to
+
+01:49.290 --> 01:55.020
+be llama 3.2, which is one of the very newest models.
+
+01:55.860 --> 01:57.060
+And so here it goes.
+
+01:57.060 --> 01:58.020
+And it's run.
+
+01:58.020 --> 01:59.400
+It's happening right now.
+
+01:59.400 --> 02:03.060
+That blinking cursor means that we have a large language model running on this computer.
+
+02:03.060 --> 02:04.770
+It might take a bit longer for you the first time.
+
+02:04.770 --> 02:10.210
+It has to download the 2 billion parameters associated with Lama, and depending on your internet connection,
+
+02:10.210 --> 02:13.870
+that might take a little bit, but you'll get a progress bar that will show you what's going on.
+
+02:14.230 --> 02:18.460
+So what we're now going to do is try and talk to this LLM, and we're going to try and do something
+
+02:18.460 --> 02:20.020
+useful with a free LLM.
+
+02:20.020 --> 02:21.250
+And here's what we'll do.
+
+02:21.280 --> 02:23.620
+I'm actually trying to learn Spanish at the moment.
+
+02:23.620 --> 02:28.630
+And I can tell you that my grasp of the Spanish language is distinctly less inferior to my grasp of
+
+02:28.630 --> 02:29.350
+llms.
+
+02:29.710 --> 02:36.730
+And the app that I'm using to try and teach me has a service where you can pay to chat with a with an
+
+02:36.730 --> 02:37.720
+AI tutor.
+
+02:37.750 --> 02:42.370
+Now, I don't want to pay for that because I know I can run an open source model and do it for free.
+
+02:42.370 --> 02:48.130
+So right now we're going to build ourselves a Spanish tutor which will teach me Spanish.
+
+02:48.490 --> 02:51.400
+All open source without paying a penny.
+
+02:51.400 --> 02:57.460
+So I'm going to say I am trying to learn Spanish.
+
+02:58.660 --> 03:01.960
+I am a complete beginner.
+
+03:04.690 --> 03:12.000
+Please chat with me in basic Spanish to teach me.
+
+03:13.200 --> 03:15.630
+And so that is the prompt that we will start with.
+
+03:15.630 --> 03:16.830
+And let's see what happens.
+
+03:16.830 --> 03:17.820
+It's thinking.
+
+03:18.390 --> 03:19.230
+Hola.
+
+03:19.590 --> 03:21.480
+Welcome to our conversation in Spanish.
+
+03:21.510 --> 03:24.570
+To start, let's begin with some basic greetings.
+
+03:24.630 --> 03:25.800
+Como estas?
+
+03:26.250 --> 03:30.540
+So you can see that it's giving me a very good starting prompt.
+
+03:30.540 --> 03:31.890
+It's giving me some examples.
+
+03:31.890 --> 03:33.930
+It understands where I'm coming from.
+
+03:33.960 --> 03:36.240
+And I can now say something like.
+
+03:40.980 --> 03:42.120
+Put an accent on.
+
+03:42.450 --> 03:44.550
+Uh, so.
+
+03:44.670 --> 03:46.410
+Oh, there's a small mistake.
+
+03:51.000 --> 03:52.050
+Okay, there we go.
+
+03:52.050 --> 03:52.710
+It's correcting me.
+
+03:52.710 --> 03:58.320
+I think it's the accent that I missed and maybe the question mark as well, so you get the idea.
+
+03:58.320 --> 04:03.870
+We've actually just built something which has commercial value because indeed, this is sold at a price
+
+04:03.870 --> 04:11.790
+immediately for free on our boxes using an open source LLM that is llms in action from the get go.
+
+04:11.790 --> 04:14.700
+And now for Mac people, let's flip over to a mac.

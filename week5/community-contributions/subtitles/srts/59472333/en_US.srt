@@ -1,0 +1,178 @@
+WEBVTT
+
+00:00.560 --> 00:04.880
+Thank you for putting up with me during my foray into traditional machine learning.
+
+00:04.880 --> 00:08.990
+I think it was useful for us and I hope that you didn't mind it too much.
+
+00:09.020 --> 00:14.330
+Maybe you enjoyed yourself a little bit like I did and tried out your own models too.
+
+00:14.360 --> 00:17.690
+Let's just look at how they appear side by side.
+
+00:17.690 --> 00:27.320
+We started with a random model, which came in at a somewhat shocking $341 off from the from the reality.
+
+00:27.320 --> 00:34.220
+And then we tried a constant model that did a whole lot better, but was still $146 wrong.
+
+00:34.520 --> 00:40.520
+We then did some proper models, the features and and linear regression model.
+
+00:40.550 --> 00:49.370
+At 139 we did a whole lot better with a bag of words model, the Countvectorizer and $114.
+
+00:50.150 --> 00:56.570
+We were slightly disappointed that when we layered on the powerful word two vec, it came in at $115.
+
+00:56.570 --> 01:02.480
+You may have noticed that there were 400 dimensions of word two vec, whilst there were a thousand dimensions
+
+01:02.480 --> 01:07.000
+in the bag of words model, But still, you would expect that the 400 dimensions in the word two vec
+
+01:07.030 --> 01:09.490
+would be just so much.
+
+01:09.520 --> 01:14.830
+There would be so much more signal in those vectors that you would expect better results.
+
+01:14.830 --> 01:18.070
+So whilst that was a bit disappointing, we quickly made up for it.
+
+01:18.100 --> 01:24.700
+First of all, by getting a hair better when we use support vector machines, but then random forests
+
+01:24.700 --> 01:29.980
+save the day with a nice $97 error there.
+
+01:29.980 --> 01:35.410
+And you know, there's there's this potential school of thought that would be to say that $97 is still
+
+01:35.410 --> 01:40.510
+disappointing given just predicting the the price of a product.
+
+01:40.510 --> 01:41.920
+But I'll tell you something.
+
+01:41.920 --> 01:47.860
+I challenge you yourself to go in and pick some of those products and blindly try and price them.
+
+01:47.860 --> 01:49.120
+It ain't easy.
+
+01:49.120 --> 01:50.890
+It's surprisingly difficult.
+
+01:50.890 --> 01:55.360
+You saw when we were confronted with that LED light, that we looked at that example a moment ago,
+
+01:55.390 --> 02:00.340
+I think, and I don't know if I had seen that, I would have probably have guessed that's about $40
+
+02:00.340 --> 02:00.820
+or something.
+
+02:00.820 --> 02:02.500
+And it was 200 and something.
+
+02:02.500 --> 02:09.270
+So, you know, it's actually surprisingly hard just given a description of something to figure out.
+
+02:09.270 --> 02:11.160
+Where is this on a scale?
+
+02:11.250 --> 02:19.320
+And so getting within $97 based purely on a description of some product that could be electronics,
+
+02:19.350 --> 02:23.970
+it could be an appliance, it could be any of those other automotive, of course, any of the other
+
+02:23.970 --> 02:28.290
+things, the categories that we picked, it's it's not as easy as it sounds.
+
+02:28.290 --> 02:35.610
+And so getting within $97 of it on average across our test set is not bad at all.
+
+02:35.610 --> 02:36.810
+Not bad at all.
+
+02:36.840 --> 02:39.210
+But potentially we'll be able to do better.
+
+02:39.210 --> 02:40.320
+We will see.
+
+02:40.590 --> 02:41.550
+All right.
+
+02:41.550 --> 02:44.520
+So well done on getting to this point.
+
+02:44.520 --> 02:46.590
+It's been a lot of fun for me.
+
+02:46.590 --> 02:47.220
+Anyway.
+
+02:47.520 --> 02:51.660
+You've tolerated me and hopefully you didn't mind it.
+
+02:51.720 --> 02:57.330
+But fear not, the time has arrived for us to go to the frontier.
+
+02:57.330 --> 03:04.980
+So, uh, next time we're going to be talking about solving commercial problems using frontier models,
+
+03:04.980 --> 03:12.430
+we are then going to run that runner against GPT four mini and see how it fares.
+
+03:12.460 --> 03:14.140
+And then I'm going to be brave.
+
+03:14.170 --> 03:21.040
+I'm going to set our sights high, and we are going to run our test dataset against the big guy, against
+
+03:21.040 --> 03:27.610
+GPT four zero maxi, the full version, the frontier version from August.
+
+03:27.820 --> 03:30.790
+And that's going to be a big test for us.
+
+03:30.790 --> 03:32.080
+We'll see how it does.
+
+03:32.380 --> 03:38.380
+And yeah, remember, it's quite a challenge for an LLM because we're we're basically we're not going
+
+03:38.380 --> 03:40.060
+to give it any training data.
+
+03:40.090 --> 03:45.130
+Unlike these traditional models where we've given them training data, we're simply going to send the
+
+03:45.130 --> 03:51.520
+test data to the LLM and say, given all of your worldly knowledge, how much do you think this is going
+
+03:51.520 --> 03:53.980
+to get and how much do you think it's going to be worth?
+
+03:53.980 --> 03:56.470
+And that's not an easy problem to set.
+
+03:56.470 --> 04:01.480
+So in many ways, the traditional machine learning models have a big advantage that they've been trained
+
+04:01.480 --> 04:03.190
+based on a training data set.
+
+04:03.190 --> 04:08.320
+In the case of these frontier models, we're just going to give them the descriptions and say, okay,
+
+04:08.320 --> 04:09.460
+how much is this?
+
+04:09.910 --> 04:13.120
+We will see how they get on in the next video.

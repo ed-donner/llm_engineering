@@ -1,0 +1,295 @@
+WEBVTT
+
+00:01.040 --> 00:06.350
+So at the end of each week, it's customary for me to give you a challenge, an assignment to do on
+
+00:06.350 --> 00:06.950
+your own.
+
+00:06.950 --> 00:12.050
+And there's been some interesting assignments I hope you agree that we've had so far, but let me just
+
+00:12.050 --> 00:13.940
+put it out there this week.
+
+00:13.940 --> 00:19.970
+The assignment is by far the most interesting so far, and I really, really hope you take this one
+
+00:19.970 --> 00:24.320
+seriously and give it a good crack, because I'm going to do it myself too.
+
+00:24.320 --> 00:28.220
+And I challenge you to it because I want to do this as quickly as I can.
+
+00:28.220 --> 00:30.080
+I think it's going to make an amazing blog post.
+
+00:30.080 --> 00:33.410
+I think it's going to be something that's that's really cool and really fun.
+
+00:33.410 --> 00:35.480
+So here's the challenge.
+
+00:35.510 --> 00:43.400
+Take exactly what we've just built and use it to build your own knowledge worker on your own information
+
+00:43.970 --> 00:47.390
+as a way to boost your own personal productivity.
+
+00:47.390 --> 00:54.110
+So, for example, you could assemble all of your files that you've got in one place, and maybe you
+
+00:54.110 --> 00:56.750
+already have that on your hard drive, I certainly do.
+
+00:57.650 --> 01:03.670
+And so then that is effectively your own personal knowledge base with a folder structure.
+
+01:04.360 --> 01:11.890
+You can then vectorize everything in chroma, which will then become your own personal vector data store,
+
+01:11.890 --> 01:18.430
+and you can then build a conversational AI on top of it and ask questions about your information.
+
+01:18.460 --> 01:23.320
+And when I think about the amount of information I have about projects I've worked on, about things
+
+01:23.320 --> 01:26.260
+that I've done, there's no way I've got that in my mind.
+
+01:26.290 --> 01:33.580
+Like, I spend so much of my time digging things up, and the idea that I'd be able to have a a chatbot
+
+01:33.610 --> 01:42.160
+that is optimized for my own personal background, perhaps bringing together both the my work and personal
+
+01:42.160 --> 01:44.470
+stuff so that I could really connect the dots.
+
+01:44.500 --> 01:50.230
+Think about someone that might be able to help me with a particular problem from across all of my contacts,
+
+01:50.260 --> 01:53.080
+current job, previous jobs, and so on.
+
+01:53.230 --> 01:55.990
+It's just an amazingly powerful idea.
+
+01:55.990 --> 01:58.420
+And so I'm very excited to do this myself.
+
+01:58.450 --> 02:03.380
+There's a couple of things that you could do to take it even further if you want to go really insane.
+
+02:03.380 --> 02:04.820
+And again, that's what I'm planning to do.
+
+02:04.820 --> 02:13.640
+So I use a Gmail, as does most of the internet, and it's reasonably easy to write some code so that
+
+02:13.640 --> 02:21.920
+you can authenticate against the Google API and then have access to your own inbox to be able to read
+
+02:21.920 --> 02:25.280
+your emails, uh, through Google's API.
+
+02:25.310 --> 02:26.390
+I say it's easy.
+
+02:26.390 --> 02:27.830
+It's sort of medium easy.
+
+02:27.860 --> 02:33.170
+Like the the code that they have to authenticate is a bit of a bore, but so many people have done it
+
+02:33.170 --> 02:37.940
+that you can quite easily Google it and see step by step instructions for how to do it.
+
+02:37.940 --> 02:46.400
+So one could connect to one's email box and bring in emails and also vectorize them in Chrome.
+
+02:46.400 --> 02:49.850
+So you would have your email history there too.
+
+02:49.940 --> 02:56.780
+Uh, obviously it's it's completely unrealistic to provide all of this context in some massive, uh,
+
+02:56.780 --> 03:00.680
+context window to to to frontier model.
+
+03:00.680 --> 03:07.090
+You can hopefully imagine that all of your material would be bigger than the million tokens that even
+
+03:07.120 --> 03:09.100
+Gemini 1.5 flash can take.
+
+03:09.670 --> 03:18.220
+But using Rag, it would be entirely possible to pluck out the 25 closest documents in your vector database
+
+03:18.220 --> 03:21.310
+to a particular question and then be able to provide them.
+
+03:22.390 --> 03:25.510
+And so you could imagine you could do that for your email inbox.
+
+03:25.510 --> 03:29.500
+You could also do it for if you have Microsoft Office files.
+
+03:29.500 --> 03:35.860
+There are simple Python libraries that will read office files and bring out the text versions of them.
+
+03:35.860 --> 03:41.200
+And if you use Google Drive, then Google has an API to be able to read your documents in Google Drive.
+
+03:41.230 --> 03:43.390
+Again, not super easy.
+
+03:43.390 --> 03:49.840
+There's a bit of hokey stuff to authenticate, but it's completely doable, and I really think that
+
+03:49.840 --> 03:52.060
+the reward would make it worth it.
+
+03:52.090 --> 03:59.500
+One final tiny point to this you might have a concern about calling things like OpenAI embeddings to
+
+03:59.530 --> 04:05.570
+be vectorizing all of your data, because there's always a sense of, okay, so how confident are we
+
+04:05.570 --> 04:11.330
+that these calls we're making with our private data isn't getting kept anywhere?
+
+04:11.510 --> 04:16.430
+Um, and so as a final part to this challenge, if that is something that's a concern for you, then
+
+04:16.430 --> 04:21.200
+you can actually use an open source model like Bert to run it yourself.
+
+04:21.200 --> 04:23.630
+You can do the vectorization yourself.
+
+04:23.630 --> 04:25.520
+And again, there's a couple of ways of doing it.
+
+04:25.520 --> 04:31.400
+The way that you know about is you could just bring up a Google Colab, you could have your Google Drive
+
+04:31.430 --> 04:38.750
+mapped to that colab, and you can simply use that in Colab to be vectorizing all of your documents
+
+04:38.750 --> 04:39.410
+that way.
+
+04:39.410 --> 04:40.520
+So that's one way to do it.
+
+04:40.520 --> 04:41.780
+That would be very effective.
+
+04:41.810 --> 04:47.270
+Another way that's perhaps slightly more advanced is that you could use something called llama CP llama
+
+04:47.270 --> 04:54.200
+dot CP, which is a library that you can run on your computer locally, and it has optimized C plus
+
+04:54.200 --> 05:01.070
+plus code to run some of these models in inference mode locally on your box without ever leaving your
+
+05:01.100 --> 05:02.300
+own box.
+
+05:02.420 --> 05:10.870
+Um, and so that can be a final approach you could use if you wish to be able to vectorize all of your
+
+05:10.870 --> 05:13.690
+documents without having to go to the cloud.
+
+05:13.840 --> 05:21.820
+Um, but all in all, the challenge for you is make a personal, private knowledge worker for yourself
+
+05:21.820 --> 05:23.770
+to prove that you can do this.
+
+05:23.770 --> 05:29.050
+And if that's too much of an endeavor for you, then at the very least, take a few text documents that
+
+05:29.050 --> 05:33.160
+you've got and drop them in the same folder to do a mini version of it.
+
+05:33.160 --> 05:34.090
+At least do that.
+
+05:34.090 --> 05:35.410
+That is the minimum threshold.
+
+05:35.410 --> 05:36.760
+I at least ask for that.
+
+05:36.760 --> 05:41.920
+Some text documents in that folder structure, so that you can see how this might work for your own
+
+05:41.920 --> 05:42.280
+stuff.
+
+05:42.280 --> 05:46.270
+But I'm hoping someone does this whole project for real and I race you.
+
+05:46.270 --> 05:50.080
+I'm going to do it too, and write a blog post about it, and I can't wait.
+
+05:50.110 --> 05:53.230
+And that wraps up our week of Rag.
+
+05:53.230 --> 05:59.470
+And at that point, it brings you to 62.5% of your way along this journey.
+
+05:59.470 --> 06:02.710
+And I hope you feel that sense of upskilling.
+
+06:02.710 --> 06:07.490
+I hope you now feel so many things are coming together As long as you're doing these exercises and as
+
+06:07.490 --> 06:14.150
+long as you are learning by doing at this point, you've got a great intuition for how rag works and
+
+06:14.150 --> 06:15.890
+why it works and why it's effective.
+
+06:15.920 --> 06:22.070
+You understand about vector embedding and vector data stores, and all of that is in addition to everything
+
+06:22.070 --> 06:27.860
+else we've worked on in the past working with frontier models, AI assistants, using tools, using
+
+06:27.890 --> 06:34.130
+hugging face for open source models, for pipelines tokenizers models, and also choosing the right
+
+06:34.160 --> 06:39.050
+LLM using the various leaderboards like the open LLM leaderboard from Hugging Face.
+
+06:39.470 --> 06:42.230
+So it's a big moment.
+
+06:42.230 --> 06:43.910
+It's very exciting.
+
+06:44.000 --> 06:48.050
+Uh, but next week we start on something completely new.
+
+06:48.080 --> 06:51.380
+We're going to introduce a new commercial project.
+
+06:51.380 --> 06:56.750
+We're going to download a dataset from Hugging Face, and we're going to be curating our data to take
+
+06:56.750 --> 06:58.640
+on something new and exciting.
+
+06:58.640 --> 07:04.280
+That involves moving from the world of inference to the world of training, which is a very big step
+
+07:04.280 --> 07:04.880
+indeed.
+
+07:04.910 --> 07:07.160
+I can't wait, and I'll see you then.

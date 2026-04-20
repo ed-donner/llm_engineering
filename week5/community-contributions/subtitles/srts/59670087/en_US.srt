@@ -1,0 +1,334 @@
+WEBVTT
+
+00:00.350 --> 00:05.270
+And welcome to part four of day two of week eight.
+
+00:05.330 --> 00:11.210
+Uh, there's a lot happening this week, and I have to tell you that this is the heftiest of the parts
+
+00:11.210 --> 00:12.410
+for today.
+
+00:12.530 --> 00:14.900
+Uh, let's get right into it.
+
+00:14.930 --> 00:19.970
+You remember, what we're going to do today is we're going to build some other kinds of prices and put
+
+00:19.970 --> 00:26.690
+them all together to improve the accuracy of our ability to estimate the value of products.
+
+00:26.810 --> 00:31.550
+And again, the reason we're doing this is an opportunity to revise on the various techniques we've
+
+00:31.550 --> 00:36.830
+learned about and solidify some of the learning, um, as well as being a fun exercise.
+
+00:37.070 --> 00:42.920
+Uh, we're going to be using this random forest type of machine learning that we experimented with in
+
+00:42.920 --> 00:43.670
+week six.
+
+00:43.670 --> 00:46.310
+That is a traditional ML, but we're going to be doing it differently.
+
+00:46.310 --> 00:53.510
+We're going to be using the vector embeddings that we have in chroma that are based on the, uh, hugging
+
+00:53.540 --> 01:00.560
+face sentence transformer Vectorizer, which means that we're using Transformers and, uh, traditional
+
+01:00.560 --> 01:01.810
+machine learning together.
+
+01:01.810 --> 01:06.370
+So we'll start by doing some imports and set some constants.
+
+01:06.370 --> 01:13.870
+This time I do remember to set the product vector, store constant, load the environment, load in
+
+01:13.870 --> 01:15.280
+the test data.
+
+01:15.280 --> 01:20.710
+We don't need the training data because it's sitting in Cromer and connect to Cromer itself, to the
+
+01:20.710 --> 01:26.200
+products collection in Cromer that we put in the variable collection and then we load in from Cromer.
+
+01:26.230 --> 01:31.900
+The results, which then gives us our vectors, our documents and our prices.
+
+01:32.530 --> 01:38.170
+So with that we are now going to look at random forests again.
+
+01:38.260 --> 01:42.640
+And you may remember this line which was how we did it last time.
+
+01:42.640 --> 01:45.070
+We train a random forest regressor.
+
+01:45.280 --> 01:50.650
+Uh, this here njobs is how many concurrent processes can run.
+
+01:50.650 --> 01:54.610
+And if you put minus one, it will use up your entire machine.
+
+01:54.610 --> 01:56.290
+It will run a process for every core.
+
+01:56.290 --> 01:58.210
+And it really hammers my box.
+
+01:58.210 --> 02:05.170
+And my M1 Mac takes about an hour to run this and I ran it already, so you should, uh, time it,
+
+02:05.170 --> 02:09.160
+uh, to to fit your box and only use -one inch here.
+
+02:09.160 --> 02:13.450
+If you can afford to step away and let your machine hum for a little bit.
+
+02:13.540 --> 02:21.700
+Once that's done, you can then save the model weights to a file using this useful utility Joblib dot
+
+02:21.700 --> 02:25.660
+dump, which is from again scikit learn.
+
+02:25.660 --> 02:31.570
+And you can then provide a model and then just save it, save those model weights.
+
+02:31.570 --> 02:36.550
+And what I then do is load it back in again so that I don't have to run the hours worth of training.
+
+02:36.910 --> 02:45.820
+Now, what I do here is I load in three agent objects the specialist agent, the frontier agent, and
+
+02:45.820 --> 02:47.560
+the random forest agent.
+
+02:47.590 --> 02:51.370
+Let's take a quick look in the agents folder and look at those.
+
+02:51.400 --> 02:54.460
+The specialist agent is one that we already looked at before.
+
+02:54.460 --> 02:55.450
+We already wrote this.
+
+02:55.450 --> 02:57.970
+This is Productionized code.
+
+02:58.060 --> 03:04.470
+Uh, that is uh, basically in the init in the in the constructor for the specialized agent, we use
+
+03:04.470 --> 03:05.820
+the we call modal.
+
+03:05.850 --> 03:08.100
+By saying modal class lookup.
+
+03:08.100 --> 03:13.470
+And we provide our service name and class name and we instantiate that class.
+
+03:13.470 --> 03:19.320
+And then when we're actually calling this to price, we simply say self dot price dot price, which
+
+03:19.320 --> 03:22.170
+is the function, the modal function dot remote.
+
+03:22.170 --> 03:24.300
+And that you'll remember is how we tell modal.
+
+03:24.300 --> 03:25.410
+We don't want to run this locally.
+
+03:25.410 --> 03:30.960
+We want to call out to the cloud, run it remotely and bring back the results, and then it returns
+
+03:30.960 --> 03:31.230
+it.
+
+03:31.230 --> 03:34.350
+So this is the specialist agent that we looked at before.
+
+03:34.380 --> 03:40.560
+If we look at the frontier agent you'll see what's here is the code that we went through last time as
+
+03:40.560 --> 03:47.310
+I said polished up, made to look nice with comments with the parameters are identified.
+
+03:47.310 --> 03:48.570
+There's docstring.
+
+03:48.600 --> 03:50.130
+There's the docstrings here.
+
+03:50.130 --> 03:54.330
+There's type hinting to describe what kinds of objects we're working with.
+
+03:54.570 --> 04:00.600
+And this is the kind of process that you would go through to take code from being Jupyter Notebook code
+
+04:00.600 --> 04:02.400
+to being ready for production.
+
+04:02.400 --> 04:08.750
+And typically you wouldn't write this in JupyterLab, you would be doing this in an IDE like VSCode
+
+04:08.750 --> 04:10.970
+or PyCharm is my favorite.
+
+04:11.240 --> 04:15.500
+And you would build it there because it will do things like help you with the type hints and fill in
+
+04:15.500 --> 04:16.520
+some of this gumpf.
+
+04:16.880 --> 04:19.730
+But you can you can use JupyterLab if you wish.
+
+04:20.030 --> 04:22.730
+Um, so this is the frontier agent.
+
+04:22.730 --> 04:27.410
+And now if I look at the random forest agent, this is super simple.
+
+04:27.410 --> 04:33.800
+In the constructor, we first of all create our the sentence transformer, the model that we use to
+
+04:33.830 --> 04:35.180
+create a vector.
+
+04:35.180 --> 04:39.170
+And then we load in the model that we just saved a second ago.
+
+04:39.530 --> 04:46.100
+Uh, and then when it comes to the actual doing and inference running a price, uh, what we do is we
+
+04:46.100 --> 04:51.770
+first take the description that's passed in the description of our product, we encode it into a vector.
+
+04:51.770 --> 04:55.430
+And then we call self dot model.predict with that vector.
+
+04:55.430 --> 04:59.840
+And that gives us our random forest results and we return it.
+
+05:00.200 --> 05:01.280
+It's as simple as that.
+
+05:01.280 --> 05:03.200
+You'll see I do a max of zero here.
+
+05:03.200 --> 05:07.390
+I suggest that I floor it at zero so it can't return negative numbers.
+
+05:07.390 --> 05:08.950
+I don't know if if it would or not.
+
+05:08.980 --> 05:14.860
+I think I might have seen it in an earlier version, and so that seemed like a sensible precaution to
+
+05:14.890 --> 05:15.160
+take.
+
+05:15.190 --> 05:17.470
+We don't want it predicting negative prices.
+
+05:18.010 --> 05:18.880
+Okay.
+
+05:18.880 --> 05:23.530
+So anyways that is the those are the the agents.
+
+05:23.590 --> 05:26.410
+We can then instantiate those agents.
+
+05:26.440 --> 05:31.600
+Now this function here description is exactly the same as we did in the last one.
+
+05:31.600 --> 05:39.880
+We simply take the item and we take its prompt and we pull out the to the nearest dollar.
+
+05:39.910 --> 05:41.770
+The the introductory text the header.
+
+05:41.770 --> 05:44.110
+And we also pull away the prices dollars.
+
+05:44.110 --> 05:48.670
+So we just get back to the blurb itself, the simple description of the product.
+
+05:49.030 --> 05:55.960
+Um, and with that in mind, we can now have a function, uh, RF, which is randomforest, which will
+
+05:55.960 --> 06:02.290
+take an item, turn it into a description, call our Randomforest agent price to price.
+
+06:02.290 --> 06:03.010
+It.
+
+06:03.010 --> 06:08.800
+Uh, and with that in mind, You, of course, remember our great test harness tester test.
+
+06:08.830 --> 06:15.130
+We can now test this with 250 data points and see how the random forest performs.
+
+06:15.190 --> 06:16.420
+Here we go.
+
+06:17.020 --> 06:19.090
+There's quite a lot of red in there.
+
+06:19.720 --> 06:20.710
+You remember last time?
+
+06:20.740 --> 06:22.870
+It got about 97, I think.
+
+06:23.260 --> 06:25.030
+Uh, let's see how it does.
+
+06:26.800 --> 06:30.400
+Uh, and it's, in fact, just a hair worse than it was last time.
+
+06:30.400 --> 06:31.900
+But obviously this is super close.
+
+06:31.900 --> 06:33.340
+It's basically the same.
+
+06:33.370 --> 06:41.140
+So the random forest, given, uh, these improved vectors versus the word two vec vectors, gives essentially
+
+06:41.140 --> 06:42.550
+the same number.
+
+06:42.550 --> 06:44.590
+And you can see visually it's doing okay.
+
+06:44.620 --> 06:46.960
+There's a sort of a wrong slope here.
+
+06:46.960 --> 06:50.260
+And uh, some problem uh, um, over there.
+
+06:50.260 --> 06:52.030
+But generally speaking, it's done.
+
+06:52.030 --> 06:52.690
+Laudably.
+
+06:52.690 --> 06:56.410
+Well, uh, not like our recent models though.
+
+06:56.680 --> 06:59.170
+So that is the random forest.
+
+06:59.170 --> 07:05.260
+And in the next video, we are going to move to the ensemble model that brings everything together.
+
+07:05.290 --> 07:06.550
+I will see you there.
