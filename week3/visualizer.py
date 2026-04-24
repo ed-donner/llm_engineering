@@ -99,6 +99,7 @@ def create_token_graph(model_name: str, predictions: List[Dict]) -> nx.DiGraph:
             G.add_edge(parent_token, alt_id)
             last_id = parent_token
 
+    last_id = f"t{len(predictions) - 1}" if predictions else "START"
     G.add_node("END", token="END", prob="100%", color="red", size=6000)
     G.add_edge(last_id, "END")
 
