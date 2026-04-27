@@ -51,12 +51,7 @@ After we do the Ollama quick project, and after I introduce myself and the cours
 
 Hopefully I've done a decent job of making these guides bulletproof - but please contact me right away if you hit roadblocks:
 
-NEW INSTRUCTIONS for new version of the course (rolled out October 2025): [New Setup Instructions All Platforms](setup/SETUP-new.md)
-
-ORIGINAL INSTRUCTIONS for people on the version prior to October 2025:  
-- PC people please follow the instructions here: [Original PC instructions](setup/SETUP-PC.md)
-- Mac people please follow the instructions here: [Original Mac instructions](setup/SETUP-mac.md)  
-- Linux people please follow the instructions here: [Original Linux instructions](setup/SETUP-linux.md)
+Setup instructions: [Setup Instructions All Platforms](setup/SETUP-new.md)
 
 ### An important point on API costs (which are optional! No need to spend if you don't wish)
 

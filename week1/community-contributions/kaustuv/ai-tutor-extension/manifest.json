@@ -1,0 +1,23 @@
+{
+  "manifest_version": 3,
+  "name": "AI Writing Tutor",
+  "version": "1.9",
+  "permissions": ["storage", "activeTab", "scripting"],
+  "host_permissions": [
+    "http://127.0.0/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://onedrive.live.com/*","https://word-edit.officeapps.live.com/*"
+      ],
+      "js": ["content.js"],
+      "all_frames": true,
+      "match_about_blank": true,
+      "run_at": "document_start"
+    }
+  ]
+}
