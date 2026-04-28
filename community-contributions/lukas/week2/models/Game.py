@@ -1,4 +1,3 @@
-import litellm
 import os
 import re
 
@@ -60,36 +59,16 @@ class Game:
                                             prompt_extensions=self.user_prompt_extensions)
         self.agents = await factory.generate(models=self.model_ids, agent_count=self.agents_count)
 
-        for _, piece_of_text in helper.pretend_streaming(self.history):
+        async for _, piece_of_text in helper.pretend_streaming(self.history):
             yield _, piece_of_text
 
-
-        # self.history = (
-        #     "**DM**: *Our heroes are standing in front of a mysteriously looking cave experiencing some strange noise from inside. "
-        #     "Due to darkness they cannot see what makes the noise. Trick or Treat? They have started to talk what to do...*\n\n")
-        #spending = {}
-
-        # history = [{
-        #     "role": "user",
-        #     "content":
-        # }]
-        # self.messages = [
-        #     {"role": "system", "content": self.system_prompt}
-        # ]
-        # response = openai.chat.completions.create(model=MODEL, messages=messages, tools=tools)
-
         for agent in self.agents:
-            # agent = next(self.agents)
             print(f"Let agent {agent.name} meet the team.")
             agent.meet_heroic_team(self.agents, self.system_prompt)
             agent.meet_heroic_actions()
-            # the function above iterated whole collection (pointer is now set to last agent before current)
-            # - call another next() to move pointer to current and allow to start with following agent in upcoming loop
-            # next(self.agents)
 
-        # self.messages.append({'role': 'user', 'content': self.history})
-
-        for i in range(turns):
+        i = 0
+        while i < turns:
             if i > turns:
                 # test of early game ending (chapter/scene solved and so there is no need for further actions)
                 break
@@ -99,14 +78,14 @@ class Game:
                 if self.history_postponed:
                     if agent.ID == self.history_postponed.get('show_before'):
                         self.history += self.history_postponed['msg'] + "\n\n"
-                    # if team_msg := self.history_postponed.get('team_msg'):
-                    #     # team message is sent to all agents
-                    #     for a in self.agents:
-                    #         a.listen({'role': 'user', 'content': team_msg})
-                    # if remaining_turns := self.history_postponed.get('turns_to_end'):
-                    #     # decrease count of turns to stop earlier
-                    #     turns = i + remaining_turns if i + remaining_turns < turns else turns
-                    #     print(f"Game-stop event encountered (task solved), game is going to end in turn {turns+1}.")
+                    if team_msg := self.history_postponed.get('team_msg'):
+                        # team message is sent to all agents
+                        for a in self.agents:
+                            a.listen({'role': 'user', 'content': team_msg})
+                    if remaining_turns := self.history_postponed.get('turns_to_end'):
+                        # decrease count of turns to stop earlier
+                        turns = i + remaining_turns if i + remaining_turns < turns else turns
+                        print(f"Game-stop event encountered (task solved), game is going to end in turn {turns+1}.")
                     # clear history
                     self.history_postponed = {}
                 for spending, a_chunk in agent.talk():
@@ -125,5 +104,7 @@ class Game:
 
                 if msg.get('content'):
                     for teammate in [teammate for teammate in self.agents if teammate.ID != agent.ID]:
-                        teammate.listen(msg)
+                        teammate.listen(msg.copy())
+            i += 1
+
 

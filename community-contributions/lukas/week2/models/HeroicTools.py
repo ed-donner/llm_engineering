@@ -1,7 +1,6 @@
 import json
 
 from litellm import completion
-from typing import Type
 
 class HeroicTools:
     """
@@ -189,7 +188,7 @@ class HeroicTools:
                        'content': f"Consider if the given character: '{character}' is somehow able to do following action: '{question}'"}]
         )
         print(
-            f"TOOLS - multi agentic: (_is_action_allowed) result is {res.choices[0].message.content.lower()} for {question} and {character}")
+            f"TOOLS - _is_action_allowed result is '{res.choices[0].message.content.upper()}' for '{question}' and '{character[:30]}...'")
 
         return True if res.choices[0].message.content.lower() == 'yes' else False
 
@@ -199,7 +198,7 @@ class HeroicTools:
         """
         if bag_ferret := self._get_agent(agent_id, agent_name):
             return bag_ferret.get_inventory_content(with_prompt=True, inform_others=inform_others, is_tool=True)
-        return (f"For God's sake {bag_ferret.name} is currently not able to examine own baggage to get inventory "
+        return (f"For God's sake {agent_name} is currently not able to examine own baggage to get inventory "
                 f"content but can try it later again.")
 
     def give_tool(self, subject:str, donor_id:str, receiver_id:str, donor_name:str='', receiver_name:str=''):
@@ -219,7 +218,7 @@ class HeroicTools:
             if not a_donor.has_in_inventory(subject):
                 return f"Handover of {subject} from {donor_name} to {receiver_name} has failed because there is no {subject} in {donor_name}'s inventory."
             a_donor.remove_from_inventory(subject.lower())
-            a_receiver.add_to_inventory(subject.lower())
+            a_receiver.add_to_inventory(subject.lower(), with_message=False)
             return f"{receiver_name} now holds the {subject}."
         return f"Handover of {subject} from {donor_name} to {receiver_name} has failed. {donor_name} still keeps the {subject}"
 
@@ -231,17 +230,19 @@ class HeroicTools:
         :param agent_name: Agent's name
         :return: A dict of available spells or a string information about inability to use the spellbook
         """
-        curious_reader = self._get_agent(agent_id, agent_name)
-        if not curious_reader.has_in_inventory("spellbook"):
-            print(f"TOOLS (get_spell) {agent_name} does not have spellbook in inventory and cannot list spells.")
-            return f"{curious_reader.name} does not have spellbook in inventory and cannot list spells. {curious_reader.name} must ask the owner for handover first."
+        if curious_reader := self._get_agent(agent_id, agent_name):
+            if not curious_reader.has_in_inventory("spellbook"):
+                print(f"TOOLS (get_spell) {agent_name} does not have spellbook in inventory and cannot list spells.")
+                return f"{curious_reader.name} does not have spellbook in inventory and cannot list spells. {curious_reader.name} must ask the owner for handover first."
 
-        print(f"TOOLS (get_spell) {agent_name} is trying to list spells")
-        question = "Cast a spell from a spellbook" + f" having special description: {self.spellbook['description']}" if self.spellbook['description'] else ""
-        if is_spellcaster := self._is_action_allowed(curious_reader.initial_character_description, question):
-            print(f"TOOLS (get_spell) {agent_name} ability of spellbook usage is {is_spellcaster}")
-            return str(self.spellbook['content'])
-        return f"{agent_name} is not able to read spellbook and list spells. The magic barrier is too strong. Offer spellbook to one of your teammate."
+            print(f"TOOLS (get_spell) {agent_name} is trying to list spells")
+            question = "Cast a spell from a spellbook" + (f" having special description: "
+                                                          f"{self.spellbook['description']}") if len(self.spellbook['description']) > 0 else ""
+            if is_spellcaster := self._is_action_allowed(curious_reader.initial_character_description, question):
+                print(f"TOOLS (get_spell) {agent_name} ability of spellbook usage is {is_spellcaster}")
+                return str(self.spellbook['content'])
+            return f"{agent_name} is not able to read spellbook and list spells. The magic barrier is too strong. Offer spellbook to one of your teammate."
+        return f"No spellbook is available for {agent_name}"
 
     def cast_spell(self, spell, wizard_id, wizard_name):
         """
@@ -252,41 +253,42 @@ class HeroicTools:
         :return: The result of the spell cast
         """
         print(f"TOOLS (cast_spell) {wizard_name} is casting a spell {spell}")
-        wizard = self._get_agent(wizard_id, wizard_name)
-        if spell == "light":
-            msg = (f"**DM**:*{wizard_name} casted spell of light and now everyone can see that there is a single "
-                   f"Almiraj - small and cute unicorn rabbit who is definitely rather scared than scaring and making "
-                   f"noise to ward off our heroes.\nFear is more often caused by the darkness than by anything "
-                   f"hidden inside it.*")
-            # process final scene (DM is a "fake" character, so the stop event must contain also DM's message)
-            # - team_message will be sent to all heroic agents and count of turn decreased to end the game
-            wizard.game.history_postponed = {
-                'msg': msg,
-                'show_before': wizard_id,
-                'team_msg': 'You have solved your cave adventure and may continue in your journey. '
-                            'Tell something epic, funny or wise for the last page in this chapter.',
-                'turns_to_end': 1
-            }
-            return msg
-        elif spell == "lightning":
-            msg = (f"**DM**:*{wizard_name} casted lightning spell and in the moment the bright shinning lightning "
-                   f"touched the stoned portal of the cave, the portal and whole ceiling of the cave collapsed "
-                   f"with a breath taking noise and clouds of dust. The attack buried anything hidden in the darkness. "
-                   f"Fear is too often solved by an act of violence than by an act of courage.*")
-            wizard.game.history_postponed = {
-                'msg': msg,
-                'show_before': wizard_id,
-                'team_msg': 'You have solved your cave adventure by destroying the cave and may continue in your '
-                            'journey. Tell something wise, ironic or bloodthirsty for the last page in this chapter.',
-                'turns_to_end': 1
-            }
-            return msg
-        elif spell == "sense":
-            # leave casting this spell without forced game end to see what happens
-            return (f"{wizard_name} has casted a spell of sense and now feels that there is some tiny "
-                    f"but extremely noisy animal in the cave.{wizard_name} cannot say what kind of animal it is.")
-        else:
-            return f"Unknown spell type {spell} casted from {wizard_name} - attempt to cast unknown spell has failed."
+        if wizard := self._get_agent(wizard_id, wizard_name):
+            if spell == "light":
+                msg = (f"**DM**:*{wizard_name} casted spell of light and now everyone can see that there is a single "
+                       f"Almiraj - small and cute unicorn rabbit who is definitely rather scared than scaring and making "
+                       f"noise to ward off our heroes.\nFear is more often caused by the darkness than by anything "
+                       f"hidden inside it.*")
+                # process final scene (DM is a "fake" character, so the stop event must contain also DM's message)
+                # - team_message will be sent to all heroic agents and count of turn decreased to end the game
+                wizard.game.history_postponed = {
+                    'msg': msg,
+                    'show_before': wizard_id,
+                    'team_msg': 'You have solved your cave adventure and may continue in your journey. '
+                                'Tell something epic, funny or wise for the last page in this chapter.',
+                    'turns_to_end': 1
+                }
+                return msg
+            elif spell == "lightning":
+                msg = (f"**DM**:*{wizard_name} casted lightning spell and in the moment the bright shinning lightning "
+                       f"touched the stoned portal of the cave, the portal and whole ceiling of the cave collapsed "
+                       f"with a breath taking noise and clouds of dust. The attack buried anything hidden in the darkness. "
+                       f"Fear is too often solved by an act of violence than by an act of courage.*")
+                wizard.game.history_postponed = {
+                    'msg': msg,
+                    'show_before': wizard_id,
+                    'team_msg': 'You have solved your cave adventure by destroying the cave and may continue in your '
+                                'journey. Tell something wise, ironic or bloodthirsty for the last page in this chapter.',
+                    'turns_to_end': 1
+                }
+                return msg
+            elif spell == "sense":
+                # leave casting this spell without forced game end to see what happens
+                return (f"{wizard_name} has casted a spell of sense and now feels that there is some tiny "
+                        f"but extremely noisy animal in the cave.{wizard_name} cannot say what kind of animal it is.")
+            else:
+                return f"Unknown spell type {spell} casted from {wizard_name} - attempt to cast unknown spell has failed."
+        return f"Spell {spell} failed: wizard {wizard_name} not found."
 
     def handle_tool_calls(self, message, agent):
         """

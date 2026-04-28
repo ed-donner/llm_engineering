@@ -30,9 +30,9 @@ class AgentFactory:
         [
             {
                 "name": "name of character",
-                "class": "character's class name"
+                "class": "character's class name",
                 "description": "summary of character",
-                "inventory": ["object1", "object2"],"
+                "inventory": ["object1", "object2"]
             }
         ]
         When there is no object in inventory, return empty list "inventory": [].
@@ -46,7 +46,7 @@ class AgentFactory:
         try:
             scaffolded_agent = enriched_agent[0]
             prompt_extension = enriched_agent[1]
-            print("Starting with", enriched_agent[1]['public'][:min(len(enriched_agent[1]['public']), 50)]+'...')
+            print("Starting with", enriched_agent[1]['public'][:50]+'...')
 
             response = await litellm.acompletion(
                 model="openai/gpt-5-mini",
@@ -75,8 +75,8 @@ class AgentFactory:
                 scaffolded_agent['model_id'],
                 scaffolded_agent['name'],
                 scaffolded_agent['prompt'],
-                scaffolded_agent['private_prompt'] or None,
-                scaffolded_agent['inventory'] or None,
+                scaffolded_agent.get('private_prompt', None),
+                scaffolded_agent.get('inventory', None)
             )
         except litellm.exceptions.BadRequestError as e:
             print(f"BadRequestError in AgentFactory.process_character_description\nError details: {e.args}")

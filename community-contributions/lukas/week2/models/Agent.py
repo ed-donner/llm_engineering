@@ -11,7 +11,7 @@ class Agent:
     """
     def __init__(self, assigned_game, model_id:str, name:str, prompt:str, private_prompt:str=None, inventory:list[str]|None=None):
         """
-        
+        Initializes the agent.
         """
         self.ID = str(uuid4())
         self.name = name
@@ -25,20 +25,27 @@ class Agent:
                          {"role": "user", "content": prompt.replace("<<ID>>", self.ID) + " You should use tools from your inventory if you have any. Also you could ask for inventory content or a tool or object from any teammate."}]
         self.game = assigned_game
         self.tools_to_use = None
-
         if private_prompt:
             self.messages.append({"role": "user", "content": f"<private>{private_prompt}</private>"})
-
         if inventory:
             for item in inventory:
                 self.add_to_inventory(item)
 
-    def add_to_inventory(self, stuff:str):
+    def add_to_inventory(self, stuff:str, with_message:bool=True):
+        """
+        Add new object into the inventory.
+        :param stuff: object that is being added to agent's inventory
+        :param with_message: if True then generate user message and append it to messages to inform agent
+            about inventory change. In case an object is given into inventory via Tool/function use
+            then the LLM Tooling mechanism already provides message within tool block and the user message would be
+            redundant and for some models (Claude) even error-causing - for such cases the value is False.
+        """
         self.inventory.append(stuff.lower())
-        self.messages.append({
-            "role": "user",
-            "content": f"{stuff.capitalize()} has been added to {self.name}'s inventory "
-                       f"and {self.name} can use it from now."})
+        if with_message:
+            self.messages.append({
+                "role": "user",
+                "content": f"{stuff.capitalize()} has been added to {self.name}'s inventory "
+                           f"and {self.name} can use it from now."})
 
     def remove_from_inventory(self, stuff:str):
         self.inventory.remove(stuff)
@@ -49,6 +56,11 @@ class Agent:
     def get_inventory_content(self, with_prompt:bool=False, inform_others:bool=False, is_tool:bool=False) -> list[str]:
         """
         Get content of inventory and eventually append private/public message to agent's messages
+        :param with_prompt: if True then generate user message and append it to messages
+        :param inform_others: if True then shar the message among all agents
+        :param is_tool: for tool calls no user message may be appended to messages (tool block and function return
+            values secures response/message without explicit user message and in some cases even the user message
+            would break tool block functionality)
         """
         if with_prompt:
             if not self.inventory:
@@ -96,7 +108,7 @@ class Agent:
             order = "first" if i == 0 else "second" if i == 1 else "third" if i == 2 else f"{i+1}th"
             self.messages.append({
                 "role": "user",
-                "content": f"Your {order} teammate names {teammate.initial_character_description.replace("Your name is", "")}. "
+                "content": f"Your {order} teammate names {teammate.initial_character_description.replace('Your name is', '')}. "
                            f"Your teammate's id is {teammate.ID}"})
 
     def listen(self, message):
@@ -117,7 +129,7 @@ class Agent:
         """
         Generate output (completion), with tool call processing
         """
-
+        litellm.success_callback = [self.track_costs]
         # litellm._turn_on_debug()
         try:
             current_turn_history = ''
@@ -129,9 +141,7 @@ class Agent:
                     tools=self.tools_to_use,
                     num_retries=3
             ):
-                litellm.success_callback = [self.track_costs]
-
-                while chunk.choices[0].finish_reason == "tool_calls": # TODO - pokud je finish_reason "stop" a chunk_choices[0] obsahuje message, pak zajistit, abz se dostala do chatu i messages ostatnich agentu - ted je tam asi jen obsah inventare, TIP - mozna by stacilo pridat message do responses?
+                while chunk.choices[0].finish_reason == "tool_calls":
                     message = chunk.choices[0].get('message', False)
                     if message:
                         self.messages.append(message)
@@ -155,7 +165,6 @@ class Agent:
             if current_turn_history:
                 self.history += f"{current_turn_history}"
                 self.messages.append({"role": "assistant", "content": current_turn_history})
-            # litellm.success_callback = [self.track_costs]
             return self.messages[-1]
         except litellm.exceptions.BadRequestError as e:
             print(f"BadRequestError in {self.name.replace(' ', '_')}.talk() with messages {self.messages}\n"

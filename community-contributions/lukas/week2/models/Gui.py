@@ -36,4 +36,4 @@ class Gui:
         return blck
 
     def run(self):
-        self.gui().launch()
+        self.gui().launch(inbrowser=True)

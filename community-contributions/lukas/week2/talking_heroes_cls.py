@@ -13,17 +13,17 @@ def main():
     # information (not shared among agents...unless agent's mouth "decides" to share)
     user_prompt_extensions = [
         {'public': "Character is a kind-natured snarky joker.",
-         'private': f"Task of this character is to persuade teammates to find any other way into the cave, "
-                    f"because character feels that the main entrance is a trap."},
+         'private': "Task of this character is to persuade teammates to find any other way into the cave, "
+                    "because character feels that the main entrance is a trap."},
         {'public': "Character is wise but pragmatic speaker.",
-         'private': f"Task of this character is to persuade teammates to leave the cave, go to the nearest village "
-                    f"and help anyone in need. It may improve team karma better than to attack some creatures "
-                    f"and get their treasures."},
+         'private': "Task of this character is to persuade teammates to leave the cave, go to the nearest village "
+                    "and help anyone in need. It may improve team karma better than to attack some creatures "
+                    "and get their treasures."},
         {'public': "Character commonly does not care about someone else's feelings or fears, but knows "
                    "that the teamwork requires democratic agreements, which is boring but also often life-saving.",
-         'private': f"The goal the character wants the most is to run directly inside the cave, brutally attack "
-                    f"anything inside and in the end to stand on a heap of defeated creatures with victorious smile "
-                    f"shining brighter than Sun reflecting admiringly from his oiled muscles. Business as usual."}
+         'private': "The goal the character wants the most is to run directly inside the cave, brutally attack "
+                    "anything inside and in the end to stand on a heap of defeated creatures with victorious smile "
+                    "shining brighter than Sun reflecting admiringly from his oiled muscles. Business as usual."}
     ]
 
     # model ids to use
