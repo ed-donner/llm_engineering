@@ -1,0 +1,64 @@
+from flask import Flask, request, render_template_string
+from openai import OpenAI
+import markdown
+
+app = Flask(__name__)
+
+openai = OpenAI(base_url="http://localhost:11434/v1", api_key="ollama")
+
+HTML_TEMPLATE = """
+<!DOCTYPE html>
+<html>
+<head>
+    <title>LLM Chat</title>
+    <style>
+        body { font-family: Arial; padding: 30px; }
+        .container { max-width: 700px; margin: auto; }
+        .box { background: #f5f5f5; padding: 15px; border-radius: 10px; margin-top: 20px; }
+        input[type=text] { width: 80%; padding: 10px; }
+        button { padding: 10px 15px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Ask AI</h2>
+
+        <form method="POST">
+            <input type="text" name="user_input" placeholder="Type your message..." required>
+            <button type="submit">Send</button>
+        </form>
+
+        {% if response %}
+            <div class="box">
+                <b>Response:</b><br><br>
+                {{ response|safe }}
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>
+"""
+
+@app.route("/", methods=["GET", "POST"])
+def home():
+    response_text = ""
+
+    if request.method == "POST":
+        user_input = request.form.get("user_input")
+
+        messages = [
+            {"role": "system", "content": "you are a helpful assistant that can return html formatted responses"},
+            {"role": "user", "content": user_input}
+        ]
+
+        response = openai.chat.completions.create(
+            model="llama3.2:1b",
+            messages=messages
+        )
+
+        response_text = markdown.markdown(response.choices[0].message.content)
+
+    return render_template_string(HTML_TEMPLATE, response=response_text)
+
+if __name__ == "__main__":
+    app.run(debug=True)
