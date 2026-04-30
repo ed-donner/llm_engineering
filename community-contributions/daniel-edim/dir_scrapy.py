@@ -1,21 +1,15 @@
-import base64
 import json
 import os
 import time
-from concurrent.futures import ThreadPoolExecutor, as_completed
 
 TEXT_EXTENSIONS = {
-    ".py", ".ipynb", ".md", ".txt", ".rst", ".csv", ".tsv",
-    ".json", ".yaml", ".yml", ".toml", ".cfg", ".ini", ".env",
-    ".html", ".htm", ".css", ".js", ".ts", ".jsx", ".tsx",
-    ".sh", ".bash", ".zsh", ".bat", ".ps1", ".sql",
-    ".r", ".R", ".jl", ".go", ".java", ".c", ".cpp",
-    ".h", ".hpp", ".cs", ".rb", ".php", ".xml", ".svg",
+    ".py", ".ipynb", ".md", ".txt"
 }
 
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 DEFAULT_SCAN_ROOT = os.path.dirname(SCRIPT_DIR)
 DEFAULT_OUTPUT_FILE = os.path.join(SCRIPT_DIR, "repo_tree.json")
+DUMP_KWARGS = {"ensure_ascii": False, "indent": 2}
 
 
 def scrape_local(
@@ -41,6 +35,7 @@ def scrape_local(
         raise ValueError(f"Cannot find local folder: {root_path}")
 
     files_read = 0
+    tree = {}
 
     # ── Read a single file's content ──────────────────────────────────────────
     def read_file(file_path, rel_path):
@@ -55,23 +50,16 @@ def scrape_local(
         try:
             with open(file_path, "rb") as f:
                 raw = f.read()
-            ext = os.path.splitext(file_name.lower())[1]
-            if ext in TEXT_EXTENSIONS:
-                try:
-                    node["encoding"] = "utf-8"
-                    node["content"]  = raw.decode("utf-8")
-                except UnicodeDecodeError:
-                    node["encoding"] = "base64"
-                    node["content"]  = base64.b64encode(raw).decode()
-            else:
-                node["encoding"] = "base64"
-                node["content"]  = base64.b64encode(raw).decode()
+            node["encoding"] = "utf-8"
+            node["content"] = raw.decode("utf-8")
             files_read += 1
             print(f"  ✓ {rel_path}")
+        except UnicodeDecodeError:
+            print(f"  ↷ skipped (not utf-8) {rel_path}")
+            return None
         except Exception as e:
-            node["encoding"] = "error"
-            node["content"]  = str(e)
             print(f"  ✗ {rel_path} ({e})")
+            return None
         return node
 
     # ── Recursively build the tree ────────────────────────────────────────────
@@ -83,40 +71,41 @@ def scrape_local(
             key=str.lower,
         )
         files = sorted(
-            [e for e in entries if os.path.isfile(os.path.join(current_abs_path, e))],
+            [
+                e for e in entries
+                if os.path.isfile(os.path.join(current_abs_path, e))
+                and os.path.splitext(e.lower())[1] in TEXT_EXTENSIONS
+            ],
             key=str.lower,
         )
 
-        with ThreadPoolExecutor(max_workers=5) as ex:
-            futures = {}
-            for f in files:
-                file_abs = os.path.join(current_abs_path, f)
-                file_rel = f"{current_rel_path}/{f}" if current_rel_path else f
-                futures[ex.submit(read_file, file_abs, file_rel)] = f
-            file_nodes = []
-            for ft in as_completed(futures):
-                file_nodes.append(ft.result())
-            file_nodes.sort(key=lambda n: n["name"].lower())
-
-        dir_nodes = []
-        for d in dirs:
-            next_abs = os.path.join(current_abs_path, d)
-            next_rel = f"{current_rel_path}/{d}" if current_rel_path else d
-            dir_nodes.append(build_tree(next_abs, next_rel, depth + 1))
-
-        return {
+        current_node = {
             "type":     "dir",
             "name":     os.path.basename(current_abs_path),
             "path":     current_rel_path,
             "local_path": current_abs_path,
-            "children": dir_nodes + file_nodes,
+            "children": [],
         }
+
+        for f in files:
+            file_abs = os.path.join(current_abs_path, f)
+            file_rel = f"{current_rel_path}/{f}" if current_rel_path else f
+            file_node = read_file(file_abs, file_rel)
+            if file_node is None:
+                continue
+            current_node["children"].append(file_node)
+
+        for d in dirs:
+            next_abs = os.path.join(current_abs_path, d)
+            next_rel = f"{current_rel_path}/{d}" if current_rel_path else d
+            dir_node = build_tree(next_abs, next_rel, depth + 1)
+            current_node["children"].append(dir_node)
+
+        return current_node
 
     print(f"🔍 Scraping local folder: {root_path}\n")
 
     start = time.time()
-    tree = {}
-
     tree = build_tree(root_path)
 
     elapsed = time.time() - start
@@ -125,7 +114,8 @@ def scrape_local(
 
     if output_file and tree:
         with open(output_file, "w", encoding="utf-8") as f:
-            json.dump(tree, f, ensure_ascii=False, indent=2)
-        print(f"💾 Saved → {output_file}  ({os.path.getsize(output_file) / 1024:,.1f} KB)")
+            json.dump(tree, f, **DUMP_KWARGS)
+        final_size = os.path.getsize(output_file)
+        print(f"💾 Saved → {output_file}  ({final_size / (1024 * 1024):,.2f} MB)")
 
     return tree
