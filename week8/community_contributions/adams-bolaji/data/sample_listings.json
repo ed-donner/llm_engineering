@@ -1,0 +1,27 @@
+[
+  {
+    "description": "3 bed, 2 bath, 1850 sqft single-family home in Oakwood. Updated kitchen, hardwood floors, fenced yard.",
+    "asking_price": 285000,
+    "url": "https://example.com/listings/oakwood-123"
+  },
+  {
+    "description": "4 bed, 3 bath, 2200 sqft in Riverside Estates. New HVAC 2023, open floor plan, master suite.",
+    "asking_price": 345000,
+    "url": "https://example.com/listings/riverside-456"
+  },
+  {
+    "description": "2 bed, 1.5 bath, 1200 sqft condo in Downtown. Granite counters, in-unit laundry, gym access.",
+    "asking_price": 195000,
+    "url": "https://example.com/listings/downtown-789"
+  },
+  {
+    "description": "5 bed, 4 bath, 3200 sqft executive home in Lakeview. Pool, finished basement, 3-car garage.",
+    "asking_price": 525000,
+    "url": "https://example.com/listings/lakeview-101"
+  },
+  {
+    "description": "3 bed, 2 bath, 1600 sqft ranch in suburban Meadowbrook. One-owner, large lot, move-in ready.",
+    "asking_price": 265000,
+    "url": "https://example.com/listings/meadowbrook-202"
+  }
+]
