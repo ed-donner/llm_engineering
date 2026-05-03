@@ -6,8 +6,7 @@ Build one Gradio app that generates synthetic finance datasets.
 
 Core pipeline:
 
-Open-source HuggingFace model -> rough JSON  
-GPT/frontier model -> repair and validate JSON  
+Open-source HuggingFace or GPT/frontier model -> rough JSON (and then there's some code to validate this json)
 Python -> DataFrame and CSV  
 Gradio -> user interface
 
