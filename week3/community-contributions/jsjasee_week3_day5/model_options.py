@@ -1,8 +1,15 @@
+# Add more models here!
+
 MODEL_OPTIONS = {
     "qwen_72b": {
         "label": "Qwen 2.5 72B Instruct",
         "provider": "huggingface",
         "model_name": "Qwen/Qwen2.5-72B-Instruct",
+    },
+    "qwen3_4b": {
+        "label": "Qwen 3.0 4B Instruct",
+        "provider": "huggingface",
+        "model_name": "Qwen/Qwen3-4B-Instruct-2507",
     },
     "gpt_4_1_mini": {
         "label": "GPT-4.1 mini",
