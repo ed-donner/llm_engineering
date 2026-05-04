@@ -1,0 +1,8 @@
+openai
+gradio
+pypdf
+pdfplumber
+python-docx
+reportlab
+python-dotenv
+numpy<2
