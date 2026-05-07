@@ -1,0 +1,120 @@
+Meeting Transcript — Extended Example
+Date: 2026-05-07
+Time: 10:00 AM — 12:00 PM (UTC)
+Location: Zoom
+Attendees: Yuri (Host), Alex, Priya, Sam, Jordan, Mia, Carlos, Nia
+
+Agenda:
+- Project status updates
+- Review next sprint goals
+- Risks, blockers, and mitigation
+- QA and staging readiness
+- Documentation and runbook items
+- Action items and owners
+- Any other business
+
+00:00:00 — Yuri: Welcome, everyone. Quick roll call, then we’ll go through updates and the agenda.
+00:00:10 — Alex: Alex here — ingestion and pipelines owner.
+00:00:15 — Priya: Priya here — model training and evaluation.
+00:00:20 — Sam: Sam here — dashboards and telemetry.
+00:00:25 — Jordan: Jordan here — infra and deployments.
+00:00:30 — Mia: Mia here — product and prioritization.
+00:00:35 — Carlos: Carlos — security and compliance.
+00:00:40 — Nia: Nia — QA and test automation.
+
+00:02:00 — Yuri: Alex, five-minute status on the ingestion work please.
+00:02:10 — Alex: We completed the Kafka connector for the new sources and are validating schema compatibility. Throughput is close to target, but we've observed occasional message reordering under stress tests at 10k msg/s. I propose adding sequence IDs at the producer and adding a de-dupe/ordering step in the consumer in the short term. I can prototype sequence IDs and a lightweight consumer reorder buffer this week.
+
+00:05:30 — Mia: On priority, product wants ingestion to be resilient before we enable the new sources in production. Can you estimate risk and time to prototype?
+00:05:40 — Alex: Prototype by Friday with a test harness; small backward-compatible change. Full rollout strategy will need a feature flag.
+
+00:08:00 — Priya: Fine-tuning update: lowering the learning rate reduced instability. Best checkpoint improved validation accuracy by 4% and reduced hallucinations in sample outputs. I uploaded evaluation notebooks and sample outputs to the artifacts bucket and linked in chat. Remaining tasks: confirm performance on staging with the same data distribution and run end-to-end inference tests.
+
+00:10:30 — Nia: For QA, we need a reproducible data slice and the notebook link to run regression. Once Jordan confirms staging readiness, I can run the validation scenarios and regression suite.
+
+00:12:00 — Sam: Dashboard status: core dashboards are functional. CI triggers nightly jobs that publish metrics to the metrics DB. One risk: dashboard panels assume a stable schema; if Alex's schema changes are not backwards compatible, some panels will fail. I’m prototyping panel fallbacks and a schema-mapping layer.
+
+00:14:20 — Jordan: Infra update: staging cluster provisioned and autoscaling policy applied. We observed limited GPU quota in the primary region for ephemeral training runs. Options: request a quota increase (expected 3–5 business days) or schedule some training on mixed CPU/GPU nodes temporarily. Also, rolling updates for the ingestion service are ready but require coordinated feature-flagging to avoid data duplication.
+
+00:16:10 — Carlos: Security and compliance note: the new connectors introduce external source ingestion; we need to run the automated scanner and ensure PII redaction policies are applied. I've added a checklist to the security board.
+
+00:17:00 — Yuri: On risks — GPU quota and message reordering are top priorities. Alex, can you prototype sequence IDs this week? Priya, validate the model on staging once Jordan confirms quota. Carlos, run the security scanner on the connector. Nia, prepare test plans for validation.
+
+00:18:30 — Alex: Yes, prototype by Friday EOD. I’ll push a branch and open a PR with a test harness.
+00:18:45 — Priya: I can run validation as soon as staging has GPUs; otherwise I’ll run a limited validation on mixed nodes and note any differences.
+00:19:00 — Jordan: I'll request quota increase today and post the support ticket ID in the chat. I’ll also validate staging availability by tomorrow.
+
+00:20:00 — Discussion: Story point estimates for next sprint and task ownership.
+00:22:00 — Mia: Product priorities — prioritize ingestion hardening, model validation, and dashboard resilience. Minor UX improvements can wait.
+00:24:00 — Team: (brief back-and-forth on story-sizing, acceptance criteria, and dependencies)
+
+00:30:00 — Deep dive: Alex explains proposed sequence ID approach and pseudo-code; Priya asks about how sequence IDs interact with model deduplication; Sam asks how dashboard metrics will be computed for reordered messages.
+
+00:36:00 — Alex: Proposed solution: producer assigns monotonically increasing sequence ID per partition/source; a lightweight consumer buffer will reorder out-of-order messages for a configurable window (default 30s), emitting metrics for delayed messages. We'll add a flag to enable ordering in staging first.
+
+00:40:00 — Priya: For model validation, I’ll run evaluation scripts against reordering scenarios to ensure inference pipeline is tolerant to ordering changes. If we need to, we can inject sequence handling in preprocessing.
+
+00:44:00 — Jordan: On deployments, rolling update plan:
+- Deploy ingestion change to staging behind a feature flag.
+- Run smoke tests and load tests.
+- Monitor for duplicates and latency.
+- Gradually enable in canary production subset for one source first.
+
+00:48:00 — Sam: For the dashboard, I’ll add guardrails so panels render partial data and show warnings instead of failing. Also adding a nightly job to compare metric shapes pre/post rollout.
+
+00:52:00 — Carlos: Security scan checklist:
+- Run scanner on new connector code.
+- Validate network egress policies and secrets handling.
+- Confirm RBAC for artifacts bucket.
+I’ll open tickets and assign owners.
+
+00:56:00 — Nia: QA plan:
+- Regression suite for data pipeline and model outputs.
+- Acceptance tests for dashboard fallbacks.
+- Performance tests for ingestion under load with reordered messages injected.
+I’ll allocate two engineers and schedule 2 days of focused testing in the sprint plan.
+
+01:00:00 — Break — 5 minutes.
+
+01:05:00 — Resume.
+
+01:06:30 — Action item review and clarifications:
+- Alex clarifies prototype scope (sequence IDs + consumer buffer).
+- Jordan will post support ticket ID for GPU quota.
+- Priya will add staging validation checklist to the PR description.
+
+01:12:00 — UX/Customer impact discussion: Mia asks about messaging for stakeholders if rollout is delayed. Team agrees to prepare a short note summarizing risks and timeline.
+
+01:18:00 — Operational note: Jordan will publish the infra runbook and a rollback checklist after this meeting.
+
+01:22:00 — Additional items:
+- Carlos notes an audit in two weeks — any config changes must be documented.
+- Sam suggests a short internal demo next Wednesday to show the new dashboard fallbacks.
+
+01:28:00 — Open discussion:
+- Carlos: re: compliance, please ensure logs redact PII; I’ll provide regex patterns.
+- Nia: test data generation needs seed values; Alex will add deterministic seeds to the test harness.
+- Priya: schedule time to review evaluation metrics with the product team.
+
+01:40:00 — Final checks: confirm owners and due dates for immediate actions; check for any conflicts in availability this week.
+
+01:50:00 — Any other business?
+01:50:30 — Jordan: I’ll post the runbook but want someone to review it — volunteer please.
+01:50:45 — Mia: I’ll review the runbook with Jordan.
+01:51:00 — Yuri: Great — thanks everyone.
+
+01:55:00 — Meeting adjourned at 12:00 PM UTC.
+
+00:40:00 — Action Items (compiled):
+- AI-1: Alex — Implement sequence ID ordering in the ingestion prototype and add consumer reorder buffer; push branch and PR with tests (due 2026-05-14).
+- AI-2: Jordan — Request GPU quota increase, post support ticket ID, and confirm staging availability for model validation (due 2026-05-10).
+- AI-3: Priya — Validate fine-tuned model on staging, run evaluation notebooks, and report metrics + any data drift observations (due 2026-05-15).
+- AI-4: Sam — Make dashboard resilient to schema changes; implement panel fallbacks and nightly metric-shape comparison job (due 2026-05-21).
+- AI-5: Carlos — Run automated security scanner on new connector code and provide PII redaction regex patterns; create tickets for any findings (due 2026-05-11).
+- AI-6: Nia — Prepare QA regression plan and schedule test runs (assign two engineers) for ingestion + model validation scenarios (due 2026-05-12).
+- AI-7: Mia — Draft stakeholder communication summarizing risks, timeline, and mitigation plan for potential rollout delays (due 2026-05-13).
+- AI-8: Alex — Add deterministic seeds to test harness and documentation for reproducible tests (due 2026-05-12).
+- AI-9: Jordan & Mia — Publish infra runbook and perform internal review (Jordan to publish, Mia to review) (due 2026-05-11).
+- AI-10: Sam — Prepare a short internal demo of dashboard fallbacks for next Wednesday; coordinate demo content with product (due 2026-05-13).
+
+Transcript prepared by: Automated example generator
