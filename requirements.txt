@@ -11,6 +11,7 @@ torch
 transformers
 tqdm
 openai
+tiktoken
 gradio
 langchain
 langchain-core
@@ -28,6 +29,7 @@ beautifulsoup4
 pydub
 modal
 ollama
+pydantic>=2.0
 psutil
 setuptools
 speedtest-cli
