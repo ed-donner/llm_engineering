@@ -1,0 +1,52 @@
+Produce Name, Date      , Market Location, Unit , Price (USD), Season
+            ,           ,                ,      ,            , 
+Strawberries, 2025-03-12, Miami          , lb   , 4.99       , Spring
+            ,           ,                ,      ,            , 
+Tomatoes    , 2025-04-18, Los Angeles    , lb   , 1.99       , Spring
+            ,           ,                ,      ,            , 
+Apples      , 2025-10-05, New York       , kg   , 2.99       , Autumn
+            ,           ,                ,      ,            , 
+Potatoes    , 2025-11-20, Chicago        , kg   , 0.95       , Autumn
+            ,           ,                ,      ,            , 
+Carrots     , 2025-12-08, Denver         , kg   , 1.25       , Winter
+            ,           ,                ,      ,            , 
+Oranges     , 2025-01-15, Miami          , kg   , 2.50       , Winter
+            ,           ,                ,      ,            , 
+Cucumbers   , 2025-05-22, San Diego      , kg   , 1.39       , Spring
+            ,           ,                ,      ,            , 
+Lettuce     , 2025-03-28, San Jose       , bunch, 1.75       , Spring
+            ,           ,                ,      ,            , 
+Blueberries , 2025-06-10, Seattle        , lb   , 4.50       , Summer
+            ,           ,                ,      ,            , 
+Onions      , 2025-09-05, Philadelphia   , kg   , 0.95       , Autumn
+            ,           ,                ,      ,            , 
+Peppers     , 2025-08-15, Houston        , kg   , 2.75       , Summer
+            ,           ,                ,      ,            , 
+Grapes      , 2025-09-25, Los Angeles    , kg   , 3.20       , Autumn
+            ,           ,                ,      ,            , 
+Mangoes     , 2025-04-03, Orlando        , dozen, 6.50       , Spring
+            ,           ,                ,      ,            , 
+Garlic      , 2025-11-28, San Antonio    , kg   , 4.50       , Autumn
+            ,           ,                ,      ,            , 
+Oranges     , 2025-02-12, Boston         , kg   , 2.60       , Winter
+            ,           ,                ,      ,            , 
+Tomatoes    , 2025-07-04, New York       , lb   , 1.89       , Summer
+            ,           ,                ,      ,            , 
+Apples      , 2025-11-15, Portland       , kg   , 3.10       , Autumn
+            ,           ,                ,      ,            , 
+Potatoes    , 2025-06-20, Chicago        , kg   , 0.85       , Summer
+            ,           ,                ,      ,            , 
+Carrots     , 2025-01-30, Atlanta        , lb   , 1.10       , Winter
+            ,           ,                ,      ,            , 
+Cucumbers   , 2025-08-01, Las Vegas      , lb   , 0.99       , Summer
+            ,           ,                ,      ,            , 
+Lettuce     , 2025-12-25, San Francisco  , bunch, 2.00       , Winter
+            ,           ,                ,      ,            , 
+Bananas     , 2025-03-05, Phoenix        , lb   , 0.65       , Spring
+            ,           ,                ,      ,            , 
+Strawberries, 2025-07-12, Miami          , lb   , 5.25       , Summer
+            ,           ,                ,      ,            , 
+Tomatoes    , 2025-05-08, Seattle        , lb   , 1.85       , Spring
+            ,           ,                ,      ,            , 
+Grapes      , 2025-12-02, San Diego      , kg   , 2.95       , Winter
+

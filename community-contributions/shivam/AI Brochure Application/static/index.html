@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Brochure Builder | Create Professional Brochures Instantly</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>✨ AI Brochure Agent</h1>
+        <p>Transform any website into a stunning professional brochure in seconds.</p>
+      </header>
+
+      <main>
+        <div class="input-section">
+          <form id="brochureForm">
+            <input
+              type="text"
+              id="companyName"
+              placeholder="Company Name"
+              required
+            />
+            <input
+              type="url"
+              id="companyUrl"
+              placeholder="Website URL (https://...)"
+              required
+            />
+            <button type="submit" id="submitBtn">Generate ✨</button>
+          </form>
+        </div>
+
+        <div id="loader" class="hidden">
+          <div class="spinner"></div>
+          <p>Analyzing website and building your brochure...</p>
+        </div>
+
+        <div id="result" class="hidden">
+          <div class="card" id="markdownOutput"></div>
+        </div>
+      </main>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>

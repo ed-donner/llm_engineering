@@ -1,0 +1,5 @@
+# Pin to course stack; adjust if your environment differs.
+gradio>=5.47.2,<6.0
+openai>=1.109.1
+python-dotenv>=1.1.1
+pillow>=10.0.0

@@ -1,0 +1,216 @@
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:wght@400;500&display=swap');
+
+:root {
+    --bg:       #ffffff;
+    --surface:  #f8fafc;
+    --border:   #e2e8f0;
+    --accent:   #059669;
+    --accent2:  #6366f1;
+    --warn:     #d97706;
+    --danger:   #dc2626;
+    --text:     #0f172a;
+    --muted:    #64748b;
+    --radius:   12px;
+}
+
+* { box-sizing: border-box; }
+
+body, .gradio-container {
+    background: var(--bg) !important;
+    font-family: 'Syne', sans-serif !important;
+    color: var(--text) !important;
+}
+
+/* Header */
+.app-header {
+    text-align: center;
+    padding: 2.5rem 1rem 1.5rem;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 1.5rem;
+}
+.app-header h1 {
+    font-size: 2.8rem;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    background: linear-gradient(135deg, var(--accent), var(--accent2));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin: 0 0 0.4rem;
+}
+.app-header p {
+    color: var(--muted);
+    font-size: 1rem;
+    font-family: 'DM Mono', monospace;
+    margin: 0;
+}
+
+/* Panels */
+.panel {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.25rem;
+    margin-bottom: 1rem;
+}
+.panel-title {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 1rem;
+    font-family: 'DM Mono', monospace;
+}
+
+/* Status bar */
+.status-bar {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    padding: 1rem 1.5rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    margin-bottom: 1rem;
+}
+.stat-item { text-align: center; }
+.stat-value {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: var(--accent);
+    line-height: 1;
+}
+.stat-label {
+    font-size: 0.65rem;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-family: 'DM Mono', monospace;
+    margin-top: 0.2rem;
+}
+.status-indicator {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-left: auto;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.85rem;
+}
+.dot {
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    background: var(--muted);
+}
+.dot.running { background: var(--accent); box-shadow: 0 0 8px var(--accent); animation: pulse 2s infinite; }
+.dot.stopped { background: var(--danger); }
+@keyframes pulse { 0%,100% { opacity:1; } 50% { opacity:0.4; } }
+
+/* Inputs */
+textarea, input[type=text], input[type=number] {
+    background: #ffffff !important;
+    border: 1px solid var(--border) !important;
+    border-radius: 8px !important;
+    color: var(--text) !important;
+    font-family: 'DM Mono', monospace !important;
+    font-size: 0.85rem !important;
+}
+textarea:focus, input:focus {
+    border-color: var(--accent) !important;
+    outline: none !important;
+    box-shadow: 0 0 0 2px rgba(5, 150, 105, 0.2) !important;
+}
+label span {
+    font-size: 0.72rem !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.08em !important;
+    text-transform: uppercase !important;
+    color: var(--muted) !important;
+    font-family: 'DM Mono', monospace !important;
+}
+
+/* Buttons */
+.btn-start {
+    background: linear-gradient(135deg, var(--accent), #10b981) !important;
+    color: #ffffff !important;
+    font-weight: 800 !important;
+    font-size: 0.9rem !important;
+    letter-spacing: 0.05em !important;
+    border: none !important;
+    border-radius: 8px !important;
+    padding: 0.75rem !important;
+    font-family: 'Syne', sans-serif !important;
+    transition: opacity 0.2s !important;
+}
+.btn-start:hover { opacity: 0.85 !important; }
+.btn-stop {
+    background: transparent !important;
+    border: 1px solid var(--danger) !important;
+    color: var(--danger) !important;
+    font-weight: 700 !important;
+    border-radius: 8px !important;
+    padding: 0.75rem !important;
+    font-family: 'Syne', sans-serif !important;
+    transition: background 0.2s !important;
+}
+.btn-stop:hover { background: rgba(220,38,38,0.08) !important; }
+.btn-reset {
+    background: transparent !important;
+    border: 1px solid var(--border) !important;
+    color: var(--text) !important;
+    font-weight: 600 !important;
+    border-radius: 8px !important;
+    font-family: 'Syne', sans-serif !important;
+}
+
+/* Match cards */
+.match-card {
+    background: linear-gradient(135deg, rgba(5,150,105,0.08), rgba(99,102,241,0.08));
+    border: 1px solid rgba(5,150,105,0.25);
+    border-radius: 10px;
+    padding: 1rem;
+    margin-bottom: 0.75rem;
+}
+.match-title { font-weight: 700; font-size: 1rem; color: var(--accent); }
+.match-company { color: var(--muted); font-size: 0.8rem; font-family: 'DM Mono', monospace; }
+.match-score {
+    display: inline-block;
+    background: rgba(5,150,105,0.15);
+    color: var(--accent);
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 0.2rem 0.6rem;
+    border-radius: 20px;
+    font-family: 'DM Mono', monospace;
+    margin: 0.4rem 0;
+}
+.match-summary { font-size: 0.85rem; color: var(--text); line-height: 1.5; margin-top: 0.5rem; }
+.match-link { color: var(--accent2); font-size: 0.8rem; font-family: 'DM Mono', monospace; }
+
+/* Log */
+.log-box {
+    background: #f1f5f9;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 0.75rem;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.78rem;
+    color: var(--muted);
+    height: 200px;
+    overflow-y: auto;
+    line-height: 1.6;
+}
+
+/* Slider */
+input[type=range] { accent-color: var(--accent) !important; }
+
+/* Tabs */
+.tab-nav button {
+    font-family: 'Syne', sans-serif !important;
+    font-weight: 700 !important;
+    font-size: 0.8rem !important;
+    letter-spacing: 0.05em !important;
+}
+
+/* Hide gradio footer */
+footer { display: none !important; }
+.gr-prose p { color: var(--muted) !important; font-size: 0.85rem !important; }

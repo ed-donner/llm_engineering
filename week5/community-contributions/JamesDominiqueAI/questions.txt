@@ -1,0 +1,39 @@
+Based on the fake knowledge base we built, here are questions that will give you strong answers:
+Breach & Notifications
+
+"What are the breach notification deadlines?"
+"What changed in breach notification requirements between 2021 and 2023?"
+
+Penalties
+
+"What is the penalty for failing to encrypt data?"
+"What happens if a company shares consumer data without authorization?"
+
+Year comparisons
+
+"What changed in 2023 compared to 2021?"
+"How did third-party vendor requirements change in 2023?"
+
+Specific regulations
+
+"What are the KYC requirements under REG-XYZ-2022?"
+"What did the 2022 amendment say about biometric data?"
+
+AI & new rules
+
+"What new AI requirements were introduced in 2023?"
+"What is an Automated Decision System and what are the rules around it?"
+
+Data retention
+
+"How long must financial institutions keep consumer data?"
+"What are the retention rules for biometric data?"
+
+Audit findings
+
+"What did the 2022 audit find about encryption compliance?"
+"What percentage of institutions failed vendor audits in 2022?"
+
+Cloud storage
+
+"Which countries are approved for cloud storage under FFCA rules?"
