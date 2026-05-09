@@ -1,114 +1,122 @@
+#!/usr/bin/env python3
+
 import os
 import sys
-import json
 import requests
-
-def load_dotenv(path=".env"):
-    try:
-        from dotenv import load_dotenv as _load
-        _load(path)
-        return
-    except ImportError:
-        pass
-    if not os.path.exists(path):
-        return
-    with open(path) as f:
-        for line in f:
-            line = line.strip()
-            if not line or line.startswith('#') or '=' not in line:
-                continue
-            key, value = line.split('=', 1)
-            key = key.strip()
-            value = value.strip().strip('"').strip("'")
-            os.environ[key] = value
+from dotenv import load_dotenv
 
 def main():
     load_dotenv()
+
     api_key = os.getenv("ALPACA_API_KEY")
     secret_key = os.getenv("ALPACA_SECRET_KEY")
     paper_endpoint = os.getenv("ALPACA_PAPER_ENDPOINT", "https://paper-api.alpaca.markets/v2")
-    
+
     if not api_key or not secret_key:
-        print("Error: Missing ALPACA_API_KEY or ALPACA_SECRET_KEY.")
+        print("Error: ALPACA_API_KEY and ALPACA_SECRET_KEY must be set in .env")
         sys.exit(1)
-    
+
+    trading_base = paper_endpoint.rstrip('/')
+    data_base = "https://data.alpaca.markets/v2"
+
     headers = {
         "APCA-API-KEY-ID": api_key,
-        "APCA-API-SECRET-KEY": secret_key
+        "APCA-API-SECRET-KEY": secret_key,
+        "Content-Type": "application/json"
     }
-    
-    data_base = "https://data.alpaca.markets/v2"
-    trade_url = f"{data_base}/stocks/AAPL/trades/latest"
-    
+
+    # Fetch latest AAPL trade price
     try:
-        resp = requests.get(trade_url, headers=headers, timeout=10)
+        resp = requests.get(f"{data_base}/stocks/AAPL/trades/latest", headers=headers, timeout=10)
         resp.raise_for_status()
-        price = float(resp.json()["trade"]["p"])
+        latest_trade = resp.json().get("trade")
+        if not latest_trade:
+            print("No AAPL trade data available.")
+            sys.exit(1)
+        price = float(latest_trade["p"])
         print(f"Latest AAPL trade price: ${price:.2f}")
-    except Exception as e:
-        print(f"Error fetching latest AAPL trade: {e}")
+    except requests.exceptions.RequestException as e:
+        print(f"Error fetching latest trade: {e}")
         sys.exit(1)
-    
+
+    # Decision
     if price < 280:
-        print(f"Price ${price:.2f} < $280. Checking buying power...")
-        account_url = f"{paper_endpoint}/account"
-        buying_power = 0.0
-        try:
-            resp = requests.get(account_url, headers=headers, timeout=10)
-            resp.raise_for_status()
-            buying_power = float(resp.json().get("buying_power", 0))
-            print(f"Buying power: ${buying_power:.2f}")
-        except Exception as e:
-            print(f"Error fetching account: {e}")
-        
-        if buying_power >= price:
-            print("Submitting buy order for 1 share...")
-            order = {"symbol": "AAPL", "qty": "1", "side": "buy", "type": "market", "time_in_force": "day"}
-            order_url = f"{paper_endpoint}/orders"
-            resp = None
-            try:
-                resp = requests.post(order_url, json=order, headers=headers, timeout=10)
-                resp.raise_for_status()
-                print("Buy order submitted:", json.dumps(resp.json(), indent=2))
-            except Exception as e:
-                print(f"Error submitting buy order: {e}")
-                if resp: print("Response:", resp.text)
-        else:
-            print(f"Insufficient buying power (${buying_power:.2f} < ${price:.2f}). Skip buy.")
-    
+        action = "BUY"
     elif price > 290:
-        print(f"Price ${price:.2f} > $290. Checking AAPL position...")
-        position_url = f"{paper_endpoint}/positions/AAPL"
-        qty = 0.0
+        action = "SELL"
+    else:
+        action = "HOLD"
+
+    print(f"Action decision: {action}")
+
+    if action == "BUY":
         try:
-            resp = requests.get(position_url, headers=headers, timeout=10)
-            if resp.status_code == 200:
-                qty = float(resp.json().get("qty", 0))
-                print(f"Shares held: {qty}")
-            elif resp.status_code == 404:
-                print("No AAPL position.")
+            resp = requests.get(f"{trading_base}/account", headers=headers, timeout=10)
+            resp.raise_for_status()
+            account = resp.json()
+            buying_power = float(account["buying_power"])
+            print(f"Account buying power: ${buying_power:.2f}")
+
+            if buying_power < price:
+                print(f"Insufficient buying power to buy 1 share (need ${price:.2f}, have ${buying_power:.2f}). Skipping order.")
+            else:
+                order_payload = {
+                    "symbol": "AAPL",
+                    "qty": "1",
+                    "side": "buy",
+                    "type": "market",
+                    "time_in_force": "day"
+                }
+                try:
+                    order_resp = requests.post(f"{trading_base}/orders", headers=headers, json=order_payload, timeout=10)
+                    order_resp.raise_for_status()
+                    order_data = order_resp.json()
+                    print(f"Order submitted successfully: {order_data}")
+                except requests.exceptions.RequestException as e:
+                    print(f"Error submitting buy order: {e}")
+                    if hasattr(e, 'response') and e.response is not None:
+                        print(f"Response: {e.response.text}")
+        except requests.exceptions.RequestException as e:
+            print(f"Error fetching account: {e}")
+
+    elif action == "SELL":
+        try:
+            resp = requests.get(f"{trading_base}/positions/AAPL", headers=headers, timeout=10)
+            if resp.status_code == 404:
+                print("No AAPL position found (0 shares held).")
+                qty_held = 0
             else:
                 resp.raise_for_status()
-        except Exception as e:
-            print(f"Error fetching position: {e}")
-        
-        if qty >= 1:
-            print("Submitting sell order for 1 share...")
-            order = {"symbol": "AAPL", "qty": "1", "side": "sell", "type": "market", "time_in_force": "day"}
-            order_url = f"{paper_endpoint}/orders"
-            resp = None
+                position = resp.json()
+                qty_held = float(position["qty"])
+                print(f"AAPL position quantity held: {qty_held}")
+        except requests.exceptions.RequestException as e:
+            print(f"Error fetching AAPL position: {e}")
+            sys.exit(0)
+
+        if qty_held >= 1:
+            order_payload = {
+                "symbol": "AAPL",
+                "qty": "1",
+                "side": "sell",
+                "type": "market",
+                "time_in_force": "day"
+            }
             try:
-                resp = requests.post(order_url, json=order, headers=headers, timeout=10)
-                resp.raise_for_status()
-                print("Sell order submitted:", json.dumps(resp.json(), indent=2))
-            except Exception as e:
+                order_resp = requests.post(f"{trading_base}/orders", headers=headers, json=order_payload, timeout=10)
+                order_resp.raise_for_status()
+                order_data = order_resp.json()
+                print(f"Order submitted successfully: {order_data}")
+            except requests.exceptions.RequestException as e:
                 print(f"Error submitting sell order: {e}")
-                if resp: print("Response:", resp.text)
+                if hasattr(e, 'response') and e.response is not None:
+                    print(f"Response: {e.response.text}")
         else:
-            print(f"Insufficient shares (have {qty}). Skip sell.")
-    
+            print(f"Position quantity ({qty_held}) less than 1, cannot sell 1 share. Skipping.")
+
     else:
-        print(f"Price ${price:.2f} is between $280 and $290 inclusive. No action taken.")
+        print(f"Price ${price:.2f} is within 280-290 range. No action taken.")
+
 
 if __name__ == "__main__":
     main()
