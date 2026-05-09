@@ -1,0 +1,4 @@
+timestamp,model_label,model_id,final_score,raw_judge_score,status,cap_reason,main_issue
+2026-05-09T11:59:52,deepseek/deepseek-v4-pro,deepseek/deepseek-v4-pro,0,82,Execution Failed,Execution failed,"Uses the trading (paper) host for market data: GET https://paper-api.alpaca.markets/v2/stocks/AAPL/trades/latest returns 404. Latest trade must be fetched from the data host, e.g., https://data.alpaca.markets/v2/stocks/AAPL/trades/latest."
+2026-05-09T12:05:53,openai/gpt-oss-120b:free,openai/gpt-oss-120b:free,0,0,Execution Failed,Ticker other than AAPL detected,Judge request failed: Expecting value: line 173 column 1 (char 946)
+2026-05-09T12:22:24,openai/gpt-oss-120b:free,openai/gpt-oss-120b:free,60,98,Partial,Ticker other than AAPL detected,"Does not strictly enforce that ALPACA_PAPER_ENDPOINT equals the paper URL; relies on the environment value, which could allow misconfiguration."

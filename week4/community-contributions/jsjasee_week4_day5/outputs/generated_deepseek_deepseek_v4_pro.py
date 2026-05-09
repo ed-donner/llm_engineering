@@ -1,122 +1,151 @@
-#!/usr/bin/env python3
-
 import os
 import sys
 import requests
 from dotenv import load_dotenv
 
 def main():
+    # Load environment variables from .env file if present
     load_dotenv()
 
-    api_key = os.getenv("ALPACA_API_KEY")
-    secret_key = os.getenv("ALPACA_SECRET_KEY")
-    paper_endpoint = os.getenv("ALPACA_PAPER_ENDPOINT", "https://paper-api.alpaca.markets/v2")
+    # Read credentials
+    openrouter_key = os.getenv("OPENROUTER_API_KEY")
+    alpaca_api_key = os.getenv("ALPACA_API_KEY")
+    alpaca_secret_key = os.getenv("ALPACA_SECRET_KEY")
+    paper_endpoint = os.getenv("ALPACA_PAPER_ENDPOINT")
 
-    if not api_key or not secret_key:
-        print("Error: ALPACA_API_KEY and ALPACA_SECRET_KEY must be set in .env")
+    # Validate all required variables
+    required = {
+        "OPENROUTER_API_KEY": openrouter_key,
+        "ALPACA_API_KEY": alpaca_api_key,
+        "ALPACA_SECRET_KEY": alpaca_secret_key,
+        "ALPACA_PAPER_ENDPOINT": paper_endpoint,
+    }
+    missing = [k for k, v in required.items() if not v]
+    if missing:
+        print(f"Missing credentials: {', '.join(missing)}")
         sys.exit(1)
 
-    trading_base = paper_endpoint.rstrip('/')
-    data_base = "https://data.alpaca.markets/v2"
+    # Ensure we only use paper trading
+    base_url = paper_endpoint.rstrip("/")
+    if "paper-api" not in base_url:
+        print("ERROR: Only paper trading is allowed. Aborting.")
+        sys.exit(1)
 
     headers = {
-        "APCA-API-KEY-ID": api_key,
-        "APCA-API-SECRET-KEY": secret_key,
-        "Content-Type": "application/json"
+        "APCA-API-KEY-ID": alpaca_api_key,
+        "APCA-API-SECRET-KEY": alpaca_secret_key,
+        "Content-Type": "application/json",
     }
 
     # Fetch latest AAPL trade price
     try:
-        resp = requests.get(f"{data_base}/stocks/AAPL/trades/latest", headers=headers, timeout=10)
-        resp.raise_for_status()
-        latest_trade = resp.json().get("trade")
-        if not latest_trade:
-            print("No AAPL trade data available.")
-            sys.exit(1)
-        price = float(latest_trade["p"])
-        print(f"Latest AAPL trade price: ${price:.2f}")
-    except requests.exceptions.RequestException as e:
-        print(f"Error fetching latest trade: {e}")
+        trade_resp = requests.get(f"{base_url}/stocks/AAPL/trades/latest", headers=headers)
+        trade_resp.raise_for_status()
+        trade_data = trade_resp.json()
+        latest_price = float(trade_data["trade"]["p"])
+        print(f"Latest AAPL trade price: ${latest_price:.2f}")
+    except Exception as e:
+        print(f"Error fetching latest trade price: {e}")
         sys.exit(1)
 
-    # Decision
-    if price < 280:
-        action = "BUY"
-    elif price > 290:
-        action = "SELL"
+    # Determine action
+    if latest_price < 280:
+        action = "buy"
+    elif latest_price > 290:
+        action = "sell"
     else:
-        action = "HOLD"
+        action = "hold"
+        print(f"Price ${latest_price:.2f} is between 280 and 290 inclusive. No action taken.")
+        return
 
-    print(f"Action decision: {action}")
+    print(f"Action determined: {action}")
 
-    if action == "BUY":
+    # Get account information
+    try:
+        account_resp = requests.get(f"{base_url}/account", headers=headers)
+        account_resp.raise_for_status()
+        account = account_resp.json()
+        buying_power = float(account["buying_power"])
+        print(f"Account buying power: ${buying_power:.2f}")
+    except Exception as e:
+        print(f"Error fetching account: {e}")
+        sys.exit(1)
+
+    if action == "buy":
+        # Precondition: sufficient buying power
+        if buying_power < latest_price:
+            print(
+                f"Precondition FAILED: Insufficient buying power. "
+                f"Need ${latest_price:.2f}, but only have ${buying_power:.2f}."
+            )
+            print("No order placed.")
+            return
+        print("Precondition met: sufficient buying power for 1 share.")
+
+        # Submit buy order
+        order_payload = {
+            "symbol": "AAPL",
+            "qty": "1",
+            "side": "buy",
+            "type": "market",
+            "time_in_force": "day",
+        }
         try:
-            resp = requests.get(f"{trading_base}/account", headers=headers, timeout=10)
-            resp.raise_for_status()
-            account = resp.json()
-            buying_power = float(account["buying_power"])
-            print(f"Account buying power: ${buying_power:.2f}")
+            order_resp = requests.post(f"{base_url}/orders", headers=headers, json=order_payload)
+            order_resp.raise_for_status()
+            order_data = order_resp.json()
+            print("Order placed successfully:")
+            print(order_data)
+        except Exception as e:
+            print(f"Failed to place buy order: {e}")
+            if order_resp is not None:
+                print(f"Response: {order_resp.text}")
+            sys.exit(1)
 
-            if buying_power < price:
-                print(f"Insufficient buying power to buy 1 share (need ${price:.2f}, have ${buying_power:.2f}). Skipping order.")
-            else:
-                order_payload = {
-                    "symbol": "AAPL",
-                    "qty": "1",
-                    "side": "buy",
-                    "type": "market",
-                    "time_in_force": "day"
-                }
-                try:
-                    order_resp = requests.post(f"{trading_base}/orders", headers=headers, json=order_payload, timeout=10)
-                    order_resp.raise_for_status()
-                    order_data = order_resp.json()
-                    print(f"Order submitted successfully: {order_data}")
-                except requests.exceptions.RequestException as e:
-                    print(f"Error submitting buy order: {e}")
-                    if hasattr(e, 'response') and e.response is not None:
-                        print(f"Response: {e.response.text}")
-        except requests.exceptions.RequestException as e:
-            print(f"Error fetching account: {e}")
-
-    elif action == "SELL":
+    elif action == "sell":
+        # Check existing position
         try:
-            resp = requests.get(f"{trading_base}/positions/AAPL", headers=headers, timeout=10)
-            if resp.status_code == 404:
-                print("No AAPL position found (0 shares held).")
-                qty_held = 0
+            pos_resp = requests.get(f"{base_url}/positions/AAPL", headers=headers)
+            pos_resp.raise_for_status()
+            position = pos_resp.json()
+            qty = int(float(position["qty"]))
+            print(f"Current AAPL position: {qty} shares")
+        except requests.HTTPError as e:
+            if e.response.status_code == 404:
+                print("Precondition FAILED: No AAPL position found (0 shares).")
             else:
-                resp.raise_for_status()
-                position = resp.json()
-                qty_held = float(position["qty"])
-                print(f"AAPL position quantity held: {qty_held}")
-        except requests.exceptions.RequestException as e:
-            print(f"Error fetching AAPL position: {e}")
-            sys.exit(0)
+                print(f"Error fetching position: {e}")
+            print("No order placed.")
+            return
+        except Exception as e:
+            print(f"Error fetching position: {e}")
+            sys.exit(1)
 
-        if qty_held >= 1:
-            order_payload = {
-                "symbol": "AAPL",
-                "qty": "1",
-                "side": "sell",
-                "type": "market",
-                "time_in_force": "day"
-            }
-            try:
-                order_resp = requests.post(f"{trading_base}/orders", headers=headers, json=order_payload, timeout=10)
-                order_resp.raise_for_status()
-                order_data = order_resp.json()
-                print(f"Order submitted successfully: {order_data}")
-            except requests.exceptions.RequestException as e:
-                print(f"Error submitting sell order: {e}")
-                if hasattr(e, 'response') and e.response is not None:
-                    print(f"Response: {e.response.text}")
-        else:
-            print(f"Position quantity ({qty_held}) less than 1, cannot sell 1 share. Skipping.")
+        if qty < 1:
+            print(f"Precondition FAILED: Position holds only {qty} shares (need at least 1).")
+            print("No order placed.")
+            return
+        print("Precondition met: at least 1 share held.")
 
-    else:
-        print(f"Price ${price:.2f} is within 280-290 range. No action taken.")
-
+        # Submit sell order
+        order_payload = {
+            "symbol": "AAPL",
+            "qty": "1",
+            "side": "sell",
+            "type": "market",
+            "time_in_force": "day",
+        }
+        try:
+            order_resp = requests.post(f"{base_url}/orders", headers=headers, json=order_payload)
+            order_resp.raise_for_status()
+            order_data = order_resp.json()
+            print("Order placed successfully:")
+            print(order_data)
+        except Exception as e:
+            print(f"Failed to place sell order: {e}")
+            if order_resp is not None:
+                print(f"Response: {order_resp.text}")
+            sys.exit(1)
 
 if __name__ == "__main__":
     main()
