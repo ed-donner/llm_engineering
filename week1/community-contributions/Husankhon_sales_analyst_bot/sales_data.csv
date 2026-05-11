@@ -1,0 +1,51 @@
+date,order_id,product,category,region,salesperson,units_sold,unit_price,revenue,cost,profit,customer_type
+2024-01-03,ORD-1001,Laptop Pro X,Electronics,North,Alice Johnson,5,1200.00,6000.00,4200.00,1800.00,Business
+2024-01-05,ORD-1002,Wireless Mouse,Accessories,South,Bob Smith,30,25.00,750.00,375.00,375.00,Individual
+2024-01-08,ORD-1003,Office Chair Deluxe,Furniture,East,Carol White,8,350.00,2800.00,1960.00,840.00,Business
+2024-01-10,ORD-1004,USB-C Hub,Accessories,West,David Lee,50,45.00,2250.00,1125.00,1125.00,Business
+2024-01-12,ORD-1005,Standing Desk,Furniture,North,Alice Johnson,3,600.00,1800.00,1080.00,720.00,Business
+2024-01-15,ORD-1006,Mechanical Keyboard,Accessories,South,Bob Smith,20,150.00,3000.00,1500.00,1500.00,Individual
+2024-01-18,ORD-1007,Monitor 27inch,Electronics,East,Carol White,10,400.00,4000.00,2800.00,1200.00,Business
+2024-01-22,ORD-1008,Webcam HD,Electronics,West,David Lee,15,80.00,1200.00,600.00,600.00,Individual
+2024-01-25,ORD-1009,Laptop Pro X,Electronics,North,Alice Johnson,7,1200.00,8400.00,5880.00,2520.00,Business
+2024-01-28,ORD-1010,Desk Lamp LED,Furniture,South,Bob Smith,25,40.00,1000.00,500.00,500.00,Individual
+2024-02-02,ORD-1011,Laptop Pro X,Electronics,East,Carol White,4,1200.00,4800.00,3360.00,1440.00,Business
+2024-02-05,ORD-1012,USB-C Hub,Accessories,North,Alice Johnson,60,45.00,2700.00,1350.00,1350.00,Business
+2024-02-08,ORD-1013,Office Chair Deluxe,Furniture,West,David Lee,5,350.00,1750.00,1225.00,525.00,Individual
+2024-02-10,ORD-1014,Wireless Mouse,Accessories,South,Bob Smith,40,25.00,1000.00,500.00,500.00,Individual
+2024-02-14,ORD-1015,Monitor 27inch,Electronics,North,Alice Johnson,12,400.00,4800.00,3360.00,1440.00,Business
+2024-02-18,ORD-1016,Mechanical Keyboard,Accessories,East,Carol White,35,150.00,5250.00,2625.00,2625.00,Business
+2024-02-20,ORD-1017,Standing Desk,Furniture,South,Bob Smith,6,600.00,3600.00,2160.00,1440.00,Business
+2024-02-22,ORD-1018,Webcam HD,Electronics,West,David Lee,20,80.00,1600.00,800.00,800.00,Individual
+2024-02-25,ORD-1019,Desk Lamp LED,Furniture,North,Alice Johnson,30,40.00,1200.00,600.00,600.00,Individual
+2024-02-28,ORD-1020,Laptop Pro X,Electronics,South,Bob Smith,9,1200.00,10800.00,7560.00,3240.00,Business
+2024-03-03,ORD-1021,USB-C Hub,Accessories,East,Carol White,45,45.00,2025.00,1012.50,1012.50,Business
+2024-03-06,ORD-1022,Office Chair Deluxe,Furniture,West,David Lee,10,350.00,3500.00,2450.00,1050.00,Business
+2024-03-10,ORD-1023,Monitor 27inch,Electronics,North,Alice Johnson,8,400.00,3200.00,2240.00,960.00,Individual
+2024-03-12,ORD-1024,Wireless Mouse,Accessories,South,Bob Smith,55,25.00,1375.00,687.50,687.50,Individual
+2024-03-15,ORD-1025,Laptop Pro X,Electronics,East,Carol White,6,1200.00,7200.00,5040.00,2160.00,Business
+2024-03-18,ORD-1026,Mechanical Keyboard,Accessories,West,David Lee,28,150.00,4200.00,2100.00,2100.00,Individual
+2024-03-20,ORD-1027,Standing Desk,Furniture,North,Alice Johnson,4,600.00,2400.00,1440.00,960.00,Business
+2024-03-25,ORD-1028,Webcam HD,Electronics,South,Bob Smith,18,80.00,1440.00,720.00,720.00,Individual
+2024-03-28,ORD-1029,Desk Lamp LED,Furniture,East,Carol White,35,40.00,1400.00,700.00,700.00,Individual
+2024-03-30,ORD-1030,USB-C Hub,Accessories,West,David Lee,70,45.00,3150.00,1575.00,1575.00,Business
+2024-04-02,ORD-1031,Laptop Pro X,Electronics,North,Alice Johnson,11,1200.00,13200.00,9240.00,3960.00,Business
+2024-04-05,ORD-1032,Monitor 27inch,Electronics,South,Bob Smith,14,400.00,5600.00,3920.00,1680.00,Business
+2024-04-08,ORD-1033,Office Chair Deluxe,Furniture,East,Carol White,7,350.00,2450.00,1715.00,735.00,Business
+2024-04-12,ORD-1034,Wireless Mouse,Accessories,West,David Lee,65,25.00,1625.00,812.50,812.50,Individual
+2024-04-15,ORD-1035,Mechanical Keyboard,Accessories,North,Alice Johnson,40,150.00,6000.00,3000.00,3000.00,Business
+2024-04-18,ORD-1036,USB-C Hub,Accessories,South,Bob Smith,80,45.00,3600.00,1800.00,1800.00,Business
+2024-04-22,ORD-1037,Standing Desk,Furniture,East,Carol White,5,600.00,3000.00,1800.00,1200.00,Business
+2024-04-25,ORD-1038,Webcam HD,Electronics,West,David Lee,22,80.00,1760.00,880.00,880.00,Individual
+2024-04-28,ORD-1039,Desk Lamp LED,Furniture,North,Alice Johnson,40,40.00,1600.00,800.00,800.00,Individual
+2024-04-30,ORD-1040,Laptop Pro X,Electronics,South,Bob Smith,8,1200.00,9600.00,6720.00,2880.00,Business
+2024-05-03,ORD-1041,Monitor 27inch,Electronics,East,Carol White,16,400.00,6400.00,4480.00,1920.00,Business
+2024-05-07,ORD-1042,Office Chair Deluxe,Furniture,West,David Lee,12,350.00,4200.00,2940.00,1260.00,Business
+2024-05-10,ORD-1043,USB-C Hub,Accessories,North,Alice Johnson,55,45.00,2475.00,1237.50,1237.50,Business
+2024-05-14,ORD-1044,Wireless Mouse,Accessories,South,Bob Smith,70,25.00,1750.00,875.00,875.00,Individual
+2024-05-18,ORD-1045,Laptop Pro X,Electronics,East,Carol White,10,1200.00,12000.00,8400.00,3600.00,Business
+2024-05-22,ORD-1046,Mechanical Keyboard,Accessories,West,David Lee,30,150.00,4500.00,2250.00,2250.00,Business
+2024-05-26,ORD-1047,Standing Desk,Furniture,North,Alice Johnson,7,600.00,4200.00,2520.00,1680.00,Business
+2024-05-30,ORD-1048,Webcam HD,Electronics,South,Bob Smith,25,80.00,2000.00,1000.00,1000.00,Individual
+2024-06-03,ORD-1049,Desk Lamp LED,Furniture,East,Carol White,50,40.00,2000.00,1000.00,1000.00,Individual
+2024-06-06,ORD-1050,Laptop Pro X,Electronics,West,David Lee,13,1200.00,15600.00,10920.00,4680.00,Business
