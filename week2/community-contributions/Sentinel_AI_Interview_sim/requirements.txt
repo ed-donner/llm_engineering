@@ -1,0 +1,24 @@
+# Sentinel AI Interview Simulator — Dependencies
+# Install: pip install -r requirements.txt
+
+# Core LLM
+openai>=1.30.0
+
+# UI
+gradio>=5.0.0
+
+# Environment
+python-dotenv>=1.0.0
+
+# Scraping
+requests>=2.31.0
+beautifulsoup4>=4.12.0
+
+# Audio (Groq TTS pipeline)
+gTTS>=2.5.0
+
+# Gemini native SDK (for native audio I/O)
+google-generativeai>=0.8.0
+
+# Jupyter kernel
+ipykernel>=6.29.0
