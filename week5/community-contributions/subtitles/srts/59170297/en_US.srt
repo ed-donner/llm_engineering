@@ -1,0 +1,604 @@
+WEBVTT
+
+00:00.710 --> 00:06.830
+And here we are in Google Colab, ready for fun with models.
+
+00:07.100 --> 00:13.640
+So first we do the usual Pip installs and some imports.
+
+00:13.940 --> 00:18.710
+Now this will take a little bit longer for you because I have cheated and run this already right before
+
+00:18.710 --> 00:21.440
+recording this so that it can be a bit faster.
+
+00:21.530 --> 00:26.240
+The Pip installs will probably take 30s to a minute to to all go through for you.
+
+00:26.270 --> 00:29.450
+So once we've done the Pip installs, we sign in to hugging face.
+
+00:29.450 --> 00:30.800
+I think you're used to this now.
+
+00:30.830 --> 00:35.330
+Hopefully you've got the token set up as your secret on the left.
+
+00:35.570 --> 00:41.780
+Um, and I'm now going to set some constants for the names of the models we'll be playing with in the
+
+00:41.810 --> 00:42.950
+Hugging Face hub.
+
+00:42.950 --> 00:48.350
+As always, it's company slash, the name of the model or the model repo.
+
+00:48.620 --> 00:52.370
+So we're going to be playing with llama with Phi three with Gemma two.
+
+00:52.370 --> 01:00.290
+And then I'm leaving an exercise for you to repeat with quanto the mighty LLM from Alibaba Cloud.
+
+01:00.290 --> 01:03.190
+And then I've also given Mistral here.
+
+01:03.220 --> 01:08.800
+Now, I have to say, this is probably going to be a model that will be too big unless you've splashed
+
+01:08.800 --> 01:11.020
+out on on some big GPUs.
+
+01:11.110 --> 01:19.450
+Uh, in which case the the ask for you is to go to Huggingface hub and find a nice model that's 8 billion
+
+01:19.450 --> 01:23.110
+parameters or fewer and, uh, use that instead.
+
+01:23.110 --> 01:29.410
+Pick the one you like or one that's that's popular or is is doing well at the moment and see what you
+
+01:29.410 --> 01:30.100
+make of that.
+
+01:30.100 --> 01:34.840
+But do be sure to have completed at least five models.
+
+01:34.930 --> 01:42.220
+So with that, let's set those constants, and then let's make a messages list in a format that we know
+
+01:42.220 --> 01:48.700
+so well at this point, with a system message and a user message as two dicts in a list.
+
+01:48.730 --> 01:51.640
+No more explanation needed for that.
+
+01:51.910 --> 02:02.540
+So you remember from last time that you need to, uh, agree to the, um, llama 3.1 terms of service
+
+02:02.690 --> 02:07.610
+by going to the model page and um, pressing the agree.
+
+02:07.610 --> 02:15.380
+If you haven't already done that, um, then please do so so that you have access to llama 3.1 model.
+
+02:16.370 --> 02:18.740
+Now this is something new.
+
+02:18.740 --> 02:23.180
+I want to talk a bit about something called quantization, which I mentioned.
+
+02:23.180 --> 02:27.350
+So quantization is a rather surprising thing.
+
+02:27.440 --> 02:35.480
+Uh, the idea is that we can say, look, we, we want to load in this model into memory, but when
+
+02:35.480 --> 02:42.500
+we do so we want to reduce the precision of the numbers of the weights that make up the model.
+
+02:42.500 --> 02:46.130
+These weights are normally 32 bit floats.
+
+02:46.250 --> 02:51.650
+Uh, 32 bit floating point numbers make up the weights in this deep neural network.
+
+02:51.650 --> 02:55.490
+What if we brought them in with fewer bits?
+
+02:55.760 --> 02:59.320
+Uh, so 32 bits, of course, is four bytes.
+
+02:59.590 --> 03:08.350
+Um, and, uh, we might want to try and cram, uh, more of our, of our numbers into less memory.
+
+03:08.650 --> 03:15.490
+Um, and that process of reducing the precision so that you have more coarse numbers in your model is
+
+03:15.490 --> 03:17.080
+known as quantization.
+
+03:17.080 --> 03:19.930
+And that's something that we're going to do.
+
+03:19.930 --> 03:24.670
+And I remember being very surprised when I first heard about this, that the, uh, initially people
+
+03:24.700 --> 03:31.630
+talked about taking your 32 bit numbers and replacing them with eight bit numbers, much, much lower
+
+03:31.630 --> 03:32.530
+accuracy.
+
+03:32.530 --> 03:39.460
+And the thinking was that, surprisingly, whilst of course the accuracy decreases a bit, it doesn't
+
+03:39.460 --> 03:41.320
+decrease as much as you might think.
+
+03:41.320 --> 03:44.680
+It doesn't decrease, it doesn't become four times worse.
+
+03:44.860 --> 03:51.550
+Uh, it just becomes a bit worse, uh, and tolerably so and worth the trade off in terms of more memory.
+
+03:51.670 --> 03:56.800
+I was surprised to hear that, and I was even more surprised to hear that you could do more than that.
+
+03:56.800 --> 04:01.760
+You can actually reduce it, not down to eight bits, but all the way down to four bits.
+
+04:01.760 --> 04:03.950
+That's half a byte if you're counting.
+
+04:04.220 --> 04:09.560
+You can reduce from 32 bit number down to four bits going into the number.
+
+04:09.800 --> 04:17.600
+And again accuracy sure is is is is hurt, but not by as much as you might expect.
+
+04:17.630 --> 04:21.500
+Not I would have expected it would be profoundly different.
+
+04:21.500 --> 04:23.990
+And it's not it's quite tolerable.
+
+04:23.990 --> 04:29.870
+And it allows for much bigger models to fit into memory and load faster and run faster and so on.
+
+04:29.870 --> 04:33.710
+So this is something that people do a lot quantization.
+
+04:33.710 --> 04:39.560
+It's a powerful tool, uh, particularly when you get to training and you're having to do lots more
+
+04:39.560 --> 04:41.060
+work with these models.
+
+04:41.060 --> 04:43.190
+Uh, quantization is a lifesaver.
+
+04:43.220 --> 04:48.590
+You may remember I mentioned that at some point in a few weeks time, we're going to get to a technique
+
+04:48.590 --> 04:53.150
+called Q Laura, a way of fine tuning in an efficient way.
+
+04:53.150 --> 04:57.760
+And in Q, Laura, the Q of Q, Laura stands for quantization.
+
+04:57.760 --> 05:01.720
+So it is something we will be coming back to from time to time.
+
+05:02.350 --> 05:09.340
+So in the meantime we are using a library called Bits and Bytes, which goes hand in hand with the hugging
+
+05:09.340 --> 05:10.480
+face Transformers library.
+
+05:10.510 --> 05:18.670
+It's a wonderful library and you can create a new bits and bytes config object to that will be using
+
+05:18.760 --> 05:22.720
+shortly to describe what kind of quantization we want to do.
+
+05:22.720 --> 05:27.490
+And we are going to say load in four bit equals true.
+
+05:27.520 --> 05:29.020
+We're going to go all the way down to four bits.
+
+05:29.020 --> 05:31.810
+You can also here say load in eight bit equals true.
+
+05:31.810 --> 05:36.370
+Instead if you want to do eight bits and maybe you want to try doing both and see if you can tell the
+
+05:36.370 --> 05:37.660
+difference in accuracy.
+
+05:38.320 --> 05:41.260
+And now this again is very surprising.
+
+05:41.260 --> 05:46.510
+But you also can do four bit use double quant equals true.
+
+05:46.510 --> 05:51.760
+And this means that it quantizes all of the weights, not not once, but twice.
+
+05:51.790 --> 05:54.190
+Uh, saving a little bit more memory.
+
+05:54.190 --> 06:02.210
+And the results of doing this again doesn't massively impact the accuracy of the results.
+
+06:02.210 --> 06:05.300
+So it's a good trade to make and people do it.
+
+06:05.870 --> 06:13.340
+Um, this is this is saying that in doing the calculations use a this this data type A, B 16, which
+
+06:13.520 --> 06:17.270
+makes, uh, makes a some improvement in performance.
+
+06:17.270 --> 06:19.280
+So this is quite common as well.
+
+06:19.400 --> 06:27.290
+Uh, and then this is about the so when you have reduced the numbers down to four bits, how how will
+
+06:27.320 --> 06:32.510
+how to interpret how to treat that, that those four bit numbers, how to compress it down to four bits.
+
+06:32.510 --> 06:37.490
+And this, uh, NF four is a four bit representation of numbers.
+
+06:37.490 --> 06:39.860
+The N stands for normalized.
+
+06:39.860 --> 06:45.230
+And I understand that it's to do with with considering these numbers to follow a normal distribution
+
+06:45.230 --> 06:51.200
+allows for more more accuracy when you're compressing things down to just four bits.
+
+06:51.230 --> 06:56.090
+So, um, these these two are probably less important.
+
+06:56.110 --> 06:58.690
+They're not expected to make a massive difference.
+
+06:58.720 --> 06:59.170
+They're meant to be.
+
+06:59.200 --> 06:59.680
+It's meant to be.
+
+06:59.680 --> 07:01.030
+Good settings to have, though.
+
+07:01.030 --> 07:03.490
+And this one makes some difference.
+
+07:03.490 --> 07:06.280
+And this one makes a huge amount of difference in terms of memory.
+
+07:06.280 --> 07:11.500
+And none of it is too bad in terms of the output.
+
+07:11.530 --> 07:19.420
+So with all of that chit chat, we've now created our quant config, our bits and bytes config.
+
+07:19.480 --> 07:21.370
+This is something we're familiar with.
+
+07:21.400 --> 07:24.910
+We are going to create a tokenizer for Lama.
+
+07:25.450 --> 07:28.090
+This line is a new one that I haven't talked about before.
+
+07:28.090 --> 07:37.240
+Uh, the uh, there is something called a pad token, which is which token is used to fill up the prompt
+
+07:37.240 --> 07:43.090
+if there needs to be more added to the prompt when it's fed into the neural network.
+
+07:43.180 --> 07:50.440
+Uh, and the, um, it's a sort of common practice to set that pad token to be the same as the special
+
+07:50.470 --> 07:54.220
+token for the end of sentence, the end of the prompt token.
+
+07:54.370 --> 07:57.830
+Uh, and if you don't do this, you get a warning.
+
+07:57.860 --> 07:59.840
+It doesn't matter that you get a warning.
+
+07:59.840 --> 08:01.250
+I don't think it makes any impact.
+
+08:01.250 --> 08:04.610
+But if you don't want to get the warning, then you keep it in here and you see that people have this
+
+08:04.640 --> 08:09.170
+in as very standard in, in a lot of code that you'll see.
+
+08:10.310 --> 08:10.970
+Okay.
+
+08:10.970 --> 08:13.520
+And so then we are going to use our tokenizer.
+
+08:13.520 --> 08:17.390
+We're going to call the apply chat template function that you know.
+
+08:17.390 --> 08:23.930
+Well that takes our messages as a list of dictionaries and converts it into tokens.
+
+08:24.260 --> 08:28.820
+And there we are pushing that onto our GPU.
+
+08:28.850 --> 08:33.080
+So let's run that and the tokenizer will get to work.
+
+08:33.080 --> 08:37.520
+And what we're going to do next is load our model.
+
+08:37.520 --> 08:39.950
+So what does this line do.
+
+08:39.980 --> 08:44.900
+So first of all it's very analogous to this line.
+
+08:44.900 --> 08:50.540
+Here we created a tokenizer by saying auto tokenizer dot frompretrained.
+
+08:50.570 --> 08:57.200
+We create a model by saying auto model for causal LLM from pre-trained.
+
+08:57.290 --> 09:02.420
+Now this is the general class for creating any LLM.
+
+09:02.450 --> 09:06.290
+A causal LLM is the same as an autoregressive LLM.
+
+09:06.290 --> 09:13.760
+And that means it's an LLM which takes some set of tokens in the past and predicts future tokens.
+
+09:13.760 --> 09:18.170
+And basically all the llms we've talked about have been that kind of LLM.
+
+09:18.170 --> 09:24.200
+Later in the course, we will look at one other kind of LLM, which has some some use from time to time.
+
+09:24.200 --> 09:30.710
+But for everything that we're talking about for this sort of generative AI use case, we'll be working
+
+09:30.710 --> 09:34.130
+with causal llms or autoregressive llms.
+
+09:34.130 --> 09:39.650
+And this will be the way to create them from pre-trained we pass in.
+
+09:39.650 --> 09:42.560
+Just as with the tokenizer, we pass in the name of the model.
+
+09:42.560 --> 09:46.340
+We tell it that if we have a GPU, we want to use that GPU.
+
+09:46.370 --> 09:48.950
+That's what Device map auto does.
+
+09:48.980 --> 09:56.750
+And we pass in the quantization config, the quant config that we just set up and that is how we build
+
+09:56.750 --> 09:57.590
+a model.
+
+09:57.620 --> 10:07.700
+The model is the real code, which is actually our large language model as software, as Python code,
+
+10:07.700 --> 10:09.440
+which we're going to be able to run.
+
+10:09.440 --> 10:11.720
+And under the covers it is PyTorch.
+
+10:11.750 --> 10:19.220
+It is a series of PyTorch layers, layers of a neural network that will be able to feed in inputs and
+
+10:19.220 --> 10:20.390
+get out outputs.
+
+10:20.390 --> 10:22.580
+So it's the real deal.
+
+10:22.670 --> 10:28.520
+Now, it will probably take longer when you run this because I just ran it, and so it didn't have to
+
+10:28.520 --> 10:32.330
+do as much work as if it was a completely fresh box.
+
+10:32.360 --> 10:38.090
+What actually happens when when you run this is it downloads.
+
+10:38.090 --> 10:39.650
+It connects to hugging face.
+
+10:39.680 --> 10:46.190
+It downloads all of the model weights from the Hugging face hub, and it puts it locally on the disk
+
+10:46.190 --> 10:54.460
+of this Google Colab instance in a cache in a special file, which is a temporary file on the desk of
+
+10:54.460 --> 11:01.540
+this box, which will get deleted when we later disconnect from this box so that this model is now temporarily
+
+11:01.540 --> 11:07.660
+stored on the box on disk, and it's also loaded into memory as well, ready for us to use.
+
+11:07.660 --> 11:12.940
+We can we can ask the model how much memory it uses up by calling get memory footprint.
+
+11:12.940 --> 11:15.100
+And so we will see what that says.
+
+11:15.100 --> 11:19.510
+It says the memory footprint of this model is about 5.5GB.
+
+11:19.840 --> 11:27.250
+And so if we look at the resources for this box, you can see that we are using about 5.5GB of space
+
+11:27.250 --> 11:28.030
+on the box.
+
+11:28.030 --> 11:31.210
+And it's bouncing around in the past because I've been running this already.
+
+11:31.450 --> 11:35.740
+But you can imagine that when you look at it, you'll be starting from down here and it will bump up
+
+11:35.740 --> 11:37.000
+to about five and a half.
+
+11:37.000 --> 11:42.700
+And on the disk, we're using up plenty of space because it's been loaded into the cache of the disk.
+
+11:43.690 --> 11:44.560
+Okay.
+
+11:44.590 --> 11:47.350
+Almost ready for for for prime time here.
+
+11:47.350 --> 11:51.250
+At first we're going to look at the model itself.
+
+11:51.430 --> 11:54.210
+And we do that simply by printing the model.
+
+11:54.990 --> 12:04.080
+What comes up when we print the model is a description of the actual deep neural network that is represented
+
+12:04.080 --> 12:05.370
+by this model object.
+
+12:05.370 --> 12:06.990
+This is what we're looking at here.
+
+12:06.990 --> 12:12.720
+It's real layers of code representing the layers of the deep neural network.
+
+12:12.720 --> 12:19.140
+And these are all this is showing PyTorch classes that have set up that are being that are that are
+
+12:19.140 --> 12:20.730
+referenced by model.
+
+12:21.210 --> 12:26.460
+Uh, and again, this is a practical class with only a touch of theory from time to time.
+
+12:26.460 --> 12:31.320
+But it is worth looking at this, depending on your level of of knowledge of the innards of deep neural
+
+12:31.320 --> 12:32.700
+networks and the layers.
+
+12:32.700 --> 12:34.740
+Some of this may be super familiar to you.
+
+12:34.740 --> 12:40.230
+You may be comfortable seeing that it begins with an embedding layer, which is how the tokens become
+
+12:40.230 --> 12:41.820
+embedded into the neural network.
+
+12:41.820 --> 12:47.280
+And you can imagine that this dimension, these are showing the dimensions and it's the dimensionality
+
+12:47.280 --> 12:49.170
+of the vocab.
+
+12:49.620 --> 12:56.680
+Uh, and you'll then see that there's a series of modules, each of the layers in the neural network.
+
+12:56.710 --> 13:03.130
+There are attention layers that you'd be expecting to see, particularly as you know that attention
+
+13:03.130 --> 13:04.060
+is all you need.
+
+13:04.090 --> 13:08.890
+As the paper said, attention is all you need, and that is at the heart of what makes a transformer
+
+13:08.920 --> 13:11.350
+a transformer, these attention layers.
+
+13:11.350 --> 13:17.230
+And then we have multi-layer perceptron layers right here.
+
+13:17.230 --> 13:19.690
+And there is an activation function.
+
+13:19.690 --> 13:24.340
+Uh, again, as those those who are more familiar with the theory will be expecting to see this.
+
+13:24.340 --> 13:32.860
+The activation function that is used by this llama 3.1 model is the ReLU activation function, which
+
+13:32.860 --> 13:40.570
+is the sigmoid uh, linear unit, which is described in Pytorch's documentation right here.
+
+13:40.750 --> 13:43.900
+Uh, and it is also known apparently as the swish function.
+
+13:44.080 --> 13:49.300
+Uh, and it's, it's basically x times the logistic sigmoid of x.
+
+13:49.300 --> 13:52.190
+And that's what the activation function looks like.
+
+13:52.220 --> 13:57.020
+Again, if you're into the theory of deep neural networks, you know exactly what this is.
+
+13:57.050 --> 13:59.300
+If you're not, then then don't worry.
+
+13:59.300 --> 14:05.630
+Just get a general sense of what's happening here, and it's something that you can look more at as
+
+14:05.630 --> 14:09.200
+you study this model and others afterwards.
+
+14:09.890 --> 14:17.690
+At the end of that, there's a, uh, like a, some, some, uh, uh, layer norm layers and then the
+
+14:17.690 --> 14:20.360
+linear layer at the end.
+
+14:21.170 --> 14:29.300
+So this is worth looking at particularly, uh, depending on your level of knowledge of, uh, PyTorch
+
+14:29.300 --> 14:30.560
+neural networks.
+
+14:30.770 --> 14:35.060
+But also later when you look at other models, you could do the same thing.
+
+14:35.060 --> 14:36.680
+Look at the model's output.
+
+14:36.710 --> 14:42.320
+Look, look at the model, print the model, look at what it looks like and compare with lama3.
+
+14:43.160 --> 14:47.720
+I'm going to break for the next video, but in the next video, we're then going to run this and then
+
+14:47.720 --> 14:49.040
+run the other models too.
+
+14:49.070 --> 14:50.690
+So don't go anywhere.
+
+14:50.720 --> 14:51.770
+See you in a second.

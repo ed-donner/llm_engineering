@@ -1,0 +1,163 @@
+WEBVTT
+
+00:00.740 --> 00:05.000
+And a massive welcome back one more time to LM engineering.
+
+00:05.000 --> 00:10.220
+We are in week three, day two and we are getting into open source models.
+
+00:10.370 --> 00:14.960
+So as a reminder you can already do frontier models back to front.
+
+00:14.960 --> 00:16.940
+You can build multimodal AI assistants.
+
+00:16.940 --> 00:22.940
+And now you're comfortable looking at the hugging face hub, looking at models and data sets and spaces.
+
+00:22.940 --> 00:26.690
+And you can run code using Google Colab.
+
+00:27.020 --> 00:33.080
+So today we're going to look at Hugging Face Transformers library and discuss the fact that there are
+
+00:33.080 --> 00:39.950
+two different types of API, two different levels that you can work with transformers at one level,
+
+00:39.980 --> 00:46.250
+the higher level API is called pipelines, and that's what we'll be working with mostly today, including
+
+00:46.250 --> 00:50.810
+generating text, images and sound using pipelines.
+
+00:51.080 --> 00:56.570
+So let's just talk for a moment about these two different API levels.
+
+00:56.570 --> 01:02.770
+So there are these two modes of interacting with the hugging face code.
+
+01:02.770 --> 01:10.060
+One of them is if you want to carry out a standard, everyday typical task in what we'd call inference,
+
+01:10.060 --> 01:14.860
+or running a model at runtime given an input to get an output.
+
+01:14.860 --> 01:21.550
+And hugging face has wonderfully packaged this up into a high level interface that's super easy to use,
+
+01:21.550 --> 01:29.080
+and that provides you with a rapid way to get going, generating text, and doing a number of everyday
+
+01:29.080 --> 01:30.130
+functions.
+
+01:30.580 --> 01:37.360
+But if you want to get deeper into the code, if you want to be looking in more detail at things like
+
+01:37.360 --> 01:44.380
+how how you are tokenizing your text at which models and which parameters you're using to run a model,
+
+01:44.380 --> 01:50.500
+or if you're actually going to go as far as training and be fine tuning your own model to carry out
+
+01:50.530 --> 01:54.010
+specialist tasks with extra knowledge or nuance.
+
+01:54.010 --> 02:00.820
+At that point, you need to look at the deeper APIs, the lower level APIs, working with Tokenizers
+
+02:00.820 --> 02:02.800
+and models in Hugging Face.
+
+02:02.830 --> 02:05.260
+Today we're going to be looking at pipelines.
+
+02:05.260 --> 02:10.420
+And then after that we're going to turn to the Tokenizers and models.
+
+02:11.080 --> 02:13.060
+So what can you do with these pipelines?
+
+02:13.060 --> 02:22.360
+So essentially it allows you to take instant advantage of models on the Hugging face hub with two lines
+
+02:22.360 --> 02:22.960
+of code.
+
+02:22.960 --> 02:24.340
+It's as simple as that.
+
+02:24.340 --> 02:28.330
+And I'm going to give you lots of examples and lots of things you can take away so that you can use
+
+02:28.330 --> 02:32.800
+it yourself to carry out every day inference tasks.
+
+02:32.800 --> 02:37.720
+So one classic example, which is one of the easiest ones to start with, is what they call sentiment
+
+02:37.720 --> 02:38.350
+analysis.
+
+02:38.380 --> 02:43.570
+Given a sentence saying what is the emotion conveyed by this sentence?
+
+02:44.380 --> 02:50.740
+Uh, then classification, of course, is one of those very traditional machine learning tasks of putting
+
+02:50.740 --> 02:52.450
+things into buckets.
+
+02:52.660 --> 03:00.160
+Named entity recognition is when you can take a sentence and tag the words in that sentence as things
+
+03:00.160 --> 03:04.630
+like whether they are people or whether they are locations or things and so on.
+
+03:04.970 --> 03:11.900
+Question answering is when you have some context and you want to be able to ask questions about the
+
+03:11.900 --> 03:13.610
+context that you provide.
+
+03:13.640 --> 03:20.210
+Summarization, of course, is when you have a block of text and you want to turn it into a summary
+
+03:20.660 --> 03:21.710
+translation.
+
+03:21.740 --> 03:26.870
+Another classic AI task translating between one language and another.
+
+03:26.900 --> 03:32.060
+So what if I told you that all of these things can be done with two lines of code each?
+
+03:32.330 --> 03:37.370
+Hopefully you would be amazed and you will see it in a moment.
+
+03:37.490 --> 03:43.460
+There are some other things you can do as well that become perhaps slightly more advanced.
+
+03:43.580 --> 03:45.740
+Text generation actually isn't advanced at all.
+
+03:45.740 --> 03:47.120
+It's still just two lines of code.
+
+03:47.120 --> 03:52.760
+It's still super simple, and it's another thing that you will marvel at.
+
+03:53.210 --> 03:57.470
+But generating images is also very simple, as is audio.
+
+03:57.470 --> 04:02.810
+It becomes a little bit more than two lines, but it's still very simple and I can't wait to show you.
+
+04:02.840 --> 04:04.760
+I think that's enough preamble.
+
+04:04.760 --> 04:05.720
+Let's get straight to it.
+
+04:05.720 --> 04:07.340
+Let's go to Google Colab.

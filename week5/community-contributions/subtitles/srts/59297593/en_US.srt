@@ -1,0 +1,151 @@
+WEBVTT
+
+00:00.860 --> 00:04.520
+And welcome to continuing our journey with Hrag.
+
+00:04.520 --> 00:08.120
+And today it's time to unveil Liang Chen.
+
+00:08.120 --> 00:12.410
+So first, a quick reminder of what you can already do when it comes to Hrag.
+
+00:12.410 --> 00:16.280
+So we last time talked about the simple idea behind Hrag.
+
+00:16.280 --> 00:21.380
+Just the idea that you could retrieve relevant contexts and include that in the prompt.
+
+00:21.380 --> 00:27.380
+And then we talked a bit about vectors and how text can be mapped to a vector that represents its meaning.
+
+00:27.380 --> 00:33.470
+And you can use these vectors to try to be more intelligent about how you select relevant context for
+
+00:33.470 --> 00:34.340
+the prompt.
+
+00:34.520 --> 00:37.220
+So today we're going to talk about Lang chain.
+
+00:37.220 --> 00:40.400
+I'm going to describe the framework and its pros and cons.
+
+00:40.400 --> 00:47.060
+We're going to use Lang chain to read in our knowledge base and to divide it into chunks of relevant
+
+00:47.060 --> 00:51.590
+information, which later will be putting in a vector database and retrieving.
+
+00:51.830 --> 00:54.830
+So here is the backstory to Lang Chain.
+
+00:54.830 --> 00:56.810
+It's a relatively recent framework.
+
+00:56.810 --> 01:05.870
+It was created in late 2022, and its main goal is to allow allow people to build LLM applications quickly,
+
+01:05.900 --> 01:11.840
+stitching together different bits of functionality into a sort of chain of processing.
+
+01:11.930 --> 01:19.860
+It actually has its own language, its own declarative language called Lang Chain Expression Language.
+
+01:19.890 --> 01:23.280
+LCL and we're not going to be using that.
+
+01:23.280 --> 01:28.110
+Particularly I am going to show you some of it, but there are simpler ways to use lang chain just by
+
+01:28.110 --> 01:29.820
+using Python code.
+
+01:30.330 --> 01:31.980
+So what are the pros and cons?
+
+01:31.980 --> 01:40.890
+So it does hugely simplify creating applications to do common things like assistance and Rag.
+
+01:40.920 --> 01:44.310
+As we will see, it's going to literally be a few lines of code.
+
+01:44.310 --> 01:46.800
+So it gives you very quick time to market.
+
+01:46.800 --> 01:50.190
+There's nothing particularly magical about something like rag.
+
+01:50.190 --> 01:55.470
+We could do it the brute force way, by looking up in a vector database by adding to the prompt.
+
+01:55.500 --> 02:01.260
+Lang chain just standardizes and simplifies and makes it all easier and quicker.
+
+02:01.290 --> 02:08.520
+It's also a useful wrapper code around common models, so that you can write your code once and then
+
+02:08.520 --> 02:13.770
+switch in different models like OpenAI or Claude, and not have to deal with the slight differences
+
+02:13.770 --> 02:17.400
+in the API, which you can imagine is just sort of convenient.
+
+02:17.400 --> 02:19.680
+You can imagine that we could do that ourselves.
+
+02:19.680 --> 02:25.320
+We could write a little wrapper function, much as we did when we were using Gradio to call two different
+
+02:25.350 --> 02:26.040
+llms.
+
+02:26.040 --> 02:28.470
+And that's essentially what Lang Chain has done.
+
+02:28.470 --> 02:32.140
+They've built wrappers around the common APIs.
+
+02:32.770 --> 02:39.730
+It has to be said, as the APIs for LMS has matured, as they've become increasingly similar, and as
+
+02:39.760 --> 02:46.090
+the sort of code scripts out there for doing this become more and more widespread, there is less of
+
+02:46.090 --> 02:51.130
+a need for an underlying framework like Lang Chain than there was perhaps a year ago.
+
+02:51.370 --> 02:53.020
+So the need is decreased a bit.
+
+02:53.050 --> 02:57.190
+There's a lot of people that are rolling their own in terms of building their own pipelines for things
+
+02:57.190 --> 03:00.880
+like Rag, and you'll see how easy it would be to do that too.
+
+03:01.000 --> 03:04.810
+But Lang Chain still gives you a tremendous head start.
+
+03:04.810 --> 03:08.620
+And so it's very useful framework as you will see today.
+
+03:09.670 --> 03:14.050
+So what we're going to do is we're going to use Lang chain to load in our knowledge base.
+
+03:14.050 --> 03:20.950
+We're first going to read all of the documents stored in the folders using some some tooling.
+
+03:21.340 --> 03:26.590
+We're then going to add metadata to the documents to say what kind of document it is, which is going
+
+03:26.620 --> 03:28.150
+to be useful for us later.
+
+03:28.180 --> 03:34.750
+And then we're going to use Lang chain to break the documents down into useful chunks, chunks which
+
+03:34.750 --> 03:41.500
+represent text that belongs nicely together and will be ready to be vectorized and put in our database.
+
+03:42.010 --> 03:45.490
+So with that, let's head back to JupyterLab.

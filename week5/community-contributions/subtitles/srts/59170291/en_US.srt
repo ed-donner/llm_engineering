@@ -1,0 +1,562 @@
+WEBVTT
+
+00:00.950 --> 00:05.600
+Welcome back to Colab and welcome back to our business project.
+
+00:05.600 --> 00:12.500
+So again our assignment, we are due to create meeting minutes based on an audio file.
+
+00:12.620 --> 00:15.620
+Uh so I found this very useful data set.
+
+00:15.620 --> 00:19.610
+It's typical hugging face to have a perfect data set for us.
+
+00:19.790 --> 00:25.760
+Um, it's a data set called meeting Bank, which is apparently a pretty well known, uh, data set,
+
+00:25.790 --> 00:31.250
+a benchmark created from the City council's six major US cities.
+
+00:31.460 --> 00:32.990
+Um, so I use this.
+
+00:32.990 --> 00:39.800
+I downloaded a particular Denver City Council meeting, and I actually just took a ten minute segment
+
+00:39.800 --> 00:43.730
+of it, uh, to be used for our experiment here.
+
+00:43.730 --> 00:46.550
+Uh, either ten or maybe it was a 20 minute segment of it.
+
+00:46.640 --> 00:54.890
+Um, but anyway, took that audio cut and I saved it on my Google Drive because my idea here is I'd
+
+00:54.890 --> 00:59.690
+like this product to be able to take anything that is in one's Google Drive, or if you're building
+
+00:59.690 --> 01:06.150
+this for a company in the company's drive and be able to use that to generate meeting minutes.
+
+01:06.150 --> 01:11.850
+So as part of this project, a little sidebar is we're also going to see how you can get a colab to
+
+01:11.880 --> 01:13.800
+read from your Google Drive.
+
+01:13.800 --> 01:23.850
+So we begin, as usual with some imports these sorry with Pip installs, the one little extra here is.
+
+01:23.850 --> 01:29.250
+You'll notice that we're also going to install OpenAI on this colab as well.
+
+01:29.250 --> 01:34.170
+We're not just using hugging face, we're using a bunch of hugging face, uh, packages.
+
+01:34.170 --> 01:37.140
+And also OpenAI library.
+
+01:37.230 --> 01:44.730
+We do some imports and including an OpenAI import as well as everything else.
+
+01:45.000 --> 01:47.370
+Um, and then we're going to set some constants.
+
+01:47.370 --> 01:52.020
+We're going to use an audio model called whisper, one that may be used yourself.
+
+01:52.020 --> 01:55.530
+When I'd set you this assignment, uh, previously.
+
+01:55.710 --> 02:01.770
+Um, and then this is the llama 3.18 billion instruct model that we'll be using as well.
+
+02:01.890 --> 02:08.010
+So here this is the new capability that that that you'll be learning.
+
+02:08.040 --> 02:09.660
+Today as well a little extra.
+
+02:09.690 --> 02:13.080
+This is how you connect Colab to your Google Drive.
+
+02:13.110 --> 02:14.280
+Super simple.
+
+02:14.310 --> 02:16.140
+And it's just a drive dot mount.
+
+02:16.140 --> 02:19.260
+And you tell it where locally you would like to.
+
+02:19.290 --> 02:20.220
+Mount the drive.
+
+02:20.220 --> 02:21.720
+That's basically it.
+
+02:21.720 --> 02:25.740
+And then I've set a constant for myself of within my drive.
+
+02:25.800 --> 02:33.480
+Uh, it's uh, in the I've got a folder called LMS and within that I have Denver Extract dot mp3, which
+
+02:33.480 --> 02:41.190
+is the MP3 recording of, uh, this, uh, segment that somewhere between 10 and 20 minutes from the
+
+02:41.190 --> 02:43.080
+Denver City Council.
+
+02:43.110 --> 02:51.900
+So if I run this, it pops up with a, um, a it's connected to Google the first.
+
+02:51.930 --> 02:55.980
+I'm running this for the second time, and the first time I ran this, it of course popped up with an
+
+02:55.980 --> 03:02.080
+authentication, uh, selection for me to confirm that I'm signed in with my Google account and I grant
+
+03:02.080 --> 03:02.680
+access.
+
+03:02.680 --> 03:05.860
+This time it's telling me it's already mounted there.
+
+03:05.980 --> 03:10.390
+Um, if I were to go to the folder here, would be able to go through my Google drive and see all my
+
+03:10.420 --> 03:13.780
+all my files under slash content slash drive.
+
+03:14.410 --> 03:18.040
+So we then sign in to the Huggingface hub.
+
+03:18.760 --> 03:19.300
+Here we go.
+
+03:19.330 --> 03:20.620
+Login successful.
+
+03:20.620 --> 03:23.380
+And we also sign in to OpenAI.
+
+03:23.410 --> 03:25.690
+So this is very similar.
+
+03:25.690 --> 03:33.340
+We get our OpenAI key which is also I've set the OpenAI key uh in the secrets of this colab.
+
+03:33.580 --> 03:41.710
+Um, and so we retrieve that key and then we call the usual OpenAI uh, constructor to, to establish
+
+03:41.710 --> 03:43.810
+the, the interface connection.
+
+03:43.810 --> 03:48.820
+But this time I am passing in that OpenAI, OpenAI API key.
+
+03:49.000 --> 03:54.190
+Uh, you remember in the past I've not had to specify this because I've relied on the fact that the
+
+03:54.190 --> 03:55.630
+environment variable is set.
+
+03:55.660 --> 03:58.570
+This time I'm passing it in explicitly.
+
+03:58.630 --> 04:00.010
+So there we go.
+
+04:00.250 --> 04:04.570
+That is now established the OpenAI connection.
+
+04:04.870 --> 04:06.790
+And then what am I going to do?
+
+04:06.790 --> 04:14.290
+I'm going to take this audio file, which is sitting on my Google Drive that's now mapped to this colab.
+
+04:14.290 --> 04:18.010
+And then I'm going to call OpenAI dot audio.
+
+04:18.010 --> 04:24.790
+Dot transcriptions dot create, which is very similar to other OpenAI API methods we've used.
+
+04:24.820 --> 04:30.130
+It's particularly similar to the one when we actually made, made it to speak, made it generate audio.
+
+04:30.340 --> 04:36.370
+I passed in the name of the model, the whisper one model, the file, and that I want the response
+
+04:36.370 --> 04:37.150
+in text.
+
+04:37.150 --> 04:42.760
+And then I will print what comes back from OpenAI's whisper model.
+
+04:42.760 --> 04:49.870
+So it's been provided with a bunch of audio, or it's being provided as we speak with a bunch of audio
+
+04:49.900 --> 05:00.460
+that is now calling the frontier model, and we are currently waiting to get back a transcription of
+
+05:00.490 --> 05:01.690
+that meeting.
+
+05:02.590 --> 05:03.700
+Well, that's happening.
+
+05:03.700 --> 05:07.030
+I'm going to keep going so that we can get ahead on on the other things.
+
+05:07.030 --> 05:07.960
+I have to run.
+
+05:07.960 --> 05:14.080
+We're then going to set up the prompt for llama three, and there's going to be a system prompt, a
+
+05:14.110 --> 05:16.630
+system message and a user prompt system messages.
+
+05:16.630 --> 05:22.120
+You're an assistant that produces meetings of minutes from transcripts with a summary, key discussion
+
+05:22.120 --> 05:29.380
+points, takeaways and action items with owners in markdown, uh, and then a user prompt that says
+
+05:29.380 --> 05:36.430
+below is the transcript of a an extract transcript.
+
+05:36.490 --> 05:36.910
+That's fine.
+
+05:36.940 --> 05:39.520
+I thought my English was bad, but it's okay.
+
+05:39.550 --> 05:41.680
+Other Denver Council meeting.
+
+05:41.680 --> 05:46.750
+Please write minutes in markdown, including a summary with attendees, location and date, discussion
+
+05:46.750 --> 05:48.790
+points, takeaways, and action items with owners.
+
+05:48.790 --> 05:54.640
+And then I shove in the transcript of the meeting right after that user prompt.
+
+05:54.820 --> 05:56.560
+Here is the transcript.
+
+05:56.590 --> 06:00.440
+It just got printed out And it's a long old transcript.
+
+06:00.440 --> 06:02.960
+The Denver City Council meeting.
+
+06:02.990 --> 06:09.890
+Talked for quite a while, and a lot of it was about Indigenous Peoples Day, which was the upcoming
+
+06:10.010 --> 06:11.540
+federal holiday.
+
+06:11.780 --> 06:19.130
+And there was some debate about the right way for the council to recognize Indigenous Peoples Day.
+
+06:19.130 --> 06:24.050
+If you read through all of this text or if you listen to the, the, the audio.
+
+06:24.050 --> 06:30.140
+So this is all now in text in this transcription variable.
+
+06:30.230 --> 06:31.760
+So we started with audio.
+
+06:31.790 --> 06:36.050
+We now have text thanks to OpenAI's whisper one model.
+
+06:36.260 --> 06:40.100
+We now create our system and user prompt.
+
+06:40.130 --> 06:41.960
+Now this will look familiar to you.
+
+06:41.960 --> 06:44.000
+This is our quant config.
+
+06:44.000 --> 06:45.950
+We're going to be quantizing again.
+
+06:45.980 --> 06:46.490
+Why not.
+
+06:46.520 --> 06:55.790
+It was very effective with lambda 3.1 before it reduced the memory significantly down to 55. five gigabytes.
+
+06:56.060 --> 06:57.320
+But it did not.
+
+06:57.350 --> 06:59.510
+At least His performance seemed to be perfectly good to us.
+
+06:59.510 --> 07:03.410
+Maybe you tried it without quantizing to see how much better the joke was.
+
+07:03.590 --> 07:03.950
+Um.
+
+07:03.980 --> 07:06.830
+I wouldn't be surprised if it didn't make much difference at all.
+
+07:06.860 --> 07:08.990
+Quantization is very effective.
+
+07:09.320 --> 07:12.890
+Okay, it's time for action.
+
+07:12.980 --> 07:17.990
+This should all be quite familiar to you because this is what we did last time.
+
+07:17.990 --> 07:26.360
+We are going to create a tokenizer for Lama using the auto tokenizer Frompretrained method.
+
+07:26.360 --> 07:30.410
+We're going to do this business of setting the pad token as before.
+
+07:30.560 --> 07:35.900
+Then we're going to call the apply chat template function method.
+
+07:35.900 --> 07:39.950
+Passing in the messages the this this right here.
+
+07:39.980 --> 07:41.090
+We're passing that in.
+
+07:41.090 --> 07:43.790
+And this of course includes the whole transcript.
+
+07:43.820 --> 07:47.090
+It includes the text of the whole meeting and the user prompt.
+
+07:47.120 --> 07:51.350
+And we're going to put that massive amount of text on our GPU.
+
+07:51.410 --> 07:53.270
+We're going to stream again.
+
+07:53.270 --> 07:55.790
+So use this text stream object.
+
+07:55.790 --> 07:57.800
+And then here we go.
+
+07:57.830 --> 07:58.400
+This is.
+
+07:58.400 --> 08:00.710
+This is when we create our model.
+
+08:00.710 --> 08:03.080
+We create the auto model for causal Elm.
+
+08:03.080 --> 08:06.680
+We pass in the llama model name.
+
+08:06.680 --> 08:10.070
+We say, please use a GPU if we've got one, which we do.
+
+08:10.220 --> 08:13.760
+We're using the T4 box, the small GPU box for this.
+
+08:13.760 --> 08:17.150
+And we pass in our quantization config.
+
+08:17.450 --> 08:20.480
+I'm going to start this running now because it will take take a while.
+
+08:20.480 --> 08:22.820
+I should have started running before I was talking.
+
+08:23.000 --> 08:24.770
+That would have been smarter.
+
+08:24.950 --> 08:26.090
+Uh uh.
+
+08:26.090 --> 08:33.410
+And so we're going to then create the model and then we're going to do the action.
+
+08:33.440 --> 08:37.610
+Action is to call generate on model.
+
+08:37.610 --> 08:46.220
+And when you call generate you have to pass in the inputs, which of course is now this entire tokenized,
+
+08:46.250 --> 08:48.830
+uh prompts and transcript.
+
+08:49.070 --> 08:51.770
+This is a bit bigger than you're used to before.
+
+08:51.770 --> 08:54.110
+We used to say in the maximum new tokens was 80.
+
+08:54.140 --> 09:00.560
+Now we're saying maximum new tokens is 2000 because there could be quite a hefty response.
+
+09:00.830 --> 09:07.940
+Um, so, uh, uh, we that should be enough space to get back our meeting minutes.
+
+09:07.940 --> 09:15.830
+And then we're also providing the streamer, which is telling it that it can stream results back into
+
+09:15.830 --> 09:17.270
+our colab.
+
+09:17.780 --> 09:22.640
+While it's going to be thinking for a little bit, I'll tell you what's going to happen next is going
+
+09:22.640 --> 09:25.550
+to stream the meeting minutes back in here.
+
+09:25.790 --> 09:32.930
+Um, afterwards, what we can also do is we can also just get that text by taking the outputs, taking
+
+09:32.930 --> 09:36.260
+the first of the outputs, and there only will be one.
+
+09:36.500 --> 09:41.540
+And then decoding that using tokenizer dot decode.
+
+09:41.840 --> 09:45.380
+Uh, and that's something we will then put into a variable called response.
+
+09:45.380 --> 09:46.790
+Well here come the minutes.
+
+09:47.150 --> 09:47.960
+Um.
+
+09:52.430 --> 09:53.600
+It's about to come.
+
+09:53.600 --> 09:54.770
+It's so far.
+
+09:54.770 --> 09:56.690
+Just put the, the uh.
+
+09:57.750 --> 09:59.520
+The transcript in their.
+
+10:04.170 --> 10:10.320
+Minutes of the Denver City Council meeting Monday, October the 9th and location attendees who are the
+
+10:10.320 --> 10:11.370
+attendees.
+
+10:12.930 --> 10:14.100
+Summary.
+
+10:19.380 --> 10:25.530
+They met on Monday, October the 9th to discuss and adopt a proclamation for Indigenous Peoples Day.
+
+10:25.560 --> 10:28.320
+Councilman Lopez presented the proclamation.
+
+10:28.410 --> 10:29.970
+Key discussion points.
+
+10:30.000 --> 10:31.050
+Takeaways.
+
+10:31.050 --> 10:34.140
+It was adopted recognizing the importance of the day.
+
+10:34.170 --> 10:37.590
+They emphasized the importance of inclusivity and respecting all cultures.
+
+10:37.620 --> 10:41.250
+Some actions with owners and actions.
+
+10:41.250 --> 10:44.370
+Councilman Lopez and clerk.
+
+10:44.520 --> 10:49.890
+Clerk is to attest and affix the seal of the City and Council of Denver to the proclamation.
+
+10:49.890 --> 10:57.330
+And then, uh, Councilman Lopez to transmit a copy of the proclamation to the Denver American Indian
+
+10:57.330 --> 11:03.420
+Commission and some other areas, and then some next steps at the end.
+
+11:03.420 --> 11:06.960
+So I've got to hand it to llama 3.1.
+
+11:06.960 --> 11:13.230
+This seems to be a very comprehensive, very clear, very thorough set of minutes with attendees with
+
+11:13.230 --> 11:20.100
+date with with, uh, all of the right format and the right sections.
+
+11:20.130 --> 11:24.510
+Now, you'll notice, of course, that it's come in markdown format.
+
+11:24.510 --> 11:30.330
+And you're familiar from, uh, when we were working with frontier models before in Jupyter Notebook
+
+11:30.330 --> 11:39.360
+locally, that we can use this display markdown response as our way to see that in markdown in the Colab.
+
+11:39.360 --> 11:47.310
+And here we have, uh, the minutes of the Denver City Council meeting, um, and, uh, organized into
+
+11:47.310 --> 11:53.310
+those various sections of the summary, the takeaways, the action items, and the next steps.
+
+11:53.490 --> 12:01.210
+So I give you an application that uses a frontier model and an open source model to take audio and convert
+
+12:01.240 --> 12:07.660
+it to a transcript, and convert that transcript to a meeting summary with actions and next steps.
+
+12:09.160 --> 12:11.620
+Well, the obvious exercise for you.
+
+12:11.620 --> 12:13.900
+I hope you've already guessed what it's going to be.
+
+12:13.900 --> 12:17.950
+It's easy peasy to now put that into a nice user interface.
+
+12:17.950 --> 12:25.780
+You can use Gradio very similar to what we've had in the previous week, and you can bring up this into
+
+12:25.780 --> 12:27.370
+a nice little Gradio interface.
+
+12:27.370 --> 12:32.590
+Perhaps you could type out the name of a file on your Google Drive and press Generate Minutes.
+
+12:32.620 --> 12:39.940
+It will read in that audio, convert it to text, and then convert it to meeting minutes actions, takeaways,
+
+12:39.970 --> 12:41.200
+next steps.
+
+12:41.800 --> 12:43.570
+So that's the task for you.
+
+12:43.570 --> 12:45.640
+Please go away and do that.
+
+12:45.640 --> 12:49.270
+And I can't wait to see some terrific user interfaces.
+
+12:49.270 --> 12:51.730
+Please do push the code when you've got it.
+
+12:51.730 --> 12:56.470
+I would love to see them and I will see you for the next lecture in a moment.

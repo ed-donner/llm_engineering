@@ -1,0 +1,142 @@
+WEBVTT
+
+00:00.080 --> 00:03.950
+And now we've arrived at an exciting moment in our first week.
+
+00:03.980 --> 00:10.670
+The conclusion of the first week is where we get to actually put this into practice and build a commercial
+
+00:10.670 --> 00:11.570
+solution.
+
+00:11.570 --> 00:18.170
+By the end of today, you will be able to confidently code against the OpenAI API, because you'll have
+
+00:18.170 --> 00:19.430
+done it several times.
+
+00:19.430 --> 00:24.650
+You'll have used a technique called one shot prompting that we'll talk about streaming markdown, JSON
+
+00:24.650 --> 00:31.010
+results, and overall we'll have implemented a business solution literally in minutes.
+
+00:31.010 --> 00:32.750
+So what is this business problem?
+
+00:32.750 --> 00:33.650
+Well, here it is.
+
+00:33.650 --> 00:40.490
+We're going to build an application that is able to generate a marketing brochure about a company.
+
+00:40.490 --> 00:46.400
+It's something that could be used for prospective clients, for investors or maybe for recruiting talent.
+
+00:46.580 --> 00:51.740
+It's going to be something which will bring together information from multiple sources.
+
+00:52.040 --> 00:57.890
+And so it's a bit like the summarization project we did before, except we're we're summarizing and
+
+00:57.890 --> 00:59.030
+we're generating.
+
+00:59.090 --> 01:02.420
+So it's sort of built on top of some stuff we did before.
+
+01:02.450 --> 01:04.910
+Now we're going to use the OpenAI API.
+
+01:04.910 --> 01:09.200
+And as before, you'd be able to switch to using Olama if you wanted to.
+
+01:09.230 --> 01:11.960
+You're now an expert in that, so I'll leave that up to you.
+
+01:11.990 --> 01:16.130
+We're going to use a technique called one shot prompting, which sounds very fancy.
+
+01:16.130 --> 01:21.320
+And all it's saying is that in the prompts we send the model, we're going to give an example of what
+
+01:21.320 --> 01:22.100
+we're looking for.
+
+01:22.100 --> 01:25.460
+We're going to tell it the kind of thing we're expecting it to reply.
+
+01:25.490 --> 01:29.360
+And when you do that with one example, it's called one shot prompting.
+
+01:29.360 --> 01:34.490
+If you if you ask a question with no examples at all, that is called zero shot prompting.
+
+01:34.490 --> 01:38.330
+It's expected just to figure out from the question how to answer one shot.
+
+01:38.330 --> 01:43.550
+Prompting is when you give one example, and then if you give multiple examples of what you're asking
+
+01:43.550 --> 01:48.020
+and what it should respond in different situations, that's known as multi-shot prompting.
+
+01:48.170 --> 01:50.180
+So that's that's all there is to it.
+
+01:50.600 --> 01:56.390
+And then we're going to be using things like streaming and formatting to make this, uh, nice, nice
+
+01:56.390 --> 01:58.970
+and impressive brochure generator.
+
+01:59.690 --> 02:03.560
+So just to remind you of the environment setup, we've done this to death.
+
+02:03.560 --> 02:05.960
+You've got an environment that works and it's fabulous.
+
+02:05.960 --> 02:08.810
+But just to remind you what you did, you cloned the repo.
+
+02:08.840 --> 02:14.210
+You followed the readme to set up your Anaconda environment, maybe a virtual env, and you set up a
+
+02:14.210 --> 02:21.170
+key with OpenAI and you put that key, the OpenAI API key, which is src proj.
+
+02:21.560 --> 02:22.250
+Blah blah blah.
+
+02:22.280 --> 02:27.860
+You put that in a file that was called dot env and it is in your project root directory.
+
+02:27.860 --> 02:30.470
+And that is why all of this is working so well.
+
+02:30.530 --> 02:36.230
+And so what you need to do now in order to get us back to where we were, is if you're on a PC, you
+
+02:36.230 --> 02:38.150
+bring up an Anaconda prompt.
+
+02:38.150 --> 02:41.120
+If you're on a mac, you bring up a terminal window.
+
+02:41.150 --> 02:45.440
+You go to the project root directory LM engineering.
+
+02:45.440 --> 02:51.920
+You type the conda, activate lm conda, activate LM to activate the environment.
+
+02:51.920 --> 02:55.940
+And then you should see the LMS prefix by your prompt.
+
+02:55.940 --> 02:58.700
+If it already says that, then you're already activated.
+
+02:58.910 --> 03:05.330
+And once you've done that, you simply type JupyterLab to launch JupyterLab and to be up and running.
+
+03:05.330 --> 03:08.360
+And that is where I will see you in the next video.

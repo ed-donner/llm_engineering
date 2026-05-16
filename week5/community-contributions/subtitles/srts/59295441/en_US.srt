@@ -1,0 +1,286 @@
+WEBVTT
+
+00:00.620 --> 00:08.150
+Okay, so welcome to our leaderboard fast as we go through a ton of essential leaderboards for your
+
+00:08.150 --> 00:08.900
+collection.
+
+00:08.900 --> 00:13.160
+The first of them, the Big Code Models leaderboard.
+
+00:13.430 --> 00:18.440
+You can see the URL there, but you can also just search for it in hugging face.
+
+00:18.590 --> 00:23.600
+Um, and as with all of them, it's running as a spaces um, app.
+
+00:23.600 --> 00:27.920
+And also we'll include links in the class resources.
+
+00:28.070 --> 00:34.430
+Um, so what you see here is the, uh, set of models.
+
+00:34.430 --> 00:36.890
+Let me start by filtering just on base models.
+
+00:36.890 --> 00:39.590
+So it's names that we all recognize.
+
+00:39.590 --> 00:47.900
+And you see the scores against the, uh, set of the human eval tests that I mentioned before, which
+
+00:47.900 --> 00:53.360
+is Python tests and then tests against Java and JavaScript and C plus plus.
+
+00:53.360 --> 00:59.930
+So you can compare the performance of these models in against different programming languages.
+
+00:59.930 --> 01:05.180
+And the win rate is a sort of a similar to like an average across them.
+
+01:05.180 --> 01:12.410
+And if you go to the about page, you'll get more information about how those are figured out and the,
+
+01:12.410 --> 01:19.820
+the way that this this column is calculated, you can see that the top model for coding is a specialized
+
+01:19.820 --> 01:23.570
+version of Queen for writing code that is called code Queen.
+
+01:23.570 --> 01:27.740
+And there's also a code llama that's not far behind.
+
+01:27.860 --> 01:31.340
+Deep Sea Coder is a model that's doing very well.
+
+01:31.460 --> 01:34.610
+Uh, a variant of Code Llama.
+
+01:34.610 --> 01:39.800
+And then Star Coder two is the model that we used ourselves early on.
+
+01:39.860 --> 01:43.160
+And so Star Coder two features here as well.
+
+01:43.340 --> 01:48.110
+Um, and then Code Gemma, which is Google's open source code generation model.
+
+01:48.110 --> 01:54.680
+If we include all, then we'll include some of the ones that have been, uh, tuned specifically on
+
+01:54.680 --> 01:56.690
+more specific data sets.
+
+01:56.690 --> 02:01.190
+And you'll see that actually, if you compare the scores, uh, it really Yeah.
+
+02:01.400 --> 02:09.470
+There's been a see that the code is far down now that a lot have been fine tuned to do much better.
+
+02:09.590 --> 02:19.190
+Um, somewhat surprisingly, Code Kwan 1.5 chat uh, seems to be, uh, outperforming the 1.5, uh,
+
+02:19.190 --> 02:23.480
+um, 7 billion down here, but but there may be various reasons for that.
+
+02:23.480 --> 02:28.400
+It might be to do with the way the data set that's been used to fine train it for that purpose, um,
+
+02:28.400 --> 02:31.010
+along with the kinds of questions that are asked here.
+
+02:31.100 --> 02:37.670
+So if the specific problem you're looking to solve involves coding the big code models, leaderboard,
+
+02:37.670 --> 02:39.200
+is the leaderboard for you.
+
+02:39.980 --> 02:45.380
+Next one we're going to look at is called the LM perf leaderboard, which is about looking at the performance
+
+02:45.380 --> 02:51.050
+of different models around things like their speed, their memory consumption and the like.
+
+02:51.080 --> 02:57.170
+And if you go to the leaderboard itself, you find the models listed out here with their various variations
+
+02:57.170 --> 03:02.570
+and then information about their speed, their consumption of energy and memory and so on.
+
+03:02.570 --> 03:10.310
+But I would actually suggest that you don't start with with with that page, but instead you flip to
+
+03:10.340 --> 03:16.340
+this, find your best model, you choose the hardware architecture that you're looking at, and then
+
+03:16.340 --> 03:22.640
+you pick find your best model and what you see here when you go to find your best model is this very
+
+03:22.640 --> 03:31.100
+interesting chart, which is actually a diagram that's displaying, uh, at least three different,
+
+03:31.100 --> 03:32.090
+uh, quantities.
+
+03:32.120 --> 03:35.930
+But if not, you could argue for, uh, along the x axis.
+
+03:35.930 --> 03:38.360
+Here you are seeing something about the speed.
+
+03:38.360 --> 03:42.650
+It's the time that this model takes to generate 64 tokens.
+
+03:42.650 --> 03:45.530
+So obviously the more to the left is better.
+
+03:45.530 --> 03:47.420
+It means faster time.
+
+03:47.420 --> 03:54.110
+We're looking for models that come to the left if you care about performance, uh, speed, performance.
+
+03:54.140 --> 03:59.450
+If you care about accuracy, that kind of performance, then you could you could use the total.
+
+03:59.480 --> 04:07.500
+The open LM score, that that, uh, aggregate score as your measure of model accuracy.
+
+04:07.680 --> 04:14.760
+If you care about the cost in terms of the memory footprint and a sense of the of the magnitude of hardware
+
+04:14.760 --> 04:19.890
+that you're going to need to run this model, then you need to look at the size of the blob.
+
+04:19.920 --> 04:27.480
+A bigger blob represents a greater memory need, and so it gives you a sense of what you'll need there.
+
+04:27.480 --> 04:33.480
+So we are looking ideally for models that are small blobs that are over on the left and that are quite
+
+04:33.510 --> 04:34.620
+high up.
+
+04:34.620 --> 04:39.720
+That would be a nice result for us if we don't need it to be high up.
+
+04:39.720 --> 04:44.820
+Particularly you can see a model like this one is doing really, really well and it is a Quan the Quan
+
+04:44.850 --> 04:47.040
+1.5 variant.
+
+04:47.130 --> 04:53.250
+Um, if you look right up here, if what you care most about is something which perform, which has
+
+04:53.250 --> 04:59.820
+very great, very strong accuracy in terms of its benchmark scores and is also quite fast.
+
+05:00.090 --> 05:06.720
+Uh, then maybe you come to this one here, which you can see is Llama Llama three model.
+
+05:07.050 --> 05:11.970
+And that does bring me to the final point, which is that the other, uh, bit of information that's
+
+05:11.970 --> 05:17.340
+being expressed in this chart is the family of models, but that is expressed by the color of blob.
+
+05:17.340 --> 05:24.870
+And you can see over here, uh, how to read those colors like yellow means it's a phi model or a Phi
+
+05:24.900 --> 05:25.830
+trained model.
+
+05:25.830 --> 05:29.250
+And you'll see the phi, uh, yellow model over there.
+
+05:29.610 --> 05:36.900
+So when it comes to the trade offs between speed, accuracy and memory footprint, which will affect
+
+05:36.900 --> 05:43.290
+your running costs, uh, for open source models, this is a fantastic resource.
+
+05:43.290 --> 05:51.330
+The, uh, perf leaderboard, uh, come to this, always turn to the Find your Best Model tab and browse
+
+05:51.330 --> 05:55.020
+around to understand what your options are.
+
+05:55.020 --> 06:01.260
+And this for example, if we're talking about a T4 hardware, then you would flip to the T4 tab to see
+
+06:01.260 --> 06:04.320
+what kind of, uh, options you have here.
+
+06:04.320 --> 06:08.400
+And looking that's the 01I hear.
+
+06:08.430 --> 06:10.560
+Is Kwan again doing well.
+
+06:10.830 --> 06:17.250
+And you can see other other models that might be most appropriate for you based on your use case.
+
+06:19.140 --> 06:26.040
+And now I just want to mention that there is a spaces uh, there is a you could you could go to spaces
+
+06:26.040 --> 06:27.540
+and search for leaderboards.
+
+06:27.540 --> 06:32.670
+All I've done here is done a leaderboard search in spaces, and you will see all of the different leaderboards
+
+06:32.670 --> 06:41.340
+that are out there that you could look at to see more details about your benchmarks of your LMS.
+
+06:41.610 --> 06:48.780
+And if you're not overwhelmed with the amount of information here, there is great, great utility to
+
+06:48.810 --> 06:51.420
+looking at these different leaderboards I mentioned a moment ago.
+
+06:51.420 --> 06:53.370
+There is a Portuguese focused leaderboard.
+
+06:53.370 --> 07:00.840
+You'll find many languages have their own leaderboards specifically to assess the abilities.
+
+07:00.840 --> 07:03.390
+I mentioned the open medical leaderboard.
+
+07:03.390 --> 07:10.350
+Let's bring this one up and you can see that there's a bunch of medical specific benchmarks like clinical
+
+07:10.350 --> 07:17.520
+knowledge, college biology, medical genetics, uh, and uh, and PubMed QA.
+
+07:17.610 --> 07:22.230
+And these are then scored against medical models.
+
+07:22.230 --> 07:29.280
+So if you were trying to build a solution that was designed for medical use cases, this is the leaderboard
+
+07:29.280 --> 07:31.050
+that you would come to right away.
+
+07:31.260 --> 07:38.490
+Um, and so really the and typically the, the, the about page will give you that extra information
+
+07:38.490 --> 07:42.510
+about the data sets, how it's used, how they are calculated.
+
+07:42.540 --> 07:50.820
+So this should give you a really good sense of how you select the right set of, of uh, open source
+
+07:50.820 --> 07:52.800
+models for the problem at hand.
+
+07:52.830 --> 07:59.340
+How you find a useful leaderboard and how you, uh, interpret the different metrics and can rank the
+
+07:59.340 --> 08:00.720
+different models out there.
+
+08:00.750 --> 08:05.250
+Next time we'll look at some leaderboards that combine open source and closed source.

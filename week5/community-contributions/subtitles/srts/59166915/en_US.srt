@@ -1,0 +1,592 @@
+WEBVTT
+
+00:00.440 --> 00:03.560
+Welcome back to the wonderful world of JupyterLab.
+
+00:03.560 --> 00:06.830
+And here we are in week two.
+
+00:07.490 --> 00:09.110
+Day three.
+
+00:09.260 --> 00:11.990
+Uh, bring up this notebook.
+
+00:11.990 --> 00:18.080
+So we're talking conversational AI, also known as chat bot, and we're going to get right into it.
+
+00:18.110 --> 00:24.680
+We start by doing our usual imports and we do our usual setting of our environment variables.
+
+00:24.680 --> 00:27.620
+And we initialize OpenAI.
+
+00:27.650 --> 00:29.840
+This time we will use OpenAI.
+
+00:30.020 --> 00:34.310
+And you can have it as an exercise to switch in other models if you'd like to do so.
+
+00:34.670 --> 00:38.510
+So uh, going to start with the basic system message.
+
+00:38.510 --> 00:40.340
+You are a helpful assistant.
+
+00:40.970 --> 00:41.480
+All right.
+
+00:41.510 --> 00:45.800
+Now I want to talk for a bit about, um, message structure.
+
+00:45.980 --> 00:54.200
+So first of all, uh, reminder of the structure of a prompt message to OpenAI.
+
+00:54.320 --> 00:58.700
+Uh, we've seen this many times now, and so you're probably thoroughly bored of me explaining it.
+
+00:58.700 --> 00:59.350
+There it is.
+
+00:59.350 --> 01:00.010
+One more time.
+
+01:00.010 --> 01:00.730
+You know it well.
+
+01:00.760 --> 01:07.840
+A list of dictionaries that give the system the user, and it can have an assistant responding and then
+
+01:07.840 --> 01:09.220
+the user and so on.
+
+01:09.220 --> 01:12.910
+And you may remember I mentioned there is something else to come, but for now.
+
+01:12.910 --> 01:13.990
+System user assistant.
+
+01:13.990 --> 01:14.650
+User assistant.
+
+01:14.680 --> 01:16.960
+User assistant user and so on.
+
+01:17.470 --> 01:21.430
+Uh, now we are going to write a function called chat.
+
+01:21.430 --> 01:27.400
+And that function chat is going to take two inputs message and history.
+
+01:27.430 --> 01:34.930
+Message represents the current, uh, message that is being being asked that chat needs to respond to.
+
+01:34.960 --> 01:41.050
+And history has the history of all prior messages, all prior exchanges.
+
+01:41.050 --> 01:45.520
+And the structure of history is going to look like this.
+
+01:45.550 --> 01:50.140
+It's going to be a list, a list that consists of lists.
+
+01:50.140 --> 01:55.810
+And these sub lists like this are simply what the user said and what the assistant replied, what the
+
+01:55.810 --> 01:58.920
+user said and what the assistant replied and so on.
+
+01:59.340 --> 02:02.730
+So why am I asking you to do that?
+
+02:02.760 --> 02:07.830
+Why are we going to write a function that looks like that with parameters, that arguments that look
+
+02:07.860 --> 02:08.340
+like this?
+
+02:08.340 --> 02:15.870
+The answer is because that is a particular type of function that Gradio expects for using with its chat
+
+02:15.870 --> 02:16.710
+user interfaces.
+
+02:16.710 --> 02:22.260
+And that's why Gradio expects us to write a function called chat that's going to take a message.
+
+02:22.260 --> 02:27.630
+It's going to take history in this structure, and it will return the next the response, the response
+
+02:27.630 --> 02:28.590
+to this chat.
+
+02:28.590 --> 02:30.390
+So that's why we're thinking about that format.
+
+02:30.390 --> 02:39.420
+So our job for this function is going to be convert this kind of style of message into this.
+
+02:39.420 --> 02:46.860
+So we're going to need to iterate row by row through this structure and build this structure that you
+
+02:46.860 --> 02:47.940
+see above.
+
+02:47.970 --> 02:49.710
+Hopefully that makes sense.
+
+02:49.710 --> 02:53.400
+If not, it will make sense when I show you what that looks like.
+
+02:53.400 --> 02:56.730
+So I'm defining a function called chat.
+
+02:56.760 --> 03:03.450
+It takes a message that we got to respond to an input message, and it takes history of prior messages.
+
+03:03.480 --> 03:09.090
+So we first of all, we we set up our list of messages, which is going to be this guy.
+
+03:09.090 --> 03:12.870
+And we populate it with the system prompt at the very start.
+
+03:12.900 --> 03:17.010
+Of course, then we are going to iterate through history.
+
+03:17.040 --> 03:20.460
+Each element of history again is one of these lists with two values.
+
+03:20.460 --> 03:24.000
+So we're going to unpack that into user message assistant message.
+
+03:24.000 --> 03:28.470
+And then we append the user's message and the assistant message.
+
+03:28.530 --> 03:30.390
+Uh each each time.
+
+03:30.390 --> 03:38.310
+So each row from from history turns into two rows in this list.
+
+03:38.310 --> 03:40.650
+One for the user, one for the assistant.
+
+03:40.770 --> 03:42.480
+Hopefully that makes complete sense.
+
+03:42.480 --> 03:43.050
+Now.
+
+03:43.200 --> 03:44.250
+If not, you can always.
+
+03:44.280 --> 03:45.240
+Oh well, you don't need to.
+
+03:45.270 --> 03:47.370
+I was going to say you can always put in some print statements.
+
+03:47.430 --> 03:50.160
+Uh, I had the foresight to put in some print statements myself.
+
+03:50.160 --> 03:51.180
+So we will see this.
+
+03:51.210 --> 03:54.980
+We're going to print the history And then we're going to print the messages.
+
+03:54.980 --> 03:57.170
+So we get to see that too.
+
+03:57.530 --> 04:05.120
+Um, and then the next line is very familiar to you for this particular chat, uh, method at this point,
+
+04:05.150 --> 04:12.110
+this function, sorry, at this point we are then going to take, um, this set of messages and we're
+
+04:12.110 --> 04:14.300
+going to call OpenAI with them.
+
+04:14.300 --> 04:17.810
+So we do OpenAI chat dot completions, dot create.
+
+04:17.810 --> 04:22.970
+We pass in the model, we pass in the messages, and we're going to say please stream results.
+
+04:22.970 --> 04:23.810
+We might as well.
+
+04:23.810 --> 04:27.200
+And then we go through and we yield response.
+
+04:27.440 --> 04:30.170
+Um, so again this isn't actually a function.
+
+04:30.170 --> 04:35.900
+It's really a generator because we're going to be yielding the responses piece by piece.
+
+04:36.800 --> 04:37.280
+Okay.
+
+04:37.280 --> 04:45.500
+So what I want to do now is turn this into the kind of user interface that you saw in the slide a moment
+
+04:45.500 --> 04:49.850
+ago, a user interface which has an instant message style interaction.
+
+04:49.850 --> 04:54.580
+So obviously there's a bit of work to do there because we're going to have to, to to craft that kind
+
+04:54.580 --> 05:01.360
+of, um, canvas with the messages that come one after another and figure out how to do that.
+
+05:01.420 --> 05:06.430
+Um, based on the response that's coming back from this chat message.
+
+05:06.940 --> 05:10.300
+Uh, I don't know if you've cottoned on, but I am, of course, fibbing.
+
+05:10.300 --> 05:11.770
+It's going to be really easy.
+
+05:11.770 --> 05:12.910
+It's going to be really easy.
+
+05:12.910 --> 05:14.470
+It's going to be a single line.
+
+05:15.310 --> 05:21.460
+Uh, so Gradio comes with something called chat interface out of the box, and chat interface, uh,
+
+05:21.460 --> 05:25.540
+expects a single function which needs to have this structure.
+
+05:25.540 --> 05:31.300
+If you've written a function which takes a message and history in this particular format, then for
+
+05:31.300 --> 05:34.240
+Gradio it's just a single line of code.
+
+05:34.480 --> 05:36.670
+Uh, let's see if it's really that easy.
+
+05:36.670 --> 05:42.610
+I do need to remember to execute that so that we have defined our chat generator.
+
+05:42.610 --> 05:46.510
+And then we will launch our interface.
+
+05:46.510 --> 05:47.770
+And here it is.
+
+05:47.770 --> 05:49.890
+Here is our chat interface.
+
+05:50.190 --> 05:53.730
+Let's bring it up in a separate window, because I just prefer it that way.
+
+05:53.730 --> 05:55.830
+And we'll say, uh.
+
+05:55.830 --> 05:56.970
+Hello there.
+
+05:59.070 --> 06:00.000
+Hello.
+
+06:00.030 --> 06:01.410
+How can I assist you today?
+
+06:01.530 --> 06:05.220
+I want to buy a tie.
+
+06:06.780 --> 06:09.270
+Great kind of tie are you looking for?
+
+06:09.300 --> 06:11.730
+Do you have a specific color, pattern or material?
+
+06:12.210 --> 06:14.160
+Uh, so you get the idea.
+
+06:14.430 --> 06:22.830
+But let me just say, um, a red one red tie is a classic choice.
+
+06:22.830 --> 06:24.510
+Here are a few options to consider.
+
+06:24.510 --> 06:26.340
+And there comes the answer.
+
+06:26.820 --> 06:31.470
+Now, obviously the reason I said a red one is I wanted to demonstrate what you already know, which
+
+06:31.470 --> 06:35.940
+is that it has context of this conversation and it knows what came before.
+
+06:35.970 --> 06:43.290
+And one more time, it's a bit of an illusion to feel as if this thing has memory from when we first
+
+06:43.290 --> 06:43.800
+spoke to it.
+
+06:43.800 --> 06:45.180
+And I said, I want to buy a tie.
+
+06:45.210 --> 06:51.630
+All that's happening is that every time we interact, that chat method, function generator, I get
+
+06:51.630 --> 06:52.410
+it right eventually.
+
+06:52.440 --> 06:55.290
+That chat generator is being called.
+
+06:55.470 --> 06:58.860
+And what's being what's being passed in is the whole history so far.
+
+06:58.860 --> 07:03.720
+And it's building that set of messages and that's what's being sent to OpenAI.
+
+07:03.750 --> 07:07.470
+So for each of our calls, the whole history is being provided.
+
+07:07.470 --> 07:10.980
+And that's why it has the context of what came before.
+
+07:10.980 --> 07:17.970
+It's not as if the LLM, it's not as if GPT four is remembering that that 30s ago we said that.
+
+07:17.970 --> 07:20.520
+It's just that with every call, we pass it all in.
+
+07:20.520 --> 07:22.080
+I'm sure it's obvious to you at this point.
+
+07:22.080 --> 07:26.010
+So I'm sorry I'm belaboring it, but I think it's important to, to really rub it in.
+
+07:26.400 --> 07:31.650
+Um, and yeah, so you remember I have some print statements happening below which are going to be quite
+
+07:31.650 --> 07:35.130
+chunky now, but let's just look at the the last one there.
+
+07:35.130 --> 07:41.700
+So the last one said history is and then this is what Gradio sent us.
+
+07:41.730 --> 07:48.500
+And you'll see it's like uh, what we said, what it said, what we said, what it said.
+
+07:48.890 --> 07:56.480
+Uh, and then we converted that into the right format for GPT four zero.
+
+07:56.510 --> 07:57.950
+Uh, GPT four mini.
+
+07:58.100 --> 08:02.000
+Um, we converted it into a list of, like, role system content.
+
+08:02.000 --> 08:03.110
+You're a helpful assistant.
+
+08:03.110 --> 08:05.360
+And then user said, hello there.
+
+08:05.360 --> 08:07.910
+And the assistant replied, hello, how can I assist you today?
+
+08:07.910 --> 08:08.540
+And so on.
+
+08:08.540 --> 08:11.450
+So that is what we turned it into.
+
+08:12.530 --> 08:18.530
+All right, just before we go on, I'm going to have a quick tangent, but it is an important tangent.
+
+08:18.530 --> 08:20.420
+So this isn't just me prattling on.
+
+08:20.420 --> 08:24.230
+This is something which I want to sow a seed with you.
+
+08:24.230 --> 08:30.200
+Something that we will come back to later and is an important point, um, which maybe, maybe something
+
+08:30.200 --> 08:31.670
+that's been on your mind.
+
+08:31.730 --> 08:33.590
+Um, or if not, it should be.
+
+08:33.800 --> 08:42.020
+Um, so just to mention, you might be thinking, so this structure, this system user assistant user.
+
+08:42.140 --> 08:43.480
+Uh, so is this.
+
+08:43.510 --> 08:49.960
+Does this somehow get passed into the LLM in some structured way?
+
+08:49.960 --> 08:56.860
+Like are we somehow when we when we provide this data to the LLM, is it being given maybe as a as a
+
+08:56.890 --> 09:00.160
+like a dictionary, a list of dictionaries in some way?
+
+09:00.280 --> 09:04.300
+Um, because you may say, I thought Llms just took tokens.
+
+09:04.300 --> 09:08.290
+They just take a list of tokens and they generate the most likely next token.
+
+09:08.290 --> 09:13.990
+So how does this whole list of dictionaries and so on, uh, translate to the world of tokens?
+
+09:13.990 --> 09:16.300
+And that would be a great thought if you had that thought.
+
+09:16.300 --> 09:17.680
+Uh, very good.
+
+09:17.680 --> 09:25.390
+Uh, and there's a simple answer, uh, it is just tokens that gets passed to the actual underlying
+
+09:25.420 --> 09:29.290
+GPT four, uh, GPT four LLM.
+
+09:29.290 --> 09:39.760
+What happens is that OpenAI turns this into a series of tokens, and it has special tokens, special
+
+09:39.760 --> 09:44.430
+ways of explaining that this is the beginning of a system prompt.
+
+09:44.430 --> 09:47.670
+This is the beginning of a user and an assistance response.
+
+09:47.670 --> 09:55.080
+It has some markup to say that, and it tokenizes that whole markup, including some special placeholder
+
+09:55.080 --> 09:59.010
+tokens that sort of communicate inform the LLM.
+
+09:59.010 --> 10:01.410
+We're now switching to system prompt mode.
+
+10:01.410 --> 10:02.880
+Here's some system prompt text.
+
+10:02.880 --> 10:04.500
+And now we're out of system prompt mode.
+
+10:04.530 --> 10:07.410
+Now we're doing a user message and so on.
+
+10:07.410 --> 10:11.460
+So this structure is what we send the OpenAI API.
+
+10:11.490 --> 10:13.980
+It converts it into tokens.
+
+10:13.980 --> 10:19.470
+And it's those tokens that then get fed to the LLM to predict the next token.
+
+10:19.950 --> 10:24.300
+And you might say, okay, I hear you, I get that.
+
+10:24.300 --> 10:32.760
+But how does the LLM know that this particular special token means system message and should interpret
+
+10:32.760 --> 10:35.340
+that to be its its high level directive?
+
+10:35.340 --> 10:39.180
+And how does it know that this token means user and this means assistant and so on.
+
+10:39.210 --> 10:43.740
+Like like what gives it that ability is that, like, baked into its architecture in some way?
+
+10:44.040 --> 10:46.590
+Uh, and there's a very simple answer to that, which is that.
+
+10:46.590 --> 10:49.530
+No, it's just because that's how it's been trained.
+
+10:49.560 --> 10:54.270
+It's been trained with lots of data, with that structure, with millions of examples like that.
+
+10:54.270 --> 11:00.300
+And it's learned through training that when it's being given a specific directive in a system instruction,
+
+11:00.300 --> 11:06.810
+the most likely next token, the most likely response is going to be one that adheres to that system
+
+11:06.810 --> 11:07.440
+prompt.
+
+11:07.470 --> 11:09.510
+There's I've oversimplified.
+
+11:09.510 --> 11:14.400
+There's some, uh, more nuance there to do with with things like the technique that is like chef and
+
+11:14.400 --> 11:14.940
+things like that.
+
+11:14.940 --> 11:18.570
+For for those that know all this stuff are listening and saying, oh, it's a bit oversimplified, but
+
+11:18.570 --> 11:19.770
+it's the general idea.
+
+11:19.770 --> 11:21.090
+It's the basic idea.
+
+11:21.090 --> 11:24.540
+This structure is this sort of the API structure.
+
+11:24.540 --> 11:27.390
+This is how we communicate to OpenAI that that's what we want to do.
+
+11:27.390 --> 11:31.170
+And OpenAI takes that structure and turns it into tokens.
+
+11:31.170 --> 11:38.390
+So to to sort of take a step to, to the very beginning, Gradio gives us data in this format.
+
+11:38.420 --> 11:47.300
+We map that to this format, which is what we send OpenAI and OpenAI converts that to tokens, including
+
+11:47.300 --> 11:48.680
+some special tokens.
+
+11:48.680 --> 11:54.740
+It's that that goes into the LLM for the whole conversation so far, for everything, every time it
+
+11:54.740 --> 12:01.460
+gets the entire conversation, and then it generates the most plausible next sequence of tokens that
+
+12:01.460 --> 12:04.400
+are most likely to come after that.
+
+12:04.490 --> 12:12.770
+Um, and that is what gets returned to us that we then assume represents the assistance response.
+
+12:12.980 --> 12:15.860
+So I realized that was quite a long sidebar.
+
+12:15.860 --> 12:18.740
+It's very important, foundational understanding.
+
+12:18.740 --> 12:22.190
+And we will come back to that when we, particularly when we look at open source models.
+
+12:22.190 --> 12:28.190
+And we're actually going to see these kinds of generated tokens, these special tokens ourselves.
+
+12:28.340 --> 12:34.880
+So with that, I'm going to pause it until the next video when we're going to press ahead building this
+
+12:34.880 --> 12:35.780
+chatbot out.

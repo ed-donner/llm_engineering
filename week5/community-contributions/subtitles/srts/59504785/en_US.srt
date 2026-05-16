@@ -1,0 +1,220 @@
+WEBVTT
+
+00:00.740 --> 00:04.160
+So at this point we're going to talk about hyperparameters.
+
+00:04.160 --> 00:06.320
+And we're going to introduce three of them.
+
+00:06.320 --> 00:08.840
+So a reminder of what is a hyperparameter.
+
+00:08.840 --> 00:10.700
+We talked about it a bit last week.
+
+00:10.730 --> 00:13.910
+A hyperparameter is one of these levers.
+
+00:14.000 --> 00:19.250
+That is something which you as the experimenter just gets to choose what you want it to be.
+
+00:19.250 --> 00:24.740
+There's no particular hard and fast rule about what it should be, and you're meant to use a process
+
+00:24.740 --> 00:31.880
+known as hyperparameter optimization to try different values and see what works best for your task at
+
+00:31.910 --> 00:32.570
+hand.
+
+00:32.570 --> 00:38.690
+And in reality, what what we are actually doing is basically trial and error.
+
+00:38.690 --> 00:44.690
+It's a bit of guesswork and then experimentation, because there aren't necessarily any theoretical
+
+00:44.690 --> 00:47.570
+reasons why it should be set one way.
+
+00:47.570 --> 00:50.000
+It's a matter of practical experiment.
+
+00:50.000 --> 00:56.240
+And so often you find in these things when people have a something that's working well and there's a
+
+00:56.240 --> 01:01.250
+few, a few controlling parameters, but they're not quite sure how what they should be set to.
+
+01:01.280 --> 01:03.570
+We don't yet have the theory to say what they should be.
+
+01:03.600 --> 01:05.490
+We just call it a hyperparameter.
+
+01:05.610 --> 01:06.570
+That's what it's called.
+
+01:06.570 --> 01:11.940
+And it means that you're in this world of trial and error and guesswork until you pick the right settings.
+
+01:11.940 --> 01:13.590
+That works best for your model.
+
+01:13.620 --> 01:17.550
+I'm oversimplifying a bit, of course, but hopefully you get the general idea.
+
+01:17.550 --> 01:21.180
+So there's going to be three of them that are most critical.
+
+01:21.180 --> 01:26.760
+In the case of Q Laura fine tuning, and I want to introduce them to you now and then.
+
+01:26.760 --> 01:29.640
+We will be playing with them in our time on this.
+
+01:29.640 --> 01:33.720
+The first of them is called R, which stands for rank.
+
+01:33.810 --> 01:41.940
+And it means simply how many dimensions are we going to use for these lower rank matrices within within
+
+01:41.940 --> 01:49.800
+the Lama architecture, the the inner layers have dimensionality of like 1004 thousand dimensions.
+
+01:49.800 --> 01:55.020
+We're going to want much smaller number of dimensions in our lower rank matrices.
+
+01:55.020 --> 01:56.640
+That's that's the whole idea of them.
+
+01:56.850 --> 02:03.600
+Um, so typically, uh, as I said, there's no hard and fast rules different tasks look for different
+
+02:03.600 --> 02:09.520
+values of R to start with when you're working in this kind of language generation models.
+
+02:09.520 --> 02:14.740
+I think a good rule of thumb that I've, I've always used and that I see people use generally in the
+
+02:14.740 --> 02:18.910
+community start with eight, which is a small number.
+
+02:19.210 --> 02:24.940
+Um, and that means that it will use up very lower memory and it will run fairly fast.
+
+02:25.120 --> 02:30.940
+Um, and then double it to 16, which will take up more memory and run more slowly and see whether or
+
+02:30.940 --> 02:36.280
+not you get better results and then potentially double again until you reach a point where you're getting
+
+02:36.280 --> 02:37.450
+diminishing returns.
+
+02:37.450 --> 02:40.690
+It's slowing down and it's taking longer, but you're not seeing any improvement.
+
+02:40.690 --> 02:45.520
+And then, you know, there's no point in having a higher R, you've already got the power you need
+
+02:45.520 --> 02:47.170
+for the data that you've got.
+
+02:47.350 --> 02:51.880
+So that's r uh, the next one that we'll talk about is alpha.
+
+02:51.880 --> 02:56.890
+And Alpha is quite simply a scaling factor that is multiplied.
+
+02:56.890 --> 03:01.120
+It's applied to these Laura A Laura B matrices.
+
+03:01.120 --> 03:05.530
+And that is then used to change the weights in the model.
+
+03:05.530 --> 03:10.710
+The formula for what it's worth is that the amount that you change the weights in the model by in your
+
+03:10.740 --> 03:11.940
+in your target modules.
+
+03:11.970 --> 03:16.830
+Is alpha times the A matrix times the B matrix.
+
+03:16.830 --> 03:18.630
+They get all multiplied together.
+
+03:18.630 --> 03:21.330
+So bigger alpha means more effect.
+
+03:21.330 --> 03:27.600
+And in practice the rule of thumb that is used I think almost ubiquitously I've I've always used it
+
+03:27.600 --> 03:32.880
+and I've always seen it this way in examples is to set alpha to be double R.
+
+03:32.910 --> 03:36.540
+So if you start with an R of eight your alpha is 16.
+
+03:36.570 --> 03:42.540
+Then when you go up to an R of 16 alpha is 32 and then 32 would be 64.
+
+03:42.540 --> 03:44.940
+So that is the good rule of thumb.
+
+03:44.940 --> 03:51.510
+But of course it's always worth experimenting with different alphas to see if that if that changes the
+
+03:51.540 --> 03:53.040
+your your accuracy.
+
+03:54.240 --> 04:02.160
+And then the third and final of our three essential hyperparameters is the actually saying, what will
+
+04:02.190 --> 04:08.640
+be the target modules that you will focus on adapting in your architecture?
+
+04:08.640 --> 04:15.970
+Which which of these layers are you going to select to focus on uh, and uh, generally the most common
+
+04:15.970 --> 04:19.540
+choice and the one that we'll be using is that you focus on the attention layers.
+
+04:19.540 --> 04:20.830
+That's very common.
+
+04:20.830 --> 04:23.920
+You'll see that in the code that's going to make more sense when you see it.
+
+04:23.980 --> 04:28.990
+Uh, there are situations when you want to to target other target modules.
+
+04:29.080 --> 04:35.800
+Um, if for example, uh, you're generating something that, that where you want the output to be in
+
+04:35.830 --> 04:41.110
+like a completely different language or something like that, then you might want to, uh, to target
+
+04:41.110 --> 04:43.780
+some of those final layers.
+
+04:43.780 --> 04:49.210
+So you'll see some, some, some that I'll give you more context in a moment about how that works.
+
+04:49.210 --> 04:54.940
+But generally speaking, the most common by far is to target the attention head layers.
+
+04:54.940 --> 04:56.440
+That's what we will do.
+
+04:56.470 --> 04:59.470
+And you will see how that set up in a moment.
+
+05:00.670 --> 05:06.760
+And with that, we are now going to head to Google Colab to look at this, to look at some models,
+
+05:06.760 --> 05:12.760
+to talk about Laura, to talk about Q, Laura and to see these three hyperparameters in action.
+
+05:13.180 --> 05:14.260
+Let's do it.
