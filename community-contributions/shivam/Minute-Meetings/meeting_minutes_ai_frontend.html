@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minutes AI | Transform Meetings</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,600;1,600&display=swap');
+
+        :root {
+            --primary: #6366f1;
+            --primary-hover: #4f46e5;
+            --bg-main: #f8fafc;
+            --bg-card: #ffffff;
+            --text-main: #0f172a;
+            --text-muted: #64748b;
+            --border: #e2e8f0;
+            --radius-lg: 16px;
+            --radius-md: 12px;
+            --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.05), 0 2px 4px -2px rgb(0 0 0 / 0.05);
+            --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.05), 0 8px 10px -6px rgb(0 0 0 / 0.05);
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-main);
+            color: var(--text-main);
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            padding: 40px 20px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 800px;
+            animation: fadeIn 0.6s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+
+        .header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 42px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            letter-spacing: -0.02em;
+        }
+
+        .header p {
+            color: var(--text-muted);
+            font-size: 18px;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .card {
+            background: var(--bg-card);
+            border-radius: var(--radius-lg);
+            padding: 32px;
+            box-shadow: var(--shadow-xl);
+            border: 1px solid var(--border);
+            margin-bottom: 32px;
+        }
+
+        .section-title {
+            font-size: 14px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--primary);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* Upload Zone */
+        .upload-wrapper {
+            position: relative;
+            margin-bottom: 24px;
+        }
+
+        .upload-zone {
+            border: 2px dashed var(--border);
+            border-radius: var(--radius-md);
+            padding: 48px 24px;
+            text-align: center;
+            transition: all 0.2s ease;
+            cursor: pointer;
+            background: #fdfdfd;
+        }
+
+        .upload-zone:hover, .upload-zone.dragover {
+            border-color: var(--primary);
+            background: #f5f3ff;
+        }
+
+        .upload-zone i {
+            font-size: 40px;
+            color: var(--primary);
+            margin-bottom: 16px;
+            display: block;
+        }
+
+        .upload-zone .title {
+            font-size: 16px;
+            font-weight: 500;
+            margin-bottom: 4px;
+        }
+
+        .upload-zone .subtitle {
+            font-size: 14px;
+            color: var(--text-muted);
+        }
+
+        #audio-input {
+            position: absolute;
+            inset: 0;
+            opacity: 0;
+            cursor: pointer;
+        }
+
+        /* File Selected Pill */
+        .file-pill {
+            display: none;
+            align-items: center;
+            gap: 12px;
+            background: #f1f5f9;
+            padding: 12px 16px;
+            border-radius: var(--radius-md);
+            margin-top: 16px;
+            animation: slideIn 0.3s ease-out;
+        }
+
+        @keyframes slideIn {
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        .file-pill i { color: var(--primary); font-size: 20px; }
+        .file-pill .name { font-size: 14px; font-weight: 500; flex: 1; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+        .file-pill .size { font-size: 12px; color: var(--text-muted); }
+        .remove-file {
+            background: none; border: none; cursor: pointer; color: var(--text-muted); padding: 4px;
+            transition: color 0.2s;
+        }
+        .remove-file:hover { color: #ef4444; }
+
+        /* Action Button */
+        .btn-primary {
+            width: 100%;
+            background-color: var(--text-main);
+            color: white;
+            border: none;
+            padding: 16px;
+            border-radius: var(--radius-md);
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .btn-primary:hover:not(:disabled) {
+            background-color: #1e293b;
+            transform: translateY(-1px);
+            box-shadow: var(--shadow);
+        }
+
+        .btn-primary:active:not(:disabled) { transform: translateY(0); }
+
+        .btn-primary:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        /* Output Area */
+        .output-container {
+            display: none;
+            animation: fadeIn 0.5s ease-out;
+        }
+
+        .status-card {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 16px 24px;
+            background: white;
+            border-radius: var(--radius-md);
+            border: 1px solid var(--border);
+            margin-bottom: 24px;
+        }
+
+        .spinner {
+            width: 20px; height: 20px;
+            border: 2px solid #e2e8f0;
+            border-top-color: var(--primary);
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+        }
+
+        @keyframes spin { to { transform: rotate(360deg); } }
+
+        .status-text { font-size: 14px; font-weight: 500; }
+
+        .tabs {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 20px;
+            background: #f1f5f9;
+            padding: 4px;
+            border-radius: 10px;
+        }
+
+        .tab {
+            flex: 1;
+            padding: 8px;
+            border: none;
+            background: none;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--text-muted);
+            border-radius: 8px;
+            transition: all 0.2s;
+        }
+
+        .tab.active {
+            background: white;
+            color: var(--text-main);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+
+        .tab-content { display: none; }
+        .tab-content.active { display: block; }
+
+        .minutes-view {
+            font-size: 16px;
+            color: #334155;
+        }
+
+        .minutes-view h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 24px;
+            margin: 32px 0 16px;
+            color: var(--text-main);
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 8px;
+        }
+
+        .minutes-view h2:first-child { margin-top: 0; }
+
+        .minutes-view h3 { font-size: 18px; margin: 24px 0 12px; }
+        .minutes-view p { margin-bottom: 16px; }
+        .minutes-view ul { padding-left: 20px; margin-bottom: 16px; }
+        .minutes-view li { margin-bottom: 8px; }
+
+        .transcript-view {
+            background: #f8fafc;
+            padding: 24px;
+            border-radius: var(--radius-md);
+            font-family: 'Inter', sans-serif;
+            font-size: 15px;
+            line-height: 1.8;
+            color: var(--text-muted);
+            max-height: 500px;
+            overflow-y: auto;
+            border: 1px solid var(--border);
+            white-space: pre-wrap;
+        }
+
+        .copy-btn {
+            margin-left: auto;
+            background: white;
+            border: 1px solid var(--border);
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 13px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            transition: all 0.2s;
+        }
+
+        .copy-btn:hover { background: #f8fafc; border-color: var(--text-muted); }
+
+        /* Responsive */
+        @media (max-width: 640px) {
+            .header h1 { font-size: 32px; }
+            .card { padding: 24px; }
+            body { padding: 20px 15px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header class="header">
+            <h1>Minutes AI</h1>
+            <p>Summarize your meetings with precision using open-source intelligence.</p>
+        </header>
+
+        <main class="card">
+            <div class="section-title">
+                <i class="ti ti-microphone"></i>
+                Step 1: Upload Audio
+            </div>
+
+            <div class="upload-wrapper">
+                <div class="upload-zone" id="upload-zone">
+                    <i class="ti ti-cloud-upload"></i>
+                    <div class="title">Drag and drop audio file</div>
+                    <div class="subtitle">MP3, WAV, or M4A (Max 25MB)</div>
+                </div>
+                <input type="file" id="audio-input" accept=".mp3,.wav,.m4a,.flac,.ogg">
+            </div>
+
+            <div class="file-pill" id="file-pill">
+                <i class="ti ti-file-music"></i>
+                <span class="name" id="file-name">filename.mp3</span>
+                <span class="size" id="file-size">4.2 MB</span>
+                <button class="remove-file" id="remove-file" title="Remove">
+                    <i class="ti ti-x"></i>
+                </button>
+            </div>
+
+            <button class="btn-primary" id="run-btn" disabled style="margin-top: 32px;">
+                <i class="ti ti-sparkles"></i>
+                Generate Meeting Minutes
+            </button>
+        </main>
+
+        <section class="output-container" id="output-container">
+            <div class="status-card">
+                <div class="spinner" id="status-spinner"></div>
+                <span class="status-text" id="status-text">Processing your meeting...</span>
+                <button class="copy-btn" id="copy-btn" style="display: none;">
+                    <i class="ti ti-copy"></i> Copy Minutes
+                </button>
+            </div>
+
+            <div class="card" style="padding: 24px;">
+                <div class="tabs">
+                    <button class="tab active" data-tab="minutes">Meeting Minutes</button>
+                    <button class="tab" data-tab="transcript">Raw Transcript</button>
+                </div>
+
+                <div class="tab-content active" id="tab-minutes">
+                    <div class="minutes-view" id="minutes-content"></div>
+                </div>
+
+                <div class="tab-content" id="tab-transcript">
+                    <div class="transcript-view" id="transcript-content"></div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        const audioInput = document.getElementById('audio-input');
+        const uploadZone = document.getElementById('upload-zone');
+        const filePill = document.getElementById('file-pill');
+        const fileName = document.getElementById('file-name');
+        const fileSize = document.getElementById('file-size');
+        const removeFile = document.getElementById('remove-file');
+        const runBtn = document.getElementById('run-btn');
+        const outputContainer = document.getElementById('output-container');
+        const statusText = document.getElementById('status-text');
+        const statusSpinner = document.getElementById('status-spinner');
+        const copyBtn = document.getElementById('copy-btn');
+        const transcriptContent = document.getElementById('transcript-content');
+        const minutesContent = document.getElementById('minutes-content');
+
+        let selectedFile = null;
+
+        // File Selection Handlers
+        audioInput.addEventListener('change', e => { if (e.target.files[0]) handleFile(e.target.files[0]); });
+
+        uploadZone.addEventListener('dragover', e => { e.preventDefault(); uploadZone.classList.add('dragover'); });
+        uploadZone.addEventListener('dragleave', () => { uploadZone.classList.remove('dragover'); });
+        uploadZone.addEventListener('drop', e => {
+            e.preventDefault();
+            uploadZone.classList.remove('dragover');
+            if (e.dataTransfer.files[0]) handleFile(e.dataTransfer.files[0]);
+        });
+
+        removeFile.addEventListener('click', () => {
+            selectedFile = null;
+            filePill.style.display = 'none';
+            uploadZone.style.display = 'block';
+            audioInput.value = '';
+            runBtn.disabled = true;
+        });
+
+        function handleFile(file) {
+            selectedFile = file;
+            fileName.textContent = file.name;
+            const mb = (file.size / 1048576).toFixed(1);
+            fileSize.textContent = mb + ' MB';
+            filePill.style.display = 'flex';
+            uploadZone.style.display = 'none';
+            runBtn.disabled = false;
+        }
+
+        // Tab Switching
+        const tabs = document.querySelectorAll('.tab');
+        const tabContents = document.querySelectorAll('.tab-content');
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                tabs.forEach(t => t.classList.remove('active'));
+                tabContents.forEach(tc => tc.classList.remove('active'));
+                tab.classList.add('active');
+                document.getElementById('tab-' + tab.dataset.tab).classList.add('active');
+            });
+        });
+
+        // Markdown Formatter (Simple)
+        function formatMarkdown(md) {
+            return md
+                .replace(/^## (.+)$/gm, '<h2>$1</h2>')
+                .replace(/^### (.+)$/gm, '<h3>$1</h3>')
+                .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+                .replace(/^\- (.+)$/gm, '<li>$1</li>')
+                .replace(/(<li>.*<\/li>\n?)+/g, m => `<ul>${m}</ul>`)
+                .replace(/\n{2,}/g, '</p><p>')
+                .replace(/^(?!<[hup])(.+)$/gm, m => m.trim() ? `<p>${m}</p>` : '');
+        }
+
+        // Copy Logic
+        copyBtn.addEventListener('click', () => {
+            const text = minutesContent.innerText;
+            navigator.clipboard.writeText(text).then(() => {
+                const originalHtml = copyBtn.innerHTML;
+                copyBtn.innerHTML = '<i class="ti ti-check"></i> Copied!';
+                setTimeout(() => { copyBtn.innerHTML = originalHtml; }, 2000);
+            });
+        });
+
+        // Run Logic
+        runBtn.addEventListener('click', async () => {
+            if (!selectedFile) return;
+
+            outputContainer.style.display = 'block';
+            runBtn.disabled = true;
+            copyBtn.style.display = 'none';
+            statusSpinner.style.display = 'block';
+            statusText.textContent = 'Transcribing your meeting...';
+            minutesContent.innerHTML = '';
+            transcriptContent.textContent = '';
+
+            try {
+                const formData = new FormData();
+                formData.append('file', selectedFile);
+
+                const response = await fetch('http://localhost:8000/api/process-audio', {
+                    method: 'POST',
+                    body: formData
+                });
+
+                if (!response.ok) {
+                    const text = await response.text();
+                    let detail = text;
+                    try {
+                        const err = JSON.parse(text);
+                        detail = err.detail || err.error || text;
+                    } catch (_) { /* plain text body */ }
+                    throw new Error(detail || 'Processing failed');
+                }
+
+                const reader = response.body.getReader();
+                const decoder = new TextDecoder();
+                let fullMinutes = '';
+                let lineBuffer = '';
+
+                function handleLine(line) {
+                    if (!line.trim()) return;
+                    const data = JSON.parse(line);
+
+                    if (data.error) throw new Error(data.error);
+
+                    if (data.type === 'transcript') {
+                        transcriptContent.textContent = data.content;
+                        statusText.textContent = 'Generating minutes live...';
+                    } else if (data.type === 'chunk') {
+                        fullMinutes += data.content;
+                        minutesContent.innerHTML = formatMarkdown(fullMinutes);
+                        outputContainer.scrollIntoView({ block: 'end', behavior: 'smooth' });
+                    }
+                }
+
+                while (true) {
+                    const { done, value } = await reader.read();
+                    if (done) break;
+
+                    lineBuffer += decoder.decode(value, { stream: true });
+                    const lines = lineBuffer.split('\n');
+                    lineBuffer = lines.pop() || '';
+
+                    for (const line of lines) {
+                        handleLine(line);
+                    }
+                }
+
+                if (lineBuffer.trim()) {
+                    handleLine(lineBuffer);
+                }
+
+                if (!transcriptContent.textContent && !fullMinutes) {
+                    throw new Error('No transcript or minutes received from the server.');
+                }
+                
+                statusText.textContent = 'Success! Minutes generated.';
+                statusSpinner.style.display = 'none';
+                copyBtn.style.display = 'flex';
+                runBtn.disabled = false;
+
+            } catch (err) {
+                statusText.textContent = 'Error: ' + err.message;
+                statusSpinner.style.display = 'none';
+                minutesContent.innerHTML = `<p style="color: #ef4444;">${err.message}</p>`;
+                runBtn.disabled = false;
+            }
+        });
+    </script>
+</body>
+</html>
