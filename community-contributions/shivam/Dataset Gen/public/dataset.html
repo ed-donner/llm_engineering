@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dataset Records</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
+</head>
+<body>
+  <main class="container">
+    <h1 id="dataset-title">Dataset</h1>
+
+    <nav>
+      <ul>
+        <li><a href="/" role="button" class="secondary">Back to Dashboard</a></li>
+        <li><a href="/generate.html" id="regenerate-link" role="button">Regenerate</a></li>
+      </ul>
+    </nav>
+
+    <section>
+      <h2>Export</h2>
+      <div class="grid">
+        <button id="export-json">Export JSON</button>
+        <button id="export-csv">Export CSV</button>
+        <button id="export-sql">Export SQL</button>
+      </div>
+      <div id="download-progress" class="hidden">
+        <p>Preparing download...</p>
+        <progress></progress>
+      </div>
+    </section>
+
+    <section>
+      <h2>Records</h2>
+      <div id="table-container"></div>
+      <nav id="pagination"></nav>
+    </section>
+  </main>
+  <script src="js/api.js"></script>
+  <script src="js/records.js"></script>
+</body>
+</html>

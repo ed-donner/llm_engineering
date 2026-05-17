@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Generate Data</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
+</head>
+<body>
+  <main class="container">
+    <h1>Generate Data</h1>
+
+    <nav>
+      <ul>
+        <li><a href="/" role="button" class="secondary">Back to Dashboard</a></li>
+        <li><a href="/generate.html" id="regenerate-link" role="button">Regenerate</a></li>
+      </ul>
+    </nav>
+
+    <section id="config-section">
+      <h2>Configuration</h2>
+      <p id="dataset-info"></p>
+
+      <form id="generate-form">
+        <fieldset>
+          <legend>Templates</legend>
+          <label>
+            Load Template
+            <select id="template-select">
+              <option value="">-- Select a template --</option>
+            </select>
+          </label>
+          <button type="button" id="save-template-btn" class="secondary">Save Current as Template</button>
+        </fieldset>
+
+        <label>
+          Model
+          <select name="model" id="model-select" required></select>
+        </label>
+
+        <label>
+          Prompt
+          <textarea name="prompt" id="prompt-editor" rows="6" placeholder="Describe what data to generate..."></textarea>
+        </label>
+
+        <fieldset>
+          <legend>Parameters</legend>
+          <label>
+            Target Record Count
+            <input type="number" name="targetCount" value="100" min="1" max="10000">
+          </label>
+          <label>
+            Batch Size (records per API call)
+            <input type="number" name="batchSize" value="20" min="1" max="100">
+          </label>
+          <label>
+            Temperature
+            <input type="range" name="temperature" min="0" max="2" step="0.1" value="0.7">
+            <span id="temp-value">0.7</span>
+          </label>
+        </fieldset>
+
+        <button type="submit" class="primary" id="start-btn">Start Generation</button>
+      </form>
+    </section>
+
+    <section id="progress-section" class="hidden">
+      <h2>Generation Progress</h2>
+      <progress id="progress-bar" value="0" max="100"></progress>
+      <p><span id="progress-text">0</span> / <span id="target-text">0</span> records</p>
+      <p>Status: <span id="status-text">-</span></p>
+    </section>
+  </main>
+  <script src="js/api.js"></script>
+  <script src="js/generate.js"></script>
+</body>
+</html>
