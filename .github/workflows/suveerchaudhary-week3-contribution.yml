@@ -1,0 +1,66 @@
+# Validate notebooks and optional Python under this community contribution path.
+# Triggers on pushes to the contributor branch and on PRs that touch the same paths.
+
+name: Suveerchaudhary week3 contribution checks
+
+on:
+  push:
+    branches:
+      - "suveerchaudhary/week3-solution"
+    paths:
+      - "week3/community-contributions/suveerchaudhary/**"
+  pull_request:
+    paths:
+      - "week3/community-contributions/suveerchaudhary/**"
+  workflow_dispatch:
+
+jobs:
+  validate-notebooks:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install nbformat
+        run: pip install nbformat
+
+      - name: Validate Jupyter notebooks in contribution folder
+        run: |
+          python << 'PY'
+          import sys
+          from pathlib import Path
+          import nbformat
+
+          root = Path("week3/community-contributions/suveerchaudhary")
+          if not root.is_dir():
+              print(f"Missing folder: {root}")
+              sys.exit(1)
+          errors = []
+          for path in sorted(root.glob("*.ipynb")):
+              try:
+                  nbformat.read(path, as_version=4)
+                  print(f"OK: {path}")
+              except Exception as e:
+                  errors.append(f"{path}: {e}")
+          if errors:
+              print("Notebook validation failed:", file=sys.stderr)
+              for e in errors:
+                  print(e, file=sys.stderr)
+              sys.exit(1)
+          print("All notebooks valid.")
+          PY
+
+      - name: Byte-compile any Python helpers in contribution folder
+        run: |
+          if compgen -G "week3/community-contributions/suveerchaudhary/*.py" > /dev/null; then
+            python -m compileall -q week3/community-contributions/suveerchaudhary/
+          else
+            echo "No .py files to compile."
+          fi

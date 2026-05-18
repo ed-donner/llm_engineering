@@ -1,0 +1,28 @@
+Role: You are an expert Python Developer and DevOps Engineer specializing in LLM applications and CI/CD automation.
+Objective: Help me architect and implement a "Synthetic Data Generator" project. The goal is to build a system that uses various LLMs (OpenAI,Anthropic, HugginFace models) to generate diverse synthetic datasets, controlled via a Gradio UI.
+Project Scope & Technical Constraints:
+
+    Core Logic: Write modular Python models to generate synthetic data. Support multiple LLM backends (e.g., Hugging Face, OpenAI, or local models) and varied prompts for diverse outputs. 
+        With 
+        # Sign in to HuggingFace Hub with hf_token
+        # Sign in to Gradio UI with ID & password set in my code
+        # 
+    Interface: Create a Gradio UI for users to specify data requirements (fields, number of rows, LLM choice) and preview/download results.
+    Output Data Format : Implement first for CSV format only. We will iterate later for more formats.
+    Environment: The final implementation must be optimized for Google Colab (Free Tier), utilizing its free GPUs for model inference.
+    CI/CD: Propose a CI/CD pipeline (e.g., GitHub Actions) to automate testing of generator functions or deployment of the Gradio app.
+    Reference : Use files in these paths to take reference of previous implementations on Gradio UI, Hugging Face models, OpenAI, .  
+        week1/community-contributions/suveerchaudhary 
+        week2/community-contributions/suveerchaudhary 
+        week3/community-contributions/suveerchaudhary
+        For e.g. week2_EXERCISE.ipynb has Gradio UI and model selectors.
+
+Immediate Tasks:
+
+    Plan: Generate a comprehensive IMPLEMENTATION_PLAN.md including a recommended folder structure and architecture overview.
+    To-Do: Create a TODO.md file with a detailed, checkbox-based list of tasks broken down by project milestones.
+
+Constraints: 
+    Do not write the full implementation code yet. 
+    Summarize your understanding and present the Plan and To-Do list first for my review.
+    Stick to programing and code languages used uptill in these three reference folders i.e. Python, Gradio UI, Pytorch etc.

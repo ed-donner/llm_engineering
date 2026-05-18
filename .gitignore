@@ -213,3 +213,15 @@ week6/*/*.jsonl
 week6/*.pth
 week6/*.joblib
 week8/*.pth
+
+# Ignore my edited files in the week*/community_contributions/suveerchaudhary directory : Except the weekly exercise or projects
+week*/community_contributions/suveerchaudhary/day*.ipynb
+week*/community_contributions/suveerchaudhary/*.py
+week*/community_contributions/suveerchaudhary/*.db
+week*/community_contributions/suveerchaudhary/*.txt
+week*/community_contributions/suveerchaudhary/*.json
+week*/community_contributions/suveerchaudhary/*.jsonl
+week*/community_contributions/suveerchaudhary/*.pkl
+week*/community_contributions/suveerchaudhary/*.pth
+week*/community_contributions/suveerchaudhary/*.joblib
+week*/community_contributions/suveerchaudhary/*.csv
