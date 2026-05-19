@@ -1,0 +1,1069 @@
+[33m50ff24c[m[33m ([m[1;36mHEAD -> [m[1;32mcommunity-contributions-branch[m[33m)[m Add Flightbooking_chatbot notebook
+[33maf76610[m Adding the jupyter notebook for the Flightbooking chatbot exercise from Week2
+[33md520a9e[m Deleted old Flight booking chatbot notebook
+[33mfead91e[m Added the flightbooking chatbot exercise from Week2
+[33ma399bff[m Renamed the Flight booking submission jupyter notebook
+[33m71e08b2[m Merge remote-tracking branch 'myfork/community-contributions-branch' into community-contributions-branch
+[33m82cd9ef[m[33m ([m[1;31mmyfork/community-contributions-branch[m[33m)[m Delete week2/day1-Copy1.ipynb
+[33m6dee73e[m Add Flight Booking notebook
+[33me046566[m Adding the week2 assignment on Flight booking chatbot
+[33m65dffca[m Adding my jupyter notebook for the week2 exercise on Flight booking chatbot
+[33m20a1b88[m Removed files from week2/community-contributions-folder which were earlier saved by me
+[33mc627e96[m Moved week2 notebooks into community-contributions folder
+[33mc54cabc[m Added wk2 3-way chats notebook file
+[33mfeeae05[m Merge branch 'main' into community-contributions-branch
+[33ma9ab2be[m Merge branch 'main' of https://github.com/ed-donner/llm_engineering into community-contributions-branch
+[33m50dc7d1[m Merge branch 'community-contributions-branch'
+[33m3142f65[m Resolved merge conflicts in community contributions notebooks
+[33m521f385[m Saving changes after week1
+[33m96b796d[m Merge pull request #529 from johnsunam/community-contributions-branch
+[33m55ed032[m Merge pull request #528 from achalshahp/community-contributions-branch
+[33m54bd13c[m Merge pull request #527 from ChilesheChanda/main
+[33m98dcb0b[m Merge pull request #525 from mkash96/llm-projects-mk
+[33m618aa22[m Merge pull request #524 from lfeujio/main
+[33me10da65[m Merge pull request #523 from natete/week1/day1/recipe-formatter
+[33ma0f0cff[m Merge pull request #521 from RalphMaa/week2-day1-branch
+[33mae6152f[m Merge pull request #520 from RalphMaa/day5-community-contributions-branch
+[33m5441f2b[m Merge pull request #518 from SUKIHEALTH/main
+[33m5f54eab[m Merge pull request #515 from pradeep1955/community-contributions-branch
+[33m9c98859[m Merge pull request #514 from rprithvii/community-contributions-branch
+[33m561075f[m Added my contributions to community-contributions
+[33mede2136[m Fixed a terrible typo in the json example - thank you Patrick J
+[33m7034991[m adding my contributions for reviews-summary to communit-contributions
+[33md5815d0[m Week one exercise solution
+[33mf725744[m Merge branch 'community-contributions-branch' of https://github.com/pradeep1955/llm_engineering into community-contributions-branch "submit triangular conversations"
+[33mdfedf87[m week2/community-contributions/agent_conversation_shakespeare.ipynb
+[33m2da5870[m Merge branch 'ed-donner:main' into community-contributions-branch
+[33mb00aa59[m submit creating a 3-way,  bringing Gemini into the conversation
+[33m13c274e[m Add Chatbots Conversation Contribution
+[33me3d6b48[m week 2 - day1 exercise: conversation between 3 chatbots
+[33m5c9761c[m submit day2 EXERCISE.ipynb  community-contributions/pradeep1955/week1
+[33me6f0864[m Pinned protobuf version so that Chroma works
+[33m3b4e013[m feat: add week 1, day 1 exercise notebook
+[33m99e6532[m Add 3-way AI convo notebook for Week2 Day1
+[33m2853d61[m Addition of file day2 EXERCISE_prithvi.ipynb
+[33m6e1bd71[m Invoke LLM model files adn day2 EXERCISE file
+[33me118ae0[m Add Day 5 translation challenge and exercise
+[33md2cfd13[m Create submission week 2 SF README.md
+[33m619097b[m Add my week1 EXERCISE.ipynb to community-contributions
+[33mda2885b[m Adding AWS Bedrock notebook after clearing outputs in the notebook
+[33mcbd8a57[m add jupyter notebook: Invoke LLM modelfrom AWS Bedrock
+[33mb3a20de[m Moved a community contribution to the right place
+[33mb91773e[m Merge branch 'main' of github.com:ed-donner/llm_engineering
+[33ma108724[m Minor updates including pinning datasets version
+[33mfab52d3[m Merge pull request #438 from SUKIHEALTH/main
+[33m8090e85[m Merge pull request #510 from Zhufeng-Qiu/zephyr-week3_4_5
+[33maff4340[m Merge pull request #509 from MiR-stack/community-contributions-branch
+[33ma41f41a[m Merge pull request #508 from RalphMaa/community-contributions-branch
+[33maa64d21[m Merge pull request #507 from gulsahdemiryurek/main
+[33m4134d05[m Merge pull request #501 from mikePls/clean-contribution
+[33m98c7cfb[m Merge pull request #492 from SyedMohamedHyder/FlightAI
+[33mf92936d[m Merge pull request #474 from Vanshika-mahajan/main
+[33m62ed152[m Moved notebook to community/vanshika-mahajan folder as per guideline
+[33m1bc1229[m Add the community contribution for Week3/4/5
+[33mcb4788a[m comment code for better understanding
+[33m21fe10c[m Added my contributions to community-contributions
+[33m1ed52bf[m Add files via upload
+[33m76d1c88[m[33m ([m[1;31mmyfork/main[m[33m)[m Merge pull request #506 from website-deployer/main
+[33m865bf2d[m Remove nested git and add folder
+[33m0fe9e4e[m Merge pull request #1 from ed-donner/main
+[33md0b83a5[m Merge pull request #505 from ptonpay/main
+[33m14bcffc[m select specific versions of models from GPT or Claude
+[33m72f6615[m Revert
+[33m20a11cb[m Merge branch 'FlightAI' of https://github.com/SyedMohamedHyder/llm_engineering into FlightAI
+[33m0fca56f[m FlightAI
+[33m7e3ddf4[m Added a multimodal chatbot interface project input to community contributions
+[33m9569e78[m Merge pull request #497 from AniketKakde04/community-contributions-branch
+[33m1d4f68f[m Merge pull request #496 from amoulin55/main
+[33mc04aaf3[m Merge pull request #495 from albertoclemente/add-protocol-summarizer
+[33m6894e5a[m Merge pull request #491 from Zhufeng-Qiu/zephyr-week1-week2
+[33mf210c53[m Merge pull request #490 from akc276/week2day1_3llms_tutoring_discussion
+[33m99c2f38[m Merge pull request #488 from yst-ni/community-contributions-branch
+[33mfe7c2a6[m Merge pull request #484 from prospero-apps/community-contributions-branch
+[33m8c9f1a0[m Merge pull request #482 from chawlashubham/community-contributions-branch
+[33m15565c2[m Merge pull request #481 from sruthianem89/community-contributions-branch
+[33m1937db3[m Merge pull request #479 from bluebells1/sm-branch-wk5
+[33m3733884[m Merge pull request #477 from Indraveen-Technologies/week-5-contributions
+[33m7364c2a[m Merge pull request #476 from cicucicu/community-contributions-branch
+[33m43fe5d7[m Merge pull request #475 from bluebells1/sm-branch-wk4
+[33mf7b9507[m Merge pull request #472 from Indraveen-Technologies/week-4-contributions
+[33m70d06db[m Merge pull request #470 from Indraveen-Technologies/week-2-contributions
+[33mf86b588[m Merge pull request #459 from MiR-stack/community-contributions-branch
+[33m0b7fd49[m Added my contributions to community-contributions
+[33m99d1d2b[m Fix: Convert protocol_summarizer_webapp from submodule to regular files
+[33m9fd0bde[m Added gmail RAG example for week 5
+[33m581ae06[m Add protocol_summarizer_webapp to community-contributons
+[33mccfab49[m Week 2 Exercise of FlightAI ChatBot
+[33ma3b03fc[m Added my contributions to community-contributions of week1/week2
+[33ma0df10d[m w2day1_3llamas_tutoring_discussion.ipynb
+[33m8572f48[m Added my contributions to community-contributions
+[33m43876f7[m Added my contributions to community-contributions
+[33m670e8ad[m Added my contributions to community-contributions for week 1
+[33m966a5f6[m Add files via upload
+[33mb840ea6[m Add files via upload
+[33mc08a14e[m Added my contributions to community-contributions
+[33m68b64e9[m ollama_website_summarizer
+[33m3eb27a8[m Added my contributions to community-contributions
+[33m9819b8b[m Week5 Final Project
+[33m2d6a6d1[m Week 5 Contribution: AI bot using Semantic Chunk and Gemini for RAG implementation
+[33m8a8493e[m Finally removed FAISS from environment and requirements to improve Mac installation
+[33m1346ba7[m Added my contributions to community-contributions
+[33m680a5c6[m Merge branch 'main' of github.com:bluebells1/llm_engineering into sm-branch-wk4
+[33m17de8bd[m LLM eng week4 projects
+[33mb5a85a5[m clear output cells
+[33mb0e1134[m Add fashion summarizer notebook using Ollama
+[33mffa5cb8[m Week 4 Contribution: Code conversion using QWEN Coder and Free Inference Provider
+[33m8100512[m Week 4 Contribution: Code conversion using Gemini and Codestral
+[33m72432fd[m add patient brochure notebook and summaries
+[33m1ab4b2c[m create folder sf-patient-brochure
+[33m2391aeb[m Week 2 contribution: Airline Assistant using Gemini + Amadeus live ticket price
+[33m8a0f953[m Merge pull request #469 from moawiah/week5_my_cont
+[33m1d5dac5[m Merge pull request #468 from Guru-Deep-Singh/feature/Multishot_prompting_via_historical_conversation
+[33m9969945[m Merge pull request #466 from Guru-Deep-Singh/feature/gaslighting_llm
+[33m1e52c49[m Merge pull request #465 from BitOfVaishnavi/main
+[33mecc9f0e[m Merge pull request #463 from cicucicu/community-contributions-branch
+[33mfabc789[m Merge pull request #462 from KhadatkarSameer/community-contributions-branch
+[33m3633ac0[m Merge pull request #461 from 0marMarie/llm-engineering-contributions-omar
+[33m54f8bd8[m Merge pull request #460 from mkash96/reddit-analyser
+[33m3df2c25[m Merge pull request #458 from Indraveen-Technologies/community-contributions-branch
+[33m26a24ba[m Merge pull request #453 from bluebells1/sm-branch
+[33ma8f51ff[m simple RAG use cases (csv/logs/personal data)
+[33m5923e3a[m feat():Multishot_prompting_using_history
+[33mf9f7ec3[m feat():gaslighting_expert_llm
+[33m33ef5ba[m Add Day 1 summarizer using BS4 + Selenium + Llama 3.2
+[33m40645ef[m Added my contributions to community-contributions
+[33m7d8f28e[m Delete week3/community-contributions/llm_wk3d5_minutecreator.ipynb
+[33mbc56756[m Delete week3/community-contributions/llm.wk3synthetic-data-creator.ipynb
+[33me74be16[m Add week3 projects
+[33m84b574f[m Merge branch 'sm-branch' of github.com:bluebells1/llm_engineering into sm-branch
+[33mabd17ec[m Add projects from week 3 day 5
+[33m8cef23a[m Added my contributions to community-contributions
+[33m2202d1e[m Merge branch 'ed-donner:main' into llm-engineering-contributions-omar
+[33m797f846[m create a study assistant
+[33ma29b2e2[m feat: week 2 challenge - AI Gold Investment Assistant
+[33mc74077e[m Add Day 1 & 2 Reddit Analysis notebooks, PDF, and README to community contributions
+[33m76cea8b[m llm battle arrena between three llm
+[33m0f4071d[m Added Gemini SDK solution for Week1 Exercise to community-contribution
+[33m286449e[m Delete week2/physio-chat-bot-(wk2-d3).ipynb
+[33m3fb1c4d[m Merge pull request #455 from kartik6/kartik/fix-for-week1_AI_techician
+[33mdc5d471[m Merge pull request #452 from ewaltuch/eli-week1-final
+[33m2c52d2e[m Merge pull request #451 from dan-palade/new-branch
+[33m8450129[m Merge pull request #449 from dan-palade/clean-branch
+[33m4f1436d[m Merge pull request #447 from KhadatkarSameer/community-contributions-branch
+[33mcfe8f47[m Merge pull request #446 from dan-palade/clean-feature-branch
+[33ma729424[m Merge pull request #445 from kartik6/community-contributions-branch
+[33md0046cc[m Merge pull request #442 from wertie/community-contributions-branch
+[33m2a4bd4b[m fix for gpt to load key from env
+[33m3a3f1a2[m Merge pull request #436 from lisekarimi/feature/week8
+[33m126ed56[m Merge pull request #435 from lisekarimi/feature/week7
+[33m8fbfecf[m Merge pull request #434 from lisekarimi/feature/week3
+[33m7bee9c2[m Merge pull request #432 from lisekarimi/feature/week5
+[33mcc15b4f[m Merge pull request #431 from lisekarimi/feature/week6
+[33m843483e[m Merge pull request #402 from moawiah/my_cont_week3
+[33m203c659[m cleanup outputs
+[33m2831534[m added 2 day ollama option
+[33m28420a8[m W2D4 Joke Calculator Tool
+[33m146e63c[m Add notebook from wk2 day3: physio-chat-bot
+[33m64c3408[m commit wk2-d3
+[33ma2ac056[m physio-chat-bot-(wk2-d3).ipynb
+[33m8759d43[m eek1 assignment: your own personal Jedi Master Tutor!
+[33m8f22016[m Added week4 generator for comments and unit tests
+[33m904acec[m Merge branch 'main' of github.com:ed-donner/llm_engineering
+[33me3e6cb7[m Fixes to imports and repo link thanks to Trung N
+[33m20a0ef0[m Added code comments generator to week 4 contributions
+[33mbf37df8[m Added code comments generator for week 4
+[33m3a8a1f2[m Added my contributions to community-contributions
+[33mf29fc38[m Added my file to community-contributions for Week3
+[33m3961de5[m week 1 - smart recipe grocery assistant
+[33m5b5c4dc[m moving my contribution to the correct folder
+[33m3c9d1fe[m Delete gp_referral_toolkit directory
+[33m066d6c5[m Delete gp_referral_toolkit/communit-contributions/gp_referral_toolkit directory
+[33m96dc3a9[m Update and rename gp_referral_toolkit/patient_note.txt to /communit-contributions/gp_referral_toolkit/patient_note.txt
+[33m3ba4c0a[m Rename gp_referral_toolkit/README.md to /community-contributions/gp_referral_toolkit/README.md
+[33m1bfdc6c[m Added my contributions to week4 community-contributions
+[33md0786c3[m Clean up notebook to reduce file sizes
+[33m6c25aa5[m Clean up notebook to reduce file sizes
+[33m338d961[m Clean up notebook to reduce file sizes
+[33mc1cf567[m Clean up notebook to reduce file sizes
+[33m457f0a8[m Clean up notebook to reduce file sizes
+[33mfa9382f[m Move files to community_contributions folder
+[33mb0e828f[m Organize week 7 files in lisekarimi folder
+[33m428322b[m Add week7 contributions
+[33mea27415[m Merge pull request #437 from lisekarimi/feature/week2
+[33m41d1c01[m Merge pull request #433 from lisekarimi/feature/week4
+[33m6689775[m Merge pull request #430 from lisekarimi/feature/week1
+[33m0f06bb1[m Merge pull request #429 from renannovais/brazilian-news-summarizer-in-english
+[33m8c3edcc[m Merge pull request #427 from Adriana394/week-exercises
+[33m113853c[m Organize week 6 files in lisekarimi folder
+[33m6548e34[m Organize week 8 files in lisekarimi folder
+[33mbfcd008[m Merge pull request #425 from ektashukla-ai/add-product-comparison-llms
+[33m04d3cf2[m Merge pull request #424 from MiR-stack/community-contributions-branch
+[33ma7c7b11[m Merge pull request #423 from MarcusRosen/community-contributions-branch
+[33m5d3181f[m Merge pull request #439 from simondb94/main
+[33m7edfba7[m Add files via upload
+[33mbace59f[m Add files via upload
+[33m8aa8e9d[m Create README.md
+[33m5c4846f[m Delete README.MD
+[33m7b37c20[m Create README.MD
+[33m01b33b4[m Add week2 contributions
+[33m9960947[m Add data folder to week 6
+[33me15f7d1[m Remove data folder from week 8
+[33m141216e[m Add week8 contributions
+[33mcf85184[m Add week6 contributions
+[33me337e0b[m Add week5 contributions
+[33m2d511eb[m Add week4 contributions
+[33m8f35aec[m Add week3 contributions
+[33mba1b3b7[m Add week1 contributions
+[33mfdd5ad4[m Add my notebook to community-contributions
+[33mbfc20be[m Create new_training_with_rag (1).py
+[33m41ae0bd[m create community folder
+[33m65db703[m Add LLM product comparison using Selenium, OpenAI, and Ollama
+[33m7bd46ba[m user can summarize research papers by website link
+[33m0010efa[m Added LiteLLM exampel for Week2 Day2
+[33mb8a292a[m copied project files into the PR
+[33m5782ca2[m Merge pull request #417 from OpalDecisionSciences/week1-pr-community-contributions-jeannine-jordan
+[33m8194a66[m Merge pull request #414 from armangoudarzi70/my-contribution
+[33m78ea1f1[m Merge pull request #412 from JayapalSahadevan/community-contributions-branch
+[33m771fe99[m Merge pull request #409 from sharathir/community-contributions-branch
+[33mc7c1bc9[m Merge pull request #405 from Shikidwaja/community_contribution_day1
+[33m20b7561[m Merge pull request #404 from iamRichardCN/main
+[33mb8f9172[m Merge pull request #403 from Fikriraihan/community-contributions-branch
+[33mac96c5c[m Merge pull request #398 from SabeehMehtab/synthetic_dataset_generator
+[33m15c2520[m Add community contributions for PR
+[33m0714e7d[m Add my notebook to community-contributions
+[33m06b14a3[m Added my contributions to community-contributions - removed comment
+[33md17ac1c[m Merge branch 'main' of https://github.com/ed-donner/llm_engineering into community-contributions-branch
+[33m30d1d58[m Added my contributions to community-contributions
+[33m9b85a94[m Added my contributions to community-contributions
+[33m776478f[m Adding Week 2 Day 4 Ticket Pricing using tools with Ollama by sharathir
+[33md6b4bfb[m Merge pull request #408 from JackMcInerney/my-contribution
+[33m7fc4aa9[m Add my notebook on adverserial chatting to community-contributions
+[33m2d6ec3e[m job recommendation based on the resume content. Suggests the suitable job role to apply for and provide the links from job sites based on location and sites user wants to search for.
+[33m3320538[m AI stock adviser webscraping notebook
+[33mfeba5d0[m Added my contributions to community-contributions wk1 day1, github information
+[33mb2b26dd[m Added my contributions to community contributions week1 day1, github information
+[33mac8a3ad[m contribution for week 3
+[33m045d1e4[m Cleared output of all cells as per feedback given
+[33mba4325e[m Merge pull request #400 from chaser1802/w4d4
+[33mb72241c[m Merge pull request #399 from DavidRottensteiner/community-distributions-branch
+[33m7bb3d91[m Merge pull request #396 from sngo/add-taskmanagement-contribution
+[33m0c69fde[m Merge pull request #392 from vinigracindo/community-contributions-branch
+[33m9e53c05[m Merge pull request #391 from tahatahir/taha-community-contributions
+[33m800003b[m Merge pull request #390 from sharathir/community-contributions-branch
+[33m8daa278[m Merge pull request #387 from MarwanAshraf22/main
+[33m6d0ca07[m Merge pull request #386 from evokateur/community-contribution-fix
+[33mf0bd8bc[m Merge pull request #385 from BePeace/main
+[33m523732d[m Merge pull request #377 from maryammouzarani2024/community-contributions-branch
+[33m2f8f05c[m Merge pull request #348 from moawiah/cont
+[33ma0f3c64[m add alternate week 4, day 4 which works on windows
+[33ma9f8ec1[m Add another notebook to community-contributions
+[33m5a30e76[m Add Sherlock Holmes-themed chatbot trialogue to community-distributions
+[33md17698d[m Sherlock Holmes chatbot trialogue
+[33m58db309[m Added my contributions to community-contributions, Wk2, Day3 with Ollama by sharathir
+[33m7e629e5[m Added my contributions to community-contributions, stream brochure, wk2, day2, sharahir, ollama
+[33ma6aae43[m Added my contributions to community-contributions two llm conversations using ollama
+[33ma4db90b[m Added my dataset generator to contributions folder
+[33m94dda98[m Added my contributions to community-contributions Week 2 Day 1 Telling a joke exercises using Ollama
+[33me3eac62[m sngo: add taskmanagement contribution for week 2
+[33m7faebc5[m Day 1 activity: pull request reviewer
+[33m74a2964[m Add new notebook to community-contributions
+[33me8f0784[m Added my contributions for Company Brochure with Ollama version 1.0
+[33maca3536[m Added my Company Brochure exercise using ollama to community contributions
+[33mdeff713[m Add files via upload
+[33m41753b9[m oops
+[33m68c982a[m fix dumb mistake, fix Ishmael (it is hard not to type '*mail'), remove some test cells
+[33mfe8344f[m Day 2 work using py for ollama - using url - using library - using openai - using ollama to summarize website
+[33m111028c[m Merge branch 'main' of github.com:ed-donner/llm_engineering
+[33m2f7a639[m Linked to guides
+[33m4736625[m Added my contributions to community-contributions-RAG
+[33m06fb950[m Added my contributions to community-contributions-RAG
+[33m4be1ecf[m Rename reuqirements.txt to requirements.txt
+[33m388c6c6[m Merge pull request #375 from Execotryx/llm-summarizer-with-pyppeteer
+[33m08efad7[m A LLM summarizer of websites built with Pyppeteer in order to have more streamlined run, than Selenium. Pyppeteer will download Chromium on its own - no need to have Chrome installed. Handy when you don't have UI.
+[33md88a683[m Merge pull request #374 from loupdethies/loupdethies/add-datasheet-comparator
+[33m177503c[m Merge pull request #373 from SabeehMehtab/flight-conversation-bots
+[33m3fc17a6[m Merge pull request #372 from Molkaushik/community-contributions-branch
+[33mc5ef2b5[m Merge pull request #371 from markvenn666/community-contributions-branch
+[33m005949d[m Merge pull request #368 from kbjerring/community-contributions-branch
+[33m6ce17d4[m Merge pull request #367 from evokateur/community-contribution
+[33m2d8ead5[m Merge pull request #366 from akc276/day1_website_summary_mac_headless
+[33m98bd4c9[m Add example datasheets for datasheet comparator notebook
+[33mbee4bbc[m Merge pull request #364 from sudeshm99/community-contributions-branch
+[33mabce4f2[m Merge pull request #363 from wertie/community-contributions-branch
+[33m02df222[m Merge pull request #362 from sharathir/community-contributions-branch
+[33m49490d7[m Merge pull request #359 from BePeace/main
+[33mc68048d[m Merge pull request #358 from lakovicb/bojan-playwright-scraper
+[33m3c93462[m Merge pull request #356 from dan-palade/community-contributions-branch
+[33mc4efc4a[m Merge pull request #355 from ckujawa/day1_contrib
+[33m71c20d4[m Merge pull request #353 from massalinux/community-contributions-branch
+[33m2f1a920[m Merge pull request #352 from subh273/community-contributions-branch
+[33m8d8855a[m Merge pull request #351 from triimamwicaksono/community-contributions-branch
+[33m0820a83[m Merge pull request #350 from sw8y/main
+[33md8a0e8e[m Merge pull request #349 from khalid-taha/community-contributions-branch
+[33mc8a0438[m Merge pull request #345 from zoya-hammad/community-contributions
+[33m5e7d2d5[m Add datasheet comparator notebook from loupdethies
+[33m22b5915[m Flight conversation between 2 AI bots (Week 2)
+[33md9846ec[m Added my day1 contributions to community-contributions
+[33me4e5602[m Added my contributions to community-contributions
+[33m7820337[m Create day1 email checker.ipynb
+[33mda0759d[m added python cells to notebook search
+[33mfa9e740[m Added tool call to course material seach
+[33m139188c[m my community contribution for week 2 day 1
+[33m4367750[m Added my contribution to week2 with a great working notebook that contains booking, translation to 6 languages and speech-to-text functionality
+[33m08311ce[m day1_website_summary_mac_headless
+[33m1fb53d7[m Updated models, added vector tests
+[33mb7a8ada[m day2 exercise
+[33mcf92968[m Added my contributions to community-contributions
+[33m2f3b288[m Added my contributions to community-contributions Day2 Exercise
+[33me5816c5[m Merge pull request #361 from sharathir/community-contributions-branch
+[33mb5efd15[m Added my contributions to community-contributions
+[33mfe56262[m Some updates for the latest Chroma version
+[33m99b196d[m Setup instructions clarification
+[33md500dc2[m Clarifying the secrets
+[33m17f797c[m Fixed modal issue
+[33m0360cc4[m Merge pull request #261 from kellewic/community-contributions-kellewic
+[33m6b9a0a7[m Updated modal with API changes - thank you to student Sayak
+[33m1caa5c8[m Cleaned cell outputs
+[33mfd7f008[m A python file for website summarization
+[33m817a051[m Added my contribution week2 day 1
+[33m5684963[m Update comments to American English and ignore scraper_cache
+[33m1a626ab[m Add Bojan's Playwright asynchronous scraper project
+[33mc8f4c7c[m Merge branch 'main' of github.com:ed-donner/llm_engineering
+[33mfb636df[m Added link to OpenAI Agents SDK and MCP implementation to final lab
+[33mf5b1b9e[m Added week2 day1 exercise - fictional chat between 3 actors
+[33ma191be2[m having some fun with "fitness". The response had me rolling
+[33m39650b0[m Added my contributions to community-contributions day 2
+[33m505336c[m Refactor notebook to script with modularized code.
+[33m41428fd[m Added my contributions to community-contributions
+[33mc279e9e[m Added Resume Analyzer and Sample version
+[33mc6b2b46[m Completed exercise for threeway conversation between GPT, Claude, and Gemini
+[33ma007dbf[m Add notebooks to community-contributions
+[33mf8214c7[m my solution for project week2
+[33mb31b3d0[m Added my contributions to community-contributions
+[33m6f8b573[m Merge pull request #321 from ken-027/main
+[33m141f54f[m Merge pull request #347 from Adriana394/week-exercises
+[33mcda80ca[m Merge pull request #344 from dan-palade/community-contributions-branch
+[33mee7f148[m Merge pull request #342 from petria-tieto/llm-course-week8-unit-tests
+[33mf581e7e[m (fix) space issue removed
+[33m76a9a3b[m Merge pull request #341 from khalid-taha/community-contributions-branch
+[33mff55d89[m Merge pull request #340 from lakovicb/main
+[33md22f41f[m Merge pull request #339 from 0marMarie/llm-engineering-contributions-omar
+[33mfb6b9af[m Merge pull request #336 from kbjerring/community-contributions-branch
+[33m1dd632d[m Merge pull request #335 from sohanpatharla/community-contributions-branch
+[33mc179209[m Merge pull request #334 from jkumarkannan/main
+[33ma106d70[m Merge pull request #333 from gizemmervedemir/website-summarizer-day2
+[33m48d5cec[m Merge pull request #331 from msource1/main
+[33ma05f436[m Merge pull request #330 from johnsunam/community-contributions-branch
+[33m0b5781d[m Merge pull request #329 from arunabeshc/arunabesh
+[33mfeb047d[m Merge pull request #325 from samt07/community-contributions-branch
+[33m63b13a5[m Merge pull request #324 from escarti/patch-1
+[33m386f276[m Merge pull request #323 from AniketKakde04/community-contributions-branch
+[33m8de7a86[m Merge pull request #322 from Dheerajmaddi/community-contributions-branch
+[33mcad1c56[m Merge pull request #316 from ReTrO19/community-contributions-branch
+[33m731bf03[m Merge pull request #315 from MJ-Hussain/main
+[33mc5a83d1[m Merge pull request #312 from alakob/llm_engineering_blaise_alako_contrib
+[33m505124f[m Merge branch 'main' of github.com:ed-donner/llm_engineering
+[33m217e08d[m Minor fixes
+[33m200e3ab[m create week 5 exercise
+[33m1876130[m Added ensemble agent updated with xg_boost agent to community-contributions
+[33mf59bd64[m Added compare-websites to community-contributions for week1
+[33m6ea9080[m Final adjustments and preparation for Ed's review
+[33m8735404[m day-1-travel-recommendation prompt
+[33mea447b0[m unnecessary removed
+[33m154c360[m Unit tests for pricer-module
+[33m49f8bbc[m Add notebooks to community-contributions
+[33m1a7f4e8[m Added detailed README for Playwright-based scraper contribution
+[33mfeb4a2e[m Added requirements.txt for scraper dependencies
+[33mdf5dbe0[m Added formatted markdown-only notebook for Playwright scraper output
+[33mba7455e[m Added Playwright-based scraper solution to community-contributions
+[33m5794f3a[m feat: Adding the day1-research paper summarizer to the week 1 contributions
+[33mbcc327e[m added youtube transcript summarizer
+[33m12a07ed[m "Added my contributions to community-contributions"
+[33me4d75d0[m Add files via upload
+[33mf39f712[m Add day2 website summarizer notebook using local Llama 3 with Ollama
+[33m275d4ea[m Add Selenium notebook under community-contributions
+[33mb8b2f76[m Merge pull request #332 from jstoops/community-contributions-branch
+[33mdc5a2b9[m Added my contributions to community-contributions
+[33m79e766a[m Voting Bots - multi-modal chat app
+[33m64c1320[m Added my contributions to community-contributions
+[33m398a717[m Create Vacation_Planner.ipynb
+[33m058f6e7[m Added Auto body shop AI
+[33m5b64025[m Completed Exercise-1 on Day-2: Implementation for web scraping summarization using Ollama
+[33m8fc84a7[m Create day1_selenium_job_cv_recommender.ipynb
+[33m3f0a80d[m Added my contributions to community-contributions
+[33m23da4ae[m Added Selenium implementation for web scraping
+[33mae9222e[m Added Selenium implementation for web scraping
+[33m418944e[m feat(week 3): added anime audio translator and fix code from previous code conversion
+[33m3c9c4d5[m feat(week 4): code conversion for py, c++, js, and php
+[33m1497f18[m Added my contributions to community-contributions
+[33mcdc2fa4[m Week2Day1 Multimodel chat
+[33m2b56be1[m Updated DocuSeek doc
+[33mf6d3bfa[m Update CodeXchange doc
+[33md94da11[m Update CodeXchange AI and DocuSeek AI
+[33mabb462e[m Merge pull request #311 from KhadatkarSameer/community-contributions-branch
+[33mef948f4[m Merge pull request #309 from Adriana394/week-exercises
+[33mc71f7fd[m Merge pull request #308 from samt07/community-contributions-branch
+[33m67b5e3c[m Merge pull request #306 from ariel1985/main
+[33m4833861[m Merge pull request #305 from shantanubharadwaj/sdb/week2
+[33md0e7165[m Merge pull request #302 from Amirbeek/main
+[33me0086e8[m Merge pull request #301 from thisforcode/main
+[33m0787f2c[m Merge pull request #299 from ken-027/main
+[33m572a3d4[m Merge pull request #295 from arunabeshc/arunabesh
+[33m415aef3[m Unit test harness started
+[33mb31cad4[m Added my contributions to community-contributions
+[33m488a214[m Added my contributions to community-contributions
+[33m8951be8[m Create unit_testing_commets_code_generator.ipynb
+[33m7038ceb[m Added Perl to Python Code Converter
+[33m316260a[m Add eCommerce Assistant notebook for product price retrieval week2
+[33m167db70[m Added 3 way AI rountable conversation to community-contributions
+[33md2f0bc7[m feat(week 2): integration of anthropic api to gradio
+[33mc758747[m My contribution
+[33md021d80[m Updated the code to include ticket bookings with the quantity(no of tickets) being specified by the user
+[33m230697e[m Duration of hearing and added quantity of tickets to purchase option
+[33m57f4613[m Enabling Alloy
+[33md2c1200[m Day1: Grafana Dashboard Metrics Summarizer
+[33m64c1acf[m AI Chatbot and Personal Story Writer
+[33m0fc1ff6[m Personal Story Writer
+[33mcc9d6cf[m Updated AI Chatbot
+[33m5deac08[m AI Chatbot movement
+[33ma7e8226[m Merge pull request #298 from KhadatkarSameer/community-contributions-branch
+[33mfe9d9c8[m Merge pull request #297 from shantanubharadwaj/sdb/day1_web_parser
+[33m77b7c64[m Merge pull request #293 from JaiGoswamii/community-contributions-branch
+[33mb6571c7[m Merge pull request #292 from SandraNeuhaeus/w2-day1-contribution
+[33m64a2eec[m Merge pull request #290 from msource1/main
+[33m2125eea[m Merge pull request #288 from alizat/main
+[33m29079a5[m Merge pull request #287 from alakob/llm_engineering_blaise_alako_contrib
+[33m2c6870c[m Merge branch 'main' of github.com:ed-donner/llm_engineering
+[33m344219c[m Updates and added day1 with ollama
+[33m18d7640[m Added my contributions to community-contributions
+[33mcb791a3[m community-contributions: Updated web scrapping tool to bypass javascript bot protection and cloudfare shields using selenium
+[33m74860b8[m Refactor: Rename file
+[33mac585aa[m Refactor: Add system prompt to messages in the Model class, not in Participant
+[33m56dadb1[m Merge branch 'main' of https://github.com/msource1/llm_engineering Notebook details an error generated when using Gradio's ChatInterface with Claude models, for generating Conversational AI (Chatbots).
+[33ma579461[m Gradio issue with Claude
+[33m4959299[m AI Booking Chatbot
+[33m4bf82dc[m Added Day-1-Text-to-SQL folder with db.py and ollama-TTSQL.py
+[33mba65fba[m App Quick guide notebook
+[33m4fdc04a[m Refactor: Change class name, comment out code
+[33mc68bde8[m Complete exercise week 2, day 1: 3-way conversation between AI's   - Make claude and two gpt's have a conversation
+[33m47c2b0b[m Merge branch 'ed-donner:main' into main
+[33m67282ce[m Title Generator V3 - using Firecrawl
+[33m413edf5[m add week2 exercise sol. 2 community
+[33mf0de490[m Merge pull request #281 from ewaltuch/wk1-eli
+[33m7221a7e[m Merge pull request #280 from nfirbas/main
+[33m072fd67[m Merge pull request #278 from palbha/palbha_contributions
+[33m0e737b8[m Merge pull request #277 from Yusuf-Youssef/community-contributions-branch
+[33m3e3a67f[m Merge pull request #276 from petria-tieto/LLM_week5_day5
+[33m2b90340[m Merge pull request #273 from zoya-hammad/community-contributions
+[33mda55190[m Multi-language code converter contribution
+[33m9bb7e9d[m feat(day5): ollama version
+[33m7189882[m Community Contribution: Week 1, Days 1 and 2
+[33m4e29a2a[m Michelin-star cooking assistant week1
+[33md274136[m Create day5_openai_whisper_llamainstruct
+[33me0c1797[m Added my contribution to community-contributions in week 2
+[33m212b6da[m vectorstore with openAI
+[33me5916b7[m Added Knowledge Worker to community-contributions
+[33m79948e3[m Removed wake code and added min_containers with a default of zero so no containers are kept active by default
+[33mcdddffe[m Merge pull request #271 from simonsteinberg/community-contributions-branch
+[33me4154bf[m Merge pull request #267 from Adriana394/week3-exercise
+[33mbef3c72[m Merge pull request #266 from palbha/palbha_contributions
+[33m9b6b8b3[m Merge pull request #265 from zoya-hammad/community-contributions
+[33m59d8348[m Merge pull request #264 from Heuscartist/community-contributions-branch
+[33m99f0570[m Merge pull request #262 from ariel1985/main
+[33mc6bea69[m Merge pull request #210 from Naqi444/syed/day1-alt_text_tweet
+[33m0cc83c8[m The Airline AI Assistant can now compare prices, e.g., 'Is it cheaper to go to Berlin or to go to London?'
+[33mb6a6b31[m Refine system prompt for tutorial summarization from Stack Overflow content
+[33m9ba4350[m Added contribution to community-contributions
+[33m750f9a6[m Fixed bug with path check
+[33ma99435d[m Create synthetic_dataset_generator_deepseek_qwen_llama.ipynb
+[33m3e7ba93[m Week 2 day 4 Budget trip planner
+[33md6e7082[m Added Code Documentation Generator to community-contributions
+[33m53e26a3[m Merge branch 'main' of https://github.com/ed-donner/llm_engineering into community-contributions
+[33ma4e11e0[m Added Code Documentation Generator to community-contributions
+[33m84244ed[m Added Master Chef to community-contributions - Adil
+[33m74d9af7[m Move notebook to community notes
+[33m27dd6af[m Undo change of day1 file from week1 folder
+[33m8b4ad6d[m Implement community contributions feature for turning stackoverflow issues to tutorials
+[33me503d57[m :q!qxMerge branch 'community-contributions-kellewic'
+[33mae0e291[m Removed modal.build() in favor of using modal.Volume to cache model files. Added warming code as an app.function()
+[33m44791fc[m Merge pull request #221 from zoya-hammad/community-contributions
+[33m2ba42c2[m Merge pull request #259 from Hazperera/main
+[33m6fd8c26[m Merge pull request #257 from palbha/day1_contribution
+[33ma5e8a18[m Merge pull request #256 from jalopezmartin/community-contributions-branch
+[33mb4b0cd5[m Merge pull request #255 from ChrisW19/Week3Day5-Dataset
+[33m1535099[m Merge pull request #253 from aqn96/community-contributions-branch
+[33m4ddba92[m Merge pull request #252 from manish-gajria/main
+[33ma177251[m Merge pull request #250 from brianpickrell/main
+[33mde87319[m Merge pull request #248 from samt07/community-contributions-branch
+[33m714479e[m Merge pull request #247 from kellewic/community-contributions-kellewic
+[33ma859f67[m Merge pull request #246 from Nirtun/community-contributions-branch
+[33m9ba3a99[m Merge branch 'main' of github.com:ed-donner/llm_engineering
+[33mc80065d[m Improvements to descriptions and links
+[33m931dce7[m Merge branch 'ed-donner:main' into community-contributions
+[33mc69dd74[m Reverted modified files in week2/community-contributions
+[33m47c8dd8[m Merge pull request #1 from Hazperera/dev-hp-w4
+[33mbddbbb6[m add Python code for C/CPP/Rust converter
+[33m4e7db3a[m Merge pull request #258 from MartijnR/patch-1
+[33m6465267[m Update day1.ipynb
+[33m2276017[m Add files via upload
+[33m3fe1d5e[m Added my contributions to community-contributions_W1D2
+[33mdbd2384[m Added my contributions to community-contributions_W1D5
+[33m85be21b[m Create Day5-Synthetic_Dataset_Generator.ipynb
+[33m64f9329[m Create Day5_Synthetic_Dataset_Generator.ipynb
+[33m756748d[m Added my contributions to community-contributions
+[33m9d21d9f[m day 1 exercise for LLM engineer certification
+[33m28b1362[m Week2 Day 4 exercise notebook with an additional tool to list destinations that the airline serves
+[33m4a48216[m community: notebook with an adversarial conversation
+[33m6db015a[m adding week2 exercise work with a translator using different frontier model and also trying audio input using whisper library
+[33mae8c7af[m community notebook:  beatnik jokes
+[33m0f7fdf4[m Added week1 and week2 projects
+[33m579d0bb[m Added frontier model testing table compared to basic models and human evaluator
+[33m7a050c8[m Added my contributions to community-contributions
+[33md2027a8[m Merge pull request #245 from Hun-Bot2/community-contributions-branch
+[33mb3592e0[m Merge pull request #244 from tithi1610/community-contributions-branch
+[33me71a2ed[m Merge pull request #242 from mokhtar77777/mokh_week2_day2
+[33m67c00ad[m Merge pull request #240 from johnIT56/feature/week3_day5
+[33mc9d11c4[m Merge pull request #238 from banuady/feature/banuady/week1-challenge
+[33mc25b7a8[m Merge pull request #234 from udomai/w5d4
+[33m4ffa919[m Merge pull request #233 from antonawinkler/antonawinkler-add-val-set
+[33mfc6f469[m Merge pull request #231 from msource1/main
+[33m32e9b7b[m Clear Output
+[33m286c0ac[m Add my contribution to community-contributions
+[33mc9e80ee[m Merge branch 'ed-donner:main' into community-contributions-branch
+[33m42ccc63[m Added my website summarizer using qwen2.5
+[33me3ddca2[m Mokh Week 2 Day 2 Contribution
+[33mee68530[m Adding file to the community contributions folder
+[33me761d04[m Improved Article Generator
+[33mbe59cb5[m remove client.close() to allow multiple llm runs
+[33md52b830[m add ollama with streams using ollama generate
+[33mbb457c2[m add w5d4 exercise: no langchain
+[33mee7aa1e[m add Jupyter notebook for creating a validation set
+[33m5f8b9d7[m oob-title-generator
+[33m3a2eb97[m Merge branch 'main' of github.com:ed-donner/llm_engineering
+[33m8338dfc[m Minor improvements including consistently setting override to True when loading dotenv
+[33m54d61c1[m Merge pull request #230 from zoya-hammad/community-contributions-branch
+[33m72f78fe[m Merge pull request #228 from flacout/community-contribution-branch
+[33mdaafcaf[m Merge pull request #227 from paulmboyce/feature/verify-encodings
+[33m95c007b[m Merge pull request #225 from Hazperera/hp-week1
+[33ma97889f[m Merge pull request #224 from dlamotta/main
+[33mb422fac[m Merge pull request #222 from serpentile-c137/my-feature-branch
+[33m34f68b6[m Merge pull request #220 from tangytech/community-contributions-branch
+[33m79dc694[m Merge pull request #219 from mokhtar77777/mokh_week1_day1
+[33m270a93e[m Merge pull request #218 from sakinarao/community-contributions-week2
+[33m8a5e815[m Merge pull request #216 from filokostas/week1-day2-excerise-with-deepseek-r1
+[33mce12af8[m Merge pull request #215 from AsmaouLandi/main
+[33m0b4b53f[m Merge pull request #214 from jimsnns/community-contributions-branch
+[33meff0a24[m Merge pull request #212 from udomai/week_3
+[33m9726055[m Merge pull request #211 from skullemote/community-contributions-branch
+[33m51d0d04[m Merge pull request #209 from hassanbsee2071/mac-lama-selenium
+[33m0e841ef[m Added contributions to community-contributions
+[33m9bb5816[m Added my contributions to community-contributions
+[33mdbe489e[m Added my contributions to community-contributions
+[33m891b161[m Added my contributions to community-contributions
+[33mc06fcd3[m contribute to week 2 examples with a tool: python interpreter
+[33mbb30131[m feature(verify determinism on encodings):comparisons for OpenAIEmbeddings and sentence-transformers/all-MiniLM-L6-v2
+[33m122620c[m Added my StudyAI Course booking assistant to community-contributions
+[33m59e815e[m add a python script for an automated website marketing strategy analysis
+[33m95d7e8d[m Added my contributions to community-contributions
+[33mc70c6c4[m add a python script for an automated website content analysis & SEO extraction
+[33m9d01032[m Disabling SSL cert validation, and suppressing warnings. Fixes issue #217
+[33m30e2e23[m Added advanced brochure generator to community-contributions
+[33m51e5d15[m Add book flight and sightseeing functions in day5. Audio worked with variation 1.
+[33mf40746f[m gemini-codes-week5
+[33m5d13880[m Add the book flight tool for the agent to be able to provide flight bookings.
+[33med6c0d1[m Added llama 3.2 - claude 3.5 sonnet chatbot interaction to community-contributions
+[33mf219e99[m Added my contributions to community-contributions
+[33m3c0399f[m Added my contribution for 3 LLMs having conversation
+[33mc43aa0e[m Mokh Week 1 Day 1 Contribution
+[33mc5bf054[m Add DeepSeek exercise notebook for website summarization
+[33mb03bf5a[m Add files via upload
+[33m3a090bc[m Add week 1 exercise notebook for OpenAI API and Ollama integration, the AI Technician.
+[33m225f933[m get rid of pesky outputs
+[33mf515a9c[m week 3 challenge
+[33mab083ee[m Merge branch 'ed-donner:main' into community-contributions-branch
+[33mfb5e507[m Added my additional exercise for W2D1 to community-contributions
+[33m67a296c[m Output clear.
+[33m23dafd3[m Rename file
+[33m606b116[m Use llm to generate funny tweet on image alt-text
+[33m311a0f4[m mac
+[33m86cc68e[m mac selenium
+[33m8ffd3a5[m Merge pull request #208 from johnIT56/feature/week2_day5
+[33mccadc8d[m Adding Ollama with tts and use it as translator
+[33m41d958d[m Merge branch 'main' of github.com:ed-donner/llm_engineering
+[33mcc0f430[m Additional instruction for linux recommended by a student
+[33me6c3dba[m Merge pull request #201 from jimsnns/community-contributions-branch
+[33m268d318[m Reverted unintended changes to existing lab file and commit the new file in community-contributions folder
+[33m6522656[m Merge pull request #207 from johnIT56/feature/week2_day3
+[33m7862a6b[m Merge pull request #203 from sakinarao/community-contributions-update
+[33m4834471[m Merge pull request #200 from shreshthkapai/main
+[33mb411238[m Merge pull request #199 from Phi-Li-Ne/community-contributions-branch
+[33m80cfd07[m Merge pull request #198 from zoya-hammad/community-contributions-branch
+[33mc8fb500[m Merge pull request #194 from udomai/w3d4_OCR
+[33m437a58b[m Merge pull request #192 from stoneskin/w2
+[33mc1c7b54[m Merge pull request #190 from nssuu/feat/day5-challenge-example
+[33m3f2a025[m Merge pull request #189 from oyagulesan/main
+[33m8a370f5[m Merge pull request #186 from HamzaSH6/Week1_Exercise_Ollama
+[33m53f4da6[m Merge pull request #185 from johnIT56/my-feature-branch
+[33mb5de7af[m Merge pull request #184 from HamzaSH6/Day5_Ollama
+[33m9f12098[m Ollama_gradio
+[33mfa817bb[m Added my contribution for week 1 exercise
+[33mfc83d1f[m Add ollama model for open-source functionality to website summarization.
+[33m723052e[m added new project to communuty section.
+[33m21a4ada[m Add improved brochure day5 and week1 Exercise TechTutor
+[33m5c5a2df[m Added contribution to community-contributions
+[33med8256a[m Added contribution 'PPT Summariser' to community-contributions
+[33m37d0d07[m upload copy of Colab notebook for simple OCR model
+[33mef0444a[m Add week2 with openrouter.ai and day 2 brochure practice
+[33m633fb08[m Cleared all output cells, week2 day5 challenge
+[33me887148[m Add mini speech to text converter, week2 day 5 challenge
+[33m7cbb111[m Add email subject example for day1 exercise
+[33m373cefb[m Added files to the 'community contribution' folder
+[33m8d754ca[m Week1 Exercise Ollama Solution with Streaming
+[33mf4175d7[m Merge pull request #183 from stevef1uk/added-agent_example-note
+[33mbaf53e1[m Adding Ollama brochure version and Ollama Tutor version with streaming
+[33mb484977[m Added week 8 community-contribution notebook to add link to CrewAI repository with description of key points
+[33m5ed19dd[m Added day5 ollama version
+[33m1577671[m Merge pull request #181 from arashgl/main
+[33md2b6d1b[m Added Signal by LLMs
+[33mbf153ac[m Merge pull request #179 from udomai/w2d5_exercise_with_STT
+[33me13549f[m Fixed problem with a missing extension on a community contribution
+[33mb05a448[m week 2 exercise solution with STT
+[33m6e94657[m Fixed a typo
+[33mb0a6446[m Merge pull request #117 from barrynorthern-tf/barry_northern/week2-day4-booking-and-multiple-tools
+[33m3c18489[m Merge pull request #177 from udomai/udomai/w2d1_exercise
+[33mbd6907a[m add only one file, and in the right place
+[33m03f3a7d[m Merge pull request #176 from stevef1uk/modal_llm_deploy
+[33m457a114[m Merge pull request #175 from FireEagle97/day4ex_improved
+[33mf2cd8a0[m Merge pull request #174 from manasigore/wk1-day5-exercise
+[33m75f6679[m Merge pull request #173 from Phi-Li-Ne/community-contributions-branch
+[33m5797e38[m Merge pull request #172 from sxhoangha/hoangha-week2-day4-multipleToolsExample
+[33me21f76f[m Merge pull request #171 from TheLongSentance/main
+[33m9aeced3[m Merge pull request #170 from catherinelin1018/community-contributions-week1
+[33m6aff5e3[m Merge pull request #169 from george-zip/chomsky_vs_goldberg_gemini
+[33md2852fc[m Merge pull request #167 from nssuu/feat/day5-challenge
+[33m9b744e1[m Merge pull request #166 from petria-tieto/LLM-course-week2
+[33m694eb2f[m Merge pull request #165 from y2mulyana/ollama_rag
+[33m043c9d0[m Merge pull request #164 from miptirdis/main
+[33m4970d3f[m Merge pull request #163 from wjm8823/main
+[33m4def9fa[m Merge pull request #162 from nssuu/community-contributions-branch
+[33mdec2b4b[m Merge pull request #161 from Shanmuganathan2004/main
+[33me6d8f82[m Merge pull request #158 from motoya0118/main
+[33m9a80caa[m Merge pull request #157 from tishka04/patch-1
+[33m675fa99[m Merge pull request #156 from Lukid/community-contributions-branch
+[33mf46f6b7[m Merge pull request #155 from kshave/day-1-far-far-away
+[33m8fa5d02[m Merge pull request #153 from lmmelo/community-contributions-branch
+[33mccfeef1[m Merge pull request #152 from atwmarshall/feature/add_deepseek_and_new_hf_inference_provider_option
+[33m51b7fe3[m Merge pull request #151 from manasigore/wk1-day5-CHALLENGE
+[33m6b72bf6[m Merge pull request #149 from Daniel15568/main
+[33m640f911[m Merge pull request #148 from dsadrianzadeh/main
+[33m5ad4437[m Merge pull request #147 from HamzaSH6/day2-solution-llama
+[33m6b1f2e7[m Merge pull request #146 from Adriana394/week2-exercises
+[33mf35bb40[m Merge pull request #132 from neilneyman/community-week2
+[33mc9e506e[m Merge pull request #131 from danielquillanroxas/final-contribution
+[33mdf3e709[m Merge pull request #118 from alambin/telegram_bot_week3
+[33m6e27b37[m Wording tweaks
+[33mb5f0cd7[m Wording fixes
+[33m574c276[m Added contribution notebok with linek to my repo as requested
+[33mec4ada6[m Additional resources and tips
+[33m5849a64[m add java as a conversion option
+[33md57d084[m added day4 exercise with inference provider
+[33mc74e047[m Wk1 Day5 - Challenge: Sarcastic and funny brochure with multi-shot and different lang translation
+[33md14f2cd[m Wk 1- Day 5 - Tutor exercise
+[33m25dc4a4[m Implement simple election programs q&a
+[33me920536[m example of using 2 tools at the same time
+[33m3c2a14b[m Added notebook to describe and find https://github.com/TheLongSentance/chatbot_conversation
+[33mb976e28[m Translator tested.
+[33m465d908[m Updated day2_exercise_cl.ipynb
+[33m4c7d763[m Add my day1 file
+[33me46ae3a[m Add github mini portfolio maker to community contributions
+[33m289a1b9[m Merge branch 'main' of github.com:ed-donner/llm_engineering
+[33md7834d0[m Minor refinements and more comments
+[33ma11f9e7[m Gradio UI with recording voice and translating it
+[33m451ed2c[m Create day4.5 - langchain faiss ollama.ipynb
+[33m226ff3b[m Jupyter notebook to ask a question and get a response from the GPT, Claude and Gemini
+[33ma8f9bcc[m Add files via upload
+[33ma1cd181[m Fix redundant code lines
+[33m3eb01d6[m Add first commit to community contributions
+[33ma67e304[m Add my project to week-1/community_contributions
+[33mf4f2802[m Fixed an issue where compiler_cmd was undefined.
+[33m6093bbf[m Adding proof_testing_agent_french to the community contributions
+[33ma742db6[m Added my contributions to community-contributions
+[33mbcf7bee[m Fix spelling
+[33m3d91433[m Adding a contribution to the day 1 exercise of the course
+[33mb93474b[m Added my contributions to community-contributions
+[33m6b969ab[m clear outputs
+[33m0bd9889[m add comments to signpost and explain changes made
+[33m8e1a866[m update function names to be more generic and add deepseek model as example
+[33me8ab36c[m add hf inference provider option as community contribution to week4 day4 base file
+[33mfccb607[m Merge pull request #116 from sakinarao/community-contributions-branch
+[33mcc339c8[m Merge pull request #114 from yui-maker/yui_idea
+[33m41726a2[m Merge pull request #105 from petria-tieto/community-contributions-branch
+[33m0004134[m Merge pull request #94 from gabormeresz/w4d4-include-gemini
+[33m733f97c[m Merge branch 'ed-donner:main' into community-week2
+[33mecdee50[m W2D5 exercise with multi tools and agents.
+[33m400dd1e[m Create gpt-gemini-ollama.py
+[33m9f5af6e[m Merge remote-tracking branch 'upstream/main'
+[33mb8e7023[m Added my contributions to community-contributions
+[33me11177b[m Week1-Day2-Solution-Ollama-Update
+[33m3dbebee[m Week1-Day2-Solution-Ollama
+[33mda1d047[m change path
+[33m35b6326[m Merge pull request #136 from mdipin/community-contributions-branch
+[33m1a01b5e[m Merge pull request #137 from emads22/main
+[33mea7c00e[m Merge pull request #138 from narquette/week5_rag_example
+[33m2e14723[m Merge pull request #139 from samt07/community-contributions-branch
+[33m907f8f6[m Merge pull request #142 from Daniel15568/main
+[33mbe2c9ff[m Merge pull request #143 from dsadrianzadeh/community-contributions-branch
+[33ma9fbaa5[m Merge pull request #144 from ErnestGaisie/community-contributions-branch
+[33m009a90b[m Add contributions to week 4 community-contributions
+[33m56b54c6[m Merge branch 'main' of https://github.com/ed-donner/llm_engineering
+[33mdb07cf1[m Create GPT Claude Ollama Conversation.ipynb
+[33m2b1ed1c[m QuizGenerator - CommunityContribution
+[33m103c770[m Merge branch 'main' of github.com:ed-donner/llm_engineering
+[33m5061c85[m Fixed typo in troubleshooting
+[33m0ab22e1[m Added my contribution to community-contributions
+[33mee2e39c[m Create week1-coderesearcher.py
+[33m06c4f09[m translator with audio
+[33m83d5404[m Added test case automation solution
+[33m00e6d3e[m Feature: Added a chat RAG example with sample medical provide note data supplied from mtsamples.com.
+[33m24a9e1a[m Add contributions to week6 community-contributions
+[33m28564ea[m Added my contributions to community-contributions
+[33m951f2bb[m Added my contributions to community-contributions
+[33m79d2b9a[m Week 2 day one exercise for community.
+[33m92de8d3[m Added llama for day1 and tones for day2 (week2)
+[33mf057632[m Merge pull request #119 from Max-creates/main
+[33m7864727[m Merge pull request #120 from dkbanik/community-contributions-branch
+[33m4ab04c0[m Merge pull request #123 from neilneyman/community-week1
+[33m796e9e7[m Merge pull request #125 from manasigore/wk-day2-ollama-exer
+[33md76b462[m Merge pull request #126 from narquette/week4_doc_string
+[33mf709673[m Merge pull request #127 from esarijal/community-contributions-branch
+[33m3e27ec1[m Merge pull request #128 from dv-learn/main
+[33m716667a[m Merge pull request #129 from MaxGandini/patch-2
+[33m431ec8c[m Merge pull request #130 from skullemote/community-contributions-branch
+[33m26e2b74[m rebase and cleanup
+[33mfe1a0d7[m Wk1 Day2 Exercise Ollama solution
+[33mbefc4ba[m Added my contributions to community-contributions
+[33ma6c7e8c[m Update SETUP-linux.md
+[33mcb78557[m Add contributions to community-contributions
+[33m919fb7c[m Add contributions to community-contributions
+[33me84a615[m Add contributions for day1 and day2 in community-contributions
+[33mf7a4ef0[m Merge pull request #124 from manasigore/wk1-day1-deepseek-stream-summarize
+[33mb582e41[m Feature: Added code and modules to create doc string for any python code. It will read text from an existing python file and output it to a new file with a suffix for the llm model that created it.
+[33m7d6d995[m Added DeepSeek to weeks 1, 2 and 8
+[33mb9723ac[m remove unwanted comments
+[33mebf3600[m last commit
+[33mdaf9b36[m add markdown
+[33m9060924[m Added day 2 exercise to community contributions with SSL verifications disabled tweak.
+[33m3f7b000[m Wk1 Day 1 - Summarize website using deepseek-chat and stream the response realtime
+[33m8cb9766[m Merge branch 'main' of github.com:ed-donner/llm_engineering
+[33m95c38ce[m Minor updates
+[33m9463725[m Merge pull request #122 from raoarafat/ai-web-summarizer
+[33md7021cb[m ai-web-summarizer
+[33m4cc229f[m Added my contributions to community-contributions
+[33ma9b592f[m Added my contributions to community-contributions
+[33ma02b685[m Added my contributions to community-contributions
+[33mb394132[m Added my contributions to community-contributions
+[33mece322a[m Merge branch 'main' of https://github.com/Max-creates/llm_engineering
+[33m252ea75[m Maksym's day 2 exercise
+[33m19f3574[m Telegram bot, which uses locally run Ollama and responds with voice
+[33m74668b7[m barry_northern: week2 day4, improvement to multiple tool call code - using the more functional paradigm intended
+[33m5133376[m barry_northern: booking function and multiple tools calls - the multiple tool fix is slightly different to another contribution, using a functional approach. - without the fix you get an error about the fact that all tool ids must follow in messages that request them. - this occurs when, for example, you ask for prices for two cities. - the booking function and prompts allow you to book at a different price if you ask explicitly. - this can be fun if you start asking about the discount applied.
+[33m62f5935[m Added my contributions to community-contributions
+[33m8369028[m Added my contributions to community-contributions
+[33m2c16f20[m Merge pull request #115 from md-Junaid/community-contributions-branch
+[33mba7851a[m Added my day1 contribution to community-contributions
+[33m3adc042[m Adding authentication to gradio.
+[33m7e7c1fe[m a tkinter based app that runs ollama using a tkinter window.
+[33mb793128[m Merge pull request #108 from elena-shirokova/week4-gen-tool-unit-tests
+[33m3811574[m Merge pull request #109 from samt07/community-contributions-branch
+[33mc9b49b8[m Merge pull request #111 from bacosdev/main
+[33mae77623[m Merge pull request #112 from barrynorthern-tf/barry_northern/week2-day1-with-gemini
+[33m0dd2466[m Merge pull request #113 from tbutman/patch-1
+[33mb6d4189[m Merge pull request #86 from jasjyotsinghjaswal/main
+[33md71a10e[m fix typo in day3.ipynb
+[33m4087552[m Rename oh_sheet_its_spark!!!!.ipynb to oh_sheet_its_spark.ipynb
+[33m651e8f6[m add the notebook description
+[33m2e19655[m enhance the prompt for unit testing
+[33m743891d[m barry_northern: using Gemini SDK instead of Claude + use Gemini's fit-for-purpose chat function
+[33m85a3a1a[m fix the the output from executing tests
+[33m12e7b2f[m Merge branch 'main' of github.com:ed-donner/llm_engineering
+[33m21874c6[m Fixes with much thanks to student Wenjie T!
+[33mc2e9f8a[m update prompt
+[33m2eac15b[m clean up
+[33m7a942cd[m my homework
+[33m7fc832b[m Merge pull request #110 from KaushikML/main
+[33m4f11611[m Added Java Support
+[33m94f47af[m Added Wiki page summary notebook to community-contributions
+[33m84c8ade[m adding the notebook for unit tests generation assignment
+[33m4bad3a8[m Example ready
+[33m8cfc034[m class ready
+[33m57d2788[m working version, class not yet done
+[33m2e70a96[m initial version
+[33m2440b0d[m Merge branch 'main' of github.com:ed-donner/llm_engineering
+[33m05dbbeb[m Minor tweaks and fix in week 8
+[33m6835737[m Merge pull request #95 from timbosssds/main
+[33m80782c9[m Merge pull request #98 from elena-shirokova/week3-community-contribution-dataset-generator
+[33mdba564f[m Merge pull request #99 from mcaeiro/community-contributions-branch
+[33md176e47[m Merge pull request #102 from barrynorthern-tf/barry_northern/day-2-ollama-website-summarizer
+[33m40c03ed[m notebook for day2 exercise, summarize websites using ollama
+[33m35fa571[m Clear cell output
+[33mfea5d3d[m Wrapper class definition, examples and the implementation of the bot chat using it
+[33mc30c35c[m added the notebook with a solution for a week 3
+[33ma537f50[m Add Careerhelper file
+[33m8fbcf5d[m Include Gemini in every part of the code
+[33m81d9e2d[m Merge pull request #89 from tvarol/community-contributions-branch
+[33me1a26b1[m Added a link to the example of an output
+[33m86655f9[m Week1-Day1 project: Created a resume analyzer for job postings
+[33m2cf5164[m Merge pull request #83 from sanathpabba/main
+[33m8ae9f18[m Merge pull request #84 from l-jacques/ljacques-w2d2
+[33m5b1be92[m Merge pull request #85 from oidebrett/week4-day5-challenge
+[33m85afe7d[m Added notebook for link to repo that has the LLM app OhSheet!!!ItsSpark to Convert Formula driven Excel Spreadsheets to Pyspark transformations
+[33m0e28583[m Delete week2/oh_sheet_its_spark!!!!.ipynb
+[33m6b7cac0[m Added notebook for link to repo that has the LLM app OhSheet!!!ItsSpark to Convert Formula driven Excel Spreadsheets to Pyspark formukas
+[33m939aa51[m Attempt at Code Docstringer and Commenter
+[33m78e6c6a[m add exercise_gradio_dropdown
+[33m0b474e0[m Exercise week2 day 2: offer multi llms dropdown and reusable AISystem with stream option
+[33m1cfbde3[m Add files via upload
+[33md8b4c7d[m Add files via upload
+[33mfdee3ec[m Merge pull request #82 from l-jacques/ljacques-w2d1
+[33m2c1f665[m moved file to community-contributions/day1_exercise_multi_conversation_bots
+[33m2bdbd23[m reverted changes in main day1 file
+[33m151359c[m day 1 of week 2 multi chat bots conversation
+[33m0304f72[m multi indepenant/random chat bot tests
+[33m18d465a[m Merge pull request #78 from dinorrusso/community-contributions-branch
+[33m0da905c[m Delete week5/community-contributions/rag supporting files directory
+[33ma3ec4ee[m Delete week5/community-contributions/rag supporting files/vector_db directory
+[33m95e3b7f[m Merge pull request #81 from sorenandersen/main
+[33m4638b85[m chore: add missing dependencies for non-Anaconda users
+[33m8dc38c5[m Merge pull request #80 from gkatz2/main
+[33m5c9326d[m Add 'day2 EXERCISE beware low num_ctx truncation.ipynb' to week1/community-contributions
+[33mc8f60ec[m Add files via upload
+[33m4fec4fc[m Added week5 day5 RAG example using Ollama all local
+[33mf0c3318[m Merge branch 'main' of github.com:ed-donner/llm_engineering
+[33me334b84[m Improvements to explanations and minor edits
+[33me483e7e[m Merge pull request #76 from mmaurier/week2/day5-handle_tool_call-remove-hardcode-dependency
+[33me30389d[m Merge pull request #77 from kishorekumar6r/kishore.kumar/llama3.1_tools_usecase
+[33m13354c0[m feat(week2): llama3.1-instruct tools usecase
+[33m924504e[m remove handle_tool_call hard-coded function
+[33mfe4611f[m Merge pull request #71 from hitesh-2457/stock-price-analysis
+[33m49e535f[m Merge pull request #73 from gaya33/day1-gen-social-media-post-for-events
+[33md279fa0[m Merge pull request #74 from andryanduta/feat-youtube-summarization
+[33m600987e[m Merge pull request #75 from newlogics/main
+[33m3370838[m fix: chunk text func imp: add language params to get_transcript
+[33m56df4b8[m Generating answers with source citations
+[33m7eac1d0[m Generating answers with source citations
+[33m8a9d94e[m feat: add a mini project youtube summarization
+[33mf775055[m Day1: Generate social media posts for 3 platforms for an event
+[33m87b2995[m Notebook to analyze trends in stock price change
+[33me8a7124[m Merge pull request #70 from Ishan-Karpe/patch-2
+[33mf6f3b36[m Update day5.ipynb
+[33me69d7ee[m Merge pull request #69 from serpentile-c137/my-feature-branch
+[33mfbb5569[m gemini-codes-week2
+[33me599d92[m gemini-codes-week2
+[33mf55e3cf[m Merge pull request #68 from gabormeresz/w3d5-with-gradio
+[33mef18679[m week3 way5 implementation with Gradio
+[33m90f3fe7[m Linux setup instructions, VSCode alternative, improved .env loading
+[33m01ccd4c[m Merge branch 'main' of github.com:ed-donner/llm_engineering
+[33mb6c06fd[m More troubleshooting tips added
+[33m2619f3c[m Merge pull request #67 from cloudllama/week4_challenge
+[33md893818[m Merge branches 'week4_challenge' and 'week4_challenge' of https://github.com/cloudllama/llm_engineering into week4_challenge
+[33m476cf7e[m Converts code, adds docstrings and comments, and writes unit test cases
+[33m834204c[m Converts code, adds docstrings and comments, and writes unit test cases
+[33m583d9fb[m Start re-organizing cells
+[33mdfe0485[m Merge pull request #23 from ibarbo/main
+[33mb68d129[m Merge pull request #62 from codenigma1/day1_hw
+[33m849a63f[m Merge pull request #64 from cloudllama/ren_linux_to_mac
+[33me1f297d[m Correctly identify Mac as a Mac not Linux
+[33m8e2ec54[m Added compiled executables from week4 project into gitignore
+[33mcb0b8a8[m Updated descriptions
+[33mf5a66d2[m Merge pull request #63 from cloudllama/check_os_for_c_compiler
+[33me411df3[m Fixed clang++ for Mac; updated labels
+[33mc20bdc4[m Added clang compilation syntax
+[33m5a44ed7[m Fixed run_cmd to account for empty stdout
+[33me360270[m Fixed g++ compilation command
+[33m1fdeafe[m Merge branch 'check_os_for_c_compiler' of https://github.com/cloudllama/llm_engineering into check_os_for_c_compiler
+[33mef351da[m Remove gcc from Windows
+[33mb178bbc[m Airlines fully customized project and refine query approach by using llama in week 2
+[33m8992bc4[m Merge branch 'ed-donner:main' into check_os_for_c_compiler
+[33mbc82299[m Added more exception handling in c_compiler_cmd
+[33m2d93460[m Disable run button if no c compiler
+[33mddccd48[m Check for appropriate C compiler
+[33mf83e5cc[m Ensure compiled C++ code from week4 doesn't get added to repo
+[33m677011a[m Merge branch 'main' of github.com:ed-donner/llm_engineering
+[33mb1039e5[m Merge pull request #59 from cloudllama/rm-mac-binary
+[33m9e1802a[m Merge branch 'main' of github.com:ed-donner/llm_engineering
+[33m06f48dd[m Included an extra message
+[33m798672b[m Removed Mac-specific binary
+[33m8d08bc0[m Refine user query by another AI agent instead of providing list of dictionry
+[33mfbb0c05[m Merge pull request #58 from codenigma1/day1_hw
+[33m99a7573[m LLMs 3 way solution including ollama
+[33m9097767[m Merge branch 'main' of github.com:ed-donner/llm_engineering
+[33m5a6b3bc[m Minor improvements to README and Setup guides
+[33m1e96eac[m Merge pull request #57 from gabormeresz/w2d4-handle-multiple-toool-call
+[33meffeac8[m Minor improvements
+[33mf10a979[m Merge branch 'main' of github.com:ed-donner/llm_engineering
+[33m26f1135[m Additional comments and refinements
+[33m8986863[m Week 2 Day 4 - handle multiple tool calls
+[33md3b99db[m Merge pull request #55 from codenigma1/day1_hw
+[33ma18900a[m First solution I design to get response from your favorite LLM and second is colloborative approach of two LLM added might be good specimen for the upcoming student to think about it even better and good approach to refine this approach I leave it from them
+[33md549c00[m Merge pull request #50 from gabormeresz/improve-readability
+[33m9a370fc[m Merge pull request #51 from udayslathia16/main
+[33m366d24d[m Merge pull request #53 from gopinath1998/main
+[33mda18d82[m Merge pull request #49 from fletchertom/feat/add-cover-letter-generator
+[33m3e1eb30[m Merge pull request #54 from codenigma1/day1_hw
+[33m25a2245[m Merge pull request #48 from daimaukr/week1_day5_localchat
+[33m1d953ca[m Merge pull request #47 from innovoe/patch-1
+[33m7446459[m Update the code and did final changes
+[33m8b52eab[m Renamed day5-multi-lingual-desire-format.ipynb to day5-MultiLingual-MultiTone.ipynb
+[33m7b38868[m Rename accendently
+[33mdb42980[m Day 5 Challend one with multilingual aloing with multitone
+[33m1c7c9e3[m Day 5 Challend one with multilingual aloing with multitone
+[33m57bb6cc[m Day 5 challenging completed with multilingual with multitone
+[33ma828db4[m Update week1 EXERCISE.ipynb
+[33mf3b766c[m Add files via upload
+[33mc1cf59d[m Add files via upload
+[33mc63837a[m improve readability
+[33m2e5446c[m Adding example that shows how to generate cover letter from cv - with resume.txt
+[33mada6b40[m Adding an example of implementing chatgpt.com limited functionality in our notebook
+[33m09b1963[m Add files via upload
+[33m4d12e58[m Create dataset_generator.ipynb
+[33mbed454f[m Merge pull request #43 from gopinath1998/gopinath1998-week-1day-2
+[33m4336112[m Merge pull request #44 from cloudllama/cloudllama-patch-1
+[33ma8ddcfe[m Merge pull request #45 from innovoe/main
+[33m62026e9[m Merge pull request #46 from codenigma1/day1_hw
+[33m2c88c78[m day 1 webscraping challenge completed by selenium and clear output cell
+[33md73ac9a[m day 1 javascript webiste challenged added
+[33m11cc754[m Add files via upload
+[33m25e24cf[m Add files via upload
+[33m9179ced[m Correct typo in week4/day4.ipynb
+[33md9b8562[m Add files via upload
+[33m8a0dc7f[m Merge pull request #41 from pagwin/week2/community-contributions
+[33m3ad4c92[m Upsell '3 for 2' option added
+[33me48be58[m Merge pull request #39 from shreshthkapai/main
+[33m2a169d1[m Merge branch 'main' of https://github.com/ed-donner/llm_engineering
+[33m8b67498[m added day 1 assignments.
+[33mf7f150e[m Merge pull request #35 from sandeepgangaram/voice-to-text
+[33m6b10886[m add markdown
+[33m5f7514d[m rename file
+[33m203df5e[m week 4 solution with audio input
+[33m747473e[m Updated README with Free API code snippet
+[33md3cc3f3[m Fixed a bug brilliantly spotted by Gabor M.
+[33m061cf87[m Merge branch 'main' of github.com:ed-donner/llm_engineering
+[33m38c2317[m Minor refinements
+[33m2c99aa8[m Merge pull request #33 from sandeepgangaram/week2-day2-multi-tool
+[33m02bcd16[m add discount tool
+[33mfc0305b[m Merge branch 'main' of github.com:ed-donner/llm_engineering
+[33m7f86976[m Package updates, more Ollama, fixes
+[33m7a62af5[m Merge pull request #28 from rmeijsSdu/fix_typo_in_com_contrib_week2_day4
+[33m6d223f5[m Typo. Fix from "Unknow" to "Unknown"
+[33m8699e5f[m Merge pull request #24 from batikaniscan/day1-article-pdf-reader-feature
+[33m4c1e1d8[m adding my contribution
+[33ma3094e3[m Merge pull request #19 from akempkens/main
+[33m6735a81[m Merge pull request #16 from udayslathia16/main
+[33mcbf02c0[m Merge pull request #20 from ibarbo/ibarbo-day1-videotranscript-summary
+[33m447a32f[m Merge pull request #1 from ibarbo/ibarbo-day1-videotranscript-summary
+[33m8618a93[m **Add Week 1 Notebook to Community Contributions**
+[33m3980508[m Fixed so that model files are cached properly on modal
+[33me785052[m Merge branch 'ed-donner:main' into main
+[33m089a3d0[m Adding checks for the ffprobe and ffplay as both are used too.
+[33mac119e8[m Merge branch 'main' of github.com:ed-donner/llm_engineering
+[33m55f0b88[m Refined troubleshooting and setup
+[33m421be11[m Merge pull request #17 from rogerscuall/aws-azure-ollama
+[33m8a860c2[m update unused variables.
+[33m3b77e82[m finish last two sections
+[33m516648d[m Add files via upload
+[33mf39f28c[m Delete week1/solutions/day 5 personal tutor.ipynb
+[33m188b363[m Add files via upload
+[33ma47b3d5[m Add files via upload
+[33m8253f65[m renamed trading prototype
+[33m9050704[m Some tidy-up and added extra project
+[33mc0a619a[m Fix NameError in code for streaming back results in markdown
+[33m5ad874a[m Adding modifications for AWS, Azure and local ollama using OpenAI compatible API.
+[33mbdf23c6[m Added more diagnostics
+[33m58d1d48[m Added diagnostics info
+[33m4d7e21e[m Minor diagnostics updates
+[33m28e075c[m Improved diagnostics
+[33mdab7973[m Added diagnostics reports to debug any issues
+[33m51202a3[m Added link to resources in README
+[33mae20626[m Added more resources
+[33mf420665[m Updated explanations and tips
+[33m7aeb18a[m Updated due to breaking change in Gradio v5
+[33m3189509[m Added timeouts to give Modal time
+[33m8f9c090[m Merge branch 'main' of github.com:ed-donner/llm_engineering
+[33m883473d[m Added Week2 end of week exercise
+[33mc2fe540[m Merge pull request #13 from makfava/main
+[33m8b00b8a[m Minor README update
+[33md1d40e8[m Latest Setup instructions and community contributions
+[33m21c7a81[m Refreshed notebooks, particularly with new Week 1
+[33m52316a1[m Day 4 week2
+[33m0700f96[m Added resources link to README
+[33m962640a[m Fixed typo
+[33m55a9ddf[m Updates to guides and troubleshooting
+[33m7f45b90[m Merge pull request #12 from makfava/main
+[33me36c8c8[m Stream_Gemini
+[33mc836a34[m Merge pull request #11 from billglennon/week2day2-add-gemini-model
+[33maed79ce[m add gemini to brochure, add tone to brochure, had to add safety_settings for google gemini to work with brochure
+[33m6ba1875[m Some comments and a fix to week 2 discovered by Bill G.
+[33m5038d8d[m Merge pull request #10 from billglennon/week2day2-add-gemini-model
+[33m4a7627c[m Merge branch 'ed-donner:main' into week2day2-add-gemini-model
+[33mec6406c[m Add Gemin Model using latest Gradio and Google API packages as of 11/3/2024
+[33m0e6ea84[m removed Week2_Day2_with_GeminModel.ipynb
+[33m421f4c6[m Further troubleshooting instructions, also a minor compatibility fix
+[33m509ecf7[m add Google Gemini to the LLM Model Selections
+[33mbad5133[m Updates including more alternatives for PC audio generation
+[33m284336b[m Updated the Windows PC encoding fix with thanks to CG and Jon R
+[33m86763f2[m Simplified based on latest Gradio, and added PC fix for audio playback
+[33md752c86[m Cleared the outputs
+[33m051539c[m Merge pull request #9 from billglennon/Week1_Challenge_Brochure_Translation
+[33mb51953e[m More comments, notes and improvements
+[33m2de3f83[m Add files via upload
+[33m90d9dde[m Merge branch '3way'
+[33m65df74b[m[33m ([m[1;31mmyfork/3way[m[33m)[m Added community contribution of a 3 way with Gemini
+[33m3ef62f9[m Merge branch 'w2t1'
+[33mee272ad[m[33m ([m[1;31mmyfork/w2t1[m[33m)[m Added in student contribution
+[33m05b078e[m Troubleshooting and wording improvements
+[33m2fed25d[m Merge branch 'main' of github.com:ed-donner/llm_engineering
+[33m513c95a[m More instructions and comments
+[33m045850c[m adding 3 way discussion including Gemini
+[33m6be2356[m Merge pull request #5 from mullaney/fix-mispelling
+[33mac922f3[m Jupyer -> Jupyter
+[33m8ac9ccd[m Added note about CloudFront protections - thank you Andy J!
+[33m0a64893[m More troubleshooting and setup tips, and some improvements to flagship Week 8 project
+[33mced435c[m Fixed the class definition - thank you Lucky P for pointing this out!
+[33m11b0a64[m Readme updates and link to pkl files based on great community feedback
+[33m3fa3826[m Fixed an import, with many thanks to student Dr John S for pointing out
+[33m40d85fa[m week2 task1
+[33m08350ad[m Added a note about pausing HuggingFace endpoints
+[33m872e307[m Fixed a Windows problem - thank you John S for the fix!
+[33mcff9f8c[m README tweaks
+[33m33dedb9[m Added community contributions to week 5 - separate ingestion and also Obsidian example
+[33mca67bf1[m More comments, more business applications, and links to pkl files
+[33m0fba204[m Merge branch 'feature/parse-javascript-webpages'
+[33me7e52b6[m[33m ([m[1;31mmyfork/feature/parse-javascript-webpages[m[33m)[m Moved to community contributions folder
+[33ma775465[m Organized community contributions and reset originals
+[33m107d35b[m Merge pull request #2 from scdufty/SD_enhancements
+[33m36d3f01[m Merge branch 'main' into SD_enhancements
+[33m14f2667[m Fixed a bug identified by student Jon R - thank you!
+[33m11eb808[m Added updated Website class to parse webpages which is designed using JavaScript heavely at the end of week1 day1 notebook and tested it using openai, cnn, edwarddonner webpage
+[33mf6bcc58[m More README updates
+[33m08f8d6b[m enhanced structure and comments for week 1 and added a Spanish version
+[33m0cebc1e[m Merge branch 'main' of github.com:ed-donner/llm_engineering
+[33m196b6ae[m Week 8 updates
+[33mbdd3ef7[m enhanced structure and comments for week 1 and added a Spanish version
+[33m9d89c31[m Merge pull request #1 from Fuse56/patch-1
+[33m7a22ae5[m Update README.md
+[33mc94d09b[m Updated Week 3 day 4 link to point to right colab
+[33me02dca5[m Fixed Google Colab link in week 3 day 4, and latest week 8 updates
+[33m95596c5[m README tweaks
+[33m2f99795[m Updated README and Week 8 coming together
+[33m0fd4c84[m Added week 7 colab links
+[33m623955c[m Updated README and projects with details of APIs and costs, and common setup troubleshooting
+[33mbd3e566[m Updated README and added week 6 day 5
+[33m5b3c2da[m Another minor README tweak
+[33m91b4b29[m README updates
+[33m3f49af8[m Included links to all Google Colabs in the README and week 3 folder
+[33m1920e76[m Fixed problem with colons in filenames and added more of week 6
+[33m21afbd6[m Tidying up
+[33m57cc8a4[m README update
+[33mc191b18[m Now with more weeks!
+[33mb83998c[m Initial commit with weeks 1-4
+[33mc60d0fe[m Initial commit
