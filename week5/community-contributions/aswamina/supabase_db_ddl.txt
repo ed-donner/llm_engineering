@@ -1,0 +1,27 @@
+CREATE EXTENSION IF NOT EXISTS vector;
+
+CREATE TABLE documents (
+  id        BIGSERIAL PRIMARY KEY,
+  content   TEXT,
+  embedding vector(1536),
+  source    TEXT,          -- e.g. filename or URL
+  metadata  JSONB          -- any extra fields
+);
+
+-- HNSW index for fast cosine similarity search
+CREATE INDEX ON documents USING hnsw (embedding vector_cosine_ops);
+
+-- match_documents with optional metadata filter
+CREATE OR REPLACE FUNCTION match_documents(
+  query_embedding vector(1536),
+  match_count     INT DEFAULT 5,
+  filter          JSONB DEFAULT '{}'
+)
+RETURNS TABLE (id BIGINT, content TEXT, similarity FLOAT, metadata JSONB, source TEXT)
+LANGUAGE SQL STABLE AS $$
+  SELECT id, content, 1 - (embedding <=> query_embedding) AS similarity, metadata, source
+  FROM documents
+  WHERE metadata @> filter
+  ORDER BY embedding <=> query_embedding
+  LIMIT match_count;
+$$;

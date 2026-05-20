@@ -1,0 +1,175 @@
+Character 1:
+Basics
+- Name: Edron "Don" Gearwhistle (goes by Don)
+- Race: Rock Gnome (not human, because you asked)
+- Class (level 1): Artificer
+- Background: Guild Artisan (tech-entrepreneur / instructor)
+- Alignment: Neutral Good — pragmatic, tries to do the right thing, prefers evidence over drama
+
+Ability scores (standard array, not min-maxed; reflect real-life strengths and limits)
+- Strength 8 — not a gym-first person
+- Dexterity 13 — quick with hands and small gadgets
+- Constitution 12 — generally healthy, sometimes late nights
+- Intelligence 15 (+2 racial) = 17 — primary stat: coder/LLM geek
+- Wisdom 10 — reasonable judgment, but occasionally tunnel-visioned
+- Charisma 14 — confident presenter and founder; not theatrical but persuasive
+
+Proficiencies
+- Armor/Weapons: Light armor, medium armor, shields, simple weapons (Artificer standard)
+- Saving throws: Constitution, Intelligence
+- Skills:
+  - Arcana (Artificer) — deep curiosity about how things work (AI as magic)
+  - Investigation (Artificer) — debugging, pattern-finding
+  - Persuasion (Guild Artisan) — founder/instructor communication
+  - Insight (Guild Artisan) — reading people on HN threads and in meetings
+- Tools: Tinker’s tools (racial + Artificer), one musical instrument (synthesizer / electronic kit — flavored tool proficiency to reflect hobby), one type of artisan tools (clockwork/soldering kit)
+
+Racial & class features (high level summary)
+- Rock Gnome: +2 Int, Darkvision, Gnome Cunning (advantage on Int/Wis/Cha saves vs. magic), Tinker trait → tiny clockwork handy devices
+- Artificer (level 1): Magical Tinkering, Spellcasting (Int-based) — the class is a natural fit for a builder of intelligent tools and curriculum
+
+Starting gear (flavored)
+- Tinker’s kit, artisan’s tools, synthesizer (portable rig), light crossbow (or simple weapon), tinkering notebook (spellbook-flavored), scholar’s pack
+- A small prototype gadget that plays a looping metronome/synth motif — built by Don
+
+Inventory
+- tinderbox
+- dagger
+
+Personality & roleplay hooks (short, snarky)
+- One-liner: "I will rewrite your spell with better abstractions and a README."
+- Traits: Explains how things work in too much detail; collects half-finished prototypes
+- Ideal: Progress — making tools that let people do more
+- Bond: Feels responsible for the team that helped build the last successful project
+- Flaw: Tends to overfit arguments to neat models and forgets real-world friction
+
+Why I chose these options (short & to the point)
+- Rock Gnome + Artificer == inventor/engineer archetype. You’re a coder/CTO and LLM tinkerer; the Artificer’s “inventor makes magic” flavor maps to building AI products, courses, and prototypes.
+- Intelligence high but not absurdly maxed — reflects technical depth without turning everything into a numbers game. Charisma is solid to represent teaching, founding, and presenting.
+- Skills mirror real-life strengths: Arcana → technical domain knowledge (AI as arcana), Investigation → debugging and pattern-finding, Persuasion & Insight → teaching, leadership, and social navigation (Hacker News lurks included).
+- Tools include Tinker’s tools and a synth instrument to capture the amateur electronic musician side in mechanical terms.
+
+If you want:
+- A 1st-level spell list tuned for an Artificer-Ed (practical utility spells and a couple of flashy gizmo spells).
+- A short campaign hook linking Don’s gadget to a plot (AI artifact gone sentient?).
+- A second variation (e.g., Warforged Artificer for full “built-for-purpose CTO” vibes or Gnome Wizard ‘LLM as arcane school’).Nice — a brisk, slightly cheeky character inspired by that personal summary. I avoided Human as requested and kept the build tasteful rather than optimized: it should feel like the person, not a min-maxed game piece.
+
+Character 2:
+Basics
+- Name: Queen Elsbeth Alexandra of Balmoral (in-world name; you can shorten to "Elsbeth")
+- Race: Protector Aasimar (celestial-tinged, dignified presence)
+- Class (level 1): Paladin (Oath of the Crown flavor: duty to realm, ceremony, and lawful order)
+- Alignment: Lawful Neutral (steadfast duty, politically neutral, ceremony over spectacle)
+- Background: Noble (former auxiliary service — served with the Royal Transport Corps in wartime)
+
+Ability scores (standard array 15,14,13,12,10,8; racial adjustments: +2 Charisma, +1 Wisdom)
+- Strength 13
+- Dexterity 8
+- Constitution 12
+- Intelligence 10
+- Wisdom 14 → 15 (after racial +1)
+- Charisma 15 → 17 (after racial +2)
+
+Skills & proficiencies (reflecting life, not maximized)
+- From Paladin (pick two): Insight, Medicine (steady judgment; cares for people)
+- From Noble background: History, Persuasion (courtly knowledge, diplomacy)
+- Tool proficiencies: Land vehicles (reflects wartime driving and military service), one musical instrument or gaming set (for courtly diversion)
+- Saving throws: Wisdom, Charisma
+- Armor/weapons: All armor, shields, simple and martial weapons
+
+Racial / class features (brief, flavorful)
+- Celestial heritage: a calm, inspiring presence; a modest healing touch (Healing Hands) and a once-per-long-rest burst of radiant presence (protector flavor) — useful for rallying the court or calming a room.
+- Divine Sense & Lay on Hands (Paladin level 1): duty-bound healing and the ability to sense moral/celestial presences.
+- Oath flavor (Crown): vows emphasize service, the social contract, and protecting institutions; issues are handled through law, ceremony, and example rather than spectacle.
+
+Equipment & mount (starting, flavored)
+- Shield bearing royal device, longsword (ceremonial and serviceable), chain mail
+- A steady riding horse and a small, devoted dog (a corgi companion — roleplay only rather than mechanically powerful)
+- Tokens of office (seal, signet, ceremonial sash) useful as social leverage and plot hooks
+
+Inventory
+- cook book for advanced healers
+- healing potion
+
+Personality & roleplay hooks (short)
+- Mannered, composed, measured speech; habitually puts duty first.
+- Loves horses and animals; gentle with animals even when stern with people.
+- Knows history and protocol; excellent at calming councils and maintaining stability.
+- Private strength from wartime service: quietly competent in practical tasks (driving, logistics) even while performing ceremony.
+
+Suggested flaws/complications
+- Reluctance to show raw emotion publicly; can seem distant.
+- Heavy sense of responsibility can make her resist radical change.
+
+Why these choices
+- Race: Protector Aasimar gives a subtle, dignified, slightly otherworldly presence that reads like long, ceremonious service and moral steadiness — a good fantasy analogue to a lifelong monarch without using Human.
+- Class/background: Paladin with a Crown-like oath and the Noble background mirror duty, ceremony, service, and constitutional leadership. Paladin abilities (Lay on Hands, Divine Sense) represent care and moral authority rather than flashy power.
+- Abilities & skills: Charisma and Wisdom are highest to reflect presence, diplomacy, and prudent judgment; History and Persuasion are natural for a monarch who shepherds institutions; land-vehicle/tool proficiency nods to wartime driving in the auxiliary service. I deliberately did not pump every stat to extremes — the point is a believable, playable person, not a min-maxed throne-wielder.
+- Flavor choices (horse, corgi, seal) connect to real-life details and give clear hooks for roleplay without unbalancing the character.
+
+If you want, I can:
+- Convert this to a different race (eladrin for seasonal gravitas, high elf for long-lived tradition, or noble dragonborn for regal bearing).
+- Swap Paladin for a Bard (court diplomat) or Fighter (ceremonial commander) while keeping the same personality.
+- Produce a short backstory or first-session roleplay cues from Elsbeth’s perspective.Short player-to-character match (same concise style as your previous summary)
+- Inspiration: Austrian-born champion who became a world-famous strongman, movie star, businessman and politician — relentless self-reinvention, public charisma, leadership, and a public life that included both philanthropy and scandal.
+- Tone for the character: larger-than-life, physically dominant, comfortable on a stage and in a chamber of government; tough, disciplined, persuasive, and used to getting things done.
+
+Character 3:
+Character (ready to drop into a game at 3rd level)
+- Name: Arnold von Thal
+- Race: Goliath (not Human — chosen for size, mountain-born background and natural strength)
+- Class / Level: Paladin (3) — oath focused on duty and civic order (fits “governor/leader” role)
+- Background: Entertainer (former strongman/performer) — explains celebrity and stage presence while also allowing for showmanship and public appearances
+- Alignment: Lawful Neutral (committed to order, duty and results; pragmatic rather than sentimental)
+
+Ability scores (reflective, not min-maxed; racial bonuses included)
+- Strength 17 (+3) — longtime bodybuilder/physical champion
+- Constitution 15 (+2) — durable, many years of physical exertion (but not invulnerable)
+- Dexterity 10 (+0) — competent but not nimble
+- Intelligence 11 (+0) — practical and savvy, not an academic
+- Wisdom 12 (+1) — good instincts; can read people and situations
+- Charisma 13 (+1) — commanding presence and public persona (not supernaturally charming, but effective)
+
+Proficiencies & tools
+- Armor: all armor, shields
+- Weapons: simple and martial weapons
+- Saving Throws: Wisdom, Charisma (paladin defaults)
+- Skills (paladin picks + background): Athletics (bodybuilding/strength feats), Persuasion (political and public persuasion), Performance (movie/strongman showmanship), Acrobatics (stage athleticism)
+- Tools: disguise kit and a chosen instrument (Entertainer background)
+
+Racial features (Goliath highlights, summarized)
+- Powerful Build: counts as one size larger for carrying/capacity
+- Stone’s Endurance (once per short rest reduce damage) — represents toughness and recuperative will
+- Natural Athlete & mountain endurance flavor — fits an alpine Austrian origin and an athlete’s conditioning
+
+Class features (Paladin basics)
+- Divine Sense, Lay on Hands (healer and moral authority in a pinch)
+- Fighting style (choose e.g. Defense or Great Weapon Fighting depending on play style — flavor: imposing in melee)
+- Spellcasting (paladin spells at 2nd–3rd level; mainly defensive/utility and smiting spells)
+- Oath (flavor: oath of service to the people / the rule of law — leadership and governance)
+
+Equipment (starter ideas)
+- Heavy armor (chain mail or plate as funds allow), shield or greatsword (pick the cinematic option you like), holy symbol, entertainer’s costume and props, signet or gubernatorial token (roleplaying trinket)
+- Reasonable starting funds reflecting a successful performer turned businessman
+
+Personality, ideals, bonds, flaws (roleplay hooks)
+- Personality: Direct, confident, competitive; enjoys applause and respect; a bit lumbering but surprisingly shrewd in negotiations.
+- Ideal: Duty — the office/role matters; you can remake things through hard work and discipline.
+- Bond: A home region (mountain village) and youth training ground that shaped him; a charity or institute for youth/fitness he founded.
+- Flaw: Overconfidence and bluntness can offend; past personal scandals / private mistakes sometimes come back to complicate public life; surgeries/injuries occasionally limit him.
+
+Inventory
+- spellbook
+- axe
+
+Short explanation of design choices (why this fits)
+- Race: Goliath mirrors the player’s physical dominance, mountain/Austrian origin, and the practical toughness of a lifelong athlete. Picking a non-Human race was required; Goliath keeps the “strongman” feel while adding interesting mechanical traits (Powerful Build, Stone’s Endurance).
+- Class: Paladin captures the combination of physical prowess, public authority and a stated duty to serve (fits a person who becomes governor). The paladin’s blend of frontline combat, healing/support, and a code of conduct suits both the action-star and political leader aspects.
+- Background: Entertainer honors the celebrity/performer history (bodybuilding exhibitions, films) and explains his comfort on stage and with public spectacle, while paladin skills provide the persuasion and leadership qualities needed for politics.
+- Abilities and skills: Strength high (athlete), Constitution good (durability), Charisma respectable but not artificially maxed (fame and leadership, but still a pragmatic, blunt figure). Skills chosen reflect athletics and showmanship plus political persuasion — intentionally reflective of the person rather than optimized for mechanical power.
+- Flaws and roleplay hooks: Included to reflect controversies, medical setbacks, and the public/private tensions that make the character interesting to play and to give the GM material for drama.
+
+If you want:
+- I can convert this into a level-1 build (choose exact starting equipment and spells), or
+- Move it to Fighter (Battlemaster) for a more purely kinetic “action hero” combat style, or
+- Swap background to Guild Artisan (business/political flavor) if you prefer more negotiation and administration skills over stage performance.
