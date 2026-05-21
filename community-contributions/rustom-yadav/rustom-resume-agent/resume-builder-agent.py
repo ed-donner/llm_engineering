@@ -1,12 +1,9 @@
 from dotenv import load_dotenv
 import os
-from pathlib import Path
 from openai import OpenAI
 import json
 
-BASE_DIR = Path(__file__).resolve().parent
-
-load_dotenv(BASE_DIR.parent / ".env", override=True)
+load_dotenv(override=True)
 
 client = OpenAI(
     base_url=os.getenv("BASE_URL", "http://localhost:11434/v1"),
@@ -14,7 +11,7 @@ client = OpenAI(
 )
 MODEL_NAME = os.getenv("MODEL_NAME") or os.getenv("MODEL") or "llama3.2:latest"
 
-with open(BASE_DIR / "resume_template.html", "r", encoding="utf-8") as file:
+with open("resume_template.html", "r", encoding="utf-8") as file:
     resume_html = file.read()
 
 if not resume_html:
@@ -119,10 +116,7 @@ def main():
     messages = [{"role": "system", "content": SYSTEM_PROMPT}]
 
     while True:
-        try:
-            user_input = input("type exit or quit to stop or type your message: ")
-        except EOFError:
-            break
+        user_input = input("type exit or quit to stop or type your message: ")
 
         if user_input.strip().lower() in {"exit", "quit"}:
             break
@@ -135,20 +129,25 @@ def main():
         )
 
         response_content = resume.choices[0].message.content
-
         try:
-            assistant_response = json.loads(response_content)
-            print(assistant_response)
-            messages.append({"role": "assistant", "content": response_content})
-            if assistant_response.get("status") == "completed":
-                with open(
-                    BASE_DIR / "final_resume.html", "w", encoding="utf-8"
-                ) as file:
-                    file.write(assistant_response["resume_html"])
-                    break
+            response_json = json.loads(response_content)
+            if response_json.get("status") == "completed":
+                print("Final Resume HTML:")
+                if "resume_html" in response_json:
+                    with open("final_resume.html", "w", encoding="utf-8") as f:
+                        f.write(response_json["resume_html"])
+                    print("Resume HTML has been saved to final_resume.html")
+                    messages.append({"role": "assistant", "content": response_content})
+                else:
+                    print("Error: 'resume_html' key not found in the response.")
+                    messages.append({"role": "assistant", "content": response_content})
+                break
+            else:
+                print("Assistant:", response_content)
+                messages.append({"role": "assistant", "content": response_content})
+
         except json.JSONDecodeError:
-            # Response is not JSON, print as regular text
-            print(response_content)
+            print("Assistant:", response_content)
             messages.append({"role": "assistant", "content": response_content})
 
 
