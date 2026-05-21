@@ -1,0 +1,298 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>[Your_Name]_Resume</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap");
+
+      :root {
+        --text-primary: #000000;
+        --text-secondary: #222222;
+        --link-color: #0056b3;
+        --border-color: #999999;
+      }
+
+      body {
+        font-family: "Inter", sans-serif;
+        color: var(--text-primary);
+        line-height: 1.5;
+        margin: 0;
+        padding: 20px 0; /* Add top/bottom padding for web view */
+        background-color: #ffffff;
+      }
+
+      .container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 0 40px; /* Side margins for the resume content */
+        background: #ffffff;
+      }
+
+      /* Header Styling */
+      header {
+        text-align: center;
+        margin-bottom: 20px;
+        padding-bottom: 15px;
+        border-bottom: 1px solid var(--border-color);
+      }
+
+      h1 {
+        font-size: 32px;
+        font-weight: 600;
+        margin: 0 0 5px 0;
+        color: var(--text-primary);
+        letter-spacing: -0.5px;
+      }
+
+      h3 {
+        margin: 0 0 6px 0;
+        color: var(--text-secondary);
+        font-weight: 600;
+        font-size: 16px;
+      }
+
+      .subtitle {
+        font-size: 16px;
+        font-weight: 600;
+        margin: 0 0 8px 0;
+        color: var(--text-secondary);
+      }
+
+      .contact-info {
+        font-size: 14px;
+        color: var(--text-secondary);
+        line-height: 1.6;
+      }
+
+      /* Links ONLY */
+      a {
+        color: var(--link-color);
+        text-decoration: none;
+        font-weight: 600;
+      }
+
+      a:hover {
+        text-decoration: underline;
+      }
+
+      /* Section Headings */
+      h2 {
+        font-size: 16px;
+        font-weight: 700;
+        color: var(--text-primary);
+        text-transform: uppercase;
+        border-bottom: 2px solid var(--text-primary);
+        padding-bottom: 4px;
+        margin-top: 20px;
+        margin-bottom: 12px;
+        letter-spacing: 0.5px;
+      }
+
+      /* Paragraphs & Text */
+      p {
+        margin: 0 0 10px 0;
+        font-size: 14px;
+        color: var(--text-secondary);
+        text-align: justify;
+      }
+
+      /* Skills Section */
+      .skills-list {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        font-size: 14px;
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+      }
+
+      .skills-list li {
+        color: var(--text-secondary);
+      }
+
+      .skills-list strong {
+        font-weight: 700;
+        color: var(--text-primary);
+        margin-right: 5px;
+      }
+
+      /* Projects Section */
+      .project {
+        margin-bottom: 18px;
+      }
+
+      .project-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 2px;
+      }
+
+      .project-title {
+        font-size: 15px;
+        font-weight: 700;
+        color: var(--text-primary);
+      }
+
+      .project-links {
+        font-size: 13.5px;
+      }
+
+      .project-links a {
+        margin-left: 12px;
+      }
+
+      .tech-stack {
+        font-size: 13.5px;
+        font-weight: 600;
+        color: var(--text-secondary);
+        margin-bottom: 6px;
+      }
+
+      .bullet-points {
+        margin: 0;
+        padding-left: 20px;
+        font-size: 14px;
+        color: var(--text-secondary);
+      }
+
+      .bullet-points li {
+        margin-bottom: 4px;
+      }
+
+      /* Certifications Section */
+      .cert-item {
+        font-size: 14px;
+        margin-bottom: 6px;
+        color: var(--text-secondary);
+      }
+
+      .cert-flex {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      /* Education Section */
+      .education-item {
+        font-size: 14px;
+        color: var(--text-secondary);
+      }
+
+      .edu-title {
+        font-weight: 700;
+        font-size: 15px;
+        color: var(--text-primary);
+        margin-bottom: 2px;
+      }
+
+      /* Print Specific Rules for generating PDF */
+      @media print {
+        body {
+          padding: 0;
+          background: #ffffff;
+        }
+
+        .container {
+          padding: 0;
+          max-width: 100%;
+          box-shadow: none;
+        }
+
+        /* Ensuring links stay blue even when printed, if supported by the browser setting */
+        a {
+          text-decoration: none !important;
+          color: var(--link-color) !important;
+        }
+
+        /* Avoid breaking inside projects or sections */
+        .project,
+        .cert-item,
+        .skills-list li {
+          page-break-inside: avoid;
+        }
+
+        h2 {
+          page-break-after: avoid;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>[Your Name]</h1>
+        <h3>Legal Name - [Your Legal Name]</h3>
+        <div class="subtitle">
+          [Your Professional  Title Heading]
+        </div>
+        <div class="contact-info">
+          [City, State, Country] | Phone: [Your Phone Number] | Email:
+          <a href="mailto:[your.email@example.com]"
+            >[your.email@example.com]</a
+          ><br />
+          <a href="[Your GitHub Profile URL]" target="_blank">GitHub</a> |
+          <a href="[Your LinkedIn Profile URL]" target="_blank"
+            >LinkedIn</a
+          >
+          |
+          <a href="[Your Portfolio URL]" target="_blank"
+            >Portfolio</a
+          >
+        </div>
+      </header>
+
+      <h2>SUMMARY</h2>
+      <p>
+       [Generate summary because you are an ai assistent according user info]
+      </p>
+
+      <h2>SKILLS</h2>
+      <ul class="skills-list">
+       [ask user for his skills and list here using <li><strong>Category:</strong> Skill 1, Skill 2, Skill 3</li> format]
+      </ul>
+      <h2>PROJECTS</h2>
+
+      <div class="project">
+        <div class="project-header">
+          <div class="project-title">
+            [Project 1 Name]
+          </div>
+          <div class="project-links">
+            <a href="[Live Project URL]" target="_blank">Live</a> |
+            <a
+              href="[GitHub Repository URL]"
+              target="_blank"
+              >GitHub</a
+            >
+          </div>
+        </div>
+        <div class="tech-stack">
+          Tech Stack: [ask user or generate based on project description]
+        </div>
+        <div class ="project-description">
+          [Provide a brief description of the project,]
+           
+      </div>
+
+      
+      <h2>CERTIFICATIONS</h2>
+      <ul class="bullet-points">
+        <li class="cert-item cert-flex">
+          <span>[certificate title]</span>
+          <a href="[Certificate URL]" target="_blank">Certificate</a>
+        </li>
+        [list here more certification if user provided]
+      </ul>
+
+      <h2>EDUCATION</h2>
+      <div class="education-item">
+        <div class="edu-title">[University/College Name]</div>
+        <div>degree</div>
+      </div>
+    </div>
+  </body>
+</html>
