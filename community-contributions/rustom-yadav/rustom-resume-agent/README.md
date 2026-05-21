@@ -2,6 +2,8 @@
 
 A conversational AI agent that guides users through structured questions to create professional HTML resumes.
 
+## Note - when your final_resume.html is generated, you will need to format the file because all code is written in one line. You can use an online HTML formatter or a code editor with formatting capabilities to make it readable.
+
 ## How It Works
 
 The agent:
