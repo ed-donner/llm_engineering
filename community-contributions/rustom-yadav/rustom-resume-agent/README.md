@@ -15,7 +15,7 @@ The agent:
 1. Install dependencies:
 
 ```bash
-pip install -r requirments.txt
+pip install -r requirements.txt
 ```
 
 2. Create a `.env` file:
