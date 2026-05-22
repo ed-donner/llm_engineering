@@ -19,7 +19,8 @@ Any questions, please ask me on Udemy or at ed@edwarddonner.com. More details at
 ### Before you begin
 
 I'm here to help you be most successful with your learning. If you hit any snafus, or if you have any ideas on how I can improve the course, please do reach out in the platform or by emailing me direct (ed@edwarddonner.com). It's always great to connect with people on LinkedIn to build up the community - you'll find me here:  
-https://www.linkedin.com/in/eddonner/  
+https://www.linkedin.com/in/eddonner/   
+And I'm starting to build a YouTube channel with extra content - please [check it out here](https://youtube.com/@edward.donner).  
 And this is new to me, but I'm also trying out X/Twitter at [@edwarddonner](https://x.com/edwarddonner) - if you're on X, please show me how it's done 😂  
 
 Resources to accompany the course, including the slides and useful links, are here:  
