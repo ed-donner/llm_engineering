@@ -1,69 +1,66 @@
 # InterView-Coder 2.0
 
-InterView-Coder 2.0 is a high-performance tool designed to assist competitive programmers by automatically capturing coding problems from the screen, processing them via OCR and AI, and providing optimal solutions in real-time.
+InterView-Coder 2.0 captures coding problems directly from your screen, extracts text using OCR, and generates optimized solutions using a local LLM.
 
-## 🚀 Features
+## Features
 
-- **Region-Based Screen Capture**: Define a specific screen area for problem extraction using hotkeys.
-- **OCR Pipeline**: Integrated Tesseract OCR to convert screenshots into clean, editable text.
-- **AI-Powered Solver**: Uses local LLMs (via Ollama) to analyze problems and provide:
-  - Problem understanding.
-  - Brute force, better, and optimal approaches.
-  - Time and Space complexity analysis.
-  - Clean JavaScript implementations for all approaches.
-- **Instant Clipboard Integration**: Automatically copies the final solution to the clipboard upon completion.
+* Region-based screen capture with global hotkeys.
+* OCR-powered problem extraction using Tesseract.
+* AI-generated solutions via Ollama:
 
-## 📺 Demo
+  * Problem analysis
+  * Brute-force, improved, and optimal approaches
+  * Time & space complexity
+  * JavaScript implementations
+* Automatic clipboard copy of the final solution.
 
-Check out the process in action:
-[Watch Process Demo](Process.mov) (watch this after cloning the repository in your machine)
-[if you are not in mac then first chnage .mov to .mp4 and then watch]
+## Hotkeys
 
-## ⌨️ Hotkeys
+| Hotkey             | Action                                      |
+| ------------------ | ------------------------------------------- |
+| `Ctrl + Shift + S` | Set top-left capture corner                 |
+| `Ctrl + Shift + D` | Set bottom-right capture corner             |
+| `Ctrl + Shift + A` | Run Capture → OCR → AI → Clipboard pipeline |
 
-| Hotkey             | Action                                                                                                   |
-| :----------------- | :------------------------------------------------------------------------------------------------------- |
-| `Ctrl + Shift + S` | Set the **Top-Left** corner of the capture region                                                        |
-| `Ctrl + Shift + D` | Set the **Bottom-Right** corner of the capture region                                                    |
-| `Ctrl + Shift + A` | **Run Pipeline**: Capture $\rightarrow$ OCR $\rightarrow$ AI $\rightarrow$ Popup $\rightarrow$ Clipboard |
-
-## 🛠️ Installation & Setup
+## Installation
 
 ### Prerequisites
 
-- **macOS**: Optimized for macOS (requires `pyobjc` for stealth UI features).
-- **Tesseract OCR**: Must be installed on your system.
-  ```bash
-  brew install tesseract
-  ```
-- **Ollama**: Required for local AI inference.
-  - Install Ollama from [ollama.com](https://ollama.com).
-  - Pull the required model:
-    ```bash
-    ollama pull gemma4:latest
-    ```
+```bash
+brew install tesseract
+```
+
+Install Ollama and pull the required model:
+
+```bash
+ollama pull gemma4:latest
+```
 
 ### Setup
 
-1. Clone the repository.
-2. Install dependencies:
-   ```bash
-   pip install -r requirements.txt
-   # or use uv
-   uv sync
-   ```
-3. Ensure Tesseract path is correct in `ocr/reader.py` (defaults to `/opt/homebrew/bin/tesseract`).
+```bash
+git clone <repo-url>
+cd <repo-name>
 
-## 📂 Project Structure
+pip install -r requirements.txt
+# or
+uv sync
+```
 
-- `main.py`: The core orchestration engine and hotkey listener.
-- `ai/`: AI logic, prompting, and Ollama API integration.
-- `capture/`: Screen capture and region management.
-- `ocr/`: Text extraction using Tesseract.
-- `ui/`: Stealth popup window implementation.
-- `utils/`: Text cleaning and helper utilities.
-- `temp/`: Local storage for temporary screenshots.
+If necessary, update the Tesseract path in `ocr/reader.py`.
 
-## ⚠️ Disclaimer
+## Project Structure
 
-This tool is intended for educational and competitive programming practice. Please ensure its use complies with the rules of the platform you are using.
+```text
+ai/        AI prompting and Ollama integration
+capture/   Screen capture and region selection
+ocr/       OCR processing
+ui/        Popup interface
+utils/     Utility functions
+temp/      Temporary screenshots
+main.py    Application entry point
+```
+
+## Disclaimer
+
+For educational and competitive programming practice only. Ensure usage complies with the rules of the platform you are using.
