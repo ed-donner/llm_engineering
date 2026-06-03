@@ -1,0 +1,26 @@
+[
+  {
+    "name": "Jane Wanjiku",
+    "id_verified": false,
+    "references": 1,
+    "employment_history_months": 4,
+    "previous_jobs": 3,
+    "notes": "Left previous jobs within a few months."
+  },
+  {
+    "name": "Mary Atieno",
+    "id_verified": true,
+    "references": 2,
+    "employment_history_months": 24,
+    "previous_jobs": 1,
+    "notes": "Worked with previous employer for two years."
+  },
+  {
+    "name": "Grace Njeri",
+    "id_verified": true,
+    "references": 1,
+    "employment_history_months": 12,
+    "previous_jobs": 2,
+    "notes": "Stable employment but limited references."
+  }
+]

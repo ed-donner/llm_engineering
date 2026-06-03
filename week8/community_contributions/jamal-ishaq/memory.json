@@ -1,0 +1,257 @@
+[
+  {
+    "resource": {
+      "title": "The Vocabulary Priming Confound in LLM Evaluation [pdf]",
+      "url": "https://github.com/Palmerschallon/Dharma_Code/blob/main/paper/vocab_priming_confound.pdf",
+      "source": "github.com",
+      "snippet": "<p>Article URL: <a href=\"https://github.com/Palmerschallon/Dharma_Code/blob/main/paper/vocab_priming_confound.pdf\">https://github.com/Palmerschallon/Dharma_Code/blob/main/paper/vocab_priming_confound.pdf</a></p>\n<p>Comments URL: <a href=\"https://news.ycombinator.com/item?id=46955474\">https://news.ycombinator.com/item?i",
+      "published_at": "2026-03-09T21:48:25.668946+00:00"
+    },
+    "estimated_quality": 63.0,
+    "value_gap": 13.0,
+    "score_breakdown": {
+      "domain_score": 28.0,
+      "keyword_score": 20.0,
+      "richness_score": 15.0
+    },
+    "created_at": "2026-03-09T21:48:27.202103+00:00"
+  },
+  {
+    "resource": {
+      "title": "Show HN: Dokimos \u2013 LLM Evaluation Framework for Java",
+      "url": "https://github.com/dokimos-dev/dokimos",
+      "source": "github.com",
+      "snippet": "<p>I tried building LLM applications in Java and wanted the evaluation experience I know from the Python ecosystem: datasets, experiments, built in metrics, tracking results over time.<p>Dokimos brings that to Java. It's a framework for evaluating LLM outputs with:<p>- Built in evaluators for both LLM-based and traditi",
+      "published_at": "2026-03-09T21:48:42.246152+00:00"
+    },
+    "estimated_quality": 69.0,
+    "value_gap": 19.0,
+    "score_breakdown": {
+      "domain_score": 28.0,
+      "keyword_score": 26.0,
+      "richness_score": 15.0
+    },
+    "created_at": "2026-03-09T21:48:43.970705+00:00"
+  },
+  {
+    "resource": {
+      "title": "OpenAI Evals Design Guide",
+      "url": "https://platform.openai.com/docs/guides/evals",
+      "source": "openai.com",
+      "snippet": "A practical guide for building evaluation datasets and pass/fail criteria for LLM systems.",
+      "published_at": "2026-03-09T22:05:14.919574+00:00"
+    },
+    "estimated_quality": 57.0,
+    "value_gap": 7.0,
+    "score_breakdown": {
+      "domain_score": 35.0,
+      "keyword_score": 16.0,
+      "richness_score": 6.0
+    },
+    "created_at": "2026-03-09T22:05:14.919811+00:00"
+  },
+  {
+    "resource": {
+      "title": "Awesome LLM Evaluation Repositories",
+      "url": "https://github.com/topics/llm-evaluation",
+      "source": "github.com",
+      "snippet": "Curated repositories covering benchmarks, judges, and evaluation pipelines.",
+      "published_at": "2026-03-09T22:05:14.922108+00:00"
+    },
+    "estimated_quality": 51.0,
+    "value_gap": 1.0,
+    "score_breakdown": {
+      "domain_score": 28.0,
+      "keyword_score": 21.0,
+      "richness_score": 2.0
+    },
+    "created_at": "2026-03-09T22:05:14.922397+00:00"
+  },
+  {
+    "resource": {
+      "title": "LangChain Agent Executor Concepts",
+      "url": "https://python.langchain.com/docs/concepts/agents/",
+      "source": "langchain.com",
+      "snippet": "Core concepts behind tool-using agents, planning, and execution loops.",
+      "published_at": "2026-03-09T22:05:14.921401+00:00"
+    },
+    "estimated_quality": 42.0,
+    "value_gap": -8.0,
+    "score_breakdown": {
+      "domain_score": 26.0,
+      "keyword_score": 14.0,
+      "richness_score": 2.0
+    },
+    "created_at": "2026-03-09T22:05:14.921727+00:00"
+  },
+  {
+    "resource": {
+      "title": "Show HN: LLM agents that write Python to analyze execution traces at scale",
+      "url": "https://github.com/kayba-ai/agentic-context-engine/tree/main",
+      "source": "github.com",
+      "snippet": "<p>We combined Stanford's ACE (agents learning from execution feedback) with the Reflective Language Model pattern. Instead of reading traces in a single pass, an LLM writes and runs Python in a sandbox to programmatically explore them - finding cross-trace patterns that single-pass analysis misses. The framework achie",
+      "published_at": "2026-03-09T22:08:04.545403+00:00"
+    },
+    "estimated_quality": 57.0,
+    "value_gap": 7.0,
+    "score_breakdown": {
+      "domain_score": 28.0,
+      "keyword_score": 14.0,
+      "richness_score": 15.0
+    },
+    "created_at": "2026-03-09T22:08:04.545403+00:00"
+  },
+  {
+    "resource": {
+      "title": "Show HN: Valohai LLM \u2013 Track and compare LLM evaluation results in one dashboard",
+      "url": "https://valohai.com/llm/",
+      "source": "valohai.com",
+      "snippet": "<p>We built Valohai LLM for tracking and comparing LLM evaluation results. Whether your evals live in notebooks and spreadsheets, or you're using an observability tool that wasn't built for comparison, this gives you a purpose-built eval comparison dashboard.<p>Run evals with a Python library (pip install valohai-llm),",
+      "published_at": "2026-03-09T22:08:16.952199+00:00"
+    },
+    "estimated_quality": 56.0,
+    "value_gap": 6.0,
+    "score_breakdown": {
+      "domain_score": 15.0,
+      "keyword_score": 26.0,
+      "richness_score": 15.0
+    },
+    "created_at": "2026-03-09T22:08:16.962864+00:00"
+  },
+  {
+    "resource": {
+      "title": "Building an LLM evaluation framework: best practices",
+      "url": "https://www.datadoghq.com/blog/llm-evaluation-framework-best-practices/",
+      "source": "www.datadoghq.com",
+      "snippet": "<p>Article URL: <a href=\"https://www.datadoghq.com/blog/llm-evaluation-framework-best-practices/\">https://www.datadoghq.com/blog/llm-evaluation-framework-best-practices/</a></p>\n<p>Comments URL: <a href=\"https://news.ycombinator.com/item?id=46330472\">https://news.ycombinator.com/item?id=46330472</a></p>\n<p>Points: 1</p",
+      "published_at": "2026-03-09T22:08:16.962864+00:00"
+    },
+    "estimated_quality": 56.0,
+    "value_gap": 6.0,
+    "score_breakdown": {
+      "domain_score": 15.0,
+      "keyword_score": 26.0,
+      "richness_score": 15.0
+    },
+    "created_at": "2026-03-09T22:08:16.962864+00:00"
+  },
+  {
+    "resource": {
+      "title": "Building reproducible LLM agents with strict determinism guarantees",
+      "url": "https://github.com/crasofuentes-hub/deterministic-agent-system",
+      "source": "github.com",
+      "snippet": "<p>Article URL: <a href=\"https://github.com/crasofuentes-hub/deterministic-agent-system\">https://github.com/crasofuentes-hub/deterministic-agent-system</a></p>\n<p>Comments URL: <a href=\"https://news.ycombinator.com/item?id=47306165\">https://news.ycombinator.com/item?id=47306165</a></p>\n<p>Points: 1</p>\n<p># Comments: 1",
+      "published_at": "2026-03-09T22:08:04.542204+00:00"
+    },
+    "estimated_quality": 51.0,
+    "value_gap": 1.0,
+    "score_breakdown": {
+      "domain_score": 28.0,
+      "keyword_score": 8.0,
+      "richness_score": 15.0
+    },
+    "created_at": "2026-03-09T22:08:04.542204+00:00"
+  },
+  {
+    "resource": {
+      "title": "Show HN: key-carousel - Key rotation for LLM agents",
+      "url": "https://github.com/HalfEmptyDrum/Key-Carousel",
+      "source": "github.com",
+      "snippet": "<p>I think in-process key management is the right abstraction for multi-key LLM setups. Not LiteLLM, not a Redis queue, not a custom load balancer.<p>The failure modes are well-understood: a key gets rate-limited, you wait, you try the next one. Billing errors need a longer cooldown than rate limits. This is not a dist",
+      "published_at": "2026-03-09T22:08:04.545403+00:00"
+    },
+    "estimated_quality": 51.0,
+    "value_gap": 1.0,
+    "score_breakdown": {
+      "domain_score": 28.0,
+      "keyword_score": 8.0,
+      "richness_score": 15.0
+    },
+    "created_at": "2026-03-09T22:08:04.545403+00:00"
+  },
+  {
+    "resource": {
+      "title": "Memex(RL): Scaling Long-Horizon LLM Agents via Indexed Experience Memory",
+      "url": "https://arxiv.org/abs/2603.04257",
+      "source": "arxiv.org",
+      "snippet": "<p>Article URL: <a href=\"https://arxiv.org/abs/2603.04257\">https://arxiv.org/abs/2603.04257</a></p>\n<p>Comments URL: <a href=\"https://news.ycombinator.com/item?id=47267968\">https://news.ycombinator.com/item?id=47267968</a></p>\n<p>Points: 2</p>\n<p># Comments: 0</p>",
+      "published_at": "2026-03-09T22:21:28.744475+00:00"
+    },
+    "estimated_quality": 55.0,
+    "value_gap": 5.0,
+    "score_breakdown": {
+      "domain_score": 32.0,
+      "keyword_score": 8.0,
+      "richness_score": 15.0
+    },
+    "created_at": "2026-03-09T22:21:28.746446+00:00"
+  },
+  {
+    "resource": {
+      "title": "Show HN: Contexa \u2013 Git-inspired context management for LLM agents",
+      "url": "https://github.com/swadhinbiswas/contexa",
+      "source": "github.com",
+      "snippet": "<p>Hi HN,<p>I\u2019ve been experimenting with building LLM agents and kept running into the same problem: managing context gets messy quickly. Prompts grow, reasoning steps get lost, and it's hard to reproduce or roll back agent behavior.<p>So I built Contexa, a small open-source project that treats LLM context a bit like G",
+      "published_at": "2026-03-09T22:21:28.740473+00:00"
+    },
+    "estimated_quality": 51.0,
+    "value_gap": 1.0,
+    "score_breakdown": {
+      "domain_score": 28.0,
+      "keyword_score": 8.0,
+      "richness_score": 15.0
+    },
+    "created_at": "2026-03-09T22:21:28.741476+00:00"
+  },
+  {
+    "resource": {
+      "title": "Why LLM agents break when you give them 100k tools",
+      "url": "https://getviktor.com/blog/what-breaks-when-your-agent-has-100000-tools",
+      "source": "getviktor.com",
+      "snippet": "<p>Article URL: <a href=\"https://getviktor.com/blog/what-breaks-when-your-agent-has-100000-tools\">https://getviktor.com/blog/what-breaks-when-your-agent-has-100000-tools</a></p>\n<p>Comments URL: <a href=\"https://news.ycombinator.com/item?id=47309265\">https://news.ycombinator.com/item?id=47309265</a></p>\n<p>Points: 4</p",
+      "published_at": "2026-03-09T22:21:28.738527+00:00"
+    },
+    "estimated_quality": 44.0,
+    "value_gap": -6.0,
+    "score_breakdown": {
+      "domain_score": 15.0,
+      "keyword_score": 14.0,
+      "richness_score": 15.0
+    },
+    "created_at": "2026-03-09T22:21:28.739480+00:00"
+  },
+  {
+    "resource": {
+      "title": "Fine-tuned Qwen3 SLMs (0.6-8B) beat frontier LLMs on narrow tasks",
+      "url": "https://www.reddit.com/r/LocalLLaMA/comments/1rozrmn/finetuned_qwen3_slms_068b_beat_frontier_llms_on/",
+      "source": "www.reddit.com",
+      "snippet": "<table> <tr><td> <a href=\"https://www.reddit.com/r/LocalLLaMA/comments/1rozrmn/finetuned_qwen3_slms_068b_beat_frontier_llms_on/\"> <img alt=\"Fine-tuned Qwen3 SLMs (0.6-8B) beat frontier LLMs on narrow tasks\" src=\"https://preview.redd.it/2hh92dguq0og1.png?width=640&amp;crop=smart&amp;auto=webp&amp;s=6888d0f4e184970154d3e",
+      "published_at": "2026-03-09T22:20:59.404661+00:00"
+    },
+    "estimated_quality": 38.0,
+    "value_gap": -12.0,
+    "score_breakdown": {
+      "domain_score": 15.0,
+      "keyword_score": 8.0,
+      "richness_score": 15.0
+    },
+    "created_at": "2026-03-09T22:20:59.404661+00:00"
+  },
+  {
+    "resource": {
+      "title": "Show HN: NERDs \u2013 Entity-centered long-term memory for LLM agents",
+      "url": "https://nerdviewer.com/",
+      "source": "nerdviewer.com",
+      "snippet": "<p>Long-running agents struggle to attend to relevant information as context grows, and eventually hit the wall when the context window fills up.<p>NERDs (Networked Entity Representation Documents) are Wikipedia-style entity pages that LLM agents build for themselves by reading a large corpus chunk-by-chunk. Instead of",
+      "published_at": "2026-03-09T22:21:28.742474+00:00"
+    },
+    "estimated_quality": 38.0,
+    "value_gap": -12.0,
+    "score_breakdown": {
+      "domain_score": 15.0,
+      "keyword_score": 8.0,
+      "richness_score": 15.0
+    },
+    "created_at": "2026-03-09T22:21:28.743454+00:00"
+  }
+]

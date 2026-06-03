@@ -1,0 +1,17 @@
+{
+  "sex": "female",
+  "age": 45,
+  "height_cm": 152,
+  "weight_kg": 62,
+  "activity_level": "light",
+  "goal": "maintain",
+  "dietary_pattern": "vegetarian",
+  "allergies": [],
+  "dislikes": [],
+  "daily_meals": 3,
+  "cuisine_prefs": [
+    "mediterranean"
+  ],
+  "time_per_meal_minutes": 25,
+  "budget_level": "medium"
+}

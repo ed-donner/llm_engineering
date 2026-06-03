@@ -1,0 +1,78 @@
+import gradio as gr
+import torch
+from transformers import pipeline, AutoTokenizer, AutoModelForCausalLM, BitsAndBytesConfig, TextStreamer, AutoModelForSpeechSeq2Seq, AutoProcessor, pipeline
+from huggingface_hub import login
+import os
+
+# Use the secret stored in the Hugging Face space
+token = os.getenv("HF_TOKEN")
+login(token=token)
+
+# Whisper Model Optimization
+model = "openai/whisper-tiny"
+DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
+
+processor = AutoProcessor.from_pretrained(model)
+
+
+transcriber = pipeline(
+    "automatic-speech-recognition",
+    model=model,
+    tokenizer=processor.tokenizer,
+    feature_extractor=processor.feature_extractor,
+    device=0 if torch.cuda.is_available() else "cpu",
+)
+
+
+
+# Function to Transcribe & Generate Minutes
+def process_audio(audio_file):
+    if audio_file is None:
+        return "Error: No audio provided!"
+
+    # Transcribe audio
+    transcript = transcriber(audio_file)["text"]
+    del transcriber 
+    del processor
+    # LLaMA Model Optimization
+    LLAMA = "meta-llama/Llama-3.2-3B-Instruct"
+    llama_quant_config = BitsAndBytesConfig(
+        load_in_4bit=True,
+        bnb_4bit_use_double_quant=True,
+        bnb_4bit_compute_dtype=torch.bfloat16,
+        bnb_4bit_quant_type="nf4"
+    )
+    
+    tokenizer = AutoTokenizer.from_pretrained(LLAMA)
+    tokenizer.pad_token = tokenizer.eos_token
+    model = AutoModelForCausalLM.from_pretrained(
+        LLAMA,
+        torch_dtype=torch.float16 if torch.cuda.is_available() else torch.float32,
+        device_map="auto"
+    )
+    # Generate meeting minutes
+    system_message = "You are an assistant that produces minutes of meetings from transcripts, with summary, key discussion points, takeaways and action items with owners, in markdown."
+    user_prompt = f"Below is an extract transcript of a Denver council meeting. Please write minutes in markdown, including a summary with attendees, location and date; discussion points; takeaways; and action items with owners.\n{transcript}"
+
+    messages = [
+        {"role": "system", "content": system_message},
+        {"role": "user", "content": user_prompt}
+    ]
+
+    inputs = tokenizer.apply_chat_template(messages, return_tensors="pt").to(DEVICE)
+    streamer = TextStreamer(tokenizer)
+    outputs = model.generate(inputs, max_new_tokens=2000, streamer=streamer)
+
+    return tokenizer.decode(outputs[0], skip_special_tokens=True)
+
+# Gradio Interface
+interface = gr.Interface(
+    fn=process_audio,
+    inputs=gr.Audio(sources=["upload", "microphone"], type="filepath"),
+    outputs="text",
+    title="Meeting Minutes Generator",
+    description="Upload or record an audio file to get structured meeting minutes in Markdown.",
+)
+
+# Launch App
+interface.launch()

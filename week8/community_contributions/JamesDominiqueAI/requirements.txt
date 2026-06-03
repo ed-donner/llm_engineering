@@ -1,0 +1,7 @@
+anthropic>=0.25.0
+openai>=1.30.0
+gradio>=4.40.0
+chromadb>=0.5.0
+sentence-transformers>=2.7.0
+python-dotenv>=1.0.0
+duckduckgo-search>=6.0.0

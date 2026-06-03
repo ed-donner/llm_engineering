@@ -1,0 +1,4 @@
+streamlit
+openai
+requests
+python-dotenv

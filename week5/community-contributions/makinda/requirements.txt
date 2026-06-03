@@ -1,0 +1,6 @@
+# Week 5 community contribution: KUCCPS cluster calculator + RAG advisor
+python-dotenv>=1.0.0
+chromadb>=1.0.0
+sentence-transformers>=2.2.0
+openai>=1.0.0
+gradio>=4.0.0

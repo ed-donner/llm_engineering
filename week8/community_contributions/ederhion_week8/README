@@ -1,0 +1,39 @@
+# Used Car Bargain Hunter - Agentic AI Framework
+
+This repository contains a multi-agent Artificial Intelligence framework designed to autonomously scan the internet for used car deals, estimate their true market value using a Retrieval-Augmented Generation (RAG) pipeline, and notify the user of the best bargains.
+
+## System Architecture Overview
+
+The system is built on a modular `DealAgentFramework` that orchestrates several specialized AI agents. 
+
+### The Agents
+* **Scanner Agent**: Parses an automotive RSS feed (from `dealnews.com`) and uses the `gpt-4o-mini` model with structured outputs to identify and extract the 5 most detailed vehicle deals.
+* **Frontier Agent (Estimator)**: Takes a vehicle description and queries a local Chroma vector database to find 5 similar used cars. It then constructs a context-aware prompt to estimate the vehicle's fair market value using OpenAI.
+* **Messaging Agent**: Uses Anthropic's `claude-sonnet-4-5` model to craft an exciting 2-3 sentence summary of the best deal. It then sends this summary as a push notification directly to the user's device via the Pushover API.
+* **Planning Agent**: Coordinates the workflow between the scanner, estimator, and messenger. The repository includes both a procedural planner and an `AutonomousPlanningAgent` that relies on `gpt-4o` tool calling to dynamically scan, estimate, and notify.
+
+### Data & RAG Setup
+* The knowledge base for the RAG pipeline is built using the `Carson-Shively/used-car-price` dataset from Hugging Face.
+* Vehicle descriptions are converted into embeddings using the open-source `sentence-transformers/all-MiniLM-L6-v2` model. 
+* These embeddings are stored locally in a persistent Chroma database.
+
+## User Interface
+
+The project includes a web-based dashboard built with Gradio. The interface features:
+* A "Scan for Deals Now" button that triggers the multi-agent pipeline.
+* A data table displaying surfaced deals, including the listed price, the agent's estimated true value, the discount amount, and the listing URL.
+* The ability to manually trigger an alert for a specific opportunity by selecting a row in the table.
+
+## Prerequisites & Setup
+
+To run this framework, you need to configure several environment variables in your `.env` file:
+
+1. **API Keys**: You will need valid API keys for OpenAI and Anthropic/LiteLLM.
+2. **Hugging Face Token**: Set `HF_TOKEN` to download the RAG dataset and models.
+3. **Pushover Credentials**: Set `PUSHOVER_USER` and `PUSHOVER_TOKEN` to enable mobile push notifications. 
+
+## Getting Started
+
+1. **Populate the Vector Database**: Run the cells in `RAG_setup.ipynb` to download the used car dataset, generate text embeddings, and populate your local Chroma database.
+2. **Launch the Dashboard**: Open `car_bargain_agent.ipynb` and run the Gradio cells to launch the local UI. 
+3. **Hunt for Deals**: Click "Scan for Deals Now" in the UI to unleash the agents. Results will populate in the data table, and highly discounted deals will automatically trigger a push notification.

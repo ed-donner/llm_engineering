@@ -1,0 +1,12 @@
+# Core dependencies
+openai>=1.12.0
+anthropic>=0.18.0
+google-generativeai>=0.3.0
+gradio>=4.0.0
+python-dotenv>=1.0.0
+
+# HTTP client (required by anthropic)
+httpx>=0.24.0
+
+# Optional: For better performance
+aiohttp>=3.9.0

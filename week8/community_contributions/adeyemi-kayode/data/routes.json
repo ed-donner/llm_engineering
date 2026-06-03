@@ -1,0 +1,8 @@
+[
+  {"origin_city": "Lagos", "origin_country": "Nigeria", "destination_city": "Nairobi", "destination_country": "Kenya"},
+  {"origin_city": "Lagos", "origin_country": "Nigeria", "destination_city": "Accra", "destination_country": "Ghana"},
+  {"origin_city": "Lagos", "origin_country": "Nigeria", "destination_city": "Johannesburg", "destination_country": "South Africa"},
+  {"origin_city": "Nairobi", "origin_country": "Kenya", "destination_city": "Dar es Salaam", "destination_country": "Tanzania"},
+  {"origin_city": "Cairo", "origin_country": "Egypt", "destination_city": "Lagos", "destination_country": "Nigeria"},
+  {"origin_city": "Johannesburg", "origin_country": "South Africa", "destination_city": "Harare", "destination_country": "Zimbabwe"}
+]
