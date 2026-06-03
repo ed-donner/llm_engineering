@@ -118,7 +118,7 @@ def merge_chunks(chunks, reranked):
 
 def fetch_context_unranked(question):
     results = retriever.invoke(question, k=RETRIEVAL_K)
-    print(f"Retrieved {len(results)} chunks for the question.")
+    # print(f"Retrieved {len(results)} chunks for the question.")
     return results
 
 
@@ -126,15 +126,15 @@ def fetch_context(original_question):
     new_chunks = []
     for i in range(3):
         rewritten_question = rewrite_query(original_question)
-        print(f"Rewritten question (iteration {i + 1}): {rewritten_question}")
+        # print(f"Rewritten question (iteration {i + 1}): {rewritten_question}")
         new_chunks.extend(fetch_context_unranked(rewritten_question))
     og_chunks = fetch_context_unranked(original_question)
     chunks = merge_chunks(og_chunks, new_chunks)
-    print(f"Retrieved {len(chunks)} chunks before reranking.")
+    # print(f"Retrieved {len(chunks)} chunks before reranking.")
     reranked = rerank(original_question, chunks)
-    print("Top reranked chunks:")
-    for i, chunk in enumerate(reranked[:3]):
-        print(f"Chunk {i + 1}: Source: {chunk.metadata['source']}, Content: {chunk.page_content[:20]}...")
+    # print("Top reranked chunks:")
+    # for i, chunk in enumerate(reranked[:3]):
+    #     print(f"Chunk {i + 1}: Source: {chunk.metadata['source']}, Content: {chunk.page_content[:20]}...")
     return reranked[:FINAL_K]
 
 
@@ -144,7 +144,7 @@ def answer_question(question: str, history: list[dict] = []) -> tuple[str, list]
     Answer a question using RAG and return the answer and the retrieved context
     """
     chunks = fetch_context(question)
-    print(f"Retrieved {len(chunks)} chunks for the question.")
+    # print(f"Retrieved {len(chunks)} chunks for the question.")
     messages = make_rag_messages(question, history, chunks)
     response = completion(model=MODEL, messages=messages)
     return response.choices[0].message.content, chunks
