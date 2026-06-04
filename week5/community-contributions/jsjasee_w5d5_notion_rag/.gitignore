@@ -1,0 +1,8 @@
+# Local exported Notion markdown files
+data/notion_markdown/*.md
+
+# Local ChromaDB vector database
+/chroma_db/
+
+# Environment variables / secrets
+.env
