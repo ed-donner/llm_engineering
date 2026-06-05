@@ -47,12 +47,6 @@ def generate_groq_summary(text):
     
     groq_url = "https://api.groq.com/openai/v1/chat/completions"
     
-    
-    headers = {
-        "Authorization": f"Bearer {os.environ.get('GROQ_API_KEY')}",
-        "Content-Type": "application/json"
-    }
-    
     payload = {
         "model": "llama-3.3-70b-versatile",
         "messages": [
