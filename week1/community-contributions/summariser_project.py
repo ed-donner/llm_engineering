@@ -1,5 +1,7 @@
 import os
 import time
+from dotenv import load_dotenv  # Add this import
+load_dotenv()
 import requests
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
@@ -47,7 +49,7 @@ def generate_groq_summary(text):
     
     
     headers = {
-        "Authorization": "Bearer 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",
+        "Authorization": f"Bearer {os.environ.get('GROQ_API_KEY')}",
         "Content-Type": "application/json"
     }
     
