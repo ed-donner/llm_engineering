@@ -1,0 +1,5 @@
+openai
+python-dotenv
+ipython
+ipykernel
+jupyter
