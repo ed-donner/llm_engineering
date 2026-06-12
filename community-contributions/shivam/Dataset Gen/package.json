@@ -1,0 +1,24 @@
+{
+  "name": "synthetic-data-gen",
+  "version": "1.0.0",
+  "description": "Synthetic dataset generation tool using LLMs via OpenRouter",
+  "type": "module",
+  "scripts": {
+    "dev": "bun run --watch src/server.ts",
+    "start": "bun run src/server.ts",
+    "build": "bun build src/server.ts --outdir ./dist",
+    "db:generate": "prisma generate",
+    "db:push": "prisma db push",
+    "db:migrate": "prisma migrate dev"
+  },
+  "dependencies": {
+    "express": "^5.0.0",
+    "@prisma/client": "^5.22.0"
+  },
+  "devDependencies": {
+    "prisma": "^5.22.0",
+    "@types/express": "^5.0.0",
+    "typescript": "^5.6.0",
+    "@types/bun": "latest"
+  }
+}

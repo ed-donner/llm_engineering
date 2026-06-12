@@ -1,0 +1,8 @@
+fastapi
+uvicorn
+python-multipart
+requests
+python-dotenv
+torch
+transformers
+accelerate

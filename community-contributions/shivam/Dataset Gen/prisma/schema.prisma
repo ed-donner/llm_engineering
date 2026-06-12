@@ -1,0 +1,69 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Dataset {
+  id          String           @id @default(uuid())
+  name        String
+  description String?
+  schema      Json
+  records     Record[]
+  runs        GenerationRun[]
+  createdAt   DateTime         @default(now())
+  updatedAt   DateTime         @updatedAt
+
+  @@index([createdAt])
+}
+
+model Record {
+  id         String   @id @default(uuid())
+  datasetId  String
+  dataset    Dataset  @relation(fields: [datasetId], references: [id], onDelete: Cascade)
+  data       Json
+  rowIndex   Int
+  createdAt  DateTime @default(now())
+
+  @@index([datasetId, rowIndex])
+}
+
+model GenerationRun {
+  id           String   @id @default(uuid())
+  datasetId    String
+  dataset      Dataset  @relation(fields: [datasetId], references: [id], onDelete: Cascade)
+  modelId      String
+  prompt       String
+  config       Json
+  status       Status   @default(QUEUED)
+  progress     Int      @default(0)
+  totalTarget  Int
+  startedAt    DateTime?
+  completedAt  DateTime?
+  error        String?
+  createdAt    DateTime @default(now())
+
+  @@index([status, createdAt])
+}
+
+enum Status {
+  QUEUED
+  RUNNING
+  COMPLETED
+  FAILED
+}
+
+model Template {
+  id          String   @id @default(uuid())
+  name        String
+  schema      Json
+  prompt      String
+  modelId     String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@index([createdAt])
+}

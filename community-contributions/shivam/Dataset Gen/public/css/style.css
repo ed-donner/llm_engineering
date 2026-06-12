@@ -1,0 +1,64 @@
+:root {
+  --pico-font-size: 16px;
+}
+
+main {
+  max-width: 960px;
+  padding: 2rem 1rem;
+}
+
+.schema-field {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr auto;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+  align-items: end;
+}
+
+.schema-field input,
+.schema-field select {
+  margin-bottom: 0;
+}
+
+.hidden {
+  display: none;
+}
+
+table {
+  width: 100%;
+  overflow-x: auto;
+}
+
+table th,
+table td {
+  white-space: nowrap;
+  max-width: 200px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+#pagination ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  list-style: none;
+  padding: 0;
+}
+
+#pagination button {
+  padding: 0.5rem 1rem;
+}
+
+.progress-container {
+  margin: 1rem 0;
+}
+
+progress {
+  width: 100%;
+  height: 1.5rem;
+}
+
+.error {
+  color: #dc3545;
+}

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>New Dataset - Schema Builder</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
+</head>
+<body>
+  <main class="container">
+    <h1>Create New Dataset</h1>
+
+    <form id="dataset-form">
+      <label>
+        Dataset Name
+        <input type="text" name="name" required placeholder="e.g., User Profiles">
+      </label>
+
+      <label>
+        Description (optional)
+        <input type="text" name="description" placeholder="Brief description">
+      </label>
+
+      <fieldset>
+        <legend>Schema Columns</legend>
+        <div id="schema-fields"></div>
+        <button type="button" id="add-field" class="secondary">Add Field</button>
+      </fieldset>
+
+      <button type="submit" class="primary">Create Dataset</button>
+    </form>
+  </main>
+  <script src="js/api.js"></script>
+  <script src="js/schema-builder.js"></script>
+</body>
+</html>
