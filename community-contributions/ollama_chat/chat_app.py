@@ -5,7 +5,6 @@ import datetime
 
 st.set_page_config(
     page_title="Ollama Chat",
-    page_icon="💬",
 )
 
 
@@ -29,7 +28,7 @@ def get_ai_response(client: OpenAI, model: str, messages: list):
     return reply, usage, response
 
 
-st.sidebar.header("⚙️ Settings")
+st.sidebar.header("Settings")
 
 ollama_url = st.sidebar.text_input(
     "Ollama Server URL",
@@ -71,9 +70,9 @@ for message in st.session_state.messages:
     with st.chat_message(message["role"]):
         st.write(message["content"])
         # Show timestamp and token usage in small grey font
-        extra_info = f"🕒 {message['time']}"
+        extra_info = f" {message['time']}"
         if "tokens" in message:
-            extra_info += f" | 🔤 Tokens: {message['tokens']}"
+            extra_info += f" | Tokens: {message['tokens']}"
         st.markdown(
             f"<span style='font-size:12px; color:grey;'>{extra_info}</span>",
             unsafe_allow_html=True
@@ -101,7 +100,7 @@ if user_input:
             try:
                 ai_reply, usage, response = get_ai_response(client, selected_model, st.session_state.messages)
             except Exception as e:
-                ai_reply, usage, response = f"⚠️ Error: {str(e)}", None, None
+                ai_reply, usage, response = f" Error: {str(e)}", None, None
 
         # Save and display assistant reply with timestamp + tokens
         timestamp = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
