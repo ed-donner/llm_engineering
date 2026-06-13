@@ -8,15 +8,8 @@ st.set_page_config(
     page_icon="💬",
 )
 
-# -------------------------------
-# Helper Functions
-# -------------------------------
 
 def get_ollama_models(ollama_url: str):
-    """
-    Fetch available models from Ollama server dynamically.
-    Falls back to a default list if the request fails.
-    """
     try:
         resp = requests.get(f"{ollama_url.replace('/v1','')}/api/tags")
         if resp.status_code == 200:
@@ -27,9 +20,6 @@ def get_ollama_models(ollama_url: str):
 
 
 def get_ai_response(client: OpenAI, model: str, messages: list):
-    """
-    Query Ollama via OpenAI client and return the assistant's reply + usage.
-    """
     response = client.chat.completions.create(
         model=model,
         messages=messages
@@ -39,9 +29,6 @@ def get_ai_response(client: OpenAI, model: str, messages: list):
     return reply, usage, response
 
 
-# -------------------------------
-# Sidebar: Settings & Controls
-# -------------------------------
 st.sidebar.header("⚙️ Settings")
 
 ollama_url = st.sidebar.text_input(
@@ -50,7 +37,6 @@ ollama_url = st.sidebar.text_input(
     help="Enter the Ollama API URL (default is local)"
 )
 
-# Fetch models dynamically (cached for efficiency)
 @st.cache_data
 def load_models(url):
     return get_ollama_models(url)
@@ -66,24 +52,17 @@ if st.sidebar.button("Clear Conversation"):
 debug = st.sidebar.checkbox("Show raw response")
 
 
-# -------------------------------
-# Initialize OpenAI Client
-# -------------------------------
 if "client" not in st.session_state:
     st.session_state.client = OpenAI(base_url=ollama_url, api_key="ollama")
 
 client = st.session_state.client
 
 
-# -------------------------------
-# Main App Title
-# -------------------------------
-st.title("💬 Chat with Ollama via OpenAI API")
+
+st.title("Chat with Ollama via OpenAI API")
 
 
-# -------------------------------
-# Session State: Conversation History
-# -------------------------------
+
 if "messages" not in st.session_state:
     st.session_state.messages = []
 
@@ -101,9 +80,7 @@ for message in st.session_state.messages:
         )
 
 
-# -------------------------------
-# Chat Input: User Message
-# -------------------------------
+
 user_input = st.chat_input("Type your message...")
 
 if user_input:
@@ -118,9 +95,7 @@ if user_input:
         st.write(user_input)
         st.markdown(f"<span style='font-size:12px; color:grey;'>🕒 {timestamp}</span>", unsafe_allow_html=True)
 
-    # -------------------------------
-    # AI Response: Call Ollama via OpenAI client
-    # -------------------------------
+    
     with st.chat_message("assistant"):
         with st.spinner("Thinking..."):
             try:
@@ -143,9 +118,9 @@ if user_input:
         })
 
         st.write(ai_reply)
-        extra_info = f"🕒 {timestamp}"
+        extra_info = f" {timestamp}"
         if token_info:
-            extra_info += f" | 🔤 Tokens used : {token_info}"
+            extra_info += f" |  Tokens used : {token_info}"
         st.markdown(f"<span style='font-size:12px; color:grey;'>{extra_info}</span>", unsafe_allow_html=True)
 
         # Debug mode: show raw response JSON
