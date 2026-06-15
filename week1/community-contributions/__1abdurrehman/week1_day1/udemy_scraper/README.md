@@ -18,7 +18,7 @@ It uses **Playwright** to scrape the full course curriculum from Udemy and feeds
 - 🤖 **Local LLM Analysis** — No API costs, runs entirely on your machine via Ollama
 - 📊 **Structured Review** — Always returns a consistent, detailed breakdown
 - 🎯 **Goal-Based Evaluation** — Tell it your learning goal and it judges the course accordingly
-- 🔒 **Privacy First** — Everything runs locally, no data sent to external servers
+
 
 ---
 
@@ -83,33 +83,6 @@ Udemy Course URL
 - [Ollama](https://ollama.ai) installed and running
 - Mistral 7B model pulled
 - Playwright installed
-
-
----
-
-## 📦 Installation
-
-### 1. Clone the repo
-```bash
-git clone https://github.com/yourusername/udemy-course-analyzer
-cd udemy-course-analyzer
-```
-
-### 2. Install dependencies
-```bash
-pip install -r requirements.txt
-playwright install
-```
-
-### 3. Pull the LLM model
-```bash
-ollama pull mistral:7b
-```
-
-### 4. Make sure Ollama is running
-```bash
-ollama serve
-```
 
 ---
 
