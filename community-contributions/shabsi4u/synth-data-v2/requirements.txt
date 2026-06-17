@@ -1,0 +1,18 @@
+# UI
+streamlit>=1.31.0
+
+# Database
+sqlalchemy>=2.0.0
+
+# Models (HuggingFace API)
+openai>=1.0.0
+
+# Data Processing
+pandas>=2.0.0
+
+# Utilities
+python-dotenv>=1.0.0
+
+# Testing
+pytest>=7.4.0
+pytest-cov>=4.1.0
