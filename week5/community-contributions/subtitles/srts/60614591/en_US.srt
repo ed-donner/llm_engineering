@@ -1,0 +1,82 @@
+WEBVTT
+
+00:00.830 --> 00:06.770
+The mantra of this course is that the best way to learn is by doing, and we will be doing stuff together
+
+00:06.770 --> 00:07.340
+throughout.
+
+00:07.370 --> 00:12.350
+There will be eight commercial projects which will be applying what you're learning to real business
+
+00:12.350 --> 00:15.380
+problems, and they'll be exercises for you to do the same thing.
+
+00:15.380 --> 00:21.050
+And I'm hoping that you'll be able to set up GitHub and be able to make your own versions and push them
+
+00:21.050 --> 00:26.030
+and send me a PR, a pull request, and I'll be able to merge in your code so that other people can
+
+00:26.030 --> 00:27.320
+see your solutions too.
+
+00:27.350 --> 00:32.570
+But you'll be able to add this to your GitHub and be able to show yourself that you are building projects
+
+00:32.570 --> 00:34.790
+to solve real world commercial problems.
+
+00:34.790 --> 00:38.570
+One of our projects I mentioned is going to be a chatbot assistant.
+
+00:38.570 --> 00:40.100
+We're going to build one for an airline.
+
+00:40.100 --> 00:43.400
+It's going to be able to do things like use tools to look up the price of tickets.
+
+00:43.400 --> 00:48.230
+It's going to make audio and it's going to show pictures like this beautiful pop art version of London
+
+00:48.230 --> 00:52.490
+showing here on the right as you interact with the chatbot assistant.
+
+00:52.910 --> 00:58.910
+We're also going to be building rag pipelines, putting vectors of information in a vector data store
+
+00:58.940 --> 01:03.260
+that you'll have running, and we'll be able to look at things like visualizations of the vectors,
+
+01:03.260 --> 01:09.920
+mess around with them in 3D space, look into them to understand how different kinds of information
+
+01:09.920 --> 01:15.980
+get placed in different locations in vector space, and why that is fundamental to Rag retrieval, augmented
+
+01:15.980 --> 01:16.910
+generation.
+
+01:16.910 --> 01:21.800
+And then, as I say, the the moment, the big moment in the project will be in week eight, when we
+
+01:21.800 --> 01:27.620
+will build an Agentic AI solution that will bring together everything that you've learned about through
+
+01:27.620 --> 01:31.340
+the eight weeks for something which will solve a business problem.
+
+01:31.640 --> 01:36.260
+And I'll be able to give you some examples of how you can then apply that to solving other business
+
+01:36.260 --> 01:39.260
+problems that you might face in the future, or that you might have today.
+
+01:39.320 --> 01:44.660
+And you'll be able to watch as agents collaborate, you'll see the memory of the agents and see what's
+
+01:44.660 --> 01:47.180
+going on in our agent world.
+
+01:47.210 --> 01:48.890
+A lot to look forward to.

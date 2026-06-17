@@ -1,0 +1,304 @@
+WEBVTT
+
+00:00.740 --> 00:01.910
+Welcome back.
+
+00:01.910 --> 00:04.220
+It's time to make our full agent framework.
+
+00:04.220 --> 00:05.630
+I'm super excited about this.
+
+00:05.660 --> 00:10.490
+It's pulling everything together that we've been doing before, and I think you'll be very happy with
+
+00:10.490 --> 00:11.510
+the outcome.
+
+00:11.720 --> 00:13.730
+Uh, so just a quick recap.
+
+00:13.730 --> 00:14.870
+An agent framework.
+
+00:14.960 --> 00:17.840
+The term agent I as I said, it's an umbrella term.
+
+00:17.840 --> 00:20.120
+It can refer to a bunch of different techniques.
+
+00:20.240 --> 00:23.060
+Um, for example, it can be any of these five.
+
+00:23.090 --> 00:28.250
+It can be about breaking a complex problem into smaller steps with multiple models carrying out different
+
+00:28.250 --> 00:29.420
+specialized tasks.
+
+00:29.420 --> 00:33.890
+It can be the ability for an LLM to have tools to give them extra capabilities.
+
+00:33.890 --> 00:41.000
+It can be, uh, talking about the agent environment, which is the setup or the agent framework that
+
+00:41.000 --> 00:43.160
+allows agents to collaborate.
+
+00:43.190 --> 00:50.270
+Um, it can be the idea that one LLM can act as a planner, dividing tasks into smaller ones, that
+
+00:50.270 --> 00:55.100
+specialists that can themselves be llms or bits of software can carry out.
+
+00:55.280 --> 01:00.210
+Um, and then there is another point here, which is that people talk about agentic AI when you're thinking
+
+01:00.210 --> 01:07.740
+about an agent having its own autonomy agency, uh, beyond necessarily just responding to a prompt,
+
+01:07.740 --> 01:13.050
+such as having memory, being able to sort of, uh, I don't know, do something like, uh, scrape
+
+01:13.050 --> 01:18.690
+the web for news information and using that to make decisions about buying or selling stocks, something
+
+01:18.690 --> 01:19.110
+like that.
+
+01:19.110 --> 01:26.040
+That is a kind of, uh, something that that exists outside the context of just say, a request response
+
+01:26.040 --> 01:26.670
+chat.
+
+01:26.670 --> 01:32.100
+So these are all the kinds of ways that that these are the kinds of things people are referring to when
+
+01:32.100 --> 01:34.890
+they talk about agentic AI and the use of agents.
+
+01:34.890 --> 01:39.510
+And what we're really doing here is we're talking about, uh, definitely number one and two there and
+
+01:39.510 --> 01:42.210
+to a certain extent, numbers three and five.
+
+01:42.300 --> 01:45.090
+But we're not we're not building an LLM that does the planning.
+
+01:45.090 --> 01:47.280
+That's not something we'll be doing in this session.
+
+01:47.280 --> 01:55.710
+So, uh, this should be somewhat familiar to you because this is the chat method that's quite close
+
+01:55.710 --> 01:57.000
+to what we had before.
+
+01:57.000 --> 01:59.710
+So you'll recognize a few things about this.
+
+01:59.710 --> 02:07.210
+This section here is the usual chat radio function that we know really well.
+
+02:07.210 --> 02:16.180
+It takes a message and a history, and it, uh, sort of unpacks that history into the format that OpenAI
+
+02:16.210 --> 02:20.200
+will expect and then calls the response.
+
+02:20.440 --> 02:26.080
+This part here will also look familiar to you because it's our use of tools.
+
+02:26.080 --> 02:32.860
+It's where we find out if the model wants to call a tool, and if so, we handle that tool.
+
+02:33.010 --> 02:38.950
+Uh, but there's one little extra line just inserted in there, and it's that line there that what we're
+
+02:38.950 --> 02:44.710
+going to say is if the person does, if the model decides it needs to, to run the tool to find the
+
+02:44.710 --> 02:54.520
+price of a ticket, then we will also have the, um, artist generate an image to represent that city
+
+02:54.520 --> 02:56.200
+that's being looked up.
+
+02:56.200 --> 02:58.160
+So there we have it.
+
+02:58.220 --> 03:00.050
+Uh, that's, uh that's nice.
+
+03:00.050 --> 03:04.160
+And also, now, if you remember before I told you there was a reason I passed back city that you're
+
+03:04.160 --> 03:04.940
+going to find out.
+
+03:04.970 --> 03:05.690
+Here it is.
+
+03:05.690 --> 03:09.800
+That's why I needed the city to pass it to the artist.
+
+03:10.130 --> 03:13.880
+Um, and then, uh, this is all exactly the same.
+
+03:13.880 --> 03:16.040
+There's one more tiny change.
+
+03:16.040 --> 03:22.760
+Which is this here, which is that, uh, once I've collected the response from the model, I then call
+
+03:22.790 --> 03:26.840
+talker to make sure that we speak the response.
+
+03:26.840 --> 03:29.780
+So that is our chat.
+
+03:29.960 --> 03:32.270
+Uh, let's run that.
+
+03:33.920 --> 03:40.550
+Now, this, I should say, since I've always showed off about how easy Gradio is, this code is a little
+
+03:40.580 --> 03:41.420
+bit more involved.
+
+03:41.420 --> 03:46.970
+You may notice the reason is because we're now because we want to do a little bit more and show images.
+
+03:46.970 --> 03:55.190
+We're going outside the default, the sort of off the shelf, uh, chat user interface that Gradio provides
+
+03:55.190 --> 03:55.550
+for us.
+
+03:55.550 --> 03:58.120
+And we have to then build the interface ourselves.
+
+03:58.150 --> 04:04.960
+And as a result, I've had to put together this interface that kind of puts together the various components
+
+04:04.960 --> 04:07.090
+like the input and the buttons.
+
+04:07.300 --> 04:10.180
+But what I'll say is this is still actually super straightforward.
+
+04:10.180 --> 04:11.470
+It still reads like English.
+
+04:11.470 --> 04:13.030
+It's very clear what's going on.
+
+04:13.030 --> 04:19.330
+You'll see everything that's happening here, and hopefully this will be quite readable for you.
+
+04:19.330 --> 04:26.740
+And you can use this to build more sophisticated chats, more sophisticated UIs yourself.
+
+04:26.740 --> 04:36.850
+So with that background, we now are going to run this to it's running and we'll bring that up.
+
+04:37.240 --> 04:41.650
+And here we have our chat with our new assistant.
+
+04:41.680 --> 04:43.300
+Let's give it a try.
+
+04:47.740 --> 04:48.280
+Hello.
+
+04:48.280 --> 04:49.630
+How can I assist you today.
+
+04:51.040 --> 04:52.090
+You like that?
+
+04:52.240 --> 04:53.650
+It spoke to us.
+
+04:53.740 --> 04:54.520
+There we go.
+
+04:54.520 --> 04:56.620
+That's the first use of an agent.
+
+04:56.620 --> 05:04.420
+We had a specialist model that's able to create, uh, audio, and we integrated that with our chatbot
+
+05:04.420 --> 05:07.510
+so that it was able to speak back to us.
+
+05:15.760 --> 05:17.020
+Great choice.
+
+05:17.080 --> 05:20.410
+Would you like to know the to the ticket price for a return trip to London?
+
+05:22.930 --> 05:24.220
+There we go.
+
+05:24.250 --> 05:27.220
+That's entertaining, let's say.
+
+05:34.240 --> 05:35.710
+We know there's a pause.
+
+05:43.090 --> 05:44.080
+Here we go.
+
+05:48.040 --> 05:51.220
+A return ticket to London is priced at 799.
+
+05:53.120 --> 05:54.920
+And there we have it.
+
+05:54.950 --> 05:58.340
+A return ticket to London is priced at $7.99.
+
+05:58.340 --> 06:00.290
+And there is the image.
+
+06:00.290 --> 06:04.220
+And that image looks spectacular.
+
+06:04.370 --> 06:06.290
+A London bus in the middle.
+
+06:06.290 --> 06:07.700
+It's got Big Ben.
+
+06:07.700 --> 06:10.400
+It's got the bridge.
+
+06:10.400 --> 06:11.690
+It's got, uh.
+
+06:11.720 --> 06:14.420
+Yeah, I can see taxi there.
+
+06:14.450 --> 06:18.950
+It's just a great montage of images.
+
+06:19.160 --> 06:26.570
+Uh, and so I find this to be very compelling indeed, a wonderful example of what we're able to achieve
+
+06:26.570 --> 06:28.280
+with just a little bit of code.
+
+06:28.520 --> 06:37.550
+And so I present to you a multimodal app, complete with audio and some images running as part of what
+
+06:37.550 --> 06:48.050
+is a in a, in a small way, a multimodal agentic framework for talking to an airline AI assistant.
+
+06:48.140 --> 06:49.280
+Great work.
+
+06:49.310 --> 06:52.790
+I'll see you for the challenge of the week and the wrap up.

@@ -1,0 +1,58 @@
+WEBVTT
+
+00:01.370 --> 00:08.900
+And once again, it's that moment when you take a pause and congratulate yourself on another day of
+
+00:08.900 --> 00:17.270
+skills learned and fantastic achievements of being able to be an expert in the hugging face Transformers
+
+00:17.270 --> 00:18.110
+library.
+
+00:18.110 --> 00:22.640
+In addition to using pipelines and tokenizers, you can now use models.
+
+00:22.640 --> 00:29.120
+You can look at models, you can load different models, and you can run models to do hopefully more
+
+00:29.120 --> 00:36.260
+than just tell jokes, but also other kinds of text generation tasks like the ones we've done in previous
+
+00:36.260 --> 00:37.250
+weeks.
+
+00:37.340 --> 00:44.420
+Uh, you, uh, also can, of course, code confidently with frontier model APIs and build AI assistants,
+
+00:44.420 --> 00:48.320
+including multimodal AI assistants, and use tools.
+
+00:48.320 --> 00:55.820
+So all of this together, uh, totals a significant amount of learning that you've done already, with
+
+00:55.820 --> 00:58.250
+a lot more exciting stuff ahead.
+
+00:58.520 --> 01:03.890
+The next session, we're going to do one more project with Tokenizers and models, just to give you
+
+01:03.890 --> 01:05.720
+a little bit more experience.
+
+01:05.810 --> 01:12.500
+Uh, and we're also going to yeah, just keep keep running inference on open source models and implement
+
+01:12.500 --> 01:19.520
+an LLM solution that's going to combine a frontier model call with an open source model call.
+
+01:19.520 --> 01:22.610
+And it will be a useful business application.
+
+01:22.610 --> 01:28.400
+And it's going to really wrap up this week of learning about hugging face and open source.
+
+01:28.400 --> 01:30.140
+So looking forward to it.
+
+01:30.140 --> 01:31.220
+I will see you then.

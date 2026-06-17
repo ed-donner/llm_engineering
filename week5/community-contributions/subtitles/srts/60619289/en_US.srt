@@ -1,0 +1,199 @@
+WEBVTT
+
+00:00.050 --> 00:02.870
+And now we'll go a bit faster through the other models.
+
+00:02.900 --> 00:05.510
+We'll start with Google's Gemini.
+
+00:05.750 --> 00:11.030
+I have the Pro plan and I can pick between Gemini Advanced and and flash.
+
+00:11.330 --> 00:12.560
+And let's what should we do.
+
+00:12.590 --> 00:19.280
+Let's let's ask it the, the uh, first of all, the question about the whimsical question about how
+
+00:19.280 --> 00:28.850
+many rainbows does it take to jump all the way from Hawaii?
+
+00:28.850 --> 00:30.020
+17.
+
+00:30.020 --> 00:38.870
+And let's see, uh, let's see how it, uh, handles the the answer to this.
+
+00:39.500 --> 00:51.440
+Uh, so, uh, you can see, um, that it's given an answer which, whilst it's fine, um, it's, um,
+
+00:53.090 --> 00:55.520
+it's definitely overly literal.
+
+00:55.520 --> 01:01.700
+It's certainly not got the kind of response that we got from GPT that's so clearly understood.
+
+01:01.700 --> 01:06.560
+The, the, the fact that we were being humorous with the question and was able to work with it in a
+
+01:06.560 --> 01:07.700
+playful way.
+
+01:07.850 --> 01:16.300
+So it to me, this sort of shows the slight lack of of nuance, ability to understand the meaning behind
+
+01:16.330 --> 01:19.750
+something like this, but it is still a thorough answer from Gemini.
+
+01:19.780 --> 01:23.350
+Let's ask it how many times have a new chat?
+
+01:23.380 --> 01:32.230
+How many times does the letter A appear in this sentence?
+
+01:33.100 --> 01:35.500
+And let's see how it can handle that.
+
+01:36.370 --> 01:37.690
+It's thinking.
+
+01:40.750 --> 01:43.300
+So that's that wrong?
+
+01:43.450 --> 01:49.660
+Uh, I mean, arguably there is a school of thought that would be to say that that a in inverted commas
+
+01:49.660 --> 01:50.710
+shouldn't count.
+
+01:50.740 --> 01:55.660
+I mean, it's a stretch, but if we give it that, then we might say that saying that there are three
+
+01:55.690 --> 01:58.720
+A's, uh, is uh, is not terrible.
+
+01:58.720 --> 02:03.490
+But then you'll see that it believes that one of those A's has come from the word sentence, which seems
+
+02:03.490 --> 02:04.870
+like a bit of a gaffe.
+
+02:04.930 --> 02:10.960
+Uh, so, uh, no, it's sadly oh, one preview is still our winner in this regard.
+
+02:11.080 --> 02:15.100
+Uh, so we can do more, more experiments.
+
+02:15.100 --> 02:20.050
+But I think we should move on to cohere from, uh, the.
+
+02:20.140 --> 02:23.760
+Sorry, this is Command Plus from cohere, Canadian AI company.
+
+02:23.790 --> 02:31.590
+It really focuses a lot on the knowledge that it has specific knowledge in different areas.
+
+02:31.680 --> 02:33.120
+Let's ask it that question.
+
+02:33.120 --> 02:38.490
+Compared to other frontier llms, what kinds of questions are you best at answering and compare it to
+
+02:38.520 --> 02:39.150
+others?
+
+02:39.150 --> 02:41.520
+So, um, what we get back?
+
+02:41.550 --> 02:45.900
+First of all, it says as an AI language model I'm designed to assist blah blah blah.
+
+02:45.900 --> 02:51.150
+It gives some strengths, it gives some challenges, complimentary llms.
+
+02:51.240 --> 03:00.360
+Uh, so it gives a number of types of model, but it doesn't actually list the names of the models.
+
+03:00.360 --> 03:07.470
+But it's still a perfectly decent answer, making making it clear that it doesn't have multimodal abilities.
+
+03:07.560 --> 03:09.090
+Uh, and so on.
+
+03:09.090 --> 03:16.740
+So it's a pretty good, thorough answer that demonstrates that it has resource to more information about
+
+03:16.740 --> 03:17.820
+this kind of thing.
+
+03:18.090 --> 03:19.620
+Uh, why don't we ask it?
+
+03:19.650 --> 03:21.090
+What does it feel like?
+
+03:23.100 --> 03:24.510
+To be jealous.
+
+03:26.010 --> 03:27.720
+See how that compares?
+
+03:28.110 --> 03:33.000
+Uh, and again, you can see it's a really thorough.
+
+03:33.030 --> 03:33.840
+Really.
+
+03:33.870 --> 03:39.560
+You can you can get that sense that it's able to draw on a wealth of knowledge.
+
+03:39.560 --> 03:44.690
+It's perhaps less of an expressive answer than we got from Claude, but I'd say that it appears to have
+
+03:44.690 --> 03:50.570
+more sort of structure and detail and substance to it, uh, just based on a on a cursory look through.
+
+03:50.570 --> 03:53.150
+But but you should take some more time and see what you think.
+
+03:53.390 --> 03:56.570
+Uh, but it's, it's, it's clear that it's, it's good at this stuff.
+
+03:56.570 --> 03:59.120
+And, you know, we might as well we're having some fun with this.
+
+03:59.120 --> 04:00.680
+Why don't we ask her, hear the question.
+
+04:00.680 --> 04:08.600
+How many times does the letter A appear in this sentence?
+
+04:11.060 --> 04:14.210
+And letter A appears 11 times in this sentence.
+
+04:14.210 --> 04:14.930
+There we go.
+
+04:14.930 --> 04:16.400
+Now we now we know.
+
+04:17.420 --> 04:25.730
+So again, uh, the the fact that that this platform is able to draw on a wealth of background knowledge
+
+04:25.730 --> 04:27.950
+doesn't help it with that kind of task.
+
+04:27.950 --> 04:33.950
+And again, this is particularly picking on something which Llms can struggle with due to the way that
+
+04:33.950 --> 04:37.880
+they are trained, uh, and, and the way that they run in inference mode.
+
+04:37.910 --> 04:38.630
+All right.
+
+04:38.630 --> 04:41.810
+So that's a quick look at uh Gemini and Co here.
+
+04:41.810 --> 04:46.610
+And then the next time we'll, we'll look at the last two meta AI and perplexity.

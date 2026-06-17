@@ -1,0 +1,280 @@
+WEBVTT
+
+00:01.340 --> 00:02.180
+Hey, gang.
+
+00:02.210 --> 00:04.250
+Look, I know what you're thinking.
+
+00:04.250 --> 00:07.130
+This week was supposed to be training week.
+
+00:07.160 --> 00:11.900
+I set it all up to be all about fine tuning frontier models.
+
+00:11.900 --> 00:13.250
+And what haven't we done?
+
+00:13.250 --> 00:15.110
+We haven't fine tuned frontier models.
+
+00:15.110 --> 00:16.490
+But I have good news.
+
+00:16.490 --> 00:18.140
+Today is the day.
+
+00:18.170 --> 00:19.460
+Today is the day.
+
+00:19.460 --> 00:25.550
+But I should prepare you that today may also disappoint in some ways as well as we will.
+
+00:25.580 --> 00:26.720
+We will find out.
+
+00:26.900 --> 00:35.720
+Um, but be prepared for that as we embark upon a whole brave new world, we're getting finally to training.
+
+00:35.720 --> 00:42.710
+And as a quick recap, you can already generate text and code with frontier models, with APIs and using
+
+00:42.710 --> 00:51.140
+open source models hugging face through both the pipelines and the the lower level transformers APIs.
+
+00:51.140 --> 00:58.640
+Like using the models directly, you can create advanced Rag pipelines using Lange chain and not using
+
+00:58.640 --> 00:59.390
+Lange chain.
+
+00:59.390 --> 01:06.620
+And most importantly, you can now follow a five step strategy for problem solving that includes a lot
+
+01:06.650 --> 01:09.110
+of time we seem to spend curating data.
+
+01:09.140 --> 01:13.910
+It turns out that lots of time is spent curating data and then making a baseline model.
+
+01:13.910 --> 01:16.760
+We did some training, but it was training of a baseline model.
+
+01:16.790 --> 01:22.970
+Traditional ML or we've not yet done is trained, fine tuned, a frontier model.
+
+01:22.970 --> 01:24.500
+And that's what we're going to do today.
+
+01:24.530 --> 01:30.170
+Going to understand the process for fine tuning in front of your model, create a data set for it,
+
+01:30.200 --> 01:35.360
+run fine tuning, and then test our new fine tuned model.
+
+01:35.930 --> 01:42.290
+And just as a point of order to explain when you're talking about training, when in the context of
+
+01:42.290 --> 01:48.290
+these kinds of models, fine tuning is synonymous with with training, we never, of course, train
+
+01:48.290 --> 01:54.020
+one of these things from scratch, because that would cost north of hundreds of millions of dollars.
+
+01:54.020 --> 02:00.680
+So we're always taking an existing model that's been trained, a pre-trained model, and we are doing
+
+02:00.680 --> 02:05.670
+more training, taking advantage of transfer learning, which is this theory that says that you can
+
+02:05.670 --> 02:10.410
+just take an existing pre-trained model, do a bit more training, and it will be better at the new
+
+02:10.410 --> 02:12.030
+task you're training it for.
+
+02:12.120 --> 02:14.760
+And that's also known as fine tuning.
+
+02:15.450 --> 02:24.030
+So with that vocabulary out of the way, let's just talk about the three steps to fine tuning with OpenAI.
+
+02:24.180 --> 02:30.930
+There's three things we need to follow in order to take GPT four zero or GPT four mini that we will
+
+02:30.930 --> 02:33.390
+take and fine tune it.
+
+02:33.420 --> 02:39.270
+The first step is you need to prepare training data that it will use for training.
+
+02:39.270 --> 02:44.820
+We obviously use training data in the context of the traditional models, linear regression and so on.
+
+02:44.820 --> 02:49.170
+We got some training examples and we pumped it through a linear regression model.
+
+02:49.170 --> 02:50.790
+So we have to create training data.
+
+02:50.820 --> 02:54.720
+Now um, and then we have to upload it to OpenAI.
+
+02:54.720 --> 03:02.520
+And it expects that training data in a particular format called JSON L which stands for JSON lines,
+
+03:02.670 --> 03:07.160
+which is subtly different as I will show you to normal JSON.
+
+03:07.640 --> 03:13.880
+We are then going to run our training, our fine tuning and these charts all pointing downwards.
+
+03:13.880 --> 03:14.900
+Might might trouble you.
+
+03:14.930 --> 03:20.270
+It looks like things are going wrong, but au contraire, when it comes to training, your one is watching.
+
+03:20.300 --> 03:21.590
+Training loss.
+
+03:21.710 --> 03:23.960
+And of course you want loss to go down.
+
+03:23.960 --> 03:25.880
+That means that things are getting better.
+
+03:25.970 --> 03:31.610
+And so we will be watching our charts like a hawk and trying to make sure that our losses are coming
+
+03:31.610 --> 03:32.480
+down.
+
+03:33.200 --> 03:39.560
+Uh, and most importantly, you look at training loss during the course of a batch, and you also look
+
+03:39.590 --> 03:44.090
+at validation loss, which is on a held out data set.
+
+03:44.090 --> 03:45.740
+Uh, is that coming down, too?
+
+03:45.770 --> 03:49.940
+Because you may be overfitting to your training data if you just watch training loss.
+
+03:49.970 --> 03:55.940
+And that actually isn't a problem in our case, because we're only going to be running one epoch through
+
+03:55.940 --> 03:56.990
+our training data.
+
+03:56.990 --> 03:58.850
+And epoch is what you call it.
+
+03:58.940 --> 04:04.340
+When you go, you take take a complete training run all the way through your training data, and then
+
+04:04.340 --> 04:07.370
+you repeat and do it all a second time with the same data.
+
+04:07.400 --> 04:10.070
+That would be called a second epoch of training.
+
+04:10.490 --> 04:16.130
+And we are not going to do that because we have so much training data that we don't need to do that.
+
+04:16.130 --> 04:19.580
+We might as well just use a bit more training data and do one epoch.
+
+04:19.580 --> 04:26.360
+And since all of the data will always be new data, the training loss is just as useful for us as validation
+
+04:26.360 --> 04:27.230
+loss.
+
+04:28.100 --> 04:31.760
+And then finally you evaluate your results.
+
+04:31.760 --> 04:38.240
+And then based on what you see, you tweak and you repeat and keep going.
+
+04:38.390 --> 04:40.310
+So those are the stages.
+
+04:41.060 --> 04:44.870
+And as I say, the first of them is to prepare the data.
+
+04:45.050 --> 04:52.970
+So OpenAI expects it in this format called JSON L, which means that it is a series of lines of JSON
+
+04:52.970 --> 04:53.750
+data.
+
+04:53.900 --> 04:56.030
+And you may think, isn't that just the same as JSON data?
+
+04:56.030 --> 04:56.870
+It's not.
+
+04:56.870 --> 04:59.000
+It's not in a in a collection.
+
+04:59.000 --> 04:59.900
+So it's not in a list.
+
+04:59.900 --> 05:02.770
+It doesn't start with a square bracket with with commas.
+
+05:02.770 --> 05:10.720
+It's just each row, each line in this file is a separate JSON object starting and ending with curly
+
+05:10.720 --> 05:11.410
+braces.
+
+05:11.410 --> 05:16.270
+It's a subtle distinction, but it can catch you out if you're not expecting that you're not writing
+
+05:16.270 --> 05:19.390
+a JSON object, because that would have a list around it.
+
+05:19.390 --> 05:26.320
+You're writing rows of JSON to this file, and then each row is going to be something that is mostly
+
+05:26.320 --> 05:27.550
+very familiar to us.
+
+05:27.580 --> 05:30.730
+It will have one attribute called messages.
+
+05:30.730 --> 05:38.890
+And what goes in there is the thing that we know so well, the list of dictionaries where each dictionary
+
+05:38.920 --> 05:40.750
+has a role and a content.
+
+05:40.750 --> 05:42.100
+It's a conversation.
+
+05:42.100 --> 05:45.460
+So that is what is going in each row.
+
+05:45.610 --> 05:51.040
+As you will see, we will craft this particular type of data set for uploading.
+
+05:52.240 --> 05:53.260
+All right.
+
+05:53.680 --> 05:57.130
+With that enough enough chit chat.
+
+05:57.160 --> 05:58.900
+Let's go to Jupyter Lab.
+
+05:58.900 --> 06:01.000
+Let's actually run this thing.
+
+06:01.000 --> 06:05.230
+And for the first time we will train a frontier model.
+
+06:05.260 --> 06:06.370
+Let's do it.

@@ -1,0 +1,334 @@
+WEBVTT
+
+00:00.890 --> 00:07.700
+Take one more moment to look at this very nice diagram that lays it all out, and we will move on.
+
+00:07.700 --> 00:10.970
+Now to the technicality that I wanted to mention.
+
+00:10.970 --> 00:18.470
+So I have been a bit loose in the past when I've said that the model predicts the next token, which
+
+00:18.470 --> 00:19.970
+is one way to think about it.
+
+00:20.000 --> 00:21.200
+One simple way to think about it.
+
+00:21.200 --> 00:25.730
+And we often use that, that turn of phrase, but it's not what's actually going on.
+
+00:25.730 --> 00:30.800
+It's not like you have a transformer architecture and the bottom layer, what comes out of that is a
+
+00:30.800 --> 00:33.560
+single token, which is the predicted next token.
+
+00:33.800 --> 00:35.390
+That's not how it works.
+
+00:35.390 --> 00:40.310
+What actually comes out of the last layer is probabilities.
+
+00:40.310 --> 00:44.390
+It has every single token, and for every token it has.
+
+00:44.390 --> 00:48.080
+What is the probability that that is the next token.
+
+00:48.080 --> 00:52.130
+It outputs that series of probabilities.
+
+00:52.160 --> 00:54.920
+That's what comes out of the bottom of the neural network.
+
+00:55.100 --> 01:00.410
+And it's you may remember there was the last layer that we saw when we printed.
+
+01:00.410 --> 01:02.640
+The model is called LM Head.
+
+01:02.700 --> 01:06.420
+And that is really the very final step that comes out.
+
+01:06.420 --> 01:11.310
+It actually comes out with a vector of numbers that are known as the logits, which are the the that
+
+01:11.310 --> 01:12.810
+represent the probabilities.
+
+01:12.840 --> 01:14.970
+And you need to put that through a function.
+
+01:15.090 --> 01:19.260
+Um, this is getting probably to too much detail now, but you may know it already.
+
+01:19.260 --> 01:25.680
+There's a function called softmax that converts these numbers into what can be thought of as probabilities,
+
+01:25.680 --> 01:31.650
+because each each token will then be somewhere between 0 and 1, and they will all add up to one.
+
+01:31.680 --> 01:39.540
+So it gives you a way to interpret the results of the model as a probability of each possible next token.
+
+01:39.540 --> 01:43.710
+So that is actually what comes out of the forward pass.
+
+01:44.130 --> 01:50.370
+Um, when you're doing inference when you're running this in inference mode, um, what you get out
+
+01:50.370 --> 01:52.080
+of it is then all of these probabilities.
+
+01:52.080 --> 01:52.980
+So what do you do with that.
+
+01:53.010 --> 01:55.530
+How do you how do you say what next token it's predicting?
+
+01:55.530 --> 01:58.080
+Well, most of the time actually it's a very simple approach.
+
+01:58.080 --> 02:00.600
+You simply take the most likely next token.
+
+02:00.600 --> 02:02.820
+You take the token with the highest probability.
+
+02:02.850 --> 02:04.450
+It gave you all these different probabilities.
+
+02:04.480 --> 02:06.130
+Find out which one is the max.
+
+02:06.130 --> 02:07.750
+Take that one as the next letter.
+
+02:07.780 --> 02:10.840
+There are other techniques that are a little bit more sophisticated.
+
+02:10.840 --> 02:16.720
+You can sample randomly using these probabilities as your as your weight for how you sample.
+
+02:16.780 --> 02:18.550
+And that gives you a bit more variety.
+
+02:18.700 --> 02:24.520
+And there are some other techniques you can use to sample a few letters in a row, and then decide whether
+
+02:24.520 --> 02:25.900
+that's the path that you want to take.
+
+02:25.900 --> 02:32.290
+So there are a bunch of different strategies during inference that you can use based on these probabilities
+
+02:32.290 --> 02:33.490
+to do the best job.
+
+02:33.490 --> 02:39.220
+And in fact, when we go and look in our project in a second, we are going to use a slightly non-standard
+
+02:39.220 --> 02:45.940
+strategy, since we know that each that this token represents a cost, it represents a number.
+
+02:45.940 --> 02:50.440
+We can do something a little bit smart with it, but but that's not necessary.
+
+02:50.440 --> 02:54.130
+You can also always just simply pick pick the one with the highest probability.
+
+02:54.340 --> 02:57.550
+So that's model output really explained.
+
+02:57.580 --> 02:59.470
+I hope that's now crystal clear for you.
+
+02:59.680 --> 03:02.050
+Um, and then the loss function.
+
+03:02.050 --> 03:04.330
+So I slightly glossed over in the last video.
+
+03:04.360 --> 03:05.840
+Like you calculate a loss.
+
+03:05.840 --> 03:07.550
+How bad was it?
+
+03:07.550 --> 03:09.950
+So what does that actually mean in practice?
+
+03:09.980 --> 03:11.990
+It's wonderfully simple.
+
+03:11.990 --> 03:15.890
+So we've got these probabilities of all of the possible next tokens.
+
+03:16.010 --> 03:21.200
+So what you do is you say okay, well we actually know what the next token was supposed to be.
+
+03:21.290 --> 03:23.690
+Let's say it was supposed to be 99.
+
+03:23.690 --> 03:30.740
+So you look up in all of these probabilities and you say, what probability did the model give for 99
+
+03:30.740 --> 03:33.350
+for the thing that actually was the right next token.
+
+03:33.350 --> 03:34.790
+And that's all that matters here.
+
+03:34.790 --> 03:38.780
+All that matters is what probability did it give to the thing that was actually correct.
+
+03:39.080 --> 03:45.320
+Um, if it gives if it gave that a 100% probability, then it was perfect.
+
+03:45.320 --> 03:48.050
+It was 100% confident in the right results.
+
+03:48.050 --> 03:51.320
+And everything else would have to be zero because probabilities will add up to one.
+
+03:51.320 --> 03:53.900
+So so that would be absolutely perfect.
+
+03:53.900 --> 03:58.190
+If it's anything less than 100%, then it didn't do well.
+
+03:58.400 --> 04:01.850
+And the you know, the lower probability it gave, the worse it did.
+
+04:02.000 --> 04:07.590
+And so you take that probability and then it just turns out that the formula that seems to work well
+
+04:07.920 --> 04:11.910
+is to take the log of that number and then negate it.
+
+04:11.910 --> 04:15.390
+So you take minus one times the log of that number.
+
+04:15.390 --> 04:20.430
+And if you work that out, that means that if that number is one, if it's 100% probability, then you
+
+04:20.430 --> 04:21.360
+get zero.
+
+04:21.360 --> 04:24.150
+And that's sounds good because you want zero loss.
+
+04:24.180 --> 04:26.700
+Loss should be nothing if you were perfect.
+
+04:27.090 --> 04:32.340
+And then the lower your probability is, the worse the higher that loss number will be.
+
+04:32.340 --> 04:42.000
+So taking negative log of the probability, um, is a way of of having a good, well well-behaving loss
+
+04:42.000 --> 04:42.840
+function.
+
+04:43.230 --> 04:44.670
+And there's a fancy name for it.
+
+04:44.670 --> 04:48.030
+This loss function is known as the cross entropy loss.
+
+04:48.060 --> 04:49.200
+That's what they call it.
+
+04:49.200 --> 04:54.330
+It's just negative log of the probability of the true next token.
+
+04:54.660 --> 04:57.120
+And that's, that's what's used.
+
+04:57.120 --> 05:01.410
+Um, and that's that's what's being used right now if your training is going on, it is calculating
+
+05:01.410 --> 05:04.860
+the cross entropy loss for each of the predictions.
+
+05:05.190 --> 05:07.890
+And there's a there's another side note.
+
+05:07.920 --> 05:11.790
+There's an The interpretation of this for particularly for data scientists amongst you, this is the
+
+05:11.790 --> 05:17.700
+calculation that's used for classification when you're trying to classify something into different bins.
+
+05:17.700 --> 05:22.860
+If you've got like back in the day when there were times when we were trying to classify images to be
+
+05:22.860 --> 05:28.230
+one of 4 or 5 different categories, cross-entropy loss, you come up with a probability and you use
+
+05:28.230 --> 05:33.210
+cross-entropy loss to figure out whether or not you've done a good job of classification.
+
+05:33.630 --> 05:39.930
+And in fact, that makes sense, because the whole process of predicting the next token is really a
+
+05:39.930 --> 05:41.580
+classification problem.
+
+05:41.580 --> 05:48.000
+You're just trying to say there are many possible categories that this next token could be.
+
+05:48.030 --> 05:50.880
+In fact, there's the entire all of the possible next tokens.
+
+05:50.880 --> 05:57.660
+And we're going to predict which one is the most likely bucket to to put for the next token.
+
+05:57.660 --> 06:03.690
+And so the whole process of generative AI is really just a classification problem.
+
+06:03.690 --> 06:09.540
+Classifying the next token, figuring out the probability that the next token is what it turns out to
+
+06:09.540 --> 06:10.200
+be.
+
+06:10.690 --> 06:18.160
+And so interestingly, for our particular project for predicting model prices, it's really, as I said
+
+06:18.280 --> 06:20.320
+some time ago, it's really a regression problem.
+
+06:20.320 --> 06:25.390
+You're trying to predict a number and we're treating it like a classification problem, which is okay,
+
+06:25.390 --> 06:31.910
+because it's really going to turn out to be just a number between 0 and 999, which, sorry, between
+
+06:31.910 --> 06:36.670
+1 and 999, which are just 999 different possible buckets.
+
+06:36.670 --> 06:42.790
+And we're just trying to classify effectively every product into one of these 999 buckets.
+
+06:42.790 --> 06:45.850
+And that's why it works quite well as a classification problem.
+
+06:45.850 --> 06:52.690
+And it's why the frontier models are good at it and why we're hoping, fingers crossed, that our open
+
+06:52.690 --> 06:55.120
+source model is going to be good at it too.
+
+06:55.390 --> 07:01.030
+And with all of this, some good useful theory behind us.
+
+07:01.030 --> 07:04.060
+But now it's time to get back to some practice.
+
+07:04.060 --> 07:12.130
+So with that in mind, it's time for us to talk about how has our open source, uh, fine tuning been
+
+07:12.130 --> 07:12.730
+going?

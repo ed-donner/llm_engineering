@@ -1,0 +1,475 @@
+WEBVTT
+
+00:00.560 --> 00:04.160
+Welcome back to our continued exploits with Tokenizers.
+
+00:04.160 --> 00:09.830
+What we're now going to look at is what's called the instruct variance of models.
+
+00:09.830 --> 00:18.650
+So there are many models that have been fine tuned to be specifically designed for chats, for carrying
+
+00:18.650 --> 00:28.430
+out chat conversations with users, as one does with the with, uh, GPT four with with chat GPT um,
+
+00:28.520 --> 00:33.830
+typically when you see those models in hugging face, you'll see that they have the same name as their
+
+00:33.830 --> 00:40.580
+base models, but with instruct added to the end of it, meaning that they have been fine tuned to be
+
+00:40.580 --> 00:43.310
+used in this instruct use case.
+
+00:43.610 --> 00:50.870
+Uh, they have been trained to expect prompts in a particular structure with a particular set of special
+
+00:50.900 --> 00:59.660
+tokens that identifies the system message, the user message and assistance responses so that it forms
+
+00:59.690 --> 01:00.920
+a kind of a chat.
+
+01:00.920 --> 01:06.270
+And that is just simply part of the way that it's been trained with enough examples.
+
+01:06.270 --> 01:13.260
+So it expects it in this format, and this is hopefully going to bring some things together for you,
+
+01:13.260 --> 01:19.830
+because it's now finally going to close the loop on something where I planted a seed some time ago about
+
+01:19.830 --> 01:26.250
+the reason for this structure of messages, lists of dicts that we became very familiar with when we
+
+01:26.280 --> 01:28.290
+were playing with frontier models.
+
+01:28.290 --> 01:37.470
+So I'm going to create my tokenizer this time using the meta lemma 3.18 billion instruct variant.
+
+01:37.470 --> 01:39.720
+So this will look familiar to you.
+
+01:39.720 --> 01:48.420
+This is one of those lists of dicts that we use so much with, uh, OpenAI and Claude and so on, uh,
+
+01:48.420 --> 01:55.530
+where you specify a role and content, a role a system is for the system message and user is for the
+
+01:55.530 --> 01:56.790
+user message.
+
+01:56.880 --> 02:06.570
+Then the tokenizers that Huggingface provide have a special function apply chat template and it will
+
+02:06.570 --> 02:16.170
+take messages in this format in the OpenAI API format, and it will convert it into the right structure
+
+02:16.170 --> 02:24.960
+to be used for a this particular model, the type of the prompt that this model is expecting, given
+
+02:24.960 --> 02:31.470
+the way it's been trained, if you have tokenized equals true here, um, then what we'll get back is
+
+02:31.470 --> 02:34.290
+just a series of numbers and we won't know what's going on.
+
+02:34.290 --> 02:35.910
+So I've got tokenized equals false.
+
+02:35.910 --> 02:39.750
+So what we'll get back will be the, the text version of it.
+
+02:39.750 --> 02:46.770
+And I'm going to print it so you can see what is the uh the what is it that this is converted into that
+
+02:46.770 --> 02:53.820
+gets pumped into the model at inference time for this particular conversation.
+
+02:53.820 --> 03:00.360
+And here it is, starts with a special token begin of text and then a header.
+
+03:00.360 --> 03:04.380
+And then system the word system and then end header.
+
+03:04.560 --> 03:10.240
+And then there's some information that's shoved in there about the cutting knowledge date and today's
+
+03:10.240 --> 03:10.780
+date.
+
+03:10.780 --> 03:12.160
+That's that's special.
+
+03:12.160 --> 03:14.260
+And I think that's a llama 3.1 thing.
+
+03:14.260 --> 03:17.830
+I don't remember that from previous llama families, but I could be wrong there.
+
+03:18.280 --> 03:25.840
+Uh, and then, um, this here is of course, the system message that we provided here.
+
+03:26.860 --> 03:31.870
+Uh, then there is another start header for user and header.
+
+03:31.870 --> 03:35.170
+And then this is the user message.
+
+03:35.620 --> 03:41.800
+Then there's another start header and then the word assistant and then end header because we want the
+
+03:41.800 --> 03:44.590
+model to generate the assistance response.
+
+03:44.590 --> 03:50.800
+So this is kind of teeing up the model that what should come next right after this should be whatever
+
+03:50.800 --> 03:58.720
+the assistance said in response to this uh, prompt following this system instruction.
+
+03:59.590 --> 04:06.700
+So I'm hoping this is an aha moment for you that you see now how you can you can have a structure like
+
+04:06.700 --> 04:07.000
+this.
+
+04:07.000 --> 04:10.120
+And that's how you might think about the conversation with the model.
+
+04:10.120 --> 04:15.570
+But at the end of the day, what gets pumped into the model is a prompt that looks like this with special
+
+04:15.600 --> 04:16.980
+tokens in the mix.
+
+04:16.980 --> 04:22.470
+And because it's been trained with that structure, with those kinds of special tokens, it knows what
+
+04:22.470 --> 04:23.490
+needs to come next.
+
+04:23.520 --> 04:25.410
+The assistance reply.
+
+04:27.210 --> 04:30.990
+So that explains the chat interfaces.
+
+04:30.990 --> 04:34.140
+Let's work with a few more models to get some more experience with this.
+
+04:34.140 --> 04:36.360
+I'm going to pick three models in particular.
+
+04:36.480 --> 04:40.290
+Phi three is a model from Microsoft.
+
+04:40.680 --> 04:45.150
+Quinn two is this powerhouse model I keep mentioning from Alibaba Cloud.
+
+04:45.150 --> 04:49.800
+Star coder two is a model designed for generating code.
+
+04:49.890 --> 04:57.210
+It's built by three companies working together, collaborating ServiceNow and hugging face themselves
+
+04:57.240 --> 05:05.340
+hugging face and Nvidia uh, that those uh, three mighty companies have partnered to make this, uh,
+
+05:05.340 --> 05:11.450
+group star coder and have built this, uh, this particular model.
+
+05:11.450 --> 05:12.560
+Okay.
+
+05:12.560 --> 05:18.060
+So, uh, let's give a try for Phi three.
+
+05:18.060 --> 05:24.300
+So we use exactly the same approach auto tokenizer from pre-trained and we provide the model.
+
+05:24.300 --> 05:27.750
+And now um I'm giving the same text.
+
+05:27.750 --> 05:31.470
+I'm excited to show Tokenizers in action to my LLM engineers.
+
+05:31.470 --> 05:39.480
+I'm going to reprint the previous the llama 3.1 Tokenizers results to remind you what it's tokens look
+
+05:39.480 --> 05:40.020
+like.
+
+05:40.050 --> 05:44.070
+Then an empty line, and then I'm going to print Phi three.
+
+05:44.070 --> 05:49.500
+And the question is going to be at the end of the day, do they basically produce the same tokens or
+
+05:49.500 --> 05:50.490
+is it different.
+
+05:50.520 --> 05:52.200
+Let's have a look.
+
+05:53.700 --> 05:57.150
+Well you'll see right away they are completely different.
+
+05:57.270 --> 05:58.200
+Uh they're different.
+
+05:58.230 --> 06:05.250
+Not only is the generated text different, but this first one, which is the start of of message special
+
+06:05.280 --> 06:07.620
+token is completely different.
+
+06:07.830 --> 06:11.070
+Uh, let's do batch decode so we can see that.
+
+06:16.980 --> 06:17.760
+Tokenizer.
+
+06:17.790 --> 06:21.930
+Dot Batch decode.
+
+06:24.450 --> 06:27.030
+I'll have to say tokens.
+
+06:27.030 --> 06:28.110
+Equals.
+
+06:31.770 --> 06:32.970
+Tokens.
+
+06:33.780 --> 06:35.280
+Let's see what we get here.
+
+06:36.360 --> 06:40.800
+Uh, and we do get something completely different.
+
+06:40.860 --> 06:44.520
+And actually, interestingly, I was wrong with what I said a second ago.
+
+06:44.550 --> 06:52.350
+There isn't a start of sentence special token in the case of 53, so it just goes straight into it.
+
+06:53.250 --> 06:56.850
+So that's that's a very different approach.
+
+06:58.830 --> 06:59.670
+All right.
+
+06:59.700 --> 07:07.350
+Let's use the apply chat template to see how 53 uses chat templates.
+
+07:07.380 --> 07:09.900
+Let's start by doing it for llama again.
+
+07:09.900 --> 07:11.250
+So we'll see llamas one.
+
+07:11.250 --> 07:17.070
+And then we'll print side by side the same the chat template for that same conversation, that same
+
+07:17.070 --> 07:18.990
+prompt for 53.
+
+07:19.020 --> 07:20.160
+Let's see how they look.
+
+07:20.160 --> 07:26.260
+So this is the one we just looked at for for Lama, here is the equivalent for Phi three.
+
+07:26.290 --> 07:28.450
+It's obviously much shorter.
+
+07:28.450 --> 07:31.270
+It doesn't pass in the the date.
+
+07:31.510 --> 07:38.230
+And interestingly, whereas the structure for Lama was about a header and then the word system and end
+
+07:38.260 --> 07:42.730
+header and a header the word user and an end header.
+
+07:42.730 --> 07:51.310
+In the case of Phi three there's just a special tag for system and a special tag for user and a special
+
+07:51.310 --> 07:52.720
+tag for assistant.
+
+07:52.720 --> 07:55.870
+So it's this whole sort of different approach.
+
+07:56.110 --> 08:02.020
+Um, and that's really interesting to see that these two tokenizers, these two models just have a different
+
+08:02.020 --> 08:04.240
+approach for how prompts get sent in.
+
+08:04.240 --> 08:07.870
+So obviously, hopefully you're getting the impression if you use the wrong tokenizer for the wrong
+
+08:07.870 --> 08:12.940
+model, you'd get garbage, because obviously this with different tokens and different structure is
+
+08:12.940 --> 08:15.430
+going to be meaningless to llama three.
+
+08:16.120 --> 08:18.850
+And now let's do the same for Quinn two.
+
+08:18.880 --> 08:23.020
+We're going to see the original Lama version.
+
+08:23.020 --> 08:26.870
+And then we're going to show the Phi three version and then the two version.
+
+08:27.050 --> 08:28.460
+Here they come.
+
+08:29.120 --> 08:35.690
+Uh, obviously you can see totally different results for the three tokenizers.
+
+08:35.750 --> 08:38.720
+Uh, and one more time highlights.
+
+08:38.720 --> 08:41.810
+You got to pick the right tokenizer for the right model.
+
+08:43.370 --> 08:49.430
+Uh, and, uh, let's just apply the chat template and we'll see again the chat templates for that same
+
+08:49.430 --> 08:51.170
+message about telling a joke.
+
+08:51.170 --> 08:52.400
+We'll see that for llama.
+
+08:52.400 --> 08:56.330
+And then for five three and then for Quinn two all side by side.
+
+08:56.330 --> 08:57.350
+Let's see what they look like.
+
+08:57.380 --> 08:59.000
+We already saw the one from llama.
+
+08:59.000 --> 09:01.010
+We already saw the one from 53.
+
+09:01.010 --> 09:03.560
+And here is the one for Quinn two.
+
+09:03.560 --> 09:06.650
+And what you'll see is that it's it's sort of somewhere in between.
+
+09:06.680 --> 09:08.840
+It does a bit like llama.
+
+09:08.840 --> 09:14.030
+It's got the, the Im start im end and system in here.
+
+09:14.210 --> 09:16.850
+Um and then user and then assistant.
+
+09:16.850 --> 09:19.250
+So it's some somewhere in between the two.
+
+09:19.250 --> 09:23.870
+Uh, it doesn't uh, it doesn't have something in between the word.
+
+09:23.870 --> 09:26.000
+It doesn't have a header special tag.
+
+09:26.000 --> 09:28.440
+It just has, uh, this approach here.
+
+09:28.440 --> 09:36.810
+So it's an interesting again a third approach, another variation and with different special tokens.
+
+09:37.740 --> 09:38.370
+All right.
+
+09:38.370 --> 09:41.580
+And finally let me show you Star Coder two.
+
+09:41.610 --> 09:44.520
+This is the code generation module.
+
+09:44.520 --> 09:46.440
+We're going to take its tokenizer.
+
+09:46.440 --> 09:49.470
+And we're going to put this code in there.
+
+09:49.500 --> 09:54.570
+Hello world a def hello world uh taking a person variable.
+
+09:54.570 --> 09:55.980
+And it's going to print hello.
+
+09:55.980 --> 09:57.090
+And then the person.
+
+09:57.090 --> 10:02.220
+And then we just use the same encode to turn it into tokens.
+
+10:02.220 --> 10:09.000
+And what I'm then going to do is just print out each token followed by what did that get to uh, get
+
+10:09.030 --> 10:11.730
+mapped to what what text did that represent?
+
+10:11.730 --> 10:18.840
+And what you'll see here is that there was something at the beginning, and then there's def went into
+
+10:18.840 --> 10:25.110
+one token and then hello underscore world and then person.
+
+10:25.110 --> 10:33.210
+This here obviously will will reflect the tab and then print hello comma person close brackets.
+
+10:33.210 --> 10:42.660
+So it gives you some sense that, um, the star coder two tokenizer is a tokenizer that is designed
+
+10:42.660 --> 10:46.140
+around tokenizing code rather than English.
+
+10:46.500 --> 10:48.120
+And there's some experiments you can do.
+
+10:48.150 --> 10:54.060
+First of all, try out different tokenizers try exploring mapping from text to tokens.
+
+10:54.180 --> 10:55.590
+Find out which words.
+
+10:55.590 --> 11:02.040
+Try and find the rarest possible word that has a single token in in llamas.
+
+11:02.040 --> 11:06.360
+Uh, tokenizer or perhaps the longest word or something like that.
+
+11:06.360 --> 11:09.720
+Do some experiments, um, and then satisfy you.
+
+11:10.170 --> 11:15.210
+Satisfy yourself that if you take a pretty complicated piece of code, you should find that star coder
+
+11:15.240 --> 11:21.270
+tos tokenizer tokenizes it in a more efficient way than one of the tokenizers that's designed for just
+
+11:21.270 --> 11:22.260
+English.
+
+11:22.650 --> 11:30.570
+And at that point, you will be an expert in the world of open source tokenizers and you'll be ready
+
+11:30.570 --> 11:33.180
+to take on the next piece, which is models.
+
+11:33.180 --> 11:35.160
+First, let's go back to the slides.

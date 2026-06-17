@@ -1,0 +1,91 @@
+WEBVTT
+
+00:00.530 --> 00:04.220
+And welcome to the next part of visualizing the data.
+
+00:04.220 --> 00:06.500
+And just very quickly to show it to you in 3D.
+
+00:06.530 --> 00:12.350
+My box managed to survive me restarting and getting rid of that massive plot.
+
+00:12.380 --> 00:16.250
+I hope you didn't follow my track, but you did it more sensibly.
+
+00:16.280 --> 00:25.730
+Anyways, now to visualize in 3D just again, to get that that sense of appreciation for what it means
+
+00:25.730 --> 00:28.250
+to have a vector embedding of text.
+
+00:28.490 --> 00:34.070
+This time I have stuck with a more reasonable 10,000, boringly and otherwise.
+
+00:34.070 --> 00:41.450
+The code is just like we did it before when we looked at Rag, and we create the scatter plot using
+
+00:41.450 --> 00:43.250
+the Plotly library again.
+
+00:43.250 --> 00:47.660
+And this is what it looks like in the 3D visualization.
+
+00:47.690 --> 00:52.160
+It's hard to stop it from from zooming in and out, but there we go.
+
+00:52.280 --> 00:58.700
+And just as before, when we looked at the much smaller vector data space, it looks a little bit,
+
+00:58.700 --> 01:02.780
+um, uh, strange from, from a distance like that.
+
+01:02.780 --> 01:10.340
+But when you rotate it around and you interact with it, You absolutely start to see you get to appreciate
+
+01:10.340 --> 01:17.900
+the 3D, and you get to see how there are clusters that represent related kinds of products.
+
+01:17.930 --> 01:20.060
+And you can actually copy the code that we used before.
+
+01:20.060 --> 01:22.940
+So you get it to print the text of each one if you wish.
+
+01:22.940 --> 01:25.790
+It will use up more memory again, but you can do that.
+
+01:25.940 --> 01:31.760
+And that's a pretty cool way to satisfy yourself that the data is being represented in this way, that
+
+01:31.760 --> 01:33.440
+similar things are close to each other.
+
+01:33.440 --> 01:35.810
+That's really the important takeaway here.
+
+01:35.810 --> 01:41.510
+And you'll see when when purple dots have strayed away from the mainstream, you'll you'll get a sense
+
+01:41.510 --> 01:42.350
+of why.
+
+01:42.380 --> 01:44.150
+And it's really helpful to do that.
+
+01:44.150 --> 01:54.050
+So this is again more more of an exercise to build intuition designed to help see that as we scale up
+
+01:54.050 --> 02:00.170
+rag to this much bigger problem with much larger number of documents, that the same rules apply, and
+
+02:00.170 --> 02:03.860
+that you can visualize and experiment with your data in much the same way.
+
+02:04.160 --> 02:07.280
+Quite enough preamble on on vector data stores.
+
+02:07.280 --> 02:13.010
+It's time for us to actually build the Rag pipeline to estimate product prices using similar products.
+
+02:13.010 --> 02:14.240
+Let's get to it.

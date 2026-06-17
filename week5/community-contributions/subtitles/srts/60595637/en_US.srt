@@ -1,0 +1,256 @@
+WEBVTT
+
+00:00.080 --> 00:05.690
+Here we are back in the Colab, which has been running overnight for me and probably for you too, I
+
+00:05.720 --> 00:06.050
+hope.
+
+00:06.050 --> 00:10.160
+And if anything, like me, you've been eagerly glued to it.
+
+00:10.520 --> 00:19.430
+So this is showing the part in the colab where it's running away and you can see it's ticking through.
+
+00:19.460 --> 00:24.080
+It's more than halfway at this point as it makes its way through the four epochs.
+
+00:24.080 --> 00:25.820
+Four epochs are not required for this.
+
+00:25.850 --> 00:28.100
+You only need to do one epoch, of course.
+
+00:28.130 --> 00:34.310
+And just that I'm a sucker for this stuff and loving it.
+
+00:34.310 --> 00:37.430
+So it's it's ticking away.
+
+00:37.460 --> 00:41.750
+Let's go to the fabulous weights and biases to see how it looks here.
+
+00:41.750 --> 00:43.340
+This is our run.
+
+00:43.370 --> 00:45.080
+You remember in weights and biases.
+
+00:45.080 --> 00:49.280
+The navigation at the top here lets you see the different projects that you may have.
+
+00:49.310 --> 00:52.760
+And we're looking at my Pricer project, which is the one in question.
+
+00:52.790 --> 00:56.390
+I've also got a Pricer GPT project for for where we fine tune GPT.
+
+00:56.960 --> 01:02.720
+Um, and then here are the different runs I name the runs in the code after the date and time that they
+
+01:02.720 --> 01:03.440
+were kicked off.
+
+01:03.470 --> 01:04.460
+You don't need to do that.
+
+01:04.460 --> 01:06.350
+You can call them runs anything you want.
+
+01:06.530 --> 01:13.050
+I do this because it helps me be able to, uh, recollect when I did, what, run and so on.
+
+01:13.050 --> 01:14.880
+So I found this quite a useful trick.
+
+01:15.030 --> 01:18.420
+But you could also name it to describe the kind of run that you're doing.
+
+01:18.900 --> 01:21.630
+Um, and you can also rename it by, by right clicking on it.
+
+01:22.260 --> 01:26.070
+Uh, so the current run is this blue run right here.
+
+01:26.070 --> 01:27.960
+This is what we've been running.
+
+01:27.960 --> 01:33.390
+And if I zoom in on the training loss, which is the the diagram that really matters, you now know
+
+01:33.390 --> 01:35.520
+this is cross-entropy loss we're seeing here.
+
+01:35.760 --> 01:41.280
+Uh, and you'll see that it clearly has uh, this was the first epoch.
+
+01:41.280 --> 01:46.530
+It comes down a bit here, uh, potentially because some overfitting starts to happen when it sees the
+
+01:46.530 --> 01:51.720
+data a second time, and then it drops again for the beginning of the third epoch here.
+
+01:51.720 --> 01:56.220
+The thing that I'm not doing that is a very much a best practice that I should be doing is having a
+
+01:56.220 --> 01:59.700
+validation data set, and we'd be able to see validation loss.
+
+01:59.700 --> 02:05.820
+And I imagine what you'd find is that it maybe only decreases a little bit here, and maybe quite soon
+
+02:05.820 --> 02:09.240
+it will start to increase a bit because we are overfitting.
+
+02:09.270 --> 02:13.960
+Uh, we'll find that out by, by running the model in inference mode, but it would be better to see
+
+02:13.960 --> 02:14.980
+the validation results.
+
+02:14.980 --> 02:17.320
+And hopefully that's something that you are doing.
+
+02:17.770 --> 02:20.230
+And I would love to see those charts by the way.
+
+02:21.040 --> 02:28.330
+So what we can also do is layer on top of this, the prior run that I had done when I ran it through
+
+02:28.330 --> 02:29.500
+to completion.
+
+02:29.860 --> 02:30.940
+Here we go.
+
+02:30.940 --> 02:34.030
+Let's zoom in again on both of these runs together.
+
+02:34.030 --> 02:38.500
+And what you'll see is that the two runs are very, very similar indeed.
+
+02:38.710 --> 02:45.160
+Obviously I had the same, um, the same hyperparameters, and I'd set random seeds.
+
+02:45.160 --> 02:49.600
+And so it's not not a great surprise, but it does show you that despite all of the complexity and everything
+
+02:49.600 --> 02:56.170
+that's going on, you do get the, the same numbers, um, from these runs.
+
+02:56.380 --> 02:58.660
+So that's somewhat comforting.
+
+02:58.840 --> 03:01.930
+Uh, and I think that's probably all to all to show you.
+
+03:01.960 --> 03:08.290
+We can see that in terms of the learning rate that now, well, before we were suspicious that the blue
+
+03:08.290 --> 03:14.170
+line, if we just look at the blue line only, uh, just for a moment, flashed up with what it used
+
+03:14.170 --> 03:14.560
+to see.
+
+03:14.590 --> 03:20.390
+It used to be if you saw that, uh, if we bring this up, you'll see that the last time it was all
+
+03:20.390 --> 03:21.200
+the way up here.
+
+03:21.230 --> 03:26.480
+And maybe you were skeptical about whether we were really seeing a nice, smooth curve.
+
+03:26.480 --> 03:31.190
+And now you clearly see that it's coming down in a very nice way.
+
+03:31.190 --> 03:37.550
+So that cosine learning rate scheduler is a good trick to know, a good way to vary the learning rate
+
+03:37.550 --> 03:39.290
+during the course of your batch.
+
+03:40.070 --> 03:40.910
+Okay.
+
+03:40.910 --> 03:44.060
+And then final thing to show you is to flip to hugging face.
+
+03:44.090 --> 03:51.920
+I'll mention if you look at this model, you'll see that the name of this ends in 11 seconds at that
+
+03:51.920 --> 03:52.730
+timestamp.
+
+03:52.730 --> 03:57.080
+If we go over to Hugging Face in the hub, I've got all these different models.
+
+03:57.350 --> 04:02.780
+And this one, this one ending in 11 seconds is, of course, the run in question that's running right
+
+04:02.780 --> 04:03.320
+now.
+
+04:03.320 --> 04:05.690
+And in fact, it even says updated two hours ago.
+
+04:05.690 --> 04:07.130
+So we know it's the right one.
+
+04:07.160 --> 04:13.160
+As I say, some people will just have the single repo they'll just write to for all of their different
+
+04:13.160 --> 04:15.500
+runs, and that's a perfectly good way of doing it.
+
+04:15.590 --> 04:19.970
+I prefer doing it this way, so I keep my my different runs completely separate.
+
+04:20.060 --> 04:26.100
+And if I go into this repo we're now looking at if I click on files and versions, these are the files
+
+04:26.100 --> 04:27.360
+associated with this.
+
+04:27.360 --> 04:29.670
+Run again the safe tensors.
+
+04:29.670 --> 04:30.840
+That's the business.
+
+04:30.840 --> 04:32.070
+That's where it all happens.
+
+04:32.070 --> 04:39.030
+It's 109MB worth of parameters that are the parameters of our Lora adapters.
+
+04:39.270 --> 04:43.620
+Um, and over here you'll see history nine commits.
+
+04:43.650 --> 04:51.450
+If I click on this, it's showing me that just as I had asked in my parameters in my setup, uh, hugging
+
+04:51.480 --> 04:58.230
+face has been saving this to the hub, uploading it, making a different revision of these model weights
+
+04:58.260 --> 05:00.840
+every 5000 steps.
+
+05:01.260 --> 05:08.670
+Um, and so, uh, that's something we'll have access to if we want to go back and do some, uh, do
+
+05:08.700 --> 05:11.130
+inference on any one of those different commits.
+
+05:11.130 --> 05:14.400
+And hopefully you can see why I like to keep it as a separate repo.
+
+05:14.400 --> 05:21.480
+So I don't muddle up the different saves during a particular run with the different versions of training.
+
+05:22.500 --> 05:25.680
+Okay, I think that's enough of a tour of where we're at.
+
+05:25.950 --> 05:30.750
+Uh, head back to the slides one more time before we actually get to inference.
