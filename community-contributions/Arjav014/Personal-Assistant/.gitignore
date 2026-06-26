@@ -1,0 +1,9 @@
+# Google Calendar API credentials & tokens
+credentials.json
+token.json
+
+# Local environment variables
+.env
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
