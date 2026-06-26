@@ -8,26 +8,21 @@ _If you're looking at this in Cursor, please right click on the filename in the 
 
 I'm so happy you're joining me on this path. We'll be building immensely satisfying projects in the coming weeks. Some will be easy, some will be challenging, many will ASTOUND you! The projects build on each other so you develop deeper and deeper expertise each week. One thing's for sure: you're going to have a lot of fun along the way.
 
-## IMPORTANT ANNOUNCEMENT - DECEMBER 2025 - PLEASE READ
-
-The course material has been completely refreshed with all new weeks. If you'd prefer to stick with the code for the original videos, simply do this from your Anaconda Prompt or Terminal:  
-`git fetch`  
-`git checkout original`
-
 Any questions, please ask me on Udemy or at ed@edwarddonner.com. More details at the top of the course resources [here](https://edwarddonner.com/2024/11/13/llm-engineering-resources/).
 
 ### Before you begin
 
 I'm here to help you be most successful with your learning. If you hit any snafus, or if you have any ideas on how I can improve the course, please do reach out in the platform or by emailing me direct (ed@edwarddonner.com). It's always great to connect with people on LinkedIn to build up the community - you'll find me here:  
 https://www.linkedin.com/in/eddonner/   
+
 And I'm starting to build a YouTube channel with extra content - please [check it out here](https://youtube.com/@edward.donner).  
 And this is new to me, but I'm also trying out X/Twitter at [@edwarddonner](https://x.com/edwarddonner) - if you're on X, please show me how it's done 😂  
 
 Resources to accompany the course, including the slides and useful links, are here:  
 https://edwarddonner.com/2024/11/13/llm-engineering-resources/
 
-And a useful FAQ with common questions is here:  
-https://edwarddonner.com/faq/
+My digital twin that can answer common FAQ (and get me involved!) is here:  
+https://edwarddonner.com/avatar/
 
 ## Instant Gratification instructions for Week 1, Day 1 - with Llama 3.2 **not** Llama 3.3
 
