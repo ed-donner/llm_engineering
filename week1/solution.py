@@ -21,7 +21,6 @@ If it includes news or announcements, then summarize these too.
 
 """
 
-
 def messages_for(website):
     """Create message list for the LLM."""
     return [
