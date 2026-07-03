@@ -2,13 +2,22 @@
 
 ## Your 8 week journey to proficiency starts today
 
-![Voyage](assets/voyage.jpg)
+![Voyage](assets/core.jpg)
 
 _If you're looking at this in Cursor, please right click on the filename in the Explorer on the left, and select "Open preview", to view the formatted version._
 
 I'm so happy you're joining me on this path. We'll be building immensely satisfying projects in the coming weeks. Some will be easy, some will be challenging, many will ASTOUND you! The projects build on each other so you develop deeper and deeper expertise each week. One thing's for sure: you're going to have a lot of fun along the way.
 
 Any questions, please ask me on Udemy or at ed@edwarddonner.com. More details at the top of the course resources [here](https://edwarddonner.com/2024/11/13/llm-engineering-resources/).
+
+### Answers to the most common questions
+
+[My Cursor looks different to yours (new splash screen)](https://edwarddonner.com/avatar?q=54)  
+[Can I use Gemini or free models instead of OpenAI Yes!](https://edwarddonner.com/avatar?q=8)  
+[Where are the course resources](https://edwarddonner.com/2024/11/13/llm-engineering-resources/)   
+[How does this course fit in with your others?](https://edwarddonner.com/curriculum)  
+[Can I take this course with no programming background?](https://edwarddonner.com/avatar?q=2)  
+[What job can I get after taking this course?](https://edwarddonner.com/avatar?q=3)  
 
 ### Before you begin
 
