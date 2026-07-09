@@ -1,0 +1,6 @@
+gradio>=4.0.0
+openai>=1.0.0
+requests>=2.30.0
+matplotlib>=3.7.0
+networkx>=3.0
+python-dotenv>=1.0.0
