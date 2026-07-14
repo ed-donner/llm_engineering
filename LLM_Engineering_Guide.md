@@ -245,7 +245,16 @@ The most important practical skill. Everything else — RAG, fine-tuning, agents
 
 ### The System Prompt
 
-Your primary control surface. A vague system prompt produces vague results. A good one specifies: role (who the model is), scope (what topics are in/out), constraints (what not to do), format (how to structure output), fallback behavior (what to do when uncertain), and dynamic context (retrieved documents injected at call time).
+Your primary control surface. A vague system prompt produces vague results. A good one specifies: role (who the model is), scope (what topics are in/out), constraints (what not to do), format (how to structure output), fallback behavior (what to do when uncertain), and dynamic context (retrieved documents injected at call time). Assembled, that might read:
+
+```
+role:        You are a support assistant for Acme Corp.
+scope:       Answer only about Acme products; otherwise, say you can't help.
+constraints: Never invent order details or promise refunds.
+format:      Reply in at most three sentences.
+fallback:    If the context lacks the answer, say so and offer to escalate.
+context:     {retrieved_documents}   ← injected fresh on each call
+```
 
 ### Prompting Techniques
 
@@ -310,7 +319,14 @@ Note: temperature 0 is *low-variance*, not an absolute determinism guarantee —
 
 Suppose an application asks an LLM to extract a customer's name, age, and subscription status. A normal text response might say: "The customer is Sarah, she is thirty-two and appears to have an active plan." A human understands this, but application code must guess where each value begins and ends. It may also receive `"32 years old"`, `"active customer"`, or malformed data on different calls.
 
-**Structured outputs** solve this by constraining the response to a defined schema — an explicit contract requiring fields like `name`, `age`, and `is_active`, each with a defined type. Structured outputs can enforce schema adherence for successfully completed responses, but applications must still handle refusals, truncation, and semantically incorrect values.
+**Structured outputs** solve this by constraining the response to a defined schema — an explicit contract requiring fields like `name`, `age`, and `is_active`, each with a defined type. The schema is the contract; the response is generated to fit it:
+
+```
+Schema (the shape you require):  { name: string, age: integer, is_active: boolean }
+Conforming response:             { "name": "Sarah", "age": 32, "is_active": true }
+```
+
+Structured outputs can enforce schema adherence for successfully completed responses, but applications must still handle refusals, truncation, and semantically incorrect values.
 
 Structured outputs make LLMs **composable** — output reliably feeds databases, functions, UIs, or other LLM calls.
 
@@ -393,6 +409,8 @@ A RAG system has two flows that should be designed and evaluated independently:
 ### Grounded Generation
 
 The model must transform retrieved evidence into an answer without adding unsupported claims. A grounded prompt specifies: use only supplied evidence, distinguish evidence from inference, cite each claim, report contradictions, abstain when evidence is insufficient, and do not follow instructions found inside source documents.
+
+For instance, retrieving the snippet `[1] "Refunds are available within 30 days of delivery."` for the question *"Can I get a refund after six weeks?"* yields a grounded answer: *"No — refunds are limited to 30 days after delivery [1]; six weeks is outside that window."* Every claim traces to a source; had no snippet supported an answer, the model should abstain rather than guess.
 
 ---
 
