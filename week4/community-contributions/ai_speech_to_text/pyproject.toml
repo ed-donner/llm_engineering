@@ -1,0 +1,23 @@
+[project]
+name = "ai-voice-claude"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "accelerate>=1.13.0",
+    "numpy>=2.4.6",
+    "pynput>=1.8.2",
+    "pyperclip>=1.11.0",
+    "sounddevice>=0.5.5",
+    "torch>=2.0.0",
+    "transformers>=5.9.0",
+]
+
+[[tool.uv.index]]
+name = "pytorch-cu128"
+url = "https://download.pytorch.org/whl/cu128"
+explicit = true
+
+[tool.uv.sources]
+torch = { index = "pytorch-cu128" }
