@@ -1,4 +1,5 @@
 from bs4 import BeautifulSoup
+from urllib.parse import urljoin, urlparse
 import requests
 
 
@@ -23,15 +24,44 @@ def fetch_website_contents(url):
     else:
         text = ""
     return (title + "\n\n" + text)[:2_000]
-
-
+    
 def fetch_website_links(url):
     """
-    Return the links on the webiste at the given url
-    I realize this is inefficient as we're parsing twice! This is to keep the code in the lab simple.
-    Feel free to use a class and optimize it!
+    Return valid absolute links found on the website at the given URL.
+
+    Relative links such as '/models' are converted into absolute URLs,
+    such as 'https://huggingface.co/models'.
     """
-    response = requests.get(url, headers=headers)
+
+    response = requests.get(
+        url,
+        headers=headers,
+        timeout=15,
+    )
+    response.raise_for_status()
+
     soup = BeautifulSoup(response.content, "html.parser")
-    links = [link.get("href") for link in soup.find_all("a")]
-    return [link for link in links if link]
+
+    links = []
+
+    for anchor in soup.find_all("a", href=True):
+        href = anchor.get("href", "").strip()
+
+        if not href:
+            continue
+
+        # Ignore links that cannot be fetched as web pages.
+        if href.startswith(("#", "mailto:", "tel:", "javascript:")):
+            continue
+
+        absolute_url = urljoin(url, href)
+
+        parsed_url = urlparse(absolute_url)
+
+        if parsed_url.scheme not in {"http", "https"}:
+            continue
+
+        links.append(absolute_url)
+
+    # Remove duplicates while preserving the original order.
+    return list(dict.fromkeys(links))
