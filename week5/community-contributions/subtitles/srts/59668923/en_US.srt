@@ -1,0 +1,721 @@
+WEBVTT
+
+00:00.440 --> 00:08.390
+Well, welcome back to Jupyter Lab for what will be an epic finale to our time in this platform.
+
+00:08.570 --> 00:14.540
+And it's going to be such a great conclusion to the last seven weeks.
+
+00:14.600 --> 00:19.130
+The first thing you'll notice is that there is quite a lot going on in the week eight folder.
+
+00:19.130 --> 00:24.140
+There are a lot of files here, which reflects the fact that we've got a lot to get through, a lot
+
+00:24.170 --> 00:26.660
+of work to be done to solve this big problem.
+
+00:26.960 --> 00:31.010
+It means I'm going to be moving at a faster pace than usual as we go through this code.
+
+00:31.010 --> 00:36.860
+But that's okay, because at this point you are proficient, you're well on your way to mastering LLM
+
+00:36.860 --> 00:42.740
+engineering, and you no longer need me to belabor the point about lists of dicts of assistants and
+
+00:42.740 --> 00:44.210
+users and things like that.
+
+00:44.210 --> 00:48.200
+It's it's now something that is very much old news.
+
+00:48.410 --> 00:54.770
+And yeah, it's amazing to think I was explaining what tokens were only, only a matter of weeks ago.
+
+00:54.770 --> 00:59.230
+And and now that you're ready for a big, full on agentic AI I.
+
+00:59.260 --> 01:02.830
+Solution a quick admin point before we get started.
+
+01:02.890 --> 01:07.480
+Uh, the I've made some changes to the packages.
+
+01:07.480 --> 01:12.730
+I've added some more packages that are dependencies on this environment in order to, to really make
+
+01:12.730 --> 01:14.650
+this a very, very juicy problem.
+
+01:14.770 --> 01:20.950
+And that just means you might need if you've if you pulled the code sometime before like late September,
+
+01:20.950 --> 01:26.380
+you might need to pull the code again and update your packages to have anything new that I've added.
+
+01:26.380 --> 01:27.970
+And that's very easy to do.
+
+01:28.000 --> 01:32.050
+Um, all you have to do, of course, is go to the project home directory.
+
+01:32.050 --> 01:33.640
+So LM engineering.
+
+01:33.760 --> 01:37.480
+Um, and if you're on a PC, then you need to be in an Anaconda prompt.
+
+01:37.720 --> 01:43.540
+Uh, and then you do a git pull to get the latest code, and then you run conda env update.
+
+01:43.780 --> 01:50.710
+Um, you specify the file as environment.yml and the dash dash prune tells it to remove any packages
+
+01:50.710 --> 01:52.480
+that are no longer in the list.
+
+01:52.480 --> 01:57.400
+I don't think I have removed anything, but anyways, I think this is always a sensible uh, one liner.
+
+01:57.430 --> 02:02.330
+Good to have that to hand to update your environment with a new environment.yml file.
+
+02:02.750 --> 02:05.540
+Okay, so here we go.
+
+02:05.540 --> 02:07.160
+Let's talk about modal.
+
+02:07.160 --> 02:12.140
+So as we get into today's class there only is one import to begin with.
+
+02:12.140 --> 02:13.970
+And it is to import modal.
+
+02:14.000 --> 02:15.080
+There we go.
+
+02:15.170 --> 02:23.210
+Now if you have not set up your tokens which you will not have done, then you need to run a command
+
+02:23.210 --> 02:25.190
+line thing called modal setup.
+
+02:25.190 --> 02:31.010
+And the way you can run that is you just uncomment this line and you run that statement right there.
+
+02:31.040 --> 02:34.910
+Now I'm not going to do it because I've already done it and my environment set up.
+
+02:34.910 --> 02:42.710
+But when you do, it's going to pop up with a browser window and have you authorize modal.
+
+02:42.710 --> 02:46.190
+And then modal will set your environment variables for you.
+
+02:46.190 --> 02:47.900
+And I think that's really great.
+
+02:47.990 --> 02:54.500
+All of the challenges that people have had with tokens, particularly with OpenAI, this is a very different
+
+02:54.500 --> 02:55.160
+experience.
+
+02:55.160 --> 02:56.570
+It's really streamlined.
+
+02:56.570 --> 02:57.670
+So good for modal.
+
+02:57.670 --> 03:01.990
+They seem to have really figured out the the way to set tokens.
+
+03:01.990 --> 03:07.000
+If for any reason that doesn't work for you, then if you go into the modal platform, you can actually
+
+03:07.000 --> 03:11.590
+find your tokens in there in much the same way as you can for for things like OpenAI.
+
+03:11.590 --> 03:13.810
+And then you can manually set it.
+
+03:13.930 --> 03:16.690
+Um, but hopefully this will just work.
+
+03:16.690 --> 03:17.860
+It certainly did for me.
+
+03:17.860 --> 03:22.150
+And by all accounts, that's that's how it works for for people generally.
+
+03:22.690 --> 03:23.650
+All right.
+
+03:23.650 --> 03:30.400
+So now, uh, in the next line, I'm going to import some things from a package called hello, which
+
+03:30.400 --> 03:31.750
+is just what I've written over here.
+
+03:31.750 --> 03:35.140
+And I'm going to take you over to that right now to show you what it looks like.
+
+03:35.560 --> 03:37.990
+So this is just a piece of Python.
+
+03:37.990 --> 03:39.880
+It's just some, some Python code.
+
+03:40.090 --> 03:41.590
+And I'm going to tell you what it does.
+
+03:41.590 --> 03:43.150
+So we import modal.
+
+03:43.150 --> 03:46.150
+And from modal we import a few things.
+
+03:46.180 --> 03:51.130
+App for applications volume and image.
+
+03:51.340 --> 03:55.060
+Um and actually now that I look at it I see that I don't actually end up using volume.
+
+03:55.060 --> 03:56.840
+So I don't think that is needed.
+
+03:56.870 --> 03:58.700
+Keep this simple is better.
+
+03:59.240 --> 04:02.300
+Um, and so this is what you do.
+
+04:02.330 --> 04:03.650
+You begin with some setup.
+
+04:03.650 --> 04:07.070
+You tell modal what kind of infrastructure you need.
+
+04:07.070 --> 04:11.030
+And this is an example of modal talks about this a bit on the in their docs.
+
+04:11.030 --> 04:15.260
+But this is this is a type of infrastructure as code.
+
+04:15.260 --> 04:19.430
+You can use code to describe what kind of box you want.
+
+04:19.460 --> 04:24.320
+So if you're thinking when we're in Google Colab, we had to pick various drop downs and choose what
+
+04:24.320 --> 04:31.910
+kind of, um, VM, what runtime we wanted from Google Colab, well, here you just get to choose what
+
+04:31.910 --> 04:34.430
+you want by by specifying it in code.
+
+04:34.430 --> 04:40.760
+So we, we say that we want an image which we want it to be the Debian operating system.
+
+04:40.760 --> 04:48.530
+We want to pip install the requests package that very, very common standard package for, for uh,
+
+04:48.530 --> 04:52.010
+doing URL web work.
+
+04:52.370 --> 04:59.650
+Um, and we specify a GPU, uh, actually, which again is also not used in this example.
+
+04:59.650 --> 05:00.520
+Sorry.
+
+05:00.700 --> 05:01.780
+That makes it a bit simpler.
+
+05:01.780 --> 05:05.800
+We're not going to use a GPU for this example because we're keeping it very simple indeed.
+
+05:06.160 --> 05:10.660
+Uh, so uh, the I have got a method called hello.
+
+05:10.690 --> 05:11.740
+It's a very simple.
+
+05:11.740 --> 05:12.640
+It's a function.
+
+05:12.640 --> 05:13.150
+Hello.
+
+05:13.180 --> 05:14.710
+That returns a string.
+
+05:14.950 --> 05:23.500
+Uh, and what it does is it imports requests, uh, it gets it goes to a website called IP info.io,
+
+05:23.530 --> 05:25.120
+which is a useful one to know.
+
+05:25.120 --> 05:32.620
+It's just one of these utilities that will return a JSON object which describes where you are the IP
+
+05:32.620 --> 05:35.560
+address of, of what just called it.
+
+05:35.800 --> 05:42.790
+Um, and so then I take that JSON, I pull out the city, the region and the country, and I say hello
+
+05:42.790 --> 05:44.710
+from city, region, country.
+
+05:44.860 --> 05:46.840
+Um, and it's just based on your IP address.
+
+05:46.870 --> 05:52.270
+So it's just going to say hello from wherever you are, or at least wherever your ISP is serving you
+
+05:52.270 --> 05:52.540
+from.
+
+05:52.550 --> 05:57.710
+So for me, it's going to be somewhere fairly close to New York, but may not be in New York.
+
+05:57.980 --> 06:01.520
+Um, so that's a pretty simple function.
+
+06:01.550 --> 06:07.850
+The only potential interesting thing about it is this decorator at the top here, which is a gradient
+
+06:07.850 --> 06:13.490
+decorator where we've decorated it with app, which is this thing here, this modal app.
+
+06:13.490 --> 06:15.560
+Hello dot function.
+
+06:15.620 --> 06:18.020
+And then we're passing in this image.
+
+06:18.020 --> 06:25.190
+And that image refers to a Debian image uh which has requests installed.
+
+06:25.190 --> 06:31.340
+And just by decorating it with that, we're saying that's the kind of box that we want to be to be able
+
+06:31.340 --> 06:33.860
+to run this on should we wish to.
+
+06:33.950 --> 06:35.510
+That's all there is to it.
+
+06:35.510 --> 06:37.940
+So you you could put that to one side.
+
+06:37.940 --> 06:41.480
+You could imagine that this was just part of an existing piece of code.
+
+06:41.480 --> 06:47.420
+You had to do something, and now you've just decorated it with something to say that you want to be
+
+06:47.420 --> 06:53.710
+able to run it should you wish to, using a Debian operating system with requests installed.
+
+06:53.920 --> 06:57.520
+So that is all that's in this hello.py.
+
+06:57.550 --> 06:59.020
+Super simple.
+
+06:59.080 --> 07:03.790
+We go back to day one dot, the Jupyter notebook.
+
+07:04.420 --> 07:08.620
+So I'm now going to import that.
+
+07:08.740 --> 07:16.750
+And so now what I can do is I can call my hello I can I can take my hello function that I've, that
+
+07:16.750 --> 07:18.340
+I've imported here.
+
+07:18.370 --> 07:22.930
+And I can call it by saying hello dot local.
+
+07:22.930 --> 07:27.790
+And what that means is I want to run that function that I've just defined, that we just looked at this
+
+07:27.790 --> 07:30.730
+function here, and I just want to run it on my local box.
+
+07:30.730 --> 07:32.920
+I want to run it in this Jupyter notebook.
+
+07:33.130 --> 07:34.270
+Let's see what we get.
+
+07:34.600 --> 07:36.460
+So it's running right now.
+
+07:37.300 --> 07:40.900
+And it says hello from seaport, New York, US.
+
+07:40.930 --> 07:43.600
+That is where my ISP is, I guess.
+
+07:44.050 --> 07:44.920
+Let's try that again.
+
+07:44.950 --> 07:46.450
+Yeah, that seems pretty consistent.
+
+07:46.450 --> 07:48.340
+So that's running locally.
+
+07:48.970 --> 07:53.370
+Uh, and, uh, now look at this one here.
+
+07:53.400 --> 07:55.440
+It's exactly the same thing.
+
+07:55.470 --> 07:58.260
+I've just changed local to remote.
+
+07:58.260 --> 07:58.920
+That's the only.
+
+07:58.950 --> 08:00.360
+The only thing I've changed.
+
+08:00.990 --> 08:02.400
+Let's see what happens.
+
+08:05.850 --> 08:07.740
+Let's take a little bit longer and then.
+
+08:07.770 --> 08:11.070
+Hello from Ashburn, Virginia, us.
+
+08:11.100 --> 08:17.910
+It's running in a completely different state, so I'm sure you you're expecting that.
+
+08:17.910 --> 08:19.020
+You get the idea.
+
+08:19.350 --> 08:21.060
+Uh, and sometimes it's different.
+
+08:21.060 --> 08:23.820
+By the way, I've seen it pop up all over the place.
+
+08:23.820 --> 08:30.630
+So simply by calling remote instead of local, you can call this function the same piece of code, the
+
+08:30.630 --> 08:31.920
+same piece of Python code.
+
+08:31.920 --> 08:36.570
+And it's been deployed to a server and it's running on that server instead.
+
+08:38.280 --> 08:39.780
+So I think that's pretty magical.
+
+08:39.780 --> 08:44.580
+It's magical because it's so simple and it's just allowed us to deploy some code.
+
+08:44.760 --> 08:47.970
+And now we've got a slightly more involved package called llama.
+
+08:49.000 --> 08:52.030
+And this is where things like GPUs start to appear.
+
+08:52.030 --> 08:57.160
+You can see I paired this back to the hello example, which is why there was some some traces of what
+
+08:57.160 --> 08:57.880
+this was.
+
+08:58.240 --> 09:04.120
+Um, so I start by, um, uh, calling my app llama.
+
+09:04.750 --> 09:10.030
+Um, now I'm going to again have a Debian image, but this time I'm going to install torch transformers,
+
+09:10.030 --> 09:13.360
+bits and bytes and accelerate all packages that you know.
+
+09:13.360 --> 09:21.040
+Well, at this point, um, I am also getting my hugging face token from my modal secrets, and that
+
+09:21.040 --> 09:22.390
+is something I should have shown you before.
+
+09:22.390 --> 09:27.310
+I will show you in a second how you set that up in modal, how you get to secrets, and you can set
+
+09:27.310 --> 09:29.320
+your hugging face token in there.
+
+09:29.350 --> 09:32.170
+And once you've done that, you can read it like this.
+
+09:32.830 --> 09:39.430
+And I'm specifying that I want a T4 GPU, which of course is the very cheap basic one.
+
+09:39.520 --> 09:41.470
+And I've got a constant here.
+
+09:41.950 --> 09:47.910
+And now I have uh, this, this generate, uh, function.
+
+09:47.910 --> 09:51.990
+And it takes a prompt which is a string, and it returns a string.
+
+09:52.770 --> 09:54.480
+This is an example of the type hints.
+
+09:54.480 --> 09:55.920
+If you're not familiar with them.
+
+09:55.920 --> 10:00.360
+It's something that I'll be doing this time around in various places.
+
+10:00.360 --> 10:04.920
+And it will, uh, I think, become clear after a bit.
+
+10:05.430 --> 10:13.110
+So, uh, again, I decorate this function with I pass in the image, I tell it my secrets, and I say
+
+10:13.110 --> 10:18.600
+I want a T4 GPU, all configuring my server using code.
+
+10:18.780 --> 10:23.910
+And now this is just a function as if I were writing something to run locally.
+
+10:23.940 --> 10:29.550
+Now, I couldn't possibly run this locally because my box has nothing like the horsepower to be able
+
+10:29.550 --> 10:32.820
+to run a llama model like this locally.
+
+10:32.820 --> 10:37.170
+There are ways you can do it with things like llama CP if you're familiar with that, but I wouldn't
+
+10:37.170 --> 10:41.040
+be able to do it like it's written here, and if I did, it would be very, very slow.
+
+10:41.280 --> 10:48.010
+Um, and so I want to do it on a box which has a T4 GPU and this is how I'll be able to do it.
+
+10:48.400 --> 10:51.430
+Um, and so this, this code should all look very familiar to you.
+
+10:51.430 --> 10:53.620
+This is the config that you know.
+
+10:53.620 --> 10:59.800
+Well that puts specifies the, the four bit quantization that will have for Lama.
+
+11:00.160 --> 11:05.320
+Um, we are going to load the tokenizer, this boilerplate stuff, you know.
+
+11:05.320 --> 11:08.440
+Well we are going to load our model.
+
+11:08.440 --> 11:17.110
+And then this, you should also recognize we encode the the prompt into tokens as our input.
+
+11:17.140 --> 11:20.560
+We set this attention mask to avoid getting that warning.
+
+11:20.650 --> 11:23.380
+And then we do model dot generate.
+
+11:23.380 --> 11:25.000
+We pass in our inputs.
+
+11:25.000 --> 11:31.810
+We say we only need five new tokens and we want to just one response.
+
+11:31.810 --> 11:36.520
+We will take that one response, we will decode it and we will return it.
+
+11:36.550 --> 11:38.470
+It's as simple as that.
+
+11:38.530 --> 11:43.900
+Now with that, let's start that and let's run it.
+
+11:44.130 --> 11:47.100
+So stuff is happening.
+
+11:47.100 --> 11:52.200
+So, um, first of all, what what have I actually run?
+
+11:52.200 --> 11:59.400
+So I've called the remote function and what I passed in the prompt that I passed in to a llama model
+
+11:59.400 --> 12:02.070
+is life is a mystery.
+
+12:02.070 --> 12:04.260
+Everyone must stand alone.
+
+12:04.290 --> 12:13.110
+I hear now, uh, I, uh, hopefully most people know what comes next from that.
+
+12:13.110 --> 12:15.360
+Otherwise I'm going to feel very old.
+
+12:15.570 --> 12:23.040
+Uh, but, uh uh, this, of course, would be straight from the opening to Like a Prayer by Madonna.
+
+12:23.040 --> 12:26.760
+And I hear you Call my name would be what comes next.
+
+12:26.790 --> 12:29.310
+And it's almost unbearable not to say that.
+
+12:29.460 --> 12:33.750
+Uh, and now I'm going to hear that song in my head for for the rest of the day.
+
+12:33.870 --> 12:35.040
+Uh, but, um.
+
+12:35.040 --> 12:35.310
+Yeah.
+
+12:35.340 --> 12:40.410
+And sorry if I've put that now in your in your mind forever too, but, uh, such a catchy song.
+
+12:40.440 --> 12:45.220
+Anyway, it's what we're seeing now is what's going on on that box.
+
+12:45.370 --> 12:49.240
+Um, and we can also flip over to, to modal itself.
+
+12:49.420 --> 12:55.330
+Um, and uh, let's see, go to the let me refresh this screen.
+
+12:56.890 --> 12:59.290
+Uh, so it's not a deployed app.
+
+13:04.270 --> 13:05.350
+Ephemeral apps.
+
+13:05.350 --> 13:06.340
+That's what it is.
+
+13:06.550 --> 13:08.620
+Uh, give me a second to find that.
+
+13:08.710 --> 13:09.730
+So this is it.
+
+13:09.730 --> 13:11.050
+Running right now.
+
+13:11.080 --> 13:17.650
+Running as an ephemeral app, uh, generates, um, started two minutes ago.
+
+13:17.650 --> 13:22.570
+And we can click into it and we can see that its status is running.
+
+13:22.990 --> 13:26.380
+Uh, and, uh, let's see what else we can get.
+
+13:26.590 --> 13:29.680
+So the containers, it's live.
+
+13:31.990 --> 13:35.230
+We can look at the memory, the CPU cores.
+
+13:39.220 --> 13:42.960
+And we can see it's a T4 GPU, just as we specified.
+
+13:43.620 --> 13:52.740
+Um, and we can also look at the we can see that Hello.py is also on this box we just ran.
+
+13:52.740 --> 13:59.730
+And llama.py uh, is sitting there, the, the Python script that we just wrote.
+
+14:00.390 --> 14:03.330
+Uh, so here we go.
+
+14:03.360 --> 14:07.770
+While we're here, I'm just going to point out that right at the top here is secrets.
+
+14:07.770 --> 14:12.540
+And secrets is, of course, where you go to set the secrets, the hugging face token.
+
+14:12.540 --> 14:14.160
+So you will need to do that.
+
+14:14.310 --> 14:18.210
+I'm not going to click on that now to avoid revealing my hugging face token secret.
+
+14:18.270 --> 14:24.570
+Um, but that's that's where you would go so that you can then use your hugging face token in the code
+
+14:24.570 --> 14:30.240
+that's deployed in your ephemeral, uh, service here.
+
+14:30.840 --> 14:32.310
+So it's still running.
+
+14:32.310 --> 14:35.550
+And I think at this point I will hold to this video.
+
+14:35.550 --> 14:39.420
+And when I come back, uh oh, it's already just said it's succeeded.
+
+14:39.630 --> 14:43.690
+Uh, and I did just get a message saying that it had finished as well.
+
+14:43.840 --> 14:45.280
+Uh, and, uh.
+
+14:45.280 --> 14:45.880
+Let's see.
+
+14:45.910 --> 14:46.180
+Yes.
+
+14:46.180 --> 14:47.320
+Back here.
+
+14:48.400 --> 14:49.870
+Let's see what we get.
+
+14:49.900 --> 14:52.330
+I hear you call my name.
+
+14:52.390 --> 15:00.010
+Uh, so, lama, even the four bit quantized version of Lama also couldn't resist completing the Madonna
+
+15:00.040 --> 15:01.420
+song as well.
+
+15:01.690 --> 15:07.360
+Uh, and so we have just successfully run this piece of code.
+
+15:07.600 --> 15:18.970
+Um, using this ephemeral, uh, service on modal, uh, to run a quantized lama, um, uh, model,
+
+15:19.120 --> 15:22.900
+uh, Lama 3.1 model to complete a prompt.
+
+15:23.200 --> 15:24.070
+All right.
+
+15:24.070 --> 15:30.100
+When we come back, we are going to go through and it's going to be time for us to deploy our model
+
+15:30.100 --> 15:37.270
+and actually see how we do that and how we put an API around the proprietary model that we built last
+
+15:37.270 --> 15:37.870
+time.
+
+15:38.110 --> 15:39.550
+I will see you in a minute.

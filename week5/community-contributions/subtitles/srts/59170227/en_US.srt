@@ -1,0 +1,508 @@
+WEBVTT
+
+00:00.200 --> 00:02.360
+Welcome back to Google Colab.
+
+00:02.360 --> 00:06.290
+Here we are ready to explore the wonderful world of Tokenizers.
+
+00:06.290 --> 00:11.360
+So, uh, the first thing I'm going to do is do some imports.
+
+00:11.600 --> 00:15.290
+And after I've done that, I want to mention this statement here.
+
+00:15.290 --> 00:20.750
+I forgot to mention this in the last video, but I have added it into that colab, so hopefully you
+
+00:20.780 --> 00:23.300
+found it anyway and read my explanation.
+
+00:23.450 --> 00:28.220
+Uh, you may need to log in to Huggingface in Colab if you've never done that before.
+
+00:28.220 --> 00:31.370
+And this is the code that you use to do that.
+
+00:31.370 --> 00:36.260
+First of all, if you haven't already created your account with hugging face, you need an account with
+
+00:36.290 --> 00:36.890
+hugging face.
+
+00:36.890 --> 00:37.700
+It's free.
+
+00:37.730 --> 00:40.910
+It's it's terrific and you will never regret it.
+
+00:40.910 --> 00:46.970
+So sign up at huggingface and then navigate to settings and create a new API token.
+
+00:46.970 --> 00:48.470
+Giving yourself write permission.
+
+00:48.470 --> 00:52.130
+We won't need to use the right permission today, but we will in the future, so might as well set it
+
+00:52.130 --> 00:53.060
+up right now.
+
+00:53.090 --> 00:59.570
+Then when you come back, you go to this key section here in the Colab and you add in a new secret.
+
+00:59.570 --> 01:05.220
+The secret should say HF underscore token and the value should be your token.
+
+01:05.220 --> 01:12.270
+And then all you have to do is run this code that will get the HF token from your secrets, and it will
+
+01:12.300 --> 01:15.000
+then call this login method, which I imported here.
+
+01:15.000 --> 01:18.180
+And that login method logs in to hugging face.
+
+01:18.180 --> 01:19.470
+Let's run that right away.
+
+01:19.470 --> 01:20.760
+And it's done.
+
+01:20.790 --> 01:23.400
+And you see it says I have rights permission right there.
+
+01:24.060 --> 01:31.950
+Okay, let's talk Tokenizers we are going to start with the fantastic llama 3.1, the iconic model from
+
+01:31.950 --> 01:35.400
+meta, which paved the way for open source models.
+
+01:35.880 --> 01:42.240
+Now, when you're using llama 3.1, meta does need you first to sign their terms of service.
+
+01:42.240 --> 01:47.520
+And the way you do that is you visit their model page on Hugging Face, which is linked here.
+
+01:47.520 --> 01:52.680
+And at the top of that page, there are very simple instructions for what you need to do to sign.
+
+01:52.830 --> 01:57.270
+Uh, you should you'll need to supply your email address, and it's best if the email address that you
+
+01:57.270 --> 01:59.610
+supply matches your hugging face account.
+
+01:59.610 --> 02:01.370
+That means they get things done quickly.
+
+02:01.370 --> 02:04.370
+In fact, they should approve you in a matter of minutes.
+
+02:04.370 --> 02:07.610
+I've done this many times, including once late on a Saturday night.
+
+02:07.610 --> 02:09.680
+I got approved very, very quickly.
+
+02:09.740 --> 02:13.460
+I don't know whether that's just because they're really on the ball or whether it's all automated,
+
+02:13.550 --> 02:15.350
+but it's very quick indeed.
+
+02:15.770 --> 02:20.810
+And in case you think there's something evil with this signing terms of service, it's really if you
+
+02:20.810 --> 02:26.420
+read the fine print, it's about making sure that you're not going to use lemma 3.1 for anything nefarious
+
+02:26.420 --> 02:30.770
+and that you have good intentions, which is very much the case in this class.
+
+02:30.770 --> 02:34.400
+So it should be no problems whatsoever signing that.
+
+02:34.400 --> 02:39.590
+Once you've done so, you will have access to all the variants of llama 3.1.
+
+02:39.590 --> 02:43.070
+It's one one sign and then it applies to the whole family.
+
+02:43.370 --> 02:49.070
+If you wanted to use one of the older llama three models, like llama 3 or 2, you would need to go
+
+02:49.070 --> 02:53.060
+and sign the terms for that family of models.
+
+02:53.450 --> 02:57.650
+If for some reason you don't want to, or you're finding that they're not approving you right away,
+
+02:57.650 --> 03:00.200
+you can just skip to later when we start.
+
+03:00.230 --> 03:05.490
+Or you can just watch me executing for 3.1, and then you can pick up when we start working with some
+
+03:05.490 --> 03:06.840
+of the other tokenizers.
+
+03:06.840 --> 03:12.510
+But with that, creating a tokenizer is this single line here.
+
+03:12.690 --> 03:21.810
+Hugging face has this class auto tokenizer, which will create whatever subclass of tokenizer is needed
+
+03:21.810 --> 03:23.070
+for this particular model.
+
+03:23.100 --> 03:24.330
+Don't need to worry too much about that.
+
+03:24.330 --> 03:31.410
+Just know that auto tokenizer is the one to do and you call the class method from pre-trained, which
+
+03:31.410 --> 03:35.790
+means I've got a pre-trained model and I want you to create the tokenizer that's for that.
+
+03:35.820 --> 03:36.960
+And that is the name.
+
+03:36.960 --> 03:38.760
+This is the model that we're using.
+
+03:38.760 --> 03:41.610
+That's which you can take directly from the Hugging face hub.
+
+03:41.610 --> 03:45.690
+It's meta llama's meta llama 3.18 billion.
+
+03:45.720 --> 03:51.930
+This trust remote code equals true when as as you bring in this tokenizer, it's possible for there
+
+03:51.930 --> 03:55.140
+to be code that is part of of a model.
+
+03:55.140 --> 03:57.750
+And we're saying we know who meta is.
+
+03:57.780 --> 04:01.570
+We know that this is fine so you can trust it.
+
+04:01.840 --> 04:04.030
+If you don't include that, it will still work fine.
+
+04:04.030 --> 04:06.040
+It just gives you a warning, an ugly warning.
+
+04:06.040 --> 04:10.930
+So if you don't want the ugly warning, then just, uh, put that in there.
+
+04:11.950 --> 04:12.550
+Okay.
+
+04:12.550 --> 04:15.970
+With that, the next thing I'm doing is I'm using the text.
+
+04:16.000 --> 04:24.040
+I'm excited to show Tokenizers in action to my LLM engineers, and we take that text as a string and
+
+04:24.040 --> 04:27.160
+we call tokenizer dot encode that text.
+
+04:27.160 --> 04:30.070
+And then we will print the tokens that result.
+
+04:30.760 --> 04:31.720
+Here they are.
+
+04:31.750 --> 04:33.400
+It's something that's super simple.
+
+04:33.400 --> 04:34.720
+It's just a list of numbers.
+
+04:34.720 --> 04:35.860
+Nothing more than that.
+
+04:35.860 --> 04:37.390
+Nothing magical about tokens.
+
+04:37.390 --> 04:38.440
+They are just numbers.
+
+04:38.440 --> 04:40.960
+And these numbers represent that text.
+
+04:40.990 --> 04:43.600
+Let's see how many of them there are.
+
+04:43.630 --> 04:50.320
+Well, let's start by saying how many, um, uh, letters were in that text that we gave it.
+
+04:50.350 --> 04:53.560
+There are 61 letters in that text.
+
+04:53.560 --> 04:56.260
+So now we can count the number of tokens.
+
+04:56.260 --> 05:02.510
+And do you remember the rule of thumb for roughly speaking, the how many characters map to a token.
+
+05:02.540 --> 05:06.110
+On average, it's four on average.
+
+05:06.110 --> 05:06.440
+Roughly.
+
+05:06.440 --> 05:12.890
+Rule of thumb about four letters should be one token for normal English or if you have a lot of English.
+
+05:12.890 --> 05:16.880
+So we're expecting for 61 letters.
+
+05:16.970 --> 05:19.790
+We're expecting around 15 tokens.
+
+05:19.820 --> 05:20.780
+Let's see what we get.
+
+05:20.780 --> 05:21.980
+15 tokens.
+
+05:21.980 --> 05:22.520
+There we go.
+
+05:22.550 --> 05:25.280
+Exactly 15 tokens for this text.
+
+05:25.610 --> 05:31.940
+Um, and we can in fact do this decode to turn our tokens back into text again.
+
+05:31.940 --> 05:35.150
+So we're expecting to recreate the original text.
+
+05:35.150 --> 05:39.020
+And what we get is something similar, slightly different.
+
+05:39.020 --> 05:44.180
+As you will see what we get back is the text that we were expecting.
+
+05:44.180 --> 05:50.990
+But at the front of it is something new, this this funny thing here, this set of text that says in
+
+05:50.990 --> 05:55.010
+angled brackets are less than and greater than sign begin of text.
+
+05:55.040 --> 05:55.910
+What is this?
+
+05:55.910 --> 06:01.090
+So this is something called a special token or all of the, all of what I've highlighted just maps to
+
+06:01.120 --> 06:01.900
+one token.
+
+06:01.930 --> 06:09.340
+In fact, this token here, this 128,000 token, um, and it is a special token which is indicating
+
+06:09.370 --> 06:14.740
+to our model that it is the start of a, uh, of a text of a prompt.
+
+06:14.950 --> 06:20.710
+Um, and so it's used for that purpose to be a special indicator to the LM.
+
+06:20.740 --> 06:24.550
+Now, again, you might be thinking, uh, okay.
+
+06:24.580 --> 06:28.960
+So does that mean that somehow the architecture of the transformer has to be set, set up so that it
+
+06:28.990 --> 06:30.820
+expects that kind of token?
+
+06:30.910 --> 06:35.920
+Uh, and uh, as you're probably, uh, very comfortable now, the answer is no.
+
+06:35.920 --> 06:37.270
+That's not what it means.
+
+06:37.300 --> 06:43.000
+Uh, what this means is that in all of the training examples that it saw during training time, it was
+
+06:43.000 --> 06:44.080
+set up this way.
+
+06:44.080 --> 06:48.250
+The training examples began with this special token begin of text.
+
+06:48.250 --> 06:52.780
+So it's got used to through training expecting that.
+
+06:52.780 --> 06:58.330
+And in order to ensure the highest quality output, one should recreate that same approach.
+
+06:58.390 --> 07:02.210
+Uh, when feeding in new prompts at inference time.
+
+07:02.990 --> 07:04.670
+So hope that made sense.
+
+07:04.700 --> 07:08.360
+There's another method batch decode.
+
+07:08.360 --> 07:13.940
+And if you run that with your tokens what you get back instead of one string, you get back these,
+
+07:13.940 --> 07:19.550
+uh, little, um, sets of strings where each string represents one token.
+
+07:19.550 --> 07:24.080
+So as I say, this first token here turned into this here.
+
+07:24.080 --> 07:27.920
+And then you can follow through to, to to see how that's working.
+
+07:28.130 --> 07:30.920
+Um, and there's a few things to note from this.
+
+07:30.920 --> 07:36.080
+Uh, as you'll see straight away, one of them is that in most cases a word mapped to a token, because
+
+07:36.080 --> 07:37.730
+we've got very simple words here.
+
+07:37.730 --> 07:43.370
+So excited, even though it's way more than four characters mapped to one token, because it's such
+
+07:43.370 --> 07:45.380
+a common word, it's in the vocab.
+
+07:45.620 --> 07:53.180
+Um, another thing to notice is that, uh, as with GPT tokenizer, uh, the fact that something is
+
+07:53.180 --> 07:58.700
+the beginning of a word, this space before the word is part of the token.
+
+07:58.700 --> 08:09.150
+So and so am as the beginning of the word, and then the letters Am is a different token to just am,
+
+08:09.150 --> 08:13.560
+the fragment of characters that could be within something more complicated.
+
+08:14.250 --> 08:20.640
+You'll also notice that something like Tokenizers got broken into two tokens, one for the word token
+
+08:20.640 --> 08:23.130
+and the other for ISAs.
+
+08:23.460 --> 08:28.740
+So that's an interesting, uh, you know, a word ending Isa ISAs.
+
+08:28.740 --> 08:33.120
+You could imagine that might be stuck on the end of lots of different things, and that's part of its
+
+08:33.150 --> 08:34.350
+tokenization.
+
+08:34.380 --> 08:37.890
+One other thing to notice is that it is case sensitive.
+
+08:37.890 --> 08:43.860
+So so you can see that, uh, token with a capital T has been been taken there.
+
+08:45.120 --> 08:53.040
+Uh, so, uh, the final thing I want to mention here is the tokenizer dot vocab.
+
+08:53.070 --> 08:58.500
+If you run tokenizer dot vocab, you get the, uh, it gives you the.
+
+08:58.500 --> 09:03.980
+It's the dictionary of the complete mapping between fragments of Words and numbers.
+
+09:04.310 --> 09:06.590
+And you can see there's some pretty obscure things here.
+
+09:06.590 --> 09:12.620
+There's an awful lot of tokens that are available, and there's some quite odd tokens in here that are
+
+09:12.740 --> 09:15.920
+from different languages or used for different purposes.
+
+09:16.190 --> 09:22.580
+So very much it does go beyond three letters, four letters, and you'll see a number of different things.
+
+09:22.610 --> 09:26.630
+A um, it's printed out quite a lot of them.
+
+09:26.870 --> 09:32.840
+Uh, something else that I'll show you from this, uh, as I scroll back through all of our dictionary.
+
+09:33.050 --> 09:34.040
+Get back here.
+
+09:34.250 --> 09:41.990
+Uh, is, uh, that you can also print, uh, comment that, comment this out.
+
+09:42.440 --> 09:48.470
+Uh, just what's called the added vocab, which are the special tokens that I mentioned.
+
+09:48.650 --> 09:53.840
+Um, there's a bunch of these reserved special tokens, and sorry, at the top you can see here are
+
+09:53.840 --> 10:01.560
+the special tokens that have been reserved in the vocab, uh, to be used to signal to things to the
+
+10:01.560 --> 10:01.860
+LM.
+
+10:01.890 --> 10:02.580
+Beginning of text.
+
+10:02.610 --> 10:03.570
+End of text.
+
+10:04.020 --> 10:06.150
+Some reserved, um.
+
+10:06.180 --> 10:11.100
+And then a start header, ID and header.
+
+10:11.100 --> 10:12.690
+And then some other things here.
+
+10:12.690 --> 10:14.190
+And a Python tag.
+
+10:14.220 --> 10:17.070
+Uh, something obviously special there.
+
+10:17.070 --> 10:25.470
+So for whatever reason, these are the special tokens that have been identified, uh, as, as it being,
+
+10:25.470 --> 10:33.300
+uh, useful to include those special tokens in the vocab and provide them during training so that when
+
+10:33.330 --> 10:38.850
+you're doing inference, when you're running the model, uh, to, to generate text, you can use these
+
+10:38.850 --> 10:42.180
+tokens to indicate things to the model.
+
+10:42.960 --> 10:43.530
+All right.
+
+10:43.560 --> 10:47.580
+Well, that's a bit of playing around with the llama three model.
+
+10:47.640 --> 10:49.290
+Uh, llama 3.1 tokenizer.
+
+10:49.320 --> 10:56.670
+When we come back, we're going to look at the, uh, the way that that this applies to chats in particular.
+
+10:56.670 --> 10:59.640
+And then we're going to play with some other tokenizers.
+
+10:59.640 --> 11:00.390
+So see you then.

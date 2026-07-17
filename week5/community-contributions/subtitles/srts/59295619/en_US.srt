@@ -1,0 +1,475 @@
+WEBVTT
+
+00:00.350 --> 00:05.540
+Welcome back to the the moment when we bring it all together into a beautiful user interface.
+
+00:05.540 --> 00:10.880
+But first, just a quick look one more time at the inference endpoint screen in Huggingface where you
+
+00:10.880 --> 00:12.260
+can see my running code.
+
+00:12.260 --> 00:15.380
+Quine 1.57 billion chat inference.
+
+00:15.680 --> 00:16.640
+We can.
+
+00:16.670 --> 00:23.060
+I just wanted to show you that you can come into this and take a look at how your inference endpoint
+
+00:23.060 --> 00:28.850
+is running, and you can do things like see analytics, see what's going on, see the number of requests,
+
+00:28.850 --> 00:32.090
+which, even though I made some, is not enough to get on the radar.
+
+00:32.210 --> 00:34.430
+Uh, latency, CPU usage.
+
+00:34.460 --> 00:34.940
+Oh, there we go.
+
+00:34.970 --> 00:38.930
+A little blip in CPU usage from what we just did and GPU usage.
+
+00:38.960 --> 00:39.920
+Nice.
+
+00:40.010 --> 00:49.790
+Uh, and you can also go over to cost and see that I've spent $3.64 so far on, uh, on this particular,
+
+00:49.790 --> 00:51.020
+uh, model.
+
+00:51.380 --> 00:53.150
+Um, okay.
+
+00:53.180 --> 00:59.870
+Now, with that in mind, let's leave it, I think, on the analytics, let's go back to our Jupyter
+
+00:59.870 --> 01:00.770
+lab.
+
+01:01.010 --> 01:09.070
+Um, and let's wrap this code to call Code Kwan in a nice little stream method, just like the other
+
+01:09.070 --> 01:14.620
+stream methods that we've already done before for GPT four and for Claude stream Quen.
+
+01:14.650 --> 01:17.200
+Same kind of method, but of course it's the same function.
+
+01:17.200 --> 01:18.700
+It's going to do it very differently.
+
+01:18.910 --> 01:21.370
+It's going to create a tokenizer.
+
+01:21.370 --> 01:27.700
+It's going to, of course, uh, turn Python into the usual messages list.
+
+01:27.700 --> 01:29.710
+It's going to apply the chat template.
+
+01:29.710 --> 01:34.420
+So we now have this in the text that is ready for tokenization.
+
+01:34.420 --> 01:41.590
+And then we make the magical call to inference client using the URL for our endpoint and passing in
+
+01:41.590 --> 01:43.120
+our Huggingface token.
+
+01:43.120 --> 01:47.020
+And here we are doing client text generation.
+
+01:47.020 --> 01:49.570
+Here's our text we want to stream.
+
+01:49.570 --> 01:52.930
+And that's our max new tokens.
+
+01:52.930 --> 01:55.900
+And then back comes the results.
+
+01:55.900 --> 02:03.400
+As we stream back each token we yield the total of everything so far because hopefully you remember
+
+02:03.400 --> 02:05.740
+that is what Gradio expects.
+
+02:05.740 --> 02:13.280
+It expects to a sort of cumulative total of everything that's been received so far in all of its chunks.
+
+02:13.280 --> 02:21.080
+So that function there stream collection is a companion function to the others we wrote before for stream
+
+02:21.080 --> 02:23.030
+GPT for stream Claude.
+
+02:23.030 --> 02:29.600
+So now we can have an optimized method that will replace the previous optimized method for optimizing
+
+02:29.600 --> 02:34.010
+code, which can flip between three models GPT Claude or Code Kwan.
+
+02:34.400 --> 02:34.910
+Um.
+
+02:34.910 --> 02:41.900
+And here we have the total of our user interface code for Gradio.
+
+02:41.930 --> 02:43.400
+Make sure I run this.
+
+02:43.820 --> 02:46.520
+Uh, so you'll remember how simple this is.
+
+02:46.520 --> 02:47.720
+It's crazy.
+
+02:47.960 --> 02:54.710
+Uh, we have a nice little title, and then we have a row for our Python code and C plus plus code.
+
+02:54.710 --> 02:57.140
+We have a row for selecting the model.
+
+02:57.140 --> 03:03.200
+And now we've added code Kwon to the three to the previously two models that you could choose between.
+
+03:03.320 --> 03:08.750
+And we've got a button to convert the code, a button to run Python, a button to run C plus plus,
+
+03:08.750 --> 03:13.600
+and then some output boxes for the Python results and the cplusplus results.
+
+03:13.600 --> 03:17.500
+And then these are the three actions.
+
+03:17.500 --> 03:22.870
+The three places where if a button is clicked, we take some kind of action.
+
+03:22.870 --> 03:26.290
+And I love the way that it just simply reads like English.
+
+03:26.290 --> 03:31.000
+If someone wants to convert, if they press convert button, it calls the optimize function.
+
+03:31.000 --> 03:33.550
+This is the inputs and that's the output.
+
+03:33.550 --> 03:37.120
+If they press the Python run button, it executes Python.
+
+03:37.120 --> 03:43.270
+The input is the Python code, the output is the python out, and the same for the C plus plus button
+
+03:43.270 --> 03:44.080
+as well.
+
+03:44.080 --> 03:47.020
+It should it look super simple.
+
+03:47.020 --> 03:48.880
+And that's because it is super simple.
+
+03:49.300 --> 03:51.310
+And with that we're going to launch it.
+
+03:51.340 --> 03:54.730
+Fingers crossed this is going to work beautifully for us.
+
+03:55.060 --> 03:58.840
+All right so here is our user interface.
+
+03:59.080 --> 04:08.050
+Uh, and um, what you're seeing here of course, is the Python code for the simple, uh, pi calculation.
+
+04:08.050 --> 04:09.280
+And why not?
+
+04:09.280 --> 04:12.490
+Let's just try doing it for, uh, for GPT.
+
+04:14.750 --> 04:17.720
+You'll remember that's the C plus plus equivalent.
+
+04:17.750 --> 04:21.080
+Let's run the Python variation.
+
+04:21.110 --> 04:23.240
+If I remember right this is about eight seconds.
+
+04:23.240 --> 04:25.220
+So we have to wait for this to count to about eight.
+
+04:25.250 --> 04:27.140
+And we should get the Python results.
+
+04:27.170 --> 04:29.810
+There it is 8.6 seconds.
+
+04:29.810 --> 04:34.820
+There is good old pi at least to some number of decimal places.
+
+04:34.820 --> 04:36.410
+And now we'll run the C plus.
+
+04:36.410 --> 04:38.630
+Plus that came back from GPT four.
+
+04:38.630 --> 04:47.630
+And great in 0.06 of a second a nice greater than 100 x improvement.
+
+04:47.810 --> 04:50.630
+Now one more time for Claude.
+
+04:50.750 --> 04:55.340
+We convert the the code courtesy of Anthropic's Claude.
+
+04:55.820 --> 04:57.380
+Um, there it is.
+
+04:57.410 --> 05:00.080
+And now we will run Claude's C plus.
+
+05:00.080 --> 05:00.680
+Plus.
+
+05:00.680 --> 05:05.480
+And it narrowly beats, uh, GPT four again.
+
+05:05.480 --> 05:10.940
+But I think it has this line in here, and maybe it has allowed it to be slightly faster.
+
+05:10.940 --> 05:13.610
+Maybe Claude's code really is quicker.
+
+05:13.790 --> 05:16.400
+Um, they're so similar that I am suspicious.
+
+05:16.400 --> 05:16.810
+This is.
+
+05:16.840 --> 05:19.480
+This all gets optimized anyway by the compiler.
+
+05:19.600 --> 05:22.570
+But it's possible this is consistently slightly faster.
+
+05:22.570 --> 05:24.880
+So you may be a C plus plus expert.
+
+05:24.880 --> 05:25.540
+That can tell me.
+
+05:25.540 --> 05:31.030
+And you may be able to try it yourself and satisfy yourself, whether on your architecture it is faster
+
+05:31.030 --> 05:31.960
+or not.
+
+05:31.960 --> 05:33.880
+But anyway, that is not the point.
+
+05:33.910 --> 05:38.260
+What we're here to see is how does code quality measure up?
+
+05:38.290 --> 05:39.220
+Can it convert?
+
+05:39.250 --> 05:42.130
+Does it make sense and is it any different?
+
+05:42.160 --> 05:45.430
+Let's press the convert code button and see what happens.
+
+05:45.430 --> 05:49.780
+So first of all as we know it's more it's got some chattiness to it.
+
+05:49.810 --> 05:53.920
+It hasn't correctly stripped out its explanation.
+
+05:53.920 --> 05:55.720
+So we will need to delete that.
+
+05:55.720 --> 05:57.880
+But we'll let it get away with that.
+
+05:57.910 --> 06:03.790
+We won't ding the code model for adding that extra.
+
+06:05.320 --> 06:11.530
+Remember, this is all streaming right now as as we watch it from the endpoint.
+
+06:11.560 --> 06:15.070
+If I go over to here, I may need to refresh that.
+
+06:15.070 --> 06:17.290
+We should be seeing that we do.
+
+06:17.320 --> 06:22.820
+We do indeed see a blip of CPU and GPU as it streams back the results, I love it.
+
+06:23.240 --> 06:29.990
+Uh, and so here by now, uh, go down to the, uh, sorry to our gradient screen.
+
+06:29.990 --> 06:30.860
+Here we go.
+
+06:30.860 --> 06:35.690
+Uh, we have the, the, uh, full solution.
+
+06:35.690 --> 06:42.260
+So what we're going to do now is we're going to remove the stuff at the top, and we're going to remove
+
+06:42.260 --> 06:46.400
+the explanation at the end that we don't need.
+
+06:46.430 --> 06:51.980
+And we are going to run this C plus plus code to see how code Quinn has done.
+
+06:52.250 --> 06:53.780
+Let's give it a try.
+
+06:56.060 --> 06:58.670
+And it ran and it was fast.
+
+06:58.700 --> 07:00.140
+It was about the same as GPT four.
+
+07:00.170 --> 07:02.720
+Oh, I imagine it's about the same.
+
+07:02.900 --> 07:09.170
+Uh, and I see it doesn't have that pragma thing in there, but it seems to have done a great job.
+
+07:09.170 --> 07:10.640
+It's got the same answer.
+
+07:10.640 --> 07:15.290
+And I think that is certainly a success for code.
+
+07:15.290 --> 07:16.010
+Quinn.
+
+07:16.340 --> 07:24.130
+Uh, and again, remember the difference in model parameters code Quinn running here with its 7 billion
+
+07:24.130 --> 07:33.730
+parameters and compared with the, uh, the uh, hundreds of, of of, uh, sorry, there are more than
+
+07:33.730 --> 07:37.660
+2 trillion parameters that you've got in GPT four and Claude.
+
+07:38.170 --> 07:44.200
+Uh, so let's now go back here and let's, let's, uh, raise the bar.
+
+07:44.230 --> 07:46.000
+Let's make the challenge harder.
+
+07:46.030 --> 07:57.580
+Let's change this value to be the Python hard, the code which calculates the maximum subarray sum.
+
+07:57.580 --> 08:05.110
+And we will see now how our open source model can handle this complicated case.
+
+08:08.260 --> 08:11.590
+So what's it doing its thing.
+
+08:13.240 --> 08:15.970
+So already there is a problem.
+
+08:15.970 --> 08:16.840
+There is a problem.
+
+08:16.840 --> 08:24.790
+And that problem is that, uh, it has decided to reimplement the approach for generating random numbers,
+
+08:24.790 --> 08:33.440
+changing the approach that we had set with this, uh, LCG, um, technique for generating repeatable
+
+08:33.440 --> 08:36.380
+and consistent random numbers between the implementations.
+
+08:36.410 --> 08:41.270
+Now, that's despite the fact that I very clearly put in the system prompt that it should not change
+
+08:41.270 --> 08:43.760
+the functionality around random number generation.
+
+08:43.790 --> 08:50.990
+So again, I was not able to convince Coetquen to change that strategy.
+
+08:51.050 --> 08:53.960
+Uh, you should experiment with this, see if you can do better.
+
+08:53.960 --> 08:58.580
+But I was not able to do so myself with some experimenting.
+
+08:59.000 --> 09:00.950
+Uh, it's almost finished.
+
+09:01.160 --> 09:01.940
+There we go.
+
+09:01.940 --> 09:02.540
+It's done.
+
+09:02.570 --> 09:07.640
+So we will take out what comes at the end, and we will take out what comes at the beginning.
+
+09:07.640 --> 09:09.680
+And now the moment of truth.
+
+09:09.680 --> 09:15.230
+We will run the C plus plus code from Code Kwan and scroll down.
+
+09:15.770 --> 09:21.380
+Uh, and what we find is, of course, that the number does not match.
+
+09:21.410 --> 09:23.930
+If you remember the the result from before.
+
+09:23.930 --> 09:30.220
+So unfortunately, Code Kwan has not been successful in replicating the number, and that's no surprise.
+
+09:30.220 --> 09:37.420
+That is because of course, it has, uh, got a its own random number generator.
+
+09:37.720 --> 09:42.850
+Um, it's, um, done some, uh, some interesting stuff here.
+
+09:42.850 --> 09:49.930
+It, uh, does appear to have potentially recognized the more efficient methodology, but since the
+
+09:49.930 --> 09:55.390
+numbers don't match, we can't validate that it has, in fact done everything correctly and got the
+
+09:55.390 --> 09:56.230
+right number.
+
+09:56.230 --> 10:00.970
+So unfortunately, unfortunately, I was so very hopeful.
+
+10:00.970 --> 10:08.830
+Codeclan did Laudably Codeclan was able to pass the the pie test, the simple test, but Codeclan did
+
+10:08.830 --> 10:16.930
+stumble with the harder test and wasn't able to reproduce the same exact answer as the Python code,
+
+10:16.930 --> 10:19.060
+which was its mission.
+
+10:19.060 --> 10:24.850
+So from that perspective, unfortunately, the frontier models come up on top.
+
+10:24.850 --> 10:27.370
+Clawed again for the win.
+
+10:27.370 --> 10:30.340
+Uh, and Codeclan didn't quite make it.
+
+10:31.240 --> 10:33.250
+I will see you next time for a wrap up.

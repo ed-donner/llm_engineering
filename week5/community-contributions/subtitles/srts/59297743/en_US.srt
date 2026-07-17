@@ -1,0 +1,526 @@
+WEBVTT
+
+00:01.310 --> 00:03.650
+And welcome to day five.
+
+00:03.680 --> 00:04.490
+For reals.
+
+00:04.490 --> 00:06.680
+We're actually in the proper Jupyter notebook.
+
+00:06.710 --> 00:11.060
+This time we're in day five, in week five, ready for action.
+
+00:11.060 --> 00:13.610
+And it's the same as before.
+
+00:13.940 --> 00:16.580
+It's a duplicate of day four, not day four and a half.
+
+00:16.580 --> 00:22.760
+We're using the Chroma Datastore here, and I'm going to really quickly go through this because you
+
+00:22.760 --> 00:24.560
+know all of this already.
+
+00:24.560 --> 00:31.160
+And we're going to get back to our Gradio interface.
+
+00:31.160 --> 00:31.970
+Just like that.
+
+00:31.970 --> 00:33.110
+It caught up with us.
+
+00:33.230 --> 00:33.890
+It's drawn.
+
+00:33.890 --> 00:36.080
+It's 2D and 3D diagrams behind the scenes.
+
+00:36.080 --> 00:37.130
+But no time for that.
+
+00:37.130 --> 00:37.490
+Now.
+
+00:37.490 --> 00:38.840
+We need to press on.
+
+00:39.200 --> 00:45.230
+Uh, first of all, I might as well show you that that aviary test we did before still works in chroma
+
+00:45.260 --> 00:46.550
+as it did in vice.
+
+00:46.550 --> 00:49.190
+So let's just quickly try that ourselves.
+
+00:49.400 --> 00:56.750
+Um, what did aviary spelt wrong do before ensure?
+
+00:57.320 --> 01:00.350
+Um, and I imagine.
+
+01:00.350 --> 01:01.130
+We'll see.
+
+01:01.160 --> 01:01.820
+Yes.
+
+01:01.820 --> 01:06.280
+That chroma has no problems whatsoever with that either.
+
+01:06.310 --> 01:07.810
+No surprises there.
+
+01:07.840 --> 01:11.980
+Okay, but let me now show you something which isn't going to go so well.
+
+01:11.980 --> 01:16.360
+First of all, I want to take a peek at an employee HR document.
+
+01:16.390 --> 01:22.210
+If we go into our knowledge base and we go to employees, we're going to look at the employee record
+
+01:22.210 --> 01:25.360
+for a certain Maxine Thompson.
+
+01:25.390 --> 01:27.610
+Let's open this with markdown.
+
+01:27.610 --> 01:30.010
+So we see it in its full markdown glory.
+
+01:30.040 --> 01:35.830
+Here is HR record for Maxine Thompson, um, a data engineer in Austin, Texas.
+
+01:35.830 --> 01:41.110
+And the thing I wanted to draw your attention to for one second is that if you look down here, you'll
+
+01:41.110 --> 01:47.860
+notice that Maxine was recognized as the Ensure Elm Innovator of the year in 2023.
+
+01:47.890 --> 01:56.410
+She received the prestigious I o T Award in Elm Innovator of the year award in 2023.
+
+01:56.440 --> 01:59.110
+Now, I have to confess, I added this sentence in myself.
+
+01:59.110 --> 02:06.160
+It wasn't as if this was, uh, invented as part of the synthetic data, uh, by, uh, GPT four or
+
+02:06.160 --> 02:06.760
+Claude.
+
+02:07.090 --> 02:08.620
+This is all my doing.
+
+02:08.830 --> 02:09.640
+And it's awful.
+
+02:09.640 --> 02:11.500
+So blame me.
+
+02:11.830 --> 02:19.720
+Uh, so what we're going to do now is we're going to go back to our day five, and we are going to ask
+
+02:19.720 --> 02:21.580
+the question, who won?
+
+02:24.400 --> 02:36.820
+Oh, we say, who received the prestigious, uh and Shriram Innovator of the year award in 2023.
+
+02:36.850 --> 02:38.740
+And let's see what it says.
+
+02:40.570 --> 02:42.160
+It says I don't know.
+
+02:42.190 --> 02:43.510
+And quite a blunt way.
+
+02:43.540 --> 02:44.710
+Quite curt.
+
+02:44.770 --> 02:46.420
+Uh, so that's interesting.
+
+02:46.450 --> 02:47.530
+Uh, it has failed.
+
+02:47.530 --> 02:49.330
+That was information that it was provided.
+
+02:49.330 --> 02:51.370
+It was there in the documents.
+
+02:51.370 --> 02:52.900
+And that is a bit disappointing.
+
+02:52.900 --> 02:56.290
+And so the thing to do now is to try and diagnose this problem.
+
+02:56.290 --> 03:00.520
+And in doing so, we're going to learn a little bit about how Lang Chain works under the hood.
+
+03:00.700 --> 03:02.950
+And it's not going to be very surprising.
+
+03:03.370 --> 03:06.310
+Uh, so here we get to see what's going on.
+
+03:06.370 --> 03:11.850
+Uh, there is this very useful thing we can do, which is create something called the standard out callback
+
+03:11.850 --> 03:17.010
+handler, which, much as it sounds, is going to be something which will let us print to the standard
+
+03:17.010 --> 03:19.590
+out what is going on behind the scenes.
+
+03:19.620 --> 03:22.710
+So this is the same familiar code that you're very used to.
+
+03:22.740 --> 03:24.000
+We create the alarm.
+
+03:24.090 --> 03:25.530
+We create the memory.
+
+03:25.560 --> 03:32.340
+We create the retriever and we create our conversation chain in this beautiful one liner passing in
+
+03:32.340 --> 03:35.850
+the LM, the retriever, the memory.
+
+03:35.850 --> 03:40.410
+And now you can see I'm passing in one more thing, which is a list of callbacks.
+
+03:40.410 --> 03:46.560
+And I'm only creating one callback in here, which is this standard out callback handler.
+
+03:46.560 --> 03:53.430
+And that as you can probably, uh, expect, is going to be printing, uh, repeatedly to standard out
+
+03:53.430 --> 03:55.710
+as this conversation chain runs.
+
+03:55.800 --> 03:58.650
+So here is the question again who won?
+
+03:58.680 --> 03:59.460
+I put it differently.
+
+03:59.730 --> 04:00.540
+Let's do it the same way.
+
+04:00.570 --> 04:07.020
+Who received the prestigious Iet Award in 2023?
+
+04:07.050 --> 04:07.770
+There we go.
+
+04:07.800 --> 04:09.030
+We'll ask that question.
+
+04:09.030 --> 04:10.110
+We'll get back the answer.
+
+04:10.110 --> 04:11.930
+We'll see what it says.
+
+04:12.770 --> 04:18.350
+So we get this kind of trace as we look through it, which gives us a bit of insight into how Lang Chain
+
+04:18.350 --> 04:19.010
+works.
+
+04:19.010 --> 04:21.170
+It has these different objects.
+
+04:21.170 --> 04:28.010
+These are called the chain that are sort of hooked together as it goes through the steps of building
+
+04:28.010 --> 04:30.440
+the conversation, the Rag query.
+
+04:30.440 --> 04:34.490
+And you can actually use different callbacks to be printing lots more detail about what's happening
+
+04:34.490 --> 04:36.590
+at each stage, should you wish.
+
+04:36.590 --> 04:41.600
+But what we really care about is the prompt that ends up going to GPT four.
+
+04:41.600 --> 04:43.040
+And here it is.
+
+04:43.040 --> 04:44.090
+System.
+
+04:44.090 --> 04:47.330
+Use the following piece of context to answer the user's question.
+
+04:47.330 --> 04:50.300
+If you don't know the answer, just say that you don't know.
+
+04:50.300 --> 04:52.220
+Don't try to make up an answer.
+
+04:52.250 --> 04:57.200
+I think this is really interesting, because this is the prompt that specialists at Lang Chain, like
+
+04:57.230 --> 05:02.090
+experts, have crafted as an ideal prompt to send to different llms.
+
+05:02.090 --> 05:06.020
+And so this is a great one for for you to steal and use in your own projects.
+
+05:06.020 --> 05:07.730
+It's very carefully written.
+
+05:07.730 --> 05:13.250
+It's clearly very effective because it stopped, uh, GPT four from hallucinating.
+
+05:13.370 --> 05:16.670
+Um, and so it's nice well worded prompting.
+
+05:17.390 --> 05:18.710
+But here's the problem.
+
+05:18.710 --> 05:25.520
+This is the context that was then provided to the to the LM coming up right here.
+
+05:25.520 --> 05:30.740
+And you'll see that it is, in fact a few chunks taken from different chunks that we've got.
+
+05:30.770 --> 05:36.200
+It's 2 or 3 chunks and they appear to be taken from HR records.
+
+05:36.410 --> 05:38.180
+But they're not right.
+
+05:38.180 --> 05:42.140
+Because they don't mention the I o t award.
+
+05:42.140 --> 05:47.060
+So it's wrong chunks that have been identified unfortunately in this case.
+
+05:47.300 --> 05:51.230
+Um oh, and that this at the end here is is the question.
+
+05:51.230 --> 05:55.400
+It says human who received the prestigious I o t award.
+
+05:55.730 --> 05:56.780
+I'm the human.
+
+05:56.780 --> 06:03.320
+Uh, and clearly there wasn't good context to answer that question in what comes above.
+
+06:03.320 --> 06:07.160
+And that's why the response was, I don't know.
+
+06:07.850 --> 06:10.370
+So what can we do about this?
+
+06:10.370 --> 06:14.990
+Well, it's a it's a very common problem with Rag when you find that you're not providing the right
+
+06:14.990 --> 06:15.590
+context.
+
+06:15.590 --> 06:17.440
+And there's a few different things that you can do.
+
+06:17.680 --> 06:22.420
+Uh, one of them is to go back and look at your chunking strategy.
+
+06:22.540 --> 06:25.270
+How are you dividing documents into chunks?
+
+06:25.270 --> 06:26.050
+And are you doing that?
+
+06:26.050 --> 06:26.500
+Right.
+
+06:26.500 --> 06:28.780
+And there's a few things that we could try right off the bat.
+
+06:28.810 --> 06:34.300
+One of them is instead of chunking, we could send entire documents in as the context.
+
+06:34.300 --> 06:40.480
+So we we just put full documents in Cromer and then we look for the document that's closest.
+
+06:40.510 --> 06:46.930
+We could also go the other way and chunk more, have more fine grained chunks, smaller chunks.
+
+06:47.140 --> 06:52.030
+We can also investigate that overlap between chunks to see if we increase or decrease the overlap,
+
+06:52.030 --> 06:52.960
+presumably increase.
+
+06:52.960 --> 06:57.490
+In this case, we are more likely to provide a useful chunk.
+
+06:57.490 --> 07:04.990
+So those are all things to investigate to get your chunking strategy working well so the right context
+
+07:04.990 --> 07:06.160
+is being provided.
+
+07:06.190 --> 07:07.420
+There is another thing.
+
+07:07.420 --> 07:08.230
+And it's very simple.
+
+07:08.230 --> 07:09.910
+And it's what we're going to do in this case.
+
+07:10.090 --> 07:15.850
+And that is to control the number of chunks, the amount of context that actually does get sent in.
+
+07:16.090 --> 07:21.390
+Um, so in our case, we're just sending a I think it's actually three chunks that are getting sent
+
+07:21.390 --> 07:27.870
+in here, and you can actually control the number of chunks that get sent in, and you can do that in
+
+07:27.870 --> 07:28.650
+this way.
+
+07:28.650 --> 07:36.240
+When we create the retriever vector store as retriever, we can actually say how many chunks we want
+
+07:36.270 --> 07:38.040
+returned and passed in.
+
+07:38.040 --> 07:44.340
+And in this case, I have specified now that I want 25 chunks to be created and passed in.
+
+07:44.370 --> 07:49.470
+As a general rule of thumb, it's a good idea to send a lot of context to the LLM.
+
+07:49.500 --> 07:56.730
+Llms are very good at, at uh, only focusing on relevant contexts and ignoring irrelevant context.
+
+07:56.730 --> 07:59.670
+So it's good practice to send plenty of chunks.
+
+07:59.670 --> 08:03.810
+There are a few occasional situations where it's better not to do that.
+
+08:03.840 --> 08:10.260
+One of them, for example, is in one of the very latest models that OpenAI is offering, a model which
+
+08:10.260 --> 08:17.760
+looks in much more detail at the prompt and does some more analysis behind the scenes to really understand
+
+08:17.790 --> 08:17.970
+it.
+
+08:17.970 --> 08:20.070
+Sort of chain of thought processing on it.
+
+08:20.250 --> 08:25.710
+Um, and the recommendation there is that you don't provide lots of extra irrelevant context because
+
+08:25.710 --> 08:28.230
+that will slow down and distract the model.
+
+08:28.230 --> 08:34.020
+But with those occasional examples to one side, general rule of thumb is that more context is generally
+
+08:34.020 --> 08:35.040
+a good thing.
+
+08:35.490 --> 08:42.660
+And so in this case, there's not much harm in providing the 25 nearest chunks rather than 2 or 3 nearest
+
+08:42.660 --> 08:43.260
+chunks.
+
+08:43.260 --> 08:45.900
+We've got a total of what, 123 chunks.
+
+08:45.900 --> 08:48.810
+So this is still about a fifth of our total data.
+
+08:48.810 --> 08:51.210
+So we're not shipping our entire data set.
+
+08:51.240 --> 08:58.680
+We're picking the most relevant 25 chunks, the most relevant fifth of our content to send the LLM.
+
+08:58.680 --> 09:00.360
+So let's see if this works.
+
+09:00.360 --> 09:02.010
+So we will run this.
+
+09:02.010 --> 09:07.530
+And then as as before we will bring up our usual Gradio interface.
+
+09:07.530 --> 09:15.540
+And right off the bat we'll ask the question who won the uh sorry who received to use the.
+
+09:15.570 --> 09:16.860
+So I keep it consistent.
+
+09:16.890 --> 09:26.960
+Who received the prestigious I t y Award in 2023.
+
+09:26.990 --> 09:27.950
+And let's see.
+
+09:27.980 --> 09:29.240
+Drum roll please.
+
+09:29.270 --> 09:30.230
+Maxine.
+
+09:30.260 --> 09:35.300
+Maxine received the prestigious I o t 2023 award.
+
+09:35.300 --> 09:40.730
+So indeed, providing more chunks to the LM did solve the problem.
+
+09:40.940 --> 09:46.370
+So with that, the exercise for you is to now go back, experiment with this.
+
+09:46.370 --> 09:47.960
+Try some hard questions.
+
+09:47.960 --> 09:51.140
+You could always insert a few things in the documents yourself and see what happens.
+
+09:51.350 --> 09:54.440
+Um, and then experiment with different chunking strategies.
+
+09:54.440 --> 10:01.370
+Try full documents, try smaller chunks, maybe 100 characters with more and less overlap, and get
+
+10:01.370 --> 10:09.140
+a good feel for how that affects the quality of results and and how you can either give too little context.
+
+10:09.170 --> 10:11.780
+Maybe you can see some effects of providing too much context.
+
+10:11.810 --> 10:14.540
+Maybe that causes the responses to be less accurate.
+
+10:14.540 --> 10:23.000
+So experiment, get a good sense for the the the good and the bad, and a good knack for how to do this
+
+10:23.030 --> 10:24.830
+in a way that is most effective.
+
+10:24.830 --> 10:28.010
+And I will see you for the next video to wrap up.

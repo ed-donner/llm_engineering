@@ -1,0 +1,130 @@
+WEBVTT
+
+00:01.340 --> 00:05.000
+Welcome, everybody to the last day of week three.
+
+00:05.030 --> 00:05.810
+Week three.
+
+00:05.840 --> 00:06.710
+Day five.
+
+00:06.740 --> 00:12.740
+We're here already wrapping up open source model inference with hugging face.
+
+00:12.740 --> 00:16.790
+And today, today is the day that you're going pro.
+
+00:16.790 --> 00:23.150
+Today is the day when we're putting together everything you've learned in the last four days of lectures
+
+00:23.150 --> 00:31.910
+and really solidifying it with an excellent, uh, juicy project, a business project which is going
+
+00:31.910 --> 00:37.940
+to give you some, some true experience in the field, what you can do already, if you don't mind me
+
+00:37.940 --> 00:41.180
+telling you one more time, you can code with frontier models.
+
+00:41.180 --> 00:46.970
+You can build AI assistants with tools, multi-modality, generating images, making sounds.
+
+00:47.120 --> 00:55.100
+Uh, and you can use pipelines, tokenizers and models within the hugging face Transformers library.
+
+00:55.130 --> 00:59.960
+Today, you're going to be even more confident with Tokenizers and models.
+
+00:59.960 --> 01:05.330
+You're going to be able to run inference across open source models with ease, and you're going to have
+
+01:05.360 --> 01:13.260
+implemented an LLM solution combining frontier and open source models together into one nice package.
+
+01:13.260 --> 01:21.240
+There's also going to be a good business challenge for you to keep working on this, so let's get started.
+
+01:22.440 --> 01:28.710
+The business problem that we have is a feature that is in many applications that we all know, and so
+
+01:28.710 --> 01:32.130
+it's a good, real kind of product.
+
+01:32.130 --> 01:40.260
+We want to build a solution that can create minutes of meetings including things like actions and owners
+
+01:40.260 --> 01:41.880
+and so on.
+
+01:42.120 --> 01:51.180
+Uh, it will be able to take an audio recording and then use a frontier model, use an API to convert
+
+01:51.180 --> 01:52.620
+the audio to text.
+
+01:52.620 --> 01:58.320
+It's actually a task that I had given you as a follow on exercise from one of the projects last week,
+
+01:58.320 --> 02:01.830
+so you may have already experimented with this, but if not, we're going to do it together.
+
+02:01.830 --> 02:07.430
+We're going to call a frontier model to convert audio to text.
+
+02:07.430 --> 02:14.120
+We are then going to use an open source model to turn that text into meeting minutes, summarizing it,
+
+02:14.120 --> 02:17.760
+plucking out actions and owners and the like.
+
+02:17.820 --> 02:21.870
+And we will stream back results and show them in markdown.
+
+02:21.870 --> 02:25.380
+So these these are the activities we're going to do.
+
+02:25.410 --> 02:27.060
+That's how we're going to put it together.
+
+02:27.390 --> 02:31.800
+And it's going to build a product that will be useful.
+
+02:32.250 --> 02:34.140
+This is what we want to come up with.
+
+02:34.170 --> 02:40.440
+We want to be able to have a solution that produces minutes like this with discussion points, takeaways,
+
+02:40.470 --> 02:47.700
+action items, and as the input data to start with the resource that we'll be using.
+
+02:47.730 --> 02:56.400
+There are audio files of publicly available council meetings from councils across the US available on
+
+02:56.430 --> 02:57.270
+hugging face.
+
+02:57.270 --> 02:59.400
+And that is where we'll begin.
+
+02:59.670 --> 03:03.930
+I've already downloaded one of the audio files and taken a chunk out of it.
+
+03:04.200 --> 03:08.460
+In the interest of time, we'll do just a piece of the Denver City Council meeting rather than the whole
+
+03:08.460 --> 03:09.030
+meeting.
+
+03:09.300 --> 03:12.900
+But the idea is that that's going to help us show that it works.
+
+03:12.900 --> 03:17.370
+And then perhaps this is something that you'll be able to use for your own meetings, for real, when
+
+03:17.370 --> 03:19.680
+we have a working product.
+
+03:19.710 --> 03:24.840
+So without further ado, let's go to Google Colab and let's build our application.

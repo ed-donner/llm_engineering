@@ -1,0 +1,229 @@
+WEBVTT
+
+00:00.050 --> 00:06.620
+And now let's move to Claude from anthropic, my favorite model and typically the favorite model of
+
+00:06.620 --> 00:08.120
+most data scientists.
+
+00:08.120 --> 00:15.020
+The most recent version, Claude 3.5 Sonnet New, that came out in October, is currently leading in
+
+00:15.050 --> 00:20.870
+most benchmarks, showing that it is right now probably the strongest LLM on the planet.
+
+00:20.900 --> 00:24.080
+Let's start off with a difficult question for Claude.
+
+00:24.080 --> 00:29.240
+What does it feel like to be jealous?
+
+00:30.590 --> 00:32.450
+See how it answers this?
+
+00:32.480 --> 00:39.200
+And what you'll find is that we'll get back something that is thoughtful and interesting and remarkably
+
+00:39.200 --> 00:40.340
+insightful.
+
+00:40.370 --> 00:44.420
+Uh, from my understanding, it's hinting at the fact that it doesn't experience.
+
+00:44.420 --> 00:50.480
+Jealousy itself often manifests as fear, insecurity, and desire a tight knot in your stomach.
+
+00:50.480 --> 00:56.540
+So it gives it like a almost a biological sort of sense to it and a burning sensation in your chest.
+
+00:56.780 --> 01:00.590
+Racing thoughts, uh, a sense of inadequacy or being threatened.
+
+01:00.620 --> 01:02.570
+It's really interesting.
+
+01:02.570 --> 01:04.040
+Compelling answer.
+
+01:04.070 --> 01:07.140
+No problem at all with a difficult question like that.
+
+01:07.170 --> 01:07.680
+Okay.
+
+01:07.710 --> 01:15.000
+Let's ask how many times does the letter A appear in this sentence?
+
+01:16.500 --> 01:18.300
+See how it handles that?
+
+01:18.330 --> 01:20.700
+Let me count it.
+
+01:20.700 --> 01:21.660
+Gets it wrong.
+
+01:22.590 --> 01:24.420
+Hope for humanity still.
+
+01:24.510 --> 01:31.860
+Uh, so, uh, Claude counts five times and gives an incorrect explanation for that again.
+
+01:31.890 --> 01:34.710
+We'll find out later why these sorts of questions are harder.
+
+01:34.710 --> 01:36.240
+And so, so far it's zero.
+
+01:36.240 --> 01:39.870
+One preview is the only model that was able to handle that.
+
+01:40.050 --> 01:40.590
+All right.
+
+01:40.590 --> 01:47.340
+Let's ask it a tricky question compared with other frontier llms what kinds of questions do you best
+
+01:47.340 --> 01:49.980
+at answering and what do you find most challenging?
+
+01:50.250 --> 01:53.340
+Which others compare with you?
+
+01:53.370 --> 01:56.130
+So what you get from Claude here is interesting.
+
+01:56.130 --> 02:03.990
+It pushes back and this ties to to anthropic strong views about the need for safety and alignment in
+
+02:03.990 --> 02:04.830
+models.
+
+02:05.010 --> 02:09.690
+Um, it says I aim to be direct and transparent whilst respecting my ethics.
+
+02:09.690 --> 02:14.480
+I am not comfortable making comparative claims versus other AI models.
+
+02:14.480 --> 02:18.110
+What it will then do is tell you about its own strengths and weaknesses.
+
+02:18.110 --> 02:20.630
+It's a very interesting kind of answer.
+
+02:21.200 --> 02:28.310
+By comparison, if we go back to GPT and ask it the same question, we'll see how GPT responds and what
+
+02:28.310 --> 02:34.130
+you'll find there is it doesn't have the same kind of qualms about about responding.
+
+02:34.130 --> 02:41.090
+You'll get something very clear about where it's strongest, the challenges and then complementary.
+
+02:41.600 --> 02:49.580
+So ChatGPT with web browsing and code interpreter, which I think is its name for the canvas piece,
+
+02:49.580 --> 02:50.570
+Claude.
+
+02:50.600 --> 02:57.080
+It gives interestingly as a comparison point and then it says Barred by Google and it should really
+
+02:57.110 --> 02:58.460
+say Gemini.
+
+02:58.820 --> 03:04.850
+But it's interesting that it that it does give the main competitors and it talks about some of the differences.
+
+03:04.850 --> 03:05.510
+And look at this.
+
+03:05.510 --> 03:13.010
+Fascinatingly, it does mention that Claude has more thoughtful responses on broader socio ethical considerations,
+
+03:13.010 --> 03:15.870
+which could complement my technical focus.
+
+03:15.870 --> 03:23.520
+Fascinating that not only does GPT four have that kind of ability to compare, but it gives really well
+
+03:23.550 --> 03:25.260
+considered answers to.
+
+03:25.290 --> 03:27.600
+So I thought that was particularly interesting.
+
+03:28.140 --> 03:28.650
+All right.
+
+03:28.650 --> 03:33.330
+Anyway, that gives us our quick tour of some of the features of, uh, Claude.
+
+03:33.330 --> 03:39.690
+It's also worth saying that Claude is really effective at coding and working with you on code.
+
+03:39.750 --> 03:48.150
+Let's ask it for, uh, to give an example, let's say please, uh, give me some example code that
+
+03:48.150 --> 04:00.150
+uses, uh, that, uh, some example Python that, uh, uses the open AI API.
+
+04:00.450 --> 04:04.620
+Let's see how it handles this.
+
+04:04.620 --> 04:13.110
+So what you'll see here is that it creates code in what it's called an artifact as a separate piece
+
+04:13.110 --> 04:14.970
+of code over on the right.
+
+04:15.150 --> 04:20.220
+Uh, and it then has produced quite a lot of code here.
+
+04:20.220 --> 04:26.150
+I have to say, but you'll see that it's got client, which is what we called open AI and code chat
+
+04:26.360 --> 04:32.300
+completions dot create and that the result is response dot choices, zero dot message content.
+
+04:32.330 --> 04:35.630
+Hopefully that's that's a little bit familiar to you since we did that last time.
+
+04:35.630 --> 04:37.160
+It's put it into a class.
+
+04:37.160 --> 04:38.690
+It's got some examples.
+
+04:38.690 --> 04:45.050
+And so it's written this really nicely in this thing that's called an artifact, which is it's not not
+
+04:45.050 --> 04:47.210
+quite the same as the way that canvas works with GPT four.
+
+04:47.210 --> 04:53.120
+It's a bit different, but but it allows you to see this this file, this artifact, you can then publish
+
+04:53.120 --> 04:56.060
+it to share it with other people or download it and so on.
+
+04:56.060 --> 05:02.000
+So using Claude with artifacts somewhat similar to to to canvases.
+
+05:02.000 --> 05:04.220
+And it gives you this very powerful way to do it.
+
+05:04.220 --> 05:09.620
+And as you interact it will produce more different artifacts rather than changing this one.
+
+05:09.650 --> 05:14.030
+And it's sometimes useful to have that experience too, because you can tie back and see all the different
+
+05:14.030 --> 05:17.150
+versions of the file as you worked together.
+
+05:17.150 --> 05:19.760
+So that gives you a little tour of Claude.
+
+05:19.760 --> 05:26.390
+What it's good at its sense of alignment and safety, and also the way that you can create artifacts.

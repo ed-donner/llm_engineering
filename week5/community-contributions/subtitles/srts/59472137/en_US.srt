@@ -1,0 +1,61 @@
+WEBVTT
+
+00:00.740 --> 00:05.720
+Well, well, well, it's been a long day, but congratulations, you've made it.
+
+00:05.750 --> 00:12.260
+We've gone through and curated a pristine data set, working very hard to make sure that it's got a
+
+00:12.260 --> 00:16.310
+good sample representation of the data we want to train by.
+
+00:16.340 --> 00:23.450
+And at the end, we of course turned it into a hugging face data set, a data set dict with the training
+
+00:23.450 --> 00:28.310
+and test parts to it, and we uploaded it to the Hugging Face Hub.
+
+00:28.310 --> 00:31.880
+And if you've gone through all of these instructions, which I know you will have done, you've been
+
+00:31.880 --> 00:36.410
+following along in JupyterLab, getting comfortable with the different things that I've been doing then
+
+00:36.410 --> 00:44.210
+now you'll be rewarded with your own data set, sitting there in the hub that you will be able to use
+
+00:44.210 --> 00:46.820
+in the subsequent sessions.
+
+00:46.820 --> 00:50.060
+So congratulations on on on getting that far.
+
+00:50.270 --> 00:56.660
+Uh, so we've added to the skills that you've acquired, the understanding of the five step strategy
+
+00:56.660 --> 01:03.560
+to solving commercial business problems with Llms, uh, weighing up the three different optimization
+
+01:03.560 --> 01:11.900
+techniques and some real detail in data set curation, including some thorny, uh, bits of code there
+
+01:11.900 --> 01:18.020
+that I do hope you'll look through and understand them and then use them in your projects, like sampling
+
+01:18.050 --> 01:20.180
+from existing data sets.
+
+01:20.630 --> 01:25.550
+So next time, next time we're going to be talking about baseline models.
+
+01:25.550 --> 01:29.210
+We're going to be creating a traditional machine learning solution.
+
+01:29.210 --> 01:36.320
+And we're going to be applying some traditional and advanced techniques to see what gives us good results.
+
+01:36.320 --> 01:38.120
+And I'm excited for it.
+
+01:38.120 --> 01:39.440
+And I will see you there.
