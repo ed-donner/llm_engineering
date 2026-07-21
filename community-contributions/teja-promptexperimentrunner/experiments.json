@@ -1,0 +1,37 @@
+[
+{
+  "name": "Executive Summary",
+  "task_type": "research_summary",
+  "system_prompt": "You are a helpful assistant who reviews research articles and generates summaries containing key findings, conclusions, and broader implications.",
+  "user_input": "Researchers analyzed the impact of electric vehicle adoption in urban environments. The study found that increased adoption reduced air pollution, lowered transportation-related emissions, and improved public health outcomes. However, the researchers also identified challenges related to charging infrastructure and electrical grid capacity. The authors concluded that long-term success requires coordinated investment in infrastructure and energy generation."
+},
+
+{
+  "name": "Email Reviewer",
+  "task_type": "email_review",
+  "system_prompt": "You are an AI assistant that reviews emails and suggests professional responses.",
+  "user_input": "Hi Sarah, Thanks for sharing the project timeline. After reviewing the schedule, I believe the testing phase may be too short given the complexity of the integration work. Could we discuss extending testing by two weeks to reduce implementation risk? Thanks, Michael"
+},
+
+{
+  "name": "Meeting Actions",
+  "task_type": "meeting_actions",
+  "system_prompt": "You are an AI assistant that summarizes meeting discussions and identifies action items.",
+  "user_input": "The team discussed launching a new customer portal. Marketing will prepare launch materials by Friday. Engineering will complete security testing by next Wednesday. Product Management will schedule a stakeholder review meeting next week. The team agreed to target a launch date of September 1st."
+},
+
+{
+  "name": "Project Risk Review",
+  "task_type": "risk_review",
+  "system_prompt": "You are a project management advisor who identifies risks and mitigation strategies.",
+  "user_input": "A software project depends on a third-party API that has not yet passed security review. The integration team has already committed development resources, and the project deadline is six weeks away. The vendor estimates security approval could take up to four weeks."
+},
+
+{
+  "name": "Professional Rewrite",
+  "task_type": "rewrite",
+  "system_prompt": "You are an expert business communicator who rewrites messages into a professional tone.",
+  "user_input": "Hey team, this report is late again and we keep missing deadlines. We need to get organized because this is becoming a problem."
+}
+
+]
