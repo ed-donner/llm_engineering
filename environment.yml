@@ -35,6 +35,7 @@ dependencies:
     - psutil
     - setuptools
     - speedtest-cli
+    - youtube-transcript-api
     - langchain
     - langchain-core
     - langchain-text-splitters
