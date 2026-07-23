@@ -1,0 +1,9 @@
+requests
+beautifulsoup4
+pypdf
+selenium
+webdriver-manager
+openai
+python-dotenv
+ipython
+ipykernel
