@@ -1,0 +1,85 @@
+ % python run_real_eval.py
+[1/30] id=1: What is the minimum value of the Length field in a UDP datag... ok (assertion_cov=1.00)
+[2/30] id=2: What is the purpose of the pseudo header in the UDP checksum... ok (assertion_cov=0.50)
+[3/30] id=3: What is the protocol number for UDP?... ok (assertion_cov=1.00)
+[4/30] id=4: How does TCP ensure reliable data transfer?... ok (assertion_cov=1.00)
+[5/30] id=5: What are the steps of the TCP three-way handshake for connec... ok (assertion_cov=1.00)
+[6/30] id=6: Why does TCP use a clock-based initial sequence number (ISN)... ok (assertion_cov=1.00)
+[7/30] id=7: What is the purpose of the TCP PUSH function?... ok (assertion_cov=0.33)
+[8/30] id=8: What are the three classes of Internet addresses defined in ... ok (assertion_cov=0.00)
+[9/30] id=9: How does the IP fragmentation mechanism work, and what field... ok (assertion_cov=0.75)
+[10/30] id=10: What is the purpose of the Time to Live (TTL) field in the I... ok (assertion_cov=0.50)
+[11/30] id=11: What is the purpose of ICMP, and what types of messages does... ok (assertion_cov=0.33)
+[12/30] id=12: What does an ICMP Redirect message do, and when is it sent?... ok (assertion_cov=0.33)
+[13/30] id=13: Describe the ARP request and reply process.... ok (assertion_cov=0.33)
+[14/30] id=14: Why does ARP merge sender information into the cache before ... ok (assertion_cov=0.50)
+[15/30] id=15: What is the difference between an OSPF router-LSA and a netw... ok (assertion_cov=1.00)
+[16/30] id=16: How does OSPF's Designated Router election work, and why is ... ok (assertion_cov=0.25)
+[17/30] id=17: What is "counting to infinity" in RIP, and what mechanisms a... ok (assertion_cov=0.50)
+[18/30] id=18: What is the maximum hop count (diameter) supported by RIP, a... ok (assertion_cov=1.00)
+[19/30] id=19: What are the four categories of BGP path attributes, and how... ok (assertion_cov=0.00)
+[20/30] id=20: What are the phases of the BGP Decision Process, and what do...     [transient error, retry 1/5 in 5s] 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}
+ok (assertion_cov=0.40)
+[21/30] id=21: What are the five states of a Neighbor Cache entry in IPv6 N... ok (assertion_cov=0.67)
+[22/30] id=22: What five ICMP message types does IPv6 Neighbor Discovery de...     [transient error, retry 1/5 in 5s] 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}
+ok (assertion_cov=0.00)
+[23/30] id=23: What is the difference between recursive and iterative DNS q... ok (assertion_cov=0.00)
+[24/30] id=24: What are the main components of the DNS, as described in RFC... ok (assertion_cov=0.33)
+[25/30] id=25: How do TCP and UDP differ in terms of reliability, connectio... ok (assertion_cov=0.67)
+[26/30] id=26: What are the five main sections of a DNS message?... ok (assertion_cov=0.00)
+[27/30] id=27: What are the fields present in the fixed 12-byte DNS message... ok (assertion_cov=0.25)
+[28/30] id=28: How does DNS message compression work to reduce the size of ... ok (assertion_cov=0.33)
+[29/30] id=29: What are the standard fields of a DNS Resource Record (RR)?... ok (assertion_cov=1.00)
+[30/30] id=30: What is the TYPE value for an MX (Mail Exchange) record, and... ok (assertion_cov=0.67)
+
+Completed 30 case(s). Results saved to eval_results.csv
+============================================================
+OVERALL
+============================================================
+  n_cases: 30
+  retrieval_hit_rate: 1
+  retrieval_mrr: 0.905
+  context_precision: 0.747
+  keyword_coverage: 0.77
+  assertion_coverage: 0.522
+  answer_similarity: 0.555
+
+============================================================
+BY_DIFFICULTY
+============================================================
+  [easy] n=11 hit_rate=1 precision=0.564 assertion_cov=0.515 answer_sim=0.614
+  [medium] n=15 hit_rate=1 precision=0.84 assertion_cov=0.511 answer_sim=0.517
+  [hard] n=4 hit_rate=1 precision=0.9 assertion_cov=0.579 answer_sim=0.535
+
+============================================================
+BY_QUESTION_TYPE
+============================================================
+  [factual] n=11 hit_rate=1 precision=0.545 assertion_cov=0.53 answer_sim=0.627
+  [conceptual] n=15 hit_rate=1 precision=0.893 assertion_cov=0.494 answer_sim=0.537
+  [procedural] n=3 hit_rate=1 precision=0.8 assertion_cov=0.578 answer_sim=0.43
+  [comparative] n=1 hit_rate=1 precision=0.6 assertion_cov=0.667 answer_sim=0.409
+
+============================================================
+BY_SOURCE_DOC
+============================================================
+  [RFC 768] n=3 hit_rate=1 precision=0.333 assertion_cov=0.833 answer_sim=0.725
+  [RFC 793] n=4 hit_rate=1 precision=1.0 assertion_cov=0.833 answer_sim=0.611
+  [RFC 791] n=3 hit_rate=1 precision=0.733 assertion_cov=0.417 answer_sim=0.779
+  [RFC 792] n=2 hit_rate=1 precision=0.6 assertion_cov=0.333 answer_sim=0.363
+  [RFC 826] n=2 hit_rate=1 precision=0.7 assertion_cov=0.417 answer_sim=0.436
+  [RFC 2328] n=2 hit_rate=1 precision=1.0 assertion_cov=0.625 answer_sim=0.698
+  [RFC 2453] n=2 hit_rate=1 precision=1.0 assertion_cov=0.75 answer_sim=0.544
+  [RFC 4271] n=2 hit_rate=1 precision=1.0 assertion_cov=0.2 answer_sim=0.34
+  [RFC 4861] n=2 hit_rate=1 precision=1.0 assertion_cov=0.333 answer_sim=0.337
+  [RFC 1034] n=2 hit_rate=1 precision=0.8 assertion_cov=0.167 answer_sim=0.662
+  [RFC 768/RFC 793] n=1 hit_rate=1 precision=0.6 assertion_cov=0.667 answer_sim=0.409
+  [RFC 1035] n=5 hit_rate=1 precision=0.48 assertion_cov=0.45 answer_sim=0.506
+
+============================================================
+ROOT-CAUSE DIAGNOSIS
+============================================================
+  retrieval_failure: 3 case(s)
+  generation_failure: 15 case(s)
+  both_failed: 6 case(s)
+  passing: 6 case(s)
+ % 
