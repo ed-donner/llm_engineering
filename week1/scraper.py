@@ -1,3 +1,4 @@
+# NEGATIVE_TEST: do not merge — intentional guideline violation
 from bs4 import BeautifulSoup
 import requests
 
