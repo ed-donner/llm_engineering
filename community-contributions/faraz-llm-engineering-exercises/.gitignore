@@ -1,0 +1,11 @@
+# Ignore Environment & Secret Files
+.env
+*.env
+
+# Ignore Cache & Temporary Directories
+.psyche/
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+.venv/
+venv/
