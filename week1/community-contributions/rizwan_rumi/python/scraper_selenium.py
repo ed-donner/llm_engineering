@@ -48,4 +48,3 @@ def fetch_website_contents_selenium(url,  wait_seconds: int = 10):
 
     finally:
         driver.quit()
-
