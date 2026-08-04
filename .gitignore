@@ -212,6 +212,4 @@ week6/*/*.pkl
 week6/*/*.jsonl
 week6/*.pth
 week6/*.joblib
-week8/*.pth.\OpenAI_API_Key.txt
-.\OpenAI_API_Key.txt
-.\OpenAI_API_Key.txt
+week8/*.pth
