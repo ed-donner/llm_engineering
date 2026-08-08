@@ -1,0 +1,508 @@
+WEBVTT
+
+00:00.620 --> 00:01.790
+Welcome back.
+
+00:01.790 --> 00:07.370
+If you are following along with me in JupyterLab, as I hope you are, then you will need it to have
+
+00:07.370 --> 00:12.620
+gone off for a coffee break because it will have taken about 20 minutes or so to have downloaded all
+
+00:12.620 --> 00:16.550
+of our datasets, but they will now be downloaded and lovingly crafted.
+
+00:16.550 --> 00:17.750
+Here they are.
+
+00:17.780 --> 00:23.810
+The automotive one is the largest with north of 900,000 data points and office.
+
+00:23.870 --> 00:27.830
+Uh, sorry, electronics has more than 400,000.
+
+00:27.830 --> 00:29.600
+So in total.
+
+00:29.600 --> 00:30.980
+Let's have a look at what we've got.
+
+00:30.980 --> 00:36.410
+We have a grand total of just over 2.8 million data points.
+
+00:36.410 --> 00:38.120
+That's a lot of data points.
+
+00:38.120 --> 00:39.680
+It's too many data points.
+
+00:39.680 --> 00:43.580
+We don't need anything like that number for the sorts of training we're going to be doing.
+
+00:43.640 --> 00:50.480
+Um, and that means that there's an opportunity for us to hone this data set and select the data points
+
+00:50.480 --> 00:54.020
+that are going to be most valuable for us and give us the most signal.
+
+00:54.020 --> 00:59.480
+So first of all, let's take another look at the distribution of how many tokens we have.
+
+00:59.510 --> 01:05.310
+This is the same chart we did last time, and it shows you that we don't ever have more than 180 tokens
+
+01:05.310 --> 01:10.440
+in any of our training prompts, which is something that we specifically set out to achieve in order
+
+01:10.440 --> 01:17.160
+to be able to fine tune well with our open source llama model next time, but also to keep costs low
+
+01:17.160 --> 01:19.350
+when we're dealing with frontier models.
+
+01:19.890 --> 01:22.050
+Let's look at the prices again.
+
+01:22.290 --> 01:29.850
+This is the complete price distribution across the 2 million or so, and you'll see that it is constrained
+
+01:29.880 --> 01:33.690
+to be, uh, no more than $999.
+
+01:33.780 --> 01:39.510
+So it's between 1 and 999, because that's the constraint we've put in to make sure that we've got a
+
+01:39.510 --> 01:45.060
+manageable data set without crazy outliers that will distort all of our, uh, training.
+
+01:45.450 --> 01:51.150
+Um, but you'll see that we still have the same problem, that the data set is very skewed to the smaller
+
+01:51.150 --> 01:52.200
+numbers.
+
+01:52.230 --> 01:55.320
+And there's a very thin trail.
+
+01:55.320 --> 01:57.660
+Uh, and this only goes up to 300.
+
+01:57.720 --> 02:05.460
+So if we go all the way up to 1000 to the, uh, to the end of our, uh, data set.
+
+02:05.490 --> 02:06.030
+There you go.
+
+02:06.060 --> 02:06.540
+Look at that.
+
+02:06.540 --> 02:07.110
+This is the.
+
+02:07.140 --> 02:14.850
+We do have, uh, data points in there which reach up to 909.49, but you can barely see them.
+
+02:14.850 --> 02:18.840
+They barely touch the, uh, the the axis.
+
+02:18.960 --> 02:30.030
+Um, because the data set is so dominated by the 800,000 or so that are coming in at lower cost points.
+
+02:30.480 --> 02:34.170
+Uh, one other thing to do is just to have a quick look at the categories.
+
+02:34.170 --> 02:40.110
+This nice little bar chart is showing us how many we have in each of the different categories of data
+
+02:40.140 --> 02:40.920
+of product.
+
+02:40.920 --> 02:44.970
+So again, automotive dominating here with 900,000.
+
+02:44.970 --> 02:51.510
+And you can see it's followed by tools and home improvement followed by electronics with 400,000.
+
+02:51.510 --> 02:59.580
+So one of the things we want to do now is do some massaging of our data so that we have a more balanced
+
+02:59.580 --> 03:06.810
+data set, because we don't want the model to be skewed, distorted towards learning more about one
+
+03:06.810 --> 03:09.670
+particular price of one particular category.
+
+03:09.790 --> 03:15.310
+Um, we don't mind if it's if it's somewhat, uh, favors some some, like, like cheaper prices because
+
+03:15.310 --> 03:17.380
+that is the reality in the world.
+
+03:17.530 --> 03:23.110
+But we don't want to go so far that it distorts or impedes our training progress.
+
+03:23.350 --> 03:31.090
+Um, so, uh, what I'm going to do now is, is, is do some selection from this data set sample from
+
+03:31.090 --> 03:37.960
+our data set to get a smaller data set that is going to have a better representation of prices and categories.
+
+03:37.960 --> 03:42.910
+And the sort of data set size I'm going for is about 400,000 data points.
+
+03:42.940 --> 03:48.100
+Um, and even that's a large data set for fine tuning purposes, really doesn't need to be that big.
+
+03:48.130 --> 03:50.290
+But I wanted to have a big juicy data set.
+
+03:50.290 --> 03:52.420
+So 400,000 is what I've gone for.
+
+03:52.510 --> 03:54.910
+Um, and we'll talk about how I do that.
+
+03:55.000 --> 04:00.580
+So first of all, I've created a dictionary called slots.
+
+04:00.580 --> 04:01.810
+And let me tell you what this is.
+
+04:01.840 --> 04:04.060
+And then you'll understand exactly why I've done it.
+
+04:04.090 --> 04:12.980
+Slots is a dictionary where the key of the dictionary is every whole dollar price of a product.
+
+04:12.980 --> 04:17.720
+So it's from $1 to $9.99 one, two, three all the way through to 999.
+
+04:17.720 --> 04:21.830
+So there are 999, uh, keys to this dictionary.
+
+04:21.830 --> 04:29.570
+And the value is going to be a list of all of the products, all of the items which have that price.
+
+04:29.570 --> 04:36.590
+So in the slots dictionary in slot number two will be a list of all of the items which cost $2.
+
+04:36.620 --> 04:39.860
+And so it's organizing everything into these slots.
+
+04:39.860 --> 04:43.100
+It's bucketing our data set basically.
+
+04:43.370 --> 04:46.010
+Um hopefully that makes total sense.
+
+04:46.010 --> 04:47.750
+If not of course bring up this code.
+
+04:47.750 --> 04:48.380
+Step through it.
+
+04:48.380 --> 04:54.710
+I'm using Defaultdict is a nice little thing to know about, which is basically a dictionary which will
+
+04:54.710 --> 05:00.800
+if something is missing from the dictionary, it will automatically initialize it to be of whatever
+
+05:00.800 --> 05:01.940
+type you pass in.
+
+05:01.970 --> 05:06.230
+It avoids you having to put a sort of if test in your code.
+
+05:06.230 --> 05:08.900
+So it makes a nice, nice, elegant code.
+
+05:08.900 --> 05:14.430
+All right, so here's a bit of a meaty function here, but I explain what's going on.
+
+05:14.460 --> 05:14.850
+Amity.
+
+05:14.880 --> 05:15.360
+Amity.
+
+05:15.420 --> 05:16.170
+Jupyter notebook.
+
+05:16.170 --> 05:16.740
+Cell.
+
+05:17.010 --> 05:21.390
+Um, I am going to go through each of these slots.
+
+05:21.420 --> 05:23.760
+Each of the 999 slots.
+
+05:23.760 --> 05:30.870
+And I'm going to sample from those slots a subset of the data, which I think will be a nice representative
+
+05:30.870 --> 05:33.090
+sample to use for training.
+
+05:33.240 --> 05:40.470
+Now, some of this I've tweaked around with arbitrarily until I've gotten comfortable with the histograms
+
+05:40.470 --> 05:41.640
+that will follow this.
+
+05:41.640 --> 05:45.390
+So it's not like there's any particular special reason.
+
+05:45.390 --> 05:50.160
+It's more of a case of trial and error and getting to a point where you feel good about the balanced
+
+05:50.160 --> 05:51.330
+data set you're producing.
+
+05:51.330 --> 05:56.460
+And of course, I've then run it through training and satisfy myself that I'm getting higher quality
+
+05:56.460 --> 05:59.040
+results, uh, by doing this.
+
+05:59.400 --> 06:05.370
+Um, and so what I do is I go through each of the slots in turn, and I've decided that for anything
+
+06:05.370 --> 06:09.930
+that's worth more than $240, I simply take that whole slot.
+
+06:09.960 --> 06:12.870
+I take all of those points and add them to my sample.
+
+06:13.320 --> 06:13.950
+Um.
+
+06:14.400 --> 06:16.710
+For something less than that.
+
+06:16.710 --> 06:24.930
+I basically have some code here that samples 1200 items from that slot.
+
+06:24.930 --> 06:29.790
+So it takes that slot, and that slot might have in it several thousand.
+
+06:29.820 --> 06:37.830
+I just pick 1200 from that slot, and I use a numpy method called choice, which lets you pick a certain
+
+06:37.830 --> 06:39.090
+number from the slot.
+
+06:39.090 --> 06:43.920
+And one of the nice things about choice is that you can pass in something called the weights, which
+
+06:43.920 --> 06:48.870
+is telling it to give more importance to some of your items over others.
+
+06:48.870 --> 06:53.970
+And uh, hopefully this comes together no surprise for the weights.
+
+06:53.970 --> 07:00.330
+What I'm saying is let's give anything that's an automotive, a weight of one, and everything else
+
+07:00.330 --> 07:02.160
+gets a weight of five.
+
+07:02.310 --> 07:07.290
+And again, this was I just played around with different numbers until I got comfortable with what it
+
+07:07.290 --> 07:08.160
+was coming up with.
+
+07:08.160 --> 07:14.070
+And I didn't want to take it too far because we want to stay roughly true to to the the kind of data
+
+07:14.070 --> 07:15.930
+we have in the real world.
+
+07:15.930 --> 07:19.700
+But we wanted to correct for some imbalances in the data set.
+
+07:19.820 --> 07:23.570
+So I'm not going to go line by line through explaining this.
+
+07:23.570 --> 07:29.900
+I've given you the construct, and I'm hoping you'll now look through this and satisfy yourself that
+
+07:29.900 --> 07:32.900
+it's doing what I say and that you like the outcome.
+
+07:32.900 --> 07:37.550
+And of course, if you prefer to craft the data set a bit differently, this is your chance.
+
+07:37.610 --> 07:43.880
+Uh, it's also perfectly possible that you will be able to beat my results in terms of my model performance,
+
+07:43.880 --> 07:49.580
+and you may think that it would be better to to perhaps have a different weighting of the categories
+
+07:49.730 --> 07:52.010
+or to choose differently from the slots.
+
+07:52.010 --> 07:57.170
+So you should absolutely experiment, um, and see what you come up with.
+
+07:57.170 --> 07:59.270
+But I've run this now.
+
+07:59.270 --> 08:07.460
+It has now created a sample list, and there are 408,000 data points in that sample.
+
+08:07.460 --> 08:10.040
+So that's about the size that we were aiming for.
+
+08:10.460 --> 08:14.360
+Um, and now let's see the distribution of prices.
+
+08:14.360 --> 08:18.230
+And that looks a lot more reasonable in terms of the distribution of prices.
+
+08:18.230 --> 08:23.960
+We've got a lot that are cheaper still, but but it's a consistent number for every price point in the
+
+08:23.960 --> 08:24.710
+cheaper end.
+
+08:24.740 --> 08:31.790
+And as we get to more expensive prices, there's a perfectly decent set of of data points with higher
+
+08:31.790 --> 08:32.510
+price.
+
+08:32.540 --> 08:37.160
+You'll notice this interesting effect that there are various points.
+
+08:37.160 --> 08:44.420
+Uh, predictably enough, it's things that are priced $399, $499 that have a little spike in terms
+
+08:44.420 --> 08:46.100
+of how many data points there are.
+
+08:46.130 --> 08:48.530
+And that's great because that reflects the real world.
+
+08:48.530 --> 08:51.140
+So it's good that we're going to have that in our data set.
+
+08:51.140 --> 08:53.840
+I wouldn't want to to to squash that out.
+
+08:54.230 --> 09:01.760
+Um, so when we compare this histogram of prices with our earlier histogram of prices here, hopefully
+
+09:01.760 --> 09:07.220
+you immediately see the improvement we have made to the distribution of prices in our data.
+
+09:07.250 --> 09:12.080
+This is clearly a more it's still skewed and the real world is skewed.
+
+09:12.170 --> 09:16.070
+Um, but there's a better representation of higher priced products.
+
+09:16.070 --> 09:22.800
+And it's going to mean that we're going to be able to learn in a high quality way and validate our sample
+
+09:22.800 --> 09:23.220
+more.
+
+09:23.250 --> 09:26.700
+If you're not satisfied by that, by all means create a couple of data sets.
+
+09:26.730 --> 09:32.130
+And when we get to training, you can try them both and see the impact it makes to have a well-balanced
+
+09:32.130 --> 09:33.120
+data set.
+
+09:33.900 --> 09:36.810
+Let's also look at the categories again.
+
+09:36.930 --> 09:38.640
+Um, this is the categories.
+
+09:38.640 --> 09:40.500
+So actually it hasn't made a ton of difference.
+
+09:40.500 --> 09:42.030
+It's slightly shifted.
+
+09:42.210 --> 09:44.760
+Um, we've got a bit of a better balance.
+
+09:44.820 --> 09:50.970
+Um, I didn't want to further correct it because I feel that this is, after all, somewhat reflective
+
+09:50.970 --> 09:51.990
+of the real world.
+
+09:51.990 --> 09:54.360
+And so we don't want to overly distort.
+
+09:54.360 --> 10:00.630
+There are a healthy number of automotive products on sale, more so than others.
+
+10:00.630 --> 10:04.950
+And so this this seem good enough, but it's slightly corrected some of the imbalance there.
+
+10:05.130 --> 10:08.370
+Perhaps another way of looking at this is looking at a pie chart.
+
+10:08.370 --> 10:13.410
+Generally speaking, often pie charts are unpopular with data scientists because bar charts are better
+
+10:13.410 --> 10:18.210
+for seeing quantities side by side and seeing them in a very quantitative way.
+
+10:18.420 --> 10:23.400
+But pie charts sometimes are useful visuals, and let's have a look at it.
+
+10:23.490 --> 10:31.470
+Here is a pie chart by category, and I should obviously do a bit of work to separate out some of these
+
+10:31.470 --> 10:33.180
+words, but you get the idea.
+
+10:33.390 --> 10:40.530
+Um, and it's showing you here that automotive does have the biggest the lion's share, but it's not
+
+10:40.530 --> 10:42.150
+like it's massively dominating.
+
+10:42.150 --> 10:45.600
+And obviously a couple of these together are more than automotive.
+
+10:45.660 --> 10:47.340
+So it's perfectly reasonable.
+
+10:47.340 --> 10:50.460
+And the little guy here is appliances.
+
+10:50.460 --> 10:57.510
+The one that we started with way back yesterday has 1% the smallest, the smallest piece of the pie.
+
+10:57.510 --> 10:59.400
+Uh, quite literally in this case.
+
+11:00.000 --> 11:04.020
+So that is our data set curated.
+
+11:04.020 --> 11:07.170
+Uh, it was um, a bit of work, I agree.
+
+11:07.170 --> 11:13.200
+And I did gloss over some of the, uh, thornier, uh, pieces in there, like the sampling.
+
+11:13.350 --> 11:19.350
+And I urge you to come back and look through that and evaluate it yourself and potentially craft a better
+
+11:19.350 --> 11:20.190
+data set.
+
+11:20.370 --> 11:25.260
+Uh, we're finally going to do some last analysis on it before we upload it to the hub.
+
+11:25.260 --> 11:27.630
+And I will see you for that in the next video.

@@ -1,0 +1,403 @@
+WEBVTT
+
+00:00.470 --> 00:01.040
+All right.
+
+00:01.040 --> 00:02.750
+Are you excited to see how this goes?
+
+00:02.780 --> 00:04.130
+Let's give it a try.
+
+00:04.160 --> 00:12.890
+So in this next section, I create a string called pi which has within it the code to do this series
+
+00:12.890 --> 00:15.890
+one minus the third plus a fifth, minus the seventh plus a ninth.
+
+00:15.890 --> 00:17.420
+You can see that for yourself.
+
+00:17.450 --> 00:18.770
+Check how many mistakes.
+
+00:18.770 --> 00:23.690
+And then it's going to do that 100 a million times.
+
+00:24.170 --> 00:28.640
+And really it's like 200 million times because it's you can see each of this.
+
+00:28.670 --> 00:31.130
+It's doing like two two elements in that series.
+
+00:31.130 --> 00:33.710
+So it's 200 million of this series.
+
+00:33.710 --> 00:38.300
+And we'll see how close to pi it gets and then it will print the result.
+
+00:38.570 --> 00:40.700
+So let's do that.
+
+00:40.820 --> 00:46.700
+I'm now going to do some some evil code, which of course we can do because we know exactly what we're
+
+00:46.700 --> 00:46.970
+doing.
+
+00:46.970 --> 00:51.140
+But you should always be slightly suspicious anytime someone says exac.
+
+00:51.170 --> 00:56.690
+ExAC, of course, is the command that runs Python code as specified in a string.
+
+00:56.720 --> 01:02.820
+And now you can see with some confidence this string is doing nothing to to evil.
+
+01:02.820 --> 01:04.350
+It's just doing this series.
+
+01:04.350 --> 01:09.060
+But you should always double check any time someone gives you code that involves an exec to make sure
+
+01:09.060 --> 01:13.200
+there's no funny business with your file system, or making an internet connection or anything like
+
+01:13.200 --> 01:13.530
+that.
+
+01:13.530 --> 01:17.820
+But in this case, you can be assured this is pretty safe and let's give it a try.
+
+01:17.850 --> 01:18.600
+Exact pi.
+
+01:18.630 --> 01:20.040
+Let's see what happens.
+
+01:21.270 --> 01:23.400
+So there's a pause.
+
+01:23.430 --> 01:27.570
+While Python thinks 200 million of those terms.
+
+01:27.570 --> 01:28.500
+And there we go.
+
+01:28.500 --> 01:31.080
+So let's see how well the Pi comes out after that.
+
+01:31.080 --> 01:33.090
+3.14159265.
+
+01:33.090 --> 01:34.650
+And that digit is wrong.
+
+01:34.890 --> 01:39.960
+So 200 million of these terms don't get you that much.
+
+01:39.960 --> 01:40.320
+Pi.
+
+01:40.350 --> 01:45.570
+As you probably you may know, there are much better series that converge very quickly, but they are
+
+01:45.570 --> 01:48.000
+a lot more code and a lot more gumph.
+
+01:48.030 --> 01:51.840
+This is the benefit of being super simple to write, but slowly converging.
+
+01:51.840 --> 01:57.870
+So it took 8.5764 seconds for that to run.
+
+01:58.120 --> 02:01.870
+There's a if you run this a few times, you'll see that that changes a fair amount because of other
+
+02:01.870 --> 02:03.100
+things going on on the machine.
+
+02:03.100 --> 02:06.760
+And your machine is different to mine, but you get the general idea.
+
+02:06.790 --> 02:07.390
+Okay.
+
+02:07.420 --> 02:13.480
+So I should be able to run optimize GPT pi, and it should stream out C plus plus code that will do
+
+02:13.480 --> 02:18.460
+the same thing by sending that string as part of the user prompt to GPT four.
+
+02:18.490 --> 02:20.320
+Oh, let's see what we get.
+
+02:20.740 --> 02:22.690
+Uh, this is what I mentioned to you.
+
+02:22.690 --> 02:28.030
+It puts this at the top of the file, which we then strip out before saving this to disk.
+
+02:28.060 --> 02:29.800
+This is the method.
+
+02:29.920 --> 02:38.020
+Uh, not uh, you may or may not be a C plus plus guru, but, uh, regardless, from knowledge of similar
+
+02:38.020 --> 02:42.370
+things, you can probably get a good handle on the fact that this is doing the same thing.
+
+02:42.520 --> 02:48.460
+Uh, and it's doing a similar number of calculations, similar number of terms, and it has written
+
+02:48.460 --> 02:50.740
+a file here, optimized C plus plus.
+
+02:50.740 --> 02:52.390
+And there it is.
+
+02:52.390 --> 02:54.040
+You can see it all looks good.
+
+02:54.040 --> 03:00.470
+And it has included this package that needs to be included, which is because it uses a set precision
+
+03:00.470 --> 03:01.370
+function.
+
+03:01.370 --> 03:05.570
+And if I discovered if I don't put that in the user prompt, then it doesn't include this package which
+
+03:05.570 --> 03:06.650
+causes it to break.
+
+03:06.650 --> 03:07.910
+So there we go.
+
+03:08.030 --> 03:10.790
+For whatever it's worth, we've given it the hint and it's done it.
+
+03:11.330 --> 03:12.710
+Um, okay.
+
+03:12.710 --> 03:14.090
+So look at this next cell.
+
+03:14.090 --> 03:15.110
+So this next cell.
+
+03:15.110 --> 03:23.330
+You remember, if you do an exclamation mark in Jupyter, then it, uh, it will um, uh, it will run
+
+03:23.330 --> 03:25.010
+that as a terminal command.
+
+03:25.010 --> 03:27.800
+So what I'm doing here is a terminal command.
+
+03:27.800 --> 03:29.570
+Uh clang++.
+
+03:29.570 --> 03:35.030
+Uh, and this particular statement is running optimized.
+
+03:35.030 --> 03:39.740
+It's doing a compile and then running that C plus plus code.
+
+03:39.980 --> 03:44.000
+Um, and later we're going to use an even more optimized way of doing this.
+
+03:44.000 --> 03:47.750
+But this this is a good for now for your computer.
+
+03:47.750 --> 03:51.350
+You may want to Google what it will take to to compile.
+
+03:51.470 --> 03:57.690
+Um, if you're using a mac, then you may need to um, Uh, at least open Xcode to make sure you've
+
+03:57.690 --> 04:02.070
+got the latest Xcode tools installed so that you have the latest versions of compilers.
+
+04:02.190 --> 04:06.630
+Um, but but regardless, a quick Google will tell you how you compile a C plus plus file.
+
+04:06.690 --> 04:12.360
+Um, once you've changed this line to be an optimized C plus plus compile of the file optimized CPP,
+
+04:12.390 --> 04:14.370
+that is of course how you will run it.
+
+04:14.370 --> 04:21.450
+So remember what we are looking to beat is 8.57 seconds.
+
+04:21.450 --> 04:26.520
+Let's see how GPT four zero how its code has done.
+
+04:26.520 --> 04:27.540
+Here we go.
+
+04:29.280 --> 04:37.410
+And it's got the same answer I should imagine 658 at least to within.
+
+04:37.440 --> 04:37.920
+Yes.
+
+04:37.920 --> 04:38.550
+Looks like it.
+
+04:38.550 --> 04:39.990
+I mean you'd expect some.
+
+04:40.020 --> 04:42.300
+Oh no it's there's not even any rounding differences.
+
+04:42.300 --> 04:44.310
+It looks like it's exactly right.
+
+04:44.310 --> 04:47.520
+And it's in a fraction of the time 0.21.
+
+04:47.610 --> 04:55.180
+Uh, so it is clearly, uh, um, somewhere between 10 and 100 times faster.
+
+04:55.330 --> 04:58.810
+You'll find later, when we optimize further, we can do even better than this.
+
+04:58.810 --> 04:59.020
+But.
+
+04:59.020 --> 05:01.360
+But with these flags, that is what we get.
+
+05:01.390 --> 05:02.980
+It's pretty impressive.
+
+05:03.010 --> 05:10.990
+We've just built something that can do a conversion of code from Python to C plus plus and run it many
+
+05:10.990 --> 05:12.550
+times faster.
+
+05:12.580 --> 05:14.890
+Let's see how Claude does.
+
+05:18.340 --> 05:21.220
+Well, let's just quickly compare the code.
+
+05:22.960 --> 05:25.840
+The code looks pretty similar to me.
+
+05:26.020 --> 05:29.260
+Uh, you will find, if you look at it, that there are some subtle differences.
+
+05:29.260 --> 05:35.470
+For example, there is this stuff here, um, which is to do with, uh.
+
+05:35.470 --> 05:41.740
+Well, I am not a C plus plus expert, although I did code in C plus plus some time ago, 1 or 2 years
+
+05:41.740 --> 05:42.310
+ago.
+
+05:42.460 --> 05:45.640
+Uh, but, uh, sadly, that is all swapped out in my mind.
+
+05:45.670 --> 05:48.610
+Uh, and I would certainly never have got to this level of expertise.
+
+05:48.610 --> 05:54.590
+It's putting in, I believe, various hints to suggest that things can be parallelized, but I sort
+
+05:54.620 --> 06:00.080
+of suspect with some of this stuff the compiler would apply that anyway in both cases, but we will
+
+06:00.080 --> 06:00.320
+see.
+
+06:00.350 --> 06:07.820
+We'll see if this actually makes any real difference by running the same command for.
+
+06:10.490 --> 06:11.780
+Uh, sorry, did I run that?
+
+06:11.780 --> 06:12.620
+Let's try that again.
+
+06:12.650 --> 06:13.520
+Here we go.
+
+06:14.810 --> 06:17.630
+And this is the answer that we got.
+
+06:17.810 --> 06:27.770
+Um, and it looks like, um, I think we may have to go back and do.
+
+06:27.770 --> 06:28.100
+Oh, no.
+
+06:28.100 --> 06:28.430
+Here we go.
+
+06:28.460 --> 06:29.030
+Here we go.
+
+06:29.030 --> 06:29.930
+Sorry.
+
+06:29.930 --> 06:35.360
+This was Gpg's version, so GPT was 0.2121.
+
+06:35.540 --> 06:38.510
+And here I've jumped ahead.
+
+06:38.510 --> 06:39.470
+That's why I'm getting confused.
+
+06:39.470 --> 06:40.040
+Sorry.
+
+06:40.040 --> 06:41.720
+Let's go back up again.
+
+06:42.260 --> 06:55.410
+Uh, I'm going to have to write this down 0.2131 is GPT version and Claude's Version is in 0.2121.
+
+06:55.410 --> 06:58.500
+So Claude was a hair faster than GPT.
+
+06:58.530 --> 07:02.340
+But I gotta tell you, this is within in error bars.
+
+07:02.340 --> 07:05.640
+If you run this a few times, it will vary by at least that amount.
+
+07:05.640 --> 07:12.570
+So basically they've both produced code which when running on the machine, uh, has run at the same
+
+07:12.570 --> 07:12.990
+speed.
+
+07:12.990 --> 07:19.140
+I would expect that the actual compiled machine code is the same in both cases.
+
+07:19.290 --> 07:23.040
+Um, which is what you would expect for a fairly simple problem.
+
+07:23.190 --> 07:32.040
+Uh, so both GPT four and Claude have crushed it with a well optimized solution to this, uh, Python
+
+07:32.040 --> 07:33.540
+code to generate pi.
+
+07:33.870 --> 07:39.810
+Uh, but, um, uh, although, as I'll say, GPT four did need a few more hints than Claude, but they
+
+07:39.810 --> 07:42.120
+both got there after the break.
+
+07:42.120 --> 07:48.300
+We're going to move to a harder problem, much harder code to see how they can optimize.
+
+07:48.300 --> 07:50.220
+I will see you in the next video.

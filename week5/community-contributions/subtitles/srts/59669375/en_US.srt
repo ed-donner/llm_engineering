@@ -1,0 +1,202 @@
+WEBVTT
+
+00:01.040 --> 00:02.930
+Here we are for the day.
+
+00:02.930 --> 00:04.730
+2.1 notebook.
+
+00:04.760 --> 00:07.760
+And don't let it be said that I don't ever do anything for you.
+
+00:07.760 --> 00:12.920
+As you will see, I have gone out on a limb with this one for your pleasure.
+
+00:13.190 --> 00:20.330
+Uh, so, uh, again, we are just going to be visualizing our data store for a moment now.
+
+00:20.360 --> 00:23.240
+Um, and to do that, we do some imports.
+
+00:23.600 --> 00:28.580
+And there is then a cell here where we select the maximum number of data points that we want to show
+
+00:28.580 --> 00:31.130
+in a visualization of our vectors.
+
+00:31.130 --> 00:35.240
+And my recommendation is that you stick with 10,000 which is a safe number.
+
+00:35.240 --> 00:40.580
+You get a nice image and your machine will not be ground to a halt.
+
+00:40.580 --> 00:42.650
+But that would be no fun for you.
+
+00:42.650 --> 00:49.760
+And I wanted to show you what it looks like if you get all 400,000 data points to show, but it's precarious
+
+00:49.760 --> 00:54.290
+and it puts my machine in a very unsafe position that it might crash at any moment.
+
+00:54.290 --> 00:59.360
+And indeed, in preparing for this, I have had my machine crash a couple of times and had to even start
+
+00:59.360 --> 01:04.220
+again with this Jupyter notebook, so I do not recommend you do this unless you have a very powerful
+
+01:04.220 --> 01:04.910
+machine.
+
+01:05.240 --> 01:11.550
+Um, so, uh, in the code, we, we, uh, we connect to the vector database.
+
+01:11.850 --> 01:17.730
+We have some code which is essentially a duplicate of what we already did in the rag week.
+
+01:17.790 --> 01:26.100
+Uh, when we, um, got some did some pre work to collect from the vector data, store the objects themselves,
+
+01:26.100 --> 01:32.850
+the documents, their categories that are in the metadata, and then color pick out the right color
+
+01:32.850 --> 01:36.120
+that would be able to allow us to identify the different points.
+
+01:36.120 --> 01:42.630
+And remember when I show you this, the thing that's super important to keep in mind is that the vectorization
+
+01:42.630 --> 01:49.290
+process, the process of deciding what vector to use for each of the documents, was based purely on
+
+01:49.290 --> 01:51.570
+the description of the documents themselves.
+
+01:51.570 --> 01:57.810
+It was only based on the language in in each product description that we pulled all 400,000 product
+
+01:57.810 --> 01:58.680
+descriptions.
+
+01:58.680 --> 02:04.590
+The fact that we happen to know which which ones are appliances, which ones are automotive, which
+
+02:04.590 --> 02:05.820
+ones are electronics.
+
+02:05.820 --> 02:10.740
+The model is not told that the model that builds the vector is just given the text.
+
+02:10.740 --> 02:14.640
+So it's helpful to then color it in so we can see.
+
+02:14.670 --> 02:15.030
+All right.
+
+02:15.030 --> 02:17.370
+This is the landscape of all of the vectors.
+
+02:17.610 --> 02:18.660
+Are there trends.
+
+02:18.660 --> 02:24.740
+Can we see that the model was able, just through the language, to separate out some of the different
+
+02:24.740 --> 02:26.750
+kinds of thing that's there?
+
+02:26.750 --> 02:33.080
+But this this kind of thing, this category was not part of the text that it vectorized.
+
+02:33.140 --> 02:33.890
+Okay.
+
+02:33.890 --> 02:40.610
+So anyway, with that, uh, this is now doing the t-SNE, uh, dimension reduction process, and this
+
+02:40.610 --> 02:42.620
+took about an hour to run on my machine.
+
+02:42.800 --> 02:47.690
+Uh, for the 400,000 it would take, it should be five minutes or something for 10,000.
+
+02:47.810 --> 02:52.160
+Uh, and then we can create a scatter plot, much as we did before.
+
+02:52.220 --> 02:55.010
+Uh, and then we can plot this scatter plot.
+
+02:55.010 --> 02:57.560
+And now I will show you what it looks like.
+
+02:59.150 --> 03:02.900
+And it's super slow to to do this on my machine.
+
+03:02.900 --> 03:09.470
+But this rather beautiful thing here is the result of looking at all of the vectors.
+
+03:09.560 --> 03:13.970
+Uh, let me try and and and shrink this a little bit.
+
+03:14.390 --> 03:16.820
+The machine is running very slowly.
+
+03:17.030 --> 03:23.870
+Uh, but you get a sense of the vector space from all 400,000 vectors.
+
+03:23.870 --> 03:24.350
+Here we go.
+
+03:24.380 --> 03:26.660
+It's just coming into view now.
+
+03:27.510 --> 03:31.920
+And the important thing to see is that.
+
+03:31.920 --> 03:33.600
+Yes, indeed.
+
+03:33.630 --> 03:35.070
+Uh, there it goes.
+
+03:35.100 --> 03:36.270
+Agonizingly slow.
+
+03:36.300 --> 03:37.680
+Yes, indeed.
+
+03:37.680 --> 03:44.580
+Different products have ended up most of the time in different territories, in vector space, with
+
+03:44.580 --> 03:48.540
+some clusters that appear to be, uh, near each other.
+
+03:48.540 --> 03:53.250
+And when you have a smaller number in here, you can go in and investigate the different ones and satisfy
+
+03:53.250 --> 03:59.820
+yourself that the reason that they are potentially in another territory is because they are perhaps
+
+03:59.820 --> 04:04.770
+products that straddle both being appliances and electronics or something like that.
+
+04:05.100 --> 04:12.510
+So this is really just for for an opportunity to look at the data and investigate it and understand
+
+04:12.510 --> 04:18.750
+it and just give a little bit more intuition about what does it mean to create vectors associated with
+
+04:18.750 --> 04:21.750
+documents, um, and to, to store them.
+
+04:21.810 --> 04:25.380
+Uh, and so it gives you that hands on tangible sense.
+
+04:25.440 --> 04:30.870
+And I hope that you enjoy this image, and I hope it was worth almost breaking my box.
+
+04:30.990 --> 04:33.540
+And hopefully you're doing it with a smaller number.
+
+04:33.540 --> 04:38.070
+And I will see you next time to see some of this in 3D instead.

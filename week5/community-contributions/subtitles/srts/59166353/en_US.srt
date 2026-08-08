@@ -1,0 +1,61 @@
+WEBVTT
+
+00:00.590 --> 00:04.460
+Well, congratulations on leveling up yet again.
+
+00:04.520 --> 00:08.690
+You've got some real hard skills that you've added to your arsenal.
+
+00:08.750 --> 00:14.570
+Uh, it's, uh, been a really, really enjoyable last few lectures.
+
+00:14.570 --> 00:20.990
+So at this point, not only can you confidently use OpenAI's API, not only can you throw Anthropic
+
+00:20.990 --> 00:25.970
+and Gemini into the mix, but you can also build UIs for your solution.
+
+00:25.970 --> 00:32.660
+Doing reasonably sophisticated things like pick between models and make changes to prompts, and generate
+
+00:32.660 --> 00:35.750
+company brochures with markdown and streaming.
+
+00:35.810 --> 00:41.630
+Uh, it's all pretty, uh, high functionality stuff, so well done.
+
+00:41.750 --> 00:45.650
+Tomorrow, though, uh, we raised the bar again.
+
+00:45.650 --> 00:53.090
+We'll be able to build chat UIs in Gradio, so these are more complex UIs with much more going on with
+
+00:53.120 --> 00:55.880
+like, an instant message style interaction.
+
+00:55.880 --> 00:57.740
+It sounds complex.
+
+00:57.770 --> 00:58.850
+We'll see if it is.
+
+00:59.060 --> 01:05.900
+Uh, we're going to talk about providing more context in a prompt, including Multi-shot prompting something
+
+01:05.900 --> 01:10.160
+which hopefully you already experimented with a bit in some of the earlier exercises, and we'll keep
+
+01:10.160 --> 01:11.420
+going with that.
+
+01:11.480 --> 01:16.010
+And ultimately we're going to build a customer support assistant.
+
+01:16.040 --> 01:19.460
+We're going to build a real tool and see how that works.
+
+01:19.460 --> 01:22.490
+And that's all happening starting in the next lecture.
+
+01:22.490 --> 01:23.510
+And I'll see you there.

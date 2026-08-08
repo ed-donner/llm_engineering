@@ -1,0 +1,394 @@
+WEBVTT
+
+00:01.940 --> 00:03.290
+Welcome back.
+
+00:03.320 --> 00:09.020
+So hopefully you are still impressed by the GPT four mini results.
+
+00:09.260 --> 00:19.820
+The frontier model coming in strong at just shy of $80 and with 52% hits just going above the 50% mark
+
+00:19.820 --> 00:22.820
+in terms of the number of green dots and a nice chart there.
+
+00:22.880 --> 00:29.510
+But the time has come for us to now run against its bigger cousin, big GPT four.
+
+00:29.540 --> 00:31.250
+Oh, I just did.
+
+00:31.280 --> 00:37.520
+I did want to mention that, uh, do be aware that at this point, uh, when we're talking about these
+
+00:37.520 --> 00:42.020
+kinds of error numbers, the error is already, uh, reasonably low.
+
+00:42.050 --> 00:44.810
+You think about the actual prices of products.
+
+00:44.810 --> 00:45.770
+They do vary.
+
+00:45.770 --> 00:48.020
+There is volatility baked into prices.
+
+00:48.020 --> 00:49.310
+There are sales.
+
+00:49.340 --> 00:54.170
+There's there's big swings when you come to things like the prices of a wheel or the price of a laptop.
+
+00:54.320 --> 01:02.320
+No doubt they vary quite considerably from different sites and different, uh, Stores, so there is
+
+01:02.320 --> 01:05.380
+some natural error built into this question anyway.
+
+01:05.380 --> 01:09.370
+So we're certainly not expecting to to come down to small numbers.
+
+01:09.730 --> 01:16.090
+So from that point of view, recognize that every dollar improvement we get at this point is a is a
+
+01:16.090 --> 01:17.350
+victory in its own right.
+
+01:17.380 --> 01:21.670
+We're going to be squeezing juice if we can, but don't expect a big change now.
+
+01:21.670 --> 01:29.110
+We are now at a point where this is already super impressive and far ahead of any of the traditional
+
+01:29.110 --> 01:30.910
+machine learning techniques.
+
+01:31.390 --> 01:41.290
+Um, so, uh, the next thing to do, of course, is to unveil the bigger cousin, GPT four.
+
+01:41.290 --> 01:47.740
+Oh, here is the same type of function again, the function that we'll be passing to our test program.
+
+01:47.890 --> 01:51.790
+Uh, it's of course calling OpenAI ChatGPT completions dot create.
+
+01:51.790 --> 01:58.690
+We're using the GPT four model as of August the 6th, which is very recent.
+
+01:58.960 --> 02:06.080
+Um, passing in messages, passing in the seed and using the same way of getting back the results.
+
+02:06.110 --> 02:09.590
+It's worth mentioning this is now going to cost a little bit more.
+
+02:09.620 --> 02:14.210
+It costs somewhere between $0.10 and $0.20 for me to run this across 250 points.
+
+02:14.450 --> 02:19.160
+Um, so, um, yeah, I mean, it's not going to break the bank, but you might want to think twice
+
+02:19.160 --> 02:21.200
+before running this a hundred times.
+
+02:21.380 --> 02:24.650
+Uh, so I do urge you to at least try it once.
+
+02:24.740 --> 02:26.330
+It's it's great fun.
+
+02:26.510 --> 02:30.170
+Um, but, yeah, it doesn't it doesn't necessarily need to be run a lot of times.
+
+02:30.200 --> 02:35.390
+I also want to mention that you might wonder why I'm not trying to run this against oh one.
+
+02:35.450 --> 02:39.530
+Uh, so the kind of problems are that oh one is designed for.
+
+02:39.560 --> 02:45.560
+Ah, more the problems where there is deeper thinking required, a multi-step thought process and challenging.
+
+02:45.560 --> 02:49.100
+And that doesn't really lend itself to the problem that we're tackling here.
+
+02:49.160 --> 02:53.090
+Um, it would also be slower and more expensive and for no good reason.
+
+02:53.090 --> 02:56.270
+We're not trying to solve, uh, math puzzles.
+
+02:56.300 --> 03:02.180
+We're just trying to have the most likely next guess of a price based on worldly knowledge.
+
+03:02.330 --> 03:05.750
+So GPT four frontier should be our best shot.
+
+03:05.870 --> 03:06.110
+Um.
+
+03:06.110 --> 03:08.570
+And I have, of course, already run it.
+
+03:08.660 --> 03:12.170
+Uh, so it's a little bit slower than GPT four mini.
+
+03:12.170 --> 03:13.070
+Just a little bit.
+
+03:13.100 --> 03:15.740
+But I think you should run it yourself and you'll enjoy it.
+
+03:15.770 --> 03:18.470
+And here are the results I get.
+
+03:18.740 --> 03:23.660
+Um, so there's a lot of greens, but there's lots of reds as well.
+
+03:24.230 --> 03:27.830
+So it's quite a variety here.
+
+03:28.700 --> 03:33.110
+Um, no doubt you're betting.
+
+03:33.110 --> 03:35.000
+And here are the results.
+
+03:35.000 --> 03:37.610
+So the bottom line is it is better.
+
+03:37.610 --> 03:39.380
+It is improved it for sure.
+
+03:39.380 --> 03:42.140
+It's gone from about 80 to about 76.
+
+03:42.140 --> 03:44.840
+And the hits from 52 to 58.
+
+03:44.840 --> 03:45.950
+Uh, green dots.
+
+03:45.950 --> 03:47.990
+It's not a massive change.
+
+03:47.990 --> 03:53.840
+You may have expected more going from mini to GPT four, but remember GPT four mini is really good.
+
+03:53.840 --> 04:00.840
+And despite the fact that it's a much cheaper model, it has much the very similar smarts to GPT four
+
+04:00.870 --> 04:01.380
+zero.
+
+04:01.620 --> 04:08.310
+Um, so I would say, first of all, it is to be celebrated that we've come down by by $6 by $4.
+
+04:08.340 --> 04:08.790
+Sorry.
+
+04:08.910 --> 04:16.770
+Uh, but but also that, um, we can already assume that GPT four mini has done very well indeed.
+
+04:17.040 --> 04:19.050
+Um, so, um.
+
+04:19.200 --> 04:22.740
+Yeah, this is this is, uh, this is the results.
+
+04:22.770 --> 04:25.170
+It looks visually very impressive.
+
+04:25.200 --> 04:28.410
+The the I mean, compare it to humanity.
+
+04:28.440 --> 04:33.180
+Uh, at the end of this lecture, I think we'll end by going back and embarrassingly looking at the
+
+04:33.480 --> 04:37.980
+chart one more time, uh, comparing it to what frontier models are able to achieve.
+
+04:38.040 --> 04:41.370
+Uh, but this does give you a good sense.
+
+04:41.880 --> 04:42.990
+Okay.
+
+04:42.990 --> 04:50.670
+And then, of course, we do have one more frontier model that perhaps we should unveil, which is Claude
+
+04:50.700 --> 04:52.920
+3.5 sonnet.
+
+04:53.220 --> 05:03.760
+Um, which is the strongest, uh, model from anthropic And, um, you recognize, I hope the structure.
+
+05:04.000 --> 05:07.180
+Uh, Claude messages create uh, again.
+
+05:07.180 --> 05:11.500
+Now, with in the case of Claude, you can't pass in a seed.
+
+05:11.530 --> 05:12.430
+It doesn't take that.
+
+05:12.430 --> 05:14.500
+So the results will be different each time.
+
+05:14.500 --> 05:20.440
+But I've just gone with the first run I've done in here, and that's what we'll have as, as the, uh,
+
+05:20.440 --> 05:24.850
+the, uh, the results for, for our purposes.
+
+05:24.880 --> 05:28.990
+And I guess I'll probably, uh, replicate and save this notebook.
+
+05:28.990 --> 05:30.970
+So we have it for, for posterity.
+
+05:31.270 --> 05:37.780
+Uh, so time for Claude starts with a couple of reds, then a sea of greens.
+
+05:40.510 --> 05:45.850
+And I will get us straight to some outcomes.
+
+05:48.160 --> 05:50.260
+So here's the results from Claude.
+
+05:50.290 --> 05:53.440
+Interestingly, Claude actually does a little bit worse.
+
+05:53.560 --> 06:03.060
+Uh, it's, uh, um, uh, worse, in fact, than GPT four mini in this task, and worse also than the
+
+06:03.060 --> 06:03.990
+Random forest.
+
+06:04.020 --> 06:09.300
+Of course, again, Random Forest had the benefit of all of its training data 400,000 training data.
+
+06:09.300 --> 06:12.750
+So it's a very different kind of of of test.
+
+06:13.200 --> 06:20.520
+And you can see one of the reasons for that is that you can tell from this axis that it has made some
+
+06:20.520 --> 06:21.180
+prediction.
+
+06:21.180 --> 06:27.000
+We can't quite see it because it's going to be a little tiny red dot, but it made some massively outsized
+
+06:27.000 --> 06:30.690
+prediction, although that will of course been spread out across everything.
+
+06:30.690 --> 06:32.730
+So it wouldn't have made a huge difference.
+
+06:32.730 --> 06:41.670
+But still, uh, one guess would have been like way, way too high and will have certainly, uh, certainly
+
+06:41.670 --> 06:43.320
+made its results be a bit distorted.
+
+06:43.350 --> 06:47.820
+Let's see if we can spy that from scanning through here.
+
+06:48.000 --> 06:49.950
+Where did it go so wrong?
+
+06:49.950 --> 06:51.060
+Here it is.
+
+06:53.550 --> 06:56.940
+G technology G speed ES pro high performance.
+
+06:56.940 --> 07:02.780
+So this thing which actually cost $495.95.
+
+07:02.780 --> 07:07.250
+It guest was $4,999 and 99.
+
+07:07.550 --> 07:14.510
+So it was a very outsized guest there that introduced 4500 error.
+
+07:14.540 --> 07:18.590
+Now, obviously, that that error in itself won't distort things too much because it gets averaged out
+
+07:18.590 --> 07:21.020
+across the 250 data points.
+
+07:21.020 --> 07:26.570
+But it's an example of one of the things that pushed it into the worst camp.
+
+07:27.110 --> 07:30.170
+So those are the results from Claude.
+
+07:30.200 --> 07:38.060
+Uh, still has a nice diagram here, but didn't quite measure up in this with this particular challenge,
+
+07:38.060 --> 07:43.790
+uh, to GPT four or GPT four at the frontier was the winner of this challenge.
+
+07:43.820 --> 07:50.150
+You'll remember Claude won when it came to the coding performance challenge, by a way, a big, big
+
+07:50.150 --> 07:50.900
+margin.
+
+07:50.960 --> 07:56.150
+Uh, but in this case, for this particular challenge, our winner is Claude.
+
+07:56.480 --> 07:59.730
+Uh, is sorry, is GPT four at the frontier.
+
+07:59.730 --> 08:04.620
+And as I promised, I will leave you by one more look at the.
+
+08:04.650 --> 08:07.200
+At this human's feeble attempt.
+
+08:07.230 --> 08:14.820
+Take a look at the nice, elegant diagram here with a number of green dots with GPT four guessing close
+
+08:14.820 --> 08:16.740
+to the to a home run.
+
+08:16.740 --> 08:22.620
+And now compare that with the performance of the resident human in the room.
+
+08:22.890 --> 08:26.580
+Uh, and this was my chart.
+
+08:28.800 --> 08:30.600
+That I don't want to look at that ever again.
+
+08:30.840 --> 08:31.860
+Uh, all right.
+
+08:31.860 --> 08:36.570
+Anyway, I hope that this was a, uh, educational exercise for you.
+
+08:36.570 --> 08:40.680
+And you see how you would do, uh, experiments like this with your own business problems.
+
+08:40.680 --> 08:41.430
+Please do.
+
+08:41.460 --> 08:43.200
+Now, come replicate this.
+
+08:43.200 --> 08:46.890
+Play around with this, uh, you'll find, particularly with Claude, of course, that you won't get
+
+08:46.890 --> 08:48.750
+the same results because there's no seed.
+
+08:48.930 --> 08:53.430
+Um, but you will get some something different and see how it performs.
+
+08:53.430 --> 08:55.050
+Maybe you'll get better results than me.
+
+08:55.230 --> 09:00.060
+Uh, but I will see you to wrap up with some more slides.

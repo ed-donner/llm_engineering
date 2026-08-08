@@ -1,0 +1,469 @@
+WEBVTT
+
+00:01.040 --> 00:07.820
+Okay, so here we are, back in Jupyter Lab, ready for the next use of a frontier model, and see this
+
+00:07.820 --> 00:10.460
+now as somewhere where you're really building expertise.
+
+00:10.460 --> 00:12.320
+This should be very natural to you.
+
+00:12.710 --> 00:17.900
+As usual, we start by considering our system prompt and being thoughtful about how we will prompt the
+
+00:17.900 --> 00:18.470
+model.
+
+00:18.800 --> 00:25.610
+Um, what we're going to say to to the model is, look, you identify and summarize the five most detailed
+
+00:25.610 --> 00:32.990
+items from a list by selecting deals that have the most detailed, high quality descriptions and the
+
+00:32.990 --> 00:37.820
+most clear price, uh, respond strictly in JSON, blah, blah, blah.
+
+00:37.910 --> 00:42.740
+Um, most important is you respond with five deals that have the most detailed product description.
+
+00:42.740 --> 00:44.810
+It's not important to mention the terms.
+
+00:45.110 --> 00:49.940
+Um, and now I also I have laid out here the JSON structure.
+
+00:49.940 --> 00:54.020
+I should probably mention that this isn't required because we're going to be using structured outputs,
+
+00:54.020 --> 01:01.070
+but I like to do this to use it as another opportunity to give more direction on exactly what's expected
+
+01:01.070 --> 01:01.940
+in each one.
+
+01:02.120 --> 01:04.650
+Uh, so this is something which you can experiment with.
+
+01:04.650 --> 01:08.700
+But strictly speaking we shouldn't need to specify JSON like that.
+
+01:09.420 --> 01:11.640
+So that's my system prompt.
+
+01:11.670 --> 01:16.740
+The user prompt says respond with the most promising five deals from this list.
+
+01:16.740 --> 01:17.700
+Selecting those.
+
+01:17.730 --> 01:18.510
+Blah blah blah blah blah.
+
+01:18.540 --> 01:19.470
+I will let you read it through.
+
+01:19.470 --> 01:20.610
+But you know, this kind of stuff.
+
+01:20.610 --> 01:29.730
+Well, uh, and um, uh, the deals and then it lists the deals and it calls deal dot describe for each
+
+01:29.730 --> 01:30.780
+of those.
+
+01:31.410 --> 01:31.800
+Okay.
+
+01:31.830 --> 01:32.310
+That's simple.
+
+01:32.310 --> 01:36.660
+So now let me just print the beginning of the user prompt is quite long.
+
+01:36.660 --> 01:39.720
+So I'm just going to print the first 2000 characters of the user prompt.
+
+01:39.720 --> 01:41.310
+So you get a sense for it.
+
+01:41.340 --> 01:42.270
+Here it is.
+
+01:42.270 --> 01:43.290
+Let's have a look.
+
+01:43.290 --> 01:48.270
+So there's the uh user prompt respond with blah blah blah blah blah blah blah.
+
+01:48.270 --> 01:50.370
+And then here are the deals.
+
+01:50.370 --> 01:58.500
+And this is the description that we've taken from um, the, the, the description function that we
+
+01:58.500 --> 02:00.960
+looked at before the describe method.
+
+02:00.960 --> 02:10.010
+So essentially the task that we're assigning to GPT four is to digest this list of deals, select pluck
+
+02:10.040 --> 02:12.650
+out from this list and there's going to be 50 of them.
+
+02:12.650 --> 02:19.220
+Pick the five which have the clearest description and from which it can take the price.
+
+02:19.250 --> 02:24.950
+Parse the price out of this in a way that is that is most clear.
+
+02:25.100 --> 02:29.240
+And that is, of course, a fuzzy kind of problem that requires some thought.
+
+02:29.240 --> 02:33.680
+It's the kind of thing that would be only a year or two ago would have been unthinkably hard.
+
+02:33.770 --> 02:38.180
+How would you do that in a reliable way, using just engineering code.
+
+02:38.180 --> 02:44.990
+And it's the kind of problem that's so perfect for frontier models, because that kind of nuanced understanding
+
+02:44.990 --> 02:51.260
+and being able to realize that up to something means a price and that, but up to something off is not
+
+02:51.260 --> 02:52.190
+the same as a price.
+
+02:52.190 --> 02:54.620
+That kind of logic is really hard.
+
+02:54.620 --> 03:00.680
+But frontier models are remarkably effective at understanding that, understanding the meaning behind
+
+03:00.680 --> 03:05.630
+these expressions and using that intelligently to give us an output.
+
+03:05.630 --> 03:12.950
+So just based on these prompts, we're able to now say, okay, let's get recommendations.
+
+03:12.950 --> 03:18.290
+And now we're going to see a different API than usual because we're using structured output.
+
+03:18.710 --> 03:23.300
+So my function get recommendations completion is OpenAI.
+
+03:23.300 --> 03:24.800
+And look it's a bit different here.
+
+03:24.800 --> 03:31.160
+The this is at least as of this moment uh is a beta offering from OpenAI.
+
+03:31.190 --> 03:34.310
+But I imagine it's going to be fully productionized very, very soon.
+
+03:34.310 --> 03:39.110
+So you say OpenAI beta or that's beta for Americans.
+
+03:39.170 --> 03:44.870
+Uh, OpenAI beta, dot chat, dot completions, dot parse.
+
+03:44.960 --> 03:52.520
+Uh, that's the, the the way that you call this, um, and you provide the model as, as usual.
+
+03:52.520 --> 03:57.620
+And this is supported by GPT four and mini and GPT four, the frontier version two.
+
+03:57.770 --> 04:02.120
+Uh, as always, the message is, you know, I'm just going to not even say it.
+
+04:02.120 --> 04:02.870
+You know it.
+
+04:02.870 --> 04:04.100
+You don't need me to tell you.
+
+04:04.130 --> 04:07.310
+Surely, uh, this is the difference.
+
+04:07.310 --> 04:12.440
+You remember, in the past, we've used this response format as a way of specifying that we require
+
+04:12.470 --> 04:14.000
+JSON to come back.
+
+04:14.030 --> 04:16.700
+Now, this time we don't say JSON.
+
+04:16.730 --> 04:20.900
+What we do is we pass in the class the deal selection class.
+
+04:20.900 --> 04:25.490
+That's the class we were just looking at here, the one that I did some scrappy JSON for.
+
+04:25.520 --> 04:30.020
+We pass in that class in as our response format.
+
+04:30.500 --> 04:35.810
+And then when we're getting the results we don't call our usual API calls.
+
+04:35.810 --> 04:43.340
+We say completion is zero as usual dot message and then not content but instead dot parsed.
+
+04:43.340 --> 04:49.970
+And that is going to take the response and parse it into an instance of deal selection.
+
+04:50.000 --> 04:52.100
+And that is what it will return.
+
+04:52.400 --> 04:54.710
+So with that build up it better return it.
+
+04:54.740 --> 04:59.780
+Let's run that code and see what happens and what we get back.
+
+04:59.780 --> 05:05.150
+So we are calling GPT for zero and we're sorry GPT for mini.
+
+05:05.180 --> 05:09.830
+We are specifying a particular structured format of output.
+
+05:09.830 --> 05:10.820
+It has returned.
+
+05:10.850 --> 05:17.390
+Let's see why don't we print what type of thing has come back type results.
+
+05:17.390 --> 05:19.520
+Let's see what kind of object has come back.
+
+05:19.520 --> 05:23.210
+It is an agents deals deal selection.
+
+05:23.210 --> 05:26.150
+That is indeed the kind of object that we were hoping to get back.
+
+05:26.150 --> 05:31.760
+I think we better, uh, see what it actually looks like.
+
+05:31.790 --> 05:34.490
+It's going to be a set.
+
+05:34.610 --> 05:38.780
+Uh, it's a deal selection which has within it deals is the one field.
+
+05:38.780 --> 05:39.350
+If you remember.
+
+05:39.380 --> 05:40.850
+Deals is the one thing we set.
+
+05:40.850 --> 05:42.140
+And here are the deals.
+
+05:42.140 --> 05:45.830
+So let's let's find out how many deals we got back.
+
+05:46.460 --> 05:49.730
+We are hoping of course, that we got back five deals.
+
+05:50.000 --> 05:50.870
+Let's see.
+
+05:50.900 --> 05:53.870
+We did indeed get back five deals.
+
+05:53.870 --> 05:57.020
+And let's print the first of those deals.
+
+05:57.020 --> 06:02.780
+And we get a Samsung Galaxy Watch Ultra, a top tier smartwatch.
+
+06:02.960 --> 06:06.710
+Uh, and we've got a nice summary of this.
+
+06:06.710 --> 06:10.010
+And you'll notice this is actually looking it's looking great for us.
+
+06:10.010 --> 06:14.150
+It's looking like this is the kind of summary that we're going to want to use when we pass it into our
+
+06:14.150 --> 06:22.250
+prices to estimate the price of this, and GPT four mini has pulled out a price and a URL.
+
+06:22.250 --> 06:26.060
+And of course, if we click on that URL, it's going to open up that deal.
+
+06:26.060 --> 06:27.020
+There it is.
+
+06:27.020 --> 06:28.160
+Wonderful.
+
+06:28.310 --> 06:32.690
+Uh, so it is working well for us.
+
+06:32.960 --> 06:34.790
+Uh, okay.
+
+06:34.820 --> 06:46.850
+Now, the last thing to show here is that, um, we are going to, uh, look to import our scanner agent.
+
+06:46.850 --> 06:50.600
+So I'm going to do the thing again where I'm going to kick this off because it's going to take a minute
+
+06:50.600 --> 06:51.380
+or two.
+
+06:51.770 --> 06:57.950
+Um, and while it's running, I'm going to go over and show you what the scanner agent is.
+
+06:57.950 --> 07:01.370
+So the scanner agent is over here.
+
+07:01.640 --> 07:08.180
+Uh, this is a bunch of code that's going to look very similar to the code that we looked at before.
+
+07:08.540 --> 07:15.920
+Uh, and so it's, uh, just been written now with comments and with better structure so that this is
+
+07:15.920 --> 07:18.620
+something we can consider to be production quality.
+
+07:18.620 --> 07:18.620
+see.
+
+07:18.890 --> 07:21.710
+Um, but it has the system prompts that we just looked at.
+
+07:21.710 --> 07:28.880
+It has a user prompt that we looked at and it says respond strictly with five deals, no more.
+
+07:28.880 --> 07:33.890
+And what we get is an init method that sets it up and connects to OpenAI.
+
+07:33.920 --> 07:41.000
+The fetch deals is the method that we were just looking at that does, uh, gets a list of scraped deal
+
+07:41.300 --> 07:45.020
+by calling scrape deal fetch, just as you would expect.
+
+07:45.050 --> 07:52.820
+What it also does here, though, is that potentially it gets a memory object, which is a list of URLs,
+
+07:52.820 --> 07:59.540
+and it will remove from the results anything that it remembers has already been surfaced in a previous
+
+07:59.540 --> 08:00.200
+search.
+
+08:00.200 --> 08:05.030
+And this is how we make sure that we fetch new deals, not deals that we've already looked at before.
+
+08:05.030 --> 08:10.850
+And of course, memory, which is one of the of the facets of building an agent framework, is something
+
+08:10.850 --> 08:12.860
+we'll be looking at more in the future.
+
+08:13.790 --> 08:20.510
+Uh, and then we make user prompt and then we do, uh, this is the same code as before.
+
+08:20.510 --> 08:25.100
+And then scan is basically exactly the function that we just looked at.
+
+08:25.130 --> 08:30.920
+We make a user prompt and then we call OpenAI beta dot chat, dot completions, dot parse.
+
+08:30.920 --> 08:32.390
+We pass in the model.
+
+08:32.390 --> 08:39.260
+We specify that the response format needs to be the deal selection class, so that we know that it's
+
+08:39.260 --> 08:43.250
+going to return that and we parse it back into result.
+
+08:43.250 --> 08:46.130
+And that is what we get to right here.
+
+08:46.340 --> 08:53.000
+When we then, um, uh, we do first remove any deals.
+
+08:53.000 --> 08:57.860
+If the price isn't greater than zero, we don't want to return deals which have zero price.
+
+08:58.010 --> 09:00.020
+Um, and we return that result.
+
+09:00.020 --> 09:05.180
+And if we got no deals back, um, because perhaps we'd already surfaced everything, then we return
+
+09:05.180 --> 09:05.750
+none.
+
+09:05.750 --> 09:08.930
+And that's indicated by that optional at the top there.
+
+09:08.990 --> 09:10.640
+So that's the class.
+
+09:10.670 --> 09:13.340
+And with that, let me go back to day three.
+
+09:13.340 --> 09:16.790
+And we should see that the results have come back.
+
+09:17.900 --> 09:22.190
+Now one of the things I'm aware of that you may have caught, you may have noticed this yourself when
+
+09:22.190 --> 09:27.020
+I was doing this, but I was busy thinking about this while I was talking is that I think we might have
+
+09:27.020 --> 09:35.300
+just seen a goof from the model that the price here it's saying, is $350 associated with this Samsung
+
+09:35.300 --> 09:36.230
+Galaxy Watch.
+
+09:36.230 --> 09:45.530
+But I think when this website came up, let's close this down that it says up to 350 off with trade
+
+09:45.530 --> 09:45.860
+in.
+
+09:45.860 --> 09:48.830
+If you have another device you can save up to 350.
+
+09:48.860 --> 09:55.280
+So after I showed off about how frontier models are so incredibly good at this stuff, this is an example
+
+09:55.280 --> 10:01.850
+of a mistake that the model has actually made, that it thinks that this is worth 350, when in fact
+
+10:01.850 --> 10:03.530
+it's $350 off.
+
+10:03.530 --> 10:06.020
+So I should eat my words.
+
+10:06.020 --> 10:07.940
+And it did actually get that wrong.
+
+10:07.940 --> 10:09.620
+And it's going to be interesting.
+
+10:09.650 --> 10:13.400
+That is, it's useful to have learned that and to have seen that.
+
+10:13.670 --> 10:20.150
+And I might try adding that in to the system prompt and see if we can improve on the performance of
+
+10:20.180 --> 10:20.630
+that.
+
+10:20.630 --> 10:23.360
+Now that we see that it can make those mistakes.
+
+10:23.360 --> 10:27.380
+Anyway, I will see you next time for the slides.

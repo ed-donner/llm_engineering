@@ -1,0 +1,163 @@
+WEBVTT
+
+00:00.920 --> 00:06.260
+And it's this time again, when we look at the podium of how our models are performing across the board.
+
+00:06.260 --> 00:12.050
+You already know the answer, but we should look at it anyway and and and have a giggle.
+
+00:12.320 --> 00:17.900
+Uh, so we first look at the constant model that just guesses the average value from the training data
+
+00:17.930 --> 00:18.590
+set.
+
+00:18.950 --> 00:22.880
+And if we look at that number, it was 146.
+
+00:23.000 --> 00:26.150
+It's looking distinctly lower in here right now.
+
+00:26.150 --> 00:28.070
+And I think you probably know why.
+
+00:28.370 --> 00:34.100
+Uh, then we looked at a traditional machine learning model that was able to beat the average, which
+
+00:34.100 --> 00:36.260
+we would hope it would, but not by masses.
+
+00:36.470 --> 00:42.050
+Uh, we looked at the random forest approach, which was the best of the traditional machine learning
+
+00:42.050 --> 00:44.510
+approaches coming in at 97.
+
+00:44.510 --> 00:51.140
+We did compare it with a human being and showed that human could beat the basic, simple features,
+
+00:51.140 --> 00:53.870
+but was beaten by random forest model.
+
+00:54.140 --> 01:00.290
+Uh, GPT four zero was the best of the various frontier models we looked at, and absolutely crushed
+
+01:00.290 --> 01:04.610
+it with 76 way outperforming this human.
+
+01:04.820 --> 01:13.600
+And then today we've looked at the, uh, fine tuned bass llama, 3.18 billion parameters quantized
+
+01:13.600 --> 01:15.310
+all the way down to four bits.
+
+01:15.430 --> 01:21.190
+Uh, and we saw that that was at 396, devastatingly bad.
+
+01:21.280 --> 01:29.290
+Uh, and it was only slightly better when we quantized to eight bits, instead coming in at $301 of
+
+01:29.290 --> 01:29.950
+error.
+
+01:30.160 --> 01:36.550
+Uh, so clearly we're off to a bad start with llama 3.1, but in some ways that's exciting because the
+
+01:36.550 --> 01:37.780
+challenge is on.
+
+01:37.870 --> 01:45.640
+Uh, we've got the the model here ready for us to try and explore how we can make it better.
+
+01:45.640 --> 01:53.410
+And our target is to try and be competitive with a model like GPT four, which is, you know, has trillions
+
+01:53.410 --> 01:54.460
+of parameters.
+
+01:54.460 --> 01:59.530
+If we can be competitive with that in this particular task, and we can do it with an open source model
+
+01:59.530 --> 02:04.240
+that's for free, then we have achieved a great thing.
+
+02:04.240 --> 02:05.080
+Okay.
+
+02:05.110 --> 02:11.690
+And so in summary, at this point, at this juncture, you have reached 80% of your way in this journey
+
+02:11.690 --> 02:14.120
+and that is absolutely fantastic.
+
+02:14.120 --> 02:15.260
+I'm so happy you.
+
+02:15.290 --> 02:16.190
+Are sticking at it.
+
+02:16.190 --> 02:17.660
+I'm so happy you're here.
+
+02:17.660 --> 02:20.690
+I got to tell you, the 20% that's still to come.
+
+02:20.690 --> 02:21.740
+It's the best.
+
+02:21.740 --> 02:23.060
+It is the best.
+
+02:23.090 --> 02:25.820
+The juiciest content is what's to come.
+
+02:25.820 --> 02:27.860
+As we look at training this model.
+
+02:27.860 --> 02:32.540
+And then in the finale next week, we really put everything together.
+
+02:32.540 --> 02:35.210
+I mean, it's just it's going to be a crescendo.
+
+02:35.210 --> 02:37.160
+It's going to get better and better.
+
+02:37.160 --> 02:38.300
+Hang in there.
+
+02:38.330 --> 02:40.250
+All of the good stuff is to come.
+
+02:40.250 --> 02:44.870
+So what we're doing next time, there's some more hyperparameters.
+
+02:44.870 --> 02:49.760
+I know that these hyperparameters can be a bit grueling, but this is where the really important stuff
+
+02:49.760 --> 02:50.390
+is learned.
+
+02:50.390 --> 02:54.530
+So there's some hyperparameters that control training that I'll explain to you.
+
+02:54.560 --> 03:00.020
+We're then going to set up something called a supervised fine tuning SFT trainer, which is where it
+
+03:00.020 --> 03:00.830
+all happens.
+
+03:00.830 --> 03:03.650
+And then we're going to kick off training.
+
+03:03.650 --> 03:10.970
+You're going to be training your own proprietary large language model, uh, based on, uh, llama 3.1
+
+03:10.970 --> 03:11.720
+based model.
+
+03:11.720 --> 03:15.320
+And we're going to be doing it, uh, in the next session.
+
+03:15.320 --> 03:17.210
+So I will see you there.
