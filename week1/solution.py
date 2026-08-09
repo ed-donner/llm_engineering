@@ -1,6 +1,16 @@
 """
-Website summarizer using Ollama instead of OpenAI.
+Website summarizer using a local Ollama model instead of OpenAI.
+
+Usage:
+    uv run python week1/solution.py <url>
+    uv run python week1/solution.py  (defaults to https://edwarddonner.com)
 """
+
+import sys
+import os
+
+# Allow imports from the week1 directory when run from project root
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
 from openai import OpenAI
 from scraper import fetch_website_contents
@@ -26,25 +36,24 @@ def messages_for(website):
     """Create message list for the LLM."""
     return [
         {"role": "system", "content": system_prompt},
-        {"role": "user", "content": user_prompt_prefix + website}
+        {"role": "user", "content": user_prompt_prefix + website},
     ]
 
 
 def summarize(url):
     """Fetch and summarize a website using Ollama."""
-    ollama = OpenAI(base_url=OLLAMA_BASE_URL, api_key='ollama')
+    ollama = OpenAI(base_url=OLLAMA_BASE_URL, api_key="ollama")
     website = fetch_website_contents(url)
     response = ollama.chat.completions.create(
         model=MODEL,
-        messages=messages_for(website)
+        messages=messages_for(website),
     )
     return response.choices[0].message.content
 
 
 def main():
-    """Main entry point for testing."""
-    url = input("Enter a URL to summarize: ")
-    print("\nFetching and summarizing...\n")
+    url = sys.argv[1] if len(sys.argv) > 1 else "https://edwarddonner.com"
+    print(f"Summarizing {url} with {MODEL} via Ollama...\n")
     summary = summarize(url)
     print(summary)
 
