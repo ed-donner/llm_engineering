@@ -1,3 +1,0 @@
-textual
-openai
-markdown
