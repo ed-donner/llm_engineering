@@ -7,7 +7,7 @@ Demonstrates how keyword search fails on natural language before introducing emb
 
 | File | Purpose |
 |---|---|
-| `wcag_day1_practice.ipynb` | Main notebook — keyword retriever + Gradio chat |
+| `day1_exr.ipynb` | Main notebook — keyword retriever + Gradio chat |
 | `build_knowledge_base.py` | Fetches WCAG 2.2 from W3C and generates the knowledge base |
 | `NOTICE.md` | W3C attribution for the derived WCAG content |
 
