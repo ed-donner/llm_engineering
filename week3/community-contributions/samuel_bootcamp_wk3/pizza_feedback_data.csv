@@ -1,0 +1,17 @@
+Customer_ID,Branch,Rating,Order_Type,Feedback,Date
+CUST1000,Westlands,1,Dine-in,Great pizza from Westlands! Quick delivery and hot food.,2024-10-17
+CUST1001,CBD,1,Takeaway,Excellent service at CBD branch. Will order again!,2024-11-24
+CUST1002,Kilimani,1,Delivery,Excellent service at Kilimani branch. Will order again!,2024-09-03
+CUST1003,Parklands,5,Takeaway,Great pizza from Parklands! Quick delivery and hot food.,2024-08-05
+CUST1004,Westlands,3,Delivery,Great pizza from Westlands! Quick delivery and hot food.,2024-01-12
+CUST1005,CBD,5,Delivery,Great pizza from CBD! Quick delivery and hot food.,2024-01-10
+CUST1006,Kilimani,1,Delivery,Long wait time at Kilimani but the pizza was worth it.,2024-09-12
+CUST1007,Parklands,2,Delivery,Great pizza from Parklands! Quick delivery and hot food.,2024-05-27
+CUST1008,Parklands,3,Dine-in,Excellent service at Parklands branch. Will order again!,2024-12-01
+CUST1009,CBD,1,Dine-in,Excellent service at CBD branch. Will order again!,2024-10-09
+CUST1010,Parklands,1,Takeaway,Average experience. Pizza was okay but nothing special.,2024-04-03
+CUST1011,Westlands,2,Dine-in,Pizza was cold when it arrived at Westlands. Disappointed.,2024-01-02
+CUST1012,Karen,2,Takeaway,Pizza was cold when it arrived at Karen. Disappointed.,2024-03-26
+CUST1013,Westlands,3,Dine-in,Long wait time at Westlands but the pizza was worth it.,2024-11-17
+CUST1014,Westlands,5,Takeaway,Average experience. Pizza was okay but nothing special.,2024-03-01
+CUST1015,Parklands,3,Delivery,Excellent service at Parklands branch. Will order again!,2024-03-18

@@ -1,0 +1,105 @@
+{
+  "course": "Mastering GPU Parallel Programming with CUDA: ( HW & SW )",
+  "sections": [
+    {
+      "section": "Introduction to the Nvidia GPUs hardware",
+      "lectures": [
+        "GPU vs CPU (very important)",
+        "NVidia's history (How Nvidia started dominating the GPU sector)",
+        "Architectures and Generations relationship [Hopper, Ampere, GeForce and Tesla]",
+        "How to know the Architecture and Generation",
+        "The difference between the GPU and the GPU Chip",
+        "The architectures and the corresponding chips",
+        "Nvidia GPU architectures From Fermi to hopper",
+        "Parameters required to compare between different Architectures",
+        "Half, single and double precision operations",
+        "Compute capability and utilizations of the GPUs",
+        "Before reading any whitepapers !! look at this",
+        "Volta+Ampere+Pascal+SIMD (Don't skip)"
+      ]
+    },
+    {
+      "section": "Installing Cuda and other programs",
+      "lectures": [
+        "What features installed with the CUDA toolkit?",
+        "Installing CUDA on Windows",
+        "Installing WSL to use Linux on windows OS.",
+        "Installing Cuda toolkits on Linux"
+      ]
+    },
+    {
+      "section": "Introduction to CUDA programming",
+      "lectures": [
+        "The course github repo",
+        "Mapping SW from CUDA to HW + introducing CUDA.",
+        "001 Hello World program (threads - Blocks)",
+        "Compiling Cuda on Linux",
+        "002 Hello World program ( Warp_IDs)",
+        "003 : Vector addition + the Steps for any CUDA project",
+        "004 : Vector addition + blocks and thread indexing + GPU performance",
+        "005 levels of parallelization - Vector addition with Extra-large vectors"
+      ]
+    },
+    {
+      "section": "Profiling",
+      "lectures": [
+        "Query the device properties using the Runtime APIs",
+        "Nvidia-smi and its configurations (Linux User)",
+        "The GPU's Occupancy and Latency hiding",
+        "Allocated active blocks per SM (important)",
+        "how many blocks can we run concurrently per SM?",
+        "Starting with the nsight compute (first issue)",
+        "All profiling tools from NVidia (Nsight systems - compute - nvprof ...)",
+        "Error checking APIs",
+        "Nsight Compute performance using command line analysis",
+        "Graphical Nsight Compute (windows and linux)"
+      ]
+    },
+    {
+      "section": "Performance analysis for the previous applications",
+      "lectures": [
+        "Performance analysis",
+        "Vector addition with a size not power of 2 !!! important"
+      ]
+    },
+    {
+      "section": "2D Indexing",
+      "lectures": [
+        "Matrices addition using 2D of blocks and threads",
+        "Why L1 Hit-rate is zero ?"
+      ]
+    },
+    {
+      "section": "Shared Memory + Warp Divergence",
+      "lectures": [
+        "The shared memory",
+        "Quiz 1",
+        "Warp Divergence"
+      ]
+    },
+    {
+      "section": "Debugging tools",
+      "lectures": [
+        "Debugging using visual studio (important) 1"
+      ]
+    },
+    {
+      "section": "Vector Reduction",
+      "lectures": [
+        "Vector Reduction using global memory only (baseline)",
+        "Understanding the code and the profiling of the vector reduction",
+        "Optimizing the vector reduction (removing the filter)",
+        "The Race Condition and the debugging option",
+        "Optimizing the thread utilizations on vector reduction",
+        "Optimization using shared memory and unrolling",
+        "Shuffle operations optimizations"
+      ]
+    },
+    {
+      "section": "Roofline model",
+      "lectures": [
+        "Roofline Analysis :(Compute and Memory bounds apps)"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+<!-- xss_vulnerable.html -->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>XSS Vulnerability Example</title>
+</head>
+<body>
+  <h1>Leave a Comment</h1>
+  <form method="GET">
+    <input type="text" name="comment" placeholder="Enter your comment" />
+    <input type="submit" value="Submit" />
+  </form>
+
+  <h2>Your Comment:</h2>
+  <p>
+    <!-- Vulnerable: User input is printed directly without sanitization -->
+    <!-- Example attack: ?comment=<script>alert('xss')</script> -->
+    <script>
+      const params = new URLSearchParams(window.location.search);
+      document.write(params.get("comment"));
+    </script>
+  </p>
+</body>
+</html>

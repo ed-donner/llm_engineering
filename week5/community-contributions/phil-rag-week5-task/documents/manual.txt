@@ -1,0 +1,6 @@
+Employee Work Manual
+
+All employees must log in to the internal system by 9:00 AM.
+Remote work is allowed twice per week with manager approval.
+Employees should follow cybersecurity best practices when accessing company systems.
+Passwords must be changed every 90 days.

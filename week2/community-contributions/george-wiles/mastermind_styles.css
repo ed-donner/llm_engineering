@@ -1,0 +1,222 @@
+/* Define CSS Custom Properties (Variables) */
+:root {
+    /* Default values for light mode */
+    --primary-text-color: #333;
+    --secondary-text-color: #666;
+    --background-color: #f0f0f0;
+    --border-color: #ccc;
+    --mastermind-title-color: #4CAF50;
+}
+
+/* Override for dark mode */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --primary-text-color: #eee;
+        --secondary-text-color: #bbb;
+        --background-color: #222;
+        --border-color: #555;
+        --mastermind-title-color: #8BC34A; /* A lighter green for dark mode */
+    }
+}
+
+/* Apply styles using the custom properties */
+body {
+    color: var(--primary-text-color);
+    background-color: var(--background-color);
+}
+
+.mastermind-board {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    padding: 0px;
+    border-radius: 5px;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+.board-header {
+    text-align: center;
+    color: white;
+    margin-bottom: 20px;
+}
+.board-title {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+.board-status {
+    font-size: 14px;
+    opacity: 0.9;
+}
+
+/* Current Guess Section */
+.current-guess-section {
+    background: rgba(255,255,255,0.2);
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+    border: 3px solid rgba(255,255,255,0.4);
+}
+.current-guess-title {
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 12px;
+    opacity: 0.8;
+}
+.current-guess-pegs {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    padding: 10px;
+}
+.current-peg {
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    border: 3px solid rgba(255,255,255,0.6);
+    background: rgba(255,255,255,0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 24px;
+    position: relative;
+}
+.current-peg.filled {
+    border: 3px solid rgba(0,0,0,0.3);
+    box-shadow: inset -2px -2px 5px rgba(0,0,0,0.3),
+                inset 2px 2px 5px rgba(255,255,255,0.3),
+                0 3px 6px rgba(0,0,0,0.2);
+}
+.position-label {
+    position: absolute;
+    bottom: -25px;
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+/* History Section */
+.guess-history {
+    background: rgba(255,255,255,0.1);
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 20px;
+    backdrop-filter: blur(10px);
+    min-height: 60px;
+}
+.history-title {
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 12px;
+    opacity: 0.8;
+}
+.guess-row {
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+    padding: 12px;
+    background: rgba(255,255,255,0.15);
+    border-radius: 8px;
+    animation: slideIn 0.3s ease-out;
+}
+@keyframes slideIn {
+    from { opacity: 0; transform: translateX(-20px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+.guess-number {
+    color: white;
+    font-weight: bold;
+    width: 35px;
+    font-size: 16px;
+}
+.pegs-container {
+    display: flex;
+    gap: 10px;
+    flex: 1;
+}
+.peg {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 3px solid rgba(0,0,0,0.3);
+    box-shadow: inset -2px -2px 5px rgba(0,0,0,0.3),
+                inset 2px 2px 5px rgba(255,255,255,0.3),
+                0 3px 6px rgba(0,0,0,0.2);
+}
+.feedback {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    margin-left: 15px;
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+    min-width: 80px;
+}
+.no-guesses {
+    color: rgba(255,255,255,0.6);
+    text-align: center;
+    padding: 20px;
+    font-style: italic;
+}
+
+.guess-area {
+    border: 2px solid #ddd;
+    padding: 20px;
+    border-radius: 12px;
+    background-color: white;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+/* Secret Code */
+.secret-section {
+    background: rgba(0,0,0,0.3);
+    border-radius: 10px;
+    padding: 20px;
+    border: 2px solid rgba(255,255,255,0.2);
+}
+.secret-title {
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 12px;
+    text-align: center;
+}
+.secret-pegs {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+}
+.peg-hidden {
+    background: linear-gradient(135deg, #333, #555);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+}
+.narrow-dropdown .wrap.svelte-1ipelgc {
+    width: 80px !important;   /* the actual dropdown width */
+}
+
+.narrow-dropdown select {
+    width: 80px !important;
+    min-width: 80px !important;
+}
+
+.mastermind-title {
+    text-align: center;
+    font-size: 3em;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+    margin-bottom: 20px;
+    background-color: transparent; 
+    border: 2px solid #efefef; 
+    padding: 10px; 
+    border-radius: 8px; 
+}
+
+.small-button-text {
+    font-size: 0.8em; /* Adjust this value as needed */
+    padding: 6px 10px; /* Adjust padding if you want smaller buttons */
+}

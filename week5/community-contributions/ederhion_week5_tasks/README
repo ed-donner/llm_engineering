@@ -1,0 +1,41 @@
+# Oracle Database Engineering Assistant
+
+A Retrieval-Augmented Generation (RAG) application designed to provide expert-level answers to Oracle Database architectural, performance tuning, and troubleshooting questions. This tool syncs official manuals from Google Drive, processes them into a local vector database, and uses a two-stage retrieval pipeline to deliver highly accurate, optimized answers with source citations.
+
+## Features
+
+* **Automated Knowledge Ingestion:** Automatically downloads Portable Document Format (PDF) manuals from a specified Google Drive folder, chunks the text, and builds a local Chroma vector database.
+* **Two-Stage Retrieval-Augmented Generation (RAG) Pipeline:** * *Stage 1:* Retrieves a broad set of context documents using `BAAI/bge-large-en-v1.5` embeddings.
+    * *Stage 2:* Compresses and reranks the results using the `BAAI/bge-reranker-large` cross-encoder to ensure only the most relevant context is passed to the Large Language Model (LLM).
+* **Conversational Memory & Query Rewriting:** Maintains chat history and uses a Large Language Model (LLM) to rewrite user questions into highly optimized standalone search queries.
+* **Interactive Web User Interface (UI):** Built with Gradio, offering a clean, side-by-side view of the conversation and the retrieved context documents.
+* **Smart Initialization:** Automatically detects if the vector database is missing and runs the ingestion pipeline before launching the User Interface (UI).
+
+## Install Dependencies
+uv add gdown pypdf
+
+## Usage
+To start the application, simply run:
+uv run app.py
+
+First Run: If the local vector_db directory does not exist or is empty, the application will automatically trigger the ingestion process. It will download the manuals, generate embeddings, and build the database before starting the server.
+
+Web Interface: Once the server starts, a Gradio User Interface (UI) will launch in your default web browser. You can ask questions in the chat window, and the relevant documentation chunks will appear in the right-hand panel.
+
+## Project Structure
+app.py: The main entry point. It checks for the existence of the vector database, initializes the Gradio User Interface (UI), and connects the frontend to the Retrieval-Augmented Generation (RAG) pipeline.
+
+answer.py: Contains the core Retrieval-Augmented Generation (RAG) logic. It handles query rewriting, two-stage document retrieval (embedding search + cross-encoder reranking), and final answer generation via OpenRouter.
+
+ingest.py: Manages the data ingestion pipeline. It syncs Portable Document Format (PDF) files from Google Drive, parses them, splits them into manageable chunks, and saves the embeddings to a local Chroma database.
+
+config.py: A centralized configuration file storing file paths, model names, hardware device settings, and system prompts.
+
+## Configuration
+You can easily modify the application's behavior by editing config.py:
+
+Hardware Acceleration: Change DEVICE to "cuda" for Nvidia Compute Unified Device Architecture (CUDA) Graphics Processing Units (GPUs), "mps" for Apple Silicon Metal Performance Shaders (MPS), or "cpu" for standard Central Processing Unit (CPU) processing.
+
+Models: Swap out the LLM_MODEL, EMBEDDING_MODEL, or RERANKER_MODEL strings to experiment with different models.
+
+Data Source: Update the DRIVE_FOLDER_ID to point to a different Google Drive folder containing your Portable Document Format (PDF) manuals.

@@ -1,0 +1,5 @@
+gradio>=4.0.0
+anthropic>=0.25.0
+pandas>=1.5.0
+python-dotenv>=1.0.0
+httpx==0.27.2

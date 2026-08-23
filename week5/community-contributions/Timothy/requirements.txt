@@ -1,0 +1,6 @@
+requests
+beautifulsoup4
+html2text
+trafilatura
+lxml
+tqdm

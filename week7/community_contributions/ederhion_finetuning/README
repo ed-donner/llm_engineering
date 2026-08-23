@@ -1,0 +1,39 @@
+# Job Salary Predictor: Llama-3.2-3B Fine-Tuning
+
+This repository contains a complete pipeline for preparing data, fine-tuning, and evaluating a Large Language Model (LLM) to predict annual job salaries based on job descriptions. The project leverages LoRA (Low-Rank Adaptation) and 4-bit quantization to efficiently fine-tune the `meta-llama/Llama-3.2-3B` model.
+
+## Pipeline Overview
+
+The project is broken down into three main Python scripts:
+
+### 1. Data Preparation (`get_dataset.py`)
+This script handles fetching and formatting the dataset for supervised fine-tuning.
+
+* **Source Dataset**: Downloads the raw job data from `lukebarousse/data_jobs` on Hugging Face.
+* **Processing**: Filters out jobs without a valid annual salary, truncates long descriptions to a maximum of 200 tokens, and constructs a synthetic description including company, schedule, and required skills.
+* **Prompt Engineering**: Formats the data into prompt-completion pairs asking, "What is the annual salary for this role to the nearest dollar?".
+* **Splitting & Publishing**: Splits the processed data into a 90% training and 10% testing set, then pushes it to the Hugging Face Hub (e.g., `jederhion/job_salary_prompts`).
+
+### 2. Model Training (`train_job_salary.py`)
+This script is designed to run in a GPU-accelerated environment like Google Colab (using a T4 GPU).
+
+* **Base Model**: Uses `meta-llama/Llama-3.2-3B`.
+* **Quantization**: Implements 4-bit quantization via `BitsAndBytesConfig` (using NF4 type and `bfloat16` compute dtype) to reduce memory footprint.
+* **LoRA Configuration**: Targets specific attention modules (`q_proj`, `v_proj`, `k_proj`, `o_proj`) with a rank (`r`) of 16 and an `alpha` of 32.
+* **Training & Publishing**: Uses the `SFTTrainer` from the `trl` library to train the model for a maximum of 200 steps before pushing the resulting LoRA adapters to the Hugging Face Hub (e.g., `jederhion/job_salary_adapters`).
+
+### 3. Evaluation (`evaluate_job_salary.py`)
+This script runs inference on the fine-tuned model to evaluate its predictive performance.
+
+* **Hardware Profile**: Specifically optimized for Apple Silicon Macs using the MPS (Metal Performance Shaders) backend and 16-bit precision (`torch.float16`).
+* **Inference**: Loads a random sample of 100 test cases, applies the custom LoRA adapters to the base model via `PeftModel`, and generates salary predictions.
+* **Metrics**: Calculates the Average Absolute Error, Mean Squared Error (MSE), and R-squared (R²).
+* **Visualization**: Generates an interactive Plotly scatter plot comparing the actual vs. predicted salaries, color-coded by the margin of error (green for <$10k error, orange for <$25k error, red otherwise).
+
+## Prerequisites
+
+Before running the scripts, ensure you have the following requirements met:
+
+* A valid Hugging Face account and a generated Access Token.
+* Access to the `meta-llama/Llama-3.2-3B` model on Hugging Face (requires accepting their usage terms).
+* Required Python libraries: `transformers`, `datasets`, `peft`, `trl`, `bitsandbytes`, `torch`, `accelerate`, `python-dotenv`, `plotly`, `pandas`, `scikit-learn`, and `pydantic`.

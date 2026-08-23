@@ -1,0 +1,15 @@
+{
+  "id": "user_profile",
+  "schema": {
+    "type": "object",
+    "properties": {
+      "first_name": { "type": "string" },
+      "last_name": { "type": "string" },
+      "email": { "type": "string", "format": "email" },
+      "age": { "type": "integer", "minimum": 18, "maximum": 80 },
+      "country": { "type": "string" }
+    },
+    "required": ["first_name", "last_name", "email", "age"]
+  },
+  "prompt_template": "[{\"first_name\": \"John\", \"last_name\": \"Doe\", \"email\": \"john@example.com\", \"age\": 30, \"country\": \"USA\"}, {\"first_name\": \"Jane\", \"last_name\": \"Smith\", \"email\": \"jane@example.com\", \"age\": 25, \"country\": \"Canada\"}] Generate exactly {{count}} user profiles as JSON array. Each profile must match: {{schema}}. Tone: {{tone}}. Start with [ and end with ]. No thinking, no explanations, just JSON."
+}

@@ -1,0 +1,157 @@
+/* Header */
+#header-banner {
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+  border-radius: 14px;
+  padding: 28px 36px;
+  margin-bottom: 12px;
+}
+#header-banner h1 {
+  color: #e94560;
+  font-size: 2.3rem;
+  font-weight: 800;
+  margin: 0;
+  letter-spacing: -0.5px;
+}
+#header-banner p {
+  color: #a8b2d8;
+  margin: 8px 0 0;
+  font-size: 1.05rem;
+}
+
+/* Agent pipeline pills */
+.agent-pipeline {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin: 8px 0 14px;
+}
+.agent-pill {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 16px;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  border: 2px solid;
+  transition: all 0.3s;
+}
+.agent-pill.idle   { background: #1e2235; border-color: #3d4566; color: #6b7280; }
+.agent-pill.active { background: #0d2137; border-color: #38bdf8; color: #38bdf8; box-shadow: 0 0 14px rgba(56,189,248,.45); }
+.agent-pill.done   { background: #0d2b1e; border-color: #34d399; color: #34d399; }
+.agent-pill .dot   { width: 8px; height: 8px; border-radius: 50%; background: currentColor; flex-shrink: 0; }
+.agent-pill.active .dot { animation: pulse 1.2s infinite; }
+@keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.35;transform:scale(.65)} }
+
+/* Status bar */
+.status-bar {
+  background: #0f172a;
+  border: 1px solid #1e293b;
+  border-radius: 8px;
+  padding: 10px 16px;
+  font-family: 'JetBrains Mono', 'Fira Code', monospace;
+  font-size: 0.83rem;
+  color: #ffffff;
+  min-height: 38px;
+  margin-bottom: 6px;
+  line-height: 1.5;
+}
+/* Category name in bold */
+.status-bar b {
+  color: #38bdf8;
+  font-weight: 700;
+}
+/* Article title in italic (Summarised: ...) */
+.status-bar i {
+  color: #fbbf24;
+  font-style: italic;
+}
+
+/* Buttons */
+#run-btn {
+  background: linear-gradient(135deg, #e94560, #c0392b) !important;
+  border: none !important;
+  border-radius: 8px !important;
+  font-weight: 700 !important;
+  font-size: 0.97rem !important;
+  color: #fff !important;
+  padding: 11px 28px !important;
+  transition: opacity .2s, transform .15s !important;
+}
+#run-btn:hover { opacity: .88 !important; transform: translateY(-1px) !important; }
+
+#clear-btn {
+  background: #1e2235 !important;
+  border: 1px solid #3d4566 !important;
+  border-radius: 8px !important;
+  font-weight: 600 !important;
+  color: #a8b2d8 !important;
+  padding: 11px 22px !important;
+  transition: background .2s !important;
+}
+#clear-btn:hover { background: #2a3050 !important; }
+
+/* Results panel */
+#results-panel,
+#results-panel .prose,
+#results-panel > div,
+#results-panel div,
+#results-panel div:nth-child(odd),
+#results-panel div:nth-child(even) {
+  background: #ffffff !important;
+  background-image: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+
+/* Outer container gets the card look */
+#results-panel {
+  border: 1px solid #e2e8f0 !important;
+  border-radius: 12px !important;
+  padding: 24px 28px !important;
+  color: #1e293b !important;
+  font-family: 'Inter', 'Segoe UI', sans-serif !important;
+  font-size: 1rem !important;
+  line-height: 1.75 !important;
+}
+
+/* Article titles */
+#results-panel h2 {
+  font-size: 1.25rem !important;
+  font-weight: 700 !important;
+  color: #0f172a !important;
+  margin: 24px 0 6px !important;
+  padding-bottom: 6px !important;
+  border-bottom: 2px solid #e94560 !important;
+  letter-spacing: -0.2px !important;
+}
+#results-panel strong {
+  color: #0f172a !important;
+  font-size: 1.02rem !important;
+  font-weight: 700 !important;
+}
+
+/* Body text / summaries */
+#results-panel p {
+  color: #334155 !important;
+  font-size: 0.97rem !important;
+  margin: 6px 0 10px !important;
+  line-height: 1.75 !important;
+}
+
+/* Links */
+#results-panel a {
+  color: #2563eb !important;
+  font-size: 0.88rem !important;
+  font-weight: 500 !important;
+  text-decoration: none !important;
+  word-break: break-all !important;
+}
+#results-panel a:hover { text-decoration: underline !important; }
+
+/* Dividers between articles */
+#results-panel hr {
+  border: none !important;
+  border-top: 1px solid #e2e8f0 !important;
+  margin: 18px 0 !important;
+}

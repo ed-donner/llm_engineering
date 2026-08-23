@@ -1,0 +1,46 @@
+#arena-header          { text-align: center; padding: 16px 0 8px; }
+#arena-header h1       { font-size: 2rem; margin-bottom: 4px; }
+.model-card            { border: 1px solid #e2e8f0; border-radius: 10px; padding: 12px; margin-bottom: 10px; }
+
+
+@keyframes trophy-bounce {
+    0%, 100% { transform: translateY(0) scale(1); }
+    50%       { transform: translateY(-8px) scale(1.1); }
+}
+@keyframes winner-fade-in {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+.winner-card {
+    animation: winner-fade-in 0.6s ease-out forwards;
+    border: 2px solid #f59e0b;
+    border-radius: 12px;
+    padding: 20px;
+    background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
+    text-align: center;
+    margin: 12px 0;
+}
+.winner-trophy   { display: inline-block; font-size: 3rem; animation: trophy-bounce 1s ease-in-out infinite; }
+.winner-title    { font-size: 1.4rem; font-weight: 700; color: #92400e; margin: 8px 0 4px; }
+.winner-subtitle { color: #78350f; font-size: 0.95rem; }
+.winner-scores   { display: flex; justify-content: center; gap: 20px; margin-top: 12px; flex-wrap: wrap; }
+.winner-score-item {
+    background: #fef9c3;
+    border: 1px solid #fde68a;
+    border-radius: 8px;
+    padding: 6px 14px;
+    font-size: 0.85rem;
+    color: #92400e;
+}
+
+
+.tie-card {
+    animation: winner-fade-in 0.6s ease-out forwards;
+    border: 2px solid #6366f1;
+    border-radius: 12px;
+    padding: 20px;
+    background: linear-gradient(135deg, #eef2ff 0%, #e0e7ff 100%);
+    text-align: center;
+    margin: 12px 0;
+}

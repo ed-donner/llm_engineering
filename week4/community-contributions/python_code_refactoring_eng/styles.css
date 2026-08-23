@@ -1,0 +1,84 @@
+
+.gradio-container { 
+    max-width: 1400px !important; 
+    font-family: 'Fira Code', monospace;
+}
+
+
+textarea, .cm-editor { 
+    font-size: 14px !important; 
+    background-color: #111 !important;
+    color: #9be9a8 !important; /* light green for code text */
+}
+
+
+.controls { 
+    margin-top: 10px; 
+    margin-bottom: 10px; 
+}
+
+
+.run-btn { 
+    background-color: #222 !important; 
+    color: white !important; 
+}
+.convert-btn { 
+    background-color: #3b82f6 !important; 
+    color: white !important; 
+    font-weight: 600; 
+}
+
+
+.py-out textarea, .cpp-out textarea { 
+    background: #111 !important; 
+    color: #9be9a8 !important; 
+    font-family: 'Fira Code', monospace;
+}
+
+
+.explanation { 
+    padding: 15px; 
+    background: #111; 
+    border-radius: 8px; 
+    color: orange !important; 
+    font-family: 'Fira Code', monospace;
+    white-space: pre-wrap; 
+}
+
+
+.explanation, 
+.explanation * {
+    color: orange !important;
+}
+
+
+.explanation code {
+    background-color: #222;
+    color: #f9d342 !important; /* bright yellow for code snippets */
+    padding: 2px 4px;
+    border-radius: 4px;
+}
+
+
+.explanation ul li, 
+.explanation ol li {
+    margin-left: 20px;
+}
+
+
+.explanation h1, 
+.explanation h2, 
+.explanation h3, 
+.explanation h4, 
+.explanation h5, 
+.explanation h6 {
+    color: orange !important;
+    margin: 4px 0;
+}
+.py-out .cm-editor,
+.py-out textarea,
+.cpp-out .cm-editor,
+.cpp-out textarea {
+    max-height: 500px;   /* or whatever fits your screen */
+    overflow-y: auto;    /* adds vertical scrollbar */
+}

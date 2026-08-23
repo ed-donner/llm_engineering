@@ -1,0 +1,16 @@
+# Call Assistant Bot
+# Python 3.10+
+
+# Core
+openai>=1.0.0
+gradio>=4.0.0
+pydantic>=2.0.0
+python-dotenv>=1.0.0
+
+# Audio + transcription
+groq>=0.4.0
+soundfile>=0.12.0
+xxhash>=3.0.0
+
+# Hugging Face Spaces
+spaces>=0.35.0

@@ -1,0 +1,31 @@
+# ChromaDB and vector databases
+langchain_chroma_db/
+*.db
+*.sqlite3
+
+# Large knowledge bases (keep only samples)
+ntsa_comprehensive_knowledge_base/
+ntsa_knowledge_base/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+
+# Jupyter notebook checkpoints
+.ipynb_checkpoints/
+
+# Environment files
+.env
+.venv/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Temporary files
+*.tmp
+*.temp

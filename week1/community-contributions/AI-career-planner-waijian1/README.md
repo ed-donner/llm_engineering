@@ -1,0 +1,194 @@
+# 🚀 AI Career Planner
+
+> An AI-powered tool that analyzes real job market demands and generates a personalized study plan for your target career.
+
+**Stop guessing what to learn.** This project uses live job data + AI to tell you exactly what skills are in demand — then builds you a roadmap to get there.
+
+---
+
+## 📌 The Problem
+
+Most learners struggle with three things:
+
+- ❓ **What** skills to learn for a target career
+- ❓ **Whether** those skills are actually in demand right now
+- ❓ **How** to structure a learning roadmap that makes sense
+
+---
+
+## 💡 The Solution
+
+AI Career Planner tackles this by:
+
+1. **Fetching real job listings** from the live market (configurable by country)
+2. **Identifying in-demand skills** from actual job descriptions
+3. *(Planned)* **Generating a custom AI-driven study plan** tailored to skill gaps
+
+---
+
+## ✨ Features
+
+### 🔍 Live Job Search (via JSearch / RapidAPI)
+- Fetches real job listings filtered by role and location
+- Configurable filters: country, date range (e.g. posted within last week)
+- Extracts: job title, company name, full job description
+
+### 📊 Structured Data Extraction
+Converts raw API responses into clean, usable Python objects:
+
+```json
+{
+  "title": "Machine Learning Engineer",
+  "company": "Company Name",
+  "description": "Job description text..."
+}
+```
+
+### 🧠 AI Career Intelligence *(Planned)*
+- Extracts skills (Python, SQL, ML, etc.) and tools (Docker, AWS, etc.) from job descriptions
+- Identifies most demanded skills and your personal skill gaps
+
+### 📚 Study Plan Generator *(Planned)*
+- Generates a step-by-step learning roadmap
+- Prioritizes skills by market demand
+- Suggests projects to build along the way
+
+---
+
+## 🏗️ Tech Stack
+
+| Tool | Purpose |
+|------|---------|
+| Python | Core language |
+| Requests | API calls |
+| RapidAPI (JSearch) | Live job listings |
+| python-dotenv | Environment/key management |
+| Google Gemini API | AI analysis *(planned)* |
+
+---
+
+## ⚙️ How It Works
+
+```
+User query (e.g. "machine learning engineer in singapore")
+        ↓
+  JSearch API call
+        ↓
+  Extract: title, company, description
+        ↓
+  Structured job dataset
+        ↓
+  (Planned) AI skill extraction → study plan
+```
+
+---
+
+## 📂 Project Structure
+
+```
+AI-career-planner/
+│
+├── jobsearchapi.py     # Fetches job data from RapidAPI (JSearch)
+├── main.ipynb          # Experimentation & analysis notebook
+├── .env                # API keys (not committed)
+└── README.md
+```
+
+---
+
+## 🚀 Getting Started
+
+### 1. Clone the repo
+
+```bash
+git clone https://github.com/waijian1/AI-career-planner.git
+cd AI-career-planner
+```
+
+### 2. Install dependencies
+
+```bash
+uv sync
+```
+
+### 3. Set up API keys
+
+Create a `.env` file in the project root:
+
+```env
+X_RAPID_API_KEY=your_rapidapi_key
+GOOGLE_API_KEY=your_google_api_key
+```
+
+> 🔑 Get your RapidAPI key at [rapidapi.com](https://rapidapi.com) — search for **JSearch**.
+
+### 4. Run the job search script
+
+```bash
+uv run jobsearchapi.py
+```
+
+### 5. Explore in the notebook
+
+Open `main.ipynb` to run LLM-powered analysis and generate a career plan.
+
+---
+
+## 📊 Example Usage
+
+```python
+from jobsearchapi import search_job
+
+jobs = search_job("machine learning engineer in singapore")
+print(jobs[:2])
+```
+
+**Output:**
+
+```json
+[
+  {
+    "title": "Machine Learning Engineer",
+    "company": "ABC Company",
+    "description": "We are looking for a skilled ML engineer..."
+  },
+  ...
+]
+```
+
+---
+
+## 🔮 Roadmap
+
+- [x] Job search API integration
+- [x] Structured data extraction
+- [ ] Skill extraction using NLP / LLM
+- [ ] Aggregate most in-demand skills
+- [ ] Generate personalized study plans
+- [ ] Build Streamlit UI
+- [ ] Deploy as a web app
+
+---
+
+## 📜 License
+
+This project is licensed under the [MIT License](LICENSE).
+
+---
+
+## 👨‍💻 Author
+
+**Lim Wai Jian**
+GitHub: [@waijian1](https://github.com/waijian1)
+
+---
+
+## ⭐ Support
+
+If you find this useful, please consider:
+
+- Starring ⭐ the repo
+- Sharing it with others
+- Contributing improvements via pull requests
+
+Every bit of support helps keep the project going! 🚀

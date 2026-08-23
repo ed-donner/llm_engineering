@@ -1,0 +1,5 @@
+feedparser
+gradio
+openai
+pydantic
+python-dotenv

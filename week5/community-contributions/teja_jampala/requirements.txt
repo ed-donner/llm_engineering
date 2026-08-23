@@ -1,0 +1,13 @@
+chromadb
+pandas
+openai
+fastapi
+uvicorn
+streamlit
+gradio
+networkx
+matplotlib
+sqlglot
+python-dotenv
+openpyxl
+scipy

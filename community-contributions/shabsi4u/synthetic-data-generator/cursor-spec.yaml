@@ -1,0 +1,426 @@
+# cursor-spec.yaml
+name: cursor-synth
+version: 0.1.0
+description: >-
+  Minimal synthetic data generator (classes-only, prompt-engineering, local).
+  Uses Hugging Face Inference API (HF_API_KEY in .env) and a minimal Gradio UI.
+  Built for local dev with `uv` (uv sync / uv run gradio_ui.py). No FastAPI.
+author: Your Name
+license: MIT
+
+# runtime / dev commands (uv)
+run:
+  setup: "uv sync"
+  start: "uv run gradio_ui.py"
+  test: "uv run pytest -q"
+
+env:
+  required:
+    - HF_API_KEY
+  example_file: .env
+
+# files to create in the project root (filename -> content)
+files:
+
+  pyproject.toml: |
+    [project]
+    name = "cursor-synth"
+    version = "0.1.0"
+    description = "Synthetic data generator using Hugging Face + Gradio (local)"
+    requires-python = ">=3.10"
+    dependencies = [
+      "gradio>=4.0.0",
+      "httpx>=0.24.0",
+      "python-dotenv>=1.0.0",
+      "jsonschema>=4.19.0",
+      "pytest>=7.0.0"
+    ]
+
+  README.md: |
+    # cursor-synth (MVP)
+    Minimal synthetic data generator (classes-only). Local dev via `uv`.
+    Commands:
+      - `uv sync` to install deps
+      - `uv run gradio_ui.py` to run the Gradio UI
+      - `uv run pytest -q` to run tests
+    Set HF key: copy `.env.example` -> `.env` and add `HF_API_KEY`.
+
+  cursor_synth/__init__.py: |
+    # package marker
+
+  cursor_synth/utils.py: |
+    import json
+    import re
+    from typing import Any, Optional
+
+    def safe_json_load(text: str) -> Optional[Any]:
+        """
+        Attempt to parse JSON. Heuristics:
+          1) direct json.loads
+          2) extract first [...] block
+          3) extract first {...} block
+        Returns parsed object or None.
+        """
+        try:
+            return json.loads(text)
+        except Exception:
+            pass
+
+        # try to extract the first JSON array
+        arr_match = re.search(r'(\[.*\])', text, flags=re.S)
+        if arr_match:
+            try:
+                return json.loads(arr_match.group(1))
+            except Exception:
+                pass
+
+        # try to extract first JSON object or list of objects by finding first { ... }
+        obj_match = re.search(r'(\{.*\})', text, flags=re.S)
+        if obj_match:
+            try:
+                return json.loads(obj_match.group(1))
+            except Exception:
+                pass
+
+        return None
+
+  cursor_synth/core.py: |
+    """
+    Minimal core classes:
+      - TemplateRegistry
+      - PromptEngine
+      - HFClient
+      - Validator
+      - Generator
+    Keep deliberately small and synchronous (httpx sync client) for local dev.
+    """
+
+    import os
+    import json
+    from typing import Any, Dict, List, Optional, Tuple
+    from pathlib import Path
+
+    import httpx
+    from dotenv import load_dotenv
+    from jsonschema import validate as jsonschema_validate, ValidationError
+
+    from .utils import safe_json_load
+
+    load_dotenv()
+
+    DEFAULT_TEMPLATES_DIR = Path(__file__).parent / "templates"
+
+    class TemplateRegistry:
+        def __init__(self, templates_dir: Optional[str] = None):
+            self.dir = Path(templates_dir) if templates_dir else DEFAULT_TEMPLATES_DIR
+            self._cache: Dict[str, Dict[str, Any]] = {}
+            self._load_all()
+
+        def _load_all(self):
+            if not self.dir.exists():
+                return
+            for p in self.dir.glob("*.json"):
+                try:
+                    j = json.loads(p.read_text(encoding="utf-8"))
+                    tid = j.get("id") or p.stem
+                    self._cache[tid] = j
+                except Exception:
+                    # skip invalid templates
+                    continue
+
+        def get_ids(self) -> List[str]:
+            return list(self._cache.keys())
+
+        def get_template(self, template_id: str) -> Optional[Dict[str, Any]]:
+            return self._cache.get(template_id)
+
+    class PromptEngine:
+        def build_prompt(self, template: Dict[str, Any], params: Dict[str, Any]) -> str:
+            """
+            Build a single prompt string.
+            Template must include 'prompt_template' and 'schema'.
+            params may include count, tone, etc.
+            """
+            tpl = template.get("prompt_template", "")
+            schema = template.get("schema", {})
+            # Render minimal placeholders: {{count}}, {{tone}}, {{schema}}
+            prompt = tpl.replace("{{count}}", str(params.get("count", 1)))
+            prompt = prompt.replace("{{tone}}", str(params.get("tone", "concise")))
+            prompt = prompt.replace("{{schema}}", json.dumps(schema))
+            # ensure strict instruction
+            if "ONLY OUTPUT VALID JSON" not in prompt:
+                prompt = "ONLY OUTPUT VALID JSON. " + prompt
+            return prompt
+
+    class HFClient:
+        def __init__(self, model_id: Optional[str] = None, api_key: Optional[str] = None):
+            self.model_id = model_id or os.getenv("HF_MODEL_ID")
+            self.api_key = api_key or os.getenv("HF_API_KEY")
+            if not self.model_id or not self.api_key:
+                # We'll allow construction but calls will error with a readable message
+                pass
+            self._url = f"https://api-inference.huggingface.co/models/{self.model_id}"
+            self._headers = {"Authorization": f"Bearer {self.api_key}"} if self.api_key else {}
+
+        def generate(self, prompt: str, temperature: float = 0.2, max_tokens: int = 512) -> Tuple[str, Dict[str, Any]]:
+            if not self.model_id or not self.api_key:
+                raise RuntimeError("HF model_id or HF_API_KEY not provided in environment (.env).")
+            payload = {"inputs": prompt, "parameters": {"temperature": float(temperature), "max_new_tokens": int(max_tokens)}}
+            with httpx.Client(timeout=60.0) as client:
+                resp = client.post(self._url, headers=self._headers, json=payload)
+            # HF inference returns either text or json depending on model/endpoint
+            # Try to extract text conservatively
+            try:
+                data = resp.json()
+                # typical HF text key
+                if isinstance(data, dict) and "generated_text" in data:
+                    txt = data["generated_text"]
+                elif isinstance(data, dict) and "error" in data:
+                    txt = ""
+                else:
+                    # if it's not generated_text, coerce to string
+                    txt = json.dumps(data)
+                return txt, {"status_code": resp.status_code, "raw_json": data}
+            except Exception:
+                return resp.text, {"status_code": resp.status_code}
+
+    class Validator:
+        def validate(self, schema: Dict[str, Any], data: Any) -> Dict[str, Any]:
+            if not schema:
+                return {"valid": True, "errors": []}
+            try:
+                # If top-level is array and schema expects object, validate each item
+                if isinstance(data, list):
+                    for item in data:
+                        jsonschema_validate(instance=item, schema=schema)
+                else:
+                    jsonschema_validate(instance=data, schema=schema)
+                return {"valid": True, "errors": []}
+            except ValidationError as e:
+                return {"valid": False, "errors": [str(e)]}
+            except Exception as e:
+                return {"valid": False, "errors": [str(e)]}
+
+    class Generator:
+        def __init__(self, hf_client: HFClient, registry: TemplateRegistry, prompt_engine: PromptEngine, validator: Validator):
+            self.hf = hf_client
+            self.registry = registry
+            self.engine = prompt_engine
+            self.validator = validator
+
+        def generate(self,
+                     template_id: Optional[str],
+                     params: Dict[str, Any],
+                     custom_prompt: Optional[str] = None,
+                     temperature: float = 0.2,
+                     max_tokens: int = 512) -> Dict[str, Any]:
+            # Load template or build ephemeral one
+            if custom_prompt:
+                template = {"id": "custom", "prompt_template": custom_prompt, "schema": {}}
+            else:
+                template = self.registry.get_template(template_id) or {"id": template_id, "prompt_template": "", "schema": {}}
+
+            prompt = self.engine.build_prompt(template, params)
+            try:
+                raw_text, meta = self.hf.generate(prompt, temperature=temperature, max_tokens=max_tokens)
+            except Exception as exc:
+                return {"status": "error", "output": None, "raw_model_text": "", "validation": {"valid": False, "errors": [str(exc)]}}
+
+            parsed = safe_json_load(raw_text)
+            if parsed is None:
+                return {"status": "error", "output": None, "raw_model_text": raw_text, "validation": {"valid": False, "errors": ["parse_error"]}}
+
+            validation = self.validator.validate(template.get("schema", {}), parsed)
+            return {"status": "ok", "output": parsed, "raw_model_text": raw_text, "validation": validation}
+
+  gradio_ui.py: |
+    """
+    Minimal Gradio UI entrypoint that imports Generator and runs locally.
+    Run: uv run gradio_ui.py
+    """
+
+    import os
+    import json
+    import gradio as gr
+    from dotenv import load_dotenv
+
+    from cursor_synth.core import TemplateRegistry, PromptEngine, HFClient, Validator, Generator
+
+    load_dotenv()
+
+    HF_MODEL_ID="google/flan-t5-large" # huggingface/llama-2-7b-instruct
+
+    registry = TemplateRegistry()
+    prompt_engine = PromptEngine()
+    hf_client = HFClient(model_id=HF_MODEL_ID, api_key=os.getenv("HF_API_KEY"))
+    validator = Validator()
+    generator = Generator(hf_client, registry, prompt_engine, validator)
+
+    def generate_action(template_id: str, count: int, tone: str, temperature: float, max_tokens: int, custom_prompt: str, show_raw: bool):
+        params = {"count": count, "tone": tone}
+        if template_id == "custom":
+            result = generator.generate(None, params, custom_prompt=custom_prompt, temperature=temperature, max_tokens=max_tokens)
+        else:
+            result = generator.generate(template_id, params, custom_prompt=None, temperature=temperature, max_tokens=max_tokens)
+        output = result.get("output")
+        raw = result.get("raw_model_text", "")
+        validation = result.get("validation", {"valid": False, "errors": []})
+        json_text = json.dumps(output, indent=2) if output is not None else ""
+        if show_raw:
+            return json_text, raw, json.dumps(validation, indent=2)
+        return json_text, ("(hidden)" if not raw else ""), json.dumps(validation, indent=2)
+
+    # build UI
+    templates = registry.get_ids()
+    templates_dropdown = templates + ["custom"]
+
+    with gr.Blocks(title="Cursor Synth - Minimal") as demo:
+        with gr.Row():
+            with gr.Column(scale=1):
+                template = gr.Dropdown(label="Template", choices=templates_dropdown, value=templates_dropdown[0])
+                count = gr.Slider(label="Count", minimum=1, maximum=10, value=1, step=1)
+                tone = gr.Textbox(label="Tone (optional)", value="concise")
+                temperature = gr.Slider(label="Temperature", minimum=0.0, maximum=1.0, value=0.2, step=0.05)
+                max_tokens = gr.Number(label="Max tokens", value=512)
+                custom_prompt = gr.Textbox(label="Custom prompt (used if Template=custom)", lines=6, visible=False)
+                show_raw = gr.Checkbox(label="Show raw model output", value=False)
+                gen_btn = gr.Button("Generate")
+            with gr.Column(scale=1):
+                output = gr.Code(label="Output (JSON)", language="json")
+                raw_out = gr.Textbox(label="Raw model output", lines=8)
+                validation = gr.Code(label="Validation", language="json")
+
+        def on_template_change(t):
+            return gr.update(visible=(t == "custom"))
+
+        template.change(on_template_change, inputs=[template], outputs=[custom_prompt])
+
+        gen_btn.click(fn=generate_action,
+                      inputs=[template, count, tone, temperature, max_tokens, custom_prompt, show_raw],
+                      outputs=[output, raw_out, validation])
+
+    if __name__ == "__main__":
+        demo.launch(server_name="127.0.0.1", server_port=int(os.getenv("PORT", 7860)))
+
+  cursor_synth/templates/job_description.json: |
+    {
+      "id": "job_description",
+      "schema": {
+        "type": "object",
+        "properties": {
+          "title": { "type": "string" },
+          "level": { "type": "string", "enum": ["Entry", "Mid", "Senior", "Lead", "Principal"] },
+          "team": { "type": "string" },
+          "responsibilities": { "type": "array", "items": { "type": "string" }, "minItems": 3, "maxItems": 6 },
+          "requirements": { "type": "array", "items": { "type": "string" }, "minItems": 4, "maxItems": 8 }
+        },
+        "required": ["title", "level", "team", "responsibilities"]
+      },
+      "prompt_template": "ONLY OUTPUT VALID JSON. Task: Generate {{count}} job description(s) as a JSON array. Each item must match the schema provided. Tone: {{tone}}. Constraints: responsibilities 3-6 strings; requirements 4-8 strings."
+    }
+
+  cursor_synth/templates/product_spec.json: |
+    {
+      "id": "product_spec",
+      "schema": {
+        "type": "object",
+        "properties": {
+          "name": { "type": "string" },
+          "category": { "type": "string" },
+          "short_description": { "type": "string" },
+          "features": { "type": "array", "items": { "type": "string" }, "minItems": 3, "maxItems": 8 },
+          "price_usd": { "type": "number" }
+        },
+        "required": ["name", "category", "short_description"]
+      },
+      "prompt_template": "ONLY OUTPUT VALID JSON. Task: Generate {{count}} product spec(s) as a JSON array matching the schema. Tone: {{tone}}. Features: 3-8 bullet strings. Output only the JSON array."
+    }
+
+  cursor_synth/templates/user_profile.json: |
+    {
+      "id": "user_profile",
+      "schema": {
+        "type": "object",
+        "properties": {
+          "first_name": { "type": "string" },
+          "last_name": { "type": "string" },
+          "email": { "type": "string", "format": "email" },
+          "age": { "type": "integer", "minimum": 18, "maximum": 80 },
+          "country": { "type": "string" }
+        },
+        "required": ["first_name", "last_name", "email", "age"]
+      },
+      "prompt_template": "ONLY OUTPUT VALID JSON. Task: Generate {{count}} user profile(s) as a JSON array. Schema: {{schema}}. Tone: {{tone}}."
+    }
+
+  cursor_synth/templates/address.json: |
+    {
+      "id": "address",
+      "schema": {
+        "type": "object",
+        "properties": {
+          "street": { "type": "string" },
+          "city": { "type": "string" },
+          "state": { "type": "string" },
+          "postal_code": { "type": "string" },
+          "country": { "type": "string" }
+        },
+        "required": ["street", "city", "country"]
+      },
+      "prompt_template": "ONLY OUTPUT VALID JSON. Task: Generate {{count}} address(es) as a JSON array. Schema: {{schema}}. Tone: {{tone}}. Use realistic but synthetic values."
+    }
+
+  tests/test_core.py: |
+    import json
+    from cursor_synth.core import TemplateRegistry, PromptEngine, Validator, Generator
+    class DummyHF:
+        def __init__(self, text):
+            self._text = text
+        def generate(self, prompt, temperature=0.2, max_tokens=512):
+            return self._text, {}
+    def test_template_loads():
+        reg = TemplateRegistry()
+        ids = reg.get_ids()
+        assert "job_description" in ids
+    def test_prompt_engine_builds():
+        reg = TemplateRegistry()
+        tpl = reg.get_template("job_description")
+        pe = PromptEngine()
+        p = pe.build_prompt(tpl, {"count":2, "tone":"concise"})
+        assert "ONLY OUTPUT VALID JSON" in p
+        assert '"responsibilities"' in p
+    def test_generator_valid_parse_and_validate(tmp_path):
+        reg = TemplateRegistry()
+        tpl = reg.get_template("job_description")
+        # create a canned valid JSON array that matches schema
+        canned = json.dumps([{
+            "title":"Senior Engineer",
+            "level":"Senior",
+            "team":"Platform",
+            "responsibilities":["A","B","C"],
+            "requirements":["R1","R2","R3","R4"]
+        }])
+        hf = DummyHF(canned)
+        gen = Generator(hf, reg, PromptEngine(), Validator())
+        res = gen.generate("job_description", {"count":1, "tone":"concise"})
+        assert res["status"] == "ok"
+        assert res["validation"]["valid"] is True
+    def test_generator_parse_error():
+        reg = TemplateRegistry()
+        hf = DummyHF("not json at all")
+        gen = Generator(hf, reg, PromptEngine(), Validator())
+        res = gen.generate("job_description", {"count":1, "tone":"concise"})
+        assert res["status"] == "error"
+
+# meta: minimal acceptance criteria for Cursor UI
+acceptance:
+  - uv sync installs dependencies without errors
+  - uv run gradio_ui.py launches Gradio and allows selecting template and generating examples
+  - Generated output parses to JSON for valid HF responses (mocked in tests)
+  - Download of JSON from UI is possible (via browser copy / right-click — minimal)
+  - tests run via uv run pytest -q and pass (HF calls are mocked)
+
+notes: |
+  - This is intentionally minimal and functional. It uses prompt-engineering only, runs locally,
+    reads HF_API_KEY from .env, and avoids any server/API complexity.
+  - If you want the spec in JSON instead, say "convert to JSON" and I'll provide it.

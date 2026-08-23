@@ -1,0 +1,8 @@
+{"messages": [{"role": "user", "content": "Show all customers created last week"}, {"role": "assistant", "content": "SELECT * FROM customers\nWHERE created_at >= NOW() - INTERVAL '7 days';"}]}
+{"messages": [{"role": "user", "content": "List orders from the last 30 days"}, {"role": "assistant", "content": "SELECT * FROM orders\nWHERE order_date >= NOW() - INTERVAL '30 days';"}]}
+{"messages": [{"role": "user", "content": "How many users signed up this month?"}, {"role": "assistant", "content": "SELECT COUNT(*) FROM users\nWHERE created_at >= date_trunc('month', NOW());"}]}
+{"messages": [{"role": "user", "content": "Find the top 10 products by revenue"}, {"role": "assistant", "content": "SELECT product_id, SUM(quantity * unit_price) AS revenue\nFROM order_items\nGROUP BY product_id\nORDER BY revenue DESC\nLIMIT 10;"}]}
+{"messages": [{"role": "user", "content": "All customers whose email contains @gmail.com"}, {"role": "assistant", "content": "SELECT * FROM customers\nWHERE email LIKE '%@gmail.com';"}]}
+{"messages": [{"role": "user", "content": "Orders that are still pending"}, {"role": "assistant", "content": "SELECT * FROM orders\nWHERE status = 'pending';"}]}
+{"messages": [{"role": "user", "content": "Total sales per day in January 2025"}, {"role": "assistant", "content": "SELECT DATE(created_at) AS day, SUM(total) AS total_sales\nFROM orders\nWHERE created_at >= '2025-01-01' AND created_at < '2025-02-01'\nGROUP BY DATE(created_at);"}]}
+{"messages": [{"role": "user", "content": "Customers who have never placed an order"}, {"role": "assistant", "content": "SELECT c.* FROM customers c\nLEFT JOIN orders o ON c.id = o.customer_id\nWHERE o.id IS NULL;"}]}

@@ -1,0 +1,6 @@
+beautifulsoup4==4.12.3
+python-dotenv==1.0.1
+requests==2.32.3
+openai==1.59.6
+gradio==4.44.0
+psycopg2-binary==2.9.9

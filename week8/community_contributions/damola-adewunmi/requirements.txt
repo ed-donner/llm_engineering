@@ -1,0 +1,10 @@
+# Deal Hunter — PlayStation UK
+# Run from repo root: uv sync (main deps) then from this folder: uv run app.py
+# Or install locally: pip install -r requirements.txt
+
+langgraph>=0.2.0
+langchain-openai>=0.3.0
+langchain-core>=0.3.0
+tavily-python>=0.5.0
+gradio>=5.0,<6.0
+python-dotenv>=1.0.0

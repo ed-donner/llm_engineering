@@ -1,0 +1,17 @@
+# Core dependencies for YouTube Video Summarizer
+requests>=2.25.0
+tiktoken>=0.5.0
+python-dotenv>=0.19.0
+openai>=1.0.0
+youtube-transcript-api>=0.6.0
+beautifulsoup4>=4.9.0
+
+# Optional dependencies for Jupyter notebook support
+ipython>=7.0.0
+jupyter>=1.0.0
+
+# Development dependencies (optional)
+pytest>=6.0.0
+black>=22.0.0
+flake8>=4.0.0
+mypy>=0.950

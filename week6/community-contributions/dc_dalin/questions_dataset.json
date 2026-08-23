@@ -1,0 +1,513 @@
+{
+  "metadata": {
+    "title": "Human vs AI Trivia Challenge - Question Bank",
+    "author": "dc_dalin",
+    "version": "2.0",
+    "created_date": "2026-03-05",
+    "total_questions": 50,
+    "categories": [
+      "Geography",
+      "History",
+      "Science",
+      "Technology",
+      "Mathematics",
+      "Literature",
+      "Art",
+      "Week6-ML",
+      "General Knowledge"
+    ],
+    "difficulty_levels": ["Easy", "Medium", "Hard"]
+  },
+  "questions": [
+    {
+      "id": 1,
+      "question": "What is the capital of France?",
+      "answer": "Paris",
+      "choices": ["London", "Paris", "Berlin", "Madrid"],
+      "category": "Geography",
+      "difficulty": "Easy",
+      "explanation": "Paris has been the capital of France since 987 AD."
+    },
+    {
+      "id": 2,
+      "question": "What is the largest ocean on Earth?",
+      "answer": "Pacific",
+      "choices": ["Atlantic", "Indian", "Pacific", "Arctic"],
+      "category": "Geography",
+      "difficulty": "Easy",
+      "explanation": "The Pacific Ocean covers about 46% of Earth's water surface."
+    },
+    {
+      "id": 3,
+      "question": "Who wrote Romeo and Juliet?",
+      "answer": "Shakespeare",
+      "choices": ["Charles Dickens", "William Shakespeare", "Jane Austen", "Mark Twain"],
+      "category": "Literature",
+      "difficulty": "Easy",
+      "explanation": "William Shakespeare wrote this tragic play around 1594-1596."
+    },
+    {
+      "id": 4,
+      "question": "What year did World War II end?",
+      "answer": "1945",
+      "choices": ["1943", "1944", "1945", "1946"],
+      "category": "History",
+      "difficulty": "Medium",
+      "explanation": "WWII ended in 1945 with Germany's surrender in May and Japan's in September."
+    },
+    {
+      "id": 5,
+      "question": "Who painted the Mona Lisa?",
+      "answer": "Leonardo da Vinci",
+      "choices": ["Michelangelo", "Leonardo da Vinci", "Raphael", "Donatello"],
+      "category": "Art",
+      "difficulty": "Medium",
+      "explanation": "Leonardo da Vinci painted the Mona Lisa between 1503-1519."
+    },
+    {
+      "id": 6,
+      "question": "In which year did the Titanic sink?",
+      "answer": "1912",
+      "choices": ["1910", "1911", "1912", "1913"],
+      "category": "History",
+      "difficulty": "Medium",
+      "explanation": "The RMS Titanic sank on April 15, 1912 after hitting an iceberg."
+    },
+    {
+      "id": 7,
+      "question": "How many sides does a hexagon have?",
+      "answer": "6",
+      "choices": ["5", "6", "7", "8"],
+      "category": "Mathematics",
+      "difficulty": "Easy",
+      "explanation": "A hexagon is a polygon with six sides and six angles."
+    },
+    {
+      "id": 8,
+      "question": "What is 15 × 8?",
+      "answer": "120",
+      "choices": ["110", "115", "120", "125"],
+      "category": "Mathematics",
+      "difficulty": "Easy",
+      "explanation": "15 multiplied by 8 equals 120."
+    },
+    {
+      "id": 9,
+      "question": "What is the square root of 144?",
+      "answer": "12",
+      "choices": ["10", "11", "12", "13"],
+      "category": "Mathematics",
+      "difficulty": "Easy",
+      "explanation": "12 × 12 = 144, so √144 = 12."
+    },
+    {
+      "id": 10,
+      "question": "What is the smallest prime number?",
+      "answer": "2",
+      "choices": ["0", "1", "2", "3"],
+      "category": "Mathematics",
+      "difficulty": "Easy",
+      "explanation": "2 is the smallest and only even prime number."
+    },
+    {
+      "id": 11,
+      "question": "How many minutes are in a day?",
+      "answer": "1440",
+      "choices": ["1200", "1440", "1680", "2880"],
+      "category": "Mathematics",
+      "difficulty": "Medium",
+      "explanation": "24 hours × 60 minutes = 1440 minutes."
+    },
+    {
+      "id": 12,
+      "question": "What is the chemical symbol for gold?",
+      "answer": "Au",
+      "choices": ["Go", "Gd", "Au", "Ag"],
+      "category": "Science",
+      "difficulty": "Medium",
+      "explanation": "Au comes from the Latin word 'aurum' meaning gold."
+    },
+    {
+      "id": 13,
+      "question": "How many planets are in our solar system?",
+      "answer": "8",
+      "choices": ["7", "8", "9", "10"],
+      "category": "Science",
+      "difficulty": "Easy",
+      "explanation": "There are 8 planets since Pluto was reclassified in 2006."
+    },
+    {
+      "id": 14,
+      "question": "What is the speed of light in vacuum (in million m/s)?",
+      "answer": "300",
+      "choices": ["200", "250", "300", "350"],
+      "category": "Science",
+      "difficulty": "Hard",
+      "explanation": "Light travels at approximately 299,792,458 m/s or ~300 million m/s."
+    },
+    {
+      "id": 15,
+      "question": "What does HTTP stand for?",
+      "answer": "Hypertext Transfer Protocol",
+      "choices": [
+        "Hypertext Transfer Protocol",
+        "Hyperlink Text Transfer Protocol",
+        "High Transfer Text Protocol",
+        "Hypertext Transmission Process"
+      ],
+      "category": "Technology",
+      "difficulty": "Medium",
+      "explanation": "HTTP is the foundation of data communication on the World Wide Web."
+    },
+    {
+      "id": 16,
+      "question": "What does RMSLE stand for in machine learning evaluation?",
+      "answer": "Root Mean Squared Logarithmic Error",
+      "choices": [
+        "Root Mean Squared Linear Error",
+        "Root Mean Squared Logarithmic Error",
+        "Relative Mean Square Log Error",
+        "Random Mean Squared Loss Evaluation"
+      ],
+      "category": "Week6-ML",
+      "difficulty": "Medium",
+      "explanation": "RMSLE is used to evaluate predictions where underestimates and overestimates matter differently."
+    },
+    {
+      "id": 17,
+      "question": "What technique adds trainable low-rank matrices to frozen LLM layers?",
+      "answer": "LoRA",
+      "choices": ["PEFT", "LoRA", "Adapter", "Prefix Tuning"],
+      "category": "Week6-ML",
+      "difficulty": "Medium",
+      "explanation": "LoRA (Low-Rank Adaptation) is a parameter-efficient fine-tuning technique."
+    },
+    {
+      "id": 18,
+      "question": "What is the minimum number of training examples for OpenAI fine-tuning?",
+      "answer": "10",
+      "choices": ["5", "10", "50", "100"],
+      "category": "Week6-ML",
+      "difficulty": "Hard",
+      "explanation": "OpenAI requires at least 10 examples, though 50-100 is recommended for best results."
+    },
+    {
+      "id": 19,
+      "question": "What does RAG stand for in LLM applications?",
+      "answer": "Retrieval Augmented Generation",
+      "choices": [
+        "Random Access Generation",
+        "Retrieval Augmented Generation",
+        "Rapid AI Generation",
+        "Ranked Answer Generation"
+      ],
+      "category": "Week6-ML",
+      "difficulty": "Medium",
+      "explanation": "RAG combines retrieval systems with generation models to provide context-aware responses."
+    },
+    {
+      "id": 20,
+      "question": "Which Meta model is commonly used for fine-tuning?",
+      "answer": "Llama 3.1",
+      "choices": ["Llama 2.0", "Llama 3.0", "Llama 3.1", "Llama 4.0"],
+      "category": "Week6-ML",
+      "difficulty": "Easy",
+      "explanation": "Llama 3.1 is Meta's latest open-source model family popular for fine-tuning."
+    },
+    {
+      "id": 21,
+      "question": "What file format is used for OpenAI fine-tuning data?",
+      "answer": "JSONL",
+      "choices": ["JSON", "JSONL", "CSV", "Parquet"],
+      "category": "Week6-ML",
+      "difficulty": "Easy",
+      "explanation": "JSONL (JSON Lines) has one JSON object per line, making it easy to stream large datasets."
+    },
+    {
+      "id": 22,
+      "question": "What tokenizer type do most modern LLMs use?",
+      "answer": "BPE",
+      "choices": ["Word-level", "Character-level", "BPE", "SentencePiece"],
+      "category": "Week6-ML",
+      "difficulty": "Hard",
+      "explanation": "BPE (Byte Pair Encoding) balances vocabulary size and token granularity."
+    },
+    {
+      "id": 23,
+      "question": "What does QLoRA's Q stand for?",
+      "answer": "Quantization",
+      "choices": ["Quality", "Quantum", "Quantization", "Quick"],
+      "category": "Week6-ML",
+      "difficulty": "Medium",
+      "explanation": "QLoRA combines quantization with LoRA to reduce memory usage during fine-tuning."
+    },
+    {
+      "id": 24,
+      "question": "What embedding model family is known for strong retrieval performance?",
+      "answer": "E5",
+      "choices": ["BERT", "E5", "Word2Vec", "GloVe"],
+      "category": "Week6-ML",
+      "difficulty": "Medium",
+      "explanation": "E5 embeddings from Microsoft are optimized for text retrieval tasks."
+    },
+    {
+      "id": 25,
+      "question": "Which library is commonly used for vector databases in Python?",
+      "answer": "Chroma",
+      "choices": ["Pandas", "NumPy", "Chroma", "Matplotlib"],
+      "category": "Week6-ML",
+      "difficulty": "Medium",
+      "explanation": "ChromaDB is a popular open-source embedding database for AI applications."
+    },
+    {
+      "id": 26,
+      "question": "What is the boiling point of water in Celsius?",
+      "answer": "100",
+      "choices": ["90", "95", "100", "105"],
+      "category": "Science",
+      "difficulty": "Easy",
+      "explanation": "Water boils at 100°C at standard atmospheric pressure."
+    },
+    {
+      "id": 27,
+      "question": "Who developed the theory of relativity?",
+      "answer": "Albert Einstein",
+      "choices": ["Isaac Newton", "Albert Einstein", "Nikola Tesla", "Stephen Hawking"],
+      "category": "Science",
+      "difficulty": "Easy",
+      "explanation": "Einstein published the theory of special relativity in 1905 and general relativity in 1915."
+    },
+    {
+      "id": 28,
+      "question": "What is the largest planet in our solar system?",
+      "answer": "Jupiter",
+      "choices": ["Saturn", "Jupiter", "Neptune", "Uranus"],
+      "category": "Science",
+      "difficulty": "Easy",
+      "explanation": "Jupiter is the largest planet with a mass greater than all other planets combined."
+    },
+    {
+      "id": 29,
+      "question": "What is the most spoken language in the world?",
+      "answer": "English",
+      "choices": ["Mandarin Chinese", "Spanish", "English", "Hindi"],
+      "category": "General Knowledge",
+      "difficulty": "Medium",
+      "explanation": "English is the most widely spoken language globally when including non-native speakers."
+    },
+    {
+      "id": 30,
+      "question": "How many continents are there?",
+      "answer": "7",
+      "choices": ["5", "6", "7", "8"],
+      "category": "Geography",
+      "difficulty": "Easy",
+      "explanation": "The seven continents are Asia, Africa, North America, South America, Antarctica, Europe, and Australia."
+    },
+    {
+      "id": 31,
+      "question": "What is the smallest country in the world?",
+      "answer": "Vatican City",
+      "choices": ["Monaco", "Vatican City", "San Marino", "Liechtenstein"],
+      "category": "Geography",
+      "difficulty": "Medium",
+      "explanation": "Vatican City has an area of only 0.44 km²."
+    },
+    {
+      "id": 32,
+      "question": "Who invented the telephone?",
+      "answer": "Alexander Graham Bell",
+      "choices": ["Thomas Edison", "Alexander Graham Bell", "Nikola Tesla", "Guglielmo Marconi"],
+      "category": "History",
+      "difficulty": "Easy",
+      "explanation": "Alexander Graham Bell patented the telephone in 1876."
+    },
+    {
+      "id": 33,
+      "question": "What is the currency of Japan?",
+      "answer": "Yen",
+      "choices": ["Yuan", "Yen", "Won", "Ringgit"],
+      "category": "General Knowledge",
+      "difficulty": "Easy",
+      "explanation": "The Japanese yen (¥) has been Japan's currency since 1871."
+    },
+    {
+      "id": 34,
+      "question": "How many keys does a standard piano have?",
+      "answer": "88",
+      "choices": ["76", "81", "88", "92"],
+      "category": "Art",
+      "difficulty": "Medium",
+      "explanation": "A standard piano has 88 keys (52 white and 36 black)."
+    },
+    {
+      "id": 35,
+      "question": "What is the hardest natural substance on Earth?",
+      "answer": "Diamond",
+      "choices": ["Gold", "Iron", "Diamond", "Quartz"],
+      "category": "Science",
+      "difficulty": "Easy",
+      "explanation": "Diamond ranks 10 on the Mohs hardness scale."
+    },
+    {
+      "id": 36,
+      "question": "Which famous painting features a woman with a mysterious smile?",
+      "answer": "Mona Lisa",
+      "choices": ["The Scream", "Mona Lisa", "Girl with a Pearl Earring", "The Birth of Venus"],
+      "category": "Art",
+      "difficulty": "Easy",
+      "explanation": "The Mona Lisa's enigmatic smile has fascinated viewers for centuries."
+    },
+    {
+      "id": 37,
+      "question": "What is 2 to the power of 10?",
+      "answer": "1024",
+      "choices": ["512", "1000", "1024", "2048"],
+      "category": "Mathematics",
+      "difficulty": "Medium",
+      "explanation": "2^10 = 1024, which is also 1 kilobyte in binary."
+    },
+    {
+      "id": 38,
+      "question": "What does CPU stand for?",
+      "answer": "Central Processing Unit",
+      "choices": [
+        "Central Processing Unit",
+        "Computer Personal Unit",
+        "Central Program Utility",
+        "Core Processing Unit"
+      ],
+      "category": "Technology",
+      "difficulty": "Easy",
+      "explanation": "The CPU is the brain of a computer that executes instructions."
+    },
+    {
+      "id": 39,
+      "question": "In what year was the first iPhone released?",
+      "answer": "2007",
+      "choices": ["2005", "2006", "2007", "2008"],
+      "category": "Technology",
+      "difficulty": "Medium",
+      "explanation": "Steve Jobs unveiled the first iPhone on January 9, 2007."
+    },
+    {
+      "id": 40,
+      "question": "What programming language is known for its use in data science?",
+      "answer": "Python",
+      "choices": ["Java", "C++", "Python", "Ruby"],
+      "category": "Technology",
+      "difficulty": "Easy",
+      "explanation": "Python's simplicity and rich ecosystem make it ideal for data science."
+    },
+    {
+      "id": 41,
+      "question": "What does PEFT stand for in machine learning?",
+      "answer": "Parameter-Efficient Fine-Tuning",
+      "choices": [
+        "Parameter-Efficient Fine-Tuning",
+        "Precision Enhanced Feature Training",
+        "Partial Embedding Feature Transform",
+        "Pre-trained Efficient Fine-Tuning"
+      ],
+      "category": "Week6-ML",
+      "difficulty": "Medium",
+      "explanation": "PEFT methods like LoRA reduce the number of trainable parameters during fine-tuning."
+    },
+    {
+      "id": 42,
+      "question": "Which metric penalizes underestimation more than overestimation?",
+      "answer": "RMSLE",
+      "choices": ["MSE", "MAE", "RMSLE", "R-squared"],
+      "category": "Week6-ML",
+      "difficulty": "Hard",
+      "explanation": "RMSLE (Root Mean Squared Logarithmic Error) is more forgiving of overestimates."
+    },
+    {
+      "id": 43,
+      "question": "What library is used for efficient transformer model training?",
+      "answer": "Transformers",
+      "choices": ["TensorFlow", "PyTorch", "Transformers", "Keras"],
+      "category": "Week6-ML",
+      "difficulty": "Easy",
+      "explanation": "HuggingFace Transformers provides pre-trained models and training utilities."
+    },
+    {
+      "id": 44,
+      "question": "What is the main advantage of using embeddings in RAG?",
+      "answer": "Semantic search",
+      "choices": ["Faster processing", "Semantic search", "Lower costs", "Better security"],
+      "category": "Week6-ML",
+      "difficulty": "Medium",
+      "explanation": "Embeddings enable semantic similarity search beyond keyword matching."
+    },
+    {
+      "id": 45,
+      "question": "What does the rank r represent in LoRA?",
+      "answer": "Dimension of low-rank matrices",
+      "choices": [
+        "Number of layers",
+        "Dimension of low-rank matrices",
+        "Learning rate",
+        "Batch size"
+      ],
+      "category": "Week6-ML",
+      "difficulty": "Hard",
+      "explanation": "The rank r determines the dimensionality of the decomposed weight matrices in LoRA."
+    },
+    {
+      "id": 46,
+      "question": "Which ancient wonder is the only one still standing?",
+      "answer": "Great Pyramid of Giza",
+      "choices": [
+        "Colossus of Rhodes",
+        "Great Pyramid of Giza",
+        "Hanging Gardens of Babylon",
+        "Lighthouse of Alexandria"
+      ],
+      "category": "History",
+      "difficulty": "Medium",
+      "explanation": "The Great Pyramid of Giza is the oldest and only surviving ancient wonder."
+    },
+    {
+      "id": 47,
+      "question": "What is the longest river in the world?",
+      "answer": "Nile",
+      "choices": ["Amazon", "Nile", "Yangtze", "Mississippi"],
+      "category": "Geography",
+      "difficulty": "Medium",
+      "explanation": "The Nile River is approximately 6,650 km long."
+    },
+    {
+      "id": 48,
+      "question": "Who wrote '1984'?",
+      "answer": "George Orwell",
+      "choices": ["Aldous Huxley", "George Orwell", "Ray Bradbury", "Margaret Atwood"],
+      "category": "Literature",
+      "difficulty": "Easy",
+      "explanation": "George Orwell published '1984' in 1949 as a dystopian novel."
+    },
+    {
+      "id": 49,
+      "question": "What is the value of pi to two decimal places?",
+      "answer": "3.14",
+      "choices": ["3.12", "3.14", "3.16", "3.18"],
+      "category": "Mathematics",
+      "difficulty": "Easy",
+      "explanation": "Pi (π) is approximately 3.14159, rounded to 3.14."
+    },
+    {
+      "id": 50,
+      "question": "What does API stand for?",
+      "answer": "Application Programming Interface",
+      "choices": [
+        "Application Programming Interface",
+        "Advanced Program Integration",
+        "Automated Process Interface",
+        "Application Process Integration"
+      ],
+      "category": "Technology",
+      "difficulty": "Easy",
+      "explanation": "An API allows different software applications to communicate with each other."
+    }
+  ]
+}
