@@ -89,7 +89,7 @@ The colab links are in the folders for Week 3 and Week 7 - if you open up the la
 
 You can keep your API spend very low throughout this course; you can monitor spend at the dashboards: [here](https://platform.openai.com/usage) for OpenAI, [here](https://console.anthropic.com/settings/cost) for Anthropic.
 
-The charges for the exercsies in this course should always be quite low, but if you'd prefer to keep them minimal, then be sure to always choose the cheapest versions of models:
+The charges for the exercises in this course should always be quite low, but if you'd prefer to keep them minimal, then be sure to always choose the cheapest versions of models:
 1. For OpenAI: Always use model `gpt-4.1-nano` in the code
 2. For Anthropic: Always use model `claude-3-haiku-20240307` in the code instead of the other Claude models
 3. During week 7, look out for my instructions for using the cheaper dataset

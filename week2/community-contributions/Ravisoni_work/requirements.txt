@@ -1,0 +1,6 @@
+openai>=1.109.1
+python-dotenv>=1.1.1
+requests>=2.32.5
+ipython>=8.0.0
+jupyter>=1.0.0
+notebook>=7.0.0
