@@ -1,0 +1,3 @@
+streamlit
+requests
+beautifulsoup4
