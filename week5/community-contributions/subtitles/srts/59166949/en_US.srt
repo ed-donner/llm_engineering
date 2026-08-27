@@ -1,0 +1,463 @@
+WEBVTT
+
+00:00.260 --> 00:02.750
+Welcome back to making chatbots.
+
+00:02.780 --> 00:04.070
+Let's keep going.
+
+00:04.070 --> 00:09.650
+So for the next part we're going to beef up the system message to something a bit more interesting.
+
+00:09.650 --> 00:10.700
+System message.
+
+00:10.700 --> 00:12.710
+You're a helpful assistant in a clothes store.
+
+00:12.740 --> 00:15.920
+You should try to gently encourage the customer to try items on sale.
+
+00:15.950 --> 00:17.780
+Hats off 60% off.
+
+00:17.780 --> 00:19.880
+Most other items are 50% off.
+
+00:19.880 --> 00:24.530
+For example, if the customer says I'm looking to buy a hat, you could reply, wonderful!
+
+00:24.560 --> 00:28.100
+We have lots of hats, including several part of our sales event.
+
+00:28.100 --> 00:32.330
+Encourage the customer to buy hats if they're unsure what to get.
+
+00:32.330 --> 00:36.050
+So what you're seeing here is a few things going on in this system prompt.
+
+00:36.050 --> 00:42.230
+We've got some facts that are being provided about the sales, the hats and other items.
+
+00:42.350 --> 00:47.930
+Um, you've got an example, an example of if the customer says this, you could say that.
+
+00:47.930 --> 00:52.280
+And that example both is a way to establish tone and style.
+
+00:52.400 --> 00:58.850
+Um, and it's also a way to introduce more facts about hats, uh, into the conversation.
+
+00:58.850 --> 01:01.670
+So this is all example of one shot prompting.
+
+01:01.670 --> 01:03.150
+And you could argue Multi-shot prompting.
+
+01:03.150 --> 01:06.720
+So we're giving it a few different sort of nuances of how to reply.
+
+01:06.930 --> 01:09.810
+Um, and building that into the system message.
+
+01:09.810 --> 01:13.950
+There are other ways of doing it that we'll talk about, or at least at least another way of doing it.
+
+01:14.040 --> 01:16.980
+But this is one very effective way.
+
+01:16.980 --> 01:25.950
+So we we add in that system message, and we're now going to have a chat with the with with the chat
+
+01:25.980 --> 01:26.580
+bot.
+
+01:26.670 --> 01:34.170
+So again we write our method of our generator chat um which takes a message and history because that's
+
+01:34.170 --> 01:36.030
+what Gradio wants to call us with.
+
+01:36.210 --> 01:43.650
+Um, and we first convert that into the format that OpenAI expects, um, by building the usual list
+
+01:43.650 --> 01:44.730
+that you're familiar with.
+
+01:44.730 --> 01:49.200
+I should also mention, I don't know if I mentioned this last time, that at the end here we have to
+
+01:49.230 --> 01:56.550
+add in, of course, into that list the latest message that the user is sending that gets added to the
+
+01:56.550 --> 01:58.770
+bottom as role user content.
+
+01:58.770 --> 02:00.480
+And that message.
+
+02:00.480 --> 02:08.460
+Then of course, we make a call that at this point, you have ingrained in your deepest memory the create
+
+02:08.460 --> 02:12.630
+call and we have stream is true and we stream back results.
+
+02:12.630 --> 02:13.530
+So here we go.
+
+02:13.560 --> 02:14.760
+We'll bring that up.
+
+02:14.760 --> 02:16.680
+We'll bring it up in a separate window again.
+
+02:16.710 --> 02:17.340
+Why not.
+
+02:17.340 --> 02:20.910
+And let's talk to our shopping assistant.
+
+02:21.210 --> 02:22.050
+Hi there.
+
+02:23.520 --> 02:24.870
+Welcome to our store.
+
+02:24.900 --> 02:25.920
+How can I assist you today?
+
+02:25.920 --> 02:27.510
+Are you looking for anything specific?
+
+02:27.510 --> 02:33.090
+Say, uh, I'd like to buy some shoes.
+
+02:34.110 --> 02:35.280
+Great.
+
+02:36.480 --> 02:38.760
+We have a lovely selection.
+
+02:38.760 --> 02:41.580
+While you're browsing, I want to mention we have a fantastic sale going on.
+
+02:41.580 --> 02:43.140
+Most items are 50% off.
+
+02:43.140 --> 02:47.340
+If you're open to it, we have some stylish hats that are 60% off.
+
+02:47.370 --> 02:50.340
+They might be the perfect complement to your new shoes.
+
+02:50.340 --> 02:52.170
+Would you like to take a look at both?
+
+02:52.620 --> 02:56.490
+So I want to point out that that it's obviously figured out.
+
+02:56.490 --> 03:01.170
+It's got the knowledge that we supplied to it in the system prompt.
+
+03:01.170 --> 03:07.990
+But you hopefully will also notice that the sort of enthusiastic, effusive style that I used in that
+
+03:07.990 --> 03:16.030
+system prompt has rubbed off in a way that it's communicating in this kind of, uh, very, uh, amiable
+
+03:16.030 --> 03:16.960
+fashion.
+
+03:17.290 --> 03:22.720
+Um, and that's a big part of this kind of one shot or multi-shot prompting when you set the tone,
+
+03:22.720 --> 03:25.930
+give examples of how it should reply.
+
+03:26.860 --> 03:28.510
+Uh, so let's keep going.
+
+03:28.510 --> 03:31.180
+Let's take that system message and and add in.
+
+03:31.180 --> 03:35.950
+If the customer asks for shoes, you could respond that shoes are not on sale.
+
+03:35.980 --> 03:37.720
+Let's say should respond.
+
+03:37.720 --> 03:39.910
+Should respond that shoes are not on sale today.
+
+03:39.910 --> 03:42.760
+But remind the customer to look at hats.
+
+03:42.760 --> 03:44.170
+So let's try this again.
+
+03:44.170 --> 03:45.580
+Let's see how this does.
+
+03:45.640 --> 03:48.160
+Uh, it's got another fact to add.
+
+03:48.310 --> 03:49.630
+Uh, you could argue that that's.
+
+03:49.660 --> 03:54.220
+Yeah, that's like another, uh, multi-shot prompt.
+
+03:54.250 --> 03:55.210
+Let's say.
+
+03:55.210 --> 03:55.990
+Hi there.
+
+03:57.640 --> 03:58.420
+Are you looking.
+
+03:58.420 --> 04:04.540
+I'd like to buy some shoes.
+
+04:04.540 --> 04:05.900
+That sounds great.
+
+04:05.930 --> 04:08.630
+I should mention shoes aren't on sale today.
+
+04:08.630 --> 04:10.940
+But while you're here, have you thought about checking out our hats?
+
+04:13.640 --> 04:20.030
+You've got to feel sorry for this poor customer who's going to get repeatedly pitched hats.
+
+04:20.330 --> 04:27.860
+Um, so you can see again how it's established, um, that shoes aren't on sale, but that hats very
+
+04:27.860 --> 04:28.910
+much are.
+
+04:29.180 --> 04:34.820
+And that is an example, then, of Multi-shot prompting, uh, in that we're giving it more examples
+
+04:34.820 --> 04:35.930
+to learn from.
+
+04:36.260 --> 04:44.510
+Um, so another thing that we can do that is interesting, um, is that whenever you've seen these constructions
+
+04:44.510 --> 04:47.960
+so far, you've always seen us beginning with the system message.
+
+04:47.960 --> 04:49.640
+The system messages come at the top.
+
+04:49.640 --> 04:54.830
+But in fact, with the OpenAI call, there's you're not constrained to have the system message at the
+
+04:54.830 --> 04:55.070
+top.
+
+04:55.070 --> 04:58.460
+You can add in more system messages as you go.
+
+04:58.730 --> 05:05.930
+Um, and so for example, one of the things we can do, um, uh, and let me apologize for some very
+
+05:05.970 --> 05:09.120
+hacky code here that I will not recommend, but it's here to show the example.
+
+05:09.120 --> 05:15.390
+It's not the way that you should do it in practice, but what we could do is when we're building this
+
+05:15.390 --> 05:23.280
+chat generator, we could put in here if this current message that the user is sending us contains the
+
+05:23.280 --> 05:24.510
+word belt.
+
+05:24.510 --> 05:28.020
+And you can see in a rather unawesome way, I've just looked for the string belt.
+
+05:28.050 --> 05:33.150
+Of course, I should be testing whether it's the full word, and I should be thinking about uppercase,
+
+05:33.180 --> 05:34.770
+lowercase and so on.
+
+05:34.770 --> 05:38.220
+I'm not doing any of that, which is very naughty of me, but it shows the point.
+
+05:38.220 --> 05:43.560
+So if belt is in the word message, it's going to add into this set of messages.
+
+05:43.590 --> 05:50.490
+Another system message saying for added context, the store does not sell belts, but be sure to point
+
+05:50.490 --> 05:58.500
+out items on sale so that will be then added in to the prompt if the user asks for a belt.
+
+05:59.940 --> 06:06.030
+So let's give that a try and bring this up here.
+
+06:08.250 --> 06:09.180
+Hi there.
+
+06:11.130 --> 06:12.060
+Welcome to the store.
+
+06:12.090 --> 06:13.080
+I can assist you.
+
+06:13.530 --> 06:17.310
+I'd like to buy a belt.
+
+06:19.110 --> 06:19.710
+I'm sorry.
+
+06:19.710 --> 06:20.910
+We don't carry belts.
+
+06:20.910 --> 06:24.390
+However, we have fantastic items, including hats.
+
+06:24.420 --> 06:26.130
+60% off.
+
+06:26.310 --> 06:27.780
+So there you go.
+
+06:27.810 --> 06:28.620
+There you go.
+
+06:28.650 --> 06:29.880
+It's, um.
+
+06:30.210 --> 06:33.270
+Uh, definitely pays attention.
+
+06:33.270 --> 06:41.310
+You can see that when the system message is added in as another row in this, uh, in this list of messages,
+
+06:41.310 --> 06:42.900
+it pays attention to it.
+
+06:42.900 --> 06:49.140
+And that gives us the opportunity to add context into the conversation.
+
+06:49.140 --> 06:58.740
+And this is a, uh, whilst it is, of course, uh, very kludgy code to be detecting a word, a substring
+
+06:58.740 --> 07:02.640
+like that, you can imagine that you could beef this up to be a bit more robust.
+
+07:02.670 --> 07:07.830
+You could properly you could have a little dictionary which looks for particular words.
+
+07:07.830 --> 07:15.910
+And when it finds them, it could use them to then enrich the the context in the right way.
+
+07:15.970 --> 07:23.140
+So it gives you a little, a little ability to be looking things up and adding them into the context.
+
+07:23.170 --> 07:29.950
+Now, you may be familiar with with some things about Rag, and you may be aware that that is a lot
+
+07:29.950 --> 07:31.150
+of what rag is about.
+
+07:31.180 --> 07:38.650
+Rag is about finding extra information that's relevant to the prompt, and adding it in to the context
+
+07:38.680 --> 07:41.200
+of the message that gets sent to the LM.
+
+07:41.230 --> 07:47.260
+Now, of course, Rag does that in a much more sophisticated and intelligent way than this hokey piece
+
+07:47.260 --> 07:48.430
+of code right here.
+
+07:48.610 --> 07:55.540
+But you can think of this as a as a light, a baby version of rag, and as an exercise for you.
+
+07:55.540 --> 08:01.030
+You can certainly beef this up a bit, and at the very least, use regex to make it look for a particular
+
+08:01.030 --> 08:01.540
+word.
+
+08:01.540 --> 08:07.930
+Maybe have a little dictionary that has the the words, the different items in the store together with
+
+08:07.930 --> 08:13.730
+their price so that you could add that in as a system message to give it more context.
+
+08:13.730 --> 08:20.270
+You could try that out and see that you could build a chatbot that actually knows about the prices of
+
+08:20.270 --> 08:23.000
+the goods in its store, and that would be pretty cool.
+
+08:23.750 --> 08:27.200
+So that wraps up this particular experiment.
+
+08:27.200 --> 08:32.270
+I do just want to mention, I alluded earlier to the fact that there are other ways of doing Multi-shot
+
+08:32.270 --> 08:38.840
+prompting other than shoving it in the system prompt, and the other way is that you can have a user
+
+08:38.840 --> 08:43.430
+assistant, user assistant set of messages that hasn't actually happened.
+
+08:43.460 --> 08:49.580
+You can have a fictitious exchange between the user and the assistant that you include in the conversation
+
+08:49.580 --> 08:56.930
+before the current conversation, and use that as a way to prime the LM with similar conversations,
+
+08:56.930 --> 09:02.990
+so that it gets a sense of how it's responded to other questions.
+
+09:03.140 --> 09:09.200
+You can use that again, both to train it on style and also to supply extra facts.
+
+09:09.200 --> 09:14.640
+So there could have been an earlier interaction when there had been a question about a belt, and the
+
+09:14.640 --> 09:19.740
+assistant had already replied that there are no belts in the store, and it would have learnt from that.
+
+09:19.740 --> 09:25.380
+So either technique, they have pros and cons, whether you supply it in system prompts or whether you
+
+09:25.410 --> 09:33.270
+give example user assistant interactions for it to have as part of the input context for it to to be
+
+09:33.300 --> 09:34.410
+able to absorb.
+
+09:34.560 --> 09:38.640
+Um, and my ask to you is to try them both out.
+
+09:38.640 --> 09:43.680
+So update this so that it uses user assistant interactions instead of a system prompt and see how that
+
+09:43.680 --> 09:44.160
+works.
+
+09:44.190 --> 09:47.430
+See if you think you get a better or a worse clothes store assistant.
+
+09:47.430 --> 09:53.460
+And then also make this change to make this a whole lot more robust, have a dictionary of different
+
+09:53.460 --> 10:00.780
+items in the store, look up their prices or their sale amounts, and then add that as context into
+
+10:00.780 --> 10:09.060
+the conversation so that the assistant responds with some expertise and have fun doing it, and I will
+
+10:09.060 --> 10:12.300
+see you for the next video to wrap up this day.

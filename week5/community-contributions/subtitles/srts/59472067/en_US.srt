@@ -1,0 +1,82 @@
+WEBVTT
+
+00:00.920 --> 00:04.850
+So we've covered steps 1 to 4 of the five step strategy.
+
+00:04.850 --> 00:10.010
+And that brings us to step five, which is productionize the one that maybe you haven't thought as much
+
+00:10.010 --> 00:11.240
+about to date.
+
+00:11.240 --> 00:13.520
+And this is about saying we built our model.
+
+00:13.520 --> 00:16.250
+It's time for prime time.
+
+00:16.730 --> 00:23.810
+We typically will start by defining an API that can be used to call our model to call our code.
+
+00:23.810 --> 00:32.570
+That itself is either using a open source model or making a call to a frontier model with with various
+
+00:32.780 --> 00:36.680
+scaffolding around it, like rag or prompt engineering.
+
+00:37.190 --> 00:42.500
+We then decide how are we going to host and deploy our model, our API.
+
+00:42.530 --> 00:48.410
+We address things like how it's going to be monitored, the information security concerns, how will
+
+00:48.410 --> 00:49.580
+it scale up?
+
+00:49.730 --> 00:56.750
+We then measure the business metrics that we had identified all the way back in step one and continuously
+
+00:56.750 --> 01:02.390
+retrain, measure performance, and improve our model on an ongoing basis.
+
+01:02.420 --> 01:06.320
+These are all part of the Productionize activity.
+
+01:07.820 --> 01:14.660
+And so with that, where are we in our business problem that we've taken on to predict product prices.
+
+01:14.660 --> 01:17.600
+So the first step understand we've done it.
+
+01:17.630 --> 01:18.410
+We understood it.
+
+01:18.440 --> 01:19.850
+We've talked about metrics.
+
+01:19.850 --> 01:21.170
+We know what we've got to do.
+
+01:21.200 --> 01:23.900
+Preparation is what we're doing right now.
+
+01:23.900 --> 01:26.630
+We are in the middle of preparing our data set.
+
+01:26.630 --> 01:30.290
+And then we need to select our model or models.
+
+01:30.290 --> 01:32.300
+We need to customize.
+
+01:32.390 --> 01:35.060
+And then finally we need to productionize.
+
+01:35.060 --> 01:38.060
+So we will be going through all of those steps.
+
+01:38.150 --> 01:43.400
+But we will be first of all finishing the second step preparation.
+
+01:43.400 --> 01:49.520
+And with that let's go right now back to JupyterLab and get to preparing.

@@ -1,0 +1,217 @@
+WEBVTT
+
+00:00.410 --> 00:01.670
+Welcome to Colab.
+
+00:01.670 --> 00:04.910
+Welcome to the week seven day two Colab.
+
+00:04.910 --> 00:10.760
+And just before we try our base model, we're going to actually see these tokenizers in action.
+
+00:10.820 --> 00:15.410
+Uh, start with some Pip installs and some imports as usual.
+
+00:15.560 --> 00:22.430
+And now in the constants section, I'm going to set up four different tokenizers that we will just quickly
+
+00:22.430 --> 00:23.120
+look at.
+
+00:23.120 --> 00:27.830
+After that, we're going to look at our base model llama and do some some work with the data.
+
+00:27.830 --> 00:33.800
+And I've also got the constants here for writing to the output in color that you may remember from when
+
+00:33.800 --> 00:35.930
+we visualized results in the past.
+
+00:36.440 --> 00:37.850
+All right, let's run that.
+
+00:37.880 --> 00:43.070
+We log in to hugging face using the usual snippet that you know well at this point.
+
+00:43.070 --> 00:49.100
+And now I've written a useful function called investigate tokenizer that takes a model name.
+
+00:49.460 --> 00:58.790
+And what that does is it uh, will load in the tokenizer for that model name, and it will then iterate
+
+00:58.790 --> 01:06.030
+through these six numbers zero, one, ten, 100, 999, and 1000.
+
+01:06.090 --> 01:12.180
+For each of those numbers, it will convert it into a string, and then ask the tokenizer to convert
+
+01:12.180 --> 01:14.160
+that string into tokens.
+
+01:14.160 --> 01:20.130
+So what are the tokens that represent the string 100 as a piece of text?
+
+01:20.520 --> 01:24.660
+Um, and I'm using this add special tokens as false parameter.
+
+01:24.660 --> 01:29.940
+What that means is please don't add in things like a start of sentence token and an end of sentence
+
+01:29.940 --> 01:33.510
+token or something like that that will interfere with things.
+
+01:33.600 --> 01:38.760
+Just simply convert this text into tokens that represents that text.
+
+01:38.970 --> 01:40.260
+Um, so that's what it will do.
+
+01:40.260 --> 01:41.730
+And then it will print that out.
+
+01:41.730 --> 01:50.520
+So to run that and to show it let me call investigate tokenizer.
+
+01:51.450 --> 01:59.460
+And we will start by calling it for the llama three one uh model.
+
+01:59.460 --> 02:00.950
+And let's see what we get.
+
+02:02.390 --> 02:06.200
+So what we get is the string zero.
+
+02:06.200 --> 02:09.710
+Text zero converts to the token number 15.
+
+02:09.740 --> 02:12.230
+One goes to the token 16.
+
+02:12.260 --> 02:15.380
+Ten goes to token number 605.
+
+02:15.410 --> 02:16.190
+As it happens.
+
+02:16.190 --> 02:21.380
+And you'll see that similarly 109.99 they each mapped to a single token.
+
+02:21.890 --> 02:25.310
+1000 though that maps now to two tokens.
+
+02:25.340 --> 02:28.580
+In fact, it maps to the token for the number 100.
+
+02:28.610 --> 02:33.230
+If you see that followed by the token for the number zero and that.
+
+02:33.230 --> 02:41.030
+So just just as you would imagine, it is the tokens for the text 100, followed by the text for a zero.
+
+02:41.090 --> 02:47.480
+And what you see here, loud and clear, is that if we're just focusing on three digit text numbers,
+
+02:47.480 --> 02:53.690
+on three digit numbers, we have this useful property that whatever price we have is always going to
+
+02:53.690 --> 02:55.130
+map to one token.
+
+02:55.160 --> 03:02.330
+So the model's task of trying to predict the price of a product will end up being just predict one token
+
+03:02.330 --> 03:05.930
+and get that token right, and then you've got the right price of the product.
+
+03:06.110 --> 03:08.690
+Um, and so it's not an essential property.
+
+03:08.720 --> 03:15.470
+We don't require that these models are perfectly able to generate a sequence of tokens, but it's convenient
+
+03:15.470 --> 03:20.270
+that we're going to simplify the problem down to just getting this one token right.
+
+03:20.720 --> 03:26.270
+And we can also see how this looks for another model like K-125.
+
+03:28.280 --> 03:30.350
+Uh, and now we see something different.
+
+03:30.380 --> 03:38.450
+The single digits zero and one mapped to a single token, but ten maps to two tokens.
+
+03:38.450 --> 03:50.990
+In fact, the token for one followed by zero 100 is 100999 is presumably 999, and 1000 is 1000, uh,
+
+03:50.990 --> 03:53.210
+for tokens being used there.
+
+03:53.210 --> 03:54.830
+So you see that different property.
+
+03:54.830 --> 03:59.930
+And hopefully that really clarifies, um, why I think llama three one has an edge.
+
+04:00.290 --> 04:00.590
+Uh.
+
+04:00.630 --> 04:01.230
+Gemma.
+
+04:01.230 --> 04:02.670
+Two for Gemma, two.
+
+04:02.700 --> 04:03.450
+Sorry.
+
+04:03.630 --> 04:04.290
+Uh, Gemma.
+
+04:04.290 --> 04:08.280
+Two similar properties to Kwon.
+
+04:08.460 --> 04:11.880
+Uh, interestingly, uh, totally different vocabulary.
+
+04:11.880 --> 04:14.670
+It's a much bigger number, but that's no surprise.
+
+04:14.670 --> 04:17.610
+There's no reason why they should have the same vocabulary.
+
+04:17.940 --> 04:19.860
+Um, and, um.
+
+04:19.890 --> 04:26.640
+Yeah, it's, uh, clearly, uh, not not a one token for for one three digit number.
+
+04:26.910 --> 04:30.660
+Um, and Phi three is, as I say, similar.
+
+04:30.990 --> 04:37.230
+Uh, there is actually a different variant of phi three, a smaller variant that has the same nice properties
+
+04:37.230 --> 04:38.220
+as Lama three one.
+
+04:38.220 --> 04:42.420
+So that is another thing that would be worth potentially trying.
+
+04:42.480 --> 04:44.040
+Um, as could any of these be tried?
+
+04:44.040 --> 04:48.270
+It's not a disqualifier that that it produces multiple tokens by any means.
+
+04:48.450 --> 04:49.020
+All right.
+
+04:49.020 --> 04:54.420
+Well, anyway, that gives you a background to the tokenizers and a good sense for why we picked the
+
+04:54.420 --> 04:55.680
+model that we did.
+
+04:55.740 --> 05:01.410
+Uh, in the next video, we will then load in data and try testing our model.

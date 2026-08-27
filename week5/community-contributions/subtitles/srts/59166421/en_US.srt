@@ -1,0 +1,319 @@
+WEBVTT
+
+00:00.830 --> 00:04.250
+Welcome back to the radio day in the lab.
+
+00:04.250 --> 00:05.180
+More to do.
+
+00:05.210 --> 00:06.620
+Let's keep going.
+
+00:06.620 --> 00:14.150
+Where we left off is we had just built a simple user interface that was calling an LLM and telling a
+
+00:14.150 --> 00:16.610
+very, uh, good joke.
+
+00:16.850 --> 00:20.060
+Uh, let's keep going with this.
+
+00:20.060 --> 00:28.250
+What we're going to do next is ask for the, uh, assistant to respond in markdown, uh, as a way of,
+
+00:28.250 --> 00:32.540
+uh, um, getting better looking user interfaces.
+
+00:32.960 --> 00:40.190
+Um, and wouldn't it be nice if we wanted to show results in gradio with good formatting written in
+
+00:40.190 --> 00:40.940
+markdown?
+
+00:40.940 --> 00:47.690
+If we could just have that instead of text box, just replace it with the word markdown, and then the
+
+00:47.690 --> 00:51.560
+output would be in perfectly formatted markdown.
+
+00:51.560 --> 00:53.180
+That would be great wouldn't it?
+
+00:53.210 --> 00:54.380
+Wouldn't it be nice?
+
+00:55.190 --> 00:56.900
+You're probably getting the idea here.
+
+00:57.770 --> 00:59.030
+Things just really are.
+
+00:59.030 --> 00:59.840
+This good.
+
+01:00.020 --> 01:02.510
+Uh, So let's say your message.
+
+01:02.510 --> 01:03.740
+Let's say, um.
+
+01:03.890 --> 01:14.240
+Um, how do I get from Times Square to Times Square like that to Grand Central?
+
+01:14.960 --> 01:17.120
+I've got a question for New York navigation.
+
+01:17.120 --> 01:18.710
+Let's see how it does.
+
+01:19.640 --> 01:21.440
+It's thinking about that.
+
+01:22.400 --> 01:23.360
+And there we go.
+
+01:23.360 --> 01:24.440
+Here's a response.
+
+01:24.440 --> 01:28.370
+And you can see to get from Times Square to Grand Central Terminal in New York City, it figured out
+
+01:28.370 --> 01:29.660
+that's what I was talking about.
+
+01:29.870 --> 01:34.040
+Follow these steps and you can see it's good headings.
+
+01:34.310 --> 01:41.810
+And it's got a nice sub bullets and numbers and all the rest of it, as described in the markdown that
+
+01:41.810 --> 01:43.820
+came back from GPT four.
+
+01:43.850 --> 01:47.000
+Oh very easy, very nice.
+
+01:47.390 --> 01:50.360
+Let's have a look at what else we can do.
+
+01:51.500 --> 01:53.420
+Uh, streaming.
+
+01:53.420 --> 01:55.700
+Streaming is something we got used to last time.
+
+01:55.700 --> 02:01.840
+So can we stream results back to Gradio user interfaces, just as we did when it was coming back into
+
+02:01.840 --> 02:03.820
+a Jupyter output cell.
+
+02:03.820 --> 02:04.960
+So here we go.
+
+02:04.990 --> 02:07.300
+We change our function.
+
+02:07.330 --> 02:10.840
+It used to be the message GPT.
+
+02:10.870 --> 02:12.400
+Now we're making it stream GPT.
+
+02:12.430 --> 02:13.420
+Different function.
+
+02:13.420 --> 02:15.610
+And the key thing is that this isn't actually a function.
+
+02:15.610 --> 02:20.320
+It's a generator in that it's going to end by yielding a result.
+
+02:20.320 --> 02:26.170
+And Gradio is going to detect that we're giving it a generator, not a function.
+
+02:26.170 --> 02:32.830
+And because of that, Gradio is automatically going to be iterative and decide to fill in, um, piece
+
+02:32.830 --> 02:35.980
+by piece as it comes back from this generator.
+
+02:36.100 --> 02:38.020
+So usual story.
+
+02:38.020 --> 02:45.100
+I create the messages and then you'll remember this time it's the same API call, but we pass in stream
+
+02:45.100 --> 02:46.120
+equals true.
+
+02:46.150 --> 02:47.770
+You remember how Claude does it?
+
+02:47.860 --> 02:48.790
+Hopefully you do.
+
+02:48.820 --> 02:54.220
+With Claude, you don't have an attribute, but instead you call dot stream instead of dot create.
+
+02:54.220 --> 02:56.290
+But otherwise it's very similar.
+
+02:56.350 --> 02:58.810
+So one thing that's worth noting here.
+
+02:58.840 --> 03:01.110
+Just a tiny subtlety with Gradio.
+
+03:01.140 --> 03:08.820
+When you are streaming back the results to Gradio, you don't stream back chunk by chunk of the results.
+
+03:08.820 --> 03:15.870
+You have to stream back the entire cumulative result so far and stream back a longer and longer cumulative
+
+03:15.870 --> 03:16.410
+result.
+
+03:16.410 --> 03:20.520
+So you can see what I'm doing is I'm I'm sort of starting with an empty string.
+
+03:20.520 --> 03:28.110
+And then for each chunk I'm adding that in and then yielding the total cumulative result so far.
+
+03:28.260 --> 03:34.830
+Um, and if you don't do that, what you'll see is each individual chunk will appear in the output cell
+
+03:34.830 --> 03:37.140
+and then disappear and will be replaced by something else.
+
+03:37.140 --> 03:38.910
+So you have to do it this way.
+
+03:38.910 --> 03:42.900
+If you don't see what I mean, try doing yield chunk instead of yield result.
+
+03:43.050 --> 03:43.290
+Sorry.
+
+03:43.320 --> 03:46.200
+Yield chunk .0. delta dot content.
+
+03:46.320 --> 03:46.590
+Uh.
+
+03:46.590 --> 03:49.350
+And you'll see exactly what I mean.
+
+03:49.350 --> 03:50.910
+It's not not going to look good.
+
+03:51.150 --> 03:59.640
+Uh, anyway, that is our stream GPT uh, and wouldn't it be nice if all we needed to do was replace
+
+03:59.760 --> 04:06.390
+the the function that it used to be message GPT with stream, GPT and Gradio just figured out the rest.
+
+04:06.390 --> 04:09.300
+It figured out that okay, this is a generator, not a function.
+
+04:09.300 --> 04:11.610
+Therefore, they're going to want to stream back results.
+
+04:11.610 --> 04:15.360
+Therefore, I need to have a sort of typewriter animation style effect.
+
+04:15.390 --> 04:18.660
+Let's see if it really can be that simple.
+
+04:18.660 --> 04:20.190
+Can it be that simple?
+
+04:20.520 --> 04:21.660
+Here we go.
+
+04:21.690 --> 04:29.940
+Uh, how do I get from Times Square to Grand Central?
+
+04:32.310 --> 04:33.360
+And there we go.
+
+04:33.510 --> 04:34.470
+Of course, it's that simple.
+
+04:34.500 --> 04:35.460
+Of course it is.
+
+04:35.490 --> 04:36.930
+Streams the results.
+
+04:36.930 --> 04:37.920
+They look great.
+
+04:37.920 --> 04:40.380
+Markdown looks fantastic.
+
+04:40.890 --> 04:46.710
+Uh, so, uh, of course it wouldn't be doing my job if I didn't show you how easy it is with Claude
+
+04:46.710 --> 04:47.280
+as well.
+
+04:47.280 --> 04:51.540
+I mentioned it before, and now you can see there is Claude's API call.
+
+04:51.540 --> 04:52.800
+It's very similar.
+
+04:52.800 --> 04:55.650
+You call dot stream, you don't pass in the parameter.
+
+04:55.650 --> 05:00.470
+You remember that you do have to specify max tokens and the system message goes in separately.
+
+05:00.500 --> 05:02.240
+Otherwise very similar.
+
+05:02.270 --> 05:05.510
+The streaming back is just for results as stream.
+
+05:05.690 --> 05:08.030
+So with result as stream a context manager.
+
+05:08.030 --> 05:13.070
+And then we yield the full response just as before.
+
+05:13.550 --> 05:16.670
+And at this point it's going to be boringly simple.
+
+05:16.670 --> 05:17.780
+You get the joke.
+
+05:17.810 --> 05:21.050
+You simply pass in that function instead.
+
+05:21.050 --> 05:24.110
+And now we are talking to Claude instead.
+
+05:24.110 --> 05:25.640
+We'll ask it the same question though.
+
+05:25.670 --> 05:31.910
+How do I get from Times Square to Grand Central?
+
+05:33.290 --> 05:40.250
+And here comes Claude's response, a bit shorter, just two options, but nicely structured.
+
+05:40.250 --> 05:41.720
+Nicely formatted.
+
+05:41.720 --> 05:43.820
+Very good indeed.
+
+05:44.120 --> 05:53.750
+Um, so we can take this one step forwards by having the ability to choose either GPT or Claude.
+
+05:53.750 --> 05:56.840
+But I'm going to get to that in the very next session.
+
+05:56.840 --> 05:57.980
+So hang on in there.

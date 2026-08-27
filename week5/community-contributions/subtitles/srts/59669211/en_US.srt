@@ -1,0 +1,67 @@
+WEBVTT
+
+00:00.710 --> 00:05.480
+Well, we took on a lot today and we seem to have been successful.
+
+00:05.510 --> 00:12.020
+These red icons that you see on this agent workflows diagram have been built, and we have them in the
+
+00:12.020 --> 00:16.280
+agents directory in the week eight folder.
+
+00:16.520 --> 00:22.220
+And so do spend some time looking through them and getting some appreciation for what we've built.
+
+00:22.250 --> 00:31.970
+And with that it brings us to a summary end of end of the day slide, which is inching ever closer to
+
+00:32.000 --> 00:34.130
+the summit of the mountain.
+
+00:34.160 --> 00:37.820
+You are at the moment at 92.5% of the way there.
+
+00:37.820 --> 00:42.260
+And I hope you're starting to really get that sense that you are becoming advanced.
+
+00:42.290 --> 00:48.560
+You're taking the conversion from being confident with this stuff to being an expert at this point.
+
+00:48.560 --> 00:54.380
+You can also, along with everything else you can do, you can now deploy models to production, including
+
+00:54.410 --> 01:02.210
+through modal, to call them remotely on the cloud and also building some pretty heavyweight rag pipelines
+
+01:02.210 --> 01:08.120
+that look over a big Croma database to build context to send to OpenAI.
+
+01:08.360 --> 01:15.230
+And combining that with machine learning models as well, to build a robust production solution.
+
+01:15.710 --> 01:19.970
+Next time we're going to look at some more things, we're going to look at something called structured
+
+01:20.000 --> 01:24.980
+outputs, which is a way that we can connect with OpenAI and enforce that.
+
+01:24.980 --> 01:28.640
+The response comes in a particular specification.
+
+01:28.640 --> 01:34.220
+It's something that's relatively new, and it's good for us to to add that to your skill sets to your
+
+01:34.220 --> 01:35.000
+tool belt.
+
+01:35.420 --> 01:42.650
+And it's just going to be about solving some more problems using models as you build and build expertise
+
+01:42.650 --> 01:44.090
+and keep upskilling.
+
+01:44.090 --> 01:49.460
+So I'm so excited and so pleased with our progress.
+
+01:49.490 --> 01:54.080
+I'll see you next time when we look at structured outputs.

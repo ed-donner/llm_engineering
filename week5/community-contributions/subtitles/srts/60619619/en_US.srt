@@ -1,0 +1,121 @@
+WEBVTT
+
+00:00.200 --> 00:03.650
+Well, day four was an information dense day.
+
+00:03.650 --> 00:09.500
+I do hope that you learned some something useful here, and I hope that even those that were already
+
+00:09.530 --> 00:15.440
+somewhat familiar with things like tokens and context windows picked up a thing or two and are now able
+
+00:15.440 --> 00:17.420
+to more confidently put that into practice.
+
+00:17.420 --> 00:23.150
+Certainly this is foundational stuff that we'll be using again and again over the next week or next
+
+00:23.150 --> 00:26.870
+weeks as we build on this and apply it to commercial problems.
+
+00:26.870 --> 00:32.900
+So what you should now be confident doing is writing code that calls OpenAI and also a llama and using
+
+00:32.900 --> 00:39.260
+it to to summarize the summary use case that we worked on, you can now contrast the leading six frontier
+
+00:39.260 --> 00:39.710
+models.
+
+00:39.710 --> 00:44.510
+In fact, a bit more than that, because we've been exposed to zero one preview as well as GPT four
+
+00:44.540 --> 00:47.750
+zero, and to Claude artifacts and things like that.
+
+00:48.020 --> 00:53.270
+Um, and in particular, we know that almost all of them are not able to answer the question, how many
+
+00:53.300 --> 00:56.690
+A's are there in the the that sentence?
+
+00:56.690 --> 00:59.570
+And it's worth pointing out, of course, the reason they struggled with it.
+
+00:59.570 --> 01:05.240
+Now, it should be very clear to you it's because that text is tokenized by the time it's sent in to
+
+01:05.270 --> 01:07.880
+the model, and all the model knows about Is tokens.
+
+01:07.880 --> 01:13.730
+And so from that perspective, counting letters doesn't mean anything to it, because all it sees is
+
+01:13.730 --> 01:18.440
+the tokens that are already combined and they don't have the meaning of the letters.
+
+01:18.440 --> 01:23.640
+And that's why it's actually a very difficult question for an LLM, but something like zero one preview
+
+01:23.670 --> 01:29.880
+that's able to think step by step and reason and understands how things need to be spelt, is able to
+
+01:29.880 --> 01:30.660
+do it.
+
+01:30.720 --> 01:33.390
+Um, and then perplexity was also able to do it too, wasn't it.
+
+01:33.390 --> 01:38.430
+And I suspect that's because it was able to look that up in its resources of knowledge.
+
+01:39.000 --> 01:45.750
+Uh, so also now you've built on top of this to understand about the history of Transformers and how
+
+01:45.750 --> 01:46.890
+we've got to where we are.
+
+01:46.920 --> 01:52.470
+Tokens and what it means to tokenize context windows and how they're not just the input.
+
+01:52.470 --> 01:54.540
+It's the whole conversation so far.
+
+01:54.540 --> 02:01.350
+And now you know about API costs and where to go to look up the costs of APIs and the context windows
+
+02:01.380 --> 02:04.260
+associated with the big models.
+
+02:05.160 --> 02:06.240
+Okay.
+
+02:06.270 --> 02:08.790
+Next lecture is going to be exciting.
+
+02:08.790 --> 02:10.560
+You're going to be coding this time.
+
+02:10.560 --> 02:14.970
+You're going to be building some confidence in your coding against the OpenAI API.
+
+02:15.000 --> 02:20.430
+We're going to use a bunch of different techniques, and you're going to be implementing a business
+
+02:20.430 --> 02:23.400
+solution that is more of a wholesale business solution.
+
+02:23.400 --> 02:28.290
+That's going to involve a couple of different calls to LMS, and we're going to get it done in a matter
+
+02:28.290 --> 02:28.860
+of minutes.
+
+02:28.860 --> 02:32.610
+And it's a great lab, and it will end with exercise for you.
+
+02:32.610 --> 02:39.090
+So without further ado, uh, let's wrap up for today and I will see you tomorrow for our Big Week one
+
+02:39.090 --> 02:39.960
+project.

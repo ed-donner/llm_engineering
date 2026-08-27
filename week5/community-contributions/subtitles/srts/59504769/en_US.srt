@@ -1,0 +1,301 @@
+WEBVTT
+
+00:00.590 --> 00:03.320
+Without further ado, we're going to get stuck into it.
+
+00:03.350 --> 00:05.180
+Talking about Laura.
+
+00:05.210 --> 00:07.430
+Low rank adaptation.
+
+00:07.670 --> 00:13.520
+And this is going to be a section where we will talk a bit of theory for a few slides, but fear not,
+
+00:13.550 --> 00:16.160
+we're going to get straight to practice as usual.
+
+00:16.190 --> 00:19.250
+The best way to understand these things is by seeing them in action.
+
+00:19.250 --> 00:24.350
+So just after a couple of slides, we're going to hit Colab and look at these things for reals.
+
+00:24.350 --> 00:26.480
+But first just to set the context then.
+
+00:26.480 --> 00:31.520
+So look we're going to be using llama 3.1 for this for this week.
+
+00:31.850 --> 00:34.340
+And llama 3.1 comes in three sizes.
+
+00:34.340 --> 00:42.680
+It comes in the 8 billion parameter size the 70 billion and then the monstrous 405 billion size.
+
+00:42.890 --> 00:46.100
+Um, and of course we're taking the smaller one, the 8 billion.
+
+00:46.250 --> 00:53.630
+Um, but even that is going to be way too large for us to be training realistically on, on the sort
+
+00:53.660 --> 00:59.450
+of box we want to be able to pay for, like a one GPU box, um, 8 billion weights is already that's
+
+00:59.450 --> 01:01.370
+32GB of Ram.
+
+01:01.400 --> 01:07.280
+If you add it up, It's, it's and that's just to have the model in memory when you start training it,
+
+01:07.280 --> 01:14.210
+which is about running optimization, where you have to be able to get gradients for each of these weights.
+
+01:14.270 --> 01:18.080
+Um, that that's something which would consume way too much memory.
+
+01:18.110 --> 01:19.880
+We wouldn't have a hope.
+
+01:20.240 --> 01:27.110
+Um, and so it would also take a hugely long amount of time because there would be so much to, to be
+
+01:27.110 --> 01:30.470
+optimizing across be optimizing these 8 billion weights.
+
+01:30.470 --> 01:32.870
+That's that's just a lot of processing.
+
+01:33.200 --> 01:38.630
+Um, and it's the kind of thing, of course, that these, uh, made that these frontier labs and places
+
+01:38.630 --> 01:45.650
+like meta have spent very large sums of money for the biggest models, more than $100 million it costs
+
+01:45.650 --> 01:46.850
+to train one of them.
+
+01:46.850 --> 01:49.970
+And so that, you know, probably not the kind of money we're going to be spending.
+
+01:50.150 --> 01:59.870
+Uh, so there are some techniques, some tricks, uh, which make it surprisingly low cost to train,
+
+01:59.900 --> 02:05.390
+uh, from a base model so that you can make something that's better at achieving your particular task,
+
+02:05.390 --> 02:11.030
+Assuming that it's got a lot in common with what the base model was originally trained to do.
+
+02:11.270 --> 02:18.500
+Um, so before I explain what Lora is, let me just quickly summarize the llama architecture.
+
+02:18.530 --> 02:22.790
+Now, we're not going to get into deep into neural network architecture in this course.
+
+02:23.060 --> 02:27.620
+It's something which we'll I'll give you some insight, some intuition behind without going into a lot
+
+02:27.650 --> 02:28.340
+of detail.
+
+02:28.340 --> 02:35.510
+But the llama 3.1 architecture consists of stacks and stacks of layers of, of neurons.
+
+02:35.660 --> 02:42.860
+Um, it's actually got 32 groups of these layers where each group consists.
+
+02:42.860 --> 02:45.740
+So each group is called a llama decoder layer.
+
+02:45.740 --> 02:51.980
+And it has in it some self-attention layers, some multi-layer perceptron layers and a silo activation
+
+02:51.980 --> 02:53.240
+layer and layer norm.
+
+02:53.240 --> 02:55.220
+And we'll see this in a second.
+
+02:55.250 --> 02:58.040
+You don't you maybe you know what this is already.
+
+02:58.070 --> 02:59.840
+If you've got a theoretical background.
+
+02:59.840 --> 03:03.410
+If not, it's going to be be more real, be more tangible.
+
+03:03.410 --> 03:07.040
+When you see this architecture in Colab in just a second.
+
+03:07.370 --> 03:14.480
+Um, And all of these parameters sticking in this, in this big, uh, this, this, this, uh, layered
+
+03:14.510 --> 03:17.720
+architecture take up 32 gigs of memory.
+
+03:17.840 --> 03:22.520
+So this is now the big idea behind Lora.
+
+03:22.550 --> 03:30.020
+The idea is, look, what we can do is we can first freeze all of these weights.
+
+03:30.050 --> 03:35.360
+Normally, during optimization, you you do a forward pass through your neural network.
+
+03:35.570 --> 03:41.780
+You figure out how, um, you look at the prediction, the next token that your network predicted,
+
+03:41.780 --> 03:46.700
+you compare it with what the token should have been, what is the actual true next token.
+
+03:46.700 --> 03:51.620
+And then based on that, you figure out how much would you want to shift each of the different weights
+
+03:51.650 --> 03:57.650
+a little bit in order to make it so that next time it's a little bit better at predicting the right
+
+03:57.680 --> 03:58.610
+next token?
+
+03:58.610 --> 04:00.530
+That's the idea of optimization.
+
+04:00.560 --> 04:02.570
+A bit hand-wavy, but you get the idea.
+
+04:02.600 --> 04:03.110
+Literally.
+
+04:03.140 --> 04:03.830
+Hand-wavy.
+
+04:03.920 --> 04:09.230
+Uh uh, but uh, the the concept of Lora is, first of all, frees all these weights.
+
+04:09.230 --> 04:16.320
+We're not actually going to optimize these 8 billion weights because it's just too much, too many things,
+
+04:16.350 --> 04:19.080
+too many knobs to turn to, too many gradients.
+
+04:19.380 --> 04:27.330
+Instead, we pick a few of the layers that we think are the key things that we'd want to train.
+
+04:27.330 --> 04:35.310
+And these layers, these modules in this, this stacked, uh, layered architecture are known as the
+
+04:35.310 --> 04:36.840
+target modules.
+
+04:36.840 --> 04:39.960
+So that's where this expression target modules comes from.
+
+04:39.960 --> 04:45.480
+That I said, sounds a bit like something out of Star Trek, but it just means the the layers of the
+
+04:45.480 --> 04:51.300
+neural network that you will be focusing on for the purposes of training, but the weights will still
+
+04:51.300 --> 04:52.200
+be frozen.
+
+04:52.890 --> 05:01.830
+Instead, you will create new matrices called adapter matrices with fewer dimensions, so not as many
+
+05:01.830 --> 05:05.700
+dimensions as are in the the real guy.
+
+05:05.730 --> 05:09.840
+These will be smaller dimensionality or lower rank.
+
+05:09.840 --> 05:21.750
+It's called um and and they will be off to one side, and you will have the technique for applying these
+
+05:21.750 --> 05:24.420
+matrices into the target modules.
+
+05:24.420 --> 05:27.030
+So they will they will adapt the target modules.
+
+05:27.030 --> 05:30.510
+There'll be a formula which I will tell you about in a second.
+
+05:30.510 --> 05:36.390
+But that formula will mean that that in the future, whatever values are in those blue low rank adapters
+
+05:36.390 --> 05:37.950
+will slightly shift.
+
+05:37.950 --> 05:42.060
+We'll slightly change what goes on in the target modules.
+
+05:42.060 --> 05:48.240
+They adapt them so it's lower rank, it's lower dimensional, fewer weights that will be applied against
+
+05:48.240 --> 05:49.800
+these target modules.
+
+05:50.820 --> 05:54.450
+And then there's one little technicality because you'll see this in a second.
+
+05:54.480 --> 06:00.000
+It's worth mentioning, in fact, because of the way that the dimensions work in these neural networks,
+
+06:00.000 --> 06:06.120
+there are in fact two of these low rank matrices, one one is known as a and one is known as B.
+
+06:06.420 --> 06:09.270
+And you'll see in the code they're called lora a and lora b.
+
+06:09.300 --> 06:11.310
+So there are two matrices.
+
+06:11.310 --> 06:16.230
+It's not super important to know that, but I want to make sure that when you see it in the code.
+
+06:16.230 --> 06:18.780
+You'll see this and you'll say, okay, there are two matrices.
+
+06:18.780 --> 06:20.910
+They get applied to target modules.
+
+06:20.910 --> 06:22.290
+This makes sense.
+
+06:22.710 --> 06:27.420
+And that at a high level is the story behind Laura Freas.
+
+06:27.420 --> 06:34.290
+The main model come up with a bunch of of smaller matrices with fewer dimensions.
+
+06:34.290 --> 06:36.060
+These are subject to training.
+
+06:36.060 --> 06:42.660
+They will get trained and then they will be applied using some simple formula to the target modules.
+
+06:42.990 --> 06:49.380
+And that way you'll be able to make a base model that will get better and better as it learns.
+
+06:49.380 --> 06:53.910
+Because of the application of these Laura matrices.
+
+06:53.910 --> 07:00.600
+And Laura stands for low rank adaptation because they are lower rank, lower dimensions and they adapt
+
+07:00.600 --> 07:02.130
+the target modules.
+
+07:02.400 --> 07:02.970
+There we go.
+
+07:02.970 --> 07:07.650
+A lot of talking, a lot of words, but hopefully you've got an intuition for how this fits together,
+
+07:07.650 --> 07:11.970
+and that intuition will become clearer when you see it in the code.
+
+07:12.150 --> 07:19.230
+Um, but in the next session, we'll just talk quickly about one more thing, which is the Q, the quantization.
