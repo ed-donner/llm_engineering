@@ -12,6 +12,7 @@ dependencies = [
     "google-generativeai>=0.8.5",
     "gradio>=5.47.2,<6.0",
     "ipykernel>=6.30.1",
+    "ipython>=8.30.0",
     "ipywidgets>=8.1.7",
     "jupyter-dash>=0.4.2",
     "langchain>=0.3.27",
