@@ -1,0 +1,23 @@
+[project]
+name = "rainier-week1"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "rainier", email = "joserizz143@gmail.com" }
+]
+requires-python = ">=3.12"
+dependencies = [
+    "asyncio>=4.0.0",
+    "dotenv>=0.9.9",
+    "openai>=3.6.0",
+    "pytest-playwright>=0.9.0",
+    "requests>=2.34.2",
+]
+
+[project.scripts]
+rainier-week1 = "rainier_week1:main"
+
+[build-system]
+requires = ["uv_build>=0.12.6,<0.13.0"]
+build-backend = "uv_build"
