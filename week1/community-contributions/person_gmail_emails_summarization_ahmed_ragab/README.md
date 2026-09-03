@@ -11,7 +11,7 @@ When you click **Summarize my emails**, the project follows this process:
 1. Uses your Google OAuth token to connect to your Gmail account.
 2. Retrieves up to five of your latest **unread Inbox emails**.
 3. Extracts each email's sender, subject, date, and readable body text.
-4. Sends the formatted email text to Groq through its OpenAI-compatible API.
+4. Sends the formatted email text to **Groq** through its OpenAI-compatible API.
 5. Uses the LLM to group and summarize emails by sender.
 6. Returns the summaries to the FastAPI frontend.
 7. Shows every sender summary in a responsive card.
