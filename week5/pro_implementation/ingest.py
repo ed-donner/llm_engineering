@@ -1,5 +1,4 @@
 from pathlib import Path
-from openai import OpenAI
 from dotenv import load_dotenv
 from pydantic import BaseModel, Field
 from chromadb import PersistentClient
@@ -7,23 +6,30 @@ from tqdm import tqdm
 from litellm import completion
 from multiprocessing import Pool
 from tenacity import retry, wait_exponential
-
+from sentence_transformers import SentenceTransformer
 
 load_dotenv(override=True)
 
-MODEL = "openai/gpt-4.1-nano"
+# ============ LOCAL LM STUDIO CONFIG ============
+MODEL = "openai/gpt-oss-20b"
+LM_STUDIO_CONFIG = {
+    "api_base": "http://127.0.0.1:1234/v1",
+    "api_key": "not-needed",
+    "custom_llm_provider": "openai",
+}
+# ===============================================
 
 DB_NAME = str(Path(__file__).parent.parent / "preprocessed_db")
 collection_name = "docs"
-embedding_model = "text-embedding-3-large"
 KNOWLEDGE_BASE_PATH = Path(__file__).parent.parent / "knowledge-base"
 AVERAGE_CHUNK_SIZE = 100
-wait = wait_exponential(multiplier=1, min=10, max=240)
+wait = wait_exponential(multiplier=1, min=2, max=60)
 
+# I Kept workers at 1 for local GPU stability
+WORKERS = 1
 
-WORKERS = 3
-
-openai = OpenAI()
+# Local HuggingFace embedding model with 384 dimensions )
+embedding_model = SentenceTransformer("all-MiniLM-L6-v2")
 
 
 class Result(BaseModel):
@@ -33,7 +39,7 @@ class Result(BaseModel):
 
 class Chunk(BaseModel):
     headline: str = Field(
-        description="A brief heading for this chunk, typically a few words, that is most likely to be surfaced in a query",
+        description="A brief heading for this chunk, typically a few words, that is most likely to be surfaced in a query"
     )
     summary: str = Field(
         description="A few sentences summarizing the content of this chunk to answer common questions"
@@ -55,15 +61,14 @@ class Chunks(BaseModel):
 
 
 def fetch_documents():
-    """A homemade version of the LangChain DirectoryLoader"""
-
+    """Fetch all markdown files from the knowledge base directory."""
     documents = []
-
     for folder in KNOWLEDGE_BASE_PATH.iterdir():
-        doc_type = folder.name
-        for file in folder.rglob("*.md"):
-            with open(file, "r", encoding="utf-8") as f:
-                documents.append({"type": doc_type, "source": file.as_posix(), "text": f.read()})
+        if folder.is_dir():
+            doc_type = folder.name
+            for file in folder.rglob("*.md"):
+                with open(file, "r", encoding="utf-8") as f:
+                    documents.append({"type": doc_type, "source": file.as_posix(), "text": f.read()})
 
     print(f"Loaded {len(documents)} documents")
     return documents
@@ -80,10 +85,10 @@ The document has been retrieved from: {document["source"]}
 
 A chatbot will use these chunks to answer questions about the company.
 You should divide up the document as you see fit, being sure that the entire document is returned across the chunks - don't leave anything out.
-This document should probably be split into at least {how_many} chunks, but you can have more or less as appropriate, ensuring that there are individual chunks to answer specific questions.
-There should be overlap between the chunks as appropriate; typically about 25% overlap or about 50 words, so you have the same text in multiple chunks for best retrieval results.
+This document should probably be split into at least {how_many} chunks, but you can have more or less as appropriate.
+There should be overlap between the chunks as appropriate; typically about 25% overlap or about 50 words.
 
-For each chunk, you should provide a headline, a summary, and the original text of the chunk.
+For each chunk, provide a headline, a summary, and the original text of the chunk.
 Together your chunks should represent the entire document with overlap.
 
 Here is the document:
@@ -103,21 +108,26 @@ def make_messages(document):
 @retry(wait=wait)
 def process_document(document):
     messages = make_messages(document)
-    response = completion(model=MODEL, messages=messages, response_format=Chunks)
+    response = completion(
+        model=MODEL,
+        messages=messages,
+        response_format=Chunks,
+        **LM_STUDIO_CONFIG
+    )
     reply = response.choices[0].message.content
     doc_as_chunks = Chunks.model_validate_json(reply).chunks
     return [chunk.as_result(document) for chunk in doc_as_chunks]
 
 
 def create_chunks(documents):
-    """
-    Create chunks using a number of workers in parallel.
-    If you get a rate limit error, set the WORKERS to 1.
-    """
     chunks = []
-    with Pool(processes=WORKERS) as pool:
-        for result in tqdm(pool.imap_unordered(process_document, documents), total=len(documents)):
-            chunks.extend(result)
+    if WORKERS == 1:
+        for doc in tqdm(documents, desc="Processing documents"):
+            chunks.extend(process_document(doc))
+    else:
+        with Pool(processes=WORKERS) as pool:
+            for result in tqdm(pool.imap_unordered(process_document, documents), total=len(documents)):
+                chunks.extend(result)
     return chunks
 
 
@@ -127,8 +137,9 @@ def create_embeddings(chunks):
         chroma.delete_collection(collection_name)
 
     texts = [chunk.page_content for chunk in chunks]
-    emb = openai.embeddings.create(model=embedding_model, input=texts).data
-    vectors = [e.embedding for e in emb]
+    
+    print("Generating embeddings locally...")
+    vectors = embedding_model.encode(texts).tolist()
 
     collection = chroma.get_or_create_collection(collection_name)
 
