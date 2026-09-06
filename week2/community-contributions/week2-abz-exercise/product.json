@@ -1,0 +1,35 @@
+[
+  {
+    "id": "SH001",
+    "name": "Urban Runner Black",
+    "category": "Running",
+    "gender": "Unisex",
+    "price": 450000,
+    "color": ["Black"],
+    "sizes": [39, 40, 41, 42, 43],
+    "stock": 12,
+    "description": "Sepatu running ringan dengan desain minimalis untuk jogging dan aktivitas harian."
+  },
+  {
+    "id": "SH002",
+    "name": "Street Classic White",
+    "category": "Casual",
+    "gender": "Unisex",
+    "price": 350000,
+    "color": ["White"],
+    "sizes": [38, 39, 40, 41, 42],
+    "stock": 8,
+    "description": "Sepatu casual dengan desain klasik yang cocok digunakan sehari-hari."
+  },
+  {
+    "id": "SH003",
+    "name": "Mountain Trek Pro",
+    "category": "Outdoor",
+    "gender": "Men",
+    "price": 750000,
+    "color": ["Black", "Brown"],
+    "sizes": [40, 41, 42, 43, 44],
+    "stock": 5,
+    "description": "Sepatu outdoor dengan sol yang kuat untuk hiking dan aktivitas medan berat."
+  }
+]
