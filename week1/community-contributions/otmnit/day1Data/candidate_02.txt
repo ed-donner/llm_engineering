@@ -1,0 +1,39 @@
+CURRICULUM VITAE
+
+Name: Sofia Chen
+Location: Toronto, ON, Canada
+Email: sofia.chen@example.com
+Phone: +1 416-555-0187
+
+PROFESSIONAL SUMMARY
+Python Software Engineer with 4 years of professional experience focused on backend development, data-intensive applications, and distributed systems. Experienced with Python, Flask, FastAPI, PostgreSQL, Kafka, Kubernetes, and cloud platforms.
+
+EXPERIENCE
+
+Software Engineer — Orbit Analytics
+Toronto, ON | 2022–Present
+- Built and maintained Python services processing high-volume business data.
+- Developed FastAPI endpoints consumed by web and mobile applications.
+- Designed PostgreSQL schemas and optimized complex SQL queries.
+- Implemented event-driven workflows using Kafka.
+- Created automated tests with pytest and maintained CI pipelines.
+- Worked closely with product managers and frontend engineers.
+
+Junior Software Engineer — Maple Systems
+Toronto, ON | 2020–2022
+- Developed Flask APIs and background jobs in Python.
+- Built integrations with external REST APIs.
+- Wrote reusable Python modules for data validation and transformation.
+- Assisted with Docker and Kubernetes deployments.
+- Investigated production incidents and implemented fixes.
+
+EDUCATION
+B.Eng. Software Engineering — Toronto Metropolitan University, 2020
+
+TECHNICAL SKILLS
+Python, FastAPI, Flask, PostgreSQL, SQL, Kafka, Redis, Docker, Kubernetes, Git, Linux, pytest, REST, AWS, CI/CD
+
+LANGUAGES
+English: Fluent
+Mandarin: Native
+French: Intermediate
