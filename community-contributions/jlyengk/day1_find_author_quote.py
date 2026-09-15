@@ -43,7 +43,7 @@ def messages_for(scraped_text_chunk):
     ]
 
 def find_author_quote(target_author):
-    url = "https://quotes.toscrape.com"
+    url = "https://www.goodreads.com/quotes"
     response = requests.get(url, timeout=10)
     
     soup = BeautifulSoup(response.text, 'html.parser')
@@ -64,7 +64,7 @@ def find_author_quote(target_author):
 
 
 if __name__ == "__main__":
-    result = find_author_quote("jane Austen")
+    result = find_author_quote("Maya Angelou")
     print(result)
 
 
