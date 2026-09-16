@@ -1,61 +1,125 @@
 from pathlib import Path
-from langchain_openai import ChatOpenAI, OpenAIEmbeddings
-from langchain_chroma import Chroma
-from langchain_huggingface import HuggingFaceEmbeddings
-from langchain_core.messages import SystemMessage, HumanMessage, convert_to_messages
-from langchain_core.documents import Document
 
-from dotenv import load_dotenv
+import ollama
+from chromadb import PersistentClient
 
 
-load_dotenv(override=True)
+BASE_DIR = Path(__file__).resolve().parent.parent
 
-MODEL = "gpt-4.1-nano"
-DB_NAME = str(Path(__file__).parent.parent / "vector_db")
+DB_NAME = str(BASE_DIR / "vector_db")
+COLLECTION_NAME = "docs"
 
-# embeddings = HuggingFaceEmbeddings(model_name="all-MiniLM-L6-v2")
-embeddings = OpenAIEmbeddings(model="text-embedding-3-large")
-RETRIEVAL_K = 10
+EMBED_MODEL = "nomic-embed-text:latest"
+LLM_MODEL = "gemma4:latest"
 
-SYSTEM_PROMPT = """
-You are a knowledgeable, friendly assistant representing the company Insurellm.
-You are chatting with a user about Insurellm.
-If relevant, use the given context to answer any question.
-If you don't know the answer, say so.
-Context:
+RETRIEVAL_K = 8
+
+
+class Result:
+    def __init__(self, page_content, metadata):
+        self.page_content = page_content
+        self.metadata = metadata
+
+
+chroma = PersistentClient(path=DB_NAME)
+
+try:
+    collection = chroma.get_collection(COLLECTION_NAME)
+except Exception as exc:
+    raise RuntimeError(
+        "Chroma database not found. "
+        "Run ingest.py first."
+    ) from exc
+
+
+def get_embedding(text):
+    response = ollama.embeddings(
+        model=EMBED_MODEL,
+        prompt=text,
+    )
+
+    return response["embedding"]
+
+
+def fetch_context(question):
+    query_embedding = get_embedding(question)
+
+    results = collection.query(
+        query_embeddings=[query_embedding],
+        n_results=min(RETRIEVAL_K, collection.count()),
+    )
+
+    documents = results.get("documents", [[]])[0]
+    metadatas = results.get("metadatas", [[]])[0]
+
+    return [
+        Result(
+            page_content=text,
+            metadata=metadata or {},
+        )
+        for text, metadata in zip(documents, metadatas)
+    ]
+
+
+def make_prompt(question, history, chunks):
+    context = "\n\n".join(
+        f"Source: {chunk.metadata.get('source', 'Unknown')}\n"
+        f"{chunk.page_content}"
+        for chunk in chunks
+    )
+
+    conversation = ""
+
+    for message in history:
+        role = message.get("role", "user")
+        content = message.get("content", "")
+
+        conversation += f"{role.upper()}: {content}\n"
+
+    return f"""
+You are a knowledgeable and friendly assistant for Insurellm.
+
+Answer the user's question using the provided knowledge-base context.
+
+Rules:
+- Use the context as the primary source of truth.
+- Do not invent information.
+- If the answer is not available in the context, say that you don't know.
+- Give a clear and useful answer.
+- Consider the previous conversation when answering follow-up questions.
+
+Previous conversation:
+{conversation}
+
+Knowledge-base context:
 {context}
+
+Current question:
+{question}
 """
 
-vectorstore = Chroma(persist_directory=DB_NAME, embedding_function=embeddings)
-retriever = vectorstore.as_retriever()
-llm = ChatOpenAI(temperature=0, model_name=MODEL)
 
+def answer_question(question, history=None):
+    history = history or []
 
-def fetch_context(question: str) -> list[Document]:
-    """
-    Retrieve relevant context documents for a question.
-    """
-    return retriever.invoke(question, k=RETRIEVAL_K)
+    chunks = fetch_context(question)
 
+    prompt = make_prompt(
+        question,
+        history,
+        chunks,
+    )
 
-def combined_question(question: str, history: list[dict] = []) -> str:
-    """
-    Combine all the user's messages into a single string.
-    """
-    prior = "\n".join(m["content"] for m in history if m["role"] == "user")
-    return prior + "\n" + question
+    response = ollama.chat(
+        model=LLM_MODEL,
+        messages=[
+            {
+                "role": "user",
+                "content": prompt,
+            }
+        ],
+    )
 
+    answer = response["message"]["content"]
 
-def answer_question(question: str, history: list[dict] = []) -> tuple[str, list[Document]]:
-    """
-    Answer the given question with RAG; return the answer and the context documents.
-    """
-    combined = combined_question(question, history)
-    docs = fetch_context(combined)
-    context = "\n\n".join(doc.page_content for doc in docs)
-    system_prompt = SYSTEM_PROMPT.format(context=context)
-    messages = [SystemMessage(content=system_prompt)]
-    messages.extend(convert_to_messages(history))
-    messages.append(HumanMessage(content=question))
-    response = llm.invoke(messages)
-    return response.content, docs
+    return answer, chunks

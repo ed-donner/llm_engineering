@@ -1,67 +1,152 @@
-import os
-import glob
 from pathlib import Path
-from langchain_community.document_loaders import DirectoryLoader, TextLoader
-from langchain_text_splitters import RecursiveCharacterTextSplitter
-from langchain_chroma import Chroma
-from langchain_huggingface import HuggingFaceEmbeddings
-from langchain_openai import OpenAIEmbeddings
+import re
+
+import ollama
+from chromadb import PersistentClient
+from tqdm import tqdm
 
 
-from dotenv import load_dotenv
+BASE_DIR = Path(__file__).resolve().parent.parent
 
-MODEL = "gpt-4.1-nano"
+KNOWLEDGE_BASE_PATH = BASE_DIR / "knowledge-base"
+DB_NAME = str(BASE_DIR / "vector_db")
 
-DB_NAME = str(Path(__file__).parent.parent / "vector_db")
-KNOWLEDGE_BASE = str(Path(__file__).parent.parent / "knowledge-base")
+COLLECTION_NAME = "docs"
+EMBED_MODEL = "nomic-embed-text:latest"
 
-# embeddings = HuggingFaceEmbeddings(model_name="all-MiniLM-L6-v2")
-
-load_dotenv(override=True)
-
-embeddings = OpenAIEmbeddings(model="text-embedding-3-large")
+CHUNK_SIZE = 1200
+CHUNK_OVERLAP = 200
 
 
-def fetch_documents():
-    folders = glob.glob(str(Path(KNOWLEDGE_BASE) / "*"))
+def load_documents():
     documents = []
-    for folder in folders:
-        doc_type = os.path.basename(folder)
-        loader = DirectoryLoader(
-            folder, glob="**/*.md", loader_cls=TextLoader, loader_kwargs={"encoding": "utf-8"}
-        )
-        folder_docs = loader.load()
-        for doc in folder_docs:
-            doc.metadata["doc_type"] = doc_type
-            documents.append(doc)
+
+    for folder in KNOWLEDGE_BASE_PATH.iterdir():
+        if not folder.is_dir():
+            continue
+
+        doc_type = folder.name
+
+        for file in folder.rglob("*.md"):
+            text = file.read_text(encoding="utf-8")
+
+            documents.append(
+                {
+                    "source": file.as_posix(),
+                    "type": doc_type,
+                    "text": text,
+                }
+            )
+
+    print(f"Loaded {len(documents)} documents")
     return documents
 
 
-def create_chunks(documents):
-    text_splitter = RecursiveCharacterTextSplitter(chunk_size=500, chunk_overlap=200)
-    chunks = text_splitter.split_documents(documents)
+def split_text(text):
+    text = re.sub(r"\n{3,}", "\n\n", text.strip())
+
+    paragraphs = text.split("\n\n")
+
+    chunks = []
+    current = ""
+
+    for paragraph in paragraphs:
+        paragraph = paragraph.strip()
+
+        if not paragraph:
+            continue
+
+        if len(current) + len(paragraph) + 2 <= CHUNK_SIZE:
+            current += ("\n\n" if current else "") + paragraph
+        else:
+            if current:
+                chunks.append(current)
+
+            overlap = current[-CHUNK_OVERLAP:] if current else ""
+            current = overlap + "\n\n" + paragraph
+
+    if current:
+        chunks.append(current)
+
     return chunks
 
 
-def create_embeddings(chunks):
-    if os.path.exists(DB_NAME):
-        Chroma(persist_directory=DB_NAME, embedding_function=embeddings).delete_collection()
+def create_chunks(documents):
+    chunks = []
 
-    vectorstore = Chroma.from_documents(
-        documents=chunks, embedding=embeddings, persist_directory=DB_NAME
+    for document in documents:
+        text_chunks = split_text(document["text"])
+
+        for chunk in text_chunks:
+            chunks.append(
+                {
+                    "text": chunk,
+                    "metadata": {
+                        "source": document["source"],
+                        "type": document["type"],
+                    },
+                }
+            )
+
+    return chunks
+
+
+def get_embedding(text):
+    response = ollama.embeddings(
+        model=EMBED_MODEL,
+        prompt=text,
     )
 
-    collection = vectorstore._collection
-    count = collection.count()
+    return response["embedding"]
 
-    sample_embedding = collection.get(limit=1, include=["embeddings"])["embeddings"][0]
-    dimensions = len(sample_embedding)
-    print(f"There are {count:,} vectors with {dimensions:,} dimensions in the vector store")
-    return vectorstore
+
+def create_vector_database(chunks):
+    chroma = PersistentClient(path=DB_NAME)
+
+    # Remove old collection so old OpenAI embeddings are not reused.
+    existing = [collection.name for collection in chroma.list_collections()]
+
+    if COLLECTION_NAME in existing:
+        chroma.delete_collection(COLLECTION_NAME)
+
+    collection = chroma.get_or_create_collection(COLLECTION_NAME)
+
+    print(f"Creating {len(chunks)} local embeddings...")
+
+    for index, chunk in enumerate(
+        tqdm(chunks, desc="Creating embeddings")
+    ):
+        embedding = get_embedding(chunk["text"])
+
+        collection.add(
+            ids=[str(index)],
+            embeddings=[embedding],
+            documents=[chunk["text"]],
+            metadatas=[chunk["metadata"]],
+        )
+
+    print()
+    print("Vector database created successfully.")
+    print(f"Documents: {collection.count()}")
+    print(f"Database: {DB_NAME}")
+
+
+def main():
+    documents = load_documents()
+
+    if not documents:
+        raise RuntimeError(
+            f"No Markdown files found in {KNOWLEDGE_BASE_PATH}"
+        )
+
+    chunks = create_chunks(documents)
+
+    print(f"Created {len(chunks)} chunks")
+
+    create_vector_database(chunks)
+
+    print("Ingestion complete!")
 
 
 if __name__ == "__main__":
-    documents = fetch_documents()
-    chunks = create_chunks(documents)
-    create_embeddings(chunks)
-    print("Ingestion complete")
+    main()
