@@ -1,0 +1,188 @@
+id,difficulty,question_type,source_doc,retrieval_hit,retrieval_mrr,context_precision,keyword_coverage,assertion_coverage,answer_similarity,failed_assertions,heuristic_assertions,generated_answer
+1,easy,factual,RFC 768,True,1.0,0.2,1.0,1.0,0.6937929850544498,,,"The minimum value of the UDP **Length** field is **8**. This is because **Length is the length of the UDP datagram in octets including the UDP header and data**, and the UDP header itself is **8 octets**, so **the minimum possible length is eight** [1]."
+2,medium,conceptual,RFC 768,True,1.0,0.4,1.0,1.0,0.801762488925505,,,"The pseudo header is conceptually prefixed to the UDP header for the UDP checksum calculation. It contains the **source address, destination address, protocol, and UDP length**, and this information **gives protection against misrouted datagrams** [1]."
+3,easy,factual,RFC 768,True,1.0,0.4,1.0,1.0,0.8758471916538564,,,The protocol number for UDP is **17 (21 octal)** when used in the Internet Protocol [2].
+4,medium,conceptual,RFC 793,True,1.0,1.0,1.0,1.0,0.6445005457841055,,,"TCP ensures reliable data transfer by using **sequence numbers** and **positive acknowledgments (ACKs)**. Each transmitted octet is assigned a sequence number, and the receiver must send an ACK. If an ACK is not received within a **timeout interval**, TCP **retransmits** the data. At the receiver, TCP uses sequence numbers to **order segments correctly**, and to **eliminate duplicates**. TCP also adds a **checksum** to each segment to detect **damaged** data; damaged segments are discarded. As long as TCP continues to function properly (and the internet system isn’t completely partitioned), TCP recovers from transmission errors. [2]"
+5,medium,procedural,RFC 793,True,1.0,1.0,0.8571428571428571,1.0,0.40656005106645027,,,"The TCP three-way handshake for connection establishment consists of exchanging three messages:
+
+1. **Client starts the connection:** Send a **SYN** segment (e.g., TCP A sends `<SEQ=100><CTL=SYN>` to TCP B). [5]  
+2. **Server responds:** Send a **SYN+ACK** segment acknowledging the client’s SYN (e.g., TCP B sends `<SEQ=300><ACK=101><CTL=SYN,ACK>` back). [5]  
+3. **Client completes synchronization:** Send an **ACK** segment confirming the server’s SYN (e.g., TCP A sends `<SEQ=101><ACK=301><CTL=ACK>`). After this, the connection is **ESTABLISHED**. [5]  
+
+The connection becomes established when **sequence numbers have been synchronized in both directions**. [3]"
+6,hard,conceptual,RFC 793,True,1.0,1.0,0.8888888888888888,1.0,0.6114525230909521,,,"TCP uses a clock-based ISN generator to ensure that each new connection incarnation gets a fresh 32-bit Initial Sequence Number (ISN), selected from a generator bound to a clock that increments roughly every 4 microseconds (so the ISN cycles about every 4.55 hours) [1]. This helps guarantee that ISNs are unique, assuming segments remain in the network for no more than the Maximum Segment Lifetime (MSL) and MSL is less than 4.55 hours [1].
+
+It solves the problem of **duplicate/old segments from an earlier connection incarnation being mistaken for data from a new incarnation after a crash/restart**—i.e., preventing segments from one incarnation of a connection from being used during a later incarnation when sequence numbers may still exist in the network [1][3]."
+7,medium,conceptual,RFC 793,True,1.0,1.0,1.0,0.6666666666666666,0.7070656666506434,answer mentions buffer,,The purpose of the TCP PUSH function (and the PUSH flag) is to **push data through from the sending user to the receiving user** so it is **promptly forwarded and delivered up to that point** to the receiver [2][3]. It **does not provide a record service** [2][3].
+8,easy,factual,RFC 791,True,1.0,0.4,1.0,0.5,0.8741010123534327,"answer gives bit patterns (0, 10, 110)",answer mentions all 3 classes,"RFC 791 defines three classes of Internet addresses: **Class A, Class B, and Class C** [1].
+
+They are distinguished by the **pattern of the high-order bits** in the 32-bit (four-octet) address, with the remaining bits interpreted as **network** and **local address (“rest”)** fields [1]:
+
+- **Class A**: the **high order bit is 0**; the **next 7 bits** are the **network**; the **last 24 bits** are the **local address** [1].
+- **Class B**: the **high order two bits are 1-0**; the **next 14 bits** are the **network**; the **last 16 bits** are the **local address** [1].
+- **Class C**: the **high order three bits are 1-1-0**; the **next 21 bits** are the **network**; the **last 8 bits** are the **local address** [1]."
+9,medium,conceptual,RFC 791,True,1.0,1.0,0.8571428571428571,0.75,0.6960425832668385,answer mentions 8-octet units,,"IP provides a datagram service that can fragment datagrams at gateways, with reassembly at the destination host’s IP module [2]. The fragmentation/reassembly mechanism works by breaking a datagram into pieces and then using fields in the fragments to ensure the destination can correctly group and place them back into the original datagram [1].
+
+**How fragmentation/reassembly works**
+- The fragmentation procedure can break a datagram into an almost arbitrary number of pieces that will later be reassembled [1].
+- The receiver uses the fragment **identification** so that fragments belonging to different original datagrams are not mixed [1].
+- The receiver uses the fragment **offset** and **length** to determine which portion of the original datagram each fragment covers, so the data can be placed into the correct position during reassembly [1].
+- The **more-fragments** flag is used to indicate whether a fragment is the last one: it is reset in the last fragment [1].
+- These fields together provide sufficient information to reassemble the datagrams [1].
+
+**Fields used for reassembly**
+- **Identification field** (prevents mixing fragments from different datagrams) [1]
+- **Fragment offset field** (position of the fragment in the original datagram) [1]
+- **Length** (in combination with fragment offset to determine the covered portion) [1]
+- **More-fragments flag** (reset indicates the last fragment) [1]"
+10,easy,factual,RFC 791,True,1.0,0.8,1.0,0.5,0.7427294923298432,"answer mentions ""decrement""",,"The Time to Live (TTL) field in the IP header is an **indication of the maximum lifetime** an internet datagram may have. It is **set by the sender** and **reduced at points along the route where the datagram is processed**. If the TTL **reaches zero before the datagram reaches its destination, the datagram is destroyed** (a “self destruct time limit”). [4][1]"
+11,medium,conceptual,RFC 792,True,1.0,1.0,0.375,0.3333333333333333,0.36209460301833746,"answer mentions ""integral part of IP"" | answer lists at least 5 message types",answer lists at least 5 message types,"**Purpose of ICMP:** ICMP (Internet Control Message Protocol) is used for control purposes by reporting errors and other problems in datagram processing. It provides feedback about issues in the communication environment rather than making IP reliable; there are no guarantees that a datagram will be delivered or that a control message will be returned [1][2].
+
+**Types of ICMP messages it defines:** The provided context does not list all ICMP message types. It only shows examples/details for:
+- **Parameter Problem Message** (ICMP **Type 12**, **Code 0** indicates “pointer indicates the error”) [5].
+
+If you need the full set of ICMP message types, that information is not contained in the provided context."
+12,easy,factual,RFC 792,True,0.2,0.2,1.0,0.3333333333333333,0.3564060364256815,answer mentions gateway sends it to host | answer mentions gateway still forwards the datagram,,"An **ICMP Redirect** message is used by routers to **inform a host** of a better forwarding choice. Specifically, it can either:
+
+- **Redirect a host to a better first-hop router** for a specific destination, or  
+- **Inform hosts that a destination is actually on-link (a neighbor)** by setting **ICMP Target Address equal to the ICMP Destination Address** [1][4].
+
+It is **sent by routers** to perform those functions [1][4]."
+13,medium,procedural,RFC 826,True,1.0,0.4,0.5555555555555556,0.3333333333333333,0.4444660075510963,answer mentions unicast reply | answer mentions both sides cache the mapping,,"**ARP request/reply process (as described in the context):**
+
+1. **Machine X sends an ARP request** asking for the Ethernet address corresponding to some Internet address (implied by the mapping it wants).
+2. **Machine Y receives the packet** and checks:
+   - the hardware type is understood (Ethernet),
+   - the protocol is understood (Internet),
+   - the packet is for it ((ar$tpa) = IPA(Y)).
+3. **Machine Y updates its ARP information** (replacing any existing entry): it records that  
+   **<ET(IP), IPA(X)> maps to EA(X)**.
+4. **Machine Y recognizes the packet is a request**, so it prepares an ARP **reply**:
+   - it swaps fields,
+   - puts **EA(Y)** into the sender Ethernet address field (**ar$sha**),
+   - sets the opcode to **reply**,
+   - and sends the reply **directly to EA(X)** (not broadcast).
+5. At this point, **Y knows how to send to X**, but **X does not yet know how to send to Y**.
+6. **Machine X receives the reply** from Y and forms the map **<ET(IP), IPA(Y)> to EA(Y)**.
+7. Since the packet is a reply, **X discards it**. After that, the **next time X needs to send to Y on Ethernet**, the address translation will succeed and the packet should arrive. Also, **Y can talk to X** because Y has remembered information from X’s request.  
+
+**Sources:** [1], [3]"
+14,easy,conceptual,RFC 826,True,1.0,1.0,0.8,0.5,0.623492118289771,answer mentions merging happens before opcode check,,"ARP merges the `<protocol type, sender protocol address, sender hardware address>` triplet into the translation (cache) table **before** looking at the opcode because it assumes **communication is bidirectional**: if A has some reason to talk to B, B will probably have some reason to talk to A. Also, the processing algorithm is designed so it **does not look at the opcode until AFTER putting the sender information in a table**; this simplifies the suggested processing algorithm. If an entry already exists for the `<protocol type, sender protocol address>` pair, the new hardware address **supersedes** the old one. [1][2][4]"
+15,medium,conceptual,RFC 2328,True,1.0,1.0,0.8571428571428571,1.0,0.7972443757452128,,,"An **OSPF router-LSA** (Type 1) is originated by **each router in an area** and **describes the state and cost of that router’s links (interfaces) to the area**, with **all of the router’s links to the area described in a single router-LSA**. The router-LSA is **flooded throughout the particular area and no further**.[2][3]
+
+A **network-LSA** is generated for **every transit broadcast or NBMA network** (a transit network has **two or more attached routers**) and **describes all the routers attached to that network**. It is originated by the **Designated Router** only when it is **fully adjacent to at least one other router**. The network-LSA is **flooded throughout the area that contains the transit network and no further**, and it **lists the routers fully adjacent to the Designated Router** (including the Designated Router itself).[1][5]"
+16,hard,conceptual,RFC 2328,True,1.0,1.0,0.5,0.25,0.6587701147713574,"answer mentions hysteresis or ""accept existing DR"" | answer mentions BDR minimizes disruption | answer mentions adjacency synchronization",,"The provided context describes parts of OSPFv2’s Designated Router (DR) / Backup Designated Router (BDR) election, and the roles they play, but it does **not** give a complete step-by-step election algorithm. So I can only summarize what the context explicitly states.
+
+## How DR election works (as described in the context)
+- In the **Waiting** state, a router “is trying to determine the identity of the (Backup) Designated Router for the network” by monitoring **Hello packets** it receives. While in Waiting, the router is “not allowed to elect a Backup Designated Router nor a Designated Router until it transitions out of Waiting state.” [3]
+- The election process includes logic to handle the moment when a router becomes or ceases to be DR/BDR: if “Router X is now newly the Designated Router or newly the Backup Designated Router, or is now no longer” either role, then the procedure repeats earlier steps and then continues; this prevents inconsistent outcomes like a router declaring itself both BDR and DR at the same time. [4]
+- The procedure can elect the **same router** to be both DR and BDR, but “that router will never be the calculating router (Router X) itself.” Also, eligibility/priority rules are noted: the elected DR “may not be the router having the highest Router Priority,” and the BDR “will not [necessarily] have the second highest Router Priority.” [5]
+- There are cases where election may result in **no DR/BDR**: if Router X is not eligible to become DR, “it is possible that neither a Backup Designated Router nor a Designated Router will be selected in the above procedure.” [5]
+- If Router X is the **only eligible** router to become DR, it selects itself as DR, and then “there will be no Backup Designated Router for the network.” [5]
+
+## Why a Backup Designated Router is needed
+- The **Backup Designated Router** is the router that can take over if the current DR fails: in the Backup state, “the router itself is the Backup Designated Router… It will be promoted to Designated Router when the present Designated Router fails.” [2]
+- Both DR and BDR form adjacencies with other routers attached to the network: the Backup state says it “establishes adjacencies to all other routers attached to the network,” and similarly the DR state says DR “Adjudacencies are established to all other routers attached to the network.” [2]
+- The Backup Designated Router also performs “slightly different functions during the Flooding Procedure, as compared to the Designated Router.” [2]
+
+## Summary
+- DR/BDR selection is based on observing **Hello packets** (during Waiting) and transitions/eligibility rules that avoid inconsistent self-election. [3][4]
+- A **Backup Designated Router** is needed so that when the DR fails, the BDR is already established and can be “promoted to Designated Router” promptly. [2]
+
+If you want, I can restate this in a more explicit “timeline” format, but I can’t provide the full election step list beyond what’s in the context."
+17,medium,conceptual,RFC 2453,True,1.0,1.0,0.7142857142857143,0.5,0.4171086318221358,"answer mentions ""split horizon"" | answer mentions ""poisoned reverse""",,"“Counting to infinity” in RIP is the problem that can occur when a network destination becomes completely inaccessible: routers may repeatedly increase their advertised metrics for that unreachable destination in small steps until the metric eventually reaches the special “infinity” value, so the invalid route information persists long enough to form a loop-like failure. This is why the term is used (“metrics may increase slowly … until they finally reach infinity”). [1]
+
+Mechanisms to prevent it (or reduce the chance of it) include:
+
+- **Triggered updates for deleted routes**: RIP requires implementations to implement triggered updates for deleted routes (and they may use them for new routes or changes). Triggered updates are sent quickly enough to reduce the window where routers keep advertising outdated routes, making “counting to infinity” less likely. [4]
+- **Rate limiting of triggered updates**: Implementations must also **limit the rate** at which triggered updates may be transmitted. [4]
+
+The context also notes that although it would be possible to prove counting-to-infinity would not happen if the system could “sit still” while triggered updates cascade, in reality **regular updates can occur concurrently**, so the problem is still possible even with triggered updates. [5]"
+18,easy,factual,RFC 2453,True,1.0,1.0,1.0,1.0,0.6690996803105063,,,RIP is limited to networks whose longest path (diameter) is **15 hops** [2]. The metric value used to represent an unreachable destination (“infinity”) is **16** [3].
+19,medium,conceptual,RFC 4271,True,1.0,1.0,0.2,0.3333333333333333,0.3268002723240726,"answer lists all 4 categories | answer mentions ""quietly ignored"" for non-transitive",answer lists all 4 categories,"The provided context does **not** state four explicit categories of BGP path attributes. It only discusses **well-known** attributes and **optional** attributes, including how to handle **unrecognized** optional attributes depending on the **Transitive bit** and the **Partial bit**.
+
+From the context, we can say:
+
+- **Well-known attributes**: The context states only that *in addition to well-known attributes*, each path may contain optional attributes. It does not explain handling rules for well-known attributes beyond that. [3]
+- **Optional attributes**: Paths **may** contain one or more optional attributes, and not all implementations are required to support them. [3]
+  - **Unrecognized transitive optional attributes**:  
+    - SHOULD be accepted. [3]
+    - If accepted and passed to other peers, the unrecognized attribute MUST be passed along with the path **to other peers when the receiving peer has the Partial bit set to 1**. [3]
+  - **Unrecognized non-transitive optional attributes**: The context begins a statement (“Unrecognized non-transitive …”) but does **not** include the handling rules before it ends. [3]
+
+Because the context does not contain the missing parts, it’s not possible to identify the “four categories” or describe their handling comprehensively **without guessing**.
+
+If you can share the part of the RFC that lists the four categories, I can answer precisely."
+20,hard,procedural,RFC 4271,True,1.0,1.0,0.875,0.8,0.49328504677694845,answer mentions NEXT_HOP resolvability,,"The BGP Decision Process has **three distinct phases** [1]. Each phase is triggered by different events and has the following responsibilities:
+
+- **Phase 1: Calculation of Degree of Preference**  
+  This phase is responsible for **calculating the degree of preference for each route received from a peer** [1].
+
+- **Phase 2: Best Route Selection and Installation into Loc-RIB**  
+  This phase is invoked after completion of Phase 1. It **chooses the best route for each distinct destination from the available routes** and **installs each chosen route into the Loc-RIB** [1].
+
+- **Phase 3: Route Dissemination**  
+  This phase is invoked after the Loc-RIB has been modified. It **disseminates routes in the Loc-RIB to each peer according to the policies in the PIB** (and **route aggregation and information reduction can optionally be performed** in this phase) [3]."
+21,medium,conceptual,RFC 4861,True,1.0,1.0,0.875,0.6666666666666666,0.3938065022817738,answer lists all 5 states,answer lists all 5 states,"A Neighbor Cache entry in IPv6 Neighbor Discovery [3] can be in one of five states:
+
+1. **INCOMPLETE** — Address resolution is being performed. Specifically, a **Neighbor Solicitation** has been sent to the solicited-node multicast address of the target, but the corresponding **Neighbor Advertisement** has not yet been received. [3]  
+2. **REACHABLE** — Positive confirmation was received within the last **ReachableTime** milliseconds that the forward path to the neighbor was functioning properly. While in this state, no special action takes place as packets are sent. [3]  
+3. **STALE** — More than **ReachableTime** milliseconds have elapsed since the last positive confirmation. While stale, no action takes place until a packet is sent. [3]  
+
+However, the provided context only explicitly lists **three** states (INCOMPLETE, REACHABLE, STALE) and does not provide the remaining **two** states, nor does it describe the full set of triggers for transitions among all five states. For example, it does mention that when an advertisement’s **Solicited flag** is set, the cache entry state is set to **REACHABLE**; otherwise it is set to **STALE**—but this still doesn’t cover transitions involving the missing states or the complete five-state transition logic. [1]
+
+So, from the context given, I can answer the state descriptions for 3 states and one transition trigger (Solicited flag → REACHABLE vs STALE), but I **cannot** list all five states or fully describe transitions between them without additional context. [1][3]"
+22,easy,factual,RFC 4861,True,1.0,1.0,0.5,0.0,0.2747450322156581,answer lists all 5 types | answer includes correct ICMP type numbers,answer lists all 5 types,"IPv6 Neighbor Discovery defines five ICMP message types: **two Router Solicitation/Router Advertisement messages, a pair of Neighbor Solicitation/Neighbor Advertisements messages, and a Redirect message** [1]."
+23,medium,conceptual,RFC 1034,True,1.0,1.0,0.8571428571428571,0.3333333333333333,0.8023046521709514,"answer mentions ""referral"" for iterative | answer mentions recursive is optional",,"In DNS, **recursive** and **iterative** query behavior differ in how the first name server handles a query that must be answered by another server.
+
+- **Recursive:** The first server **pursues the query on behalf of the client** at another server. [1]
+- **Iterative:** The server **refers the client to another server**, and the **client pursues the query**. [1]
+
+The DNS protocol **requires implementing the iterative approach**, and allows recursive as an option. [1] Also, recursive mode is used only when a query has the **RD (recursion desired)** bit set and the server is willing to provide recursive service; the client can verify recursive mode was used by checking that **both RA and RD are set in the reply**. [4]"
+24,easy,factual,RFC 1034,True,1.0,0.6,0.4,0.3333333333333333,0.5333830167132568,"answer mentions all 3 components | answer mentions ""resolvers""",answer mentions all 3 components,"RFC 1034 describes the DNS as having **three major components**:  
+
+- **The DOMAIN NAME SPACE**  
+- **RESOURCE RECORDS**  
+- (as part of the overall DNS structure described with these) **specifications for a tree structured name space and data associated with the names**, including how queries extract specific types of information from a set named by the domain name [1]."
+25,hard,comparative,RFC 768/RFC 793,True,1.0,0.6,0.7,1.0,0.4028469476705563,,,"Using only the provided context:
+
+- **Reliability**
+  - **TCP**: TCP is “end-to-end reliable” and provides “reliable inter-process communication” between processes [1].
+  - **UDP**: UDP is a datagram service where “queries may be lost” and therefore a “retransmission strategy is required” [3]. (The context also notes messages can be reordered [3].)
+
+- **Connection model**
+  - **TCP**: TCP is “connection-oriented”; it requires that TCPs “first establish a connection” and later “terminate or close” it [2]. A connection is created by initializing and maintaining status information for each data stream [2].
+  - **UDP**: The DNS context says DNS assumes messages are transmitted “as datagrams or in a byte stream carried by a virtual circuit,” and that “datagrams are preferred for queries” [4]. (This indicates UDP is used as a datagram service, not a connection-oriented model.) Zone transfers must use virtual circuits because of the need for reliable transfer [4].
+
+- **Header overhead**
+  - The context explicitly compares overhead in the DNS transport discussion: “datagrams are preferred for queries due to their lower overhead and better performance” [4]. This implies **UDP (datagrams)** has **lower overhead** than TCP/vc-based byte streams for DNS queries.
+  - No explicit statement in the context gives TCP vs UDP header overhead directly, beyond this “lower overhead” comparison for datagrams [4].
+
+**Sources:** [1], [2], [3], [4]"
+26,easy,factual,RFC 1035,True,0.5,0.2,0.7142857142857143,0.0,0.32264843156698647,answer lists exactly 5 sections | answer mentions Header and Question,answer lists exactly 5 sections,"The provided context says that DNS messages use a standard format with a **header** containing fixed fields and **four sections** that carry query parameters and resource records. Therefore, the DNS message has **five main sections in total**: **the header plus four sections** [3]."
+27,medium,conceptual,RFC 1035,True,0.2,0.2,0.3333333333333333,0.25,0.17237735760034414,"answer mentions ""QR"" | answer mentions ""RCODE"" | answer mentions the 4 count fields (QDCOUNT, ANCOUNT, NSCOUNT, ARCOUNT)",,"The provided context ([5]) does not include the DNS “fixed 12-byte message header” fields. It only discusses the maximum sizes of names/TTL/UDP messages and the DNS name/label encoding rules.
+
+So, based on the given context, the fields present in the fixed 12-byte DNS message header **cannot be determined** without additional information."
+28,medium,conceptual,RFC 1035,True,1.0,0.8,0.375,0.3333333333333333,0.6002935274311045,"answer mentions ""offset"" | answer mentions the two high bits are set (or ""11"")",,"DNS message compression reduces the size of domain names by allowing a domain name in a message to be represented in one of several compressed forms instead of always sending the full expanded name [1].
+
+Specifically, a domain name can be encoded as:
+- **a sequence of labels ending in a zero octet**, or
+- **a pointer**, or
+- **a sequence of labels ending with a pointer** [1].
+
+**Pointers** let the message refer back to an earlier occurrence of a domain name, so repeated name components don’t have to be retransmitted in full. Pointers are only permitted for parts of the message where the format is **not class specific**; otherwise, knowing the exact RDATA format would be required to interpret the pointer correctly [1].
+
+Programs generating messages may choose to avoid using pointers (which increases size and may cause truncation), but all programs must be able to **understand arriving messages that contain pointers** [2]. Additionally, when a compressed name appears in a field governed by a **length calculation** (e.g., RDATA), the **length of the compressed name** is used rather than the expanded name length [1]."
+29,easy,factual,RFC 1035,True,0.25,0.4,0.875,1.0,0.7024659959768389,,,"The standard fields of a DNS Resource Record (RR) are:
+
+- **owner**: the domain name where the RR is found [1]  
+- **type**: an encoded 16-bit value specifying the type of resource in the RR [1]  
+- **(RR) data fields shown in RFC 1035 include**: **NAME, TYPE, CLASS, TTL, RDLENGTH**, and then the **RDATA** field [5]  
+
+So, specifically as described, the RR consists of (at least) **NAME, TYPE, CLASS, TTL, and RDLENGTH** (which gives the length of **RDATA**) along with the **RDATA** contents [5]."
+30,medium,factual,RFC 1035,True,1.0,0.8,1.0,0.6666666666666666,0.5968366531945943,"answer contains ""15""",,"The context shows that **MX records** have an RDATA format consisting of:
+
+- **PREFERENCE**: a **16-bit integer** specifying the preference for the RR among others at the same owner (lower values preferred) [3]
+- **EXCHANGE**: an **A <domain-name>** specifying a **host willing to act as a mail exchange** for the owner name [3]
+
+However, the context does **not** state the **TYPE value** number for an MX record. Therefore, I can’t answer the TYPE value from the provided context."
