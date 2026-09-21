@@ -1,0 +1,16 @@
+There are two types of prompts, System prompts and User prompts.
+Basically the system prompt is likr the personlaity, while the user prompt is likem the question or task, given.
+
+## Messages
+
+The API from OpenAI expects to receive messages in a particular structure.
+Many of the other APIs share this structure:
+
+```python
+[
+    {"role": "system", "content": "system message goes here"},
+    {"role": "user", "content": "user message goes here"}
+]
+```
+To give you a preview, the next 2 cells make a rather simple call - we won't stretch the mighty GPT (yet!)
+
