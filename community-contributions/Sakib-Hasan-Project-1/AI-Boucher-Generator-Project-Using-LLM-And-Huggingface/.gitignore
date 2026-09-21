@@ -1,0 +1,6 @@
+.venv/
+.env
+__pycache__/
+*.pyc
+generated_image.png
+ai_brochure.pdf

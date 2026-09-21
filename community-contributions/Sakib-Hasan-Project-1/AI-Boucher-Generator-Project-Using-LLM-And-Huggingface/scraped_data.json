@@ -1,0 +1,107 @@
+{
+    "website": "https://www.python.org/",
+    "title": "Welcome to Python.org",
+    "headings": [
+        "Intuitive Interpretation",
+        "Compound Data Types",
+        "All the Flow You’d Expect",
+        "Functions Defined",
+        "Quick & Easy to Learn",
+        "Get Started",
+        "Download",
+        "Docs",
+        "Jobs",
+        "Latest News",
+        "Upcoming Events",
+        "Success Stories",
+        "Use Python for…",
+        ">>> Python Software Foundation"
+    ],
+    "paragraphs": [
+        "Notice: This page displays a fallback because interactive scripts did not run. Possible causes include disabled JavaScript or failure to load scripts or stylesheets.",
+        "Calculations are simple with Python, and expression syntax is straightforward: the operators + , - , * and / work as expected; parentheses () can be used for grouping. More about simple math functions in Python 3 .",
+        "Lists (known as arrays in other languages) are one of the compound data types that Python understands. Lists can be indexed, sliced and manipulated with other built-in functions. More about lists in Python 3",
+        "Python knows the usual control flow statements that other languages speak — if , for , while and range — with some of its own twists, of course. More control flow tools in Python 3",
+        "The core of extensible programming is defining functions. Python allows mandatory and optional arguments, keyword arguments, and even arbitrary argument lists. More about defining functions in Python 3",
+        "Experienced programmers in any other language can pick up Python very quickly, and beginners find the clean syntax and indentation structure easy to learn. Whet your appetite with our Python 3 overview.",
+        "Python is a programming language that lets you work quickly and integrate systems more effectively. Learn More",
+        "Whether you're new to programming or an experienced developer, it's easy to learn and use Python.",
+        "Start with our Beginner’s Guide",
+        "Python source code and installers are available for download for all versions!",
+        "Latest: Python 3.14.7",
+        "Documentation for Python's standard library, along with tutorials and guides, are available online.",
+        "docs.python.org",
+        "Looking for work or have a Python related position that you're trying to hire for? Our relaunched community-run job board is the place to go.",
+        "jobs.python.org",
+        "More",
+        "More",
+        "More",
+        "Building a Dependency Graph of Our Python Codebase by George Farcasiu, Noah Kim, Jacon Brugh, Jiahao Li",
+        "More",
+        "The mission of the Python Software Foundation is to promote, protect, and advance the Python programming language, and to support and facilitate the growth of a diverse and international community of Python programmers. Learn more",
+        "Become a Member Donate to the PSF",
+        "Copyright ©2001-2026. Python Software Foundation Legal Statements Privacy Notice"
+    ],
+    "important_links": [
+        {
+            "text": "About",
+            "url": "https://www.python.org/about/"
+        },
+        {
+            "text": "Applications",
+            "url": "https://www.python.org/about/apps/"
+        },
+        {
+            "text": "Quotes",
+            "url": "https://www.python.org/about/quotes/"
+        },
+        {
+            "text": "Getting Started",
+            "url": "https://www.python.org/about/gettingstarted/"
+        },
+        {
+            "text": "Help",
+            "url": "https://www.python.org/about/help/"
+        },
+        {
+            "text": "Start with our Beginner’s Guide",
+            "url": "https://www.python.org/about/gettingstarted/"
+        },
+        {
+            "text": "Prioritizing cutting-edge speed and supporting the rapid growth of Hudson River Trading’s codebase can have unintended effects that require innovative solutions. For those working on our Python codebase, this means addressing “code tangling,” the coupling of unrelated code through unintuitive import cycles. In this article, George Farcasiu, Noah Kim, Jacob Brugh, and Jiahao Li discuss how they mitigate the cost and time burden of this issue by creating new tools to analyze and untangle dependencies efficiently.",
+            "url": "https://www.python.org/success-stories/building-a-dependency-graph-of-our-python-codebase/"
+        },
+        {
+            "text": "More",
+            "url": "https://www.python.org/about/apps"
+        },
+        {
+            "text": "About",
+            "url": "https://www.python.org/about/"
+        },
+        {
+            "text": "Applications",
+            "url": "https://www.python.org/about/apps/"
+        },
+        {
+            "text": "Quotes",
+            "url": "https://www.python.org/about/quotes/"
+        },
+        {
+            "text": "Getting Started",
+            "url": "https://www.python.org/about/gettingstarted/"
+        },
+        {
+            "text": "Help",
+            "url": "https://www.python.org/about/help/"
+        },
+        {
+            "text": "Help & General Contact",
+            "url": "https://www.python.org/about/help/"
+        },
+        {
+            "text": "Legal Statements",
+            "url": "https://www.python.org/about/legal/"
+        }
+    ]
+}

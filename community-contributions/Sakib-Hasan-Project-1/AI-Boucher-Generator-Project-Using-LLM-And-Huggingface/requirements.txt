@@ -1,0 +1,8 @@
+streamlit
+requests
+beautifulsoup4
+groq
+python-dotenv
+huggingface_hub
+pillow
+reportlab
