@@ -1,14 +1,12 @@
-from openai import OpenAI, Stream
+from openai import OpenAI
 import os
-from IPython import get_ipython
-from IPython.display import Markdown, display, update_display
-
 from scraper import fetch_website_contents
 
 system_prompt = """
 You are a snarky assistant that analyzes the contents of a website,
 and provides a short, snarky, humorous summary, ignoring text that might be navigation related.
 Respond in markdown. Do not wrap the markdown in a code block - respond just with the markdown.
+Write exactly 2 or 3 sentences. Do not repeat any sentence or use a numbered list.
 """
 
 user_prompt_prefix = """
@@ -31,26 +29,24 @@ model = os.getenv("SMOLLM2_MODEL", "ai/smollm2:latest")
 
 client = OpenAI(base_url=base_url, api_key="not-needed")
 
-def summarize(url) -> Stream:
+def summarize(url) -> str:
     website = fetch_website_contents(url)
-    return client.chat.completions.create(
+    stream = client.chat.completions.create(
         model = model,
         messages = messages_for(website),
         stream = True
     )
-
-
-response = ""
-display_handle = None
-
-stream = summarize("https://edwarddonner.com")
-
-for chunk in stream:
-    content = chunk.choices[0].delta.content
-    if content:
-        response += content
-        if display_handle is not None:
-            update_display(Markdown(response), display_id=display_handle.display_id)
-        else:
+    response = ""
+    for chunk in stream:
+        content = chunk.choices[0].delta.content
+        if content:
+            response += content
             print(content, end="", flush=True)
+    return response
+
+
+
+
+
+summarize("https://www.jasminemaduafokwa.com/")
 

@@ -11,9 +11,9 @@ services:
     stdin_open: true
     tty: true
     models:
-      - smollm2
+      - deepseek
 models:
-  smollm2:
-    model: ai/smollm2:latest
+  deepseek:
+    model: ai/deepseek-r1-distill-llama:latest
     
 
