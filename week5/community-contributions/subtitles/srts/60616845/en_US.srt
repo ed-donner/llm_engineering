@@ -1,0 +1,265 @@
+WEBVTT
+
+00:00.050 --> 00:01.400
+We're on the home stretch.
+
+00:01.400 --> 00:04.880
+This is the final step in the environment setup, and it's an easy one.
+
+00:04.880 --> 00:06.980
+It's one that's easy to make mistakes as well.
+
+00:06.980 --> 00:10.430
+But I'm going to guide you through it and there'll be no problems whatsoever.
+
+00:10.430 --> 00:15.170
+I'm going to show it to you both on a mac and a PC all in one video, so you guys can see how it works
+
+00:15.170 --> 00:15.890
+for both.
+
+00:15.890 --> 00:17.150
+And it's pretty simple.
+
+00:17.150 --> 00:23.960
+It's called creating a dot env file, which is a common way to store secrets in a way that you can access
+
+00:23.960 --> 00:29.990
+in your project that don't get checked into source code control doesn't go into into git, which means
+
+00:29.990 --> 00:31.850
+that your secrets are safe.
+
+00:31.850 --> 00:33.230
+We're going to start with a mac.
+
+00:33.230 --> 00:41.300
+Here I am, I am going to go into my projects folder that we set up into LM engineering.
+
+00:41.300 --> 00:44.180
+So we are now in the project root directory, as I say.
+
+00:44.390 --> 00:48.890
+Um, and what I'm going to do is create a file called dot env.
+
+00:48.890 --> 00:55.040
+And the way that you create a file from, from the, the way you bring up an editor in here is you can
+
+00:55.040 --> 00:57.830
+use nano, which is a very popular tool.
+
+00:57.830 --> 01:03.050
+And the name of our file, the thing we're going to create is going to be called dot EMV, literally
+
+01:03.050 --> 01:03.560
+a period.
+
+01:03.560 --> 01:04.940
+And then the letters EMV.
+
+01:05.180 --> 01:06.470
+Now here's the thing.
+
+01:06.470 --> 01:08.510
+This is a fussy step.
+
+01:08.510 --> 01:11.750
+The name of the file must be exactly dot EMV.
+
+01:11.840 --> 01:19.010
+It can't be like my keys dot EMV or EMV and it can't be dot EMV, dot text or anything like that.
+
+01:19.010 --> 01:23.600
+It's got to be exactly dot EMV, otherwise it doesn't find it.
+
+01:23.630 --> 01:25.370
+So that's that's the rule.
+
+01:25.490 --> 01:30.470
+And now that I've done that, up comes a new empty file called dot EMV.
+
+01:31.010 --> 01:32.930
+And what I'm going to put in here is very simple.
+
+01:32.930 --> 01:35.210
+And of course this is all laid out in the in the readme.
+
+01:35.210 --> 01:41.870
+But I'm going to put in this file just open AI underscore API underscore key equals.
+
+01:41.870 --> 01:49.580
+And now I put in here the key itself that that I have hopefully stored very safely from the last video.
+
+01:49.580 --> 01:53.720
+And it begins scmproj dash blah blah blah.
+
+01:54.110 --> 01:56.360
+Put that in the file and don't have any.
+
+01:56.390 --> 01:59.840
+Don't have a space before the equals sign or after the equals sign.
+
+01:59.870 --> 02:02.840
+And there's one other like really unpleasant.
+
+02:02.870 --> 02:03.530
+Gotcha.
+
+02:03.530 --> 02:09.590
+If you've if you use the notebook on the notes application on Mac, I use that a lot.
+
+02:09.620 --> 02:16.760
+Sometimes if you paste something in there and then press enter and copy it out, it replaces hyphens
+
+02:16.760 --> 02:19.430
+with long dashes if you're not careful.
+
+02:19.430 --> 02:21.650
+So just make sure that that whatever.
+
+02:21.680 --> 02:26.960
+If you haven't copied it straight from that website, that nothing has got mangled in your key.
+
+02:27.050 --> 02:28.490
+That was a really hard problem.
+
+02:28.490 --> 02:33.620
+That it took me a while to track down that one student had, but maybe it's just a rare situation that
+
+02:33.620 --> 02:34.190
+that happens.
+
+02:34.190 --> 02:37.370
+But anyways, if you've been careful, we've got the key just like this.
+
+02:37.400 --> 02:42.560
+You've got the full key laid out there, and then you press, as it says on the on the bottom of the
+
+02:42.560 --> 02:48.590
+screen on a mac, command O or control O to save, and X gets out of it.
+
+02:48.620 --> 02:50.480
+Now there's one thing to look out for.
+
+02:50.480 --> 02:56.570
+If I do an LHS, you'll see that there isn't a EMV file here, and you'll also not see one when we look
+
+02:56.570 --> 02:57.530
+in JupyterLab.
+
+02:57.530 --> 03:00.570
+And the reason is because any file that begins with a dot.
+
+03:00.600 --> 03:05.820
+A mac considers to be a hidden file, a secret file, and if you want to see that, you'd have to do
+
+03:05.850 --> 03:10.170
+ls minus A, and then you see all of the hidden files, and you'll now see included.
+
+03:10.170 --> 03:12.300
+On the bottom left there is EMV.
+
+03:12.480 --> 03:15.090
+And if I want to see what contents that has.
+
+03:15.840 --> 03:19.140
+You'll see that it has the OpenAI API key.
+
+03:19.140 --> 03:22.800
+And of course in your case hopefully you have a full key in there.
+
+03:22.980 --> 03:24.390
+So that's it.
+
+03:24.390 --> 03:25.560
+That's the Mac version.
+
+03:25.560 --> 03:26.760
+Let's look on a PC.
+
+03:27.270 --> 03:32.370
+Let me flip over to my emulator of PCs over here.
+
+03:32.370 --> 03:33.390
+Here we have it.
+
+03:33.570 --> 03:38.190
+So on a PC the thing to use is the program called notepad.
+
+03:38.190 --> 03:43.800
+And you can press the windows and R to run and then type notepad and press okay.
+
+03:43.830 --> 03:45.390
+And up comes notepad.
+
+03:46.110 --> 03:53.550
+Uh, in this notepad we say open AI underscore API underscore key equals.
+
+03:53.550 --> 03:59.190
+And then you paste in your key which should start scmproj dash blah blah blah blah blah.
+
+03:59.250 --> 04:00.840
+That should go in here.
+
+04:00.840 --> 04:04.440
+And then you go file and you go save as.
+
+04:04.470 --> 04:10.650
+Now you then will have to navigate around to find your way to the LM engineering folder, which I've
+
+04:10.650 --> 04:12.570
+already got set up right here.
+
+04:12.570 --> 04:13.140
+And now.
+
+04:13.140 --> 04:15.000
+There's like a little gotcha here, a little trick.
+
+04:15.030 --> 04:17.280
+You have to know where it says save as type.
+
+04:17.310 --> 04:19.890
+You have to change that to be all files.
+
+04:19.890 --> 04:22.920
+And now in here you can type dot EMV.
+
+04:23.610 --> 04:27.120
+And I will save this right now.
+
+04:27.180 --> 04:28.740
+And that should be done.
+
+04:29.010 --> 04:30.060
+Exit.
+
+04:30.060 --> 04:31.680
+And now back over here.
+
+04:31.680 --> 04:38.340
+If I do an LZ we do see that there is a dot EMV and it doesn't have any nasty name to it.
+
+04:38.340 --> 04:43.920
+So that has been created successfully and that is the final step.
+
+04:43.920 --> 04:47.610
+We are now finally ready to actually go and do a lab.
+
+04:47.610 --> 04:48.780
+Congratulations!
+
+04:48.810 --> 04:49.560
+Congratulations!
+
+04:49.560 --> 04:53.880
+I guess I should hold the congratulations until you see it working in the lab, but tentative.
+
+04:53.880 --> 04:57.690
+Congratulations on getting it this far and I can't wait to see you for the next video.
+
+04:57.690 --> 04:59.250
+When we're actually going to do something.
+
+04:59.280 --> 05:00.000
+See you there.

@@ -1,0 +1,700 @@
+WEBVTT
+
+00:00.950 --> 00:04.760
+Well, the first thing you're going to notice is that I don't have a notebook open for you.
+
+00:04.760 --> 00:08.090
+And that's because this time we're just going to be looking at code.
+
+00:08.090 --> 00:11.150
+Uh, no notebooks for this recording.
+
+00:11.150 --> 00:18.710
+For this video, we are going to look at the actual finally, the actual agent framework itself that
+
+00:18.710 --> 00:22.880
+we're writing that we've, that we've built, that we're going to run it in.
+
+00:22.880 --> 00:27.530
+And it sounds like something so fancy, but in fact, it's going to be incredibly simple.
+
+00:27.530 --> 00:32.240
+And it's the reason why I didn't want to use an off the shelf kind of package, because I just wanted
+
+00:32.240 --> 00:37.880
+to show you that there's nothing more than connecting together, different llms and bits of Python code
+
+00:37.880 --> 00:40.340
+to carry out a more advanced function.
+
+00:40.640 --> 00:45.440
+Now, typically when you talk about these sorts of agent frameworks, what you're looking for is you're
+
+00:45.440 --> 00:50.630
+looking at something that can handle the database, uh, database connectivity, in our case to our
+
+00:50.630 --> 00:53.990
+Chrome data store memory.
+
+00:54.080 --> 00:57.590
+So we're going to want some sense of persistent memory.
+
+00:57.770 --> 01:03.270
+Um, that can that can survive between different chats or of different instances, so we'll understand
+
+01:03.270 --> 01:05.040
+how memory is going to work.
+
+01:05.700 --> 01:12.180
+And also stuff like logging I mentioned is sort of good, good practice to be able to understand what's
+
+01:12.180 --> 01:13.620
+happened in your environment.
+
+01:13.620 --> 01:17.610
+And then there's also going to be some user interface concerns that we're going to want to build a Gradio
+
+01:17.640 --> 01:20.250
+UI that's going to be able to use this framework.
+
+01:20.250 --> 01:21.960
+So it's going to have to to handle that.
+
+01:21.960 --> 01:26.850
+But that last one we're going to get to in the next set of series.
+
+01:27.030 --> 01:31.500
+Uh, so for now we're going to look at our, at our framework.
+
+01:31.500 --> 01:34.080
+Just before that, a couple of things to point out.
+
+01:34.080 --> 01:38.580
+First of them, when we looked in our agents folder, we've looked at each of these different classes.
+
+01:38.580 --> 01:40.920
+That represents a different unit of work.
+
+01:40.920 --> 01:45.450
+And you'll notice that each of them were subclasses of agent.
+
+01:45.570 --> 01:47.100
+Uh, and you may have wondered, what is that?
+
+01:47.130 --> 01:52.260
+What is this agent that he's subclassing is there must be all sorts of functionality in there.
+
+01:52.260 --> 01:55.920
+Well, actually, no, there's very little functionality in this superclass.
+
+01:55.920 --> 02:00.210
+Uh, it is actually just an abstract class.
+
+02:00.270 --> 02:03.820
+Uh, which is able to log a message.
+
+02:03.910 --> 02:07.090
+And the way that it logs a message is it does logging.info.
+
+02:07.120 --> 02:08.530
+I imagine you're familiar.
+
+02:08.560 --> 02:10.360
+You've used Python logging, probably.
+
+02:10.360 --> 02:11.200
+And so you're pretty.
+
+02:11.230 --> 02:17.590
+Familiar that logging.info logs, uh, to to to wherever you set up a logger for, um.
+
+02:17.620 --> 02:18.550
+And.
+
+02:18.700 --> 02:23.560
+The one thing that I'm doing that's a bit different here, um, is that I'm going to.
+
+02:23.590 --> 02:27.190
+Add in the name of the subclass of the agent.
+
+02:27.190 --> 02:28.840
+That's that's, uh, that's.
+
+02:28.870 --> 02:34.120
+Actually, uh, sending this log message and we're going to give each one a color.
+
+02:34.210 --> 02:39.400
+So that we can see, uh, what which agent is doing what?
+
+02:39.400 --> 02:45.220
+And for example, if I go back to, uh, or if I go to the specialist agent, you can see that it's
+
+02:45.220 --> 02:46.300
+given itself a name.
+
+02:46.330 --> 02:47.560
+Of specialist agent.
+
+02:47.560 --> 02:51.310
+And its color is red, so that when it logs, it's going to.
+
+02:51.340 --> 02:52.270
+Appear in red.
+
+02:52.270 --> 02:54.610
+And you can see that you might have noticed that I didn't do.
+
+02:54.640 --> 02:56.980
+Logging.info I did self dot log.
+
+02:56.980 --> 03:00.070
+And that's so that I can call the log message in the superclass.
+
+03:00.070 --> 03:04.820
+So you know, there's really nothing fancy to this agent superclass.
+
+03:04.820 --> 03:06.920
+It just meant that we could log consistently.
+
+03:06.920 --> 03:11.090
+You could equally well have just included that function in the different classes.
+
+03:11.090 --> 03:14.480
+Nothing particularly special about the agent.
+
+03:14.930 --> 03:15.860
+All right.
+
+03:15.860 --> 03:22.250
+One other bit of groundwork to do is to show you this JSON file called memory JSON.
+
+03:22.250 --> 03:24.710
+And it is a simple piece of JSON.
+
+03:24.710 --> 03:29.150
+And if it didn't exist then then you'll see it will it will create it manually.
+
+03:29.150 --> 03:32.870
+Let's open it with the editor, not with the fancy one, but with the normal editor.
+
+03:32.870 --> 03:34.700
+And this is what it looks like.
+
+03:34.700 --> 03:36.440
+It is a list.
+
+03:36.680 --> 03:43.250
+You can see it's got a list on the outside of it, a list of JSON blobs.
+
+03:43.250 --> 03:48.320
+And each JSON blob is something which may look familiar to you.
+
+03:48.350 --> 03:49.700
+Do you recognize what it is?
+
+03:50.120 --> 03:55.070
+Yes, it's of course, an opportunity object turned into JSON.
+
+03:55.460 --> 04:02.240
+It's got a deal which has a product description, price and URL, and then it has the estimate that's
+
+04:02.240 --> 04:08.370
+come from the model and it has a discount, which is quite simply this number minus this number.
+
+04:08.400 --> 04:08.880
+Oops.
+
+04:08.910 --> 04:09.630
+That number.
+
+04:09.660 --> 04:10.020
+Ha.
+
+04:10.380 --> 04:15.300
+Uh, it's how much is this being offered at a discount to what we think it's really worth?
+
+04:15.300 --> 04:20.790
+So this memory has three deals that have been surfaced.
+
+04:21.060 --> 04:26.730
+Uh, now, storing it in a JSON file like this is perhaps not the most industrial strength.
+
+04:26.730 --> 04:31.830
+If that went into a database, then it's something that could handle multiple of these agent frameworks
+
+04:31.830 --> 04:32.160
+running.
+
+04:32.160 --> 04:37.740
+But we only have one agent framework that will only write to this memory, uh, once when it does its
+
+04:37.740 --> 04:38.220
+work.
+
+04:38.220 --> 04:42.150
+So that wasn't strictly necessary, but of course it could go in Chrome easily.
+
+04:42.150 --> 04:46.890
+We've got a database hanging around already, so you could certainly take that as an exercise if you
+
+04:46.890 --> 04:47.550
+wish.
+
+04:47.880 --> 04:52.620
+Um, that would certainly be a good, good production improvement to make.
+
+04:53.250 --> 05:01.620
+But anyway, the time has come to look at the actual, uh, the, the framework itself, the agent framework.
+
+05:01.710 --> 05:04.620
+Uh, so let's do that right away.
+
+05:06.220 --> 05:11.710
+Um, and I want to make sure I bring up the right class so that I don't give too much away of what is
+
+05:11.710 --> 05:12.460
+still to come.
+
+05:12.460 --> 05:12.970
+Here it is.
+
+05:12.970 --> 05:14.770
+Deal agent framework.
+
+05:15.130 --> 05:16.540
+Uh, okay.
+
+05:16.540 --> 05:24.790
+So the, uh, agent framework, um, is something which, first of all, it sets up logging.
+
+05:24.790 --> 05:31.870
+This is something which is standard Python stuff that will make sure that when someone does logging.info,
+
+05:32.020 --> 05:36.790
+um, it will get sent to standard out and it has some, some structure to it.
+
+05:36.790 --> 05:43.300
+So this is a sort of standard, uh, um, boilerplate Python stuff to make sure we log properly.
+
+05:43.300 --> 05:46.330
+And then this is the deal agent framework.
+
+05:46.330 --> 05:51.640
+It's got coded in it, the database, the thing that I accidentally left off a couple of times, uh,
+
+05:51.640 --> 05:55.480
+so that's coded in here along with the name of the memory file.
+
+05:55.600 --> 05:58.750
+When it starts up, it will begin logging.
+
+05:58.780 --> 06:00.730
+It will make a log message itself.
+
+06:00.730 --> 06:02.170
+It will load the env.
+
+06:02.200 --> 06:05.770
+This is something that we, of course, always do in all of our Jupyter notebooks.
+
+06:05.770 --> 06:07.520
+So this needs to do it now.
+
+06:07.760 --> 06:12.800
+It will, it will create or it will access the database.
+
+06:13.250 --> 06:17.090
+Um, it will read in memory from that JSON file.
+
+06:17.390 --> 06:25.010
+Uh, it will get the products collection and it will then set the planning agent, uh, initializing
+
+06:25.010 --> 06:28.070
+it with the collection that it needs to look at.
+
+06:28.100 --> 06:30.110
+And then it will say, I'm ready.
+
+06:30.620 --> 06:35.930
+This this method here read memory does exactly what it says on the tin.
+
+06:35.930 --> 06:39.140
+It, uh, you can see I haven't hard coded the name of the file.
+
+06:39.140 --> 06:40.160
+Well done, well done.
+
+06:40.190 --> 06:40.700
+Me?
+
+06:40.820 --> 06:43.880
+Uh, so it loads this in from JSON.
+
+06:43.880 --> 06:50.030
+If it doesn't already exist, then it just returns an empty one, which is completely fine, because
+
+06:50.240 --> 06:52.130
+there's also a function.
+
+06:52.160 --> 07:00.890
+A method here writes memory, which writes out these opportunities to, uh, the the memory file.
+
+07:01.940 --> 07:08.710
+There's a log, uh, a method here to send a log message with its own agent framework tag.
+
+07:09.490 --> 07:14.590
+Then there's a run method that actually kicks off the planning agent.
+
+07:14.800 --> 07:20.860
+Uh, and uh, once it gets back a result, it says it calls self dot planner.
+
+07:21.070 --> 07:22.120
+Plan that.
+
+07:22.120 --> 07:23.500
+Of course, that's the big moment.
+
+07:23.500 --> 07:26.200
+That's when we we actually set this thing going.
+
+07:26.200 --> 07:28.750
+And look it passes in its memory.
+
+07:28.780 --> 07:32.350
+It passes in the memory of opportunities that it knows about.
+
+07:32.350 --> 07:38.050
+So in that goes uh, and then it logs the results.
+
+07:38.050 --> 07:43.600
+And if the result wasn't none, remember that the planner might return none if it doesn't find anything
+
+07:43.600 --> 07:43.990
+new.
+
+07:43.990 --> 07:50.020
+But if it was a real result, then it adds it to the memory and writes the memory and returns the result.
+
+07:50.020 --> 07:51.220
+And that is it.
+
+07:51.220 --> 07:57.040
+This last piece here is coming up in the UI to the next time, but for now, that is the end of the
+
+07:57.040 --> 07:57.970
+framework.
+
+07:58.420 --> 07:59.980
+So how do we run this framework?
+
+07:59.980 --> 08:01.690
+Well, we run it from the command line.
+
+08:01.690 --> 08:03.100
+This is now for reals.
+
+08:03.100 --> 08:05.500
+This is no longer this is all Python code.
+
+08:05.500 --> 08:09.080
+We're outside the Jupyter world and we're using this interface for convenience.
+
+08:09.080 --> 08:09.710
+Really.
+
+08:09.980 --> 08:12.440
+But you could be using VSCode or something like that.
+
+08:12.470 --> 08:16.310
+The way to run a terminal is we press the plus button here.
+
+08:16.310 --> 08:20.330
+We can also do it in JupyterLab and we can open a new terminal like this.
+
+08:20.330 --> 08:25.010
+This is a you can also, of course be doing this however you like to do it.
+
+08:25.130 --> 08:29.540
+Um, it could be an anaconda prompt or it could be you could be using.
+
+08:29.540 --> 08:32.240
+If you're using a mac, then you can just bring up a new terminal window.
+
+08:32.330 --> 08:36.380
+Um, but I am first going to have to activate my conda environment.
+
+08:36.560 --> 08:47.330
+Um, so I do conda activate LMS, uh, which will mean that as you're now very familiar, uh, my environment
+
+08:47.330 --> 08:54.350
+changes from base to LMS because I'm now in that Anaconda environment, and I really think that's it.
+
+08:54.350 --> 09:01.730
+I should now be able to say Python deal agent framework.
+
+09:02.510 --> 09:04.010
+Spell it right.
+
+09:06.410 --> 09:07.490
+Dot py.
+
+09:07.640 --> 09:08.990
+And that should really be it.
+
+09:09.000 --> 09:11.670
+There is one more thing I need to show you before I do that though.
+
+09:11.820 --> 09:14.190
+I almost forgot just as well.
+
+09:14.190 --> 09:16.320
+It's just this very last few lines here.
+
+09:16.320 --> 09:20.070
+You might have been wondering what's going to happen if I do that, if I don't show you this.
+
+09:20.460 --> 09:26.700
+So the very end, we of course, make it clear that if this is being run from the command line so that
+
+09:26.700 --> 09:32.550
+this file is main, then we instantiate, we create a new instance of deal agent framework.
+
+09:32.550 --> 09:35.760
+And we call this run method that we just looked at.
+
+09:35.790 --> 09:39.780
+That's the little missing link there just to explain okay okay.
+
+09:39.810 --> 09:40.320
+With that.
+
+09:40.320 --> 09:41.640
+Now I should be able to run this.
+
+09:41.670 --> 09:42.540
+Take a deep breath.
+
+09:42.540 --> 09:43.410
+Let's do it.
+
+09:46.950 --> 09:49.020
+A long pause while it thinks, huh?
+
+09:51.060 --> 09:51.930
+All right.
+
+09:51.930 --> 09:53.310
+Let's see what's going on.
+
+09:53.310 --> 09:55.800
+The agent framework says it's initializing.
+
+09:55.800 --> 09:58.350
+The planning agent is initializing scanner.
+
+09:58.380 --> 09:59.850
+Agent becomes ready.
+
+09:59.850 --> 10:02.550
+The ensemble agent gets ready.
+
+10:02.550 --> 10:04.170
+So then it's a bit hard to see this.
+
+10:04.170 --> 10:09.600
+Read the specialist agent, which is connecting to modal, gets ready.
+
+10:10.300 --> 10:12.910
+And then the frontier model gets ready.
+
+10:12.940 --> 10:14.920
+It has to load in that sentence transformer.
+
+10:14.920 --> 10:16.360
+You can see it's happening there.
+
+10:16.360 --> 10:19.810
+And then the random forest agent gets ready as well.
+
+10:19.810 --> 10:21.340
+And that's done.
+
+10:21.430 --> 10:24.340
+The ensemble is ready, the messenger is ready.
+
+10:24.340 --> 10:25.810
+And everything in blue.
+
+10:25.840 --> 10:28.360
+Here it says Agent Framework is ready.
+
+10:28.360 --> 10:33.130
+So it went through instantiating and creating all of our agents and setting them all up.
+
+10:33.130 --> 10:39.190
+They've loaded their model weights that they've the single one the specialist model has connected to
+
+10:39.220 --> 10:39.970
+modal.
+
+10:40.390 --> 10:46.180
+And they have now, um, all prepared themselves for action.
+
+10:46.210 --> 10:51.010
+Model weights have been read in and it's kicked off a run.
+
+10:51.040 --> 10:56.110
+The scanner agent you can see here, uh, received there's a there's an error there.
+
+10:56.110 --> 10:57.160
+I'll improve that.
+
+10:57.160 --> 10:59.020
+It's not printing the actual number of results.
+
+10:59.020 --> 11:02.290
+It's printing needs an F before it.
+
+11:02.620 --> 11:05.080
+Uh, I will have fixed that before you see it.
+
+11:05.170 --> 11:07.660
+Uh, so the scanner agent is making that call.
+
+11:07.780 --> 11:16.400
+Um, and now the planning agent is pricing up the deal, and it's now sitting with modal while my machine
+
+11:16.400 --> 11:17.960
+warms up.
+
+11:18.050 --> 11:26.420
+Uh, but as they say on those cooking shows, uh, if you know what I mean, uh, you have those cooking
+
+11:26.420 --> 11:32.270
+shows when they put the thing in the oven and they say, and here's the one that I put in earlier,
+
+11:32.270 --> 11:33.980
+and they pull that out of the oven.
+
+11:33.980 --> 11:37.100
+I always think that's a devious trick when they do that.
+
+11:37.190 --> 11:39.800
+But you're going to have to trust me that I did just do this.
+
+11:39.800 --> 11:45.440
+I just kicked it off a few minutes ago and it ran over here, and that's where I left it, and it finished
+
+11:45.440 --> 11:46.070
+up its thing.
+
+11:46.070 --> 11:52.700
+And you can see that basically it for each of the five deals that returned, it made a series of calls
+
+11:52.700 --> 11:54.140
+to all of the different models.
+
+11:54.140 --> 11:55.670
+You can read through each of this.
+
+11:55.700 --> 11:58.490
+The ensemble model returns a number.
+
+11:58.700 --> 12:01.160
+Um, so we should we should work back.
+
+12:01.190 --> 12:06.350
+First of all, the specialist model calculates a number and then the frontier model calculates the number
+
+12:06.350 --> 12:08.990
+with the Rag lookup and then the random forest model.
+
+12:08.990 --> 12:10.430
+And then the ensemble model.
+
+12:10.430 --> 12:12.870
+And that goes back to the planning agent.
+
+12:13.200 --> 12:15.300
+And so you can read through all of this.
+
+12:15.300 --> 12:20.100
+And at the end of this it completed and it sent a push notification.
+
+12:20.340 --> 12:29.700
+And I did indeed get a push notification about this particular deal that it found, which was a certified
+
+12:29.700 --> 12:39.090
+refurbished laptop boasting a 13th generation i5, which the estimate was $925 for that, which was
+
+12:39.090 --> 12:45.030
+a very healthy discount to what it was going for at $560.
+
+12:45.030 --> 12:46.950
+So there we have it.
+
+12:46.950 --> 12:50.970
+That was the run of our agent framework running.
+
+12:51.210 --> 12:55.980
+And yeah, it's incredibly satisfying to see that happening.
+
+12:55.980 --> 13:00.870
+I love absolutely love watching it and could watch it all day.
+
+13:00.870 --> 13:04.200
+I have to say it's it's hugely enjoyable.
+
+13:04.230 --> 13:07.920
+Look, I didn't even need to put that to bring that one out of the oven, because the one that we put
+
+13:07.920 --> 13:09.780
+in the oven is now cooking up.
+
+13:09.780 --> 13:14.960
+You can see once modal is warmed up, it's quite fast in how it turns around the different things.
+
+13:15.170 --> 13:16.910
+So it's going through there.
+
+13:16.910 --> 13:18.020
+It's come up with something.
+
+13:18.020 --> 13:22.790
+And of course, what it's proposing is different to what it proposed a moment ago.
+
+13:23.000 --> 13:26.870
+And I just got the notification on my phone and no doubt on my watch.
+
+13:27.350 --> 13:34.880
+So we just watched we just saw the full framework running and me getting the notification.
+
+13:34.880 --> 13:42.980
+And you can read through this trace and see how each of the agents are collaborating to solve this problem.
+
+13:43.280 --> 13:51.470
+Um, and so all that remains for this is to make it really autonomous so that it's running all the time.
+
+13:51.470 --> 13:56.810
+And while we're doing that, we might as well slap on a great UI because we know how to use gradio and
+
+13:56.810 --> 13:57.680
+we know how good it is.
+
+13:57.710 --> 14:01.190
+And all of that is what we're going to do tomorrow.
+
+14:01.250 --> 14:04.460
+But for now, I'm going to let you, of course, enjoy this.
+
+14:04.460 --> 14:07.670
+I do hope that you're running this a few times because it's so satisfying.
+
+14:07.700 --> 14:08.900
+Honestly, I love it.
+
+14:08.930 --> 14:14.060
+Hope you're finding just as much enjoyment as me, and I will see you for the slides to wrap up the
+
+14:14.060 --> 14:14.540
+day.

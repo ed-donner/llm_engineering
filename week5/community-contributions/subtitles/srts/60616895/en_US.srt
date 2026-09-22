@@ -1,0 +1,484 @@
+WEBVTT
+
+00:00.110 --> 00:05.750
+It feels like 100 videos ago that I told you that we were going to have instant gratification with our
+
+00:05.750 --> 00:13.070
+first project, and you'd be within your rights to feel like it hasn't exactly been instant gratification.
+
+00:13.070 --> 00:17.960
+But never fear, I'm going to make up for it with a nice juicy project to start us off.
+
+00:17.960 --> 00:23.960
+So if you already have JupyterLab running like the window up in your browser, please close that.
+
+00:23.960 --> 00:31.730
+And if you already had your Anaconda prompt in windows, then exit out of that and close that and start
+
+00:31.730 --> 00:32.180
+again.
+
+00:32.180 --> 00:39.350
+Bring up a fresh Anaconda prompt in a PC and on a mac, bring up a fresh, uh, terminal, having closed
+
+00:39.350 --> 00:44.660
+everything down because we've made that env file and I want to start from absolute scratch.
+
+00:44.690 --> 00:49.850
+Go into your projects folder into LM engineering, and you'll remember the first thing.
+
+00:49.850 --> 00:54.710
+And you'll always have to do this if you come in fresh with a, with or without your Jupyter Lab running,
+
+00:54.710 --> 00:57.800
+you type conda activate LMS.
+
+00:57.800 --> 01:00.080
+That is how you activate your environment.
+
+01:00.110 --> 01:04.830
+If you're using virtualenv, then there was a different PC and a mac way of doing it in the readme.
+
+01:04.860 --> 01:10.290
+I do that, and my clue is that the prompt has now changed to LMS.
+
+01:10.290 --> 01:14.100
+And for windows people in your Anaconda prompt, it should have done the same thing.
+
+01:14.100 --> 01:17.670
+And now you type the two wonderful words Jupyter Lab.
+
+01:17.670 --> 01:23.670
+And when you do that, it thinks for a second and up comes JupyterLab right here.
+
+01:23.700 --> 01:25.350
+Instant gratification.
+
+01:25.350 --> 01:26.130
+It says.
+
+01:26.130 --> 01:28.500
+So you may not see this.
+
+01:28.530 --> 01:31.320
+Actually, it may come up for you the first time just looking like this.
+
+01:31.320 --> 01:34.560
+Perhaps this might be more similar to what you're seeing right now.
+
+01:34.620 --> 01:37.380
+So this is Jupyter Lab for some people.
+
+01:37.380 --> 01:38.610
+This is old news.
+
+01:38.610 --> 01:39.870
+You've probably used this a lot.
+
+01:39.900 --> 01:41.370
+For some of you, this might be new.
+
+01:41.370 --> 01:43.920
+And I'm here to tell you that it is fabulous.
+
+01:43.950 --> 01:49.080
+It is this very interactive way for data scientists to work with code.
+
+01:49.290 --> 01:54.210
+It's full of some hairy stuff like use global variables a lot in Jupyter Lab.
+
+01:54.240 --> 01:59.820
+And we know, as if you're from an engineering background that that's not not very good behavior, but
+
+01:59.820 --> 02:02.340
+it's something that we do as part of research and development.
+
+02:02.340 --> 02:03.780
+And so we just do it.
+
+02:03.780 --> 02:07.900
+As you will see, it means that you can be very productive as you experiment.
+
+02:07.900 --> 02:12.730
+When we get to week eight, at the end of the course, we're going to be looking at productionizing,
+
+02:12.730 --> 02:18.460
+the stuff that we do, and we'll be talking about how we migrate from JupyterLab into proper code and
+
+02:18.460 --> 02:19.510
+deployment and so on.
+
+02:19.510 --> 02:21.550
+But we don't need to worry about that stuff now.
+
+02:21.580 --> 02:27.250
+So on the left here, you have something called the File Browser, which is kind of what you would expect
+
+02:27.280 --> 02:32.230
+actually, you might have come in like this, of course, which is showing you the parent directory.
+
+02:32.230 --> 02:36.700
+There's a directory for each of the weeks that we'll be going through, and you can see the things we
+
+02:36.700 --> 02:40.120
+know about the Readme and the environment.yml here as well.
+
+02:40.120 --> 02:43.960
+And without further ado, we're going to go into week one.
+
+02:44.200 --> 02:50.860
+Now, if this is your first time ever in JupyterLab, I've made a guide to JupyterLab that you can come
+
+02:50.860 --> 02:52.330
+into and look at you.
+
+02:52.330 --> 02:57.370
+Just double click here and it will bring it up, and it will take you on a quick tour of what you need
+
+02:57.370 --> 02:59.830
+to do, just so that you get a handle of things.
+
+02:59.830 --> 03:04.600
+For example, you'll learn that you can click in one of these boxes here, which is called a cell.
+
+03:04.600 --> 03:05.890
+You hold down shift.
+
+03:05.890 --> 03:12.130
+You press return or enter on your keyboard and it executes it and prints the results for and as you
+
+03:12.130 --> 03:18.640
+go through, you scroll down and you go on to do the next thing, and you can just come in and execute
+
+03:18.640 --> 03:20.170
+and see.
+
+03:20.200 --> 03:27.130
+My favorite fruit is bananas, and you can go through and use this guide to Jupiter as a way to learn
+
+03:27.130 --> 03:31.270
+some of the tricks of using Jupiter Lab, and I hope that will be helpful for you.
+
+03:31.270 --> 03:38.290
+But I imagine many of the people on this course will have used Jupiter once or twice and will be familiar
+
+03:38.290 --> 03:40.420
+with the wonder of it.
+
+03:40.810 --> 03:45.280
+And so that brings us to our day one project, which is right here.
+
+03:45.280 --> 03:48.640
+And again, I've slightly cheekily called it instant gratification.
+
+03:48.640 --> 03:53.020
+I know you've put in a fair amount of work for this, and day one has been a pretty long day, but it
+
+03:53.050 --> 03:54.670
+hopefully will be worth it.
+
+03:54.880 --> 04:00.340
+Uh, there's some spiel here to remind you one more time that I'm here to help.
+
+04:00.340 --> 04:01.510
+There's my email address.
+
+04:01.510 --> 04:02.560
+This is my LinkedIn.
+
+04:02.560 --> 04:04.720
+I always love it if people connect with me on LinkedIn.
+
+04:04.750 --> 04:08.560
+It's nice if you if you put a message there to say hi, but you really don't need to as well.
+
+04:08.560 --> 04:10.950
+If you just want to just connect, that's good with me.
+
+04:10.950 --> 04:15.190
+I always will accept connections from people taking this course.
+
+04:15.190 --> 04:16.090
+Of course.
+
+04:16.210 --> 04:21.010
+The other thing it tells you right here is that there is another notebook.
+
+04:21.130 --> 04:24.340
+And sorry, these these Jupyter labs are known as notebooks.
+
+04:24.430 --> 04:27.040
+People call them for historical reasons.
+
+04:27.250 --> 04:31.480
+Uh, there's another notebook here called troubleshooting.
+
+04:31.480 --> 04:36.730
+And troubleshooting is where you will go if you have any problems troubleshooting over here.
+
+04:36.760 --> 04:37.600
+Uh, begins.
+
+04:37.630 --> 04:38.260
+Oh, dear.
+
+04:38.500 --> 04:45.070
+Uh, has step by step to go through and figure out exactly what's going wrong and check your env file.
+
+04:45.100 --> 04:45.640
+Looks good.
+
+04:45.640 --> 04:47.470
+I check everything as we go through it.
+
+04:47.470 --> 04:51.670
+So if any troubles at all, you go to troubleshooting and we'll have it sorted.
+
+04:51.670 --> 04:55.510
+But otherwise we're starting with the day one notebook.
+
+04:55.510 --> 05:00.610
+Generally during this course, we'll have a separate notebook for each day so that you can go through
+
+05:00.640 --> 05:03.850
+and learn from that day and do the exercises.
+
+05:03.880 --> 05:04.690
+Okay.
+
+05:04.690 --> 05:08.140
+So the first thing we start with is some imports.
+
+05:08.140 --> 05:10.510
+I often like to put the imports at the top.
+
+05:10.510 --> 05:16.210
+You have to execute the code in JupyterLab from the top downwards, and we'll start by clicking in this
+
+05:16.240 --> 05:17.140
+import cell.
+
+05:17.150 --> 05:18.230
+Hold down shift.
+
+05:18.230 --> 05:19.190
+Press return.
+
+05:19.190 --> 05:20.630
+And that runs.
+
+05:20.660 --> 05:25.430
+If this gives you an error, then head over to the troubleshooting notebook.
+
+05:25.460 --> 05:29.270
+I'll tell you what's probably happening, what's going on, and what you need to do about it.
+
+05:29.300 --> 05:33.650
+Most likely is that for some reason, the conda environment isn't activated.
+
+05:33.650 --> 05:35.450
+And I'll tell you what to do about that.
+
+05:36.290 --> 05:36.980
+Okay.
+
+05:37.010 --> 05:40.580
+The next thing we're going to do is connect to OpenAI.
+
+05:40.610 --> 05:48.950
+So this is where we are going to to make our connection to the OpenAI API service so that we can make
+
+05:48.950 --> 05:54.170
+a call to GPT, the frontier model and and ask it questions.
+
+05:54.200 --> 05:58.040
+Now, of course, we're going to be talking a lot more about OpenAI and GPT and what all these things
+
+05:58.040 --> 05:58.460
+mean.
+
+05:58.460 --> 06:00.110
+The idea is to get a flavor for it.
+
+06:00.110 --> 06:02.030
+Right now, this is just our first lab.
+
+06:02.630 --> 06:06.230
+So the first thing we do is call something called load dot env.
+
+06:06.230 --> 06:11.150
+And that looks at the dot env file and loads in our secrets.
+
+06:11.240 --> 06:14.120
+Right now we have one secret the OpenAI API key.
+
+06:14.120 --> 06:17.240
+And we're going to load that in and put it in a variable called API key.
+
+06:17.240 --> 06:20.120
+And we're going to check that it looks decent.
+
+06:20.210 --> 06:23.190
+It says API key found and looks good so far.
+
+06:23.220 --> 06:24.570
+If it doesn't say that.
+
+06:24.570 --> 06:25.320
+If it doesn't say.
+
+06:25.350 --> 06:28.470
+API key found and looks good so far, head over to troubleshooting.
+
+06:28.470 --> 06:30.210
+We'll sort it out or.
+
+06:30.570 --> 06:32.820
+Email me uh, LinkedIn with me.
+
+06:32.850 --> 06:35.730
+We'll fix it okay.
+
+06:35.730 --> 06:39.240
+The next thing we do is this simple thing here.
+
+06:39.270 --> 06:41.040
+We take OpenAI.
+
+06:41.070 --> 06:44.580
+We we create an instance of it and put it in OpenAI.
+
+06:44.760 --> 06:46.350
+Uh, this is where we're.
+
+06:46.380 --> 06:51.000
+Actually making the connection to OpenAI done.
+
+06:51.780 --> 06:52.650
+All right.
+
+06:52.650 --> 06:55.800
+So what is this project going to be about today?
+
+06:55.800 --> 06:57.510
+What what business problem are we actually going.
+
+06:57.540 --> 06:58.050
+To solve?
+
+06:58.050 --> 07:00.510
+It's going to be really simple and actually quite cool.
+
+07:00.510 --> 07:08.010
+We're going to write a program which is going to be able to look at any web page on the internet, scrape
+
+07:08.010 --> 07:14.400
+the contents of the web page and then summarize it and present back a short summary of that web page.
+
+07:14.400 --> 07:18.630
+You can think of it like you're building your own little web browser, which is like a summarizing web
+
+07:18.630 --> 07:19.440
+browser.
+
+07:19.440 --> 07:21.120
+Uh, you know, the Reader's Digest.
+
+07:21.120 --> 07:23.430
+It's like a Reader's Digest web browser.
+
+07:23.810 --> 07:25.100
+Um, that's what we're going to do.
+
+07:25.100 --> 07:26.450
+That's going to be the project.
+
+07:26.450 --> 07:33.380
+And we're going to start by defining a class, a class website, and which is going to be a very simple
+
+07:33.380 --> 07:37.460
+utility class that will represent a website that we've scraped.
+
+07:37.610 --> 07:42.470
+Uh, it's going to be a class which, which will have a URL, a title and a text.
+
+07:42.470 --> 07:46.280
+I'm not going to go through this line by line, because you'll be able to read this yourself and get
+
+07:46.280 --> 07:52.820
+a sense for it as you come through and execute this right after this, uh, and we'll have other labs
+
+07:52.820 --> 07:54.920
+where we'll go into much more detail on what's going on.
+
+07:54.920 --> 07:58.370
+This is just about your first your first experience with it.
+
+07:58.370 --> 08:05.480
+Now in this, uh, in the constructor and where I set up this class, I use a package called Beautifulsoup,
+
+08:05.480 --> 08:08.840
+which again, I imagine many of you have come across at some point.
+
+08:08.840 --> 08:15.770
+It's a fabulous little package that's used for parsing web pages and people who do web scraping, uh,
+
+08:15.770 --> 08:20.120
+on a regular basis, like myself, know Beautifulsoup very well indeed.
+
+08:20.210 --> 08:25.490
+Uh, and you can use Beautifulsoup to do things like pluck out the title of a web page and get rid of
+
+08:25.490 --> 08:31.590
+things like scripts and style and images and inputs from a web page and then figure out its text.
+
+08:31.890 --> 08:37.320
+So that is what we're going to do with our, uh, um, uh, class website.
+
+08:37.350 --> 08:41.340
+And then what we're going to do finally is try one out.
+
+08:41.340 --> 08:44.190
+So we're going to create a new website object.
+
+08:44.190 --> 08:50.370
+And I'm going to pass in this particular website for thoroughly undesirable website happens to be my
+
+08:50.610 --> 08:51.480
+website.
+
+08:51.660 --> 08:54.300
+Uh, and it's a very vanilla website.
+
+08:54.390 --> 08:56.760
+But we'll create a class to represent it.
+
+08:56.940 --> 09:00.450
+Uh, we'll look at its title and look at the text on the website.
+
+09:00.450 --> 09:01.740
+Let's see if this works.
+
+09:01.830 --> 09:03.090
+Yes it works.
+
+09:03.090 --> 09:04.440
+And here we go.
+
+09:04.530 --> 09:07.440
+We're seeing the name of the website.
+
+09:07.560 --> 09:12.570
+Uh, and there is something about what's going on on that website right there.
+
+09:12.870 --> 09:17.940
+Uh, this is just the contents looking a bit scrappy because it's of course, the contents of that web
+
+09:17.970 --> 09:22.920
+page with images, JavaScript stylesheets all removed.
+
+09:23.130 --> 09:27.390
+Okay, so far we've not done anything to do with generative AI or Llms.
+
+09:27.390 --> 09:31.200
+That's coming right up, and we're going to get to it in the next video.

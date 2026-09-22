@@ -1,0 +1,325 @@
+WEBVTT
+
+00:00.770 --> 00:02.240
+Welcome to week six.
+
+00:02.240 --> 00:03.320
+Day two a day.
+
+00:03.320 --> 00:09.560
+When we get back into the data, we look back in anger at our data sets, and we build a massive data
+
+00:09.590 --> 00:13.520
+set that is going to allow us to move the needle when we get to training.
+
+00:13.640 --> 00:18.470
+But first, the majority of today is actually going to be spent talking.
+
+00:18.470 --> 00:24.380
+It's going to be a talky, uh, it's going to be a session when we're speaking about strategy, perhaps
+
+00:24.380 --> 00:29.630
+not the most gripping stuff, not why you signed up, but it is very important.
+
+00:29.630 --> 00:34.880
+This is good foundational information that is going to ensure that we're approaching what's to come
+
+00:34.880 --> 00:36.050
+in the right way.
+
+00:36.050 --> 00:42.170
+In particular, I want to talk to you about a strategy for how you go from facing a business problem
+
+00:42.170 --> 00:48.020
+all the way through to an LM solution in production and the steps it takes along that path.
+
+00:48.020 --> 00:52.340
+And I want to tell you that now, because we're about to do it, we're going to go through that exercise
+
+00:52.340 --> 00:54.170
+for our real commercial problem.
+
+00:54.170 --> 00:59.340
+And it's important that you're able to relate to the journey that we go through, because you'll be
+
+00:59.340 --> 01:02.550
+doing the same thing with your business problems after this.
+
+01:02.580 --> 01:08.250
+I also want to take a moment to compare the three types of technique that we'll be talking about, or
+
+01:08.250 --> 01:11.640
+that we've talked about for optimizing models.
+
+01:11.640 --> 01:16.590
+I'm talking about whether we're prompting using Rag or using fine tuning.
+
+01:16.590 --> 01:23.100
+And it's there's a lot of confusion about in what situations do you pick one of those different approaches.
+
+01:23.100 --> 01:29.040
+And I want to demystify that and just give you some concrete examples of how you go about deciding what
+
+01:29.070 --> 01:30.270
+technique to use.
+
+01:31.050 --> 01:38.970
+So first then let me talk about the five step strategy to applying a model to a commercial problem.
+
+01:39.510 --> 01:42.150
+And the first step is understanding.
+
+01:42.150 --> 01:47.130
+This is about really getting deep into the business requirements and understanding what problem are
+
+01:47.130 --> 01:47.940
+you solving?
+
+01:47.940 --> 01:49.560
+How will you judge success?
+
+01:49.560 --> 01:56.470
+What are the Non-functionals we'll talk about in a second and make sure that that's all carefully documented
+
+01:56.560 --> 02:06.430
+preparation is then about things like testing baseline models and curating your data set and and generally
+
+02:06.430 --> 02:08.620
+preparing yourself for what is to come.
+
+02:08.620 --> 02:14.800
+And what is to come initially is selecting the models, the models that are going to be the either the
+
+02:14.800 --> 02:19.240
+the model you're going to be using, or the handful of models you'll be using as part of the rest of
+
+02:19.240 --> 02:19.990
+the project.
+
+02:19.990 --> 02:25.210
+And this is where we'll Thai will draw on a lot of the content from prior weeks.
+
+02:25.210 --> 02:30.430
+When we looked at leaderboards and analyzed the pros and cons of different models.
+
+02:30.910 --> 02:38.890
+Customize is where we use one of the big techniques, like Rag or fine tuning to get more juice out
+
+02:38.890 --> 02:44.650
+of the model, and then productionize something we've not talked about at all, but is hugely important,
+
+02:44.650 --> 02:49.600
+which is then once we've done, we've built and trained our model and it's performing great.
+
+02:49.600 --> 02:50.710
+What comes next?
+
+02:50.710 --> 02:57.230
+Because it's not exactly like the Jupyter notebook that we've been hacking away at is going to end up
+
+02:57.230 --> 02:57.950
+in production.
+
+02:57.950 --> 03:01.280
+Something more has to be done, and that's what we will talk about in a sec.
+
+03:02.030 --> 03:03.800
+Let's start with step one though.
+
+03:03.800 --> 03:06.680
+So understanding and this is all common sense.
+
+03:06.680 --> 03:08.720
+But you know this stuff can't be said enough.
+
+03:08.720 --> 03:13.100
+So just very briefly of course you need to gather the business requirements.
+
+03:13.100 --> 03:14.960
+You need to evaluate.
+
+03:14.960 --> 03:18.650
+You need to understand up front how will success be measured.
+
+03:18.650 --> 03:20.000
+Super important.
+
+03:20.000 --> 03:25.820
+And we're not just talking about the data science metrics that we know well, but also how will your
+
+03:25.820 --> 03:31.490
+your users and your your business sponsors decide whether the project has achieved its goals?
+
+03:31.490 --> 03:36.980
+What are the ultimate business metrics that you may not have as immediate influence over, but they
+
+03:36.980 --> 03:38.210
+need to be understood.
+
+03:38.600 --> 03:42.710
+You need to dig into the data as we've been doing the quantity of it.
+
+03:42.740 --> 03:43.460
+How much?
+
+03:43.490 --> 03:46.460
+What's the DQ, what's the data quality situation like?
+
+03:46.460 --> 03:50.540
+And the format, is it structured, unstructured or a bit of both?
+
+03:50.540 --> 03:55.990
+really make sure that that is deeply understood, because that will affect the model you choose and
+
+03:55.990 --> 03:58.150
+how you go about approaching this.
+
+03:58.780 --> 04:01.510
+Determining the non-functional requirements.
+
+04:01.540 --> 04:08.770
+Non-functional are stuff like your budget, the how, how much it will need to scale to latency is is
+
+04:08.800 --> 04:13.780
+you know how long you can you can wait for each response back from the model if it needs to be a split
+
+04:13.780 --> 04:15.130
+second response.
+
+04:15.280 --> 04:18.550
+Um, and also understanding time to market.
+
+04:18.580 --> 04:23.620
+Is there a requirement that this is built in a very short time frame, or is there time to to be working
+
+04:23.620 --> 04:24.070
+on this?
+
+04:24.070 --> 04:27.940
+And of course, if it's something that's needed in a very short time frame, it will lend itself to
+
+04:27.970 --> 04:30.280
+a frontier model using an API.
+
+04:30.280 --> 04:35.080
+And you know, when it comes to the user interface, something like Gradio is of course allows you to
+
+04:35.110 --> 04:36.940
+be up and running in a matter of minutes.
+
+04:36.940 --> 04:41.140
+So this will steer some of your later decisions.
+
+04:42.160 --> 04:46.900
+When it comes to preparation, there are really three activities involved.
+
+04:46.900 --> 04:52.790
+First of all, you need to research what is already out there, what kind of existing solutions.
+
+04:52.790 --> 04:59.270
+Solve this problem today and get a very good handle for how well they perform and what they do already.
+
+04:59.300 --> 05:05.210
+As part of that, you should look at at solutions that don't involve data science at all.
+
+05:05.240 --> 05:10.190
+Maybe there's solutions that just have a few if statements in them, and then look at some traditional
+
+05:10.190 --> 05:14.330
+data science solutions, perhaps like linear regression kind of model.
+
+05:14.330 --> 05:17.840
+If this is something which is trying to predict product prices, say.
+
+05:17.930 --> 05:21.620
+Then that would be a place that you would initially go to.
+
+05:22.040 --> 05:28.100
+And even if you might say to me, look, I absolutely know, I have no question that an LLM is going
+
+05:28.100 --> 05:31.940
+to massively outperform what's already out there or these existing models.
+
+05:31.940 --> 05:33.680
+I don't care how they are today.
+
+05:33.680 --> 05:37.520
+The answer would be it's still worth doing this because it gives you a baseline.
+
+05:37.520 --> 05:43.580
+It gives you a starting point on which you will improve, and you'll be able to demonstrate the improvement
+
+05:43.580 --> 05:48.150
+in a quantified way based on the investment that's made in the new model.
+
+05:48.150 --> 05:53.130
+So even as just a baseline, this is a valuable exercise to do.
+
+05:53.130 --> 05:56.220
+But more than that, you need to know what is already out there.
+
+05:57.120 --> 06:00.480
+Then comparing the relevant LMS.
+
+06:00.480 --> 06:06.240
+First of all, of course you remember we divided this into the basics stuff like the price, the context
+
+06:06.270 --> 06:10.200
+length, the licensing constraints and then the benchmarks.
+
+06:10.200 --> 06:16.710
+Looking on on leaderboards, looking at arenas and understanding if there are specialist scores for
+
+06:16.710 --> 06:18.960
+what you're trying to do for this particular task.
+
+06:18.990 --> 06:23.370
+Using things like the seal specialist leaderboards from scale.
+
+06:23.490 --> 06:31.140
+Com that we that we mentioned last time, and of course curating the data, scrubbing it, pre-processing
+
+06:31.140 --> 06:31.410
+it.
+
+06:31.410 --> 06:35.910
+And then something that we haven't talked about particularly yet is splitting your data set.
+
+06:35.940 --> 06:42.060
+Typically you take all of your data and you split it into your training data, and then you reserve
+
+06:42.090 --> 06:46.610
+a chunk for what's called validation when you that you'll be using to evaluate your model, and then
+
+06:46.610 --> 06:48.980
+you reserve a final chunk for test.
+
+06:48.980 --> 06:54.080
+And that's something that you hold all the way out so that you can use the validation to be tweaking
+
+06:54.080 --> 06:56.090
+your hyperparameters and getting everything right.
+
+06:56.090 --> 07:02.870
+And at the very, very end, you will use the test to gauge the ultimate success of your model.
+
+07:03.410 --> 07:09.680
+So, uh, cleaning your data, pre-processing it, uh, which is parsing, which is what we've been
+
+07:09.680 --> 07:14.630
+doing, and then ultimately splitting it up is part of preparation.
+
+07:15.110 --> 07:23.720
+And then select this is something that we've done already, uh, choosing LMS, uh, based on the criteria,
+
+07:23.720 --> 07:29.570
+experimenting with them and then training and validating with your curated data.
+
+07:29.570 --> 07:30.620
+We haven't done that yet.
+
+07:30.650 --> 07:33.560
+That's something that that we are excited to do.
+
+07:33.770 --> 07:41.930
+So I will now pause and we'll continue in the next session with the all important step four to optimize.

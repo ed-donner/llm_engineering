@@ -1,0 +1,427 @@
+WEBVTT
+
+00:00.710 --> 00:02.270
+Welcome everybody.
+
+00:02.300 --> 00:08.900
+So in the past I've said quite a few times, I am excited to start this this week or this topic.
+
+00:08.900 --> 00:15.020
+And I want to say that all of that has been nonsense, because the excitement that I've had has paled
+
+00:15.020 --> 00:18.260
+in significance compared to the level of excitement I have today.
+
+00:18.260 --> 00:24.530
+As we start week six and we embark upon the world of training, this is what it's all about.
+
+00:24.530 --> 00:25.850
+Now it gets real.
+
+00:25.850 --> 00:27.260
+Prepare yourself.
+
+00:28.160 --> 00:32.900
+So up to this point, we've always been talking about what they call inference.
+
+00:32.900 --> 00:39.320
+And inference is when you take a model that's been trained to against a ton of data, and it's then
+
+00:39.350 --> 00:43.700
+used at runtime to predict the next token given an input.
+
+00:43.700 --> 00:47.750
+And we've been looking at different ways to get that inference better and better.
+
+00:47.750 --> 00:53.180
+We're now going to go and look at the models themselves and understand how can you train models so that
+
+00:53.180 --> 00:56.330
+they are even better at runtime and inference.
+
+00:56.660 --> 00:59.780
+And this this is where it gets advanced.
+
+00:59.780 --> 01:04.270
+We start with the less glamorous part of it, which is about the data.
+
+01:04.270 --> 01:09.640
+And whilst crafting a data set might might not sound as glamorous, it isn't as glamorous.
+
+01:09.640 --> 01:14.170
+It happens to be absolutely essential and perhaps one of the most important parts.
+
+01:14.170 --> 01:20.590
+And we're going to spend today and tomorrow spending, getting really deep into the data, understanding
+
+01:20.590 --> 01:26.050
+it back to front, visualizing it, cleaning it up, curating it, getting it to a form where we really
+
+01:26.050 --> 01:27.250
+like it a lot.
+
+01:27.400 --> 01:29.410
+Um, and that's something that you have to do.
+
+01:29.440 --> 01:34.960
+We're also going to spend some time understanding, how are we going to gauge success of this project?
+
+01:34.990 --> 01:38.950
+What are we trying to achieve and how do we know if we've done it or not?
+
+01:39.970 --> 01:47.050
+But first, let's talk for a second about the eight weeks that you've had, where you've come from and
+
+01:47.050 --> 01:48.520
+where you are going.
+
+01:48.520 --> 01:56.500
+We started some time ago now, six weeks ago, uh, right on the left where you're heading is an LM
+
+01:56.500 --> 01:58.030
+engineering master.
+
+01:58.030 --> 01:59.230
+Over on the right.
+
+01:59.260 --> 02:03.190
+In week one, we talked about frontier models, and we tried some of them out.
+
+02:03.190 --> 02:06.420
+In week two we were using multiple APIs.
+
+02:06.420 --> 02:10.020
+We were building UIs with Gradio and Multi-modality.
+
+02:10.050 --> 02:15.540
+Week three we explored hugging Face the Pipelines Tokenizers and then the models.
+
+02:15.540 --> 02:18.360
+In week four, we were selecting models.
+
+02:18.360 --> 02:23.910
+We were using code generation and we built something that was what, 60,000 times faster?
+
+02:23.910 --> 02:27.120
+It was able to optimize code 60,000 times is remarkable.
+
+02:27.150 --> 02:28.410
+Week five.
+
+02:28.410 --> 02:33.870
+Last week, of course, was rag all about rag very hot topic.
+
+02:33.870 --> 02:42.390
+And now that brings us to week six fine tuning a frontier model where we've arrived at training in week
+
+02:42.390 --> 02:42.840
+seven.
+
+02:42.840 --> 02:43.860
+We'll do this again.
+
+02:43.860 --> 02:44.640
+But now.
+
+02:44.640 --> 02:49.320
+Now we'll be dealing with open source models and basically building our own model.
+
+02:49.320 --> 02:52.140
+And week eight is where it all comes together.
+
+02:52.350 --> 02:58.320
+So with that, let's talk a bit about the transition that we are now making.
+
+02:58.320 --> 03:01.050
+We are moving from inference to training as I say.
+
+03:01.050 --> 03:05.490
+So let's just talk about when we when we've been working on inference, what have we been doing.
+
+03:05.490 --> 03:11.300
+We've we've developed different techniques so that when we are running these models, we can try and
+
+03:11.300 --> 03:13.310
+get them to perform better and better.
+
+03:13.340 --> 03:17.990
+We've tried Multi-shot prompting when we give it lots of examples for it to work on.
+
+03:17.990 --> 03:23.420
+We've tried prompt chaining when we send multiple different messages and build on top of each other
+
+03:23.420 --> 03:24.860
+and combine the results.
+
+03:24.890 --> 03:31.460
+We've used tools where we had the model almost be able to call back into our code, although it wasn't
+
+03:31.460 --> 03:32.540
+quite that magical.
+
+03:32.840 --> 03:39.020
+In order to do things like calculate the price of an airline ticket or the price of to travel to a different
+
+03:39.140 --> 03:40.040
+city.
+
+03:40.460 --> 03:48.860
+And then most recently, we worked on Rag injecting more relevant content context into the prompt.
+
+03:48.890 --> 03:54.800
+So all of these, what they have in common is they're all about taking an existing trained model and
+
+03:54.800 --> 04:00.320
+figuring out how we can best use it to take advantage of what it knows by calling it multiple times,
+
+04:00.350 --> 04:02.150
+adding in context, and so on.
+
+04:02.180 --> 04:06.140
+What we're going to do now is move on to training.
+
+04:06.170 --> 04:11.950
+So in training, what we're trying to do is take a deep neural network, potentially with its billions
+
+04:11.950 --> 04:17.680
+of parameters, and figure out how can we tweak those parameters, change those weights, optimize them
+
+04:17.680 --> 04:26.140
+very slightly based on data so that it gets better and better at predicting future tokens, and whilst
+
+04:26.500 --> 04:33.130
+adding in more context at inference and things like that is a is a bit of a broad brush stroke in terms
+
+04:33.130 --> 04:35.800
+of how you can affect the outcomes with training.
+
+04:35.800 --> 04:43.750
+It's a much more nuanced technique that allows you to gradually build up deeper, finer grained understanding
+
+04:43.780 --> 04:45.640
+of the problem you're trying to solve.
+
+04:46.030 --> 04:53.710
+Now, trying to train a multi-billion parameter LLM is a rather expensive proposition.
+
+04:53.710 --> 05:01.600
+It's something that the Frontier Labs probably spend well, they do spend north of $100 million on training
+
+05:01.630 --> 05:05.620
+their their best models, and that's outside my budget.
+
+05:05.620 --> 05:07.900
+And I'm guessing it's outside your budget.
+
+05:08.200 --> 05:10.890
+And so that's unfortunately not possible for us.
+
+05:10.890 --> 05:14.940
+But luckily we could take advantage of something called transfer learning.
+
+05:14.940 --> 05:21.630
+And transfer learning says that it's perfectly doable to take an existing trained LM, a model that's
+
+05:21.630 --> 05:28.230
+already been pre-trained on a ton of data, and you can then just continue the training with a particular
+
+05:28.230 --> 05:29.070
+data set.
+
+05:29.070 --> 05:34.710
+Perhaps that solves a very specialized problem, and it will sort of transfer all of the knowledge that's
+
+05:34.710 --> 05:39.840
+already accumulated, and you'll be able to add on some extra knowledge on top of that.
+
+05:40.110 --> 05:45.990
+Um, and so you could take a pre-trained model space and then you can sort of, um, you can, you can
+
+05:45.990 --> 05:48.750
+make it more precisely trained for your task.
+
+05:48.750 --> 05:51.240
+And that process is known as fine tuning.
+
+05:51.450 --> 05:53.760
+Um, as just, just as it sounds.
+
+05:53.910 --> 05:58.230
+Um, and of course, we're going to be using some techniques that I've name dropped in the past, like
+
+05:58.230 --> 06:00.450
+Q Laura, as ways to do it.
+
+06:00.450 --> 06:04.230
+That will be manageable in terms of memory and so on.
+
+06:05.100 --> 06:11.520
+So let me now introduce the the problem, the commercial problem that we are going to be working on
+
+06:11.670 --> 06:14.220
+for most of the next few weeks.
+
+06:14.220 --> 06:21.510
+So let's say we work at an e-commerce company or a marketplace company working in products, and we
+
+06:21.510 --> 06:27.510
+want to build a model that can take a description of any of almost any product, a wide variety of products,
+
+06:27.510 --> 06:34.140
+let's say electrical electronic products or computers, fridges, washing machines and other things
+
+06:34.170 --> 06:41.400
+for the home and car and be able to estimate how much it costs based just on the description.
+
+06:41.790 --> 06:47.160
+Um, now, uh, that's it's a it's a nice, easy to understand problem.
+
+06:47.160 --> 06:50.010
+It's got a very easy to measure outcome.
+
+06:50.010 --> 06:56.010
+You might if the data scientists amongst you might raise your hand and say, that doesn't particularly
+
+06:56.010 --> 07:01.980
+sound like a problem that's designed for a generative AI solution that generates text.
+
+07:02.010 --> 07:04.890
+Sounds like something that needs a model that creates a number.
+
+07:04.890 --> 07:08.580
+And typically that's the domain of what people call regression models.
+
+07:08.580 --> 07:13.520
+Types of models that produce a number that you can then try and fit to, um.
+
+07:13.640 --> 07:14.510
+And you'd be right.
+
+07:14.540 --> 07:15.860
+You'd be making a valid point.
+
+07:15.860 --> 07:19.100
+It is typically more a regression kind of problem.
+
+07:19.310 --> 07:23.990
+Um, but it turns out it's still is going to be a great problem for us to work with.
+
+07:23.990 --> 07:25.460
+And there's a few reasons for that.
+
+07:25.490 --> 07:32.300
+One of them is that turns out frontier models are actually great at solving this kind of problem to
+
+07:32.330 --> 07:37.130
+to start with, they were intended just to generate text and just to be able to do things that involve
+
+07:37.160 --> 07:42.140
+things like tasks like summarization and other and other text generation activities.
+
+07:42.140 --> 07:48.380
+But as we've discovered, when we ask a model to respond in JSON and respond with with information,
+
+07:48.530 --> 07:54.410
+it can be very effective at responding back with quantitative results.
+
+07:54.470 --> 08:00.170
+And so actually the frontier models, um, perhaps because of the emergent intelligence we talked about
+
+08:00.170 --> 08:06.080
+a long time ago, now have become highly effective at even these kinds of problems that were traditionally
+
+08:06.080 --> 08:08.330
+the domain of a regression model.
+
+08:08.450 --> 08:12.320
+So it is absolutely possible to use JNI for this.
+
+08:12.320 --> 08:18.640
+And in fact, you'll see the frontier models are going to do spectacularly well at this better than
+
+08:18.640 --> 08:20.950
+simple regression models that we'll build to.
+
+08:21.250 --> 08:25.750
+So it turns out that it does work in this space.
+
+08:25.870 --> 08:31.000
+Um, it's also going to be much more enjoyable for us when we try and build our own models.
+
+08:31.000 --> 08:32.020
+And here's why.
+
+08:32.260 --> 08:39.340
+The great thing about this problem is that it's very easy to to measure whether we're doing it well
+
+08:39.370 --> 08:40.000
+or not.
+
+08:40.030 --> 08:45.220
+If if we predict if we take a product and we know how much it costs, we can put that in and see how
+
+08:45.220 --> 08:46.690
+well the product does.
+
+08:46.720 --> 08:50.650
+See how well our model does in guessing the price of that product.
+
+08:50.680 --> 08:56.890
+Where are some other text generation problems are harder to to measure in a very human understandable
+
+08:56.890 --> 08:57.340
+way.
+
+08:57.370 --> 09:02.110
+So if you're doing translation between two languages, say, then sure, you can tell whether something
+
+09:02.110 --> 09:08.050
+is generating good Spanish from from English, but how good becomes a judgment call.
+
+09:08.050 --> 09:10.360
+And there are of course scoring methodologies.
+
+09:10.360 --> 09:16.860
+But then you get into a lot of complexity about how they work and, and whether you're actually doing
+
+09:16.860 --> 09:17.760
+better or not.
+
+09:17.760 --> 09:26.040
+So, you know, there are lots of other problems that are more text generation related, such as building
+
+09:26.040 --> 09:31.080
+something that would actually write the description of a product, but they're not as easy to measure
+
+09:31.080 --> 09:33.270
+as just saying, come up with a price.
+
+09:33.270 --> 09:36.420
+Come up with the price is fabulously simple to measure.
+
+09:36.420 --> 09:40.920
+If we're doing it well and and measure it in a very humanly understandable way.
+
+09:40.950 --> 09:47.010
+Not with some fancy data science metric like perplexity and stuff, but with something that we'll all
+
+09:47.010 --> 09:47.790
+understand.
+
+09:47.940 --> 09:51.660
+How accurate is the price of this fridge that we've just told it?
+
+09:51.990 --> 09:55.230
+We'll be able to tell that and see it and watch the improvement.
+
+09:55.230 --> 10:04.320
+So for that reason and the other reasons, I actually think this is a really nice, well-defined challenge
+
+10:04.320 --> 10:12.330
+for us to take on, and we're going to have some success with it so that that is the problem for you.
+
+10:12.840 --> 10:13.590
+All right.
+
+10:13.590 --> 10:17.370
+In the next video, we're going to start talking about data and I will see you there.

@@ -1,0 +1,400 @@
+WEBVTT
+
+00:00.770 --> 00:03.530
+You must be feeling absolutely exhausted at this point.
+
+00:03.560 --> 00:05.330
+And if you are, that is okay.
+
+00:05.360 --> 00:07.430
+You have done a phenomenal job.
+
+00:07.430 --> 00:15.290
+This week has been a grueling week with tons of new information that you've had to take on and from
+
+00:15.290 --> 00:20.990
+the beginning, with the leaderboards and the arenas all the way through to our implementation of code
+
+00:21.020 --> 00:25.070
+translators, both in with frontier models and with open source models.
+
+00:25.070 --> 00:29.450
+We've gone through a lot, and it's been been quite a journey.
+
+00:29.480 --> 00:37.490
+You've acquired a ton of new skills, so I'm here to congratulate you and to tell you that this last
+
+00:37.490 --> 00:44.240
+session will be quite quick for today as we prepare for the upcoming week.
+
+00:44.270 --> 00:49.190
+So first of all, just to say, of course, again, it was score one for the frontier.
+
+00:49.190 --> 00:53.600
+This time we've got to let Claude win the win the show.
+
+00:53.690 --> 01:01.130
+Uh, we had great fun writing software that can write code and translate code between Python and C plus.
+
+01:01.130 --> 01:01.640
+Plus.
+
+01:01.640 --> 01:05.490
+And we saw Claude, uh, rule the roost with.
+
+01:05.490 --> 01:10.260
+It's a fantastic job of re-implementing those algorithms.
+
+01:10.500 --> 01:15.810
+Um, at the end of today, we're just going to do a little bit more on discussing the performance of
+
+01:15.810 --> 01:17.700
+open source and closed source models.
+
+01:17.790 --> 01:21.510
+Um, and we're going to talk about commercial use cases for generating code.
+
+01:21.510 --> 01:23.940
+And there's of course going to be an assignment for you.
+
+01:23.940 --> 01:25.560
+It's a big assignment for you.
+
+01:25.560 --> 01:32.550
+So whilst this session will be relatively short, the work for you is relatively great and I can't wait
+
+01:32.550 --> 01:34.350
+to see what you come up with.
+
+01:34.770 --> 01:42.930
+But first, I want to take a moment to talk about a seriously important problem, a question which is
+
+01:42.930 --> 01:49.170
+about how do you decide whether or not your AI solution is actually doing a good job?
+
+01:49.260 --> 01:53.400
+Uh, what is what is the what are the techniques for evaluation?
+
+01:53.460 --> 01:59.190
+Uh, and it's as I say here, it's perhaps the single most important question, uh, because so much
+
+01:59.190 --> 02:01.530
+rides on how you will gauge success.
+
+02:01.560 --> 02:06.070
+It's something that needs to be thought up front and it needs to be established and worked on.
+
+02:06.610 --> 02:13.720
+Uh, but there are actually two different kinds of performance metrics, and it's important to understand
+
+02:13.720 --> 02:17.770
+the differences between them and to use both in the right context.
+
+02:17.800 --> 02:23.560
+The first kind is what sometimes known as model centric or technical metrics.
+
+02:23.560 --> 02:29.620
+And these are the kinds of metrics that data scientists live and breathe by, because these are metrics
+
+02:29.620 --> 02:36.730
+which we can optimize our models with, and they tend to measure in a very immediate way the performance
+
+02:36.730 --> 02:37.690
+of the model.
+
+02:37.720 --> 02:41.200
+Now I'm going to talk to a couple of these metrics, but not all of them, because some of them are
+
+02:41.200 --> 02:43.300
+more related to traditional machine learning.
+
+02:43.300 --> 02:46.030
+And you may already have experience, and it doesn't matter if you don't.
+
+02:46.030 --> 02:53.170
+But the first one there, loss is just a general term for talking about how poorly an LLM has performed
+
+02:53.170 --> 02:56.530
+in its task, and is typically used during optimization.
+
+02:56.530 --> 03:01.480
+You look to try and minimize loss, that is, that is the task of optimization.
+
+03:01.480 --> 03:03.100
+When you are training a model.
+
+03:03.340 --> 03:10.310
+The type of loss that we use most frequently in this field is called cross-entropy loss, and this is
+
+03:10.310 --> 03:10.910
+how it works.
+
+03:10.940 --> 03:17.480
+So imagine you've got an input set of tokens, a sequence of tokens which is your input text.
+
+03:17.480 --> 03:19.730
+And you're trying to predict the next token.
+
+03:19.730 --> 03:23.570
+And you have what the next token actually is in your training data.
+
+03:23.780 --> 03:28.820
+But as part of training, you're going to try and feed in some amount of this sequence to the model,
+
+03:28.850 --> 03:32.750
+say, predict the next token, and then you're going to have the real next token.
+
+03:32.750 --> 03:37.220
+And you want to use something about these two results to calculate a loss.
+
+03:37.250 --> 03:38.780
+Here's one way of doing it.
+
+03:38.810 --> 03:44.000
+What the model actually does is it doesn't just predict the next token in the way I've been saying it
+
+03:44.000 --> 03:44.810
+up to this point.
+
+03:44.810 --> 03:50.450
+What it really does is gives you a probability distribution of the probabilities of all of the possible
+
+03:50.450 --> 03:52.370
+next tokens that could come in the list.
+
+03:52.370 --> 03:55.880
+And we may, for example, pick the one that has the highest probability.
+
+03:55.910 --> 04:02.750
+The way you calculate cross-entropy loss is you say okay, well now we know what the real the true next
+
+04:02.750 --> 04:03.770
+token was.
+
+04:03.800 --> 04:08.850
+Let's find out what probability did the model ascribe to that token?
+
+04:08.850 --> 04:13.800
+If the actual next thing that was coming was, you know, we started with hello, and the next thing
+
+04:13.800 --> 04:15.570
+was the token for the word there.
+
+04:15.600 --> 04:20.130
+Then let's look up what kind of probability the model gave to the word there.
+
+04:20.130 --> 04:25.560
+And that probability is what we will use as the basis for the cross-entropy loss.
+
+04:25.560 --> 04:27.360
+And in fact, to turn it into a loss.
+
+04:27.360 --> 04:31.260
+Because if we just took the probability that a higher number would be better.
+
+04:31.260 --> 04:35.190
+And loss is a bad thing, we want to we want a higher number to be worse.
+
+04:35.190 --> 04:39.810
+So what we do is we actually take the negative log.
+
+04:39.840 --> 04:42.600
+We take minus the log of the probability.
+
+04:42.630 --> 04:44.100
+And that might sound a bit confusing.
+
+04:44.130 --> 04:44.790
+Why do we do that?
+
+04:44.790 --> 04:50.910
+Because if you take the if the probability were one, which would be a perfect answer, it would mean
+
+04:50.910 --> 04:56.400
+that we said there was a 100% likelihood that the next token was exactly the thing that turned out to
+
+04:56.400 --> 04:57.390
+be the next token.
+
+04:57.390 --> 05:00.450
+So a probability of one would be a perfect answer.
+
+05:00.450 --> 05:04.320
+Well, the negative log of one is zero zero loss.
+
+05:04.320 --> 05:05.340
+Perfect answer.
+
+05:05.340 --> 05:06.360
+So that works.
+
+05:06.390 --> 05:12.540
+And if the probability is a very small number, as it gets smaller and smaller, negative log of that
+
+05:12.540 --> 05:18.000
+number as it gets closer and closer to zero becomes a higher and higher positive number.
+
+05:18.000 --> 05:19.410
+So again that works.
+
+05:19.410 --> 05:21.420
+It becomes a loss.
+
+05:21.450 --> 05:24.120
+A bigger loss is bad news.
+
+05:24.210 --> 05:31.590
+And so taking the negative log of the probability, the predicted probability of the thing that turned
+
+05:31.590 --> 05:38.940
+out to be the actual next token, that is called cross-entropy loss and is one of the fundamental metrics
+
+05:38.970 --> 05:39.720
+that are used.
+
+05:39.750 --> 05:44.700
+And very commonly with training LMS, we'll be using it ourselves at some point.
+
+05:45.330 --> 05:50.790
+Uh, another metric that you hear about quite a lot, which is very much related, is called perplexity,
+
+05:50.820 --> 05:54.180
+which is just, uh, e to the power of cross-entropy loss.
+
+05:54.210 --> 06:02.850
+It means when it turns out to be, is that a perplexity of one would mean that the model is completely
+
+06:02.850 --> 06:05.280
+confident and correct in its results.
+
+06:05.280 --> 06:08.490
+It's 100% accurate with 100% certainty.
+
+06:08.490 --> 06:10.470
+That would give you a perplexity of one.
+
+06:10.500 --> 06:13.560
+A perplexity of two would be like a 50 over 50.
+
+06:13.590 --> 06:15.540
+It's right half the time.
+
+06:15.690 --> 06:21.120
+Perplexity of four would be a 25%, uh, probability.
+
+06:21.120 --> 06:22.800
+So that gives you a sense.
+
+06:22.800 --> 06:31.350
+A higher, uh, perplexity gives you a sense of of how many tokens would need to be, uh, if all things
+
+06:31.350 --> 06:35.820
+were equal, uh, in order to, to predict the next token.
+
+06:36.030 --> 06:39.330
+So that gives you a sense of loss and perplexity.
+
+06:39.330 --> 06:45.870
+I won't talk about the others, but you get the sense that these are immediate ways to measure the accuracy
+
+06:45.870 --> 06:52.170
+or the inaccuracy of a model that can be used during optimization or for analysis of a model.
+
+06:52.350 --> 06:55.110
+So that's the model centric metrics.
+
+06:55.110 --> 06:56.880
+What's the other kind of metrics then?
+
+06:56.910 --> 07:00.750
+The other kind of metrics are business centric or outcome metrics.
+
+07:00.750 --> 07:05.220
+And these these are the ones that are going to resonate the most with your business audience.
+
+07:05.220 --> 07:08.610
+And ultimately this is the problem that they are asking you to solve.
+
+07:08.690 --> 07:14.990
+So it's KPIs that are tied to the actual outcomes that your business people have asked for.
+
+07:15.020 --> 07:17.390
+Maybe it's return on investment.
+
+07:17.480 --> 07:23.030
+Maybe it's if this is meant to be optimizing something, then it's improvements in the time.
+
+07:23.390 --> 07:28.850
+If you think about what we've just done, then the ultimate metric would be for code.
+
+07:28.850 --> 07:30.740
+For the code solution we just built.
+
+07:30.740 --> 07:34.610
+How much faster is the C plus plus code than the Python code?
+
+07:34.730 --> 07:38.030
+How many times faster if it has the same answer?
+
+07:38.210 --> 07:45.020
+So that would be an example of a business centric or outcome metric, because it requires us to to run
+
+07:45.020 --> 07:48.620
+the full product and see what comes out at the end.
+
+07:49.280 --> 07:53.780
+Uh, another example might be that could be comparisons to benchmarks.
+
+07:53.780 --> 07:58.400
+If you're doing something, you're building a, uh, some sort of solution that is then going to surpass
+
+07:58.400 --> 08:02.630
+other benchmarks at carrying out a certain business task.
+
+08:02.660 --> 08:08.360
+So obviously, the huge benefit of these kinds of metrics is that they are tangible, they are concrete,
+
+08:08.360 --> 08:10.700
+and they will speak to your business goals.
+
+08:10.700 --> 08:15.380
+If you are able to move the needle on these metrics, then you've delivered impact and you can prove
+
+08:15.380 --> 08:15.740
+it.
+
+08:15.770 --> 08:21.830
+The problem with them, of course, is that they're not so obviously immediately tied to the model performance.
+
+08:21.830 --> 08:25.730
+It's related to all sorts of other things, like the kind of data you've got, the environment, how
+
+08:25.730 --> 08:30.260
+it's used, and whether the original idea really works in solving the business problem.
+
+08:30.260 --> 08:36.260
+So there's a lot of unknowns that sit between your model's performance and the business metrics.
+
+08:36.260 --> 08:41.870
+But the business metrics have the great advantage of actually being meaningful in the real world.
+
+08:41.870 --> 08:46.130
+So the the answer is you need to use both these kinds of metrics.
+
+08:46.130 --> 08:47.780
+You need to use them in concert.
+
+08:47.780 --> 08:54.620
+One allows you to optimize your model to fine tune your model to to demonstrate its its fast performance.
+
+08:54.620 --> 09:01.520
+And the other of them is what you use to ultimately prove the business impact behind your solution.
+
+09:01.520 --> 09:04.490
+With that, I'm going to pause in the next session.
+
+09:04.490 --> 09:09.530
+We're going to go back one more time and look at our coding solutions, and then talk about what you
+
+09:09.530 --> 09:11.600
+can do to take it to the next level.

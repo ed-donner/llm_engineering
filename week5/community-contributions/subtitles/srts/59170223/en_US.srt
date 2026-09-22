@@ -1,0 +1,220 @@
+WEBVTT
+
+00:00.470 --> 00:01.100
+Well.
+
+00:01.130 --> 00:02.000
+Fantastic.
+
+00:02.030 --> 00:06.560
+It's coming up to the end of the week, and that means it's coming up to a challenge for you again,
+
+00:06.560 --> 00:10.580
+even though I've just given you a challenge to build a Gradio user interface for for what we just saw.
+
+00:10.580 --> 00:11.750
+But that's an easy challenge.
+
+00:11.750 --> 00:12.680
+You can do that.
+
+00:12.680 --> 00:13.640
+No problem.
+
+00:13.640 --> 00:14.990
+This you need a harder challenge.
+
+00:14.990 --> 00:17.360
+At the end of the week, it's time for a harder challenge.
+
+00:17.360 --> 00:25.130
+So the end of week challenge is to build an important business application that we will, in fact,
+
+00:25.130 --> 00:26.690
+use later in the course.
+
+00:26.690 --> 00:32.120
+Although yeah, you you won't need to to you won't need to have built it for that because because I'll
+
+00:32.120 --> 00:32.750
+have done it.
+
+00:32.750 --> 00:35.690
+But it's really helpful if you've done it.
+
+00:35.690 --> 00:39.680
+And this is something that you'll be able to use no matter in any business.
+
+00:39.710 --> 00:45.260
+This, this, this tool will apply to every business vertical and can be useful to you, I guarantee
+
+00:45.290 --> 00:45.830
+it.
+
+00:46.220 --> 00:48.140
+And this is what it is.
+
+00:48.140 --> 00:58.940
+Create your own tool that generates synthetic testing data a test data generator, open source model.
+
+00:59.180 --> 01:01.970
+This is something that is so valuable.
+
+01:01.970 --> 01:06.380
+Generating data sets is something that you need for many different purposes.
+
+01:06.380 --> 01:14.600
+And I want to give you a very, um, wide remit to decide how you want to go about doing this, but
+
+01:14.600 --> 01:21.590
+I'm looking for something where you can describe a kind of data set you want, and maybe it's descriptions
+
+01:21.590 --> 01:29.420
+of products, maybe it's descriptions of, uh, um, uh, job postings, whatever it is you want to
+
+01:29.450 --> 01:36.260
+be able to, to tell your product what it is, what kind of data that you're working with and let it
+
+01:36.260 --> 01:45.080
+dream up, uh, diverse outputs, diverse test set that you'll be able to use when experimenting with
+
+01:45.080 --> 01:47.300
+your business area in the future.
+
+01:47.300 --> 01:55.610
+So this synthetic data generator is going to be a valuable tool for yourself, for me and for for this,
+
+01:55.640 --> 01:59.090
+both for this course and for future business problems you tackle.
+
+01:59.090 --> 02:03.890
+So it's worth investing some time in, and it's worth giving it a gradio UI while you're doing it.
+
+02:03.920 --> 02:05.720
+And that's going to be the super easy part.
+
+02:05.720 --> 02:08.420
+So I have a shot at that.
+
+02:08.450 --> 02:11.060
+It will apply to your business area no matter what you do.
+
+02:11.060 --> 02:13.790
+It's going to be useful and you're going to really enjoy it.
+
+02:16.160 --> 02:25.250
+And then that would then complete week three, wrapping up your third week of your journey towards being
+
+02:25.250 --> 02:27.800
+a proficient LM engineer.
+
+02:27.830 --> 02:31.790
+You can already, of course, code confidently with frontier models.
+
+02:31.790 --> 02:34.940
+You must be sick of me saying that now because you're that good.
+
+02:34.940 --> 02:37.100
+You can build an AI assistant.
+
+02:37.100 --> 02:39.980
+You can have it be multimodal, you can have it use tools.
+
+02:39.980 --> 02:46.010
+You can have it be consist of multiple smaller agents that carry out specialist tasks.
+
+02:46.040 --> 02:52.460
+And of course, at this point you can create an LM solution that combines calls to frontier models.
+
+02:52.460 --> 02:54.680
+And it can call open source models.
+
+02:54.680 --> 03:03.080
+And you can use the pipeline API, using it to to carry out a large variety of common inference tasks.
+
+03:03.080 --> 03:10.550
+And you can also use the lower level hugging face APIs, the Tokenizers, and the models for inference
+
+03:10.550 --> 03:11.780
+tasks.
+
+03:12.470 --> 03:18.980
+So congratulations once again, you should be very proud next week.
+
+03:19.010 --> 03:20.990
+Next week we change topics.
+
+03:20.990 --> 03:23.240
+There's a thorny question.
+
+03:23.240 --> 03:24.980
+It's a question I get asked all the time.
+
+03:24.980 --> 03:31.010
+It's something which is, uh, where there's actually a lot of great resources to help.
+
+03:31.010 --> 03:37.440
+It's about how do you pick the right model for the for a given task that you have to work on.
+
+03:37.440 --> 03:39.870
+There are so many models, there are so many options.
+
+03:39.870 --> 03:41.220
+There's for staff.
+
+03:41.250 --> 03:43.290
+There's there's do you go closed source or open source?
+
+03:43.290 --> 03:48.000
+But then whichever path you take, there are so many possibilities.
+
+03:48.000 --> 03:52.830
+And how do you navigate through this to decide which one is right for a particular problem.
+
+03:52.830 --> 03:53.850
+And that is the key.
+
+03:53.880 --> 03:55.470
+It depends on the problem.
+
+03:55.470 --> 03:58.650
+Different models will be appropriate for different problems.
+
+03:58.650 --> 04:00.660
+I'm going to show you how to figure that out.
+
+04:00.990 --> 04:02.550
+We're going to compare LMS.
+
+04:02.550 --> 04:03.720
+We're going to use leaderboards.
+
+04:03.720 --> 04:04.950
+We're going to use arenas.
+
+04:04.950 --> 04:08.070
+And we're going to do some some work with arenas ourselves.
+
+04:08.070 --> 04:09.360
+And that's going to be fun.
+
+04:09.360 --> 04:15.930
+And then as our practical work, we're going to to go a different direction than we've gone in the past,
+
+04:16.020 --> 04:21.780
+except we did it very briefly once, but we're going to be looking at code generation when we're using
+
+04:21.780 --> 04:29.490
+frontier models and open source models to be generating code and tackling some code generation problems.
+
+04:29.490 --> 04:33.060
+So that will be a new, interesting perspective for you.
+
+04:33.060 --> 04:38.910
+So I'm really excited about next week, and I'm so, so impressed by how much progress you've made already
+
+04:38.910 --> 04:42.990
+and how many skills that you've already acquired.
+
+04:43.110 --> 04:49.140
+And I will see you for week four for picking the right LLM.

@@ -1,0 +1,319 @@
+WEBVTT
+
+00:00.980 --> 00:04.850
+Welcome to the Jupyter Lab for day four.
+
+00:04.880 --> 00:10.820
+It's going to look very familiar because it's actually I've started with a duplicate of day three.
+
+00:11.030 --> 00:14.720
+And in this duplicate there's a few cells.
+
+00:14.720 --> 00:19.880
+We're going to want to rerun the imports at the beginning connecting our environment.
+
+00:19.880 --> 00:22.340
+We're going to want to connect to our frontier models.
+
+00:22.340 --> 00:23.630
+Because guess what.
+
+00:23.630 --> 00:28.520
+We're going to be able to get the frontier models to work side by side with open source models, which
+
+00:28.520 --> 00:29.900
+is going to be terrific.
+
+00:30.260 --> 00:37.340
+Uh, we'll get our prompts, our messages function, if you remember that something that can write to
+
+00:37.490 --> 00:39.530
+output C plus plus file.
+
+00:39.920 --> 00:43.880
+Um, this I don't think we need to run because it's going to be overwritten.
+
+00:43.880 --> 00:49.850
+But then our code for our Pi program, we don't need to try it out because you'll remember that.
+
+00:49.850 --> 00:59.750
+But we will get our code for the hard program that looks for subarrays of arrays with the largest cumulative
+
+00:59.750 --> 01:00.680
+number.
+
+01:01.360 --> 01:07.870
+Um, and we do need this stream, GPT function.
+
+01:07.870 --> 01:10.600
+And we need this stream, Claude function.
+
+01:10.600 --> 01:14.710
+And we need this optimize function, although we're about to overwrite it.
+
+01:14.710 --> 01:22.270
+And you'll remember the gorgeous gradient functions will take execute Python and execute C plus plus,
+
+01:22.270 --> 01:28.180
+which, uh, I hope you remember that this is something which is not to be shared with others.
+
+01:28.180 --> 01:33.280
+You don't want to allow people to have the ability to execute arbitrary Python and C plus plus code
+
+01:33.310 --> 01:34.360
+on your box.
+
+01:34.360 --> 01:35.650
+That's not a good idea.
+
+01:35.650 --> 01:40.960
+So keep the Gradio interface to yourself and don't say share equals true for that.
+
+01:40.960 --> 01:44.170
+And then some CSS to make it look fancy.
+
+01:44.200 --> 01:45.430
+All right.
+
+01:45.430 --> 01:47.770
+And now we get to our new code.
+
+01:47.770 --> 01:50.710
+And it is going to be extremely simple.
+
+01:50.710 --> 01:52.780
+We start with some imports.
+
+01:52.780 --> 01:58.420
+We're importing from Huggingface hub, the login function you've seen before, but also a class called
+
+01:58.420 --> 01:59.860
+inference client.
+
+02:00.280 --> 02:03.210
+And we're importing the the tokenizer.
+
+02:03.810 --> 02:05.790
+We're going to log in to hugging face.
+
+02:05.790 --> 02:06.780
+There we go.
+
+02:06.780 --> 02:09.030
+And now just some constants.
+
+02:09.150 --> 02:15.000
+Code is this is the name of the code model I've also got here code Gemma in case you want to give it
+
+02:15.000 --> 02:17.040
+a try and see if you have more success than me.
+
+02:17.070 --> 02:22.200
+This is the URL of my endpoint, so it's just taken from my endpoint page.
+
+02:22.200 --> 02:24.540
+I can just take this this URL.
+
+02:24.540 --> 02:29.040
+That is where my endpoint is running right now and costing me $0.80 an hour.
+
+02:29.040 --> 02:35.250
+And this is code Gemma that is sadly paused as it was not particularly stable.
+
+02:35.640 --> 02:38.370
+Okay, so let's give this a try.
+
+02:38.400 --> 02:45.090
+So remember tokenizer you can create using the auto tokenizer class and say Frompretrained pass in the
+
+02:45.090 --> 02:49.020
+name of your model and you will get the right tokenizer for that model.
+
+02:49.020 --> 02:51.390
+And then I'm going to create this.
+
+02:51.390 --> 02:57.540
+This is the function that we wrote before that's going to create the nice structured, um list of dictionaries
+
+02:57.540 --> 03:03.380
+to ask for the simple function for pi to be rewritten in C plus plus.
+
+03:03.380 --> 03:09.980
+And then we're going to use the Tokenizers apply chat template to turn that into text.
+
+03:10.010 --> 03:12.110
+Let's just take a look at what I'm talking about here.
+
+03:12.110 --> 03:15.650
+So if we remember to run that and then run this.
+
+03:16.250 --> 03:19.250
+So first of all remember what messages is.
+
+03:19.250 --> 03:22.490
+Messages is a list with two elements.
+
+03:22.490 --> 03:24.650
+One of them has a system role.
+
+03:24.650 --> 03:25.760
+And that's the content.
+
+03:25.790 --> 03:29.180
+You were insistent that re-implements Python code blah blah blah.
+
+03:29.900 --> 03:34.850
+And then user uh, and then the user method.
+
+03:34.880 --> 03:41.810
+Now I should mention here just to in the spirit of being completely open, that I've added in a little
+
+03:41.810 --> 03:48.590
+hint here, keep implementations of random number generators identical so that match, uh, results
+
+03:48.590 --> 03:49.940
+match exactly.
+
+03:50.060 --> 03:57.410
+Uh, so as you can imagine, uh, I've had to add hints here and there just to keep things on track.
+
+03:57.470 --> 04:00.830
+And you will see the results of that in a moment.
+
+04:00.880 --> 04:04.240
+So this is, of course, the messages that you're familiar with.
+
+04:04.240 --> 04:11.710
+And now, if I show you what what text became after we applied the chat template, this if I print it,
+
+04:11.740 --> 04:13.240
+it will be spaced out a bit better.
+
+04:13.270 --> 04:14.590
+Let's see it printed.
+
+04:14.950 --> 04:16.360
+Here we go.
+
+04:16.510 --> 04:17.440
+Have a look at this.
+
+04:17.440 --> 04:24.490
+So there is a special token I am start and then system and then the system message.
+
+04:24.490 --> 04:26.080
+And then the same thing with user.
+
+04:26.080 --> 04:27.970
+And then this is the code.
+
+04:27.970 --> 04:30.700
+And then it ends with this little prompt.
+
+04:30.700 --> 04:37.330
+That means that the LM is just going to keep going and give the assistance response.
+
+04:37.540 --> 04:46.090
+So with that now you would imagine that making the call to a hugging face endpoint, making this kind
+
+04:46.090 --> 04:51.430
+of message to an open source model and getting back the response might be really difficult.
+
+04:51.730 --> 04:52.840
+And it's not.
+
+04:52.840 --> 04:55.390
+It's one of those things that's just a couple of lines of code.
+
+04:55.390 --> 04:56.050
+Here it is.
+
+04:56.050 --> 04:57.490
+It's as simple as this.
+
+04:57.580 --> 05:04.020
+Uh, you create an object, the inference client and you tell it the URL of your endpoint and your hugging
+
+05:04.050 --> 05:09.150
+face token, and then you just say client dot text generation.
+
+05:09.150 --> 05:13.320
+You pass in your text, you say, in this case I want to stream back results.
+
+05:13.320 --> 05:15.780
+If you didn't have that, this would be even even shorter.
+
+05:15.780 --> 05:18.030
+But it's nice to see the results streaming back.
+
+05:18.330 --> 05:24.030
+Um, and then max new tokens, um, is where you tell it that it can keep going for a little while.
+
+05:24.270 --> 05:26.790
+Uh, and let's see what happens.
+
+05:28.080 --> 05:36.270
+We're getting streaming back from my endpoint, running in hugging face, the result of the, uh, of
+
+05:36.270 --> 05:38.610
+of this conversion.
+
+05:40.650 --> 05:44.580
+Now, one thing I will point out while it's doing this, hopefully you're recognizing this code and
+
+05:44.580 --> 05:50.940
+seeing that it's that it looks very legit, very solid conversion of py, uh, code from Python into
+
+05:50.940 --> 05:51.300
+C plus.
+
+05:51.300 --> 05:57.000
+Plus, uh, it has given this, this stuff at the beginning about C plus plus code, you know, giving
+
+05:57.000 --> 05:57.990
+a bit of an explanation.
+
+05:57.990 --> 06:01.850
+And it's also ending with a bunch of text about why it did what it did.
+
+06:01.880 --> 06:07.070
+And this is despite the fact that my system message insists that it shouldn't do that.
+
+06:07.190 --> 06:13.730
+Um, it says, uh, do not provide any explanation, but I was not able, through the system message
+
+06:13.730 --> 06:15.980
+to get it not to provide an explanation.
+
+06:16.010 --> 06:20.420
+Although, as you remember, GPT four and Claude do obey the instructions.
+
+06:20.420 --> 06:25.610
+So that's something I imagine you could spend more time working on that prompt to really try and make
+
+06:25.640 --> 06:26.900
+sure that it doesn't happen.
+
+06:26.900 --> 06:32.360
+But failing that, of course, it's very easy to do some post-processing and strip out the everything
+
+06:32.360 --> 06:39.800
+that comes up till the, uh, the start of the C plus plus code and up until the, um, so you could
+
+06:39.800 --> 06:45.890
+strip out everything up until this symbol here and take what comes between that and here.
+
+06:46.010 --> 06:49.850
+So it'd be pretty easy to do that with some post-processing.
+
+06:50.270 --> 06:51.170
+All right.
+
+06:51.170 --> 06:55.310
+Anyway, we've seen how easy it is to run inference.
+
+06:55.460 --> 07:00.620
+Uh, I will see you next time when we will put this together in a UI and give it a whirl.
+
+07:00.650 --> 07:01.520
+See you then.

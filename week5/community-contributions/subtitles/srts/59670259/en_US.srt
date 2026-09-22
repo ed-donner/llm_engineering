@@ -1,0 +1,79 @@
+WEBVTT
+
+00:00.830 --> 00:01.970
+It's remarkable.
+
+00:01.970 --> 00:04.970
+But you are now at the 95% point.
+
+00:04.970 --> 00:07.820
+There's 5% remaining of this course.
+
+00:07.880 --> 00:13.850
+Uh, maybe it's not remarkable because hopefully you're feeling like you've built up such strong skills
+
+00:13.850 --> 00:15.800
+and you're getting really experienced.
+
+00:15.830 --> 00:21.050
+You probably saw some of the problems I was having a moment ago, before I did, and knew exactly how
+
+00:21.050 --> 00:22.010
+to sort them out.
+
+00:22.010 --> 00:25.880
+So what you can now do is this long list of things.
+
+00:25.880 --> 00:29.150
+I could no longer fit it into three bullets, and I struggled to fit it into four.
+
+00:29.180 --> 00:30.590
+There's far too much stuff.
+
+00:30.590 --> 00:35.660
+I had to put structured outputs in here in the first bullet, just to try and fit it in, but there's
+
+00:35.660 --> 00:41.090
+so much that you can do across closed source and open source models, calling them in all sorts of ways
+
+00:41.090 --> 00:43.700
+now, including productionizing them.
+
+00:43.850 --> 00:50.990
+Uh, and now we change topic to talk about agent workflows Agentic frameworks.
+
+00:51.110 --> 00:55.100
+This is something that we touched on in previous weeks.
+
+00:55.100 --> 01:00.380
+Uh, we, we had, we used uh, function calling, which we said at the time is a kind of light version
+
+01:00.380 --> 01:07.370
+of, of agent workflows where you do have, um, a task that's being divided into smaller tasks with
+
+01:07.370 --> 01:10.430
+specific models carrying out tasks.
+
+01:10.430 --> 01:15.350
+And as you take that up a notch and start to get to an environment like we've been talking about this
+
+01:15.350 --> 01:20.660
+week, where you have multiple models that are all working independently, potentially being organized
+
+01:20.660 --> 01:27.170
+by a planning task, a planning agent, and then put together in some sort of a framework which has
+
+01:27.170 --> 01:34.340
+memory and which can, uh, live beyond outside the context of a human necessarily interacting with
+
+01:34.340 --> 01:34.670
+it.
+
+01:34.700 --> 01:41.960
+You're getting to a full on agentic workflow, and that is what we will be talking about next time.
+
+01:41.960 --> 01:43.310
+And I'm really excited about it.
+
+01:43.310 --> 01:44.540
+And I will see you then.

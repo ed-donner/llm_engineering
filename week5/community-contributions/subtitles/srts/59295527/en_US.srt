@@ -1,0 +1,79 @@
+WEBVTT
+
+00:00.650 --> 00:08.030
+I'm so happy to welcome you to week four, day four on our journey to LLM Engineering and Mastery.
+
+00:08.180 --> 00:12.620
+Here we are looking again at Code Generation.
+
+00:12.620 --> 00:19.190
+We had tons of fun last time generating code using frontier models, using what ended up being a very
+
+00:19.190 --> 00:26.150
+sharp UI to allow us to try out different kinds of puzzles and see the startling performance improvement
+
+00:26.150 --> 00:31.040
+that Claude was able to generate for us winning the day in our competition.
+
+00:31.040 --> 00:39.380
+What was it more than 60,000 times faster when it reinterpreted the problem and applied Shannon's algorithm?
+
+00:39.770 --> 00:42.740
+So today we're moving to open source.
+
+00:42.740 --> 00:45.860
+You're going to be able to use open source models for coding.
+
+00:45.860 --> 00:50.690
+We're going to use something called hugging face endpoints, which is another feature of hugging Face
+
+00:50.690 --> 00:56.900
+that lets you deploy models and run them in the cloud privately for you for inference purposes.
+
+00:57.170 --> 01:02.960
+So it's another great feature of the fabulous resource that is hugging face.
+
+01:03.230 --> 01:10.490
+And we're going to build a solution that uses open source LMS along with frontier LMS to generate code.
+
+01:10.520 --> 01:11.720
+Let's see.
+
+01:12.800 --> 01:15.260
+First, quick reminder of the challenge.
+
+01:15.290 --> 01:16.250
+I'm sure you remember it.
+
+01:16.280 --> 01:21.980
+We're building a product that is able to convert C plus, Plus or Python code into high performance
+
+01:22.010 --> 01:23.330
+C plus plus code.
+
+01:23.600 --> 01:32.450
+And we used GPT four and Claude last time, uh, the Pi program ran 100 times faster.
+
+01:32.750 --> 01:39.950
+Um, GPT four optimized the code at least, uh, when it when it ran, it was able to do it with a speed
+
+01:39.980 --> 01:40.490
+up.
+
+01:40.490 --> 01:45.110
+Uh, Claude rewrote the algorithm for more than 60,000 times.
+
+01:45.110 --> 01:46.550
+Performance improvement.
+
+01:46.550 --> 01:48.350
+Fantastic.
+
+01:48.380 --> 01:55.640
+Now the time has come to see how open source measures up against the beasts that are the frontier models.
+
+01:55.670 --> 01:57.050
+Let's have a try.
+
+01:57.080 --> 01:58.820
+See you in a second.

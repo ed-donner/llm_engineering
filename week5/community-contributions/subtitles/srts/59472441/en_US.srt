@@ -1,0 +1,334 @@
+WEBVTT
+
+00:00.740 --> 00:01.670
+Welcome back.
+
+00:01.670 --> 00:07.070
+So we've been doing the thoroughly distasteful, unsavory work of feature engineering.
+
+00:07.070 --> 00:09.110
+Very grotty, uh, work.
+
+00:09.110 --> 00:11.990
+But I still find it a bit fun, I have to confess.
+
+00:11.990 --> 00:17.360
+But it's quite, quite, uh, hacky and involves getting very deep into the data.
+
+00:17.360 --> 00:23.690
+We went through a bunch of stuff to figure out the weights of items in our data set and stuff in an
+
+00:23.690 --> 00:25.730
+average weight if we can't find the weights.
+
+00:25.940 --> 00:30.980
+Um, we're now going to look at the best sellers rank for each of our items.
+
+00:31.190 --> 00:36.110
+And so we're going to try and collect best sellers rank from its features.
+
+00:36.230 --> 00:44.570
+Uh, and then uh, what comes back is in fact itself a dictionary, because a product on Amazon can
+
+00:44.570 --> 00:48.860
+actually be ranked against multiple different bestsellers lists.
+
+00:49.010 --> 00:53.600
+Um, and so we're going to do something again, very rough and ready.
+
+00:53.600 --> 00:59.090
+And if it's features in multiple bestsellers lists, we're just going to take the average if it ranks
+
+00:59.090 --> 01:03.350
+first in one list and 10,000in another, we're just going to take the midpoint.
+
+01:03.380 --> 01:07.460
+We're which is we're just going to take the the one around the 5000 mark.
+
+01:07.760 --> 01:14.540
+Uh, so this this is, it's it's, uh, it's all a little bit of guesswork.
+
+01:14.630 --> 01:16.190
+Um, it's a bit of trial and error.
+
+01:16.190 --> 01:19.670
+And often this kind of traditional data science is a bit like this, actually.
+
+01:19.670 --> 01:23.270
+So as we'll discover, is the modern data science as well.
+
+01:23.270 --> 01:25.250
+There's plenty of trial and error.
+
+01:25.280 --> 01:29.750
+Typically, what you do with this, this kind of technique is that you try lots of features.
+
+01:29.750 --> 01:33.980
+You might try taking the average, or you might try taking the best and a few other things.
+
+01:33.980 --> 01:37.640
+And you shove all of these features in there and you see which one wins out.
+
+01:37.670 --> 01:39.920
+Now, in this case, we're just going to pick the average.
+
+01:39.920 --> 01:45.380
+But if you've got the stomach for it and you're enjoying this, this, as I say, slightly distasteful
+
+01:45.380 --> 01:48.560
+work of digging around in features, then try some more features.
+
+01:48.560 --> 01:55.370
+Try adding in the minimum rank, the maximum rank, uh, whatever you wish, um, to see what gives
+
+01:55.370 --> 01:56.720
+the most signal.
+
+01:57.110 --> 01:59.600
+So in our case, we picked the average rank.
+
+01:59.600 --> 02:00.740
+We just do it.
+
+02:00.740 --> 02:05.360
+And we're then going to to do the same trick we did with weights.
+
+02:05.360 --> 02:11.490
+We're going to find out what is the average of our average ranks, which turns out to be that slightly
+
+02:11.490 --> 02:14.520
+curious number of 380,000 or so.
+
+02:14.520 --> 02:21.240
+And then we're going to give ourselves a get rank with default function, which tries to get a rank.
+
+02:21.240 --> 02:26.220
+And if something doesn't have a rank, it gives you the average, the average rank from the training
+
+02:26.220 --> 02:27.180
+data set.
+
+02:27.390 --> 02:28.230
+Okay.
+
+02:28.230 --> 02:32.490
+And then one more feature I'm going to add into the mix that I didn't mention before.
+
+02:32.580 --> 02:39.540
+Uh, you may have guessed, I don't know is I'm going to say how long is the test prompt with all of
+
+02:39.540 --> 02:41.310
+the detail that it's got in there?
+
+02:41.340 --> 02:46.980
+I don't know if you remember, there was that scatter diagram that we did, uh, a couple of days ago,
+
+02:47.010 --> 02:53.490
+or maybe just one day ago, uh, with lots of red dots on it that was trying to see, is there any correlation
+
+02:53.490 --> 02:56.130
+between the price and the amount of text?
+
+02:56.130 --> 03:00.390
+And when we looked at that visually, it appeared that there was a slight correlation.
+
+03:00.420 --> 03:02.070
+I probably got that up.
+
+03:02.070 --> 03:06.350
+We can just take a quick peek at that to see, oh no, it's not there anymore.
+
+03:06.380 --> 03:07.700
+I've cleared it out.
+
+03:07.700 --> 03:10.370
+You'll have to look back yourself if you ran it.
+
+03:10.580 --> 03:15.590
+I hope you did go back and look at that red diagram again and you'll see what I mean.
+
+03:15.710 --> 03:17.690
+There is a slight correlation there.
+
+03:17.690 --> 03:19.820
+So let's add that in.
+
+03:19.850 --> 03:23.630
+Let's get get text length and we'll use that as well.
+
+03:24.320 --> 03:27.740
+And then the final one we're going to look at the brands.
+
+03:28.130 --> 03:31.940
+Let's first look at the most common 40 brands.
+
+03:31.940 --> 03:34.730
+So we're going to count them all up using the same approach as before.
+
+03:34.760 --> 03:39.500
+Brands most common 40.
+
+03:40.820 --> 03:43.280
+Let's look at the most common 40 brands.
+
+03:43.280 --> 03:44.510
+Here they are.
+
+03:45.080 --> 03:51.980
+And what you'll notice here is that there's a few, um, automobile car related brands, which I'm not
+
+03:51.980 --> 03:53.120
+very knowledgeable about.
+
+03:53.120 --> 03:54.500
+You may be more knowledgeable than me.
+
+03:54.500 --> 03:54.920
+You may.
+
+03:54.950 --> 03:56.180
+You may think I'm missing a trick.
+
+03:56.210 --> 04:01.370
+You may say, oh, there's a beautiful feature there that we could engineer of looking at top auto brands,
+
+04:01.370 --> 04:05.630
+in which case you should create that feature, add it in and see how you do.
+
+04:05.780 --> 04:09.020
+Uh, I sadly don't have that domain expertise.
+
+04:09.170 --> 04:15.920
+Um, and so what I've plucked out is a little category called top electronics brands, where I have
+
+04:15.920 --> 04:22.070
+shoved in things like HP, Dell, Lenovo, Samsung, Asus, Sony, canon, Apple, Intel which I've
+
+04:22.070 --> 04:25.700
+just plucked out of here into this category.
+
+04:25.700 --> 04:29.660
+And then that gives me a feature is Top Electronics brand.
+
+04:29.660 --> 04:32.630
+And this is one where again, I've done one feature.
+
+04:32.630 --> 04:34.640
+You could come up with a bunch of features.
+
+04:34.640 --> 04:36.800
+You could you could pick out different kinds of brands.
+
+04:36.800 --> 04:38.780
+You could pick out some auto brands.
+
+04:38.780 --> 04:41.390
+You can create as many features as you want.
+
+04:41.390 --> 04:46.820
+There's no harm in having more features, because the regression model is going to decide which of the
+
+04:46.820 --> 04:49.100
+features actually gives you some signal.
+
+04:49.280 --> 04:55.640
+And so a fun competition for you is to be generating features and see how well you can do with handcrafted
+
+04:55.640 --> 04:56.480
+features.
+
+04:56.600 --> 05:00.500
+I'll make one more important observation I mentioned a moment ago.
+
+05:00.500 --> 05:06.650
+I don't have the car expertise, which means I can't pluck out auto brands.
+
+05:06.650 --> 05:11.450
+And that leads to an interesting point, which is in this kind of traditional data science, it was
+
+05:11.450 --> 05:18.050
+important that data scientists had some strong knowledge of the domain they were working in.
+
+05:18.080 --> 05:22.580
+If you were working in products you needed to understand about different products.
+
+05:22.580 --> 05:26.870
+You needed to understand about different car manufacturers, because you needed to know which features
+
+05:26.870 --> 05:30.290
+to engineer to have the most likely chance of success.
+
+05:30.320 --> 05:39.260
+One of the curious and remarkable surprises of deep neural networks and modern machine learning and
+
+05:39.260 --> 05:46.070
+modern modern deep learning is that the model figures out for itself which features matter.
+
+05:46.070 --> 05:52.820
+And so there's no longer this requirement for data scientists like you and me to have deep domain expertise
+
+05:52.820 --> 05:57.260
+in the field that we were building models around, because we just have to have expertise in how to
+
+05:57.290 --> 06:02.420
+build llms and models and both of any kind of deep neural network.
+
+06:02.420 --> 06:10.670
+And they have billions of parameters, and they are able to use the the understanding power of all of
+
+06:10.700 --> 06:14.540
+their parameters to learn about the business area.
+
+06:14.540 --> 06:19.250
+But back in the day, in feature engineering, one had to understand it oneself and make things like
+
+06:19.280 --> 06:22.880
+top electronics, brands features which we have done.
+
+06:22.880 --> 06:26.120
+And all of this brings us to this function here.
+
+06:26.150 --> 06:27.710
+Get features.
+
+06:27.740 --> 06:35.120
+It takes an item and it creates this nice little dictionary here with a weight, a rank, a text length,
+
+06:35.120 --> 06:40.220
+and an is top electronics brand, which is either a one or a zero.
+
+06:40.490 --> 06:48.650
+Um, and that, that is uh, our features group for this first model.
+
+06:48.650 --> 06:50.660
+The first real model that we're building.
+
+06:50.660 --> 06:59.510
+Uh, and please, I urge you to, to spend some time turning this into your features of your dreams.
+
+06:59.510 --> 07:02.150
+Uh, see how well you could do by engineering features.
+
+07:02.150 --> 07:03.830
+And you can probably do quite well.
+
+07:03.950 --> 07:06.890
+Um, but I don't think you'll be much of a match for what's to come.
+
+07:06.890 --> 07:08.180
+But give it a try.
+
+07:08.390 --> 07:08.600
+Now.
+
+07:08.600 --> 07:10.190
+Give it your best shot.
+
+07:10.190 --> 07:14.630
+But after this, uh, this coming up in this next video, we will actually run.
+
+07:14.630 --> 07:19.760
+This run our traditional machine learning model and see how it fares.
+
+07:19.760 --> 07:20.990
+I will see you then.

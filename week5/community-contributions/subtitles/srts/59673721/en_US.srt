@@ -1,0 +1,460 @@
+WEBVTT
+
+00:00.770 --> 00:09.020
+And here we are in JupyterLab for the last time, and we are looking here at day five, the last day
+
+00:09.020 --> 00:13.130
+of the last week, week eight of the program.
+
+00:13.130 --> 00:21.140
+And we start with the beautiful beginning line import Gradio as GR, which you know what a great fan
+
+00:21.140 --> 00:25.880
+I am of Gradio, so I was considering using Streamlit instead.
+
+00:25.880 --> 00:30.440
+This time you'll see in my repo I have some other example projects in Streamlit.
+
+00:30.620 --> 00:36.920
+Um, but I figured there's, there's uh, so much, there's great things about Gradio and Streamlit
+
+00:36.920 --> 00:39.650
+and all in all, I think I would double down on Gradio.
+
+00:39.650 --> 00:43.880
+And so there's no point in, in confusing you with showing you different things that you don't need
+
+00:43.910 --> 00:45.350
+because it's all in gradio.
+
+00:45.380 --> 00:46.640
+So there we go.
+
+00:46.850 --> 00:53.720
+Uh, with that, we, uh, um, import the deal agent framework and that.
+
+00:53.720 --> 00:58.010
+So we basically import in here the whole of the thing we were looking at before.
+
+00:58.010 --> 01:04.820
+And you remember, you can just instantiate this and and call run to set the thing off and we'll import
+
+01:04.820 --> 01:06.200
+opportunity and deal.
+
+01:06.200 --> 01:14.510
+So now as we have talked about I think briefly we covered this, but somewhat in passing in the past
+
+01:14.510 --> 01:20.930
+that Gradio has these two different levels of detail, a high level API and a low level, a bit like
+
+01:20.960 --> 01:24.710
+Huggingface has the pipelines and then the Tokenizers and models.
+
+01:24.740 --> 01:32.900
+Gradio has great interface, which is its high level API for quickly building an interface, and it's
+
+01:32.900 --> 01:36.470
+really simple to get up and running if you've got like a single function, some inputs and outputs,
+
+01:36.470 --> 01:42.050
+and you want it to pop up, you can just use great interface and its cousin, great chat interface that
+
+01:42.050 --> 01:44.360
+of course we've used to great success.
+
+01:44.570 --> 01:48.560
+Um, but the interface is a wonderful way to get up and running.
+
+01:48.560 --> 01:56.120
+The lower level API is called GR dot blocks, and GR blocks gives you an ability to construct your user
+
+01:56.120 --> 01:58.640
+interface with with some more finesse.
+
+01:58.910 --> 02:04.880
+Um, and you say with roadblocks as and then you can call it anything you want.
+
+02:04.970 --> 02:11.600
+I say as you are right here, and then you say UI dot launch instead of interface dot launch in-browser
+
+02:11.600 --> 02:12.650
+dot equals true.
+
+02:12.650 --> 02:17.480
+Just means it's going to, uh, throw up a new screen as soon as we run this, rather than it being
+
+02:17.480 --> 02:18.380
+just a link.
+
+02:18.680 --> 02:20.570
+Um, so that's convenient to know.
+
+02:20.780 --> 02:25.370
+Um, and you can, you can give it a title of the window that's going to come up.
+
+02:25.370 --> 02:27.470
+Fill width is true is worth knowing.
+
+02:27.500 --> 02:33.020
+If you don't set that, then gradient puts big margins on either side of the window, which sometimes
+
+02:33.050 --> 02:33.620
+is what you want.
+
+02:33.620 --> 02:38.630
+But but often, particularly with the kinds of UIs we're going to be building, we want to use every
+
+02:38.630 --> 02:40.100
+possible pixel.
+
+02:40.370 --> 02:43.970
+So fill width is true means that it fills the whole width.
+
+02:44.000 --> 02:50.240
+So then there's this construct that you get used to, which uh, um, again, we have come across this
+
+02:50.240 --> 02:51.380
+now a couple of times.
+
+02:51.380 --> 02:58.670
+But you say with grow and then you put each row of your user interface and you break your user interface
+
+02:58.670 --> 03:00.470
+into rows like this.
+
+03:00.470 --> 03:08.150
+And in each of these context manager, each of these pieces, you can put a bunch of different UI widgets.
+
+03:08.300 --> 03:15.590
+Um, and then somewhat confusingly, you can also have with column, which is saying within a row.
+
+03:15.620 --> 03:18.020
+I would then like to break things into columns.
+
+03:18.050 --> 03:19.640
+And we'll see that in a moment.
+
+03:19.670 --> 03:25.250
+Another it is worth knowing a pro tip is that you can't have with geo column at the top level.
+
+03:25.250 --> 03:30.230
+You have to start with zero and then you can have columns and rows, uh, nested I think as deep as
+
+03:30.230 --> 03:31.370
+you want within that.
+
+03:31.370 --> 03:37.280
+But the top level one has to be rows because Gradio is built to imagine a typical scrollable window.
+
+03:37.820 --> 03:44.000
+Okay, so I am beginning with Geo Row, and I'm just going to put a markdown a heading here.
+
+03:44.000 --> 03:48.680
+And when you use GR dot markdown which gives you a markdown field which I know we've used a bunch of
+
+03:48.680 --> 03:54.500
+times now, you can also put in straight up HTML in there, which is what I do to have some centered
+
+03:54.500 --> 03:55.310
+big text.
+
+03:55.310 --> 03:56.480
+The price is right.
+
+03:56.480 --> 03:59.960
+And then I put like something below that as well.
+
+03:59.990 --> 04:01.370
+And let's see that running.
+
+04:01.370 --> 04:04.910
+I just execute this cell and up comes the window.
+
+04:04.910 --> 04:07.250
+And it's pretty vanilla at the moment.
+
+04:07.250 --> 04:08.420
+The price is right.
+
+04:08.420 --> 04:09.140
+It's got a heading.
+
+04:09.140 --> 04:12.050
+You can see that this is a row and that's another row.
+
+04:12.050 --> 04:13.430
+And there we have it.
+
+04:13.430 --> 04:14.870
+That is simple enough.
+
+04:14.900 --> 04:15.590
+We'll close that.
+
+04:15.590 --> 04:16.760
+Come back here.
+
+04:17.570 --> 04:21.500
+And uh, now we can we can do a little bit more.
+
+04:21.500 --> 04:27.230
+So what we're going to do now is add another row.
+
+04:27.770 --> 04:34.160
+And this row is going to contain a data frame, a GR data frame, which is basically a table.
+
+04:34.160 --> 04:38.630
+It's like a think of it like a spreadsheet a little embedded spreadsheet on our screen.
+
+04:38.630 --> 04:46.460
+And you tell it what headers you want description, price estimate, discount URL, uh, and uh, wrap
+
+04:46.460 --> 04:50.600
+is a bit like in Excel or in Google Sheets.
+
+04:50.630 --> 04:55.910
+It's saying that I want to wrap within any cell the column widths which are relative.
+
+04:55.910 --> 04:59.930
+So you can say that I want the first one to be four times as large as the others.
+
+04:59.930 --> 05:05.650
+How many rows, how many columns, and the height if you want it to have a fixed height.
+
+05:05.650 --> 05:07.090
+And some of these are optional.
+
+05:07.660 --> 05:15.520
+Um, and then, uh, what I'm doing is I'm calling something called UI dot load, which looks like many
+
+05:15.520 --> 05:16.780
+of the gradio functions.
+
+05:16.780 --> 05:24.640
+You'll see a very consistent pattern across Gradio, where you say the function takes the name of a
+
+05:24.640 --> 05:25.240
+function.
+
+05:25.240 --> 05:29.110
+In our case, get table inputs and outputs.
+
+05:29.110 --> 05:34.660
+And that's how you hook up a function you're providing to this particular user interface.
+
+05:34.690 --> 05:40.900
+And what we're saying is that, um, I have something called opportunities that I'll mention in just
+
+05:40.900 --> 05:41.410
+a moment.
+
+05:41.410 --> 05:45.580
+I want that to be the input of this thing, this table.
+
+05:45.580 --> 05:47.380
+And I want the output.
+
+05:47.380 --> 05:53.770
+Whatever this returns, I want to hook that up to my data frame that I just defined right here.
+
+05:54.220 --> 05:58.210
+Did you follow that the inputs are going to be this thing called opportunities that I'll speak about
+
+05:58.210 --> 05:58.900
+in a minute.
+
+05:58.900 --> 06:06.640
+And the whatever this get table returns, I want that to be hooked up to this table, this data frame
+
+06:06.640 --> 06:07.990
+that we've constructed.
+
+06:08.860 --> 06:10.090
+Hopefully that makes sense.
+
+06:10.090 --> 06:12.790
+So what is this opportunities thing.
+
+06:12.790 --> 06:18.340
+So this opportunities thing is a great state, which means it's a bit of information that I want the
+
+06:18.340 --> 06:19.810
+user interface to remember.
+
+06:19.960 --> 06:26.080
+And this great state is going to have in it something called initial opportunity, which is just going
+
+06:26.080 --> 06:32.620
+to be something I'm hard coding in here, which is going to be an opportunity for a deal called example
+
+06:32.650 --> 06:34.630
+description price $100.
+
+06:34.630 --> 06:36.970
+There's going to be a URL cnn.com.
+
+06:36.970 --> 06:38.530
+And that's going to be it.
+
+06:38.530 --> 06:41.440
+So let's run this and see what happens.
+
+06:41.440 --> 06:43.300
+We get a user interface.
+
+06:43.300 --> 06:48.010
+We get this nice looking data frame which is like a table.
+
+06:48.010 --> 06:54.460
+And it has in it one row which has the thing that I just created with an example description, a price,
+
+06:54.460 --> 06:57.490
+an estimate, a discount and a URL.
+
+06:57.520 --> 07:00.670
+And that's, that's really the extent of it.
+
+07:01.360 --> 07:03.430
+Okay, so far, so good.
+
+07:03.460 --> 07:05.260
+So let's keep going.
+
+07:05.500 --> 07:06.250
+All right.
+
+07:06.280 --> 07:08.260
+Now the plot thickens.
+
+07:08.260 --> 07:11.890
+In this next cell, you can see I'm building on the user interface in each time.
+
+07:11.890 --> 07:12.550
+And I love doing that.
+
+07:12.550 --> 07:17.680
+That's one of the great things about it's a combination of the great thing about Jupyter Labs and also
+
+07:17.680 --> 07:21.070
+about Gradio is you can build in this way incrementally.
+
+07:21.070 --> 07:27.310
+So I'm now going to create a new instance of an agent framework, a deal agent framework.
+
+07:27.670 --> 07:34.930
+Uh, and uh, otherwise I'm going to, um, I guess we're going to hook up to this, I think, in a,
+
+07:34.930 --> 07:36.310
+in a, in a later one.
+
+07:36.310 --> 07:41.890
+For now, uh, all I wanted to do was make it so that, uh, this would be hooked up.
+
+07:41.890 --> 07:47.260
+We'd see it creating itself, we'd see some of the information, and I'd have it so that you can select
+
+07:47.260 --> 07:51.910
+an opportunity, and it would call the messenger to alert about that opportunity.
+
+07:52.120 --> 07:58.600
+Um, so what you can see down here is I've now got two different things hooked up using radios, standard
+
+07:58.600 --> 07:59.320
+pattern.
+
+07:59.350 --> 08:01.120
+This is the same as before.
+
+08:01.120 --> 08:08.200
+If you load it calls gettable, it passes in the opportunities and the outputs go in the frame.
+
+08:08.410 --> 08:16.510
+If you select if you, if I'm um, I'm calling the select uh function on the data frame itself so that
+
+08:16.510 --> 08:24.130
+if a selection is made it should call the function do select the inputs should again be the opportunity.
+
+08:24.130 --> 08:25.840
+There aren't any outputs.
+
+08:25.840 --> 08:27.880
+What does do select do.
+
+08:27.910 --> 08:30.910
+It finds the index of what you've selected.
+
+08:30.910 --> 08:37.840
+And you specify that by having that as an argument right here, it looks up that opportunity from the
+
+08:37.840 --> 08:38.950
+list of opportunities.
+
+08:38.950 --> 08:45.880
+And it will then call the agent framework the planner the messenger and send an alert about that opportunity.
+
+08:46.330 --> 08:47.200
+All right.
+
+08:47.350 --> 08:48.700
+Seems reasonable.
+
+08:48.730 --> 08:49.990
+Let's run this.
+
+08:50.020 --> 08:55.300
+When we run it, the first thing you'll see is that there's a lot of, um.
+
+08:55.960 --> 08:57.640
+It was too fast.
+
+08:57.670 --> 09:00.100
+If I go back, you'll see that it was printing.
+
+09:00.130 --> 09:08.290
+Of course, our log output to the the command line here to to the output of the Jupyter lab.
+
+09:08.290 --> 09:09.580
+So we could see standard out.
+
+09:09.580 --> 09:10.780
+That's what I was grasping for.
+
+09:10.810 --> 09:15.580
+Then standard out is showing the log messages with the color system.
+
+09:15.580 --> 09:17.020
+So we know what is doing what.
+
+09:17.050 --> 09:18.280
+Just as we wanted.
+
+09:18.880 --> 09:22.270
+And if we come over here it's showing our table with CNN.
+
+09:22.270 --> 09:27.700
+And if I click on this I did just get a notification to show you believe it.
+
+09:27.730 --> 09:30.220
+Hang on, I will press it again.
+
+09:30.220 --> 09:33.190
+Press and bang, I get a notification.
+
+09:33.610 --> 09:37.210
+Um, and so there you have it.
+
+09:37.240 --> 09:44.140
+We have now hooked up gradio to our agent framework at least so that it can notify us.
+
+09:44.140 --> 09:47.020
+So it's the beginnings of a user interface.
+
+09:47.020 --> 09:51.100
+It's the beginnings of something with the agent framework running behind the scenes.
+
+09:51.130 --> 09:59.530
+In the next video, we will move off the Jupyter Lab environment into the real code for the user interface.
+
+09:59.560 --> 10:00.640
+I'll see you then.

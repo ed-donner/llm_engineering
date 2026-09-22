@@ -1,0 +1,580 @@
+WEBVTT
+
+00:01.160 --> 00:10.100
+Here we are back in Colab, looking at the week seven, day five of the Colab notebooks and I'm on a
+
+00:10.100 --> 00:12.980
+T4 box, so it's a low end cheap box.
+
+00:12.980 --> 00:18.260
+That's all that's required since we are doing inference today, not training.
+
+00:18.590 --> 00:22.070
+Um, or the training is still happening in this other tab, as you can see.
+
+00:22.070 --> 00:30.080
+Uh, as, as as we speak, uh, we start with a few installs and then some imports with the usual kind
+
+00:30.110 --> 00:30.890
+of stuff.
+
+00:30.890 --> 00:34.190
+And let me just tell you about the constants that we've got here.
+
+00:34.340 --> 00:39.380
+Um, the base model, of course, llama 3.1 project name is Preiser, the hugging face user.
+
+00:39.380 --> 00:41.450
+So you choose here, you can put in.
+
+00:41.480 --> 00:47.480
+Well, I hope that you'll be putting in your name and you'll be running this inference, this test against
+
+00:47.480 --> 00:50.960
+the model that you have fine tuned and uploaded to the Hugging Face Hub.
+
+00:51.140 --> 00:58.730
+It is possible, though, that you have, uh, either, uh, lost patience and or you just want to see
+
+00:58.730 --> 01:03.680
+how my one did, in which case you can keep my name in there because this model will be public.
+
+01:03.680 --> 01:06.980
+So you will be able to run against this model too.
+
+01:07.430 --> 01:10.460
+Um, and I've selected in here the run name.
+
+01:10.460 --> 01:11.210
+This is the run name.
+
+01:11.210 --> 01:17.750
+You may recognize that that 39 there is the run name in hugging face of the one that I ran for multiple
+
+01:17.780 --> 01:19.220
+epochs in the past.
+
+01:19.430 --> 01:25.940
+Um, and this revision, this is where I am specifying which of the different checkpoints I am selecting.
+
+01:25.940 --> 01:29.720
+I'm selecting the one before it started to badly overfit.
+
+01:29.780 --> 01:34.640
+Um, and this was the one where it was still getting good, good results.
+
+01:35.150 --> 01:39.200
+Um, and then this becomes the name of my fine tuned model.
+
+01:39.200 --> 01:40.880
+It is, of course, the hugging face name.
+
+01:40.880 --> 01:41.270
+I'm sorry.
+
+01:41.270 --> 01:42.590
+I should make this, uh.
+
+01:43.190 --> 01:45.080
+Otherwise, I'm hard coding my name in here.
+
+01:45.080 --> 01:49.220
+But what I'll do is I will make two versions of this.
+
+01:49.220 --> 01:55.340
+One will be for the hugging face user that you have entered in.
+
+01:59.120 --> 02:14.500
+And the other one I will comment out and I will say uncomment this line if you should use my model.
+
+02:16.810 --> 02:22.000
+Uh, and either of course, if you're using your model, you'll need to change the run name and the
+
+02:22.000 --> 02:24.100
+revision to match whatever you're using.
+
+02:24.100 --> 02:27.340
+And you can start by not putting in put revision equals none.
+
+02:27.730 --> 02:36.610
+Um, or revision equals none if you're not using a revision at all okay.
+
+02:36.610 --> 02:43.120
+And then for the data set uh, either again we load in the data set that you have carefully, lovingly
+
+02:43.120 --> 02:45.550
+curated and uploaded to the Huggingface hub.
+
+02:45.700 --> 02:49.420
+Uh, or you can just use my one should you prefer.
+
+02:49.690 --> 02:55.630
+Um, and now and by the way, if you have gone with the lower cost version of this and you've trained
+
+02:55.630 --> 03:01.170
+your model for appliances only for home appliances, then of course you should be filling in the light
+
+03:01.200 --> 03:07.470
+data set that you'll have built and your model for for home appliances, and you will get similar kinds
+
+03:07.470 --> 03:08.700
+of results.
+
+03:09.630 --> 03:11.520
+Quant for bit is true.
+
+03:11.550 --> 03:18.000
+We are quantizing and then you may remember these are the nice ways that we can print colorful lines
+
+03:18.000 --> 03:19.410
+to the output.
+
+03:19.740 --> 03:20.280
+Okay.
+
+03:20.310 --> 03:22.290
+Then we log in to hugging face.
+
+03:22.680 --> 03:24.090
+You're used to this now.
+
+03:24.240 --> 03:27.000
+We don't need to log into weights and biases because we're not training.
+
+03:27.000 --> 03:29.400
+And then we load in the data set.
+
+03:29.400 --> 03:35.280
+And as well, you know, at this point if I look at the first training data set, we won't be using
+
+03:35.280 --> 03:36.030
+it anymore.
+
+03:36.030 --> 03:38.790
+But it has the price baked into it.
+
+03:38.820 --> 03:39.750
+It looks like this.
+
+03:39.780 --> 03:44.640
+We will of course now be using the test data set which looks like this.
+
+03:44.640 --> 03:46.800
+The text does not have the price.
+
+03:46.800 --> 03:50.940
+The price is only in the answer which is not given to the model.
+
+03:50.940 --> 03:54.060
+It's only given this text as well.
+
+03:54.090 --> 03:59.850
+You can double triple check in a moment when we get to the part that we'll be actually doing this prediction,
+
+04:00.490 --> 04:04.420
+It would be a bit of a gaffe, wouldn't it, if we were accidentally passing in the price itself?
+
+04:04.690 --> 04:06.010
+But we're not.
+
+04:06.070 --> 04:13.300
+Okay, so then first of all, it's time to it's time to load in our tokenizer and our fine tuned model.
+
+04:13.300 --> 04:17.110
+So we first pick the right kind of quantization.
+
+04:17.140 --> 04:19.180
+You're familiar with this same as before.
+
+04:19.210 --> 04:21.370
+This is also the same as before.
+
+04:21.490 --> 04:22.960
+Well with a slight difference just here.
+
+04:22.960 --> 04:24.460
+But we load in the tokenizer.
+
+04:24.460 --> 04:28.540
+We put in that boilerplate stuff to set up some of its parameters.
+
+04:28.540 --> 04:33.850
+We load in the base model as before using the right quant config.
+
+04:33.880 --> 04:36.070
+And we have got that one liner again.
+
+04:36.070 --> 04:39.280
+And now this is new.
+
+04:39.280 --> 04:42.850
+So we are now loading something called a left model.
+
+04:43.090 --> 04:46.510
+If you remember stands for parameter efficient fine tuning.
+
+04:46.510 --> 04:51.850
+It's the name of the package which which which has coded Laura.
+
+04:52.120 --> 04:57.850
+So a left model represents it's a hugging face model that represents a model that has a base.
+
+04:57.850 --> 05:01.190
+And then it's got some adapter applied on top of the base.
+
+05:01.760 --> 05:02.990
+And so that is what we load.
+
+05:03.020 --> 05:05.090
+Now you call that with Frompretrained.
+
+05:05.090 --> 05:11.930
+And you can pass in the base model, the fine tuned model name which we set up above.
+
+05:11.930 --> 05:13.820
+And then a revision if you wish.
+
+05:13.820 --> 05:17.780
+So if revision is not null none then I pass it in.
+
+05:17.780 --> 05:20.570
+Otherwise we just don't don't don't bother passing it in.
+
+05:21.140 --> 05:26.570
+Um and so that will load in our fine tuned model.
+
+05:26.570 --> 05:28.670
+And at the end of that we'll print the memory footprint.
+
+05:28.700 --> 05:35.900
+You may remember the memory footprint was what, 5.6GB before and now it is 5.7.
+
+05:35.930 --> 05:44.930
+It's 5700MB because there's that extra 100MB or 109MB of our Laura adapters.
+
+05:45.020 --> 05:48.950
+Um, our Laura A's and Laura B's in there.
+
+05:49.070 --> 05:53.540
+Uh, one more time, we can just print this fine tuned model.
+
+05:53.540 --> 05:56.750
+You may remember we did this right back in week.
+
+05:56.750 --> 06:01.240
+Uh, in day two, when I mentioned we were, we were taking a look into the future because I was using
+
+06:01.240 --> 06:01.480
+this.
+
+06:01.480 --> 06:04.120
+This model itself was the one that we looked at.
+
+06:04.120 --> 06:05.620
+And this is how it appears.
+
+06:05.620 --> 06:10.630
+If you remember this, you can see all the different layers of the neural network, and you can see
+
+06:10.630 --> 06:17.830
+that when you get to these, the, the tension layers, that there's a dropout layer in there.
+
+06:17.830 --> 06:20.860
+Now, you know all about dropout with 10% probability of dropouts.
+
+06:20.860 --> 06:25.240
+And then there's Laura A and Laura B that are in there as well.
+
+06:25.480 --> 06:33.190
+Um, and uh, yeah, you can see that Laura A and Laura B are for all of the layers that have been adapted,
+
+06:33.220 --> 06:34.690
+our target modules.
+
+06:34.690 --> 06:41.230
+And you also worth just noting down at the very end here, the LM head, since I just talked about that,
+
+06:41.260 --> 06:50.740
+this is the final, uh, the, the, the final fully connected layer that outputs the logits, the number
+
+06:50.740 --> 06:58.630
+for each of the possible, uh, vocab token vocab entries, um, which will then go into a softmax in
+
+06:58.630 --> 07:01.540
+order to predict the probability of the next token.
+
+07:02.560 --> 07:03.670
+All right.
+
+07:04.360 --> 07:05.320
+Are you ready?
+
+07:05.590 --> 07:09.520
+So, uh, we're going to go in and run inference.
+
+07:09.610 --> 07:18.280
+Uh, the, uh, I want to give you one more time, a quick, uh, memory that GPT four zero got to $76
+
+07:18.310 --> 07:21.100
+llama 3.1 base model.
+
+07:21.100 --> 07:24.670
+This this untrained model was $396.
+
+07:24.670 --> 07:25.900
+Very disappointing.
+
+07:26.140 --> 07:34.450
+Uh, this human being here got 127, uh, as my error, uh, and very much hoping to see that llama
+
+07:34.480 --> 07:36.370
+can beat a human.
+
+07:36.670 --> 07:43.090
+Um, as an open source model, it is important to keep in mind I don't, uh, in case you're expecting
+
+07:43.090 --> 07:50.290
+something, uh, crazy here, that prices of things have a lot of volatility, and the model doesn't
+
+07:50.290 --> 07:51.430
+know anything about that.
+
+07:51.430 --> 07:56.470
+It's not going to know if the price of a product has been slashed, uh, because it's on sale by by
+
+07:56.470 --> 07:57.250
+a huge amount.
+
+07:57.250 --> 08:02.370
+So there is a natural big variation in these product prices, as I discovered when I was trying to do
+
+08:02.370 --> 08:04.860
+it for myself and got wildly out.
+
+08:04.860 --> 08:07.290
+This is this is it's a very difficult challenge.
+
+08:07.290 --> 08:10.350
+You might think that it sounds like a it's not that hard.
+
+08:10.350 --> 08:11.190
+It is very hard.
+
+08:11.220 --> 08:12.840
+Try it for yourself and you'll see.
+
+08:13.320 --> 08:14.820
+Um, okay.
+
+08:14.970 --> 08:17.040
+With that caveat in mind, let's keep going.
+
+08:17.040 --> 08:23.340
+So extract price is the function that you, you know, well it takes a string, it looks for price is
+
+08:23.340 --> 08:23.820
+dollars.
+
+08:23.820 --> 08:30.600
+And then it finds the number that comes at any point after that one more time, let's just satisfy ourselves,
+
+08:30.630 --> 08:34.410
+extract price and put in a string.
+
+08:34.410 --> 08:46.260
+Price is dollars a fabulous, uh, eight, nine nine, 99 or so, whatever I want to say and out comes
+
+08:46.260 --> 08:47.160
+the price.
+
+08:47.490 --> 08:48.870
+Uh, I'm sure you get it.
+
+08:48.990 --> 08:51.060
+Uh, so that's extract price.
+
+08:51.240 --> 08:59.540
+Uh, and then this is the model predict function, the function that we used before, um, that takes
+
+08:59.540 --> 09:01.670
+the the inputs.
+
+09:01.940 --> 09:04.460
+Um, that takes the attention mask.
+
+09:04.460 --> 09:06.980
+Is that thing I told you about that you use to avoid it?
+
+09:06.980 --> 09:11.690
+Throwing a warning and to make it very clear that we don't need it to predict the the most of the input
+
+09:11.690 --> 09:12.440
+prompt.
+
+09:12.890 --> 09:20.570
+Um, and then the outputs we call generate on the, on the fine tuned model, we pass in the inputs.
+
+09:20.600 --> 09:26.600
+We pass in this attention mask, we only need up to three new tokens because we're going to get the
+
+09:26.600 --> 09:29.270
+the next token is really going to be the one that we care about.
+
+09:29.270 --> 09:33.530
+But we'll, we'll put in some more just to make sure if, if it makes some horrible mistake that we
+
+09:33.560 --> 09:39.050
+capture that, um, and then we take, we say only one response, please, we take that one response
+
+09:39.050 --> 09:40.700
+and we extract the price.
+
+09:41.150 --> 09:46.580
+Now, as it happens, we can do a little bit better than this prediction function.
+
+09:46.580 --> 09:48.770
+This doesn't make a whole massive amount of difference.
+
+09:48.770 --> 09:54.080
+But but since, since, since we've got so much control over this model, we can actually do something
+
+09:54.110 --> 09:58.010
+a bit smarter with how we handle this next token.
+
+09:58.010 --> 09:59.720
+And so I've written this function.
+
+09:59.720 --> 10:02.150
+That's an improved model predict function.
+
+10:02.150 --> 10:06.320
+Improved model predict uh which is um, yeah.
+
+10:06.350 --> 10:09.110
+It's just um, it's a bit more involved.
+
+10:09.290 --> 10:18.230
+So, um, I guess, uh, I'll, uh, I'll just explain it in simple terms, but it's not super important.
+
+10:18.230 --> 10:24.290
+What it does is instead of just taking the most likely next token, it takes the most likely three next
+
+10:24.290 --> 10:27.260
+tokens, the three with the highest probability.
+
+10:27.500 --> 10:30.830
+Uh, and then it says, okay, what probability did you give for these three.
+
+10:30.830 --> 10:32.390
+And they represent real numbers.
+
+10:32.390 --> 10:39.530
+Like maybe you said it was very likely to be worth $100 and then a little bit less likely to be 99,
+
+10:39.530 --> 10:42.050
+but a lot more likely to be 101.
+
+10:42.230 --> 10:43.760
+But 100 was the most.
+
+10:43.850 --> 10:47.060
+And then it just takes a weighted average between those three numbers.
+
+10:47.060 --> 10:52.310
+And that's a way for us to get a little bit more precise about what's it trying to predict.
+
+10:52.490 --> 10:57.770
+Um, and it allows it to predict something that's not necessarily always a whole number.
+
+10:58.000 --> 11:01.480
+Um, so it's a it's a technique I've used.
+
+11:01.480 --> 11:06.520
+It's sort of solving for the fact that we're treating what is really a regression problem as a classification
+
+11:06.520 --> 11:07.300
+problem.
+
+11:07.360 --> 11:11.950
+It's not super important that you know about this, but but and it doesn't make much difference if you
+
+11:11.950 --> 11:13.420
+use the function above.
+
+11:13.450 --> 11:14.800
+It just makes a bit of difference.
+
+11:15.010 --> 11:20.260
+But it is maybe worth looking through this if you're interested in these last layers of the neural network,
+
+11:20.290 --> 11:27.670
+because you can see that what I do is I take the outputs of the fine tuned model passing in the inputs,
+
+11:27.670 --> 11:37.150
+and these are considered the the logits that I mentioned this vector across all of the possible vocabulary
+
+11:37.210 --> 11:38.860
+entries for a tokenizer.
+
+11:38.860 --> 11:43.180
+And then I call softmax in order to convert that into probabilities.
+
+11:43.180 --> 11:46.270
+And then I go through the top three.
+
+11:46.270 --> 11:51.490
+And I just this is some some gumph that just takes the weighted average between those top three.
+
+11:51.610 --> 11:54.400
+It's weighted prices and sums up the weighted prices.
+
+11:54.400 --> 11:56.050
+And that's what it returns.
+
+11:56.050 --> 11:58.660
+So it's very similar to model predict.
+
+11:58.660 --> 12:03.940
+It just gives a slightly more accurate answer that's based on the top three predictions, not just the
+
+12:03.940 --> 12:05.260
+top prediction.
+
+12:05.890 --> 12:09.100
+Uh, and so then we have our class tester.
+
+12:09.100 --> 12:12.700
+This is just exactly the same tester class that we've used before.
+
+12:12.940 --> 12:19.450
+Um, and it is worth just pointing out that the thing I mentioned before this, this is obviously this
+
+12:19.450 --> 12:21.250
+is the meat of the whole thing.
+
+12:21.250 --> 12:28.060
+When we take whatever functions passed in and we call it, and what we pass in is only the text associated
+
+12:28.060 --> 12:28.780
+with the data point.
+
+12:28.810 --> 12:30.730
+We obviously don't tell it the price.
+
+12:30.730 --> 12:35.800
+All it knows is the text, uh, so that it doesn't have any knowledge of the price.
+
+12:35.800 --> 12:37.330
+Of course, of course.
+
+12:37.720 --> 12:45.610
+Um, and then, uh, we then just call test a test where I'm going to use the improved function, and
+
+12:45.610 --> 12:53.710
+we pass in the test and like some kind of a soap opera, I'm now, of course, going to say we will
+
+12:53.710 --> 12:57.070
+get the results of this in the next video.
+
+12:57.100 --> 12:58.540
+I will see you there.

@@ -1,0 +1,391 @@
+WEBVTT
+
+00:00.560 --> 00:02.960
+Well, here we are again in Google Colab.
+
+00:02.960 --> 00:06.230
+It's been a minute since we were here, and welcome back to it.
+
+00:06.290 --> 00:10.790
+Uh, this week we're going to spend our time here and it's going to be terrific.
+
+00:10.790 --> 00:12.680
+It's actually it's going to be the best week yet.
+
+00:12.680 --> 00:16.610
+I know I keep saying that, but this time it really, really is going to be peak peak.
+
+00:16.640 --> 00:21.740
+The only thing that's going to be better than what we do here is what's coming next week in week eight,
+
+00:21.740 --> 00:24.590
+which really, I mean, I can't wait to tell you about that.
+
+00:24.590 --> 00:27.860
+But stay focused, keep on week seven.
+
+00:27.890 --> 00:29.870
+There's a lot to go through here.
+
+00:29.870 --> 00:32.240
+So first we do.
+
+00:32.270 --> 00:35.660
+I've set up this week seven day one Colab.
+
+00:35.660 --> 00:37.730
+We start with some installs.
+
+00:37.850 --> 00:42.380
+Um, and one of the things we're installing is a new package you've not seen before, a hugging face
+
+00:42.380 --> 00:48.950
+library called Peft, which stands for parameter efficient fine tuning, parameter Efficient Fine Tuning,
+
+00:48.950 --> 00:52.460
+which is their name for the library that includes Laura.
+
+00:52.610 --> 00:54.080
+Uh, it's within this library.
+
+00:54.110 --> 00:55.220
+Pfft, pfft.
+
+00:55.220 --> 00:56.420
+Just rolls off the tongue.
+
+00:56.480 --> 00:57.830
+Um, so that is it.
+
+00:57.830 --> 01:08.180
+I am on a T4 box, which is the lowest of the GPU boxes, which just has 15, gigabytes of GPU Ram.
+
+01:08.210 --> 01:12.890
+You can see, most of which I'm already using up just a few cells into this.
+
+01:12.890 --> 01:15.170
+So anyway, we do our Pip installs.
+
+01:15.170 --> 01:20.000
+We do a bunch of imports here, uh, and set some constants.
+
+01:20.000 --> 01:24.800
+We're going to be working with a base model which is llama 3.18 billion.
+
+01:24.800 --> 01:27.440
+And I'm also setting a fine tuned model here.
+
+01:27.440 --> 01:29.690
+I obviously we haven't done any fine tuning yet.
+
+01:29.690 --> 01:30.110
+I'm.
+
+01:30.140 --> 01:31.670
+This is from the future.
+
+01:31.790 --> 01:37.070
+Uh, I'm bringing this in just so I can show you what a fine tuning model looks like in terms of the
+
+01:37.070 --> 01:42.980
+the the Laura matrices applying to the target modules.
+
+01:43.160 --> 01:52.310
+And then here are three hyper parameters which now you're an expert on are which I am setting to 32.
+
+01:52.580 --> 01:56.690
+You probably remember I said start with eight and then go to 16 and then go to 32.
+
+01:56.720 --> 01:58.130
+Well I got to 32.
+
+01:58.130 --> 02:00.680
+Uh, and that was where I ended up.
+
+02:00.680 --> 02:03.650
+Uh, and so I'm doing 32 here.
+
+02:03.770 --> 02:06.980
+Uh, alpha is a rule of thumb, double R.
+
+02:07.010 --> 02:08.630
+So there it is at 64.
+
+02:08.630 --> 02:10.610
+And the target modules.
+
+02:10.610 --> 02:14.780
+So these are the four names of the layers that we are targeting.
+
+02:14.780 --> 02:17.420
+And you will see why shortly.
+
+02:17.420 --> 02:22.880
+And this is by far the most common, uh, setup for llama models.
+
+02:22.910 --> 02:27.590
+Other models may have different names of their layers, but yeah, you give the names of the layers
+
+02:27.590 --> 02:32.120
+that you will be targeting in this list that you assign to target modules.
+
+02:32.870 --> 02:33.530
+Okay.
+
+02:33.530 --> 02:38.990
+So next, this is some standard stuff that you've done a few times now to log in to Hugging Face.
+
+02:39.200 --> 02:43.760
+Um, and I've got the usual blurb that if you don't have hugging face account, but of course you have
+
+02:43.760 --> 02:45.290
+a hugging face account by now.
+
+02:45.440 --> 02:51.680
+Uh, but you log in there, it's free, you get a token, and then you go to this section in the Colab,
+
+02:51.710 --> 02:59.270
+the, the key, and you use that to put in your, uh, your, your token, um, as you've done in the
+
+02:59.270 --> 02:59.570
+past.
+
+02:59.570 --> 03:03.500
+And then when you do that, you can run this cell and it will log in to hugging face.
+
+03:03.710 --> 03:06.260
+Uh, the alternative is you could just type in your token there.
+
+03:06.260 --> 03:09.440
+If you have any problems with accessing the notebook.
+
+03:09.680 --> 03:18.480
+Okay, so without further ado, I am going to read in the base model without any quantization.
+
+03:18.480 --> 03:19.440
+No funny business.
+
+03:19.470 --> 03:25.290
+We're just going to read in the entire llama 3.18 billion base model, remembering that is the smallest
+
+03:25.290 --> 03:26.940
+of the llama series.
+
+03:27.090 --> 03:33.120
+Uh, device map equals auto means use a GPU if you've got one which which this box does.
+
+03:33.150 --> 03:36.810
+And I'm not going to run this now because I just ran it and it took about five minutes.
+
+03:36.930 --> 03:40.830
+Uh, and it came up with a warning that it couldn't fit it all in GPUs.
+
+03:40.830 --> 03:42.600
+So some of it went on the CPU.
+
+03:42.600 --> 03:47.850
+And that's why if you look at the resources over on the right, you'll see that my GPU is 11 out of
+
+03:47.850 --> 03:53.880
+15 gigs are filled up, and almost 13 gigs of Ram are also filled up.
+
+03:53.880 --> 04:00.690
+So it's really taken up both the reason for the spike here is because I did it once, and then I restarted
+
+04:00.690 --> 04:01.710
+and did it again.
+
+04:01.710 --> 04:07.620
+Uh, obviously all you will see is the the one rise up to the top when you run this.
+
+04:07.710 --> 04:08.310
+Okay.
+
+04:08.340 --> 04:14.460
+And so now I'm going to print how much memory is this base model using up.
+
+04:14.460 --> 04:18.990
+And again if you if you wanted to train this it would it would take many many more times.
+
+04:18.990 --> 04:25.440
+This this is just how much memory is the base model using up, and its memory footprint is just north
+
+04:25.440 --> 04:29.790
+of 32GB, 32GB of memory being used.
+
+04:29.790 --> 04:31.890
+And you may remember that's what we said earlier.
+
+04:31.890 --> 04:38.310
+It's basically 32 bit floats for each of the 8 billion parameters.
+
+04:39.120 --> 04:39.690
+Okay.
+
+04:39.690 --> 04:41.610
+So that's, uh, it's big.
+
+04:41.850 --> 04:43.770
+Uh, and let's just look at it.
+
+04:43.770 --> 04:47.340
+You can just take a look by printing the base model itself.
+
+04:47.340 --> 04:54.870
+And this now is a view on what it looks like, um, so briefly before, but we'll just pause for a moment.
+
+04:54.870 --> 04:59.700
+And again, this isn't going to be a deeply theoretical class, so I'm not going to do too much in the
+
+04:59.700 --> 05:02.310
+way of explaining this other than saying what you can.
+
+05:02.340 --> 05:07.770
+What is made clear when you look at the architecture of this neural network is that there are it consists
+
+05:07.770 --> 05:14.070
+of, first of all, an embedding layer, which is the thing that that takes text and turns it into it,
+
+05:14.070 --> 05:18.840
+embeds it into vectors in the in the neural network.
+
+05:18.840 --> 05:23.700
+So this is very it's like the, the encoder encoding LMS that we talked about before.
+
+05:23.730 --> 05:32.270
+The first layer is embedding tokens, um, into a, um, a vector.
+
+05:32.300 --> 05:36.740
+Uh, and in fact, that is the dimensionality of how many possible tokens we have.
+
+05:36.740 --> 05:40.130
+And this is the dimensionality of the embedded vectors.
+
+05:40.550 --> 05:46.820
+So there are then 32 layers called Lama decoder layers.
+
+05:46.850 --> 05:48.860
+32 sets of them.
+
+05:48.860 --> 05:53.510
+And each of those 32 looks like all of this.
+
+05:53.960 --> 05:55.490
+Let's get that right to there.
+
+05:55.520 --> 06:02.810
+Um, and so you can you can go through this, but you can see that it consists of the the set of attention
+
+06:02.810 --> 06:08.180
+layers, which are called q, proj, k proj, v and o proj.
+
+06:08.180 --> 06:15.080
+And these these are the layers that we have targeted in our target modules, which is typically what
+
+06:15.080 --> 06:15.410
+you do.
+
+06:15.440 --> 06:19.190
+You can try others too, but this is the most common approach.
+
+06:19.190 --> 06:26.120
+And you'll see that, uh, some of these layers have 4000 odd dimensions in and out.
+
+06:26.330 --> 06:31.530
+Uh, this one and this one and some of them are 4000 in and and 1000 out.
+
+06:32.700 --> 06:36.030
+So they've got some different dimensionality there.
+
+06:36.030 --> 06:39.690
+And that will be somewhat relevant when we look at the lora A and Lora B.
+
+06:39.720 --> 06:45.330
+But I'm not going to get too deep into this, but this is yours to experiment with and read up on if
+
+06:45.330 --> 06:47.430
+you want more more information about it.
+
+06:47.670 --> 06:54.450
+There is then a multi-layer perceptron layer with something that, for example, the the up is something
+
+06:54.450 --> 07:00.090
+that explodes out the number of dimensions, and then the down then reduces down the number of dimensions.
+
+07:00.090 --> 07:03.150
+And that's followed by an activation function.
+
+07:03.150 --> 07:06.360
+Again, for people that are more familiar with this stuff.
+
+07:06.390 --> 07:12.540
+The activation function that's used for Lama is Selu, which you can see in the PyTorch documentation.
+
+07:12.540 --> 07:19.020
+You can look at it and learn more about what that is and and why it is used.
+
+07:19.410 --> 07:25.830
+Um, so that is then followed by by layer norm layers.
+
+07:26.280 --> 07:33.110
+Um, and then at the very end there is a linear layer, the LM head.
+
+07:33.110 --> 07:34.910
+And this is sometimes targeted.
+
+07:34.910 --> 07:36.950
+This is sometimes added to target modules.
+
+07:36.950 --> 07:41.930
+As I mentioned before, in the cases where you wanted to generate something, where part of what you
+
+07:41.930 --> 07:47.120
+want it to learn is to generate results, that will take a different format of some sort.
+
+07:47.150 --> 07:52.700
+Maybe you want a particular structure of JSON, or maybe something completely different, like you want
+
+07:52.730 --> 07:57.830
+it to speak a different language, or you want it to to structure things in some, some very unique
+
+07:57.830 --> 07:58.490
+way.
+
+07:58.520 --> 08:02.210
+Then you might target this in your target modules as well.
+
+08:02.840 --> 08:05.540
+Um, but that gives you a sense of the architecture.
+
+08:05.540 --> 08:11.420
+And in a second, when we look at the Lora adapters, you'll see why I've taken a moment to dwell on
+
+08:11.420 --> 08:12.170
+this.
+
+08:12.470 --> 08:13.250
+All right.
+
+08:13.250 --> 08:15.020
+So we used up 32GB.
+
+08:15.050 --> 08:21.200
+The next thing we need to do is to restart this session by going to runtime and restart session to clear
+
+08:21.230 --> 08:23.120
+out the memory so we can keep going.
+
+08:23.480 --> 08:27.110
+There are some torch commands that will clear the cache, but in fact they're not aggressive enough.
+
+08:27.110 --> 08:31.070
+It still holds on to too much because we've consumed so much.
+
+08:31.100 --> 08:33.950
+The only way forwards now is to restart the session.
+
+08:33.950 --> 08:35.420
+So that's what I'll do.
+
+08:35.540 --> 08:40.430
+And I will see you in the next video once I have restarted and I'm back here again.

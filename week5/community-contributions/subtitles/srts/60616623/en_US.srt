@@ -1,0 +1,298 @@
+WEBVTT
+
+00:00.050 --> 00:05.660
+So we're now going to start week one of the course when we are going to be looking at exploring frontier
+
+00:05.690 --> 00:10.880
+models, models at the forefront of what's possible in this first day, we're going to set up an environment
+
+00:10.880 --> 00:13.310
+and then build your first LM solution.
+
+00:13.310 --> 00:17.000
+We're then going to talk about how to be positioned for success in the next few weeks.
+
+00:17.000 --> 00:21.320
+We're then going to compare models at the very frontier of what's possible.
+
+00:21.320 --> 00:23.900
+Some that you know well and some I think will be new to you.
+
+00:23.930 --> 00:29.030
+We're then going to talk about transformers, which is the architecture at the heart of the different
+
+00:29.030 --> 00:32.210
+models that we use in this course, almost all of the models.
+
+00:32.270 --> 00:38.090
+And then finally, we'll end with a juicy commercial project that you'll be able to use, and I'll have
+
+00:38.090 --> 00:40.310
+an exercise for you to make it your own.
+
+00:40.310 --> 00:44.540
+Apply it to different business areas, something that maybe you can use in your day job immediately.
+
+00:44.540 --> 00:49.580
+Maybe you'll be able to use it as a project that you can have as an example project for yourself.
+
+00:50.240 --> 00:55.910
+So we're now going to get hopefully some satisfying instant results for you.
+
+00:55.940 --> 01:00.080
+We already used a llama to do some some fun things on your computer already, but now we're going to
+
+01:00.080 --> 01:03.890
+take it a notch higher by calling out to APIs directly.
+
+01:03.980 --> 01:11.630
+But first, the necessary first step is to set up your environment, create a full spec data science
+
+01:11.630 --> 01:16.700
+environment that will have the the sufficient horsepower to take you through the entire eight week program
+
+01:16.700 --> 01:17.450
+we have ahead.
+
+01:17.450 --> 01:22.190
+And there's quite a lot of stuff that we're going to need to install to make sure we're at that point.
+
+01:22.400 --> 01:28.580
+And I guess I should mention that sometimes, sometimes this experience can be a bit frustrating.
+
+01:28.580 --> 01:32.090
+Most of the time it goes really smoothly and everything just fits in place.
+
+01:32.090 --> 01:33.560
+And it's five minutes and you're done.
+
+01:33.560 --> 01:38.600
+But sometimes some people hit speed bumps for whatever reason, because of something about the system
+
+01:38.630 --> 01:41.720
+or or some other new effect.
+
+01:41.780 --> 01:47.720
+And it can be a bit frustrating, but I am here to take you through it step by step and make sure it's
+
+01:47.720 --> 01:50.420
+successful for you so that this will go smoothly.
+
+01:50.420 --> 01:55.280
+It'll be behind you in no time, and we'll be on to actual projects, and we'll never have to worry
+
+01:55.280 --> 01:58.250
+about environment setup again for the next eight weeks.
+
+01:58.250 --> 02:04.590
+So creating the full spec data science environment, it ain't as easy as I wish it were.
+
+02:04.950 --> 02:07.860
+There is some stuff to do, but we'll get through it fast.
+
+02:07.860 --> 02:11.910
+First of all, we'll clone the repo for people who are familiar with git.
+
+02:11.910 --> 02:16.500
+That's a that's easy, but but I will make sure I walk you through it in case this is a new thing.
+
+02:16.620 --> 02:21.930
+Then we will go through the Readme instructions to set up the environment.
+
+02:21.960 --> 02:27.180
+Now I recommend that we use something called Anaconda that some of you may have already used Anaconda.
+
+02:27.180 --> 02:30.960
+It's a high powered thing and it's quite heavyweight.
+
+02:30.960 --> 02:37.140
+It creates an entire environment for you, a dedicated, isolated environment on your computer for this
+
+02:37.140 --> 02:43.200
+course, and it does so in a way that guarantees high compatibility between what you're doing on your
+
+02:43.200 --> 02:46.590
+computer and what I do on mine and everyone else on this course.
+
+02:46.680 --> 02:48.900
+So it's very good at that.
+
+02:49.170 --> 02:50.550
+But it is quite heavyweight.
+
+02:50.550 --> 02:55.110
+It involves downloading a lot from the internet and installs a lot because it builds everything from
+
+02:55.110 --> 02:56.130
+the ground up.
+
+02:56.520 --> 02:59.100
+If it causes you problems, there's an alternative.
+
+02:59.100 --> 03:01.080
+We can use a simpler approach.
+
+03:01.080 --> 03:06.440
+The standard Python virtual environment approach with Pip, and I've got instructions for that too.
+
+03:06.470 --> 03:13.580
+It's quicker, it's simpler, and it's just not as guaranteed to be compatible as Anaconda, so I'd
+
+03:13.580 --> 03:15.740
+prefer we try Anaconda if possible.
+
+03:15.770 --> 03:17.150
+It does work most of the time.
+
+03:17.150 --> 03:18.380
+Any problems at all?
+
+03:18.380 --> 03:20.900
+The Python virtual environment is your fallback.
+
+03:20.930 --> 03:24.620
+We then need to set up an OpenAI key and I'll talk more about that.
+
+03:24.620 --> 03:28.310
+I'll talk about API costs and what to do if that's a that's a problem for you.
+
+03:28.400 --> 03:29.930
+We'll go through that at the time.
+
+03:29.930 --> 03:35.960
+We have to create something called a EMV file, which has your private keys in it.
+
+03:35.960 --> 03:40.460
+And it's going to be important that that file is called exactly dot EMV, as we'll see.
+
+03:40.460 --> 03:45.410
+I will explain, but it can't be called keys dot EMV or dot EMV dot text.
+
+03:45.440 --> 03:47.600
+It has to be called exactly dot EMV.
+
+03:48.050 --> 03:53.840
+And then finally we activate your environment and we run JupyterLab to start the program.
+
+03:54.560 --> 03:59.720
+So as I say, most of the time all of this will go great.
+
+03:59.930 --> 04:06.190
+Most people report that everything goes through fine, but if it doesn't, then then there are some
+
+04:06.190 --> 04:09.460
+secret weapons at your disposal to make sure that it does.
+
+04:09.490 --> 04:15.490
+The first of them is that I've put a troubleshooting notebook that I will show you in, in the in,
+
+04:15.520 --> 04:20.650
+in the GitHub repo, which will take you step by step through diagnosing problems, running some code
+
+04:20.650 --> 04:24.340
+that will figure out what's wrong, and then fixing each problem in turn.
+
+04:24.340 --> 04:25.900
+So that is there.
+
+04:25.930 --> 04:31.840
+The second resource you have is a kind of surprising one at ChatGPT and and Claude.
+
+04:31.870 --> 04:34.840
+They are spooky in how good they are.
+
+04:34.870 --> 04:42.670
+If you say a problem and paste like a stack trace in there, they are very, uh, impressive at giving
+
+04:42.670 --> 04:45.310
+quite nuanced answers about what you need to do.
+
+04:45.340 --> 04:48.970
+I've been caught off guard by the times I've run into an infrastructure problem, and I thought, this
+
+04:48.970 --> 04:49.870
+is way too much.
+
+04:49.870 --> 04:52.300
+I can't even get the answer on Stack Overflow.
+
+04:52.480 --> 04:55.570
+Uh, but I've been rescued by Claude.
+
+04:55.660 --> 04:57.400
+I think Claude is the stronger of the two.
+
+04:57.430 --> 04:57.640
+But.
+
+04:57.640 --> 04:59.440
+But both of them give good answers.
+
+04:59.440 --> 05:04.990
+So it's worth realizing that you can often just fix the problem by pasting it in there.
+
+05:05.020 --> 05:06.670
+It's worth giving it a shot.
+
+05:06.730 --> 05:12.140
+But if if if those two fail, or even if you'd just rather go straight to this third option.
+
+05:12.140 --> 05:15.770
+The third option is there, and the third option is to contact me.
+
+05:15.890 --> 05:17.780
+I am standing by to help you.
+
+05:17.780 --> 05:19.070
+That is my job.
+
+05:19.130 --> 05:20.990
+So please, please reach out.
+
+05:20.990 --> 05:23.900
+You can reach out to me by messaging me on the platform.
+
+05:23.900 --> 05:25.130
+You can email me.
+
+05:25.160 --> 05:28.700
+My email address is in the is in the readme and you can also linked in with me.
+
+05:28.700 --> 05:30.500
+I love getting LinkedIn connections by the way.
+
+05:30.560 --> 05:36.650
+So LinkedIn with me for sure and message me there too and you'll find that I'm very responsive.
+
+05:36.740 --> 05:41.900
+I typically if I'm not sleeping or traveling, then you'll see from my other answers that I get back
+
+05:41.990 --> 05:47.210
+very quickly, and I see it as my job to fix it and to get you up and running.
+
+05:47.210 --> 05:48.320
+And I have never failed.
+
+05:48.320 --> 05:55.340
+Yet I have always, I think, 5000 people through and everyone has a running environment, as will you.
+
+05:55.340 --> 05:59.570
+So if you do hit any speed bumps at all, you can go with these other two options.
+
+05:59.570 --> 06:00.860
+But you can come straight to me.
+
+06:00.860 --> 06:01.670
+I will fix it.
+
+06:01.670 --> 06:03.200
+I will find what's going on.
+
+06:03.200 --> 06:05.690
+We will have you up and running quickly.
+
+06:05.840 --> 06:06.680
+All right.
+
+06:06.680 --> 06:11.630
+With that, let me now take you on a walkthrough of what it takes to set up your environment.

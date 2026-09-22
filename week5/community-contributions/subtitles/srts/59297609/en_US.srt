@@ -1,0 +1,208 @@
+WEBVTT
+
+00:01.040 --> 00:07.850
+Last week, we worked with models that were able to speed up code by a factor of 60,000 times, which
+
+00:07.850 --> 00:08.960
+was outrageous.
+
+00:08.990 --> 00:13.130
+Hopefully you were super impressed by that, because I certainly was, and I'm hoping you're going to
+
+00:13.130 --> 00:17.150
+be even more impressed at the end of this week when you see what I have in store for you.
+
+00:17.180 --> 00:20.330
+So it's all about rag retrieval.
+
+00:20.330 --> 00:25.850
+Augmented generation, where you can already do, of course, is code with frontier models, code with
+
+00:25.880 --> 00:27.200
+hugging face transformers.
+
+00:27.200 --> 00:32.660
+Choose the right LLM for your project and now build solutions that generate code.
+
+00:32.690 --> 00:38.480
+Today you're going to learn about the big idea behind Rag retrieval augmented generation.
+
+00:38.480 --> 00:43.520
+And we're going to walk through some of the interactions with Rag before we get there though, we're
+
+00:43.520 --> 00:48.440
+also going to talk about the little idea, the small idea behind rag, which is actually quite obvious.
+
+00:48.470 --> 00:50.960
+In fact, you may have already thought about it yourself.
+
+00:51.230 --> 00:55.520
+And then we're going to implement a toy version of Rag using the small idea.
+
+00:55.520 --> 00:57.410
+So you get a really good feel for how it works.
+
+00:57.410 --> 01:00.050
+Before next week, we go on to the real deal.
+
+01:00.080 --> 01:03.610
+Let me start by giving you some of the intuition behind rag.
+
+01:03.610 --> 01:09.340
+We've already seen that we can make the performance of models stronger by enriching the prompts, the
+
+01:09.340 --> 01:10.750
+information that we send to the models.
+
+01:10.750 --> 01:12.310
+And we've done that in several ways.
+
+01:12.310 --> 01:18.790
+We've used Multi-shot prompting to send a series of example questions and answers to the model.
+
+01:18.790 --> 01:26.290
+We've used tools so that the LLM can call back into our code almost kind of, and run some code that
+
+01:26.290 --> 01:30.250
+then is used to supplement its answers or carry out actions.
+
+01:30.250 --> 01:36.970
+And we've had other ways to provide additional context as part of what we send the LLM, including in
+
+01:36.970 --> 01:38.200
+the system prompt.
+
+01:38.290 --> 01:48.100
+So the thinking is, can we step up this idea and take it to a new level by supplying more concrete
+
+01:48.370 --> 01:49.840
+information into the prompt?
+
+01:49.840 --> 01:53.470
+That's going to be particularly relevant to the question at hand.
+
+01:53.500 --> 02:00.760
+So the idea is could we put together a database of information sometimes because this is a database
+
+02:00.760 --> 02:04.240
+of knowledge, it's known as a knowledge base, a knowledge base of information.
+
+02:04.540 --> 02:11.950
+And every time that the user asks us a question, we'll first look up in that knowledge base whether
+
+02:11.950 --> 02:15.970
+there's any relevant information that we can pluck out.
+
+02:15.970 --> 02:21.280
+And if there is, we simply stuff that in the prompt and that is sent in the prompt to the model.
+
+02:21.310 --> 02:22.510
+That's all there is to it.
+
+02:22.540 --> 02:27.340
+It's actually a very simple idea, and you probably already thought of it yourself while we were doing
+
+02:27.340 --> 02:29.020
+some of the earlier exercises.
+
+02:30.100 --> 02:36.910
+So let's just show this small idea behind rag in a diagram, and I promise you later we'll get to the
+
+02:36.910 --> 02:41.830
+bigger idea, which is where it becomes somewhat less less obvious and more meaningful.
+
+02:41.830 --> 02:47.290
+But in the little idea, what we're saying is let's start by the user asking us a question.
+
+02:47.290 --> 02:51.220
+It comes to our code, and normally we'd send that straight on to the LLM.
+
+02:51.220 --> 02:56.920
+But this time before we do so, we do a query in our knowledge base to see if we've got any relevant
+
+02:56.920 --> 02:58.210
+background information.
+
+02:58.210 --> 03:02.890
+And if we do, we pluck out that information and we include it in the prompt.
+
+03:02.920 --> 03:08.470
+We send the LM and of course the response comes back as always, but hopefully it takes into account
+
+03:08.500 --> 03:09.940
+some of this extra context.
+
+03:09.940 --> 03:12.880
+And that is what goes back to the user.
+
+03:13.030 --> 03:17.050
+That's really all there is to the small idea behind Rag.
+
+03:17.980 --> 03:23.500
+So we're now going to put this into action with a small example of the small idea.
+
+03:23.680 --> 03:27.670
+Let's say we work for an insurance tech startup.
+
+03:27.670 --> 03:34.420
+And it's going to be a fictional insurance tech startup called insurance, which happens to be the word
+
+03:34.420 --> 03:35.080
+insurer.
+
+03:35.080 --> 03:40.270
+And LM stuffed together, which is, I think, the limit of my creativity.
+
+03:40.630 --> 03:48.250
+We have a knowledge base in the form of a folder taken from the company's shared drive.
+
+03:48.250 --> 03:55.780
+It is the entire contents of their shared drive, and our task is to build an AI knowledge worker.
+
+03:55.780 --> 04:00.460
+Sometimes this expression knowledge worker is used to mean a person that works for a firm and is the
+
+04:00.460 --> 04:08.340
+expert and able to carry out analysis on information about the company and carry out questions and answers.
+
+04:08.340 --> 04:12.630
+Well, that's something that we can do with with with an LLM.
+
+04:12.630 --> 04:16.920
+And we can supplement it with information from the knowledge base.
+
+04:17.430 --> 04:22.110
+So we're going to do a toy implementation blunt instrument.
+
+04:22.350 --> 04:28.170
+Um, basically we're going to read in some of these files, products and employees.
+
+04:28.170 --> 04:30.780
+And we're going to store it in like a dictionary.
+
+04:30.780 --> 04:36.360
+And then anytime a question comes in, we're just going to look up whether or not the word, the name
+
+04:36.360 --> 04:38.610
+of the employee appears somewhere in the question.
+
+04:38.610 --> 04:42.750
+And if so, we're just going to shove that whole employee record into our prompt.
+
+04:42.750 --> 04:48.210
+So it's a kind of manual, brute force implementation of Rag, but it will give you a good sense of
+
+04:48.210 --> 04:49.950
+how this actually works behind the scenes.
+
+04:49.950 --> 04:52.350
+And it will show you that there's there's no magic to it.
+
+04:52.380 --> 04:55.500
+It just improves the performance of the model right away.
+
+04:55.500 --> 04:58.770
+And then once we've done that, we'll get on to the more exciting stuff.
+
+04:58.770 --> 05:03.000
+But for now, let's go to JupyterLab and build our own homemade rag.

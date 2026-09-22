@@ -1,0 +1,445 @@
+WEBVTT
+
+00:00.920 --> 00:05.060
+So you may remember eons ago when we were building our data set.
+
+00:05.060 --> 00:08.960
+At the end of that, we uploaded our data to Huggingface.
+
+00:08.990 --> 00:13.760
+Since that point, we since we also produced pickle files, we've been loading in the data from pickle
+
+00:13.760 --> 00:15.200
+files from that point onwards.
+
+00:15.200 --> 00:20.090
+But now that we're in Google Colab, it's easiest for us to collect that data back from the Huggingface
+
+00:20.090 --> 00:27.050
+hub again, which is a very typical task in this kind of, uh, process of building your own model.
+
+00:27.080 --> 00:28.400
+So here I go.
+
+00:28.430 --> 00:34.550
+I load the dataset using, uh, hugging face load data set method, passing in the data set name, and
+
+00:34.550 --> 00:40.190
+then I break it up into a train and a test and the data set name I set in the constants at the top.
+
+00:40.220 --> 00:44.930
+Once I've done that, we can take a look at the first training data point.
+
+00:45.080 --> 00:48.710
+And what it looks like is it has text and a price.
+
+00:48.740 --> 00:51.830
+You may remember we set this explicitly ourselves.
+
+00:51.830 --> 00:54.800
+The text is our prompt.
+
+00:54.830 --> 01:00.590
+How much does this cost to the nearest dollar followed by the description of the product followed by
+
+01:00.590 --> 01:07.070
+price is dollars and then the price itself, but rounded to the nearest whole number.
+
+01:07.070 --> 01:08.330
+And in the top.
+
+01:08.330 --> 01:09.920
+Here I say, how much does this cost?
+
+01:09.950 --> 01:11.330
+To the nearest dollar.
+
+01:11.720 --> 01:18.560
+And the reason I'm doing that is I want to make the task a bit easier for the llama 3.1 model with its
+
+01:18.560 --> 01:20.870
+puny 8 billion parameters.
+
+01:21.230 --> 01:26.870
+When we were sending it to a frontier model, we didn't need to specify that because it's easily powerful
+
+01:26.870 --> 01:29.030
+enough to make its own decisions about cents.
+
+01:29.030 --> 01:33.710
+But in this case, we want to give our model every, every, every simplicity we can.
+
+01:33.920 --> 01:40.400
+Um, and since it's going to, since this will always map to one token in llama 3.1, we're making it
+
+01:40.400 --> 01:46.490
+quite easy that all it's got to do is be able to predict that one token right there.
+
+01:46.490 --> 01:50.180
+That's going to be what it's going to try and learn how to do well.
+
+01:50.540 --> 01:54.320
+Um, and in this data set, we also have the real price in here too.
+
+01:54.680 --> 02:00.560
+Uh, if I look at the test data and take the first point, the test data is going to look very similar
+
+02:00.560 --> 02:02.600
+in structure with one tiny difference.
+
+02:02.600 --> 02:03.950
+Do you know what that difference is?
+
+02:04.130 --> 02:05.030
+I'm sure you do.
+
+02:05.070 --> 02:11.220
+It is, of course, that there is no price provided at this point in the test data.
+
+02:11.250 --> 02:13.260
+The text is going to be the text.
+
+02:13.290 --> 02:14.970
+How much is this to the nearest dollar?
+
+02:14.970 --> 02:17.340
+And then we pass in this text.
+
+02:17.340 --> 02:21.870
+And the assignment to our model is to predict the next token.
+
+02:21.900 --> 02:25.260
+What is the probability of the next token coming after this.
+
+02:25.260 --> 02:33.090
+And we hope it will give a high probability to the token that matches the number that is, uh, 3.74,
+
+02:33.180 --> 02:35.490
+uh, matching the actual price.
+
+02:35.550 --> 02:37.350
+Uh, and so that is the assignment.
+
+02:37.350 --> 02:42.810
+And because this maps to one token, it's really the challenge is just to get good at predicting the
+
+02:42.810 --> 02:47.760
+next token, the single next token that represents that cost.
+
+02:48.030 --> 02:52.620
+Uh, one other point to mention is that you may remember, we did some futzing around to make sure that
+
+02:52.620 --> 02:58.140
+this text always fitted into exactly 179 tokens or less.
+
+02:58.260 --> 03:05.670
+Um, and because of that, we're able now to tell, uh, the I've got a constant up here that says maximum
+
+03:05.670 --> 03:08.460
+sequence length is 182.
+
+03:08.880 --> 03:10.320
+I've added in a few tokens.
+
+03:10.320 --> 03:13.140
+There it is, in fact 179.
+
+03:13.140 --> 03:20.790
+But I'm adding in a few extra spare tokens, uh, because, uh, the the tokenizer is going to add in
+
+03:20.790 --> 03:26.880
+a beginning of sentence token to the start of the sequence, and it may add in an end of sentence or
+
+03:26.910 --> 03:28.890
+a pad token or two at the end.
+
+03:28.890 --> 03:34.500
+And I want to have no risk at all that we accidentally chop off the price of the most important token,
+
+03:34.500 --> 03:37.020
+uh, which is going to come at the end of this.
+
+03:37.020 --> 03:42.450
+So given a little bit of extra leeway, in fact, this doesn't become important until we get to training.
+
+03:42.450 --> 03:45.540
+But I wanted to point it out now since we're looking at the data.
+
+03:46.470 --> 03:48.510
+So there we go.
+
+03:48.720 --> 03:50.790
+We've just sorry, gone too far.
+
+03:50.790 --> 03:53.010
+We've just looked at this data.
+
+03:53.040 --> 03:57.630
+The next thing that we do is we pick the right quantization config.
+
+03:57.630 --> 04:01.530
+I set a constant up above, uh, quant four bit.
+
+04:01.560 --> 04:03.420
+In this case I set it to true.
+
+04:03.450 --> 04:06.030
+Let's just go and check that we will see.
+
+04:06.060 --> 04:06.810
+There we go.
+
+04:06.810 --> 04:08.970
+Quant four bit is set to true.
+
+04:08.980 --> 04:14.320
+And so now when I come back down again, we're going to pick the four bit quantization.
+
+04:14.320 --> 04:17.110
+And I show you here what it would look like if we picked eight bit.
+
+04:17.110 --> 04:20.680
+But we're going to pick the really minuscule four bit version.
+
+04:21.100 --> 04:24.370
+And then we load in the tokenizer and the model.
+
+04:24.370 --> 04:26.680
+I'm not going to run this cell because I already ran it.
+
+04:26.680 --> 04:28.870
+You can see it's sitting in the memory here.
+
+04:28.870 --> 04:30.730
+If I run it a second time I'll run out of memory.
+
+04:31.810 --> 04:36.100
+And what we do here is we load in the tokenizer.
+
+04:36.130 --> 04:39.640
+There's a bit of stuff here that's very boilerplate that you'll see a lot.
+
+04:39.760 --> 04:45.670
+Um, we're telling the tokenizer that when if it ever needs to pad the end of a sequence, it should
+
+04:45.670 --> 04:48.970
+just use the end of sentence token and just have that repeatedly.
+
+04:48.970 --> 04:51.400
+And it should do that off to the right hand side.
+
+04:51.400 --> 04:54.430
+This is standard stuff that will happen when we train.
+
+04:54.430 --> 04:56.200
+We won't actually use it right now.
+
+04:56.320 --> 04:57.910
+Um, so you don't need to worry about it.
+
+04:57.910 --> 04:59.740
+But but you'll see this all over the place.
+
+04:59.740 --> 05:04.300
+It's a very standard setup, as is this line here, which you also don't need to worry about right now.
+
+05:04.300 --> 05:10.540
+What we're doing is creating a tokenizer and loading in the llama 3.1 base model.
+
+05:10.540 --> 05:15.370
+And it's using up the 5.6GB of memory that you're expecting.
+
+05:15.370 --> 05:22.090
+There it is, 55.9, it seems because because I've done some, uh, inference down below.
+
+05:22.240 --> 05:29.710
+Uh, but yeah, it's, um, it's the, the very slimmed down four bit version of the model.
+
+05:30.250 --> 05:34.810
+So now this function is one that should be familiar to you because we used it recently with frontier
+
+05:34.840 --> 05:42.670
+models extract price, which is going to take some text, any text and pluck out from it the price that's
+
+05:42.670 --> 05:43.780
+being predicted.
+
+05:43.780 --> 05:55.570
+And so if I do something like extract price, price is dollar 999, I should have this as a string perhaps.
+
+05:55.570 --> 05:57.040
+So that's not going to work very well is it.
+
+05:57.040 --> 06:01.120
+Price is dollar 9999 blah blah.
+
+06:01.540 --> 06:04.600
+Uh price is 999.
+
+06:04.840 --> 06:05.770
+So cheap.
+
+06:07.060 --> 06:07.960
+Whatever.
+
+06:08.260 --> 06:10.210
+Uh, then hopefully what we'll see.
+
+06:10.240 --> 06:10.540
+Yes.
+
+06:10.570 --> 06:12.610
+Is that it's going to pluck out 99999.
+
+06:12.610 --> 06:16.760
+But the model, we know it's going to be provided with this in the in the prompt.
+
+06:16.760 --> 06:21.680
+It's what comes next has got to have nine, nine, nine in it.
+
+06:21.860 --> 06:25.820
+Um, and then this here model predict.
+
+06:25.820 --> 06:30.080
+So this is the function which we're going to be using in our test harness.
+
+06:30.080 --> 06:33.020
+This is the function where we tell it.
+
+06:33.050 --> 06:34.790
+We're going to give you a prompt.
+
+06:34.790 --> 06:37.550
+And we want to know how much does this cost.
+
+06:37.550 --> 06:44.540
+And so this is how we call our model in inference mode similar to what we did several weeks ago.
+
+06:44.810 --> 06:52.490
+Uh, we take the prompt and we encode it using tokenizer dot encode.
+
+06:52.490 --> 06:55.820
+And this thing here will push it off to the GPU.
+
+06:56.510 --> 07:01.400
+Uh, this is just, uh, something that's, uh, not super important.
+
+07:01.400 --> 07:03.020
+It stops it from printing a warning.
+
+07:03.020 --> 07:06.680
+So, so this doesn't actually affect anything.
+
+07:07.190 --> 07:16.040
+Uh, and then, um, yeah, to be precise, this this prevents it from trying to predict anything that's
+
+07:16.040 --> 07:21.680
+happening in that input token area, which we don't want it to predict, that we want it to predict
+
+07:21.680 --> 07:22.880
+what's coming afterwards.
+
+07:22.880 --> 07:24.170
+That's what it would do anyway.
+
+07:24.170 --> 07:27.230
+But it would give a warning if we didn't explicitly tell it this.
+
+07:27.410 --> 07:33.380
+So then we say for our outputs, we're going to call our base model lemma 3.1.
+
+07:33.380 --> 07:36.950
+And we're going to call the generate method on it.
+
+07:36.980 --> 07:38.720
+We pass in the inputs.
+
+07:38.720 --> 07:41.930
+We're going to say the maximum new tokens we is for.
+
+07:41.930 --> 07:43.340
+We could make that a much smaller number.
+
+07:43.340 --> 07:44.900
+We only really need one token.
+
+07:44.900 --> 07:50.870
+I'm giving it to to generate up to four tokens, just in case it prints another dollar sign or something
+
+07:50.870 --> 07:51.680
+like that.
+
+07:52.100 --> 07:58.130
+Um, uh, that we pass in the attention mask that I've just set that stops it giving a warning.
+
+07:58.130 --> 08:00.590
+And this is just saying we only want back one answer.
+
+08:00.590 --> 08:03.290
+We don't want it to come back with multiple answers.
+
+08:03.680 --> 08:08.000
+And then for the reply we take that one answer, it sends us back.
+
+08:08.000 --> 08:13.130
+And we call tokenizer dot decode to turn that back into a string.
+
+08:13.130 --> 08:15.830
+And then we extract that string.
+
+08:16.340 --> 08:17.000
+All right.
+
+08:17.000 --> 08:18.240
+So that's exciting.
+
+08:18.240 --> 08:20.280
+Let's just remind ourselves.
+
+08:20.280 --> 08:27.270
+So if we take the zeroth, the the first test item, here it is.
+
+08:27.270 --> 08:30.000
+It's the OEM AC compressor.
+
+08:30.030 --> 08:33.780
+The actual price is $374.
+
+08:33.810 --> 08:34.920
+Who knew.
+
+08:34.920 --> 08:37.440
+So let's have our first shot at this.
+
+08:37.440 --> 08:40.080
+So we're going to say Model.predict.
+
+08:42.870 --> 08:44.010
+Test zero.
+
+08:44.010 --> 08:48.390
+And to get the prompt out of that I just call text on that.
+
+08:49.050 --> 08:50.190
+So are you ready.
+
+08:50.220 --> 08:50.970
+Here we go.
+
+08:51.000 --> 08:59.910
+Llama 3.1 base model is going to try and predict the price of an OEM AC compressor with something repair
+
+08:59.940 --> 09:02.850
+kit okay.
+
+09:02.850 --> 09:07.470
+And it's predicted $1,800 which is rather far off.
+
+09:07.470 --> 09:12.960
+So that is potentially a bad omen for how the llama 3.1 base model will work.
+
+09:12.960 --> 09:19.800
+But we might have just gotten unlucky with the first example, but that will be revealed in the next
+
+09:19.800 --> 09:20.460
+video.

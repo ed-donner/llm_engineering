@@ -1,0 +1,106 @@
+WEBVTT
+
+00:00.860 --> 00:05.810
+Well, they say that time flies when you're having fun, and it certainly feels like time is flying.
+
+00:05.840 --> 00:08.120
+Uh, hopefully for you as well as for me.
+
+00:08.270 --> 00:11.150
+Uh, you have reached the 20% milestone.
+
+00:11.150 --> 00:18.170
+You were a fifth of the way towards being an expert in all things LMN, and I hope that it feels that
+
+00:18.170 --> 00:18.380
+way.
+
+00:18.380 --> 00:23.420
+I hope you're feeling the the sense of accomplishment and the way that you are leveling up.
+
+00:23.420 --> 00:28.580
+Every time we get to these summary pages and think about all of the new skills you've acquired.
+
+00:28.580 --> 00:32.870
+So to recap them, I know I keep doing this, but I do think it's important.
+
+00:32.900 --> 00:39.980
+You can of course describe transformers and tokens and contacts, windows and API prices and all of
+
+00:40.010 --> 00:40.670
+that.
+
+00:40.940 --> 00:48.200
+You can code now pretty confidently, I would say with the different APIs for the frontier models that
+
+00:48.200 --> 00:54.710
+you know well, and you can build an AI chatbot assistant, including an interactive UI.
+
+00:54.710 --> 00:56.150
+And I promise you it would be easy.
+
+00:56.150 --> 00:57.410
+And it was easy.
+
+00:57.560 --> 01:01.190
+You hopefully you weren't expecting it to be quite as easy as it was.
+
+01:01.190 --> 01:04.010
+The one line of code is insane.
+
+01:04.100 --> 01:09.080
+Uh, that is the, uh, the the wonder, the magic of Gradio.
+
+01:09.110 --> 01:17.630
+So next time we change subject to something called tools, which is a particularly interesting capability.
+
+01:17.630 --> 01:26.450
+It's it allows us to give LMS powers to do something, to run some functionality that we will arm it
+
+01:26.450 --> 01:33.470
+with so we can write some code, and then we can give the arm the ability to, to use it.
+
+01:33.500 --> 01:35.630
+Now that might sound a bit spooky.
+
+01:35.660 --> 01:40.730
+We're actually going to build something and then sort of give the LMS powers to to to do it.
+
+01:40.760 --> 01:42.770
+What to like run code on our box.
+
+01:42.770 --> 01:44.810
+We're going to let them do that.
+
+01:44.990 --> 01:51.110
+Um, and unfortunately, I will warn you, this is one of those things that that sounds very magical.
+
+01:51.110 --> 01:54.590
+And then a bit like the wizard behind the curtain.
+
+01:54.590 --> 02:00.140
+Uh, when you find out what this actually means, it's a little bit less magical when you know the ingredients
+
+02:00.140 --> 02:02.930
+to the incredible, uh, dish.
+
+02:02.960 --> 02:05.810
+Suddenly, uh, you think, is that all?
+
+02:06.590 --> 02:12.770
+But for the moment, you can you can live in awe of the fact that next time we are going to empower,
+
+02:12.800 --> 02:21.040
+uh, frontier model with the ability to run code on our box, which is going to do things, uh, and
+
+02:21.190 --> 02:26.380
+I'm going to reveal the, the secret sauce behind that.
+
+02:26.530 --> 02:31.570
+And then perhaps it won't be quite as mysterious as it sounds, but I'm excited to take you through
+
+02:31.570 --> 02:31.960
+that.
+
+02:31.960 --> 02:34.840
+That's what we're doing next time, and I will see you then.

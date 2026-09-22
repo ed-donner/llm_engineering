@@ -1,0 +1,394 @@
+WEBVTT
+
+00:00.800 --> 00:02.540
+Let's get straight to it.
+
+00:02.690 --> 00:09.890
+So the place where you can see everything that's going on and get knee deep in your data is a beautiful
+
+00:09.890 --> 00:12.260
+platform called Weights and Biases.
+
+00:12.380 --> 00:17.330
+It's completely free for personal use anyway, and it's a superb.
+
+00:17.360 --> 00:20.180
+You can, uh, go here.
+
+00:20.210 --> 00:22.340
+Uh wandb is weights and biases.
+
+00:22.580 --> 00:25.400
+I to sign up, create your free account.
+
+00:25.400 --> 00:27.080
+You don't need to if you don't wish to.
+
+00:27.110 --> 00:29.450
+This is an this is completely optional.
+
+00:29.480 --> 00:32.660
+It will allow you to visualize your training while it runs.
+
+00:32.660 --> 00:36.680
+I strongly recommend it because it's super satisfying.
+
+00:36.740 --> 00:41.810
+Uh, there's no point in doing training in my mind if you can't see lots of wiggly lines.
+
+00:41.810 --> 00:44.930
+And believe me, we're going to have a lot of wiggly lines.
+
+00:44.930 --> 00:52.790
+Uh, not not just today, but in the coming two weeks to go, it will be, uh, lots of charts, uh,
+
+00:52.790 --> 00:57.950
+when you go to weights and biases and you've signed up for your free account or you may already have
+
+00:57.950 --> 01:03.810
+one, uh, if you go to the avatar menu, like the settings menu and go to settings, You can create
+
+01:03.810 --> 01:09.750
+an API key very similar to the sorts of API keys we've used for OpenAI and so on.
+
+01:10.050 --> 01:15.870
+You can then go to the OpenAI dashboard, and I've put a link right here in the notebook.
+
+01:15.900 --> 01:21.990
+And when you go to that page, but in the middle of the page, there is a section that says integrations,
+
+01:21.990 --> 01:25.590
+and it has a section where you can put in your weights and biases key.
+
+01:25.590 --> 01:32.130
+And if you do that, then it's your OpenAI account is hooked up to weights and biases, and you'll be
+
+01:32.160 --> 01:36.600
+able to watch this fine tuning process happening in weights and biases.
+
+01:36.630 --> 01:38.520
+And that's just great.
+
+01:38.520 --> 01:41.670
+So I strongly recommend it but not required.
+
+01:41.700 --> 01:46.950
+Assuming you did do that, then you're going to want to execute this line here which is setting up your
+
+01:46.950 --> 01:48.660
+weights and biases integration.
+
+01:48.900 --> 01:50.280
+And you can give it a name.
+
+01:50.280 --> 01:53.520
+I'm calling the name of this project generally.
+
+01:53.520 --> 01:55.410
+Overall we'll be doing a lot of this project.
+
+01:55.410 --> 02:00.360
+I call it Pricer, but for this one I'm calling it GPT pricer because it is.
+
+02:00.390 --> 02:06.720
+GPT is fine tuned version to price products, That's why I call it Pricer.
+
+02:06.750 --> 02:08.640
+So we run that.
+
+02:08.880 --> 02:11.790
+Just setting up a settings right now.
+
+02:11.820 --> 02:13.920
+But this this is it.
+
+02:13.920 --> 02:15.450
+This folks.
+
+02:15.450 --> 02:18.780
+This is the time when we actually do our fine tuning.
+
+02:18.810 --> 02:29.430
+We call a new OpenAI API, which is a the big the big one OpenAI fine tuning dot jobs dot create.
+
+02:29.700 --> 02:31.140
+And what we pass in.
+
+02:31.140 --> 02:36.390
+So so you remember earlier this this is what came back from uploading our file.
+
+02:36.390 --> 02:37.560
+It has an ID.
+
+02:37.560 --> 02:43.500
+Let me show you that it has an ID which identifies the file.
+
+02:45.690 --> 02:47.100
+That's the name of the file.
+
+02:47.100 --> 02:50.040
+As far as OpenAI is concerned, we had a rather simpler name for it.
+
+02:50.040 --> 02:52.140
+This is the whole this is a file object.
+
+02:52.170 --> 02:53.940
+You probably remember seeing this a moment ago.
+
+02:53.970 --> 02:57.390
+That's the file ID and that's all the details about it.
+
+02:57.570 --> 02:59.520
+Um, and that's its ID.
+
+02:59.520 --> 03:02.760
+So we provide the ID of the training file.
+
+03:02.760 --> 03:05.370
+We also provide the ID of the validation file.
+
+03:05.400 --> 03:11.180
+Again not strictly necessary in our case now, but a good practice and you will want to do this for
+
+03:11.180 --> 03:13.010
+your fine tuning runs in the future.
+
+03:13.040 --> 03:13.820
+Probably.
+
+03:13.940 --> 03:15.500
+We provide the model.
+
+03:15.530 --> 03:21.140
+Now I'm suggesting GPT for many, partly because it's going to be cheaper to run it in inference.
+
+03:21.140 --> 03:23.780
+It's just going to be a couple of cents at the most.
+
+03:23.900 --> 03:31.820
+Um, and partly because if you remember earlier when we ran the original models, GPT for the big guy
+
+03:31.820 --> 03:36.650
+and for mini gave fairly similar performance, not a ton of difference between them.
+
+03:36.650 --> 03:41.300
+So it seems like we might as well fine tune the smaller one.
+
+03:41.390 --> 03:44.180
+The seed means that it will be repeatable.
+
+03:44.510 --> 03:46.070
+Um, number of epochs.
+
+03:46.070 --> 03:47.090
+So this is optional.
+
+03:47.090 --> 03:53.570
+You don't need to specify number of epochs, how many times it's going to go all the way through the
+
+03:53.570 --> 03:54.020
+data.
+
+03:54.050 --> 03:55.910
+You can let it decide for itself.
+
+03:55.910 --> 04:02.480
+I want to fix it to one because we're providing a fair amount of data, 500 data points more than than
+
+04:02.480 --> 04:04.340
+is usually recommended.
+
+04:04.490 --> 04:08.230
+Um, and so I figured there's no point in doing multiple epochs.
+
+04:08.230 --> 04:12.260
+If we decide we want to do more, we can just bump up the amount of training data because we've got
+
+04:12.260 --> 04:15.320
+lots of it, rather than doing multiple epochs.
+
+04:15.440 --> 04:18.890
+This is where I specify the weights and biases integration.
+
+04:18.890 --> 04:23.120
+If you don't want to use weights and biases, just don't just remove this line altogether.
+
+04:23.540 --> 04:30.350
+Um, and then suffix is an optional thing that just will include that in the name of the model that
+
+04:30.350 --> 04:31.280
+it creates.
+
+04:31.430 --> 04:35.300
+Just something you can do if you want the model to have a decent name.
+
+04:35.540 --> 04:37.940
+Uh, and that's about all there is to it.
+
+04:37.940 --> 04:42.200
+I will just mention if you haven't come across the word hyperparameters before, but I'm sure you have.
+
+04:42.230 --> 04:49.970
+But for anyone that hasn't, hyperparameters is what people data scientists call just the extra knobs
+
+04:49.970 --> 04:55.790
+and wheels and settings that control how your training is going to work.
+
+04:55.820 --> 04:59.600
+Any extra parameter that is something that you can set.
+
+04:59.630 --> 05:02.870
+Try to different possibilities to see if it makes things better or worse.
+
+05:02.870 --> 05:08.630
+And that process of trying out different values and seeing if it makes it better or worse, uh, known
+
+05:08.630 --> 05:11.250
+as hyperparameter Optimization.
+
+05:11.580 --> 05:13.680
+Hyperparameter tuning as well.
+
+05:13.980 --> 05:19.290
+And all of this is very fancy talk for trial and error, which is what it really is.
+
+05:19.290 --> 05:21.030
+It's saying these are settings.
+
+05:21.030 --> 05:23.640
+We don't really know if it's going to make it better or worse.
+
+05:23.640 --> 05:27.180
+There's no real there's no no great theory behind this.
+
+05:27.180 --> 05:30.630
+So just try some different possibilities and see what happens.
+
+05:30.780 --> 05:32.460
+But no one wants to say it quite like that.
+
+05:32.460 --> 05:37.260
+So everyone says hyperparameter optimization because that sounds much more important.
+
+05:37.500 --> 05:39.750
+And so that's that's what we'll call it.
+
+05:39.840 --> 05:42.720
+And that's why we pass in the hyper parameters.
+
+05:42.720 --> 05:48.420
+And if you want to yourself do some hyperparameter optimization and try different epochs, then you
+
+05:48.450 --> 05:50.250
+certainly should do so.
+
+05:50.250 --> 05:52.740
+But anyways I talk enough.
+
+05:52.740 --> 06:00.120
+We will run this guy and like that it runs and what comes back is a fine tuning job.
+
+06:00.420 --> 06:04.770
+It says when it was created, uh, it says there's no error, which is good.
+
+06:04.800 --> 06:05.760
+Not yet.
+
+06:05.940 --> 06:08.610
+Uh, it's finished at none.
+
+06:08.850 --> 06:12.750
+Uh, here are our hyperparameters with the number of epochs.
+
+06:13.090 --> 06:14.740
+Um, that is the model.
+
+06:14.950 --> 06:19.390
+Um, and then everything else, the files that we passed in.
+
+06:20.050 --> 06:26.050
+Uh, now, this, uh, here will list all of the jobs that we've got right now.
+
+06:26.050 --> 06:28.390
+And it starts with the most recent first.
+
+06:28.390 --> 06:34.870
+So since we've just kicked this off, if we run this, we'll see that this, this particular job, um,
+
+06:35.200 --> 06:40.600
+uh, and we can check it is because we should see that this here matches this here.
+
+06:40.600 --> 06:47.950
+So we're talking about the same job, uh, and we can see somewhere here what's going on?
+
+06:48.850 --> 06:53.260
+Um, well, actually, first, let's just this job ID thing so that we don't have to keep remembering
+
+06:53.260 --> 06:53.380
+it.
+
+06:53.380 --> 06:56.050
+Let's let's take it into a variable job ID.
+
+06:56.380 --> 06:58.420
+Just make sure that that's what we expect.
+
+06:58.420 --> 07:03.940
+If I print that you see this job, ID matches that there and that there.
+
+07:03.940 --> 07:09.280
+This is the name of our current run the job ID that we'll use to refer to it.
+
+07:09.280 --> 07:16.300
+And we can call this retrieve, uh, to get information about what's going on.
+
+07:16.750 --> 07:19.570
+And so let me see what we can learn from this.
+
+07:20.200 --> 07:25.240
+Uh, somewhere here we should see that it says that it's running.
+
+07:27.040 --> 07:31.960
+Uh, but anyway, the most important thing where you really see what's going on is in the next line
+
+07:31.960 --> 07:39.370
+here, which is list events passing in the job ID, and I'm limiting it to ten events.
+
+07:39.370 --> 07:42.880
+And if I run this now, you really see the business.
+
+07:42.880 --> 07:44.680
+They only have been two events.
+
+07:44.890 --> 07:49.600
+Um, and it's listing them in in order where the most recent event comes on top.
+
+07:49.600 --> 07:56.530
+So there's been two events created fine tuning job and validating training file, which is what it's
+
+07:56.530 --> 07:57.520
+doing now.
+
+07:58.660 --> 08:04.840
+And so what's going to happen next is that over time it's going to validate the file.
+
+08:04.840 --> 08:06.730
+And then it's going to start to train.
+
+08:06.730 --> 08:08.230
+And that's where things get interesting.
+
+08:08.260 --> 08:12.250
+And because it's going to take a couple of minutes before it gets to that point, I will break for the
+
+08:12.250 --> 08:12.970
+next video.
+
+08:12.970 --> 08:14.620
+And in the next video we'll see.
+
+08:14.650 --> 08:16.180
+Training in action.
+
+08:16.180 --> 08:17.770
+I will see you over there.
