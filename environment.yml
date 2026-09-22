@@ -1,4 +1,4 @@
-name: llms
+name: llms_env
 channels:
   - conda-forge
   - defaults
