@@ -20,7 +20,7 @@ dependencies = [
     "langchain-core>=0.3.76",
     "langchain-openai>=0.3.33",
     "langchain-text-splitters>=0.3.11",
-    "litellm>=1.77.5",
+    "litellm>=1.77.5,!=1.82.7,!=1.82.8",
     "matplotlib>=3.10.6",
     "nbformat>=5.10.4",
     "modal>=1.1.4",
