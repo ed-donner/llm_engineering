@@ -1,1 +1,0 @@
-Just run the main.py script after activating conda environment 'llms'

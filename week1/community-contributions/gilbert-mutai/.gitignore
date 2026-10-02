@@ -1,6 +1,0 @@
-.env
-__pycache__/
-*.csv
-*.xlsx
-*.pdf
-.ipynb_checkpoints/

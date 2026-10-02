@@ -1,2 +1,0 @@
-playwright>=1.40.0
-ollama>=0.1.0

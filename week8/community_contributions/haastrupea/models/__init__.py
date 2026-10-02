@@ -1,1 +1,0 @@
-# Investment Research models
