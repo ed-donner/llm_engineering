@@ -1,0 +1,44 @@
+.app-layout {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.app-header {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  text-align: center;
+}
+
+.app-content {
+  padding: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: calc(100vh - 64px);
+}
+
+/* Override Ant Design styles for better visibility on gradient background */
+.app-content .ant-card {
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+}
+
+.app-content .ant-list-item {
+  border-bottom: 1px solid #f0f0f0;
+}
+
+@media (max-width: 768px) {
+  .app-content {
+    padding: 16px;
+  }
+  
+  .app-header {
+    padding: 16px;
+  }
+}
+
