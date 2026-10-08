@@ -1,0 +1,142 @@
+id,difficulty,question_type,source_doc,retrieval_hit,retrieval_mrr,context_precision,keyword_coverage,assertion_coverage,answer_similarity,failed_assertions,heuristic_assertions,generated_answer
+1,easy,factual,RFC 768,True,1.0,0.2,1.0,1.0,0.7081197830837562,,,"The minimum value of the Length field in a UDP datagram is eight, because the length includes the header and the data [1]."
+2,medium,conceptual,RFC 768,True,1.0,0.4,1.0,0.5,0.5906540480764685,"answer lists source address, destination address, protocol, UDP length",,The purpose of the pseudo header conceptually prefixed to the UDP header is to provide protection against misrouted datagrams [1].
+3,easy,factual,RFC 768,True,1.0,0.4,1.0,1.0,0.8758471916538564,,,"When used in the Internet Protocol, the protocol number for UDP is 17 (21 octal) [2]."
+4,medium,conceptual,RFC 793,True,1.0,1.0,1.0,1.0,0.7181805416724812,,,"TCP ensures reliable data transfer through the following mechanisms:
+
+*   **Handling Lost or Out-of-Order Data:** TCP assigns a sequence number to every transmitted octet and requires a positive acknowledgment (ACK) from the receiver [2]. If an ACK is not received within a timeout interval, the data is retransmitted [2], [5]. At the receiving end, sequence numbers are used to eliminate duplicate segments and correctly order those that arrive out of order [2].
+*   **Handling Damaged Data:** TCP adds a checksum to each transmitted segment [2]. The receiver checks this checksum and discards any segments that are damaged [2].
+*   **Connection Initialization:** To prevent the erroneous initialization of connections over unreliable systems, TCP uses a handshake mechanism with clock-based sequence numbers [3].
+*   **Tracking Sequence Numbers:** The sender uses the variable SND.NXT to track the next sequence number to use and SND.UNA to track the oldest unacknowledged sequence number [5]. The receiver uses the variable RCV.NXT to track the next sequence number it expects [5]."
+5,medium,procedural,RFC 793,True,1.0,1.0,0.8571428571428571,1.0,0.41435524625675285,,,"Based on the provided text, the TCP three-way handshake for connection establishment involves the following:
+
+*   **General Process:** The procedure utilizes the synchronize (SYN) control flag and consists of an exchange of three messages [3, 4]. A connection is considered ""established"" once sequence numbers have been synchronized in both directions [3].
+*   **Specific Steps (as illustrated in Figure 7):**
+    1.  **Initial SYN:** TCP A sends a SYN segment to TCP B (which is in the LISTEN state), indicating its starting sequence number [5].
+    2.  **SYN-ACK:** TCP B responds by sending its own SYN and acknowledging the SYN received from TCP A [5].
+    3.  **Final ACK:** TCP A sends an acknowledgment [5]."
+6,hard,conceptual,RFC 793,True,1.0,1.0,0.8888888888888888,1.0,0.5949863763638663,,,"TCP uses a clock-based initial sequence number (ISN) generator to ensure that ISNs are unique [1]. The generator is bound to a 32-bit clock that increments its low order bit roughly every 4 microseconds, resulting in the ISN cycling approximately every 4.55 hours [1]. Because the Maximum Segment Lifetime (MSL) is less than 4.55 hours and segments stay in the network no more than the MSL, it is reasonably assumed that the ISNs will be unique [1].
+
+This solves the problem of preventing segments from one incarnation of a connection from being used while the same sequence numbers may still be present in the network from an earlier incarnation [1]. This protection is necessary even if a TCP crashes and loses all knowledge of the sequence numbers it has been using [1]. Without such a mechanism—for example, if a TCP started all connections with sequence number 0—a TCP that crashes and restarts might emit packets with sequence numbers identical to or overlapping with packets from an earlier incarnation still in the network, which can defeat TCP's basic sequencing and duplicate detection algorithm [3]."
+7,medium,conceptual,RFC 793,True,1.0,1.0,1.0,0.3333333333333333,0.7181851265041627,answer mentions buffer | answer mentions it does NOT provide record boundary,,"The purpose of the TCP push function and the PUSH flag is to push data through from the sending user to the receiving user [2, 3]. It is used when users need to ensure that all data they have submitted to the TCP has been transmitted, causing the TCPs to promptly deliver and forward data up to that point to the receiver [1]."
+8,easy,factual,RFC 791,True,1.0,0.4,1.0,0.0,0.84745997457381,"answer mentions all 3 classes | answer gives bit patterns (0, 10, 110)",answer mentions all 3 classes,"The three classes of internet addresses defined in RFC 791 are distinguished as follows [1]:
+
+*   **Class a**: The high order bit is zero, the next 7 bits are the network, and the last 24 bits are the local address.
+*   **Class b**: The high order two bits are one-zero, the next 14 bits are the network, and the last 16 bits are the local address.
+*   **Class c**: The high order three bits are one-one-zero, the next 21 bits are the network, and the last 8 bits are the local address."
+9,medium,conceptual,RFC 791,True,1.0,1.0,0.8571428571428571,0.75,0.6708764541781166,answer mentions 8-octet units,,"The IP fragmentation mechanism works as follows:
+
+*   **Fragmentation Process:** Fragmentation occurs at gateways [2]. It involves breaking a datagram into an almost arbitrary number of pieces [1]. Typically, each fragment (except the last) is made the maximum allowable size, although an alternative method is to repeatedly divide large datagrams in half until the fragments are smaller than the maximum transmission unit (MTU) size [3]. The MTU is defined as the maximum sized datagram that can be transmitted through the next network [5].
+*   **Reassembly Process:** Reassembly takes place at the destination host's destination internet protocol module [2]. For each datagram, a buffer identifier is computed by concatenating the protocol, identification, source, and destination fields [4]. If a datagram is ""whole"" (meaning the more-fragments and fragment offset fields are both zero), it is forwarded to the next processing step and associated reassembly resources are released [4]. Otherwise, resources are allocated—including a timer, total data length field, fragment block bit table, header buffer, and data buffer—and data is placed in the data buffer according to its length and fragment offset [4].
+
+The following fields are used for reassembly:
+*   **Identification field:** Used to ensure that fragments from different datagrams are not mixed [1] and is used to compute the buffer identifier [4].
+*   **Fragment offset field:** Indicates the fragment's position in the original datagram [1] and is used to place the fragment data into the data buffer [4].
+*   **Length:** Combined with the fragment offset, this determines the portion of the original datagram covered by the fragment [1] and is used to place data in the data buffer [4].
+*   **More-fragments flag:** When this flag is reset, it indicates the last fragment [1]."
+10,easy,factual,RFC 791,True,1.0,0.8,1.0,0.5,0.8180697322383763,"answer mentions ""decrement""",,"In the IP header, the Time to Live (TTL) field serves the following purposes:
+
+*   **Upper Bound on Lifetime:** It indicates the upper bound on how long an internet datagram may exist [2] or the maximum time it is allowed to remain in the internet system [3]. It can be thought of as a ""self destruct time limit"" [4].
+*   **Discarding Undeliverable Datagrams:** The intention of the field is to bound the maximum datagram lifetime and cause undeliverable datagrams to be discarded [1, 3].
+
+The field is set by the sender and decreased at each point where the internet header is processed [1, 4]. If the TTL reaches zero before the datagram reaches its destination, the datagram must be destroyed [3, 4]."
+11,medium,conceptual,RFC 792,True,1.0,1.0,0.375,0.3333333333333333,0.36811818292964593,"answer mentions ""integral part of IP"" | answer lists at least 5 message types",answer lists at least 5 message types,"The purpose of the Internet Control Message Protocol (ICMP) is to provide feedback about problems in the communication environment [2]. It is used by destination hosts or gateways to communicate with a source host, for example, to report errors in the processing of datagrams [1, 3]. Specifically, ICMP messages are sent when:
+* A datagram cannot reach its destination [2].
+* A gateway lacks the buffering capacity to forward a datagram [2].
+* A gateway can direct a host to send traffic on a shorter route [2].
+
+Regarding the types of messages it defines, the provided text specifically identifies the Parameter Problem Message (Type 12) [5]."
+12,easy,factual,RFC 792,True,0.2,0.2,1.0,0.3333333333333333,0.35819369686874375,answer mentions gateway sends it to host | answer mentions gateway still forwards the datagram,,"ICMP Redirect messages are sent by routers to either:
+* Redirect a host to a better first-hop router for a specific destination [1, 4].
+* Inform hosts that a destination is actually a neighbor (on-link) [1, 4]. This is achieved by setting the ICMP Target Address equal to the ICMP Destination Address [1, 4]."
+13,medium,procedural,RFC 826,True,1.0,0.4,0.5555555555555556,0.3333333333333333,0.34889445315294415,answer mentions unicast reply | answer mentions both sides cache the mapping,,"The ARP request and reply process is as follows:
+
+*   **Request Processing:** When Machine Y receives a packet, it verifies that it understands the hardware type (Ethernet), speaks the indicated protocol (Internet), and that the packet is intended for it ((ar$tpa)=IPA(Y)) [1]. Machine Y then maps <ET(IP), IPA(X)> to EA(X) [1]. Because the packet is a request, Machine Y swaps fields to put EA(Y) in the sender Ethernet address field (ar$sha), sets the opcode to reply, and sends the packet directly to EA(X) rather than broadcasting it [1]. At this stage, Machine Y knows how to send to Machine X, but Machine X still does not know how to send to Machine Y [1].
+*   **Reply Processing:** Machine X receives the reply packet from Machine Y and forms a map from <ET(IP), IPA(Y)> to EA(Y) [3]. Machine X then recognizes the packet is a reply and throws it away [3]. Consequently, future translation attempts by X's Internet module to send packets to Y on the Ethernet will succeed [3]. Additionally, any future communications from Y's Internet module to X will also succeed because Y remembered the information from X's initial request [3]."
+14,easy,conceptual,RFC 826,True,1.0,1.0,0.8,0.5,0.5230792936670491,answer mentions merging happens before opcode check,,"ARP merges sender information into the translation table before looking at the opcode for the following reasons:
+
+*   **Assumption of Bidirectional Communication:** It is assumed that communication is bidirectional; if machine A has a reason to talk to machine B, then machine B will likely have a reason to talk to machine A [1].
+*   **Algorithmic Simplification:** This sequence simplifies the suggested processing algorithm [4]."
+15,medium,conceptual,RFC 2328,True,1.0,1.0,0.8571428571428571,1.0,0.7846489417536661,,,"Based on the provided text, the differences between an OSPF router-LSA and a network-LSA are as follows:
+
+*   **Router-LSA:**
+    *   **Type and Origin:** These are Type 1 LSAs [2]. Every router originates a router-LSA for each area to which it belongs [2, 3].
+    *   **Purpose:** It describes the cost and state of the router's links (interfaces) to the area [2]. All of a router's links to the area must be described in a single router-LSA [2].
+    *   **Flooding:** It is flooded throughout that particular area and no further [3].
+
+*   **Network-LSA:**
+    *   **Origin:** It is originated by the Designated Router (DR), provided the DR is fully adjacent to at least one other router on the network [1].
+    *   **Purpose:** It is generated for every NBMA or transit broadcast network (defined as a network with two or more attached routers) [5]. It describes all routers attached to the network [5], specifically listing those fully adjacent to the DR, including the DR itself [1]. 
+    *   **Identification:** Its Link State ID is the IP interface address of the Designated Router [1].
+    *   **Flooding:** It is flooded throughout the area containing the transit network, and no further [1]."
+16,hard,conceptual,RFC 2328,True,1.0,1.0,0.5,0.25,0.6107646296779629,"answer mentions hysteresis or ""accept existing DR"" | answer mentions BDR minimizes disruption | answer mentions adjacency synchronization",,"Based on the provided text:
+
+**OSPF Designated Router (DR) Election**
+*   **Waiting State:** Before electing a DR or BDR, a router enters a ""Waiting"" state where it monitors received Hello Packets to determine the identity of the current DR and BDR [3]. This prevents unnecessary changes to the DR/BDR [3].
+*   **Eligibility and Selection:** 
+    *   The elected DR is not necessarily the router with the highest Router Priority, and the BDR does not necessarily have the second highest priority [5].
+    *   If the calculating router (Router X) is the only eligible router, it selects itself as the DR and no BDR is selected [5].
+    *   If Router X is not eligible, it is possible that neither a DR nor a BDR will be selected [5].
+    *   While the procedure may elect the same router to be both DR and BDR, this cannot happen if that router is the calculating router (Router X) [5]. Specifically, if Router X becomes the DR, it is no longer eligible for BDR election to ensure no router declares itself as both [4].
+
+**Purpose of the Backup Designated Router (BDR)**
+The BDR is needed so that it can be promoted to the Designated Router if the present DR fails [2]."
+17,medium,conceptual,RFC 2453,True,1.0,1.0,0.7142857142857143,0.5,0.4419773602827661,"answer mentions ""split horizon"" | answer mentions ""poisoned reverse""",,"""Counting to infinity"" in RIP occurs when a network becomes completely inaccessible from some part of the system, causing metrics to increase slowly until they reach ""infinity"" [1]. In RIP, ""infinity"" is a specific metric value (16) used to indicate an unreachable destination because it is larger than any expected valid metric [3].
+
+The following mechanisms are used to prevent or mitigate this:
+*   **Small Infinity Value:** Infinity is chosen to be as small as possible so that counting to infinity stops as quickly as possible [1]. This choice represents a tradeoff between the speed of convergence and the size of the network [1].
+*   **Triggered Updates:** RIP implementations must implement triggered updates for deleted routes, and may implement them for new routes or changes to routes [4]. If triggered updates could occur without simultaneous regular updates, bad routes would be removed immediately, and counting to infinity would not happen [5]. However, because regular updates may still occur while triggered updates are being sent, counting to infinity remains possible [4], [5]."
+18,easy,factual,RFC 2453,True,1.0,1.0,1.0,1.0,0.6460959666708722,,,"RIP is limited to networks with a maximum diameter (longest path) of 15 hops [2], [4]. The metric value used to represent ""infinity"" (an unreachable destination) is 16 [3]."
+19,medium,conceptual,RFC 4271,True,1.0,1.0,0.2,0.0,0.15321898754370034,"answer lists all 4 categories | answer mentions Partial bit for transitive | answer mentions ""quietly ignored"" for non-transitive",answer lists all 4 categories,"The provided context does not contain enough information to identify four categories of BGP path attributes; it only mentions ""well-known attributes"" and ""optional attributes"" [3], with the latter being further divided into ""transitive optional attributes"" and ""non-transitive optional attributes"" [3, 4]."
+20,hard,procedural,RFC 4271,True,1.0,1.0,0.875,0.4,0.526810562614141,answer mentions route selection | answer mentions route dissemination | answer mentions NEXT_HOP resolvability,,"The BGP Decision Process consists of three distinct phases [1]:
+
+*   **Phase 1:** This phase is responsible for calculating the degree of preference for each route received from a peer [1]. It is invoked whenever the local BGP speaker receives an UPDATE message from a peer advertising withdrawn routes, a replacement route, or a new route [3].
+*   **Phase 2:** Invoked upon the completion of Phase 1, this phase is responsible for installing each chosen route into the Loc-RIB and choosing the best route for each distinct destination out of all those available [1].
+*   **Phase 3:** This phase is responsible for disseminating routes in the Loc-RIB to each peer based on the policies in the PIB [3]. Route information reduction and route aggregation can optionally be performed during this phase [3]. Phase 3 is invoked after the Loc-RIB has been modified [3], on completion of Phase 2, or when routes to local destinations in the Loc-RIB have changed [5]."
+21,medium,conceptual,RFC 4861,True,1.0,1.0,0.875,0.6666666666666666,0.4130970998224681,answer lists all 5 states,answer lists all 5 states,"Based on the provided context:
+
+A Neighbor Cache entry can be in one of five states, although only three are specifically described:
+*   **INCOMPLETE**: Address resolution is being performed; a Neighbor Solicitation has been sent, but the corresponding Neighbor Advertisement has not yet been received [3].
+*   **REACHABLE**: Positive confirmation was received within the last ReachableTime milliseconds that the forward path to the neighbor was functioning properly [3].
+*   **STALE**: More than ReachableTime milliseconds have elapsed since the last positive confirmation that the forward path was functioning properly [3].
+
+The provided text mentions the following triggers for transitions:
+*   **To REACHABLE**: The state is set to REACHABLE if a received advertisement's Solicited flag is set [1], or if positive confirmation is received within the last ReachableTime milliseconds [3].
+*   **To STALE**: The state is set to STALE if a received advertisement's Solicited flag is not set [1], or if more than ReachableTime milliseconds have elapsed since the last positive confirmation was received [3]."
+22,easy,factual,RFC 4861,True,1.0,1.0,0.5,0.0,0.2613031830679,answer lists all 5 types | answer includes correct ICMP type numbers,answer lists all 5 types,"IPv6 Neighbor Discovery defines the following five ICMP packet types:
+* A pair of Router Solicitation and Router Advertisement messages [1]
+* A pair of Neighbor Solicitation and Neighbor Advertisements messages [1]
+* A Redirect message [1]"
+23,medium,conceptual,RFC 1034,True,1.0,1.0,0.8571428571428571,0.0,0.7260658940117756,"answer mentions ""referral"" for iterative | answer mentions RD and RA bits | answer mentions recursive is optional",,"The difference between recursive and iterative queries in a system with a distributed database is as follows:
+
+*   **Recursive:** The first server pursues the query for the client at another server [1].
+*   **Iterative:** The server refers the client to another server, and the client pursues the query [1].
+
+While both approaches have advantages and disadvantages, the iterative approach is preferred for datagram style access [1]. The domain system requires the implementation of the iterative approach, though it allows the recursive approach as an option [1]."
+24,easy,factual,RFC 1034,True,1.0,0.6,0.4,0.3333333333333333,0.5973307564301349,"answer mentions all 3 components | answer mentions ""resolvers""",answer mentions all 3 components,"As described in RFC 1034, the DNS has three major components, which include the DOMAIN NAME SPACE and RESOURCE RECORDS (specifications for data associated with names and a tree structured name space) [1]."
+25,hard,comparative,RFC 768/RFC 793,True,1.0,0.6,0.7,0.6666666666666666,0.40851926649264,"answer mentions TCP header >=20 bytes, UDP header = 8 bytes",,"Based on the provided text, TCP and UDP differ as follows:
+
+*   **Reliability:** TCP is an ""end-to-end reliable protocol"" that provides reliable inter-process communication [1]. In contrast, queries sent using UDP ""may be lost,"" which requires the use of a retransmission strategy [3].
+*   **Connection Model:** TCP is ""connection-oriented"" [1]. It requires that processes first establish a connection via a ""handshake mechanism"" to initialize and maintain status information—including window sizes, sequence numbers, and sockets—for each data stream [2]. UDP is used for ""datagram access"" [4].
+*   **Header Overhead:** While specific header sizes are not provided, datagrams (used by UDP) are preferred for queries over virtual circuits because they offer ""lower overhead and better performance"" [4]."
+26,easy,factual,RFC 1035,True,0.5,0.2,0.7142857142857143,0.0,0.38262608605299336,answer lists exactly 5 sections | answer mentions Header and Question,answer lists exactly 5 sections,"The provided context does not list the names of the five sections, but it states that a DNS message format consists of a header containing fixed fields and four sections that carry query parameters and RRs [3]."
+27,medium,conceptual,RFC 1035,True,0.2,0.2,0.3333333333333333,0.25,0.14564756238561288,"answer mentions ""QR"" | answer mentions ""RCODE"" | answer mentions the 4 count fields (QDCOUNT, ANCOUNT, NSCOUNT, ARCOUNT)",,The provided context does not contain information regarding the fields present in the fixed 12-byte DNS message header.
+28,medium,conceptual,RFC 1035,True,1.0,0.8,0.375,0.3333333333333333,0.5996326780049958,"answer mentions ""offset"" | answer mentions the two high bits are set (or ""11"")",,"DNS message compression allows a domain name to be represented as any of the following:
+* a pointer
+* a sequence of labels ending in a zero octet
+* a sequence of labels ending with a pointer [1]
+
+When compression is used in a part of the message subject to a length field (such as the RDATA section of an RR), the length of the compressed name is used for the length calculation instead of the length of the expanded name [1], [2]. While programs can choose to avoid using pointers, doing so may cause truncation and will reduce datagram capacity [2]."
+29,easy,factual,RFC 1035,True,0.25,0.4,0.875,1.0,0.7333007751062238,,,"Based on the provided text, the standard fields of a DNS Resource Record (RR) include:
+
+*   **NAME (or owner):** The domain name to which the resource record pertains [1, 5].
+*   **TYPE:** An encoded 16 bit value (two octets) that specifies the type of the resource [1, 5].
+*   **CLASS:** Two octets that specify the class of the data in the RDATA field [5].
+*   **TTL:** A 32 bit unsigned integer specifying the time interval in seconds that the RR may be cached before it should be discarded [5].
+*   **RDLENGTH:** An unsigned 16 bit integer that specifies the length in octets of the RDATA field [5].
+*   **RDATA section:** The resource data [3, 4]."
+30,medium,factual,RFC 1035,True,1.0,0.8,1.0,0.6666666666666666,0.6665404902030884,"answer contains ""15""",,"The provided context does not contain the TYPE value for an MX record.
+
+The RDATA field for an MX record contains the following information [3, 4]:
+*   **PREFERENCE:** A 16-bit integer that specifies the preference given to the RR among others at the same owner, with lower values being preferred [3].
+*   **EXCHANGE:** A <domain-name> that specifies a host willing to act as a mail exchange for the owner name [3]."
