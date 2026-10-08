@@ -1,0 +1,382 @@
+WEBVTT
+
+00:00.950 --> 00:02.870
+Look, I hope you're excited.
+
+00:02.870 --> 00:04.160
+You really should be.
+
+00:04.190 --> 00:09.110
+You've been through 80% of the course and it's all been building up to this moment.
+
+00:09.140 --> 00:15.920
+Today you will be training your own proprietary LLM for for fun and for profit.
+
+00:16.100 --> 00:17.780
+It all starts here.
+
+00:17.780 --> 00:20.360
+So what is actually involved in today?
+
+00:20.360 --> 00:23.600
+We're going to start with some stuff that maybe isn't so thrilling.
+
+00:23.600 --> 00:25.700
+We're going to talk hyperparameters one more time.
+
+00:25.700 --> 00:29.090
+I've got some essential hyperparameters to go through with you.
+
+00:29.090 --> 00:34.280
+And the reason this is so important is that you're going to be doing some hyperparameter optimization
+
+00:34.280 --> 00:35.060
+yourself.
+
+00:35.060 --> 00:37.490
+The fancy word for for trial and error.
+
+00:37.490 --> 00:41.270
+And you need to understand the context of what it is that you're playing with.
+
+00:41.270 --> 00:46.430
+And this is really the opportunity to build something that can beat other models.
+
+00:46.460 --> 00:51.200
+It's about understanding what kind of levers you've got to experiment with.
+
+00:51.230 --> 00:56.630
+That is at the heart of the R&amp;D behind building leading models.
+
+00:56.630 --> 01:00.260
+So we've got some hyperparameters to talk about.
+
+01:00.480 --> 01:05.790
+And then we're going to set up a supervised fine tuning trainer, an SFT.
+
+01:05.820 --> 01:11.040
+Trainer, which is the sort of core object behind running this training.
+
+01:11.130 --> 01:16.440
+Um, looking at parts of the TRL library from Hugging Face and then we will kick off.
+
+01:16.470 --> 01:20.760
+Our own proprietary LM training process.
+
+01:20.820 --> 01:22.350
+It's going to be great.
+
+01:22.920 --> 01:28.800
+So first of all, though, before we get to the great stuff, we do need to talk about some of the essential
+
+01:28.800 --> 01:35.310
+hyperparameters that control this process, starting with Q Laura, and most of this is stuff that you're
+
+01:35.310 --> 01:36.810
+very familiar with now.
+
+01:36.810 --> 01:41.970
+So the first hyperparameter I'll mention is one more time to bring up the target modules.
+
+01:41.970 --> 01:44.370
+And I think you now remember exactly what this is.
+
+01:44.700 --> 01:52.890
+If you have an architecture of a transformer, a base model like Lama 3.1, it's way too big to try
+
+01:52.890 --> 01:55.320
+and fine tune this enormous, great architecture.
+
+01:55.320 --> 02:00.850
+So instead we pick a few layers in the architecture and we call those layers.
+
+02:00.850 --> 02:03.400
+The target modules are the ones we're going to target.
+
+02:03.430 --> 02:04.660
+We freeze everything.
+
+02:04.660 --> 02:06.520
+We're not going to try and optimize these weights.
+
+02:06.520 --> 02:07.630
+There's too many of them.
+
+02:07.630 --> 02:09.220
+Even in these target modules.
+
+02:09.220 --> 02:10.660
+We're not going to train these.
+
+02:10.660 --> 02:16.780
+Rather, we're going to have onto one side a lower dimensional matrix that we will train this lower
+
+02:16.780 --> 02:22.210
+dimensional matrix and we will apply it to this original target module.
+
+02:22.210 --> 02:27.730
+We'll apply it in fact by multiplying them together, using that as a, as a as a delta on the weights
+
+02:27.730 --> 02:28.420
+here.
+
+02:28.510 --> 02:35.020
+Um, and so we train these little guys and we apply them to the target modules, selected layers in
+
+02:35.020 --> 02:38.230
+the bigger architecture that's target modules.
+
+02:38.230 --> 02:44.920
+And then ah, uh, with this greater 3D goggles as the, as the logo, as the icon.
+
+02:45.040 --> 02:51.190
+Uh, R is how many dimensions do we have in this lower dimensional, uh, adapter matrix?
+
+02:51.190 --> 02:56.350
+Uh, it's often common with learning with language learning tasks to start with eight.
+
+02:56.530 --> 03:02.730
+Um, for this project you're going to see I've got 32 as the R, because we've got so much training
+
+03:02.730 --> 03:07.020
+data that I figured we could use quite a few parameters to learn on.
+
+03:07.200 --> 03:10.140
+But if that's running out of memory for you, you can you can have eight.
+
+03:10.170 --> 03:16.890
+I actually I should say that the difference between 8 and 16 and 32 was quite marginal.
+
+03:16.890 --> 03:19.110
+It did improve things, but not by a huge amount.
+
+03:19.110 --> 03:22.470
+So if you have any memory problems, then stick with an R of eight.
+
+03:22.500 --> 03:25.320
+If you're on a smaller box that will be just fine.
+
+03:25.440 --> 03:31.800
+32 is splashing out a bit, but but but it was worth it given the amount of training data we have.
+
+03:32.550 --> 03:36.570
+Alpha, you may remember, is the scaling factor.
+
+03:36.570 --> 03:42.990
+It's used to multiply up the importance of this adapter when it's applied to the target module.
+
+03:42.990 --> 03:46.680
+In fact, you may remember there are actually two Laura matrices.
+
+03:46.680 --> 03:53.490
+One is called Laura A and one is called Laura B, and the formula is that the change in weights is actually,
+
+03:53.550 --> 03:54.600
+uh alpha.
+
+03:54.630 --> 03:58.520
+The scaling factor times A times B, as simple as that.
+
+03:58.520 --> 04:02.410
+That is that's the most maths that we're going to get in this course.
+
+04:02.920 --> 04:05.230
+And I think that's not not taking it too far.
+
+04:05.230 --> 04:07.360
+So that's as simple as what alpha is.
+
+04:07.360 --> 04:08.530
+It's the scaling factor.
+
+04:08.530 --> 04:12.130
+And the rule of thumb is to have alpha to be double R.
+
+04:12.220 --> 04:13.630
+That's what everyone does.
+
+04:13.630 --> 04:16.480
+By all means you can experiment with other values of alpha.
+
+04:16.480 --> 04:20.650
+But but the norm is is to do alpha is two r.
+
+04:20.650 --> 04:25.120
+So we're going to start with an R of 32 and an alpha of 64.
+
+04:26.230 --> 04:33.130
+Quantisation of course is just what we call it when we reduce the precision of the weights in the base
+
+04:33.130 --> 04:33.760
+model.
+
+04:33.760 --> 04:35.830
+The base model has 32 bit numbers.
+
+04:35.830 --> 04:36.490
+In it.
+
+04:36.550 --> 04:41.980
+We reduce it down to eight bits or even down to four bits, which sounds insane.
+
+04:42.070 --> 04:47.560
+We did that with our base model and we saw that we were still getting results.
+
+04:47.650 --> 04:51.730
+They weren't great results, but I think that would be true for the base model overall.
+
+04:51.730 --> 04:56.380
+And we did see actually that the eight bit model did better than the four bit model, but they were
+
+04:56.380 --> 04:58.420
+both pretty miserable at it.
+
+04:58.730 --> 05:02.900
+And by all means you can try training with the eight bit model too.
+
+05:02.900 --> 05:07.640
+But we're going to train with a four bit model because that's what will fit in in our in our memory.
+
+05:07.640 --> 05:12.650
+And that's, uh, but I'd be interested if you try the eight bit to see whether you get significantly
+
+05:12.650 --> 05:13.910
+different results.
+
+05:14.630 --> 05:19.880
+And then the final hyperparameter is a new one that we've not talked about before, except to show you
+
+05:19.880 --> 05:21.920
+it in the code dropout.
+
+05:21.920 --> 05:24.440
+So dropout is a type.
+
+05:24.440 --> 05:29.960
+It's a technique that's known as a regularization technique, of which there are a few, um, which
+
+05:29.960 --> 05:35.840
+means that it's a technique designed to prevent the model from doing what's known as overfitting.
+
+05:36.020 --> 05:43.340
+And overfitting is when a model gets so much training data, it goes through so much training that it
+
+05:43.340 --> 05:51.080
+starts to just expect exactly the structure of the data in the training data set, and then give back
+
+05:51.110 --> 05:52.580
+exactly that answer.
+
+05:52.580 --> 05:59.330
+And it starts to to no longer understand the general trends of what's being suggested, but instead
+
+05:59.330 --> 06:04.100
+it sort of hones in on precisely those words and the prediction that comes later.
+
+06:04.100 --> 06:10.520
+And as a result of that, if you give it some new point that it hasn't seen in its training data set,
+
+06:10.550 --> 06:16.280
+it performs really badly because it's not being learning the general themes, it's being learning to.
+
+06:16.310 --> 06:21.980
+It's been too much learning the very specifics of this training data set.
+
+06:22.010 --> 06:24.530
+I'm being a bit hand-wavy again, but hopefully you get the idea.
+
+06:24.560 --> 06:31.040
+That's called overfitting when you are too precisely adhering to the training data set and the outcome.
+
+06:31.040 --> 06:36.380
+And it's not learning the general flavor of what's of what it's trying to predict.
+
+06:36.560 --> 06:38.000
+Um, and it's that flavor.
+
+06:38.000 --> 06:39.770
+It's that nuance of what's going on.
+
+06:39.770 --> 06:42.020
+That's what you're trying to teach the model.
+
+06:42.260 --> 06:46.280
+Um, so that's that's the sort of that's the preamble, the explanation of what?
+
+06:46.310 --> 06:47.300
+Of what overfitting is.
+
+06:47.300 --> 06:53.690
+But now, to tell you exactly what dropout does, and it's really simple, what dropout actually does,
+
+06:53.780 --> 07:03.870
+uh, is it quite simply removes a random subset of the neurons from the deep neural network.
+
+07:03.870 --> 07:06.840
+From the transformer, it takes a random percentage.
+
+07:06.960 --> 07:12.690
+We're going to start with 10%, takes 10% of the neurons, and it just wipes them out, sets the activations
+
+07:12.690 --> 07:16.800
+to zero so that they are not involved in the forward pass or the backward pass.
+
+07:16.800 --> 07:21.300
+They're not involved in predicting the next token and they're not involved in optimizing.
+
+07:21.300 --> 07:23.010
+It's as if they're just not there.
+
+07:23.010 --> 07:29.730
+And as a result, every time that you're going through training, the model is seeing a different subset,
+
+07:29.760 --> 07:35.490
+a different 90% of the neural network, 10% of them have been removed randomly each time.
+
+07:35.490 --> 07:44.310
+And so the, the, the weights are sort of discouraged from being too precise and to and looking too
+
+07:44.310 --> 07:50.700
+precisely for one set of input tokens, but instead, because different neurons participate every time
+
+07:50.700 --> 07:54.210
+in the training process, it starts to learn more.
+
+07:54.240 --> 08:00.670
+The general theme than learning very specifically how to expect different tokens.
+
+08:00.670 --> 08:05.380
+So it prevents any one neuron from becoming too specialized.
+
+08:05.380 --> 08:11.560
+It supports this concept of more general understanding in the neural network, in this very simplistic
+
+08:11.560 --> 08:17.680
+way of just removing 10% of the neurons from the process, a different 10% each time.
+
+08:17.680 --> 08:18.910
+So that's dropout.
+
+08:18.910 --> 08:20.230
+It's really very simple.
+
+08:20.260 --> 08:28.180
+When you realize it, it's literally dropping out a bunch of the neurons and the the norm.
+
+08:28.570 --> 08:32.740
+It's usually somewhere in the in the range of 5% through to 20%.
+
+08:32.860 --> 08:36.340
+Um, I've picked 10% as the dropout that we're using.
+
+08:36.340 --> 08:43.150
+You should absolutely experiment with 5% and 20% and see whether you get better results or not.
+
+08:43.180 --> 08:47.320
+It is very much a hyperparameter to be experimented with.
+
+08:47.830 --> 08:51.040
+Okay, so those are the five hyperparameters for Q.
+
+08:51.070 --> 08:57.130
+Laura, next time we'll talk about five hyperparameters for the overall training process.

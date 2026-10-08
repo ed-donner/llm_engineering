@@ -1,0 +1,535 @@
+WEBVTT
+
+00:00.560 --> 00:09.650
+And welcome once more to our favorite place to be Jupyter Lab, the Paradise for a data scientist experimenter.
+
+00:09.830 --> 00:17.000
+So as we launch into the day three notebook in week eight, you'll see that there are precious few comments
+
+00:17.000 --> 00:18.020
+this time around.
+
+00:18.020 --> 00:23.540
+I'm commenting the code that is our production quality code in the notebooks.
+
+00:23.630 --> 00:24.260
+At this point.
+
+00:24.260 --> 00:25.310
+You guys are pros.
+
+00:25.310 --> 00:30.260
+You don't need a whole ton of waffle from me, so we just dive straight in.
+
+00:30.470 --> 00:32.930
+Uh, so I'm going to begin with some imports.
+
+00:32.930 --> 00:39.530
+As we get into today's puzzle, uh, I'm going to set up some environment things, and now we get to
+
+00:39.560 --> 00:41.750
+the first piece of substance.
+
+00:42.080 --> 00:48.350
+Uh, I, uh, sneakily imported something called Scraped deal, uh, here without mentioning it, but
+
+00:48.380 --> 00:51.770
+I now have this scraped deal, and I'm going to call fetch.
+
+00:51.980 --> 00:56.810
+Um, with setting show progress to true, and I'm going to run that without telling you what it does,
+
+00:56.810 --> 01:00.020
+because it takes a couple of minutes, so we might as well let it run.
+
+01:00.020 --> 01:01.460
+And then I will talk more about it.
+
+01:01.460 --> 01:02.930
+So kick it off.
+
+01:03.020 --> 01:04.850
+Off it goes.
+
+01:04.850 --> 01:06.860
+So what is scraped?
+
+01:06.860 --> 01:07.220
+Deal.
+
+01:07.220 --> 01:10.310
+It is sitting in the agents folder in the package.
+
+01:10.310 --> 01:14.210
+And here is it is in part of deals dot pie.
+
+01:14.240 --> 01:16.760
+So let me show you deals dot pie.
+
+01:16.790 --> 01:23.900
+So uh, this is a Python module which starts by defining a series of feeds.
+
+01:23.900 --> 01:31.790
+And these are URLs to RSS feeds, which are useful ones that happen to have good deals being announced
+
+01:31.880 --> 01:33.350
+in a various categories.
+
+01:33.350 --> 01:38.210
+And these categories happen to be close matches for the categories that we know a thing or two about
+
+01:38.210 --> 01:44.030
+because our model was trained for them electronics, computers, automotive, and then mostly smart
+
+01:44.060 --> 01:45.350
+home and home garden.
+
+01:45.350 --> 01:46.370
+So here are some feeds.
+
+01:46.370 --> 01:51.740
+There are a bunch of others, and if you have the stomach to wait a bit longer, you can slap in a bunch
+
+01:51.740 --> 01:55.610
+more feeds in here and have a bigger data set to work with.
+
+01:55.610 --> 02:01.030
+So then there are some utilities here that you can look through in your own time.
+
+02:01.060 --> 02:06.910
+A method called extract, a function called extract, which cleans up some HTML and returns useful text.
+
+02:06.910 --> 02:09.880
+And then there's a class scraped deal.
+
+02:09.880 --> 02:14.380
+And this represents a deal that we have retrieved from an RSS feed.
+
+02:14.410 --> 02:16.840
+So it's not exactly scraping, it's retrieving it from RSS.
+
+02:16.840 --> 02:19.720
+But we will do a bit of a of a lookup as well.
+
+02:19.720 --> 02:21.790
+So so there's there's some truth to it.
+
+02:22.060 --> 02:28.630
+Um, what we do in the init we take something called an entry, which is just a dictionary of values.
+
+02:28.630 --> 02:30.160
+And we're going to pass in.
+
+02:30.160 --> 02:32.650
+And this is something we get straight from the RSS feed.
+
+02:32.680 --> 02:37.840
+And what we do is we pick the title, the summary, and we take the links.
+
+02:37.840 --> 02:45.400
+And then if you look at here, what we do here is we take its URL and we actually go and fetch that.
+
+02:45.400 --> 02:47.500
+So we do are doing some scraping here.
+
+02:48.520 --> 02:49.330
+Sorry.
+
+02:49.510 --> 02:57.360
+We do some some fetching of that URL and we put the results in stuff and then we parse stuff with beautiful
+
+02:57.360 --> 02:57.780
+soup.
+
+02:57.780 --> 03:04.620
+So this is similar to what we did in week one, day one when we were parsing URLs that we retrieved
+
+03:04.620 --> 03:06.600
+from Requests.get.
+
+03:07.380 --> 03:08.220
+Okay.
+
+03:08.280 --> 03:13.860
+And then there's some more stuff here that takes the contents and scrubs it.
+
+03:14.190 --> 03:18.930
+And then we potentially build some features if we have the features.
+
+03:18.930 --> 03:27.210
+So this is all a bit of, uh, scraping code to be able to take something that comes in an RSS feed,
+
+03:27.210 --> 03:30.390
+clean it up and turn it into a record.
+
+03:30.570 --> 03:33.090
+Um, and then there's something that prints what it is.
+
+03:33.690 --> 03:39.030
+And this class method fetch, is exactly the one that we just kicked off a moment ago that you can see
+
+03:39.060 --> 03:40.110
+has finished running.
+
+03:40.260 --> 03:46.770
+Uh, and what it does is it iterates through all of the feeds, um, and it calls something called feed
+
+03:46.770 --> 03:48.090
+parser.parse.
+
+03:48.090 --> 03:55.500
+And feedparser is a package that I've imported, which is a useful package that allows you to pull RSS
+
+03:55.500 --> 03:58.380
+feeds and it will give them to you as a dictionary.
+
+03:58.380 --> 04:06.180
+So we are using Feedparser as our Python package for doing this, and we're just taking the top ten
+
+04:06.210 --> 04:08.940
+that comes back from each of these different feeds.
+
+04:08.940 --> 04:11.850
+We take the top ten deals that we get from each one.
+
+04:12.000 --> 04:15.990
+And of course this is something where you can choose to bring back more data if you wish.
+
+04:16.020 --> 04:19.200
+For the moment, I'm just constraining it to that number.
+
+04:19.200 --> 04:23.790
+And then for each of them we create this is this is ourselves.
+
+04:23.790 --> 04:28.800
+We create an instance of us, uh, for that entry.
+
+04:28.800 --> 04:32.070
+That entry, of course, is the dictionary that we looked at a moment ago.
+
+04:32.340 --> 04:36.000
+Um, and there's a little time.sleep in here, if you're wondering about that.
+
+04:36.030 --> 04:42.390
+Uh, that's because I figured that since we're then going and doing a get to to retrieve that web page
+
+04:42.390 --> 04:46.590
+from this deals website, it was antisocial.
+
+04:46.590 --> 04:52.950
+If we hammer that website with tons of requests, one after another with a split second between them.
+
+04:52.950 --> 05:01.040
+So it's considered good scraping practices to put in a sleep so that you're not overly, uh, beating
+
+05:01.040 --> 05:04.250
+up a web server and being too needy.
+
+05:04.250 --> 05:11.030
+So this is a way of us being better citizens when we retrieve these deals from the websites, and then
+
+05:11.030 --> 05:12.740
+it returns those deals.
+
+05:12.740 --> 05:13.760
+So that's what I just did.
+
+05:13.790 --> 05:16.430
+And those deals should be sitting waiting for us in this notebook.
+
+05:16.430 --> 05:21.080
+But I will first just mention a couple of other things in this useful module.
+
+05:21.260 --> 05:26.090
+Um, there are these three classes here that are going to be important in a minute because this is how
+
+05:26.090 --> 05:28.820
+we define structured outputs.
+
+05:28.940 --> 05:37.880
+When we ask GPT four to respond, um, we are defining here a class deal, a class deal selection and
+
+05:37.880 --> 05:39.350
+then a class opportunity.
+
+05:39.350 --> 05:43.010
+And you can see that these are subclasses of base model.
+
+05:43.040 --> 05:49.100
+Base model is uh, comes from the Pydantic package, which does a number of different things.
+
+05:49.100 --> 05:57.920
+One of the things it does is it very easily allows you to switch between JSON versions of of a class
+
+05:57.920 --> 06:04.310
+and its structure and the class itself, and it also is able to enforce that a class adheres to a schema.
+
+06:04.460 --> 06:08.000
+So there's a lot about it that probably many of you are very familiar with.
+
+06:08.000 --> 06:08.810
+Pedantic.
+
+06:08.900 --> 06:15.560
+Um, but but all you need to do to use it is simply create a new class that is a subclass of base model.
+
+06:15.770 --> 06:20.360
+So our first class that we define is just called a deal.
+
+06:20.360 --> 06:25.010
+And it is something which just has a product description, a price and a URL.
+
+06:25.040 --> 06:28.010
+That's it description price URL.
+
+06:28.100 --> 06:31.280
+And then we have another thing called deal selection.
+
+06:31.280 --> 06:35.060
+And this is what we're going to ask GPT four to respond with.
+
+06:35.060 --> 06:37.880
+We're going to tell it we want a deal selection.
+
+06:37.880 --> 06:39.650
+So this is the important one.
+
+06:39.650 --> 06:41.180
+And it's very simple.
+
+06:41.180 --> 06:48.500
+It's just something that has a list of these deals in a single attribute called deals.
+
+06:48.950 --> 06:50.690
+That's that's all there is to it.
+
+06:50.690 --> 06:55.000
+So deal selection means I want a list of deal objects.
+
+06:55.000 --> 06:58.810
+So if you think of this in your mind in JSON speak, what?
+
+06:58.840 --> 07:04.630
+What this will look like in JSON terms is it's going to be like this deal selection is a single object
+
+07:04.630 --> 07:07.750
+which only has one attribute deals.
+
+07:07.750 --> 07:09.850
+And that is a list.
+
+07:09.940 --> 07:13.720
+And it's a list of things which are each objects.
+
+07:13.720 --> 07:15.850
+So when that goes into JSON it will look like this.
+
+07:15.880 --> 07:18.520
+It has a product description.
+
+07:22.960 --> 07:28.720
+And it has a price which is a float.
+
+07:29.410 --> 07:35.620
+And it has a URL which is a some kind of a.
+
+07:37.660 --> 07:41.590
+URL like so uh, and that makes a deal.
+
+07:41.590 --> 07:44.920
+And there is a whole bunch of them potentially in a list of deals.
+
+07:44.920 --> 07:47.170
+And that makes up a deal selection.
+
+07:47.170 --> 07:53.410
+So if you look at the JSON that I just typed there and compare it to these class definitions, I hope
+
+07:53.410 --> 07:57.640
+it becomes clearer in your mind how they are analogous to each other.
+
+07:58.090 --> 08:02.740
+This is just the JSON representation of this structure here.
+
+08:02.770 --> 08:10.450
+And indeed, when we say to GPT four, we want the structured output to be in this format, what we're
+
+08:10.450 --> 08:16.600
+kind of doing is saying we want this to be the kind of JSON that you respond with.
+
+08:16.630 --> 08:18.250
+That's all that's going on.
+
+08:18.760 --> 08:23.560
+So that hopefully gives you a sense of of how this works.
+
+08:23.740 --> 08:25.030
+And I'll delete that.
+
+08:25.030 --> 08:26.320
+Now that's not necessary.
+
+08:26.350 --> 08:31.210
+The final thing to mention is that there's also a class called opportunity that we define here, which
+
+08:31.210 --> 08:33.220
+basically is something which has a deal.
+
+08:33.220 --> 08:38.920
+One of these guys, and also an estimate, which is something later we're going to use when we are estimating
+
+08:38.920 --> 08:40.570
+the value of these deals.
+
+08:40.570 --> 08:46.240
+And then the discount is simply going to be the difference between the deal's price and the estimate
+
+08:46.240 --> 08:46.780
+it's at.
+
+08:46.810 --> 08:50.230
+How much of a discount are we finding that this is being offered?
+
+08:50.620 --> 08:54.070
+So that is the the setup.
+
+08:54.370 --> 08:58.210
+Uh, and with that, let's go back over here.
+
+08:58.510 --> 09:04.690
+Um, so, um, let's fix something there.
+
+09:04.960 --> 09:09.430
+Uh, so the, uh, the we've just run, scrape, deal.
+
+09:09.430 --> 09:10.510
+Dot, fetch.
+
+09:10.660 --> 09:13.120
+Uh, we can now look at how many do we have?
+
+09:13.150 --> 09:16.870
+We have 50 deals sitting in deals.
+
+09:16.900 --> 09:23.560
+The reason we have 50 deals is because we have, uh, we had five feeds, and we asked for ten deals
+
+09:23.560 --> 09:24.310
+from each feed.
+
+09:24.310 --> 09:26.230
+And so that comes to 50, obviously.
+
+09:26.380 --> 09:28.870
+Uh, so that's hopefully what you're expecting to hear.
+
+09:28.900 --> 09:35.590
+Uh, if we look at, uh, um, deal number 44, um, it prints out nicely because you might have seen
+
+09:35.590 --> 09:41.380
+I had a, I used one of the Python magic functions to make sure that it was going to print nicely the
+
+09:41.380 --> 09:42.940
+repro function.
+
+09:43.150 --> 09:46.660
+Um, and so that is what deal number 44 is.
+
+09:46.750 --> 09:49.770
+And if we do the full Describe.
+
+09:49.770 --> 09:52.710
+This is the full bit of information we have about it.
+
+09:52.740 --> 09:58.050
+It's loads daily deal garage storage bla bla bla bla bla bla bla.
+
+09:58.080 --> 10:00.750
+Choose install to dodge the shipping fee.
+
+10:01.380 --> 10:01.860
+Uh.
+
+10:01.860 --> 10:04.230
+So here's the thing.
+
+10:04.230 --> 10:07.260
+If you look at that, you'll notice a couple of things about it.
+
+10:07.290 --> 10:12.690
+One of them is that the price doesn't come separately in the RSS feed.
+
+10:12.690 --> 10:16.380
+We don't get the price point, we just get the description of it.
+
+10:16.380 --> 10:20.760
+And the other thing you'll see about it is that this one doesn't even have a price.
+
+10:20.760 --> 10:22.590
+It's telling you how much off it is.
+
+10:22.590 --> 10:27.690
+It's telling you some things about the free shipping and things like that, but it's not actually giving
+
+10:27.690 --> 10:29.520
+you a price associated with this product.
+
+10:29.520 --> 10:30.900
+And that's a bore.
+
+10:31.050 --> 10:36.450
+And so that means that we're not going to be able to always use these properly.
+
+10:36.450 --> 10:41.430
+And we're going to have to do some parsing to figure out what is the actual price that's being offered
+
+10:41.430 --> 10:42.870
+against each of these items.
+
+10:42.870 --> 10:50.870
+What you'll find if you look at these items is also some of them combine Multiple, uh, things in one,
+
+10:50.870 --> 10:51.950
+uh, blurb.
+
+10:51.950 --> 10:56.390
+There's maybe different models of the Apple Watch that are all being offered 20% off.
+
+10:56.480 --> 11:02.930
+And so trying to digest that and pull out what we want is going to be challenging, very challenging,
+
+11:02.930 --> 11:05.600
+very hard to code that in a way that would be robust.
+
+11:05.600 --> 11:08.270
+And that's why we need to use a frontier model.
+
+11:08.270 --> 11:16.250
+We are going to use GPT four zero to take each of our RSS feeds, scraped deals, and turn that scraped
+
+11:16.250 --> 11:20.090
+deal into something, which is a good, useful deal for us.
+
+11:20.090 --> 11:26.240
+We're actually going to send it all 50 and say, look, we want you to find the best five deals which
+
+11:26.240 --> 11:32.420
+are most clearly explained from this big set, pluck them out and summarize it back to us.
+
+11:32.420 --> 11:34.730
+And we want that in structured output.
+
+11:34.730 --> 11:39.620
+We're going to tell you what format we want, and we're going to ask you to respond with exactly that
+
+11:39.620 --> 11:40.400
+format.
+
+11:40.430 --> 11:44.000
+And so now you now you've, uh, it's been teed up.
+
+11:44.000 --> 11:45.680
+You understand what we're trying to accomplish.
+
+11:45.680 --> 11:48.110
+And we're going to do it in the next video.

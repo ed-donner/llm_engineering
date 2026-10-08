@@ -1,0 +1,529 @@
+WEBVTT
+
+00:00.680 --> 00:05.900
+Let's keep going with our project to equip our LM with a tool.
+
+00:05.900 --> 00:12.200
+We just created this piece of code to describe our function, which I'll now execute.
+
+00:12.200 --> 00:19.760
+And then the next step is we just create something called tools, which now has a single it's a it's
+
+00:19.790 --> 00:20.930
+a list of tools.
+
+00:20.960 --> 00:22.340
+And in our case we only have one.
+
+00:22.340 --> 00:24.560
+It's one element type is function.
+
+00:24.560 --> 00:28.460
+And the function is this thing right here.
+
+00:28.460 --> 00:31.880
+So that is now in a list that's called tools.
+
+00:32.840 --> 00:38.630
+And now the moment it's time to give an LM in our case GPT.
+
+00:38.660 --> 00:41.570
+For many the power to use this tool.
+
+00:41.570 --> 00:43.190
+How is that going to work.
+
+00:43.190 --> 00:48.710
+So it's a bit fiddly I gotta warn you, be be mentally prepared for something a bit fiddly.
+
+00:48.710 --> 00:51.980
+It starts with something that will look very familiar to you.
+
+00:51.980 --> 00:54.680
+This is our usual chat function.
+
+00:54.680 --> 00:55.760
+You know it well.
+
+00:55.760 --> 01:03.290
+It has a message in history that you know and then it uses that to craft the messages that go to OpenAI.
+
+01:03.320 --> 01:05.930
+Now there is a small, subtle difference here.
+
+01:05.930 --> 01:06.950
+Something has changed.
+
+01:06.950 --> 01:08.360
+Something has been added.
+
+01:08.570 --> 01:10.880
+I'm going to wait a moment for you to spot it.
+
+01:10.910 --> 01:15.860
+Once you've spotted it, it's super obvious, but there is a little addition that's been slipped in
+
+01:15.890 --> 01:16.220
+there.
+
+01:16.220 --> 01:19.070
+And if you saw it, very nice.
+
+01:19.070 --> 01:20.720
+If you didn't, it's very obvious.
+
+01:20.720 --> 01:21.500
+Here it is.
+
+01:22.370 --> 01:23.870
+We pass in the tools.
+
+01:23.870 --> 01:27.350
+The API is exactly the same chat dot completions, dot create.
+
+01:27.380 --> 01:31.520
+We give it a model, we give it the messages and then we also give it the tools.
+
+01:31.520 --> 01:34.970
+In other words, we give it this object right here.
+
+01:35.270 --> 01:44.420
+Uh, and when ChatGPT sorry when chat when OpenAI is taking that and building the prompt, the tokens
+
+01:44.420 --> 01:52.250
+that get sent to the to the LLM, to the GPT four LLM, it's going to take this and convert it into
+
+01:52.250 --> 01:55.700
+a series of tokens that are going to describe our function.
+
+01:55.700 --> 02:02.810
+It's going to use this English to say what it does, and it's going to inform the LLM that this is a
+
+02:02.810 --> 02:05.180
+function that it can call.
+
+02:05.210 --> 02:10.910
+Uh, and the reason that works is because it's been trained with lots of examples that use tokens in
+
+02:10.940 --> 02:14.120
+that way to give the LLM that ability.
+
+02:14.690 --> 02:21.080
+And so the some of the magic is about to be lost when you see what's going to happen next.
+
+02:22.430 --> 02:28.430
+What comes back from the LLM you remember is in response choices zero.
+
+02:28.430 --> 02:35.450
+And what we do is we find out whether or not the finish reason is this thing tool calls.
+
+02:35.450 --> 02:41.300
+That happens when GPT four is telling us, I don't have an answer for you yet.
+
+02:41.300 --> 02:48.410
+Instead, I'm going to stop because I want you to call one of your tools and provide me with its output.
+
+02:48.470 --> 02:56.240
+So if that happens, what we then need to do is collect the message from GPT four.
+
+02:56.450 --> 03:00.800
+So this collects that response choice zero dot message.
+
+03:00.860 --> 03:07.970
+It contains the whatever it's sent back, which will in fact be a request for us to run a tool.
+
+03:08.180 --> 03:13.390
+And then there's a bit of work to do to unpack that message.
+
+03:13.450 --> 03:15.820
+Figure out what it wants to do and do it.
+
+03:15.820 --> 03:17.710
+And I've put all of that in a separate function.
+
+03:17.710 --> 03:18.370
+I've cheated.
+
+03:18.370 --> 03:21.400
+I could put it all in here, but it becomes quite messy.
+
+03:21.610 --> 03:23.350
+So instead I've separated that out.
+
+03:23.350 --> 03:25.810
+So at this point we'll see it in a second.
+
+03:25.810 --> 03:32.440
+Believe me that this function will unpack the message back from GPT four zero and if necessary, well,
+
+03:32.440 --> 03:33.250
+it will be necessary.
+
+03:33.250 --> 03:37.060
+It will call our tool and it will return the result of that tool.
+
+03:37.060 --> 03:44.530
+The response to go back to GPT four zero and the city that was called, uh, what we then do is we have
+
+03:44.530 --> 03:49.180
+to add two more rows to our list of messages.
+
+03:49.210 --> 03:53.410
+Our messages, you remember, have like user assistant, user assistant.
+
+03:53.410 --> 03:56.320
+We're now going to add two new rows.
+
+03:56.320 --> 04:04.840
+One of those rows is this thing message, which is nothing more than what we got back from GPT four
+
+04:04.870 --> 04:07.600
+zero asking us to call a tool.
+
+04:07.600 --> 04:12.400
+So the first thing we add in is the assistant asking us to run a tool.
+
+04:12.400 --> 04:19.840
+We put that in the list of messages, and then after that, what we put next in the list of messages
+
+04:19.870 --> 04:23.740
+is our result of calling the function.
+
+04:23.950 --> 04:32.620
+So what's now in this list of messages is user assistant, user assistant, user assistant says run
+
+04:32.620 --> 04:33.340
+tool.
+
+04:33.340 --> 04:35.710
+We say this is the tool result.
+
+04:35.980 --> 04:40.420
+And then that is what we're now sending back to OpenAI.
+
+04:40.450 --> 04:41.920
+I hope that made sense.
+
+04:41.950 --> 04:46.990
+If not, you simply put some print statements in here when you run it and you'll see it's exactly what
+
+04:46.990 --> 04:47.470
+I said.
+
+04:47.470 --> 04:51.400
+And once you print the whole messages thing, I think it will be crystal clear to you.
+
+04:51.430 --> 04:56.170
+You'll see that full exchange appearing in those messages.
+
+04:57.160 --> 05:04.060
+And then at the end here, as usual, we just return the ultimate answer from the LM.
+
+05:04.270 --> 05:09.670
+Uh, what I should point out probably is that I've decided I don't pass in the tools a second time,
+
+05:09.670 --> 05:14.500
+because we wouldn't expect it to run our tool twice, but there'd be no harm in putting it in there.
+
+05:14.500 --> 05:20.370
+But it obviously wouldn't use it, So the final missing ingredient, of course, is that I now have
+
+05:20.370 --> 05:25.950
+to write this function here, which is again a little bit more involved than than one might like it,
+
+05:25.950 --> 05:28.740
+but you can just use it verbatim in your own projects.
+
+05:28.770 --> 05:30.780
+It's just some stuff to know.
+
+05:30.930 --> 05:36.510
+Um, so we've got this, this thing, this message that's come back from GPT four.
+
+05:36.930 --> 05:43.740
+And what we have to do is unpack it to find out which tool was it wanting to call.
+
+05:43.770 --> 05:48.330
+Now, in our case, we know what tool it wants to call because we only have one tool and it's the tool
+
+05:48.360 --> 05:49.380
+to get prices.
+
+05:49.410 --> 05:53.370
+Um, but I'm keeping this in here anyway so that you can see how it works.
+
+05:53.430 --> 05:59.850
+Um, and what we should really do here is say if tool call equals, uh, get ticket price, then.
+
+05:59.880 --> 06:05.700
+So there should really be a sort of like, like if or some sort of, uh, a series of, uh, like a,
+
+06:05.730 --> 06:10.290
+like a, like a switch of all the possible, uh, things that it could ask to, to call.
+
+06:10.290 --> 06:12.330
+But in our case, we know there's only one tool available.
+
+06:12.330 --> 06:13.560
+So that's what it is.
+
+06:13.830 --> 06:18.570
+What we can then do is load the arguments that it wants to call.
+
+06:18.570 --> 06:23.520
+So in this this tool call there is a tool called dot function.
+
+06:23.550 --> 06:28.710
+Dot arguments that tells us what parameters it's chosen.
+
+06:28.920 --> 06:31.770
+Um, and that comes back in the form of JSON.
+
+06:31.770 --> 06:32.880
+Uh, just a string.
+
+06:32.880 --> 06:38.670
+So we have to use the Json.loads Loadstring function to convert that into a dictionary.
+
+06:38.670 --> 06:44.880
+And then we look up the only actual argument that we have, which is destination city.
+
+06:44.910 --> 06:48.420
+We look that up and put that in a variable city.
+
+06:48.420 --> 06:52.020
+So we have now unpacked the tool and the argument.
+
+06:52.020 --> 06:56.190
+And what remains to be done is this line here.
+
+06:56.190 --> 06:59.670
+And that line obviously is nothing very clever.
+
+06:59.670 --> 07:04.890
+That line is quite simply calling our get ticket price function.
+
+07:04.890 --> 07:10.890
+We've established that's the tool it wants to run, and we've plucked out the city and we now call that
+
+07:10.890 --> 07:11.790
+function.
+
+07:12.000 --> 07:14.340
+Um, we then build a response.
+
+07:14.340 --> 07:15.990
+And here is the response.
+
+07:15.990 --> 07:20.910
+This is the thing that's going to get shoved at the bottom of the the messages.
+
+07:20.910 --> 07:21.420
+There it goes.
+
+07:21.420 --> 07:24.920
+It's going to get shoved in there and what their response looked like is this.
+
+07:24.950 --> 07:29.060
+Now, you know, each of these rows has a role and content.
+
+07:29.390 --> 07:35.600
+And in the past we've seen that role can be user or it can be system user or assistant system user assistant,
+
+07:35.600 --> 07:36.470
+user assistant.
+
+07:36.470 --> 07:38.090
+Well, there's something else it can be too.
+
+07:38.120 --> 07:39.590
+It can be this word tool.
+
+07:39.590 --> 07:43.100
+So in this case we put into the response tool.
+
+07:43.100 --> 07:47.630
+And for the content we put in a string which is this.
+
+07:47.660 --> 07:52.280
+This dictionary turned into a string using the JSON dump string function.
+
+07:52.280 --> 07:55.220
+So we put in the destination city and the price.
+
+07:55.220 --> 08:04.670
+We do also need to add this tool call ID into the the message, which is a way that it links this response
+
+08:04.670 --> 08:08.180
+to the request that came right before it.
+
+08:08.180 --> 08:17.270
+So we're putting message.tool.id into this guy so that when it sees these two, it fully understands
+
+08:17.270 --> 08:20.990
+that that is associated with this request.
+
+08:20.990 --> 08:23.990
+And that's all there is to it.
+
+08:24.260 --> 08:27.480
+Although this time This time it was a fair amount.
+
+08:27.510 --> 08:29.370
+There's quite a lot to take on board there.
+
+08:29.580 --> 08:34.710
+But as I say, step through it, put some print statements, see that working.
+
+08:34.710 --> 08:38.070
+But let's see now what happens if we bring this up in a chat.
+
+08:39.720 --> 08:40.800
+Hi there.
+
+08:44.550 --> 08:45.270
+Hello.
+
+08:45.270 --> 08:46.500
+How can I assist you today?
+
+08:46.530 --> 08:49.920
+I'd like to go to London.
+
+08:51.600 --> 08:52.170
+Sure.
+
+08:52.170 --> 08:53.460
+Would you like to know the price?
+
+08:53.490 --> 08:54.390
+Yes.
+
+08:55.770 --> 08:59.520
+The ticket price for a return trip to London is $7.99.
+
+08:59.520 --> 09:00.900
+So it got the right price.
+
+09:00.900 --> 09:05.850
+So what we're hoping is if we turn back to our Jupyter lab, what we should see is that it's printed
+
+09:05.850 --> 09:08.490
+that our tool was called, uh.
+
+09:08.490 --> 09:11.370
+And I think we can be pretty confident that it will, but let's have a look.
+
+09:11.400 --> 09:15.210
+It is indeed tool get ticket price called for London.
+
+09:15.240 --> 09:16.740
+Let's keep going.
+
+09:17.220 --> 09:22.620
+Uh, and how about, uh, Paris?
+
+09:25.320 --> 09:27.870
+899 and Tokyo.
+
+09:30.710 --> 09:34.130
+The ticket price for a return trip to Tokyo is 1400.
+
+09:34.760 --> 09:35.930
+And Berlin.
+
+09:37.280 --> 09:38.660
+Berlin was the one we just added in.
+
+09:38.690 --> 09:39.530
+Let's see if it's got that.
+
+09:39.560 --> 09:41.480
+Yes, 499.
+
+09:41.510 --> 09:46.850
+It certainly seems to work and timbuk2.
+
+09:48.710 --> 09:53.420
+I'm sorry, but I don't have information on ticket prices to timbuk2.
+
+09:53.810 --> 09:55.520
+Uh, let's have a look here.
+
+09:55.520 --> 09:58.940
+And you can see the series of tools called.
+
+09:58.940 --> 10:02.720
+And we know that when it was called for Timbuk2, it would replied unknown.
+
+10:02.720 --> 10:07.910
+And as a result, because we gave it the system prompt to say when it doesn't know, it was quite clear
+
+10:07.910 --> 10:08.960
+that it didn't know.
+
+10:09.680 --> 10:12.530
+And with that, there was a lot going on.
+
+10:12.530 --> 10:13.910
+I hope you got a sense.
+
+10:13.910 --> 10:18.560
+This is in fact, a powerful, uh, piece of functionality.
+
+10:18.560 --> 10:27.650
+It's a powerful technique to allow you to give more powers to your LM, but but under the covers, it's
+
+10:27.650 --> 10:28.580
+not magical.
+
+10:28.580 --> 10:34.990
+It's really a bunch of if statements and some complicated messages to and fro, so that we can allow
+
+10:34.990 --> 10:38.770
+the LLM to inform us that it needs more information about something.
+
+10:38.770 --> 10:40.990
+And that's how it works under the covers.
+
+10:40.990 --> 10:42.850
+And I hope that makes sense to you.
+
+10:42.850 --> 10:45.610
+And I hope you're able to use this in your own projects.
+
+10:45.610 --> 10:47.350
+As ways to extend this.
+
+10:47.350 --> 10:54.340
+You can look at adding more kinds of tools and tools that might say something about the availability
+
+10:54.340 --> 10:56.710
+of that flight or something like that.
+
+10:56.710 --> 10:58.510
+So you can use more tools.
+
+10:58.510 --> 11:03.640
+Or if you want to be really bold, you can add a tool to actually book the flight.
+
+11:03.640 --> 11:07.120
+It's a tool that, when it's called again, could just print something or could write something to a
+
+11:07.120 --> 11:08.170
+file or whatever.
+
+11:08.170 --> 11:14.890
+And that would allow the LLM to call back into your second tool and actually book a flight when the
+
+11:14.890 --> 11:16.390
+user asks for it.
+
+11:16.390 --> 11:21.100
+So that would be a fun one, and you'd have a bunch of arguments about the dates and the like.
+
+11:21.100 --> 11:28.810
+So give that a shot, and by the end of that, you will be very proficient in how to write tools and
+
+11:28.810 --> 11:35.560
+how to equip your LLM to carry out actions that run in your software.

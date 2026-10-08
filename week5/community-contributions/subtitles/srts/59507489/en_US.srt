@@ -1,0 +1,205 @@
+WEBVTT
+
+00:01.610 --> 00:06.140
+Continuing our adventure through hyperparameters for training.
+
+00:06.140 --> 00:11.660
+The next one is pretty crucial and it is called learning Rate.
+
+00:11.660 --> 00:16.220
+And again, many data scientists amongst you will know this one only too well.
+
+00:16.460 --> 00:23.000
+So for very, very quickly, for those that are less familiar with this, again the purpose of training
+
+00:23.000 --> 00:26.690
+is that you take your model, you take a training data point.
+
+00:26.690 --> 00:32.150
+You do what they call a forward pass, which is an inference where you go through the model and say,
+
+00:32.150 --> 00:38.780
+predict the next token that should come, and it gives a prediction the the, the predicted next token.
+
+00:39.110 --> 00:44.330
+Or in fact, it gives a probabilities of all of the possible next tokens.
+
+00:44.360 --> 00:49.610
+And you use that and you have the actual next token that it should have actually been.
+
+00:49.610 --> 00:54.380
+And you can take these two, the prediction and the actual to come up with a loss.
+
+00:54.500 --> 01:01.460
+How poorly did it do at predicting the actual and what you can then do is take that loss and you can
+
+01:01.460 --> 01:07.430
+do what they call back propagation when you go back through the model and figure out how sensitive,
+
+01:07.460 --> 01:13.910
+how much would I have to tweak each weight up or down in order to do a little bit better next time?
+
+01:14.120 --> 01:17.570
+Uh, and then you have to take a step in the direction.
+
+01:17.570 --> 01:23.060
+You have to shift your weights, a step in the direction to do better next time.
+
+01:23.060 --> 01:28.730
+And that step, that amount that you shift your weights in a good direction so that it will do a little
+
+01:28.760 --> 01:29.990
+bit better next time.
+
+01:29.990 --> 01:35.420
+When faced with exactly that training data point, uh, is called the learning rate.
+
+01:35.570 --> 01:42.470
+And it's typically it's it's either 0.0001 or 0.00001.
+
+01:42.530 --> 01:45.350
+Uh, you will see some examples when we go through it.
+
+01:45.440 --> 01:51.290
+And there's also an ability to do have what's called a learning rate scheduler, which is when you start
+
+01:51.290 --> 01:57.470
+the learning rate at one number and during the course of your run over the period of several epochs,
+
+01:57.470 --> 02:02.720
+you gradually lower it and lower it and lower it, because as your model gets more trained, you want
+
+02:02.720 --> 02:08.120
+your learning rate, the amount of step that you take to get shorter and shorter and shorter until you're
+
+02:08.120 --> 02:11.300
+only making tiny Any adjustments to your network.
+
+02:11.330 --> 02:15.050
+Because you're pretty confident that you're in the right vicinity.
+
+02:15.050 --> 02:17.540
+So that is learning rates.
+
+02:17.570 --> 02:21.440
+Again, it will be old hat to many people who have a data science background.
+
+02:21.440 --> 02:23.450
+It might be new to others.
+
+02:24.050 --> 02:27.920
+Gradient accumulation is a way.
+
+02:27.950 --> 02:35.210
+It's it's a technique that allows you to improve speed of going through training where you say, okay,
+
+02:35.210 --> 02:40.760
+so what we're going to do is we're going to we normally do a forward pass.
+
+02:40.970 --> 02:46.340
+We get the, the, the, the, the loss as I just described it.
+
+02:46.370 --> 02:52.400
+We then work out the gradients going backwards and then we take a step in the right direction.
+
+02:52.400 --> 02:58.790
+And then we repeat gradient accumulation says well perhaps what we can do is we can do a forward pass
+
+02:58.790 --> 03:03.800
+and get the gradients and don't take a step, just do a second forward pass and get the gradients and
+
+03:03.800 --> 03:07.040
+add up those gradients and do that a few more times.
+
+03:07.040 --> 03:13.790
+Just keep accumulating these gradients and then take a step and then optimize the network.
+
+03:14.060 --> 03:19.170
+And that just means that you do these steps less frequently, which means it can run a bit faster.
+
+03:19.350 --> 03:21.900
+Um, in some ways it's a bit similar to batch size.
+
+03:21.900 --> 03:27.120
+It has some some there's some sort of a conceptual similarities there, because you're sort of grouping
+
+03:27.120 --> 03:30.060
+things together and just taking one slightly bigger step.
+
+03:30.330 --> 03:35.070
+Um, in the hyperparameters that I've set up, I'm not using gradient accumulation.
+
+03:35.070 --> 03:36.540
+I've got that set to one.
+
+03:36.690 --> 03:39.480
+But I did try it in the past, and I see how it speeds things up.
+
+03:39.480 --> 03:44.220
+And so you might well be interested in experimenting with that and see what it does.
+
+03:44.220 --> 03:46.710
+So that is gradient accumulation.
+
+03:47.100 --> 03:50.700
+And then last but not least the optimizer.
+
+03:50.730 --> 03:57.030
+The optimizer is the formula that's used when it's time, when you've got the gradients you've got your
+
+03:57.030 --> 03:57.780
+learning rate.
+
+03:57.780 --> 04:05.730
+And it's time to now make an update to your neural network to shift everything a little bit in a good
+
+04:05.730 --> 04:11.730
+direction, so that next time it's that little bit more likely to predict the right next token.
+
+04:11.730 --> 04:14.550
+And the process for doing that is called the optimizer.
+
+04:14.550 --> 04:21.090
+And there are a bunch of well-known formulae for how you could do that, each with pros and cons, you'll
+
+04:21.090 --> 04:22.860
+see we pick one in particular.
+
+04:22.860 --> 04:27.180
+That's one that is a little bit more expensive in terms of the performance.
+
+04:27.180 --> 04:31.050
+It's a it's a bit harder work, but it leads to good outcomes.
+
+04:31.050 --> 04:33.840
+So it's the one that I would recommend starting with.
+
+04:33.990 --> 04:40.170
+And then if you do end up having any kind of memory problems, there are alternatives that are, um,
+
+04:40.170 --> 04:42.150
+that consume less memory.
+
+04:42.300 --> 04:44.820
+But that that process is called optimization.
+
+04:44.820 --> 04:49.410
+And the algorithm that you pick to do it is called the optimizer.
+
+04:49.410 --> 04:54.210
+And it's another hyperparameter, and that you can try different ones and see how they do.
+
+04:54.540 --> 04:57.390
+So I realize it's an awful lot of talking.
+
+04:57.390 --> 05:04.860
+And I've also used the the conversation about hyperparameters to explain a bit about the training process.
+
+05:04.950 --> 05:10.590
+Uh, but hopefully this was good foundational background that's prepared you for what is just about
+
+05:10.590 --> 05:17.340
+to happen now, which is we're going back to Google Colab, where we are going to set up and kick off
+
+05:17.340 --> 05:24.120
+our SFT trainer to fine tune our own, uh, specialized LM.

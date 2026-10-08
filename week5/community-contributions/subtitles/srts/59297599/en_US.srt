@@ -1,0 +1,133 @@
+WEBVTT
+
+00:00.350 --> 00:03.320
+Well, that was a sneaky detour I took you on in the last one.
+
+00:03.320 --> 00:07.670
+I hope you enjoyed it though, and I hope you found it satisfying and that you're playing around with
+
+00:07.670 --> 00:08.270
+that week.
+
+00:08.270 --> 00:10.760
+4.5 day 4.5 right now.
+
+00:10.850 --> 00:17.450
+But back to the main plan, which was that we were going to talk about Lang chain expression language,
+
+00:17.540 --> 00:24.110
+which is the way that you can set up your chains in Lang chain, which is how Lang Chain thinks about
+
+00:24.110 --> 00:29.870
+the different steps in the puzzle that are glued together to solve your pipeline.
+
+00:30.020 --> 00:37.160
+And you can do that by putting together a file that expresses, in a declarative style what it is that
+
+00:37.160 --> 00:38.750
+you're looking to achieve.
+
+00:38.930 --> 00:45.830
+So this LCL lang chain expression language can be used to lay out what you want to do.
+
+00:45.950 --> 00:47.690
+It's in the form of a YAML file.
+
+00:47.690 --> 00:50.420
+If you're familiar with YAML files and it looks like this.
+
+00:50.420 --> 00:56.570
+And if we look if we read through this, you can see that we've got here we're specifying a model with
+
+00:56.570 --> 01:02.720
+a temperature with a directory that, that um, that will be the persistent directory for our vector
+
+01:02.720 --> 01:03.500
+database.
+
+01:03.530 --> 01:10.130
+And then we have these different components the LM which is of type chat, open AI.
+
+01:10.160 --> 01:12.350
+We have the conversation memory.
+
+01:12.380 --> 01:18.110
+We have the open AI embeddings, the chroma vector store, the retriever and the chain and the output.
+
+01:18.110 --> 01:24.530
+So hopefully you see how this maps very closely indeed to the Python code that we wrote.
+
+01:24.530 --> 01:30.920
+And you can imagine that these kinds of declarative models can be put together to solve all sorts of
+
+01:30.920 --> 01:31.310
+problems.
+
+01:31.310 --> 01:37.970
+So it's a very powerful language, and it's by people who have spent time with it.
+
+01:37.970 --> 01:41.330
+I think it's it's very productive at this point.
+
+01:41.360 --> 01:45.920
+My personal preference is to stick with Python code and use that to put this together, to put together
+
+01:45.920 --> 01:48.080
+our workflows as we did before.
+
+01:48.320 --> 01:52.310
+But if this interests you, you could look more at this and consider this as an alternative.
+
+01:52.310 --> 01:57.350
+And if you come across this in some other project, you hopefully won't be perturbed by it.
+
+01:57.380 --> 02:04.880
+It maps pretty closely to the Python code, so the next thing I wanted to do was just talk a little
+
+02:04.910 --> 02:10.780
+bit about how Lang Chain works behind the scenes, but hopefully at this point you've got a pretty good
+
+02:10.780 --> 02:12.700
+intuition into that already.
+
+02:13.030 --> 02:16.330
+Uh Langshan isn't doing a ton of magic.
+
+02:16.330 --> 02:18.460
+It's just very convenient indeed.
+
+02:18.460 --> 02:24.940
+But really, it is just making the right calls to the different underlying components like chroma or
+
+02:24.940 --> 02:25.510
+Feis.
+
+02:25.540 --> 02:31.540
+It's retrieving the right, uh, documents, and then it is stitching them into the prompt.
+
+02:31.540 --> 02:36.700
+So I'm going to show you in a second how we can use things called callbacks to get langshan to tell
+
+02:36.730 --> 02:41.260
+us what actually was the prompt that it is sending to OpenAI.
+
+02:41.290 --> 02:46.540
+At the end of the day, after it's done this lookup, and we can use that to diagnose a common problem
+
+02:46.540 --> 02:54.070
+that happens, which is what happens if, for whatever reason, the right chunks aren't sent to the
+
+02:54.100 --> 02:58.330
+to the model, or at least not the chunk that we really wanted, so that it doesn't provide us with
+
+02:58.330 --> 02:59.770
+the kind of answer we wanted.
+
+02:59.800 --> 03:07.360
+Well, then fix that problem, and we'll end with some thoughts on just demystifying the whole, uh,
+
+03:07.360 --> 03:10.300
+infrastructure that Langshan provides us.
+
+03:10.330 --> 03:15.160
+And with that, we'll head back to JupyterLab for the real day five this time.

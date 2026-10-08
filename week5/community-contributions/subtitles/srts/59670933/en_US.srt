@@ -1,0 +1,199 @@
+WEBVTT
+
+00:00.530 --> 00:06.770
+I realized my enthusiasm for this project is a bit insane, but I have to tell you that I am very satisfied
+
+00:06.770 --> 00:07.670
+with the outcome.
+
+00:07.700 --> 00:12.620
+It's rare that you come up with a project like this that has so many moving parts and is technically
+
+00:12.620 --> 00:20.240
+quite complex and has a lot of substance to it, but have such a simple and tangible outcome as our
+
+00:20.240 --> 00:22.340
+push notification for a good deal.
+
+00:22.520 --> 00:29.750
+There is something beyond the king of the notification that really makes this very satisfying indeed.
+
+00:30.290 --> 00:35.660
+But one point that I wanted to make about it, perhaps a more, more seriously, is to point out that
+
+00:35.660 --> 00:41.120
+this sort of template that we've got here for solving this problem is something that you can apply to
+
+00:41.150 --> 00:46.940
+a lot of other similar kinds of business problems and startup ideas and commercial problems that you
+
+00:46.940 --> 00:48.680
+might even have been thinking about already.
+
+00:48.710 --> 00:53.570
+I mean, to give you something that comes to mind right away is that when I was looking on hugging face
+
+00:53.570 --> 01:00.020
+for the data for this this project, for the Amazon pricing data, I also came across a bunch of data
+
+01:00.020 --> 01:07.670
+that that has company reports, annual reports from companies and shows how that relates to the change
+
+01:07.670 --> 01:14.610
+in share price on the day and the few days after the report comes out, which is a very interesting
+
+01:14.610 --> 01:15.420
+data set.
+
+01:15.420 --> 01:22.110
+And it occurs to me that whilst this is more of a stretch, it is also obviously a bigger opportunity
+
+01:22.110 --> 01:23.580
+if you can find a way to crack it.
+
+01:23.610 --> 01:30.810
+If there's a way to build a proprietary model that's able to look at that and make some prediction about
+
+01:30.810 --> 01:35.130
+what will happen to the share price as a result of a company's report being published.
+
+01:35.160 --> 01:41.910
+And you could imagine then having a scanner agent that scans the new company reports being being being
+
+01:41.910 --> 01:42.630
+released.
+
+01:42.660 --> 01:49.170
+And so you can really see the very similar agent workflow that you would adapt for that kind of of of
+
+01:49.170 --> 01:49.710
+problem.
+
+01:49.710 --> 01:54.660
+Now, of course, I will tell you that any trading decisions that you make are entirely at your own
+
+01:54.660 --> 01:56.880
+risk, and I have nothing to do with them at all.
+
+01:57.060 --> 02:03.120
+And obviously no one has yet cracked that problem of being able to build an automated AI system that
+
+02:03.120 --> 02:09.000
+can do things like read company reports and make, uh, trading decisions robust trading decisions as
+
+02:09.000 --> 02:09.510
+a result.
+
+02:09.510 --> 02:15.810
+But it seems like a serious, a very, um, important challenge to take on.
+
+02:15.810 --> 02:21.060
+And I wanted to point that out because it shows you how similar that is in terms of the the bits and
+
+02:21.060 --> 02:24.360
+pieces of the puzzle that you would look at if you wanted to do that.
+
+02:24.360 --> 02:33.160
+So that could certainly be a big challenge, if nothing else, just for the interest of seeing what
+
+02:33.160 --> 02:38.200
+happens and seeing whether you can find signal in that kind of data and using it as an opportunity to
+
+02:38.230 --> 02:40.600
+build a similar agent workflow.
+
+02:41.410 --> 02:42.040
+Okay.
+
+02:42.070 --> 02:49.930
+Anyway, with that, let's move to the last slide of this week, which is of this sorry, not of this
+
+02:49.930 --> 02:54.430
+week, of this day, which is to tell you that there is now one day left.
+
+02:54.430 --> 02:59.890
+There is one final day, week eight, day five, which will be the conclusion of this course.
+
+02:59.890 --> 03:01.930
+And you don't want to miss it.
+
+03:02.050 --> 03:07.210
+Uh, before I tell you what you'll do, then just to remind you, at this point you can generate code
+
+03:07.210 --> 03:13.510
+and text with frontier models, with open source models, using hugging face, using APIs with tools,
+
+03:13.510 --> 03:18.760
+structured outputs, rag with assistance from from Gradio.
+
+03:18.790 --> 03:25.180
+You can follow that strategy we went through to solve problems including curating your data, which
+
+03:25.180 --> 03:30.280
+is hard and grueling, but perhaps the single most important step.
+
+03:30.460 --> 03:34.330
+Um, making your baseline model and fine tuning a frontier model.
+
+03:34.330 --> 03:38.380
+And then you can Select and train an open source model.
+
+03:38.380 --> 03:39.370
+And we did it.
+
+03:39.400 --> 03:42.010
+We beat the frontier when we did that.
+
+03:42.040 --> 03:44.770
+You can deploy models to production.
+
+03:44.770 --> 03:48.730
+Now you can use modal to to put something up there on the cloud.
+
+03:48.760 --> 03:53.980
+You can also productionize your code in other ways and prepare it into something that can be run in
+
+03:53.980 --> 03:55.750
+production environments.
+
+03:56.140 --> 04:03.400
+And now you can build agentic workflows with planning memory, databases and multiple agents working
+
+04:03.430 --> 04:07.030
+together to take a complex task and break it down.
+
+04:07.360 --> 04:11.470
+And so that brings us to preparing for tomorrow.
+
+04:11.470 --> 04:16.780
+Tomorrow, of course, we're going to be building a user interface, which is going to be glorious because
+
+04:16.780 --> 04:17.920
+it's in Gradio.
+
+04:18.040 --> 04:23.980
+Uh, we'll also be looking at the fact that today when we ran that workflow, you'll notice that it
+
+04:23.980 --> 04:25.270
+ran and then it completed.
+
+04:25.270 --> 04:30.730
+So it's not really autonomous and it doesn't keep running and have it still relies on the human to press
+
+04:30.730 --> 04:31.330
+it each time.
+
+04:31.330 --> 04:32.950
+So we need to fix that of course.
+
+04:32.950 --> 04:35.320
+So we will do both of those things tomorrow.
+
+04:35.320 --> 04:43.270
+And once they are done, that will leave you in a position where you will have mastered AI and LM engineering.
+
+04:43.330 --> 04:45.100
+And I can't wait for that point.
+
+04:45.100 --> 04:49.300
+I hope that you are both excited and proud and I will see you there.

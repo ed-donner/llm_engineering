@@ -1,0 +1,457 @@
+WEBVTT
+
+00:00.740 --> 00:07.280
+Well, before we do a postmortem on what happened, let's just quickly look at the standing the ranking
+
+00:07.280 --> 00:08.690
+orders that we've got here.
+
+00:08.690 --> 00:15.710
+So you'll remember that when we did a constant run based on the average, we had an error, an average
+
+00:15.710 --> 00:18.110
+prediction difference of 146.
+
+00:18.620 --> 00:22.280
+When we did traditional machine learning, it went to 139.
+
+00:22.280 --> 00:24.800
+Random forest was 97.
+
+00:24.830 --> 00:33.860
+The human, one human in particular, uh, who shall not be named, was 127, uh, GPT four or mini
+
+00:33.860 --> 00:37.400
+when we ran it the first time, I'm afraid to say was $80.
+
+00:37.430 --> 00:43.310
+GPT four was 76, and what we just came back with was 91.
+
+00:43.310 --> 00:50.300
+As I say, there were things about it that actually were improved on the prior run, but for whatever
+
+00:50.300 --> 00:52.580
+reason, uh, it is what it is.
+
+00:52.580 --> 00:54.350
+I can't I can't fudge the results.
+
+00:54.350 --> 01:01.130
+The unfortunately, the business metric that we're most focused on was slightly poorer fine tuning,
+
+01:01.160 --> 01:05.670
+uh, has, uh, fine tuned in the wrong direction, it seems.
+
+01:05.670 --> 01:07.350
+So let's talk about that.
+
+01:08.280 --> 01:13.830
+It was obviously a sobering moment for us, an important learn on our journey.
+
+01:14.130 --> 01:17.610
+Uh, so it does, uh, take a moment.
+
+01:17.640 --> 01:23.670
+We need to take a moment to think about, um, what is the objective of fine tuning with a frontier
+
+01:23.700 --> 01:24.600
+model?
+
+01:24.660 --> 01:32.880
+Uh, fine tuning is often used, and we will be using it for taking an open source model that has fewer
+
+01:32.880 --> 01:39.390
+parameters and trying to train it on a data set to make it rival with a frontier model.
+
+01:39.420 --> 01:44.760
+But when you have a frontier model that has trillions of parameters already and has been trained over
+
+01:44.760 --> 01:48.450
+enormous data sets, what is your objective?
+
+01:48.510 --> 01:53.460
+Um, and so here, these, these five main objectives for why you fine tune a frontier model.
+
+01:53.460 --> 01:57.390
+I actually basically took these from OpenAI's website itself.
+
+01:57.420 --> 02:05.460
+These are OpenAI's reasons for why you would want to train to fine tune something like GPT for many.
+
+02:05.730 --> 02:12.960
+Um, and it's, it's if you want to craft the like the style or tone of the responses, it gives an
+
+02:12.960 --> 02:16.860
+example of adding some sarcasm to some responses.
+
+02:16.860 --> 02:23.790
+If you want to improve reliably producing a particular type of format, a construct, you need the format
+
+02:23.790 --> 02:27.120
+to be in a particular style or way or structure.
+
+02:27.540 --> 02:34.530
+Um, the third one is correcting, uh, where the model is failing to follow a difficult or challenging
+
+02:34.530 --> 02:34.950
+prompt.
+
+02:34.950 --> 02:39.900
+There's something very complex it's being asked to do, and it's it doesn't get the joke, it's missing
+
+02:39.900 --> 02:40.410
+it.
+
+02:40.800 --> 02:47.130
+Um, handling edge cases when there are things that are occasional flaws that get exposed in the model
+
+02:47.130 --> 02:52.020
+that you need to correct for and then performing something new.
+
+02:52.020 --> 02:57.240
+And this is perhaps what we were trying to do, a new task, but one that's hard to articulate in a
+
+02:57.240 --> 02:57.930
+prompt.
+
+02:57.930 --> 03:05.110
+And that's really what OpenAI stresses on the site that it's about trying to solve for things that you
+
+03:05.110 --> 03:12.340
+can't already fix with good prompting, and it really urges you to start by working as much as you can
+
+03:12.340 --> 03:18.310
+on the prompt, because much of the time with something like GPT four or mini, you're going to be able
+
+03:18.310 --> 03:23.560
+to get to a very high level of performance just through prompting.
+
+03:23.920 --> 03:28.960
+Um, and really, for a frontier model that that's the key here.
+
+03:29.170 --> 03:37.120
+Uh, the we can already specify the question at hand and the style of output very clearly in a prompt.
+
+03:37.120 --> 03:43.900
+And in fact, if you remember back to the prior results, GPT four mini responded accurately in terms
+
+03:43.900 --> 03:45.280
+of a proper structure.
+
+03:45.280 --> 03:49.990
+In every single case, it never we weren't ever not able to pluck a number out.
+
+03:49.990 --> 03:54.850
+And the numbers were always, you know, within within an error close ish to the product.
+
+03:54.850 --> 04:01.330
+It was guessing, um, so it wasn't a problem with it understanding the challenge or the output format.
+
+04:01.330 --> 04:09.210
+Um, and you have to remember that GPT four and GPT four mini have an absolutely staggering size of
+
+04:09.210 --> 04:17.640
+training data with a great world knowledge, and it's unlikely that giving it 500 more training examples
+
+04:17.670 --> 04:21.270
+is going to move the needle in terms of its world knowledge.
+
+04:21.960 --> 04:29.460
+And there is then this, this slight point, um, that, uh, that I talked about a while back now about
+
+04:29.460 --> 04:35.940
+what they call catastrophic forgetfulness, forgetting, which is where sometimes adding in more fine
+
+04:35.940 --> 04:41.730
+tuning causes you to erode some of the deeper knowledge that was gained during pre-training.
+
+04:41.730 --> 04:45.060
+So it's not always a good thing to be fine tuning.
+
+04:45.300 --> 04:50.910
+Um, and I don't know if it was catastrophic forgetting that caused this, this slight dip down or whether
+
+04:50.910 --> 04:56.940
+it's just a bad luck, just that there is some some noise in the system and and it just didn't happen
+
+04:56.940 --> 04:58.500
+to do so well on the test set.
+
+04:58.800 --> 05:01.860
+Um, but we certainly didn't appear to improve things.
+
+05:01.860 --> 05:02.970
+That's the bottom line.
+
+05:02.970 --> 05:09.420
+And it's because, in my view, and from from the way that I understand it and the way the experiments
+
+05:09.420 --> 05:15.030
+show, we were already doing a great job of clearly prompting what was needed.
+
+05:15.030 --> 05:21.810
+GPT four, in many, was already understanding that well, and the caliber of results was already very
+
+05:21.810 --> 05:22.590
+good.
+
+05:23.580 --> 05:29.610
+So having said that, the challenge for you, though, is to keep working on this.
+
+05:29.610 --> 05:35.940
+I've done a bit of hyperparameter optimization or trial and error to try and improve things a bit.
+
+05:36.120 --> 05:37.350
+Um, but not much.
+
+05:37.350 --> 05:43.320
+And I would be shocked if it's not possible to get to a point where this fine tuning is at least doing
+
+05:43.320 --> 05:46.650
+a little bit better, a little bit better than what we had before.
+
+05:46.650 --> 05:48.270
+So that's the challenge for you.
+
+05:48.300 --> 05:54.540
+Do some more, you know, I mean, whilst OpenAI doesn't recommend that one puts in massive data sets,
+
+05:54.540 --> 06:01.800
+particularly while it's free to do so, I would certainly be interested in in, in trying bigger data
+
+06:01.830 --> 06:02.130
+sets.
+
+06:02.130 --> 06:04.650
+Try a training dataset of 1000 or 2000.
+
+06:04.680 --> 06:06.930
+Maybe try some more epochs.
+
+06:06.930 --> 06:10.710
+I did do that and it didn't make a difference for me, but try something different.
+
+06:10.710 --> 06:13.560
+There are other hyperparameters you can explore.
+
+06:13.590 --> 06:15.300
+You can look up on OpenAI's website.
+
+06:15.300 --> 06:18.660
+There's a couple that you can try changing if you wish.
+
+06:18.660 --> 06:21.900
+Just pass them into that same dictionary of hyperparameters.
+
+06:22.260 --> 06:28.410
+Um, and uh, yeah, you could also try putting in different training data points, and you can try
+
+06:28.440 --> 06:29.490
+playing with the prompt.
+
+06:29.520 --> 06:37.140
+I mean, OpenAI's biggest point on the website is that you will get the most mileage from improving
+
+06:37.140 --> 06:38.190
+the prompting.
+
+06:38.310 --> 06:43.890
+And obviously this is something where we spent a bit of time curating the data and perfecting the prompts,
+
+06:43.890 --> 06:46.440
+but there's much, much more that can be done there.
+
+06:46.440 --> 06:48.780
+So have a shot at that as well.
+
+06:48.780 --> 06:55.230
+The challenge for you is do some hyperparameter optimization, do some playing around with the prompting,
+
+06:55.260 --> 06:56.820
+at least do better.
+
+06:56.820 --> 06:58.200
+Let's look back at where we were.
+
+06:58.230 --> 07:01.470
+Your challenge is to do better than 76.
+
+07:01.590 --> 07:08.020
+Um, and I will tell you that that I have been able to do better than 76 at one point with a with a
+
+07:08.020 --> 07:09.310
+prior run.
+
+07:09.460 --> 07:16.360
+And so I have done I know that it's possible to do better than 76 without without making too many changes.
+
+07:16.390 --> 07:18.520
+Not massively better, but better.
+
+07:18.730 --> 07:21.010
+And that is the challenge for you.
+
+07:21.040 --> 07:24.790
+Uh, do so please, and let me know how you get on.
+
+07:24.790 --> 07:30.610
+And if you particularly if you get, uh, optimized prompt or hyper parameters, then then push the
+
+07:30.610 --> 07:36.040
+code, do a PR so that I can look at it and share it with others and see where we get to.
+
+07:36.370 --> 07:43.480
+Um, and that will be, uh, that will be your your challenge accomplished when you do better than 76.
+
+07:45.040 --> 07:46.240
+All right.
+
+07:46.240 --> 07:49.870
+That brings us to a conclusion for week six.
+
+07:49.870 --> 07:58.690
+You are remarkably now 75%, three quarters of the way to being an LM engineer, proficient LM engineer
+
+07:58.690 --> 08:01.900
+who has mastered AI and LM engineering.
+
+08:02.110 --> 08:04.570
+And I hope you're as excited about that as I am.
+
+08:04.600 --> 08:10.130
+It's just a fantastic progress that you should be super proud of everything that you've learned.
+
+08:10.190 --> 08:15.920
+Uh, obviously generating text and code with frontier models assistance and using open source models
+
+08:15.920 --> 08:20.570
+with hugging face transformers, library, uh, lang chain rag.
+
+08:20.720 --> 08:26.960
+And then most recently, the five step strategy for problem solving curating data.
+
+08:26.960 --> 08:28.250
+We did a lot of curating data.
+
+08:28.250 --> 08:32.420
+But you know, the life of an LM engineer involves a lot of data curation.
+
+08:32.420 --> 08:37.490
+That is a knack that you get into, and it's one of the most important parts.
+
+08:37.490 --> 08:42.710
+Certainly in all of the experiments that I did, changing the data structure was the thing that moved
+
+08:42.710 --> 08:44.810
+the needle more than anything else.
+
+08:44.900 --> 08:48.950
+Uh, and you're already seeing it post a lot of, uh, experiment.
+
+08:49.040 --> 08:51.560
+Um, but you I'm sure you can do better.
+
+08:52.070 --> 08:55.100
+Um, you've played with traditional machine learning.
+
+08:55.160 --> 08:59.660
+Uh, just just to get a good sense of a baseline that that we've beaten comfortably.
+
+08:59.810 --> 09:04.460
+Uh, you made a frontier model solution, and now fine tuned frontier models.
+
+09:04.460 --> 09:06.660
+So the results were a little disappointing.
+
+09:06.690 --> 09:07.710
+Gotta be real.
+
+09:07.890 --> 09:11.520
+But nonetheless, this is something that you can use in your own projects.
+
+09:11.520 --> 09:17.760
+And there are situations such as if you want to change the style or you're having difficult edge cases
+
+09:17.760 --> 09:20.730
+that are causing you problems, then fine tuning is the answer.
+
+09:20.730 --> 09:22.560
+And now at least you have a good recipe.
+
+09:22.590 --> 09:25.980
+You know how to do it and you've seen a run happening.
+
+09:25.980 --> 09:28.980
+You've checked its status, you've watched it in weights and biases.
+
+09:28.980 --> 09:31.290
+You know everything that's involved.
+
+09:32.490 --> 09:42.450
+All right, next week we turn over a new leaf and we we start a new segment of the voyage as we turn
+
+09:42.450 --> 09:44.160
+to open source models.
+
+09:44.160 --> 09:51.090
+Fine tuning open source models is a very different proposition to fine tuning a frontier model, fine
+
+09:51.090 --> 09:52.290
+tuning, an open source model.
+
+09:52.290 --> 09:59.160
+What we're trying to do is start with something that is massively smaller than the large models that
+
+09:59.160 --> 09:59.970
+we're dealing with.
+
+09:59.970 --> 10:02.040
+I mean, it's still going to have billions of parameters.
+
+10:02.040 --> 10:09.300
+It's still a big model in the in the general scheme of things, but it doesn't compare with the trillions
+
+10:09.300 --> 10:13.290
+of parameters in GPT four and GPT four mini.
+
+10:13.320 --> 10:20.460
+So we're going to be fine tuning open source models, and we're going to be using something called Lora,
+
+10:20.460 --> 10:24.480
+which you may have heard of or you will have heard of because I've mentioned it a few times, but you
+
+10:24.480 --> 10:30.810
+may have perhaps seen some examples of Lora, and you may have heard of its cousin, Lora, which is
+
+10:30.840 --> 10:32.820
+a quantized version of Lora.
+
+10:32.850 --> 10:37.770
+We will be working on both, and by the end of it you will know them both back to front.
+
+10:37.980 --> 10:43.950
+Um, and in the next, next session, we're going to be selecting the base model, which you already
+
+10:43.950 --> 10:44.640
+know what that is.
+
+10:44.640 --> 10:47.310
+But but we'll be choosing it for reals.
+
+10:47.490 --> 10:53.070
+Um, that is going to be the model that we will have to compete with GPT four.
+
+10:53.340 --> 10:56.280
+Our current the current winner on our leaderboard.
+
+10:56.280 --> 10:59.220
+That is going to be our challenge for next week.
+
+10:59.250 --> 11:03.480
+It's going to be a big challenge, but I can't wait to take it on.
+
+11:03.480 --> 11:05.940
+And I hope you can't wait as well.
+
+11:05.940 --> 11:07.140
+I will see you then.

@@ -1,0 +1,877 @@
+WEBVTT
+
+00:00.860 --> 00:07.040
+So what you just saw was an ephemeral app, as it's called, which means just a temporary app that you're
+
+00:07.040 --> 00:12.650
+just using for, for, for testing before finally picking an app to deploy.
+
+00:12.680 --> 00:16.520
+And we're going to stay with the ephemeral apps for a little bit longer, because we're now going to
+
+00:16.520 --> 00:23.270
+take our proprietary model that we built last time and deploy that as an ephemeral app before we we
+
+00:23.300 --> 00:24.380
+do it for reals.
+
+00:24.380 --> 00:31.460
+So in order to do that, let me show you this other file here called Pricer ephemeral.py, which is
+
+00:31.490 --> 00:37.460
+a Python module which is going to have some similarities with what you just saw, but with one key difference,
+
+00:37.460 --> 00:43.910
+which is instead of using llama 3.1, we're going to use our own fine tuned model using very similar
+
+00:43.910 --> 00:50.990
+code to the code that we used in the codelab when we were running our model in inference, when we were
+
+00:50.990 --> 00:54.830
+testing it, and had the wonderful moment when it when it did so well.
+
+00:54.830 --> 01:03.380
+So in this, uh, Python module, then we begin as before by importing modal.
+
+01:03.620 --> 01:06.590
+And again I will remove volume.
+
+01:06.800 --> 01:09.650
+At one point I was going to use that, but I ended up not.
+
+01:10.160 --> 01:14.240
+So you set up, you say that you have an app.
+
+01:14.240 --> 01:15.260
+It's called Pricer.
+
+01:15.290 --> 01:16.760
+That's going to be the name of the app you saw.
+
+01:16.790 --> 01:17.630
+Pricer.
+
+01:18.020 --> 01:20.510
+You saw my deployed version of Pricer before.
+
+01:20.810 --> 01:25.640
+Um, and now we create an image and we install the same packages.
+
+01:25.640 --> 01:27.410
+But wait, there's a new package.
+
+01:27.410 --> 01:34.850
+You'll remember the parameter efficient fine tuning package that we need in order to be able to load
+
+01:34.850 --> 01:38.060
+in our fine tuned weights and our secrets.
+
+01:38.060 --> 01:42.890
+Hopefully you found your way to adding them in and you should put them under HF secret.
+
+01:42.890 --> 01:47.210
+Or if you put it under something else, then obviously change the name here.
+
+01:47.210 --> 01:50.030
+That's the name of the the the category of secrets.
+
+01:50.030 --> 01:56.390
+And then within that you have to have the exactly the usual um, hugging HF underscore token for, for
+
+01:56.390 --> 01:57.650
+the token itself.
+
+01:58.040 --> 02:00.480
+Um, see if that's actually in the code somewhere.
+
+02:00.510 --> 02:02.070
+Um, I don't think it is.
+
+02:02.130 --> 02:05.940
+Um, anyways, so so if that hopefully that that that makes sense.
+
+02:06.390 --> 02:13.740
+Um, so, um, we then um, specify we want a t4 GPU.
+
+02:13.770 --> 02:16.200
+We specify the base model of course.
+
+02:16.230 --> 02:17.850
+Llama 3.18 billion.
+
+02:18.060 --> 02:19.620
+Uh, the project name.
+
+02:19.620 --> 02:22.980
+This is because we're going to be pulling it from the Hugging Face hub.
+
+02:23.280 --> 02:25.860
+Uh, so this is my hugging face username.
+
+02:25.860 --> 02:30.000
+If you want to use my trained version, then keep my name there.
+
+02:30.000 --> 02:35.130
+If you want to use your version because you fine tune the version and maybe you made it even better.
+
+02:35.130 --> 02:39.600
+Maybe you've done some hyperparameter optimization and you have beaten me, in which case you should
+
+02:39.600 --> 02:41.370
+definitely use year one instead.
+
+02:41.520 --> 02:44.850
+Um, but this is mine, and if you use mine, then you should use that run name.
+
+02:44.850 --> 02:50.400
+And this revision number, which you'll remember, was the epoch where I got the best results before
+
+02:50.400 --> 02:51.870
+it started to overfit.
+
+02:51.870 --> 02:56.250
+And so this ends up with the fine tuned model name.
+
+02:56.250 --> 03:00.030
+And so we have a simple function price.
+
+03:00.030 --> 03:04.980
+And it's a function which is almost identical to the function that we had in the Google Colab.
+
+03:05.190 --> 03:11.130
+It's just we've got it sitting here on my local box, and we're going to decorate it with this decorator
+
+03:11.130 --> 03:16.200
+that says that we want to run it in this image with these secrets and this GPU.
+
+03:16.290 --> 03:20.340
+But this is all the same stuff.
+
+03:20.370 --> 03:21.990
+We do some imports.
+
+03:22.380 --> 03:24.720
+We note the question and the prefix.
+
+03:25.230 --> 03:28.860
+The prompt is going to be how much does this cost to the nearest dollar.
+
+03:28.890 --> 03:32.580
+Then the description of the product and then price is dollars.
+
+03:32.580 --> 03:37.920
+And then it's going to be almost unbearable for the model not to respond with what the price is.
+
+03:38.340 --> 03:41.550
+And then here we do the quantization.
+
+03:41.550 --> 03:44.160
+We load the model as before.
+
+03:44.160 --> 03:46.980
+And this line hopefully you remember this.
+
+03:46.980 --> 03:51.540
+This is where we load in the the Laura fine tuned model.
+
+03:51.540 --> 03:53.400
+We provide a base model.
+
+03:53.400 --> 03:57.640
+We provide the name of the fine tuned model and in this case, the revision number.
+
+03:57.640 --> 04:01.030
+You can leave that off if you're just taking the final save.
+
+04:01.030 --> 04:02.980
+You don't need to take an interim point.
+
+04:02.980 --> 04:04.090
+The way that I am.
+
+04:04.810 --> 04:06.670
+This is for reproducibility.
+
+04:06.670 --> 04:08.560
+So that it's the random seed is set.
+
+04:08.590 --> 04:12.130
+So you get the same numbers each time we tokenize.
+
+04:12.340 --> 04:19.570
+We then make the call dot generate to our fine tuned model and we decode.
+
+04:19.570 --> 04:22.840
+And then finally hopefully you also recognize this code.
+
+04:22.840 --> 04:29.440
+This is a bit of janky code that strips out the number, the floating point number from within the text
+
+04:29.470 --> 04:33.490
+that comes back, just in case there's an errant dollar sign or something like that, and makes sure
+
+04:33.490 --> 04:39.700
+we get whatever number we can, um, and returns that number, and that's all there is to it.
+
+04:39.730 --> 04:42.970
+It's code that should be pretty familiar to you at this point.
+
+04:42.970 --> 04:44.950
+So now we go back here.
+
+04:45.130 --> 04:48.640
+Um, I did already run it because as before, because it needs to warm up.
+
+04:48.640 --> 04:49.840
+It takes a couple of minutes.
+
+04:49.840 --> 04:52.180
+So it will be agonizing if we had to wait each time.
+
+04:52.180 --> 04:53.620
+But I already ran it.
+
+04:53.650 --> 04:55.700
+This is, of course, what I ran.
+
+04:56.480 --> 05:00.470
+You say you don't need to actually have this with modal enable output.
+
+05:00.470 --> 05:04.550
+But if you if you don't do that there's lots of other stuff prints.
+
+05:04.550 --> 05:07.730
+So this is a way to make it so that it's a nice and neat.
+
+05:08.030 --> 05:10.700
+Um, but you do need to have with app dot run.
+
+05:10.940 --> 05:14.000
+Um, and then I just say result is priced remote.
+
+05:14.000 --> 05:20.990
+And then what I'm asking for is to price a particular object, um, that, uh, just, uh, looking
+
+05:20.990 --> 05:22.790
+around for something that I could ask it to price.
+
+05:22.790 --> 05:27.140
+And the object that I've asked it to price is the very microphone that I am talking into right here.
+
+05:27.140 --> 05:29.690
+So I just typed it in there.
+
+05:29.690 --> 05:31.130
+I remember how much it cost.
+
+05:31.160 --> 05:31.940
+And so why not?
+
+05:31.940 --> 05:34.490
+Let's see how it does estimating that.
+
+05:34.670 --> 05:35.900
+Uh, so I ran it.
+
+05:35.930 --> 05:37.190
+It did take a couple of minutes.
+
+05:37.220 --> 05:42.710
+Now it takes a couple of minutes because it has to warm up that box, uh, and, and populate things,
+
+05:42.800 --> 05:47.090
+um, because it has to do everything you can imagine you'd have to do if you ran this in Colab.
+
+05:47.090 --> 05:50.600
+It has to download from the Huggingface hub and then load it into memory.
+
+05:50.810 --> 05:54.020
+Um, it also has to pip install all of those packages.
+
+05:54.020 --> 05:57.230
+So there's a lot that has to happen, which is why it takes a bit of time.
+
+05:57.410 --> 06:04.370
+Um, and it did all this stuff and at the end it completed and it returned the number one, 33, $133.
+
+06:04.370 --> 06:06.770
+And I think that is round about what this costs.
+
+06:06.770 --> 06:13.790
+So, uh, yeah, it's, uh, I think that's pretty much, uh, a spot on, uh, so maybe it was it.
+
+06:13.790 --> 06:14.180
+Who knows?
+
+06:14.180 --> 06:18.530
+It could have been in the training data set, but but, uh, certainly a nice result.
+
+06:19.220 --> 06:22.670
+So hopefully you're doing this to you're trying this.
+
+06:22.670 --> 06:24.980
+You will have to wait those two, two, three minutes.
+
+06:24.980 --> 06:29.540
+You'll be able to go onto modal while you're doing it, and you'll be able to go to ephemeral apps.
+
+06:29.630 --> 06:33.320
+It's no longer running, but while it was running, it will have been here, and you'll be able to watch
+
+06:33.320 --> 06:40.850
+it and see it doing its thing and then, uh, get a satisfactory result.
+
+06:41.150 --> 06:41.780
+Okay.
+
+06:41.780 --> 06:46.160
+But now we've done that, it's time to make the transition from these ephemeral apps, which is just
+
+06:46.160 --> 06:48.560
+ways of running functions remotely.
+
+06:48.560 --> 06:54.590
+Now we're going to have deployed apps, which is when we tell Modell that we've got some functionality
+
+06:54.590 --> 06:58.310
+and we want to have it be, um, permanently sitting on.
+
+06:58.340 --> 07:03.530
+Modell will still only pay for it when we actually run it, but we do want to give it a sort of a name
+
+07:03.530 --> 07:09.230
+and a proper place where we can quickly get back to it if we need to.
+
+07:09.650 --> 07:16.460
+Um, and the way you do it is on the command line, you type model.deploy and then the name of the app
+
+07:16.460 --> 07:17.690
+that you want to deploy.
+
+07:17.960 --> 07:24.260
+Uh, and it's important to note that this this really this is the moment that we are taking some code,
+
+07:24.260 --> 07:29.900
+some model that we have built as data scientists, and we are deploying it in a way that can be used
+
+07:29.900 --> 07:31.550
+for production purposes.
+
+07:31.550 --> 07:33.740
+It's going to have a Python API behind it.
+
+07:33.740 --> 07:40.220
+People will be able to call it, um, from Python and be able to to invoke our API.
+
+07:40.460 --> 07:47.540
+And this is an example of productionizing, something that we've built in originally in JupyterLab.
+
+07:47.930 --> 07:54.460
+Um, it can also modal also allows you to build Rest endpoints very easily so that it doesn't need to
+
+07:54.460 --> 07:55.450
+be called by Python.
+
+07:55.450 --> 08:00.070
+It could just be called from any any HTTP query.
+
+08:00.250 --> 08:03.610
+Um, we're not going to cover that in this class because everything we're doing is in Python.
+
+08:03.610 --> 08:05.980
+So we might as well just just call it from Python.
+
+08:06.010 --> 08:09.160
+Um, but it's very easy to do and the docs are super clear about it.
+
+08:09.700 --> 08:14.710
+So, uh, one thing I glossed over a moment ago, you may know this already.
+
+08:14.710 --> 08:20.980
+Uh, Jupiter, uh, has this great feature that if you want to, you can run something in terminal just
+
+08:20.980 --> 08:23.080
+by doing an exclamation mark.
+
+08:23.080 --> 08:26.920
+And then the the name of the command you want to run.
+
+08:26.920 --> 08:31.510
+You can also actually open up a terminal window by pressing the plus button there and, and create a
+
+08:31.510 --> 08:32.170
+terminal.
+
+08:32.170 --> 08:36.640
+Uh, but this is even easier because you can do it right in the prompt here, which I did above.
+
+08:36.640 --> 08:41.710
+And the command again is modal deploy and then the package name.
+
+08:41.710 --> 08:43.510
+So it's priceless service.
+
+08:43.510 --> 08:46.480
+So let's go and have a look at this package called Price of Service.
+
+08:46.510 --> 08:48.340
+Let me quickly tell you what I've got here.
+
+08:48.370 --> 08:53.280
+So uh it's, uh, remarkably, uh, similar.
+
+08:53.550 --> 09:00.300
+Um, you can see that basically we, we have, uh, the, the constants, we define the function, uh,
+
+09:00.300 --> 09:08.460
+and uh, it's basically the same thing, but this is going to be enough to deploy, uh, our code as
+
+09:08.490 --> 09:15.000
+a service, as a, as a proper deployed service, rather than the ephemeral version of the process that
+
+09:15.000 --> 09:15.990
+we had before.
+
+09:16.140 --> 09:18.150
+Um, but yeah, it is the same thing.
+
+09:18.150 --> 09:21.900
+It's the identical code just packaged differently.
+
+09:21.900 --> 09:24.720
+And again, with this volume that's not required.
+
+09:25.080 --> 09:32.310
+Uh, uh, so on running that if we go back to the day one notebook, uh, you'll see that it deployed
+
+09:32.310 --> 09:34.470
+it to as Price's service.
+
+09:34.710 --> 09:37.530
+Um, it gives me a little URL at the end of it.
+
+09:37.800 --> 09:43.500
+Um, and then once it's done that if I go now back here and I go to deployed apps, you'll see that
+
+09:43.500 --> 09:45.450
+price is running there.
+
+09:45.660 --> 09:50.830
+Um, sitting on a T4 GPU box, just as we specified.
+
+09:50.860 --> 09:57.100
+If we come back here, the way that you call a deployed app is different and actually simpler than the
+
+09:57.100 --> 09:57.970
+ephemeral app.
+
+09:58.000 --> 09:58.900
+You don't need that.
+
+09:58.900 --> 10:01.870
+That, um, scaffolding you saw a moment ago.
+
+10:01.900 --> 10:08.890
+Instead you just say modal dot function, dot lookup, and then you give the name of the service and
+
+10:08.890 --> 10:10.690
+then the name of the of the function.
+
+10:10.720 --> 10:11.800
+Simple as that.
+
+10:11.800 --> 10:12.760
+Modal dot function.
+
+10:12.790 --> 10:15.430
+Dot lookup the service and the function.
+
+10:15.700 --> 10:22.120
+Um, and so once you've run that you can then say price dot remote and make the, the remote call.
+
+10:22.120 --> 10:25.120
+And we get back the same number 133.
+
+10:25.120 --> 10:26.350
+And that's all there is to it.
+
+10:26.380 --> 10:33.430
+We've just deployed an app with our proprietary model to the cloud, and we've called it and it's run
+
+10:33.430 --> 10:34.480
+on the cloud.
+
+10:35.470 --> 10:39.910
+Uh, now there is a nicer way of doing this, a fancier way of doing this.
+
+10:39.910 --> 10:45.400
+When we build it this way, every time that it goes to sleep and needs to be warmed back up again,
+
+10:45.400 --> 10:49.300
+which, by the way, is quite quickly like after a minute or two it goes to sleep.
+
+10:49.810 --> 10:56.290
+And so every time you call it, you're waiting all that extra time, uh, and basically every time it
+
+10:56.290 --> 11:02.230
+has to rebuild an image and do the imports and load the model and so on.
+
+11:02.560 --> 11:03.340
+Um, sorry.
+
+11:03.370 --> 11:05.800
+I jumped to the version where it doesn't have to do that.
+
+11:05.800 --> 11:06.340
+Here we go.
+
+11:06.370 --> 11:09.340
+This is the bad version where it has to do all of that.
+
+11:09.430 --> 11:11.560
+So I've made a second version of it.
+
+11:11.560 --> 11:13.780
+Prices service two pi.
+
+11:13.810 --> 11:19.000
+This module, uh, and this one is done a bit in a smarter way.
+
+11:19.000 --> 11:27.370
+It's done using a class, and it's done in a way that allows you to pre-build some, uh, some aspects
+
+11:27.370 --> 11:28.300
+of initialization.
+
+11:28.300 --> 11:30.130
+So you don't need to do it every time.
+
+11:30.430 --> 11:39.250
+Um, so when you define a class like this, you have the ability to use this decorator model dot build
+
+11:39.250 --> 11:45.820
+and write a function that will populate your box the first time that it's built.
+
+11:46.000 --> 11:51.140
+And in this case I download from huggingface the model and I put it in the cache.
+
+11:51.290 --> 11:54.950
+And I'm not going to walk through this in detail, because I'm going to leave that as an exercise for
+
+11:54.950 --> 11:59.030
+you in the interest of time, but it's perfectly self-explanatory.
+
+11:59.180 --> 12:05.720
+This code will load the files from Huggingface and put it in Huggingface cache.
+
+12:05.990 --> 12:12.530
+And then you can have this decorator modal dot enter, and this is when the function actually gets called.
+
+12:12.950 --> 12:20.510
+And this is where it's going to set things up by setting up a tokenizer and setting up a base model
+
+12:20.510 --> 12:21.680
+that will be loaded once.
+
+12:21.680 --> 12:23.510
+So it can be used repeatedly.
+
+12:23.660 --> 12:26.480
+If this is called before it goes to sleep.
+
+12:26.990 --> 12:30.530
+Uh, and this is the method itself price.
+
+12:30.530 --> 12:40.040
+This is now the same as before, but the the code to load the model into memory has been pulled out
+
+12:40.190 --> 12:47.000
+into this one here into modal into setup under the the A decorator modal or enter.
+
+12:47.750 --> 12:52.640
+And so as a result of all of this, if I haven't lost you yet with this, when I go back to day one,
+
+12:52.640 --> 12:58.130
+the key point, uh, I then do a modal deploy of process service two.
+
+12:58.160 --> 13:00.320
+So process service two gets deployed.
+
+13:00.530 --> 13:04.310
+And when I've done that I can then use this code slightly different.
+
+13:04.340 --> 13:08.090
+You remember this is what we did last time we did modal dot function dot lookup.
+
+13:08.090 --> 13:13.190
+Now we do modal dot class which annoyingly is spelt cls.
+
+13:13.340 --> 13:17.300
+Um they probably class is probably something that is already used.
+
+13:17.300 --> 13:18.680
+So they couldn't use that.
+
+13:18.770 --> 13:26.420
+So modal dot dot dot lookup and then price of service and price now with a capital P price.
+
+13:26.420 --> 13:27.650
+So it's the class.
+
+13:27.650 --> 13:32.900
+So this will will find the class that we've just just deployed.
+
+13:33.020 --> 13:35.450
+You can instantiate that class.
+
+13:35.450 --> 13:38.960
+So I say price is is an instance of price.
+
+13:39.500 --> 13:42.770
+And then I can call Pricer dot price dot remote.
+
+13:42.950 --> 13:46.620
+Uh and when I do that, I get back that answer again.
+
+13:46.620 --> 13:51.600
+And when I ran this before, it ran super fast because it was already in memory, but now it's probably
+
+13:51.600 --> 13:52.440
+swapped out already.
+
+13:52.440 --> 13:57.510
+So yeah, I won't do it now to avoid holding us up, because we'll press on to the final example, which
+
+13:57.510 --> 13:58.500
+I will run.
+
+13:58.830 --> 14:02.400
+Um, I'm going to kick it off now so that I can talk while it's doing its thing.
+
+14:02.430 --> 14:03.390
+We'll let it run.
+
+14:03.390 --> 14:15.930
+So I have packaged this into a nice, useful class called Specialist Agent, which is our first agent
+
+14:15.930 --> 14:17.250
+that we're going to look at.
+
+14:17.370 --> 14:23.970
+Um, and it is something which is going to look up our pricer running on modal and call our pricer.
+
+14:23.970 --> 14:29.220
+And it's something which just takes a single function, a single method price.
+
+14:29.220 --> 14:31.560
+And you can pass in what you want it to price.
+
+14:31.560 --> 14:32.460
+Let's go and look.
+
+14:32.460 --> 14:33.780
+It's in agents.
+
+14:33.900 --> 14:35.490
+And now you get your first preview.
+
+14:35.520 --> 14:38.700
+Look at all of the different agents that we're going to be playing with this week.
+
+14:38.940 --> 14:42.120
+Uh, and we're going to go in and have a look at this particular agent.
+
+14:42.120 --> 14:46.380
+It's called specialist agent because it's using our special model.
+
+14:46.380 --> 14:50.340
+So this is our Python module for our specialist agent.
+
+14:50.340 --> 14:56.220
+And as I promised you'll see that I've written comments and that there's some type hints going on.
+
+14:56.430 --> 14:58.620
+So this class is a very simple class.
+
+14:58.620 --> 15:03.630
+It's an agent that runs our fine tuned LLM remotely on modal.
+
+15:04.020 --> 15:08.040
+Um, it sets a name, it gives itself a name and a color.
+
+15:08.250 --> 15:13.290
+And the reason for that, you'll find out later, is that we're going to have our agents log.
+
+15:13.290 --> 15:15.060
+So we'll be able to see what they're all doing.
+
+15:15.060 --> 15:17.430
+And the specialist agent is going to take the color red.
+
+15:17.430 --> 15:20.490
+So you'll be able to see when it's thinking and doing things and so on.
+
+15:21.240 --> 15:30.780
+Uh, so I initialize in the initialization in the constructor method here I log that, that it's getting
+
+15:30.780 --> 15:31.440
+started.
+
+15:31.440 --> 15:35.340
+And I do this modal dot plus dot lookup.
+
+15:35.340 --> 15:37.470
+And I look up the price of service and the price.
+
+15:37.650 --> 15:40.680
+And this is the thing that we just deployed a moment ago.
+
+15:40.680 --> 15:44.470
+So we look looked that up and we instantiate it.
+
+15:44.470 --> 15:47.470
+And then we log that we are ready for business.
+
+15:47.530 --> 15:52.180
+And the price call itself does exactly what we just looked at.
+
+15:52.210 --> 15:55.540
+We do price dot price dot remote.
+
+15:55.570 --> 15:57.910
+It's just like when we did the hello dot remote.
+
+15:57.910 --> 15:59.110
+We're taking a function.
+
+15:59.110 --> 16:02.410
+We're calling a remote, which means it's going to run on the cloud.
+
+16:02.410 --> 16:04.360
+It's almost transparent to us.
+
+16:04.360 --> 16:10.240
+It's like we're calling it directly here in Python, but it's actually going to run on the cloud on
+
+16:10.240 --> 16:12.520
+the T4 box that we specified.
+
+16:12.550 --> 16:19.000
+We pass in the description, we log the fact that it's completed and we return the result.
+
+16:19.570 --> 16:24.340
+So hopefully I've jabbered away for long enough that when we turn back to day one, it's going to have
+
+16:24.340 --> 16:26.290
+finished and it hasn't finished.
+
+16:26.650 --> 16:32.950
+Well then I can also fill in the time by flipping over here and we can take a look at it doing its thing.
+
+16:33.310 --> 16:39.850
+Uh, so here now, before we remember, I got lost looking for ephemeral apps.
+
+16:39.880 --> 16:46.270
+We are now correctly on deployed apps because we're looking at our Pricer service or Pricer, which
+
+16:46.270 --> 16:47.470
+is a deployed app.
+
+16:47.470 --> 16:49.840
+We can go into this and have a look at it.
+
+16:49.870 --> 16:51.400
+Oh, it's now saying succeeded.
+
+16:51.400 --> 16:52.720
+Let's go back and have a look.
+
+16:52.720 --> 16:54.220
+It has indeed succeeded.
+
+16:54.220 --> 16:54.940
+There we go.
+
+16:54.940 --> 16:58.000
+It succeeded and it returned the right number 133.
+
+16:58.030 --> 17:02.470
+And if we run it again right away without delay, see how quick it is?
+
+17:02.470 --> 17:05.560
+That's how quick it normally is when it's already warm.
+
+17:05.560 --> 17:07.360
+That's going out to the cloud.
+
+17:07.360 --> 17:09.730
+Let's quickly come up with something different.
+
+17:09.760 --> 17:16.780
+Let's go for an iPhone SE second edition.
+
+17:18.040 --> 17:19.300
+Let's see how much an iPhone.
+
+17:19.300 --> 17:19.660
+There we go.
+
+17:19.660 --> 17:21.640
+299 bucks apparently.
+
+17:21.850 --> 17:34.150
+Uh, so I'm delighted that that we got to see that and, uh, iPad Pro uh, second generation.
+
+17:36.610 --> 17:40.340
+299 again, it seems that must be a popular price.
+
+17:40.640 --> 17:43.370
+So you get a good sense once it's warmed up.
+
+17:43.370 --> 17:49.460
+Once you've populated the model, you can call it very quickly and you'll get back a quick response.
+
+17:49.460 --> 17:51.440
+And again, we're calling our agent.
+
+17:51.440 --> 17:57.290
+And what our agent is doing is our agent over here is simply it's done this already.
+
+17:57.290 --> 18:01.370
+It's already got the class, it's already instantiated it.
+
+18:01.370 --> 18:04.070
+And that class is already loaded in the files from Hugging Face.
+
+18:04.070 --> 18:06.470
+And it's warm and ready for business.
+
+18:06.470 --> 18:10.070
+And then when we call this method, it doesn't need to load in the files again.
+
+18:10.070 --> 18:11.090
+It's got it all ready.
+
+18:11.090 --> 18:12.800
+All it needs to do is inference.
+
+18:12.800 --> 18:14.420
+And that's why it's so quick.
+
+18:14.420 --> 18:16.490
+And that's that's the trick.
+
+18:16.520 --> 18:23.030
+That's how you build an API to a model that's running in the cloud, serverless, and how you make sure
+
+18:23.030 --> 18:29.420
+that you've cached the model weights in memory so that it's ready for action.
+
+18:29.420 --> 18:33.530
+So I know we went through it very fast, but now you have to go back and do this again yourself.
+
+18:33.560 --> 18:36.680
+Make sure that you can make it work and that it looks good on modal.
+
+18:36.680 --> 18:39.110
+And I will see you in the next video to wrap up.

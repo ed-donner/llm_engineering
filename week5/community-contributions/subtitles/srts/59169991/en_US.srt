@@ -1,0 +1,127 @@
+WEBVTT
+
+00:01.010 --> 00:03.500
+Okay, so that was your introduction to Hugging Face.
+
+00:03.500 --> 00:10.010
+And now I'm going to turn to a different resource available which is Google Colab.
+
+00:10.040 --> 00:13.880
+There are a bunch of different alternatives to Google Colab that all do much the same thing, and you
+
+00:13.880 --> 00:15.470
+can really use any of them.
+
+00:15.560 --> 00:18.080
+I like Colab in particular for a couple of reasons.
+
+00:18.170 --> 00:19.910
+One of them is that so many people use it.
+
+00:20.330 --> 00:24.770
+And another is it's so easy to share, but let's just talk about what it is.
+
+00:24.800 --> 00:28.400
+So Google Colab, um, it's a it's a few things.
+
+00:28.400 --> 00:33.440
+But the reason, the main thing that it is, and what we're going to do with it, is the ability to
+
+00:33.440 --> 00:41.480
+run a Jupyter notebook like the ones we've been using, and run it in the cloud on a Google box, which
+
+00:41.480 --> 00:50.120
+will have not only a decent CPU, but also a GPU that might be high spec, uh, and uh, in addition
+
+00:50.120 --> 00:55.670
+to that, the thing that I like about it is that you can share and collaborate your Jupyter notebook
+
+00:55.670 --> 00:59.270
+with others using the same kind of familiar interface.
+
+00:59.270 --> 01:01.940
+You can use to share other types of Google Doc.
+
+01:01.940 --> 01:08.260
+So if, like me, you're very used to using Google Docs and Google Sheets and the like and sharing them
+
+01:08.260 --> 01:13.750
+and editing them and so on, then it's a very familiar experience to be able to share and collaborate
+
+01:13.750 --> 01:17.920
+on a Jupyter notebook running in Colab.
+
+01:18.280 --> 01:21.130
+Uh, and it's also integrated with other Google services.
+
+01:21.130 --> 01:25.990
+So for example, you can very easily access your own Google Drive if you have data there or something
+
+01:25.990 --> 01:26.620
+like that.
+
+01:26.620 --> 01:29.650
+So it's it's nicely part of the Google ecosystem.
+
+01:29.650 --> 01:33.130
+But as I say, there are a bunch of other offerings.
+
+01:33.190 --> 01:38.650
+And you can if you if you're using a something that is a competitor to Google Colab and you like it,
+
+01:38.650 --> 01:40.300
+then by all means use it.
+
+01:40.300 --> 01:47.080
+Uh, you may have to, uh, copy across the colab that I'll be using in sharing, but otherwise everything
+
+01:47.110 --> 01:48.730
+should work just fine.
+
+01:49.120 --> 01:55.420
+When you're using Colab, you get to choose what runtimes you're working with, what kind of box it's,
+
+01:55.450 --> 01:58.330
+what kind of VM is essentially, uh, running.
+
+01:58.330 --> 02:04.240
+There are CPU based boxes which don't have a GPU, are just CPUs.
+
+02:04.240 --> 02:12.080
+There is, uh, there are lower spec boxes running cheaper GPUs, and then there's higher spec, beefier
+
+02:12.110 --> 02:15.740
+boxes for resource intensive stuff.
+
+02:16.190 --> 02:23.900
+Everything that we do in this course can run on on up to number two, the lower spec GPU runtimes.
+
+02:23.900 --> 02:29.900
+I'm going to be trying my absolute best to keep it so that you can do everything and not spend anything,
+
+02:29.900 --> 02:31.700
+any material amount of money.
+
+02:31.820 --> 02:37.220
+Um, perhaps at this point, if you, if we if you go as far as training a full deep neural network
+
+02:37.250 --> 02:43.400
+yourself, we might be starting to talk about, uh, a few dollars, but nothing that's going to break
+
+02:43.430 --> 02:50.270
+the bank, I hope, uh, unless you wish to take it a step further and train faster, do more experimenting.
+
+02:50.300 --> 02:56.600
+In which case, you certainly have the ability to opt for number three and spend a little bit more.
+
+02:56.600 --> 03:02.270
+Uh, and again, we're talking about maybe spending $10 to get a decent, like, a day or two's worth
+
+03:02.270 --> 03:07.310
+of work, uh, against a top end GPU box.
+
+03:07.790 --> 03:11.690
+So without further ado, that's a quick intro.
+
+03:11.690 --> 03:16.400
+Let's go in and take a look at Colab and get comfortable with it.

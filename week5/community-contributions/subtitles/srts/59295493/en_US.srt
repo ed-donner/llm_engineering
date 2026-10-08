@@ -1,0 +1,115 @@
+WEBVTT
+
+00:00.710 --> 00:03.590
+And welcome to week four, day three.
+
+00:03.590 --> 00:09.650
+As we are about to embark upon another business project which will add real commercial value.
+
+00:09.680 --> 00:12.260
+It's going to be an exciting project.
+
+00:12.260 --> 00:17.450
+It's going to be a difficult challenge, and we're going to have, as always, a blast doing it.
+
+00:17.480 --> 00:19.250
+Let's get started.
+
+00:19.280 --> 00:25.400
+So first of all, just a recap of all the things you can do this time I'm going to let you read it,
+
+00:25.400 --> 00:31.190
+but after today you're going to be able to assess models for coding ability and use frontier models
+
+00:31.190 --> 00:36.710
+to generate code building a solution that uses Llms for code generation.
+
+00:36.710 --> 00:39.710
+And of course, it's going to include a user interface.
+
+00:39.710 --> 00:45.470
+It's going to include a lot of the bits and pieces to package it up nicely to be an app.
+
+00:45.920 --> 00:47.810
+So a quick reminder of the challenge.
+
+00:47.810 --> 00:53.660
+We want to build a tool that can convert Python to C plus plus for performance.
+
+00:53.660 --> 00:57.320
+And this time today we're going to do a frontier model solution.
+
+00:57.320 --> 01:04.820
+Next time we're going to add open source models as we battle the the frontier closed source versus open
+
+01:04.820 --> 01:07.520
+source and see what wins out.
+
+01:08.030 --> 01:12.380
+Uh, first, just a quick a quick explanation of what we're going to do.
+
+01:12.380 --> 01:18.710
+So we're going to prompt our models with a prompt that explains what we want them to re-implement Python
+
+01:18.710 --> 01:19.550
+code and C plus.
+
+01:19.550 --> 01:20.390
+Plus.
+
+01:20.420 --> 01:24.320
+Um, it's maybe going to be a little bit more wordy than this one, but it'll be along these lines,
+
+01:24.350 --> 01:30.680
+uh, trying to convince the model not to do any explanation, just simply to provide the C plus plus
+
+01:30.680 --> 01:31.430
+code.
+
+01:31.430 --> 01:37.250
+And its objective should be to do whatever it takes to run faster and give the same output.
+
+01:37.250 --> 01:40.040
+But otherwise, the world is its oyster.
+
+01:40.070 --> 01:44.120
+It can do what it wants, it just has to give the same output.
+
+01:44.150 --> 01:49.190
+And this is a bit of code that we'll start with to try out in Python.
+
+01:49.190 --> 01:56.120
+Uh, you may know already that there is a series which very slowly converges to a nice number, and
+
+01:56.120 --> 02:05.270
+that series is one minus a third plus a fifth, minus a seventh plus a ninth, minus 11th, and so on.
+
+02:05.300 --> 02:06.350
+You get the idea.
+
+02:06.380 --> 02:12.950
+Uh, if you keep that series going and you multiply the result by four, you gradually converge on pi.
+
+02:12.980 --> 02:14.840
+But it takes a very long time.
+
+02:14.960 --> 02:21.890
+And so we can run it for the first 100 million iterations, and we will actually get quite close to
+
+02:21.920 --> 02:23.030
+pi at that point.
+
+02:23.150 --> 02:28.670
+But you'd have to do an awful lot of typing on your calculator to to do 100 million iterations.
+
+02:28.730 --> 02:30.830
+Uh, but Python will do it reasonably fast.
+
+02:30.830 --> 02:35.690
+But we'll be hoping that C plus plus can do it a whole lot faster, and that Frontier models will help
+
+02:35.690 --> 02:36.410
+us get there.
+
+02:36.410 --> 02:37.400
+Let's find out.

@@ -1,0 +1,247 @@
+WEBVTT
+
+00:00.950 --> 00:05.870
+And so now we talk about quantization the q and q Laura.
+
+00:05.900 --> 00:07.730
+Q stands for quantized quantized.
+
+00:07.760 --> 00:08.420
+Laura.
+
+00:08.420 --> 00:12.620
+And I did mention quantization briefly, I believe in week three.
+
+00:12.620 --> 00:14.480
+So you may remember some of this.
+
+00:14.480 --> 00:17.540
+But now now we'll talk about it for reals.
+
+00:18.080 --> 00:20.630
+So here's the problem.
+
+00:20.630 --> 00:28.700
+The we're working with these smaller models, the 8 billion parameter version of llama 3.1.
+
+00:28.700 --> 00:34.580
+And we've come up with this clever scheme that Laura for, for working with smaller dimensional matrices
+
+00:34.940 --> 00:36.950
+so that we can get more memory.
+
+00:37.130 --> 00:42.740
+But the the problem is that even that base model, even the small version of it, the 8 billion version
+
+00:42.740 --> 00:46.730
+of it, will take up 32GB of Ram.
+
+00:46.730 --> 00:52.880
+That's, uh, 8 billion floating point numbers, which are each 32 bits long.
+
+00:53.000 --> 00:56.480
+Uh, and so it's going to fill up a GPU.
+
+00:56.510 --> 01:03.380
+In fact, the cheap GPUs that will be using on T4 boxes only have 15GB of memory in them, so it won't
+
+01:03.380 --> 01:05.530
+even fit the base model itself.
+
+01:05.530 --> 01:08.740
+We're going to be out of memory right away, so that is a problem.
+
+01:08.770 --> 01:13.570
+Lora is very useful in making things better for us, but it's not good enough because we can't even
+
+01:13.570 --> 01:15.880
+fit the base model itself in memory.
+
+01:15.880 --> 01:22.870
+Because 8 billion might be a small size of a model in some worlds, but it's still an enormous number
+
+01:22.870 --> 01:23.920
+of parameters.
+
+01:24.190 --> 01:27.940
+And so that that then gives us a challenge.
+
+01:28.240 --> 01:31.810
+So this quite surprising discovery was made.
+
+01:31.810 --> 01:33.970
+That is what we will be working with.
+
+01:34.120 --> 01:37.870
+And at first it sounds almost too good to be true.
+
+01:37.900 --> 01:40.480
+It sounds like this is a way to have your cake and eat it.
+
+01:40.480 --> 01:41.950
+And it kind of is.
+
+01:42.190 --> 01:51.310
+So the, the idea that that, that some people had was, okay, so we've got 8 billion parameters.
+
+01:51.310 --> 01:57.370
+If we try and have fewer parameters like we have a 4 billion parameter model, we lose a lot of the
+
+01:57.370 --> 01:58.600
+power of the model.
+
+01:58.600 --> 02:01.900
+Those 8 billion parameters give us lots of knobs to turn.
+
+02:01.930 --> 02:04.270
+It's in this very clever architecture.
+
+02:04.270 --> 02:05.800
+It gives us a lot of power.
+
+02:05.830 --> 02:06.370
+All right.
+
+02:06.370 --> 02:09.080
+So let's not cut down the number of parameters.
+
+02:09.080 --> 02:15.200
+Instead of doing that, let's just reduce the precision of each of these parameters.
+
+02:15.230 --> 02:21.050
+It's like saying instead of being able to turn it through a very sort of finely grinded wheel, we're
+
+02:21.050 --> 02:25.100
+going to make it go click, click, click, click through a few settings.
+
+02:25.310 --> 02:31.070
+Uh, and so that that was a thinking let's just reduce the precision of each of these weights but keep
+
+02:31.070 --> 02:32.450
+the same number of weights.
+
+02:32.480 --> 02:37.010
+Now you might think logically all right, but you're just cutting the amount of information.
+
+02:37.010 --> 02:41.390
+Surely it's going to be if you have half the amount of information, it's going to be quite similar
+
+02:41.390 --> 02:43.730
+to having half the number of weights.
+
+02:43.760 --> 02:46.280
+Uh, and it turns out that that's not the case.
+
+02:46.280 --> 02:52.520
+For whatever reason, if you lower the precision, you do get some reduction in quality of the neural
+
+02:52.520 --> 02:55.100
+network, but not as much as you might think.
+
+02:55.100 --> 02:57.920
+It still retains a lot of its power.
+
+02:58.160 --> 03:04.700
+And it turns out that this is just a great trick that allows you to fit bigger models in memory with
+
+03:04.730 --> 03:06.560
+the same number of parameters.
+
+03:06.560 --> 03:10.220
+Just lower precision means that it takes up less memory.
+
+03:10.580 --> 03:14.210
+So it's surprising it works remarkably well.
+
+03:14.300 --> 03:21.020
+And in fact, you could take the 32 bit floating point numbers that you normally have and reduce it
+
+03:21.020 --> 03:26.000
+all the way down to eight bit numbers, and you still get good performance.
+
+03:26.000 --> 03:29.540
+And then and now this is where it starts to sound really crazy.
+
+03:29.630 --> 03:32.480
+You can reduce it all the way down to four bits.
+
+03:32.480 --> 03:35.210
+So each number is just a four bit number.
+
+03:35.240 --> 03:40.550
+If you think of that from from an integer point of view, that it's as if each number is going from
+
+03:40.550 --> 03:42.950
+0 to 15 and that's it.
+
+03:43.160 --> 03:45.020
+Just just in whole numbers.
+
+03:45.560 --> 03:47.510
+That's how low the precision is.
+
+03:47.510 --> 03:51.620
+Like a click that just has has 16 settings on it.
+
+03:52.010 --> 03:55.190
+Um, and you still get pretty good performance.
+
+03:55.340 --> 03:55.670
+Sure.
+
+03:55.670 --> 04:00.770
+You do see a bit of a, of a drop in quality, but only a bit.
+
+04:01.010 --> 04:03.200
+Um, and so this was the, the intuition.
+
+04:03.200 --> 04:09.200
+And this, of course, dramatically reduces the memory requirement and allows one to fit bigger models
+
+04:09.200 --> 04:10.310
+in memory.
+
+04:10.790 --> 04:14.420
+There are a couple of of minor technical details that I'll mention.
+
+04:14.780 --> 04:17.810
+One of them is that I just talked about the click switch.
+
+04:17.810 --> 04:20.510
+You can think of it as being like a number from 0 to 15.
+
+04:20.510 --> 04:28.160
+Typically, it's in fact not interpreted as an integer, but as a four bits are used to to be considered
+
+04:28.160 --> 04:31.940
+as as floating point numbers just with lower granularity.
+
+04:31.940 --> 04:34.970
+And you'll see that in reality in an example.
+
+04:35.360 --> 04:39.740
+And the other thing to to point out, which is something I didn't understand early on when when color
+
+04:39.770 --> 04:47.030
+first came out, is that this is the quantizing the base model, but it's not quantizing the, the,
+
+04:47.030 --> 04:53.390
+the, the Lora adapters, they will still be 32 bit floats as you will see.
+
+04:53.570 --> 04:59.630
+Um, so we're just talking about reducing the precision of the base model, this enormous great base
+
+04:59.630 --> 05:02.300
+model so that we can fit it in memory.
+
+05:02.300 --> 05:04.490
+So that is cu Lora.
+
+05:04.520 --> 05:05.840
+That's quantization.
+
+05:05.840 --> 05:10.250
+It's going to feel more real when we see it in the lab in just a second.
+
+05:10.250 --> 05:16.640
+But first I want to talk to you about three important hyperparameters in the next video.

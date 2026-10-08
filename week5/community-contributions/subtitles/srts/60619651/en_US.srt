@@ -1,0 +1,211 @@
+WEBVTT
+
+00:00.140 --> 00:02.960
+I mentioned before an AI company called vellum.
+
+00:03.530 --> 00:08.780
+When we were talking about the different questions, they had come up with that question about scales
+
+00:08.780 --> 00:16.850
+on reptiles that we asked GPT four zero and zero one preview vellum publishes a leaderboard, which
+
+00:16.850 --> 00:23.660
+we will come back to in future weeks, but it has a lot of super interesting information that ranks
+
+00:23.660 --> 00:25.520
+and compares different llms.
+
+00:25.520 --> 00:29.030
+And there are a bunch of different leaderboards that we'll look at when we talk about picking the right
+
+00:29.060 --> 00:30.650
+LLM for the task at hand.
+
+00:30.680 --> 00:35.720
+It's a good one to bookmark, but in particular, there's something useful on the vellum website, which
+
+00:35.720 --> 00:39.500
+I don't think I find somewhere else that you can also download should you wish.
+
+00:39.530 --> 00:45.890
+According to that pop up, and it's right here, about halfway up on the Valimai LLM leaderboard website,
+
+00:45.890 --> 00:54.050
+and it's a table that compares the context windows with the costs of the different frontier models.
+
+00:54.080 --> 00:58.550
+And it's really useful to have to hand, particularly when you're talking about costs.
+
+00:58.580 --> 01:02.390
+First of all, let's just mention the context windows that we talked about.
+
+01:02.390 --> 01:11.430
+So the model with the largest context window is Gemini 1.5 flash, and it has an outrageous context
+
+01:11.430 --> 01:11.910
+window.
+
+01:11.940 --> 01:12.900
+Outrageous.
+
+01:12.900 --> 01:15.210
+1 million tokens.
+
+01:15.210 --> 01:22.410
+And you may remember a million tokens means for normal English language about 750,000 words, which
+
+01:22.410 --> 01:25.350
+isn't far off the complete works of Shakespeare.
+
+01:25.380 --> 01:29.040
+If you remember, I think we thought that was 1.2 million tokens, perhaps.
+
+01:29.280 --> 01:37.110
+So you could almost fit the complete works of Shakespeare in one prompt into Gemini to have it to continue
+
+01:37.110 --> 01:39.210
+generating Gemini 1.5 flash.
+
+01:39.210 --> 01:43.560
+So that is extraordinarily wide context window.
+
+01:43.590 --> 01:57.360
+The Claude series of models have a 200,000 token context window, and the GPT set have mostly 128,000
+
+01:57.390 --> 01:59.250
+token context window.
+
+01:59.280 --> 02:06.450
+And again, remember that that means that the all of the series of prompts in one conversation, the
+
+02:06.450 --> 02:11.340
+input in a conversation, the response the next input, the response, and also the system prompt at
+
+02:11.340 --> 02:11.910
+the beginning.
+
+02:11.910 --> 02:14.730
+They all have to fit within that context window.
+
+02:14.730 --> 02:21.150
+And actually also all of the tokens that get generated in the output, because each each token is generated
+
+02:21.150 --> 02:27.630
+one at a time and then passed in and it generates the next token given all of the input and output that
+
+02:27.630 --> 02:28.770
+came before it.
+
+02:29.250 --> 02:32.280
+So that's what has to fit into the context window.
+
+02:32.280 --> 02:36.930
+But there's a lot of space for that in 128,000 tokens.
+
+02:36.930 --> 02:39.570
+I guess it's what about about 100,000 words.
+
+02:39.780 --> 02:44.670
+So that's that's how to look at the context window size.
+
+02:44.670 --> 02:48.480
+And now over here we get a sense of the cost.
+
+02:48.480 --> 02:53.880
+And at first blush you might think this doesn't exactly look like it's super cheap if you take something
+
+02:53.880 --> 03:01.140
+like Claude 3.5 sonnet, which is the one that I frequently find myself using in the most powerful LLM
+
+03:01.170 --> 03:01.770
+on the planet.
+
+03:01.770 --> 03:10.410
+By most measures, you'll see that its cost is $3 per input token, $15 per output token.
+
+03:10.440 --> 03:15.760
+It sounds quite expensive, but no, it's because it's not $3 per input token.
+
+03:15.760 --> 03:21.580
+It's $3 per million input tokens, $3 per million input tokens.
+
+03:21.580 --> 03:27.400
+So if you passed in in your input prompt, the complete works of Shakespeare, then you'd be paying
+
+03:27.400 --> 03:29.200
+a little bit more than $3.
+
+03:29.200 --> 03:34.570
+So I just want to get across that whilst these numbers are meaningful and they are real numbers that
+
+03:34.570 --> 03:39.910
+one needs to watch for, and you can bring up the dashboard with each of these and monitor carefully
+
+03:39.910 --> 03:41.290
+your API costs.
+
+03:41.320 --> 03:46.690
+Typically, the kinds of things we're going to be doing on this course are asking short business questions,
+
+03:46.690 --> 03:51.160
+summarizing things, trying to draw quick conclusions.
+
+03:51.220 --> 03:58.030
+You'll find that you will be costing less than a cent for most of them, less than than a fraction of
+
+03:58.030 --> 03:58.720
+a dollar.
+
+03:58.750 --> 04:08.140
+The model that we will use most often is GPT four mini, and that will cost us $0.15 per million input
+
+04:08.170 --> 04:12.910
+tokens and $0.60 per million output tokens.
+
+04:12.910 --> 04:19.060
+And so, as you can imagine, you have to generate a fair amount of content in order to be able to scratch
+
+04:19.060 --> 04:25.930
+the surface in terms of a real price, and bearing in mind that these are large models and a lot of
+
+04:25.930 --> 04:31.780
+compute is required to run these and be able to deliver the quality of results we get.
+
+04:31.840 --> 04:37.060
+These API costs do seem to me to be to be very reasonable in the circumstances.
+
+04:37.060 --> 04:42.220
+So I hope this gives you some some, some clarity, some perspective on what these costs are like and
+
+04:42.220 --> 04:42.850
+what they mean.
+
+04:42.850 --> 04:50.320
+The total cost is then the sum of your cost for your input tokens by by this number, plus the cost
+
+04:50.320 --> 04:52.570
+of any output tokens that got generated.
+
+04:52.570 --> 04:58.960
+And in the APIs you can specify a a maximum number of output tokens to generate to stop it from going
+
+04:59.020 --> 04:59.890
+too far.
+
+05:00.070 --> 05:03.340
+Uh, so that gives you a good sense of the costs.
+
+05:03.340 --> 05:08.170
+And you should bookmark this page and have it as something that you come back to anytime that you want.
+
+05:08.200 --> 05:11.620
+A little bit more clarity on how to think about these costs.
+
+05:11.620 --> 05:15.760
+And as I say, the time when it really becomes meaningful is when you're building a system that's going
+
+05:15.790 --> 05:21.280
+to maybe make a thousand calls to the model, and then you have to really bear in mind, how are these
+
+05:21.280 --> 05:22.600
+costs going to add up?

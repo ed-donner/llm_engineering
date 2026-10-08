@@ -1,0 +1,148 @@
+WEBVTT
+
+00:00.920 --> 00:02.300
+The moment has arrived.
+
+00:02.300 --> 00:03.230
+Here we go.
+
+00:03.260 --> 00:04.790
+We're in fine tuning.
+
+00:04.790 --> 00:05.810
+We do fine tuning.
+
+00:06.020 --> 00:06.740
+Train.
+
+00:06.770 --> 00:10.130
+There is also a line here to push it to the hub after it's finished.
+
+00:10.160 --> 00:11.750
+Let's kick that off.
+
+00:13.130 --> 00:16.910
+So while it's kicking off, we'll take a quick look.
+
+00:16.940 --> 00:22.340
+The GPU is starting at six, which is what we expect.
+
+00:22.370 --> 00:27.560
+It's about as much as it needs for the the model itself.
+
+00:28.550 --> 00:37.490
+And it's going to be warming itself up and getting ready for this training while it's doing that.
+
+00:37.640 --> 00:42.170
+Since we're waiting for it just for a second, I might as well just talk to some of these other training
+
+00:42.170 --> 00:46.130
+parameters that we that we didn't mention before.
+
+00:46.610 --> 00:48.230
+Um, eval strategy.
+
+00:48.230 --> 00:55.460
+So it is typical when you're doing this kind of training that you would repeatedly have a held out data
+
+00:55.490 --> 01:01.790
+set that you would use for evaluation, that you would use as a constant set that's not involved in
+
+01:01.790 --> 01:07.670
+training, that you would use to get the model to, uh, validate that it's making progress.
+
+01:07.700 --> 01:09.800
+Now, I've not done that here.
+
+01:09.890 --> 01:15.790
+Um, partly because we've got so much training data that I think it's got plenty to be training on.
+
+01:15.850 --> 01:21.850
+Um, just in one epoch alone and and partly because I just performance, the speed of training was so
+
+01:21.850 --> 01:22.300
+important.
+
+01:22.300 --> 01:26.590
+I didn't want it to be stopping to do validation repeatedly through this.
+
+01:26.590 --> 01:29.710
+But it is a best practice to have a validation data set.
+
+01:29.740 --> 01:31.600
+We've got plenty of data for it.
+
+01:31.630 --> 01:39.970
+We we held out 2000 test data points so you can use a bunch of them, um, as part of your validation
+
+01:39.970 --> 01:42.490
+step uh test test set.
+
+01:42.490 --> 01:50.260
+So one certain improvement to this, that would be more of a best practice would be to use an eval strategy
+
+01:50.260 --> 01:53.620
+and pass in validation data as well as training data.
+
+01:53.770 --> 01:58.840
+Um, but but it wasn't a super necessary in this case, so I didn't do it.
+
+01:59.650 --> 02:01.600
+Um, okay.
+
+02:01.600 --> 02:07.690
+Well, you may notice if you are glancing over this way that the GPU memory has shot up and out of the
+
+02:07.690 --> 02:15.280
+40GB of GPU memory that I've got, 38.2 is currently being used.
+
+02:15.280 --> 02:23.710
+So I really did squeeze this so that, uh, with 16 batch steps, uh, a batch size of 16, I would
+
+02:23.710 --> 02:31.270
+really use up almost the entire GPU, very close to running out there and you can see that stuff is
+
+02:31.270 --> 02:32.890
+happening down there.
+
+02:32.890 --> 02:36.520
+So let's just, uh, scroll down and see what we're seeing here.
+
+02:36.880 --> 02:42.850
+Um, so it's off and running and we can see that that things are happening.
+
+02:42.940 --> 02:51.100
+Uh, and now to run the entire three epochs is going to take, uh, according to this estimate here,
+
+02:51.160 --> 02:53.140
+uh, just over 24 hours.
+
+02:53.170 --> 02:55.390
+26 hours or so.
+
+02:55.450 --> 03:04.120
+Uh, so, you know, it is something like eight hours per epoch, um, on this, uh, even on this beefy
+
+03:04.150 --> 03:10.240
+machine, because the training data is so enormous, but it's not strictly necessary to go through all
+
+03:10.240 --> 03:13.210
+400,000, uh, training data.
+
+03:13.210 --> 03:18.310
+And as I say, you can run this on a much lower end box and let it run for for a while, and that is
+
+03:18.310 --> 03:19.750
+all completely fine.
+
+03:20.080 --> 03:26.710
+Um, but what you're seeing here is it's it's it's off every 50 steps, just as we configured.
+
+03:26.740 --> 03:31.450
+We're getting an output that shows us our training loss so far.
+
+03:31.660 --> 03:36.940
+Um, and this is now running and outputting to weights and biases.
+
+03:37.060 --> 03:41.350
+And in the next video, I will give you a peek into how that's looking.

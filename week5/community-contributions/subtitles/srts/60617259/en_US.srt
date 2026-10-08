@@ -1,0 +1,280 @@
+WEBVTT
+
+00:00.080 --> 00:04.790
+I'm excited to introduce you to your first exercise, and I'm looking forward to seeing what you make
+
+00:04.820 --> 00:05.510
+of this.
+
+00:05.510 --> 00:11.270
+As a reminder, you should have gone to your Anaconda prompt if you're on a PC or your terminal window.
+
+00:11.270 --> 00:15.110
+If you're on a mac, you should have gone to the project root directory.
+
+00:15.140 --> 00:24.710
+LM engineering activated Anaconda by doing conda activate LMS or the virtualenv equivalent if you're
+
+00:24.710 --> 00:29.180
+using that, and then typed JupyterLab to bring up your Jupyter lab.
+
+00:29.180 --> 00:33.590
+And in the file browser on the left, you should see the weeks like this.
+
+00:33.620 --> 00:38.240
+Or you might be already in the week one folder, in which case it will look something like this.
+
+00:38.240 --> 00:45.500
+And I now want you to go to the day two exercise notebook, which will come up like this.
+
+00:45.500 --> 00:47.840
+And here is the plan.
+
+00:47.840 --> 00:53.240
+What we're going to do is we're going to see how to call a llama from code.
+
+00:53.240 --> 00:59.060
+So we're going to use Python code to call the llama model that's running on your computer.
+
+00:59.060 --> 01:02.320
+And what we're then going to do and once our first set that up.
+
+01:02.320 --> 01:05.170
+So we'll get that to work and you'll be able to see the results.
+
+01:05.170 --> 01:12.760
+And the exercise for you will be to then update the summarization project that we completed yesterday
+
+01:12.760 --> 01:18.370
+and use Olama use your local model instead of the call to OpenAI.
+
+01:18.370 --> 01:23.260
+And if you didn't sign up for the OpenAI API, then this is your chance to do it for the first time.
+
+01:23.740 --> 01:30.550
+So, uh, first of all, I explain here that we will be, uh, using a llama.
+
+01:30.580 --> 01:34.300
+The benefits of using a llama, of course, is that there's no API charges.
+
+01:34.300 --> 01:35.110
+It's open source.
+
+01:35.110 --> 01:36.190
+It's running on your box.
+
+01:36.190 --> 01:37.300
+It's free.
+
+01:37.330 --> 01:41.080
+Another benefit is that the data will never leave your box.
+
+01:41.080 --> 01:46.030
+So if you're ever working on something, whether it's confidential data that absolutely must not go
+
+01:46.030 --> 01:53.500
+to the cloud, then of course this gives you techniques to be working locally without data leaving the
+
+01:53.500 --> 01:54.280
+internet.
+
+01:54.490 --> 02:04.880
+Uh, the disadvantage is that, uh, obviously the frontier models, they are many, many times larger
+
+02:04.880 --> 02:06.950
+and more powerful than the open source models.
+
+02:06.950 --> 02:10.730
+And so we should expect that the results won't be as strong.
+
+02:10.880 --> 02:15.950
+But, you know, that's what you pay for when you pay your, uh, your, your, uh, fraction of a cent
+
+02:15.980 --> 02:16.970
+each call.
+
+02:17.660 --> 02:22.400
+First of all, a recap that you hopefully already installed Olama by going to Olama.
+
+02:22.400 --> 02:27.260
+Com and you remember, it's just a matter of pressing that download button and you're off to the races.
+
+02:27.260 --> 02:34.970
+If you've done that, then if you visit this link here localhost 11434, then you should see this Olama
+
+02:34.970 --> 02:37.670
+is running message which tells you that it's running.
+
+02:37.670 --> 02:45.800
+If that doesn't show, then bring up a terminal or a PowerShell and just enter Olama serve and it should
+
+02:45.800 --> 02:46.910
+then be running.
+
+02:46.910 --> 02:50.750
+And if you go there, you should see again a llama is running.
+
+02:50.750 --> 02:55.910
+So with that, if that doesn't happen then then try and do a little bit of debugging and research and
+
+02:55.910 --> 02:58.240
+then contact me and I'll help all right.
+
+02:58.240 --> 03:00.550
+So I'm going to do a few imports.
+
+03:00.580 --> 03:02.620
+Now I'm going to set some constants.
+
+03:02.620 --> 03:14.080
+This here is a URL on my local box on this port which is you see the port that runs on slash API slash
+
+03:14.080 --> 03:14.860
+chat.
+
+03:14.860 --> 03:19.180
+I'm going to have also a constant called model which will be llama 3.2.
+
+03:20.170 --> 03:27.280
+Now this here this messages, uh, hopefully you will recognize this construct because this is the same
+
+03:27.280 --> 03:29.800
+construct as the messages.
+
+03:29.830 --> 03:31.420
+Let me lay it out a bit differently for you.
+
+03:31.420 --> 03:36.610
+This is the same as the messages that we talked about before.
+
+03:36.640 --> 03:39.730
+Uh, that we use with OpenAI.
+
+03:39.760 --> 03:43.750
+Messages is a list of dictionaries, the dictionaries.
+
+03:43.750 --> 03:50.470
+Each dictionary has a key of role, and the value is either user or system and a key of content, and
+
+03:50.470 --> 03:53.170
+the value is the user message or the system message.
+
+03:53.170 --> 03:58.660
+So this very simply is saying I want to have a user prompt that says, describe some of the business
+
+03:58.660 --> 04:00.940
+applications of generative AI.
+
+04:01.180 --> 04:02.290
+Let's run that.
+
+04:02.470 --> 04:09.160
+I'm now going to put that into a JSON object called a payload, which specifies the model, the messages,
+
+04:09.160 --> 04:11.080
+and I don't want it to stream results.
+
+04:11.080 --> 04:12.910
+I just want to get back the results.
+
+04:13.150 --> 04:23.680
+And I'm then going to use the Python package requests to post that request to this URL pass in the JSON.
+
+04:23.680 --> 04:31.750
+And then what I get back, I'm going to take the JSON look in the message content fields, and we'll
+
+04:31.750 --> 04:33.850
+see what happens when we make that call.
+
+04:33.850 --> 04:39.610
+So right now of course it's making web requests locally from my box to my box.
+
+04:39.880 --> 04:46.390
+And it's connecting to the llama 3.2 model that's being served by llama.
+
+04:46.390 --> 04:48.070
+And this is the result.
+
+04:48.070 --> 04:50.860
+And I will tell you that the answers that it gives are really good.
+
+04:50.890 --> 04:56.720
+So that since we are trying to learn about commercial applications, it would do you no harm to read
+
+04:56.720 --> 05:00.890
+through some of its responses and see if there's anything that interests you.
+
+05:01.160 --> 05:05.330
+Now, I wanted to show you that because I wanted to explain exactly what's going on behind the covers
+
+05:05.330 --> 05:10.970
+and that we're making these basically these URL, these web requests to our local box.
+
+05:11.270 --> 05:17.960
+But in fact, the friendly people at Allama have built a Python package, which makes this even simpler.
+
+05:17.960 --> 05:19.430
+So you can just do this in one line.
+
+05:19.430 --> 05:24.860
+So I could have started with this, but I wanted to show you the steps to making the web request so
+
+05:24.860 --> 05:27.410
+you have a good intuition for what's actually happening.
+
+05:27.470 --> 05:33.890
+But there is this nice package, Allama, that you can just import, and then you can say Allama dot
+
+05:33.890 --> 05:40.640
+chat, pass in the model, pass in the messages, and then just take back the response content.
+
+05:40.640 --> 05:46.700
+And if I run that, we should hopefully see that we will get basically the same thing.
+
+05:46.760 --> 05:48.620
+And here we go.
+
+05:48.650 --> 05:49.640
+There it is.
+
+05:50.060 --> 05:56.970
+Uh, and I imagine yeah, I can Uh, already see that there are differences between them.
+
+05:57.000 --> 05:59.070
+Of course, it's somewhat unique each time.
+
+05:59.160 --> 06:01.650
+Uh, this one looks like a longer response.
+
+06:01.860 --> 06:05.310
+Okay, that's the end of my teeing up.
+
+06:05.310 --> 06:06.840
+Now it's over to you.
+
+06:06.840 --> 06:13.860
+So you'll remember in day one, we built this solution that where we built something that would summarize
+
+06:13.890 --> 06:18.390
+a website, and we made a call to OpenAI to achieve that.
+
+06:18.840 --> 06:23.550
+Here, in fact is our call to OpenAI right here.
+
+06:23.760 --> 06:32.430
+The challenge for you is to keep going with this day two exercise lab and add in that same summarizer
+
+06:32.430 --> 06:40.710
+code so that you can build a website, summarizer, that uses your local Ulama open source model, llama
+
+06:40.740 --> 06:45.000
+3.2 or a different model if you wish to do your summarization.
+
+06:45.000 --> 06:46.650
+That's the exercise.
+
+06:46.650 --> 06:50.220
+The solution is in the solutions folder should you need it.
+
+06:50.220 --> 06:55.290
+But I think you've got this one and I will see you for the next video when you have that done.

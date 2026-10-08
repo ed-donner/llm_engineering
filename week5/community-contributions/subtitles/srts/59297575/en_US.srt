@@ -1,0 +1,49 @@
+WEBVTT
+
+00:00.920 --> 00:04.550
+Well, welcome to the final part on rag.
+
+00:04.550 --> 00:10.310
+And this is the session where you go from being a rag expert to being a rag master.
+
+00:10.520 --> 00:13.010
+Uh, we are going to look today at a few things.
+
+00:13.010 --> 00:20.780
+We're going to look at the Lang chain, LCL, the Lang chain expression language, which is where we
+
+00:20.780 --> 00:24.440
+look at the declarative language for setting up these chains.
+
+00:24.560 --> 00:28.640
+Uh, and it's not something we're going to use in earnest, but we'll take a look at it.
+
+00:28.790 --> 00:34.520
+I'm going to talk a bit about how Lang Chain works behind the scenes, and we're going to fix and diagnose
+
+00:34.520 --> 00:37.700
+some common problems that come up with rag.
+
+00:37.730 --> 00:41.600
+And there's something else, something else that I just slipped in because I couldn't resist it.
+
+00:41.600 --> 00:44.120
+Something that I said we could do that was really easy.
+
+00:44.150 --> 00:47.240
+Uh, and I want to show you that we certainly can.
+
+00:47.240 --> 00:48.950
+And in fact, we're going to do that right away.
+
+00:48.980 --> 00:54.470
+So before we get on with the rest of today's activities, I'm going to take you to JupyterLab and show
+
+00:54.470 --> 01:01.070
+you something that I just knocked up to prove a little point, but to also illustrate another vector
+
+01:01.070 --> 01:01.790
+database.
+
+01:01.790 --> 01:02.690
+See you there.

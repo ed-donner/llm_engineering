@@ -1,0 +1,520 @@
+WEBVTT
+
+00:00.770 --> 00:05.690
+Welcome to Jupyter Lab and welcome to our experiments at the frontier.
+
+00:05.690 --> 00:12.290
+So we are going to put our frontier models to the test, trying out this challenge of predicting the
+
+00:12.290 --> 00:18.590
+prices of products using a combination of GPT four and Claude.
+
+00:18.800 --> 00:21.980
+Uh, and I do want to point out a couple of things about this.
+
+00:21.980 --> 00:26.900
+First of all, it's worth pointing out that we're not doing any training here.
+
+00:26.900 --> 00:31.070
+We're not going to give the frontier models any benefit of the training data.
+
+00:31.070 --> 00:36.350
+We're simply going to be giving it the test data and asking it to predict the outcome.
+
+00:36.350 --> 00:41.930
+So when we looked at traditional machine learning, we gave it the 400,000 training data points and
+
+00:41.930 --> 00:44.510
+had it learn a model based on that.
+
+00:44.690 --> 00:51.440
+In this case, we're simply giving it the test data and saying, given all of your phenomenal knowledge
+
+00:51.440 --> 00:56.690
+of of everything that you know about the world, all of the world information stored in your trillions
+
+00:56.690 --> 01:03.180
+of parameters, please predict the price of this product and do it by finishing this the sentence this
+
+01:03.180 --> 01:10.890
+product is worth dollars, and then the model is convinced that the most likely next token is going
+
+01:10.890 --> 01:13.590
+to be a plausible price for that product.
+
+01:13.590 --> 01:16.470
+So we're taking advantage of its world knowledge.
+
+01:16.950 --> 01:21.240
+So yeah, on the one hand it's not been trained for this task.
+
+01:21.240 --> 01:25.080
+Uh, on the other hand though, something else that's worth mentioning that maybe some of you thought
+
+01:25.080 --> 01:32.160
+already is that given the enormous, outrageously large training data set that has been put through
+
+01:32.160 --> 01:38.610
+these models as part of training, it's entirely possible that they have, in fact, seen these products
+
+01:38.610 --> 01:39.120
+before.
+
+01:39.150 --> 01:41.910
+They may have been provided with scrapes of Amazon.
+
+01:41.910 --> 01:45.540
+They may have been provided with hugging face data sets, for all we know.
+
+01:45.750 --> 01:48.570
+Uh, so, um, it's possible now.
+
+01:48.570 --> 01:49.980
+Now they don't.
+
+01:50.010 --> 01:54.240
+You'll see that results aren't suspiciously spot on or something.
+
+01:54.240 --> 02:00.210
+That would make one feel that it has the benefit of precise prices, but we do still have to bear in
+
+02:00.210 --> 02:02.490
+mind that it might have an unfair advantage.
+
+02:02.490 --> 02:07.250
+I haven't seen evidence of that, but it's certainly something that one wants to be worried about.
+
+02:07.250 --> 02:10.490
+It's what people call testata contamination.
+
+02:10.490 --> 02:16.910
+When there's a possibility that your test data set has been seen, or has aspects of it have been seen
+
+02:16.910 --> 02:18.710
+during training time.
+
+02:19.070 --> 02:20.390
+So we'll bear that in mind.
+
+02:20.390 --> 02:22.190
+But that's just going to be a side note.
+
+02:22.190 --> 02:24.530
+We're not going to dwell more on that.
+
+02:24.530 --> 02:27.320
+I haven't seen significant evidence that that is at play.
+
+02:27.890 --> 02:30.500
+So we're going to do some imports.
+
+02:31.130 --> 02:32.150
+There they go.
+
+02:32.240 --> 02:36.980
+We are now back to importing OpenAI and anthropic and we'll be making use of them.
+
+02:36.980 --> 02:42.890
+Now you remember I wrote that lovely tester class that I do like, and I think it's going to be very
+
+02:42.890 --> 02:43.520
+useful for you.
+
+02:43.520 --> 02:49.820
+And I encourage you to be writing similar kinds of test harness frameworks for your own projects to
+
+02:49.850 --> 02:55.250
+validate their results using the using as many business metrics as you can.
+
+02:55.700 --> 03:00.650
+I've moved it out into a separate, uh, Python module of its own.
+
+03:00.650 --> 03:05.760
+This is the same code that's out in a module like that, and that just means that we don't have to have
+
+03:05.760 --> 03:10.020
+it in all of our Jupyter notebooks going forwards, because we will use it quite a lot.
+
+03:10.050 --> 03:13.710
+We can just import it like so, and it will be there.
+
+03:13.710 --> 03:16.140
+And the the signature has changed very slightly.
+
+03:16.170 --> 03:22.410
+We'll have to say Tesla dot test, put in the function name and also pass in the test data set, of
+
+03:22.410 --> 03:26.760
+which it will take the first 250 elements data points.
+
+03:26.790 --> 03:27.210
+All right.
+
+03:27.210 --> 03:30.270
+So with that we are now going to load in our environment variables.
+
+03:30.270 --> 03:32.730
+We are going to log in to hugging face.
+
+03:33.000 --> 03:36.150
+Uh again I don't think we're actually going to use that.
+
+03:36.150 --> 03:39.870
+But um anyway might as well we get into the practice of it.
+
+03:40.080 --> 03:42.360
+Uh, always nice to log into hugging face, isn't it?
+
+03:42.390 --> 03:45.420
+We will initialize our two models.
+
+03:45.420 --> 03:51.840
+We will, uh, tell matplotlib that we are going to be making charts, and we will load in our pickle
+
+03:51.840 --> 03:56.580
+files for our training and test data set that we outputted.
+
+03:56.670 --> 03:58.350
+Um, and they are loaded in.
+
+03:58.380 --> 04:04.260
+Now, I did say we were just about to go straight to the frontier, but I am going to, uh, pause for
+
+04:04.260 --> 04:09.320
+one more second, because I do have one other model to show you before we go to the frontier.
+
+04:09.320 --> 04:13.490
+And you're thinking, oh, come on, you said it was frontier time, but I think you will be amused
+
+04:13.490 --> 04:14.120
+by this.
+
+04:14.120 --> 04:17.030
+And this came very much at my expense.
+
+04:17.120 --> 04:22.970
+And this is why, at the start of today's videos, I said I was absolutely exhausted.
+
+04:22.970 --> 04:31.610
+But it did occur to me that another, perhaps another thing that we should compare our models to would
+
+04:31.610 --> 04:36.620
+be the efforts of humanity in trying to predict prices of products.
+
+04:36.680 --> 04:42.500
+It seems like we should have that baseline as well, so that we can compare our model performance against
+
+04:42.500 --> 04:44.330
+human performance.
+
+04:44.510 --> 04:52.040
+And I couldn't find anybody that I could convince to go through the horror that is reading 250 product
+
+04:52.040 --> 04:54.380
+descriptions and trying to figure out how much they cost.
+
+04:54.380 --> 04:58.850
+And so I subjected myself to this torture and torture it was.
+
+04:58.850 --> 05:02.660
+I can tell you it is way more difficult than I was expecting.
+
+05:02.660 --> 05:08.030
+I said to you before that I thought it was it was quite hard, but it's way harder than I had realized
+
+05:08.310 --> 05:11.070
+there are just things that I had no idea about.
+
+05:11.070 --> 05:16.560
+I had no idea how much it costs to buy a wheel, and there are a couple of wheels in there.
+
+05:16.710 --> 05:22.950
+Uh, then, even though I should know computers back to front, I found myself agonizing over the cost
+
+05:22.950 --> 05:28.770
+of refurbished computers with 400GB of, uh, disk space.
+
+05:28.920 --> 05:31.560
+And, yeah, it was just really, really hard.
+
+05:31.560 --> 05:32.820
+And chandeliers.
+
+05:32.820 --> 05:34.740
+I don't know how much a chandelier costs.
+
+05:34.740 --> 05:36.360
+Anyway, I digress.
+
+05:36.390 --> 05:47.040
+I wrote some code that outputs to a CSV file 250 test prompts, and after I ran that, uh, I'll run
+
+05:47.040 --> 05:47.130
+it.
+
+05:47.130 --> 05:51.450
+Now it creates this file human input dot csv.
+
+05:51.450 --> 05:53.790
+And here is human input dot CSV.
+
+05:53.790 --> 06:04.140
+And it contains the prompts every single one of the top 250 prompts and zero in this column to be filled
+
+06:04.140 --> 06:06.690
+in by said human.
+
+06:06.690 --> 06:12.530
+Uh, and I, you know, I'm not even sure if I'm going to check in this human output into into git.
+
+06:12.560 --> 06:17.840
+If you see it there, then I then I've dared to because I after a while you become fatigued and I was
+
+06:17.840 --> 06:19.700
+going through it probably too fast.
+
+06:19.700 --> 06:21.890
+I probably made some real blunders in there.
+
+06:21.890 --> 06:24.620
+If you look at it, you'll probably say, what were you thinking?
+
+06:24.620 --> 06:27.230
+You should stick to teaching LM engineering.
+
+06:27.260 --> 06:28.190
+Certainly don't.
+
+06:28.460 --> 06:30.950
+You're not, not not someone of the world.
+
+06:31.100 --> 06:34.100
+Uh, but, um, yeah, I gave it my best shot.
+
+06:34.100 --> 06:38.840
+So anyways, we'll read back in the prices that I set.
+
+06:38.990 --> 06:43.940
+Uh, and then let's just, uh, quickly get a sense for, for, for how this looks.
+
+06:43.940 --> 06:54.950
+So we're going to write a function which is going to be the human, um, the predictor, the human processor.
+
+06:54.950 --> 06:57.140
+So it needs to take an input.
+
+06:57.140 --> 07:00.230
+And that input should be one of the items.
+
+07:00.260 --> 07:04.610
+And its job is to return the cost of that item.
+
+07:04.910 --> 07:11.820
+Um, so what I do at this point is I say, okay, so if I look in my training data set, I say my test
+
+07:11.820 --> 07:12.720
+data set.
+
+07:12.750 --> 07:15.840
+What is the index of that item?
+
+07:15.840 --> 07:19.410
+So is it the the zeroth item in in test.
+
+07:19.410 --> 07:21.030
+Is it the first the second the third.
+
+07:21.030 --> 07:23.940
+And we will call that index.
+
+07:24.420 --> 07:30.090
+So that is which number of the test items we are looking at here.
+
+07:30.090 --> 07:36.750
+And then I have read in all of my hopeless estimates into human predictions.
+
+07:36.750 --> 07:40.230
+And so we will simply return human predictions.
+
+07:44.010 --> 07:46.890
+At uh at index.
+
+07:48.240 --> 07:48.930
+All right.
+
+07:48.960 --> 07:49.680
+And run that.
+
+07:49.680 --> 07:56.850
+And now now we will see we will see tester dot test human pricer.
+
+07:59.640 --> 08:01.800
+And pass in the test data set.
+
+08:02.040 --> 08:02.910
+Here we go.
+
+08:04.320 --> 08:07.740
+So there are the results.
+
+08:07.920 --> 08:13.010
+Uh, well you can see that there's a fairly large number of reds in there.
+
+08:13.040 --> 08:14.450
+There are some greens though.
+
+08:14.480 --> 08:15.980
+I did respectably.
+
+08:16.340 --> 08:18.590
+Uh, but still I was quite far out.
+
+08:18.590 --> 08:19.490
+But look, this one.
+
+08:19.490 --> 08:20.300
+What is this?
+
+08:20.300 --> 08:23.600
+Richmond auto upholstery, I guess 260.
+
+08:23.630 --> 08:25.220
+And it was 225.
+
+08:25.220 --> 08:28.010
+And this one here, Gibson Performance exhaust.
+
+08:28.010 --> 08:31.010
+I don't know how much a Gibson Performance exhaust costs, but I.
+
+08:31.010 --> 08:32.870
+I guessed 499.
+
+08:32.870 --> 08:35.090
+I thought I'd, you know, go go for it.
+
+08:35.090 --> 08:37.280
+And the answer is 535.
+
+08:37.430 --> 08:38.900
+But then some others in here.
+
+08:39.050 --> 08:40.340
+What did I get wrong here?
+
+08:40.370 --> 08:49.250
+A Street Series stainless performance something, uh, I guess $260 and it was $814, so I was just
+
+08:49.280 --> 08:53.210
+way off there anyway to put me out of my misery.
+
+08:53.210 --> 08:55.910
+If we scroll down, we will see.
+
+08:55.940 --> 09:03.980
+Here is the chart then, uh, I uh, in particular, you'll see that I didn't do terribly.
+
+09:04.010 --> 09:04.640
+I mean, I did.
+
+09:04.640 --> 09:09.020
+All right, look, lots of green dots hit rate of 32%.
+
+09:09.200 --> 09:16.440
+Um, I, I also I realized actually, as I was About two thirds of the way through that, all of my
+
+09:16.440 --> 09:20.100
+prices, I'd never guessed anything much more than 4 or $500.
+
+09:20.100 --> 09:22.890
+So I knew immediately that obviously I was.
+
+09:22.890 --> 09:26.040
+I hadn't I hadn't spotted things that were expensive.
+
+09:26.220 --> 09:28.650
+So that was obviously a failing.
+
+09:28.920 --> 09:34.110
+Um, so my total error, as it happens, was $127.
+
+09:34.110 --> 09:38.280
+And that means I come in better than than than the average.
+
+09:38.280 --> 09:42.630
+It's not like I could have done better just by guessing the average number all the way through.
+
+09:42.840 --> 09:48.240
+Uh, the, uh, I've written down to remind myself the the comparisons.
+
+09:48.240 --> 09:50.460
+The average was 146.
+
+09:50.520 --> 09:52.500
+Uh, was the error of the average price.
+
+09:52.590 --> 09:53.880
+So I did better than that.
+
+09:53.880 --> 09:57.930
+The straight up linear regression with feature engineering.
+
+09:57.930 --> 10:00.540
+The basic one was 139.
+
+10:00.540 --> 10:01.800
+So I beat that.
+
+10:01.800 --> 10:06.150
+I beat a very, very basic feature engineering linear regression.
+
+10:06.150 --> 10:09.930
+But you probably already put in more features and did better than that anyway.
+
+10:10.020 --> 10:17.240
+Um, but then all of the other models are crushed me with the, the bag of words style models and the
+
+10:17.240 --> 10:18.230
+word two vec models.
+
+10:18.230 --> 10:24.650
+And then you remember that Random Forest came in at 97, significantly better than humanity.
+
+10:24.680 --> 10:31.850
+So already as it would happen, good traditional machine learning models can do better than this human
+
+10:31.850 --> 10:38.210
+anyway in predicting the prices of items, but you may be better informed than me if you put yourself
+
+10:38.210 --> 10:40.460
+through this exercise, which I do not recommend.
+
+10:40.760 --> 10:43.580
+Then you may find you may find that you do better.
+
+10:43.580 --> 10:47.330
+Anyway, in all seriousness, I haven't just wasted your time.
+
+10:47.330 --> 10:52.310
+This is the kind of exercise that's good to do because maybe for a few data points, but it gives you
+
+10:52.310 --> 10:58.310
+a good sense of the type of problem you're solving, and where the bar is set in terms of human performance
+
+10:58.340 --> 11:02.390
+is something which can be used to compare how well we're doing with models.
+
+11:02.390 --> 11:08.450
+After all, if we can't do better than then, than the human performance, then we need to work harder.
+
+11:08.450 --> 11:10.460
+So that gives you a sense.
+
+11:10.460 --> 11:15.950
+And when we come back in the next video, we really will move on to Frontier Models.
+
+11:15.950 --> 11:16.670
+It's happening.
+
+11:16.700 --> 11:17.480
+See you then.

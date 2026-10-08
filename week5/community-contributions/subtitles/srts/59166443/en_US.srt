@@ -1,0 +1,202 @@
+WEBVTT
+
+00:00.590 --> 00:02.720
+And welcome back everybody.
+
+00:02.720 --> 00:06.200
+Welcome to week two day three.
+
+00:06.230 --> 00:13.100
+It's a continuation of our enjoyment of radio, our celebration of everything that is radio and user
+
+00:13.100 --> 00:14.030
+interfaces.
+
+00:14.330 --> 00:19.820
+Uh, what you can already do in addition to using open AI, anthropic and Gemini, you can now also
+
+00:19.820 --> 00:22.130
+build UIs for your solutions.
+
+00:22.130 --> 00:24.500
+And you should feel pretty good about that.
+
+00:24.530 --> 00:27.230
+Uh, by the end of today, you'll be able to do more.
+
+00:27.260 --> 00:32.120
+You'll be able to build chat UIs, a specific type of UI which is very common.
+
+00:32.120 --> 00:38.270
+You'll be able to provide the history of conversation in a prompt, and you will build your very first
+
+00:38.270 --> 00:42.980
+customer support assistant, an AI assistant, also known as a chat bot.
+
+00:43.010 --> 00:46.280
+A very common I use case.
+
+00:46.280 --> 00:48.590
+You will have mastered it today.
+
+00:49.340 --> 00:51.950
+So again, very common.
+
+00:51.950 --> 00:53.150
+J'en ai use case.
+
+00:53.150 --> 00:55.220
+I think we're all very familiar with them.
+
+00:55.250 --> 00:56.810
+Llms based on chat bots.
+
+00:56.810 --> 00:59.210
+Super effective at conversation.
+
+00:59.210 --> 01:05.780
+It's hard to remember that only a few years ago, if you experienced one of these chatbot style interfaces
+
+01:05.780 --> 01:11.410
+on a website, you would be in the world of responding one, two, three, or four to different things,
+
+01:11.410 --> 01:15.820
+or use a keyword like booking or something like that.
+
+01:15.850 --> 01:17.860
+How far we have come.
+
+01:17.860 --> 01:23.740
+You can now have an informed conversation with customer service chatbots on websites, and you often
+
+01:23.770 --> 01:24.280
+do.
+
+01:24.280 --> 01:29.470
+And, you know, frankly, there have been times when I've got more value from a conversation with a
+
+01:29.470 --> 01:36.460
+chatbot than I have from a human being, which is a sorry, sad sense of the times.
+
+01:36.640 --> 01:42.040
+Um, but obviously we can't do things like asking it how many times the letter A appears in that sentence.
+
+01:42.400 --> 01:46.510
+Uh, but anyways, uh, the, uh, the chatbot use case.
+
+01:46.510 --> 01:49.030
+Very familiar, very important indeed.
+
+01:49.030 --> 01:51.280
+And something where llms excel.
+
+01:51.430 --> 01:57.190
+You can imagine some of the things that we're familiar with, the friendly personas that we can give
+
+01:57.220 --> 02:06.220
+chatbots, or indeed any persona we can have the ability to maintain context between messages this staggering
+
+02:06.220 --> 02:11.440
+way that you can hold a conversation and refer to things that you said earlier.
+
+02:11.440 --> 02:15.790
+And we all know now that that is some, some, some trickery going on there.
+
+02:15.790 --> 02:19.870
+It's an illusion that you're really having this persistent conversation.
+
+02:19.900 --> 02:22.500
+What's happening is at each step.
+
+02:22.500 --> 02:29.280
+The entire conversation history is being provided to the LLM in order to get back the next response.
+
+02:29.520 --> 02:36.450
+Um, and then also these assistants can have subject matter expertise, which they use to answer questions
+
+02:36.450 --> 02:37.830
+in a knowledgeable way.
+
+02:38.730 --> 02:45.480
+So, uh, very important aspect of interacting with assistants is the correct use of prompts.
+
+02:45.480 --> 02:49.590
+We're very familiar now with the system prompt that we can use to set the tone of the conversation.
+
+02:49.590 --> 02:51.180
+You can establish ground rules.
+
+02:51.180 --> 02:56.400
+There is a common prompt technique of saying if you don't know the answer, just say so.
+
+02:56.400 --> 03:01.140
+To try and encourage llms to be truthful and not to hallucinate.
+
+03:01.470 --> 03:09.690
+Uh, context is how you can use, uh, the add additional information into the conversation to give
+
+03:09.690 --> 03:13.140
+the LLM more context on what's being discussed.
+
+03:13.140 --> 03:21.660
+And then multi shots prompting is when you add information to the prompt to give multiple examples of
+
+03:21.660 --> 03:29.160
+interactions as a way to, uh, craft, to sort of hone the character of the LLM by giving it examples
+
+03:29.160 --> 03:35.390
+to work from, and also to prime it with information that might be useful later.
+
+03:35.420 --> 03:40.160
+It's interesting that this feels a bit like training because it's learning from multiple examples,
+
+03:40.160 --> 03:43.340
+but of course, this isn't training in the data science sense.
+
+03:43.340 --> 03:45.410
+The model has already been trained.
+
+03:45.440 --> 03:47.750
+The neural network training has happened.
+
+03:47.780 --> 03:51.260
+This is all at what we call an inference time at runtime.
+
+03:51.260 --> 03:54.770
+It's all just generating future tokens based on past.
+
+03:54.770 --> 04:01.940
+But the point is that if that past set of tokens includes a bunch of questions and answers, then when
+
+04:01.940 --> 04:08.810
+it's predicting the future, it's more likely it's more likely to pick future tokens that are consistent
+
+04:08.810 --> 04:10.610
+with what it's seen in the past.
+
+04:10.610 --> 04:13.670
+And that's why this works so very well.
+
+04:14.540 --> 04:16.700
+So we're now going to build a chatbot.
+
+04:16.730 --> 04:17.390
+Our first chatbot.
+
+04:17.390 --> 04:18.410
+And it's going to look like this.
+
+04:18.440 --> 04:23.690
+It's going to have a sort of instant message style interface to it with questions from us, responses
+
+04:23.690 --> 04:29.690
+from the chatbot in this sort of interface, which, you know, that's that's reasonably sophisticated
+
+04:29.720 --> 04:35.600
+and I'm telling you that we're going to be able to do it all in this one lesson, and it will give you
+
+04:35.720 --> 04:39.020
+tooling to be able to do the same thing in the future.
+
+04:39.020 --> 04:42.950
+So without further ado, let's go over to JupyterLab.
