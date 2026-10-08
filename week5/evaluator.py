@@ -7,50 +7,46 @@ from evaluation.eval import evaluate_all_retrieval, evaluate_all_answers
 
 load_dotenv(override=True)
 
-# Color coding thresholds - Retrieval
-MRR_GREEN = 0.9
-MRR_AMBER = 0.75
-NDCG_GREEN = 0.9
-NDCG_AMBER = 0.75
-COVERAGE_GREEN = 90.0
-COVERAGE_AMBER = 75.0
+METRIC_THRESHOLDS = {
+    # Color coding thresholds - Retrieval
+    "mrr": {
+        "green": 0.90,
+        "amber": 0.75,
+    },
+    "ndcg": {
+        "green": 0.90,
+        "amber": 0.75,
+    },
+    "coverage": {
+        "green": 90.0,
+        "amber": 75.0,
+    },
+    # Color coding thresholds - Answer (1-5 scale)
+    "accuracy": {
+        "green": 4.5,
+        "amber": 4.0,
+    },
+    "completeness": {
+        "green": 4.5,
+        "amber": 4.0,
+    },
+    "relevance": {
+        "green": 4.5,
+        "amber": 4.0,
+    },
+}
 
-# Color coding thresholds - Answer (1-5 scale)
-ANSWER_GREEN = 4.5
-ANSWER_AMBER = 4.0
+def get_color(value: float, metric: str) -> str:
+    thresholds = METRIC_THRESHOLDS.get(metric)
 
+    if thresholds is None:
+        return "black"
 
-def get_color(value: float, metric_type: str) -> str:
-    """Get color based on metric value and type."""
-    if metric_type == "mrr":
-        if value >= MRR_GREEN:
-            return "green"
-        elif value >= MRR_AMBER:
-            return "orange"
-        else:
-            return "red"
-    elif metric_type == "ndcg":
-        if value >= NDCG_GREEN:
-            return "green"
-        elif value >= NDCG_AMBER:
-            return "orange"
-        else:
-            return "red"
-    elif metric_type == "coverage":
-        if value >= COVERAGE_GREEN:
-            return "green"
-        elif value >= COVERAGE_AMBER:
-            return "orange"
-        else:
-            return "red"
-    elif metric_type in ["accuracy", "completeness", "relevance"]:
-        if value >= ANSWER_GREEN:
-            return "green"
-        elif value >= ANSWER_AMBER:
-            return "orange"
-        else:
-            return "red"
-    return "black"
+    if value >= thresholds["green"]:
+        return "green"
+    elif value >= thresholds["amber"]:
+        return "orange"
+    return "red"
 
 
 def format_metric_html(
