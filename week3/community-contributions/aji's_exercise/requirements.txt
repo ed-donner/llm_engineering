@@ -1,0 +1,7 @@
+openai
+huggingface-hub
+transformers
+torch
+bitsandbytes
+requests
+pandas
