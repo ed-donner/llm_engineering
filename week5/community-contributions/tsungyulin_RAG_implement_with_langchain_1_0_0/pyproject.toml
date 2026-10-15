@@ -1,0 +1,17 @@
+[project]
+name = "tsungyulin"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "dotenv>=0.9.9",
+    "gradio>=5.49.1",
+    "langchain>=1.0.1",
+    "langchain-chroma>=1.0.0",
+    "langchain-classic>=1.0.0",
+    "langchain-community>=0.4",
+    "langchain-openai>=1.0.0",
+    "plotly>=6.3.1",
+    "scikit-learn>=1.7.2",
+]
