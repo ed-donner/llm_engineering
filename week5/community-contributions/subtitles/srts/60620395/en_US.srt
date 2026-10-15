@@ -1,0 +1,181 @@
+WEBVTT
+
+00:00.110 --> 00:05.630
+Welcome back to Jupyter Lab, where I want to show you the assignment, the homework exercise for you
+
+00:05.630 --> 00:09.170
+for the end of week one, coming into the week one folder.
+
+00:09.170 --> 00:14.330
+And you'll see here week one exercise so you can see there's rather little here.
+
+00:14.330 --> 00:16.550
+There's a little framework to tell you what we're doing.
+
+00:16.550 --> 00:23.150
+So the idea is for you to build a little tool that will be used by yourself as something that can be
+
+00:23.150 --> 00:25.130
+your guide during this course.
+
+00:25.160 --> 00:33.170
+It's going to be a tool which will be able to answer questions on code, on llms, on things that you
+
+00:33.170 --> 00:39.290
+might run into along the way and be your sidekick, your your customized copilot for this experience.
+
+00:39.290 --> 00:41.120
+And this is what it's going to do.
+
+00:41.240 --> 00:44.300
+Uh, it's going to you're going to fill in some inputs.
+
+00:44.300 --> 00:47.840
+You're going to you can just use these two constants we've got here.
+
+00:47.840 --> 00:55.790
+You're going to be using both GPT and open source llama running in llama on your computer, something
+
+00:55.790 --> 01:00.140
+which you're familiar with from our week two assignment or day two assignment.
+
+01:00.170 --> 01:03.300
+You'll put some code in here to set up your environment.
+
+01:03.360 --> 01:09.780
+And then this is where you will type the question that you want to ask your tutor, your personal private
+
+01:09.780 --> 01:10.500
+tutor.
+
+01:10.500 --> 01:15.330
+And in this case, I am asking it to explain what this code does and why.
+
+01:15.360 --> 01:20.340
+And this again, is that line of code that we looked at a couple of times, which is has a few different
+
+01:20.340 --> 01:24.270
+things going on there, and this is the better version of the code than the one I originally wrote.
+
+01:24.270 --> 01:26.370
+This is the version that I think it was.
+
+01:26.400 --> 01:31.230
+Yeah, it was GPT four with canvas that wrote this version of it.
+
+01:31.500 --> 01:39.450
+So we will provide this, and then you will fill in this piece of code here, which will get GPT four
+
+01:39.450 --> 01:40.530
+mini to answer.
+
+01:40.530 --> 01:47.310
+And you should try and answer and have that response stream back and use markdown, uh, so that it
+
+01:47.310 --> 01:49.560
+appears in full glory.
+
+01:49.620 --> 01:55.620
+Uh, and then do the same thing again for llama 3.2 and see the answer there.
+
+01:55.620 --> 02:00.090
+So this will need you to to write the code from scratch and sort of type it out.
+
+02:00.090 --> 02:06.460
+And of course you should look back at the fragments of code that we came up with on the prior days and
+
+02:06.460 --> 02:12.010
+used that to build this, and hopefully it will be something that will come reasonably naturally and
+
+02:12.010 --> 02:16.360
+you'll be used to the familiar .0., blah, blah, blah, blah, blah.
+
+02:16.360 --> 02:22.390
+It's all going to be something that will be in your memory and you'll also be very comfortable, I hope,
+
+02:22.390 --> 02:28.120
+with creating the messages list of dictionaries, something that you're used to at this point.
+
+02:28.240 --> 02:31.600
+Um, and when you do that, you'll see what answer that you get for this.
+
+02:31.600 --> 02:34.750
+And it's actually a remarkably good answer.
+
+02:34.750 --> 02:36.850
+Again, I think much better than I could do.
+
+02:37.000 --> 02:42.010
+Uh, and it would be interesting to see whether you're also happy with the answer that you get from
+
+02:42.010 --> 02:46.000
+a minuscule model that is much, much smaller by comparison.
+
+02:46.000 --> 02:47.950
+And see how you compare those two.
+
+02:47.980 --> 02:52.480
+And then in the future, you'll be able to use this as a bit of a resource.
+
+02:52.630 --> 02:55.450
+And so I hope this this is useful for you.
+
+02:55.480 --> 02:59.740
+And in fact, after week two, you might want to come back to this and add a user interface to it.
+
+02:59.740 --> 03:04.450
+So you could have like a little tool running on the side that would be uh, could be super handy.
+
+03:04.630 --> 03:09.650
+Uh, one also thing that you might do is that what I've done here is I've just put down the question
+
+03:09.650 --> 03:11.060
+as a global variable.
+
+03:11.060 --> 03:15.350
+You might instead want to see if you can think about a way that you could take that in as an input and
+
+03:15.350 --> 03:16.880
+be a bit more dynamic about this.
+
+03:16.880 --> 03:21.890
+So it could just be a cell that you run, but maybe do that as a as a later improvement.
+
+03:22.430 --> 03:28.910
+Now I've done this and the solution is sitting in this solutions folder, but I urge you not to look
+
+03:28.940 --> 03:29.840
+at the solution.
+
+03:29.840 --> 03:33.350
+Uh, not not unless you you find yourself feeling stuck.
+
+03:33.380 --> 03:34.730
+There's nothing worse than feeling stuck.
+
+03:34.760 --> 03:41.870
+If you do feel stuck, you could always try first asking ChatGPT or Claude for a nudge, but otherwise,
+
+03:41.870 --> 03:43.790
+please, please, please reach out to me.
+
+03:43.790 --> 03:46.190
+There is no reason whatsoever to be stuck with this.
+
+03:46.220 --> 03:49.160
+It should be something that you that you're able to to get through.
+
+03:49.160 --> 03:50.750
+And I would love to help you with that.
+
+03:50.750 --> 03:57.710
+Get you to a point when you have your own personal, technical and data science tutor to help you along
+
+03:57.710 --> 03:58.190
+the way.
+
+03:58.190 --> 04:06.560
+So, um, above all, be sure to have fun with this and I will see you back for the wrap up video for
+
+04:06.560 --> 04:07.220
+week one.

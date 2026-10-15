@@ -1,0 +1,532 @@
+WEBVTT
+
+00:00.890 --> 00:04.400
+And at last the time has come to see rag in action.
+
+00:04.430 --> 00:07.460
+After all of this talk, and here we are.
+
+00:07.460 --> 00:10.730
+We're in, of course, the week five folder in JupyterLab.
+
+00:10.730 --> 00:16.190
+We're looking at day four, the notebook, and it is, of course a duplicate of day three with more
+
+00:16.190 --> 00:16.760
+added on.
+
+00:16.760 --> 00:21.710
+Since we're still solving the same problem of a knowledge worker for our fictitious insurance tech company
+
+00:21.710 --> 00:22.970
+in serum.
+
+00:23.330 --> 00:27.620
+Uh, and we will start with the usual imports as before.
+
+00:28.070 --> 00:34.790
+And now we have some imports for Lang chain, and I have sneakily added in two new imports from Lang
+
+00:34.790 --> 00:35.570
+chain memory.
+
+00:35.600 --> 00:38.570
+We're importing conversational buffer memory.
+
+00:38.600 --> 00:43.010
+And from Lang chain chains we're bringing in conversational retrieval chain.
+
+00:43.010 --> 00:46.850
+And these are two of the abstractions that I mentioned before.
+
+00:46.880 --> 00:52.310
+Now the astute amongst you will have noticed that the third abstraction is also lurking in here.
+
+00:52.310 --> 00:57.920
+I just already imported it in one of our previous lectures without mentioning it, but here it is.
+
+00:57.920 --> 01:02.180
+Chat OpenAI is already being imported as part of from Lang chain.
+
+01:02.180 --> 01:08.650
+OpenAI, uh, we've only been using so far the OpenAI embeddings, but this time we're going to bring
+
+01:08.680 --> 01:10.990
+chat OpenAI into the mix.
+
+01:11.050 --> 01:14.410
+Okay, so I better run those imports.
+
+01:15.010 --> 01:17.020
+Otherwise we're not going to get very far.
+
+01:17.620 --> 01:19.720
+So then we do some constants.
+
+01:19.720 --> 01:21.850
+We load our environment variables.
+
+01:21.850 --> 01:23.800
+And now you're quite familiar with this.
+
+01:23.800 --> 01:30.580
+But we go through and we bring in our documents from the knowledge base directory over there.
+
+01:30.580 --> 01:35.350
+And now we're going to bring in the text chunks the let's see how many.
+
+01:35.350 --> 01:36.730
+But I do believe it's 123.
+
+01:36.760 --> 01:39.040
+Yes, 123 text chunks.
+
+01:39.040 --> 01:44.200
+And they are employees, products companies and contracts.
+
+01:44.590 --> 01:50.020
+And now we're going to again put them into our vector database.
+
+01:50.020 --> 01:52.300
+We delete and recreate the vector database.
+
+01:52.390 --> 01:57.640
+And we see that each vector has 1536 dimensions.
+
+01:57.640 --> 02:00.580
+Hard for us to visualize, but we can handle it in 2D.
+
+02:00.580 --> 02:01.930
+So that's what we do.
+
+02:01.930 --> 02:03.220
+And there they are.
+
+02:03.220 --> 02:07.450
+And we can also say let's see it in 3D as well.
+
+02:07.480 --> 02:08.810
+This is a little bit gratuitous.
+
+02:08.810 --> 02:12.650
+I didn't need to go through and rerun all of this, but I do love seeing these these diagrams.
+
+02:12.680 --> 02:16.820
+All right, so here, I didn't lie to you.
+
+02:16.820 --> 02:19.790
+It really is as simple as these four lines of code.
+
+02:19.820 --> 02:24.050
+We first create the new LM abstraction.
+
+02:24.080 --> 02:25.250
+We the chat OpenAI.
+
+02:25.280 --> 02:27.950
+We're going to put that that thing we've imported for a while.
+
+02:27.950 --> 02:29.570
+We're going to put it to use finally.
+
+02:29.960 --> 02:34.760
+And you supply a temperature and a model name, uh, memory.
+
+02:34.820 --> 02:39.710
+We create the conversational buffer memory passing in, as I mentioned before, the key and saying we
+
+02:39.710 --> 02:42.230
+want it returned in the form of a, of a list.
+
+02:42.560 --> 02:49.640
+Uh, we take our chroma vector store and we call as retriever to sort of wrap it in this abstraction,
+
+02:49.640 --> 02:52.580
+the retriever, which is needed by Lang chain.
+
+02:52.580 --> 02:58.370
+And that is where we now get to when we create the conversational retrieval chain.
+
+02:58.370 --> 03:03.200
+And we simply pass in the LM, the retriever and the memory.
+
+03:03.740 --> 03:04.700
+That's all it is.
+
+03:04.820 --> 03:05.780
+Let's run that.
+
+03:07.040 --> 03:07.640
+Okay.
+
+03:07.640 --> 03:08.960
+So we ran it.
+
+03:09.140 --> 03:10.430
+Perhaps a slight anticlimax.
+
+03:10.430 --> 03:14.590
+I'm not sure what you're expecting, whether you thought maybe we were going to get suddenly rag appearing
+
+03:14.590 --> 03:15.490
+in front of us.
+
+03:15.700 --> 03:16.960
+We have to actually call it.
+
+03:16.990 --> 03:19.270
+We have to do something to make use of it.
+
+03:19.300 --> 03:25.690
+So what we're going to say is we're going to say, um, um, query calls.
+
+03:26.770 --> 03:38.230
+Uh, can you describe in short film in a few sentences, a nice we will start simple.
+
+03:38.320 --> 03:38.620
+All right.
+
+03:38.650 --> 03:39.370
+And this is what you say.
+
+03:39.370 --> 03:41.800
+You say result is conversation chain.
+
+03:41.800 --> 03:46.510
+The thing that we've just created and we call the method invoke.
+
+03:46.600 --> 03:52.600
+And invoke takes a dictionary which has question as a key.
+
+03:52.690 --> 03:53.620
+Did I spell that right?
+
+03:53.650 --> 03:53.830
+Yes.
+
+03:53.830 --> 03:54.850
+Question.
+
+03:55.150 --> 03:58.780
+And we have to put in our message query.
+
+04:00.010 --> 04:01.420
+And there we have it.
+
+04:01.420 --> 04:04.810
+And then we're going to print result.
+
+04:06.430 --> 04:09.610
+This should be something under the key of answer in that result.
+
+04:09.610 --> 04:15.640
+So this then is the final piece of code that we put together to try and make use of our Rag pipeline.
+
+04:15.680 --> 04:16.970
+So what do we think is going to happen?
+
+04:16.970 --> 04:18.620
+It's going to take that query.
+
+04:18.620 --> 04:21.110
+It's going to turn that into a vector.
+
+04:21.110 --> 04:24.230
+It's going to look that up in our Chrome data store.
+
+04:24.260 --> 04:27.440
+It's going to find relevant chunks.
+
+04:27.440 --> 04:29.780
+And I say chunks plural.
+
+04:29.780 --> 04:31.250
+And we're going to come back to that.
+
+04:31.580 --> 04:33.320
+So it's going to find relevant chunks.
+
+04:33.320 --> 04:38.930
+And it's going to drop them into the prompt and send that to OpenAI.
+
+04:39.020 --> 04:43.130
+Uh, it's going to send it to GPT four mini because we've specified that here.
+
+04:43.130 --> 04:48.170
+And then with what comes back, it's going to package it up and put that in the answer key.
+
+04:48.200 --> 04:49.940
+Let's see if this works.
+
+04:52.400 --> 04:53.480
+There we go.
+
+04:53.510 --> 04:54.560
+There we go.
+
+04:54.560 --> 04:59.240
+We've just run our first Rag pipeline front to back in Shoreham.
+
+04:59.270 --> 05:05.810
+Innovative insurance tech firm founded by Avery Lancaster, a name we know well at this point and so
+
+05:05.810 --> 05:06.230
+on.
+
+05:06.230 --> 05:07.940
+And it's got bits of information.
+
+05:07.940 --> 05:12.980
+And I will leave this as an exercise for you to play around with, but you'll see that it's got that
+
+05:12.980 --> 05:18.530
+out from various documents, I think probably all from the about from the company section.
+
+05:18.530 --> 05:24.910
+Uh, but, uh, I hopefully you'll see that it has retrieved that from various chunks of information.
+
+05:25.960 --> 05:26.860
+All right.
+
+05:26.860 --> 05:28.750
+Well, wouldn't it be nice?
+
+05:29.230 --> 05:30.310
+Do you know where this is going?
+
+05:30.340 --> 05:35.020
+Wouldn't it be nice if we could package that up into a beautiful user interface, so that we could actually
+
+05:35.020 --> 05:37.480
+use it through a chat UI?
+
+05:37.480 --> 05:41.290
+And of course, Gradio makes it super simple as well.
+
+05:41.290 --> 05:47.890
+We know at this point all we have to do is create a chat function in the format that Gradio expects.
+
+05:47.890 --> 05:50.170
+That takes a message and a history.
+
+05:50.170 --> 05:55.540
+So what I've done is I've taken exactly the line that we just wrote, and I've put it here, and then
+
+05:55.540 --> 05:58.480
+I return exactly what we're expecting.
+
+05:58.510 --> 06:03.070
+Now, you might see something curious about that, give you a moment to look at it and see anything,
+
+06:03.070 --> 06:04.540
+anything strike you as odd.
+
+06:06.070 --> 06:09.910
+Well, the one thing that might potentially strike you as odd is that we don't actually do anything
+
+06:09.910 --> 06:12.430
+with this history parameter.
+
+06:12.520 --> 06:14.440
+Uh, we ignore it completely.
+
+06:14.440 --> 06:19.570
+And the reason we ignore it is because, of course, Lang Chain already handles history for us.
+
+06:19.570 --> 06:26.820
+So even though Gradio has this chat UI that calls that sort of maintains the history in the user interface,
+
+06:26.820 --> 06:30.570
+and then calls back every time with the with the full chat history.
+
+06:30.600 --> 06:36.540
+We don't need that because because Lang has already given us this, this memory, and it's already keeping
+
+06:36.570 --> 06:38.430
+track of the conversation so far.
+
+06:38.460 --> 06:41.730
+All it needs to know is the new message and the new answer.
+
+06:42.570 --> 06:45.180
+So anyway, I'm rerunning the cell here.
+
+06:45.210 --> 06:47.970
+I actually already reran it, but I'm rerunning it to clean out the memory.
+
+06:47.970 --> 06:50.190
+So we're starting absolutely fresh.
+
+06:50.220 --> 06:55.230
+We call that we bring this up and now we can chat.
+
+06:55.500 --> 06:56.340
+Hi there.
+
+06:57.780 --> 06:58.380
+Hello.
+
+06:58.380 --> 06:59.700
+How can I assist you today?
+
+07:00.060 --> 07:02.520
+What is insurance?
+
+07:02.640 --> 07:03.090
+Um.
+
+07:08.490 --> 07:09.150
+There we go.
+
+07:09.180 --> 07:10.560
+No surprise.
+
+07:10.680 --> 07:13.230
+And now we can do something sneaky.
+
+07:13.260 --> 07:14.970
+We can say something like.
+
+07:15.030 --> 07:19.470
+What did Avery do before?
+
+07:20.100 --> 07:25.260
+And now the reason I'm, uh, I'm bringing this up is that there's a few things that I want to surface
+
+07:25.290 --> 07:26.490
+in a question like this.
+
+07:26.490 --> 07:34.030
+So first of all, to state the obvious, our brute force solution before our toy version of Rag was
+
+07:34.030 --> 07:38.860
+able to look at Lancaster as a last name and search for that in documents, which was pretty hopeless.
+
+07:38.860 --> 07:41.560
+And if we tried the word aviary, then it failed on us.
+
+07:41.560 --> 07:45.160
+So it's of course interesting to try it here.
+
+07:45.190 --> 07:50.470
+Secondly, I have intentionally put aviary with a lowercase a, because anything that's doing a kind
+
+07:50.470 --> 07:56.770
+of text search is going to get that wrong because aviary is uh, is spelt differently.
+
+07:56.770 --> 08:02.620
+So, uh, it'll be interesting to see whether it can handle the fact that we've not used the right case.
+
+08:02.620 --> 08:07.540
+And then thirdly, I'm sort of taking advantage of this memory idea because I'm referring to what she
+
+08:07.540 --> 08:08.380
+did before.
+
+08:08.410 --> 08:11.920
+Meaning what did she do before she founded in Elm.
+
+08:11.920 --> 08:18.220
+And we'll see whether the model is has a good enough sense of what's going on to be able to keep the
+
+08:18.220 --> 08:22.780
+context, both retrieve relevant information about aviary and what she did before.
+
+08:22.810 --> 08:25.000
+That will need to come from her employee record.
+
+08:25.120 --> 08:29.350
+Uh, and also, uh, just answer the question in a coherent way.
+
+08:29.350 --> 08:30.310
+Let's see.
+
+08:33.420 --> 08:38.670
+Before founding in Shoreham, Avery Lancaster worked as a senior product manager at Innovate Insurance
+
+08:38.670 --> 08:40.620
+Solutions, where she developed groundbreaking insurance.
+
+08:40.980 --> 08:43.830
+Prior to that, business analyst focusing on market trends.
+
+08:43.860 --> 08:49.860
+So I will leave it as an exercise for you to check her employee record and make sure that you're satisfied
+
+08:49.860 --> 09:00.360
+that it is indeed correctly finding it and getting the right background on Avery, uh, as a fun thing
+
+09:00.390 --> 09:01.200
+to try.
+
+09:01.320 --> 09:05.850
+Um, and also, of course, try other difficult questions.
+
+09:06.000 --> 09:10.200
+Uh, what does, um.
+
+09:12.960 --> 09:13.140
+Uh.
+
+09:13.140 --> 09:13.860
+Let's see.
+
+09:13.890 --> 09:20.730
+Calm do that was the car, um, uh, product.
+
+09:21.210 --> 09:21.390
+Um.
+
+09:21.420 --> 09:24.420
+Or how about, um, let's ask it differently.
+
+09:24.420 --> 09:35.650
+Let's say does insurance offer any products in the car in the auto Assurance space.
+
+09:36.550 --> 09:38.770
+Let's give it a nice, tricky question.
+
+09:39.040 --> 09:40.570
+And there we go.
+
+09:40.600 --> 09:40.960
+Yes.
+
+09:40.990 --> 09:44.530
+Insurance offers Calm, which is a portal for auto insurance companies.
+
+09:44.530 --> 09:53.020
+So it's able to even though I didn't use the word calm or even the word car, it was able to find the
+
+09:53.020 --> 09:58.060
+relevant document, the relevant chunk, and answer the question in an accurate way.
+
+09:58.540 --> 10:03.160
+So that is your first experiment with Rag.
+
+10:03.190 --> 10:04.930
+I hope you will now try this.
+
+10:04.930 --> 10:10.450
+I hope you will investigate, ask difficult questions, find out if you can break it or get it to give
+
+10:10.450 --> 10:15.190
+wrong information, or go off the rails and stretch it to its limits.
+
+10:15.220 --> 10:21.340
+Next time, amongst a few other things, we'll talk about some of the ways, some of the common problems
+
+10:21.340 --> 10:26.260
+that you can get with these kinds of prompts, and how you can debug and find out more about what's
+
+10:26.260 --> 10:28.180
+going on under the covers.
+
+10:28.210 --> 10:36.670
+But I hope you enjoyed your first end to end rag pipeline built for our fictional insurance tech company
+
+10:36.670 --> 10:37.540
+in Shoreham.
+
+10:37.600 --> 10:38.620
+See you next time.

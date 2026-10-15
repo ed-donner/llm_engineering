@@ -1,0 +1,73 @@
+WEBVTT
+
+00:00.680 --> 00:03.740
+So I hope you enjoyed that whirlwind tour of Google Colab.
+
+00:03.740 --> 00:08.240
+Here's just a little screenshot example of how easy it is to use it.
+
+00:08.570 --> 00:10.760
+You can just put in a bunch of code.
+
+00:10.760 --> 00:16.010
+This is of course, hugging face code that we're going to be getting deep into very, very soon.
+
+00:16.010 --> 00:25.070
+And in this case, I used the flux model, which is you may have noticed it was one of the top trending
+
+00:25.070 --> 00:27.620
+models when we were looking at models in hugging face.
+
+00:27.620 --> 00:35.960
+It is a text to image generation model from Black Forest that is a particularly, uh, exciting in that
+
+00:35.960 --> 00:40.460
+it's one of the really strong open source image generation models.
+
+00:40.880 --> 00:46.370
+And I prompted it with a futuristic class full of students learning AI coding in the surreal style of
+
+00:46.370 --> 00:47.210
+Dall-E.
+
+00:47.390 --> 00:51.650
+Uh, and this is what came up, which is wonderful, wonderful.
+
+00:51.830 --> 01:00.590
+Uh, and so it gives you a sense of how quickly you can use Google Colab to be, uh, working with,
+
+01:00.590 --> 01:03.890
+uh, high powered GPUs in the cloud.
+
+01:05.480 --> 01:11.690
+And with that, we, uh, take a moment to take stock of our progress.
+
+01:11.720 --> 01:13.130
+We are now ready.
+
+01:13.130 --> 01:17.390
+You are well positioned to be beginning on your open source adventure.
+
+01:17.510 --> 01:24.200
+Uh, in addition to what you could already do confidently coding with frontier APIs and building multimodal
+
+01:24.230 --> 01:32.060
+AI assistants, you can now navigate through Hugging Face and Google Colab and you are ready for action.
+
+01:32.090 --> 01:39.950
+So next time you're going to be able to run open source models, there's two different levels of API
+
+01:39.950 --> 01:43.820
+in hugging face, and you're going to understand what that means and what they are.
+
+01:43.820 --> 01:47.750
+And then we're going to start with the first of those, which is called pipelines.
+
+01:47.750 --> 01:53.240
+You're going to be able to use pipelines for a bunch of different AI tasks, including generating text,
+
+01:53.270 --> 01:57.080
+images and audio using open source models.
+
+01:57.110 --> 01:58.220
+I can't wait.

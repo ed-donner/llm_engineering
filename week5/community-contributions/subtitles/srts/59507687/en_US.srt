@@ -1,0 +1,454 @@
+WEBVTT
+
+00:00.620 --> 00:02.630
+It's time for action, everybody.
+
+00:02.660 --> 00:04.670
+We've set up our colab.
+
+00:04.670 --> 00:06.380
+Here we are, week seven, day three.
+
+00:06.410 --> 00:08.240
+We've got our constant setup.
+
+00:08.540 --> 00:12.920
+We've checked our model name and it's time to get into things.
+
+00:13.250 --> 00:19.940
+Um, so the first thing we're going to do is log in to hugging Face, which you know, well.
+
+00:19.940 --> 00:23.810
+And then after we've logged into hugging face here, we're going to do something that you don't know
+
+00:23.810 --> 00:29.480
+so well, which is new, which is logging into the wonderful weights and biases platform.
+
+00:29.690 --> 00:34.940
+So you may have already set this up as part of last week's, uh, foray into weights and biases, but
+
+00:34.940 --> 00:36.830
+if not, it's very simple to do.
+
+00:36.830 --> 00:38.150
+And of course it is free.
+
+00:38.150 --> 00:43.550
+You go to the, uh, weights and biases W and B dot I right linked here.
+
+00:43.550 --> 00:50.630
+Uh, you set up a free account and then you can find your, your wand API key, your weights and biases
+
+00:50.660 --> 00:51.530
+API key.
+
+00:51.530 --> 00:58.160
+And then you have to go to this padlock symbol here and add it in as a secret to your Google Colab.
+
+00:58.220 --> 01:03.090
+Um, or if you don't want to do that, you can also just type it directly into the notebook right here
+
+01:03.090 --> 01:03.840
+instead as well.
+
+01:03.840 --> 01:05.850
+But it's recommended to use the secrets.
+
+01:05.850 --> 01:09.990
+So once you've set up weights and biases on we go.
+
+01:10.020 --> 01:15.420
+We then load in the data set, and we can just quickly check that the data set is what we expect.
+
+01:15.450 --> 01:18.750
+We expect there to be and we expect.
+
+01:18.780 --> 01:24.870
+Let's have a look at how many training data points we're looking for 400,000 of them there they are
+
+01:24.870 --> 01:27.840
+400,000 training data points a lot of them.
+
+01:27.840 --> 01:29.040
+Let's look at the first one.
+
+01:29.040 --> 01:32.760
+Just make sure it's exactly what we expect it should be.
+
+01:32.760 --> 01:39.570
+The text in this training data point is the prompt we're expecting followed by the price right here.
+
+01:39.570 --> 01:44.340
+And it's going to be this that the model is going to be desperate to predict this next token and get
+
+01:44.340 --> 01:45.120
+it right.
+
+01:45.510 --> 01:47.460
+And we also have the actual price here.
+
+01:47.460 --> 01:49.950
+You can see we're rounding it to the nearest whole token.
+
+01:49.950 --> 01:51.660
+And we tell it that we're looking.
+
+01:51.660 --> 01:56.550
+How much does this cost to the nearest dollar, the nearest token the nearest dollar.
+
+01:57.100 --> 01:58.360
+And there is the price.
+
+01:58.390 --> 01:59.440
+The real price.
+
+01:59.440 --> 02:03.940
+If we look at the test data set and not that we'll be using that today.
+
+02:03.940 --> 02:06.400
+But you will remember the test data set is very similar.
+
+02:06.430 --> 02:08.020
+Just one tiny difference.
+
+02:08.020 --> 02:10.480
+There is not a price after here.
+
+02:10.480 --> 02:12.070
+It just says price is dollar.
+
+02:12.280 --> 02:16.360
+And that's that is what we're training our model to be good at doing.
+
+02:16.750 --> 02:17.530
+Okay.
+
+02:17.560 --> 02:23.890
+So um, if we're logged in, if we're asking to log to weights and biases, it then sets up the weights
+
+02:23.890 --> 02:24.880
+and Biases project.
+
+02:24.880 --> 02:30.190
+This is in fact not required to have this line of code, because actually hugging face will do this
+
+02:30.190 --> 02:33.160
+for you if you start to run and you don't, you haven't run this line.
+
+02:33.160 --> 02:39.700
+But I sometimes add this because you can also, if you wish, pass in a config config a config with
+
+02:39.700 --> 02:45.070
+some parameters, and that lets you set up some extra um, attributes that will appear in weights and
+
+02:45.070 --> 02:45.580
+biases.
+
+02:45.580 --> 02:47.470
+That's a useful trick to know.
+
+02:47.560 --> 02:50.290
+Um, but but anyways, you can run this or not.
+
+02:50.320 --> 02:51.940
+It doesn't make much difference.
+
+02:52.570 --> 02:55.310
+Okay, so then this we saw before.
+
+02:55.310 --> 03:01.310
+We're just going to take this hyper parameter and decide whether we're going to use the bits and bytes
+
+03:01.340 --> 03:04.280
+config for four bit quantization or for eight bit.
+
+03:04.280 --> 03:06.320
+And we are of course going with four bits.
+
+03:06.350 --> 03:08.390
+We're going all the way down.
+
+03:08.390 --> 03:13.100
+And then it is time to load in the tokenizer and the model.
+
+03:13.160 --> 03:16.220
+And so usual code to load the tokenizer.
+
+03:16.220 --> 03:22.670
+I mentioned to you that this is boilerplate stuff that you do that tells the trainer that we want to
+
+03:22.700 --> 03:30.950
+pad every data point so that it fills up our maximum sequence length, and it should pad it all up with
+
+03:30.950 --> 03:39.110
+end of sentence tokens just to fill up that that set of characters, the 182, uh, length of our of
+
+03:39.110 --> 03:41.630
+our tokens in our, in our sequences.
+
+03:41.630 --> 03:44.570
+So we'll pad them to the right with these tokens.
+
+03:44.960 --> 03:52.490
+And then there's this one line here, which is just another boilerplate thing to set the pad token ID
+
+03:52.520 --> 03:54.690
+on this thing called the generation config.
+
+03:54.690 --> 04:00.930
+And the reason that put this in there is it stops it saying a warning later that it that it doesn't
+
+04:00.930 --> 04:05.490
+see this, but I actually think it would take this anyway.
+
+04:05.490 --> 04:09.420
+So so this avoids it printing an unnecessary warning.
+
+04:10.290 --> 04:17.730
+Um, and then we end by printing the memory footprint as usual, and we see that it is the 5.6GB that
+
+04:17.730 --> 04:24.840
+we expect for our four bit version of the llama, 3.18 billion parameter model.
+
+04:25.560 --> 04:27.300
+Okay, one more technicality here.
+
+04:27.300 --> 04:29.610
+This thing called the data collator.
+
+04:29.670 --> 04:37.020
+So there is this, um, this cunning thing that when we're doing our training, we're going to be passing
+
+04:37.020 --> 04:43.380
+in the the full sequence, including the price, and the model will see lots of examples of this and
+
+04:43.380 --> 04:46.230
+get better and better at predicting these tokens.
+
+04:46.230 --> 04:47.940
+But there's a bit of a catch.
+
+04:47.940 --> 04:55.260
+We actually don't care for the model to learn about how to predict all of the tokens in the prompt up
+
+04:55.290 --> 04:57.000
+until the dollar sign.
+
+04:57.000 --> 05:00.060
+We want it to learn how to predict that token right there.
+
+05:00.060 --> 05:05.790
+So we don't want it to spend lots of time seeing how good it is at writing descriptions of products,
+
+05:05.790 --> 05:10.200
+and then also learn the price we want it to focus on that price.
+
+05:10.380 --> 05:15.120
+Um, and, and doing that involves setting up something called a mask.
+
+05:15.270 --> 05:21.300
+When you tell the trainer that you don't need it to learn about the prompt, you just want it to take
+
+05:21.300 --> 05:23.310
+this into account, to give it context.
+
+05:23.310 --> 05:27.960
+But learn how to predict this token right here after the dollar sign.
+
+05:27.960 --> 05:34.860
+Setting up masks is a bit fiddly and involves a bit of uh um uh, yeah, yeah, a bit of, uh, messing
+
+05:34.860 --> 05:36.390
+around with with tokens.
+
+05:36.390 --> 05:42.000
+But luckily hugging face has made it very easy indeed with a nice little utility that does it all for
+
+05:42.000 --> 05:42.330
+you.
+
+05:42.330 --> 05:46.500
+And it's called the data Collator for completion only.
+
+05:46.830 --> 05:49.420
+LM, uh, which is what we've got.
+
+05:49.450 --> 05:51.970
+We've got something where all we want to do is have it complete.
+
+05:51.970 --> 05:53.380
+This particular sentence.
+
+05:53.380 --> 05:59.800
+How it works is you come up with something that's called the response template, which sounds very fancy,
+
+05:59.800 --> 06:05.440
+but it just simply means what is the chunk of text which is going to indicate that I want you to predict
+
+06:05.440 --> 06:06.700
+whatever comes next.
+
+06:06.700 --> 06:10.480
+And in our case, it is quite simply price is dollar sign.
+
+06:10.480 --> 06:13.120
+We want it to predict the next thing after that.
+
+06:13.120 --> 06:18.490
+So you put that into something called response templates and then you create something, an instance
+
+06:18.490 --> 06:23.800
+of data collator for completion, only passing in the response templates.
+
+06:23.800 --> 06:30.550
+And you also have to tell it your tokenizer, and it will use that to build the final set of masked
+
+06:30.550 --> 06:33.730
+data that goes into the the trainer.
+
+06:33.730 --> 06:35.230
+And you'll see that in just a second.
+
+06:35.230 --> 06:40.090
+So this is super simple and it's doing something quite sophisticated behind the scenes and making it
+
+06:40.090 --> 06:41.320
+easy for us.
+
+06:42.010 --> 06:42.910
+All right.
+
+06:43.270 --> 06:46.750
+And finally the last the last big moment for us.
+
+06:46.750 --> 06:50.090
+This is going to look like lots of code, but it's not actually that much to it.
+
+06:50.270 --> 06:56.090
+We are about to call our trainer, and we're going to have to pass in two sets of parameters.
+
+06:56.090 --> 06:58.460
+One of them is called the Laura config.
+
+06:58.460 --> 07:02.960
+It's the hyperparameters that relate to how we're doing our Laura training.
+
+07:02.960 --> 07:08.390
+And the other, the psft config is the supervised fine tuning.
+
+07:08.390 --> 07:15.140
+Config is just general stuff about how training should work, and what I've done is I've basically set
+
+07:15.140 --> 07:20.060
+these things up to pull from the constants that we defined right at the top of the notebook, like alpha
+
+07:20.060 --> 07:24.560
+and dropout, and then the things that don't matter so much, I've just put put in here what to use.
+
+07:24.560 --> 07:28.610
+And these are not important hyperparameters or they're or they're just things where we should set it
+
+07:28.610 --> 07:30.110
+to a to a certain value.
+
+07:30.140 --> 07:34.910
+So you can see that for the Laura parameters, we of course pass in the alpha, which we know well,
+
+07:34.940 --> 07:40.610
+I won't define it yet again, the dropout and the target modules that we're targeting.
+
+07:40.610 --> 07:46.350
+So so that goes into the Laura config, the training parameters, the SFT config had stuff like the
+
+07:46.350 --> 07:46.950
+run name.
+
+07:46.950 --> 07:50.160
+How many epochs are we running the batch size?
+
+07:50.310 --> 07:52.170
+Uh, super important 16.
+
+07:52.200 --> 07:56.610
+In my case, it might be one for you if you're on a on a the T4 box.
+
+07:56.850 --> 08:00.660
+Uh, the gradient accumulation, that is one for us.
+
+08:00.750 --> 08:06.360
+And then things like learning rate the cosine scheduler that we decided to use.
+
+08:06.510 --> 08:12.960
+Um, and then just down at the bottom here, we're saying that we want this to be pushing to the hub.
+
+08:13.050 --> 08:19.050
+Um, every time that, that it's doing a save, which is every 5000 of the, of the batch steps, we
+
+08:19.050 --> 08:23.520
+want it to push this model to the hub so that we'll get a series of saves to the hub.
+
+08:23.520 --> 08:26.220
+And we can see our model at each of those points.
+
+08:26.520 --> 08:32.700
+Um, and we ask to give it this name, and we say we want it to be a private, uh, repo so that it's
+
+08:32.700 --> 08:36.570
+not public yet until we're satisfied that we've got great results from it.
+
+08:37.710 --> 08:40.740
+Uh, and then this is the final line.
+
+08:40.740 --> 08:43.990
+We set up something called an SFT trainer.
+
+08:43.990 --> 08:47.230
+We pass in just a few simple things.
+
+08:47.260 --> 08:49.630
+Number one, it needs to know the base model.
+
+08:49.630 --> 08:54.940
+What is the underlying model that we want to fine tune, which is llama 3.1.
+
+08:55.330 --> 08:57.490
+Number two what is our training data?
+
+08:57.520 --> 08:58.510
+We pass that in.
+
+08:58.510 --> 09:00.430
+What are the Lora parameters.
+
+09:00.430 --> 09:07.750
+This has as you know it has the alpha, the r, the dropout, the tokenizer, the training parameters
+
+09:07.750 --> 09:09.430
+that we just set up right here.
+
+09:09.430 --> 09:16.120
+And finally we pass in that collator, which is that sneaky object which knows to look for the prices
+
+09:16.120 --> 09:17.770
+dollar sign and it's telling it.
+
+09:17.800 --> 09:20.110
+Don't bother predicting what comes before that.
+
+09:20.440 --> 09:22.570
+Worry about what comes next.
+
+09:22.990 --> 09:27.400
+Um, and so this then will have set up our trainer.
+
+09:27.400 --> 09:35.590
+And in the next video we'll run this single line fine tuning train, which is the line that kicks it
+
+09:35.590 --> 09:36.190
+off.
+
+09:36.310 --> 09:37.990
+Uh, that will be quite the moment.
+
+09:37.990 --> 09:42.070
+So without further ado, let's go do that.

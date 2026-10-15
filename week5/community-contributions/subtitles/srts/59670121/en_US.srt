@@ -1,0 +1,373 @@
+WEBVTT
+
+00:00.380 --> 00:02.360
+So it's business time right now.
+
+00:02.360 --> 00:09.020
+We are going to build a Rag pipeline to estimate the price of products, drawing on context for similar
+
+00:09.020 --> 00:11.780
+products that we have in our training dataset.
+
+00:12.110 --> 00:14.510
+Uh, and so we are right here.
+
+00:14.540 --> 00:19.580
+Day 2.3 building a Rag pipeline with GPT four mini.
+
+00:19.850 --> 00:22.640
+Uh, we're going to go pretty quickly today through a lot of code.
+
+00:22.640 --> 00:24.860
+So bear with me then.
+
+00:24.860 --> 00:30.440
+Remember the trick is to come back, run the code yourself and get a good sense of what's going on.
+
+00:30.440 --> 00:37.310
+So we do some imports, we log in as usual, and then we, uh, connect with OpenAI.
+
+00:37.490 --> 00:41.360
+Um, and it's using the fact that we've set the OpenAI API key.
+
+00:41.390 --> 00:44.450
+We're going to load in the test data set.
+
+00:44.480 --> 00:49.430
+Now, we don't need to load in the training data set because we'll be using the chroma data store for
+
+00:49.460 --> 00:50.120
+that.
+
+00:50.570 --> 00:51.350
+All right.
+
+00:51.350 --> 00:55.250
+So here's a function make context.
+
+00:55.250 --> 01:01.790
+We're going to use this function to produce the context that we're going to send GPT four mini that
+
+01:01.790 --> 01:04.910
+tells it about similar products that it could use.
+
+01:04.910 --> 01:10.680
+So we're going to say to provide some context, here are some other items that might be similar to the
+
+01:10.680 --> 01:12.120
+one you need to estimate.
+
+01:12.120 --> 01:18.000
+And then do you remember this zip construct that allows us to iterate through two different lists together.
+
+01:18.300 --> 01:24.840
+So we're going to collect similar and price from iterating through the similars and prices that are
+
+01:24.840 --> 01:25.680
+passed in.
+
+01:26.070 --> 01:32.670
+And then we're going to add in a message there's a potentially related product similar with this price.
+
+01:33.600 --> 01:35.670
+I'll execute this in just a second.
+
+01:35.670 --> 01:37.410
+So you see what it actually looks like.
+
+01:37.800 --> 01:44.640
+But then just as we've done in the past, I'm making this function messages for and it takes an item,
+
+01:44.640 --> 01:51.360
+it takes things similar to it and it takes prices and it's going to build that standard list of dicts
+
+01:51.360 --> 01:53.160
+that we know so, so well.
+
+01:53.520 --> 01:58.170
+There's going to be a system message which is going to be just the same one we've used before.
+
+01:58.200 --> 02:04.410
+You estimate price of items, reply only with the price we're going to add in the context.
+
+02:04.410 --> 02:07.980
+We're going to add in the stuff that we just built right here.
+
+02:08.040 --> 02:09.300
+And then we're going to say.
+
+02:09.330 --> 02:10.980
+And now the question for you.
+
+02:10.980 --> 02:18.420
+And now this is basically exactly the same as we used before when we called GPT four back in week six
+
+02:18.750 --> 02:20.550
+when we built that pipeline.
+
+02:20.640 --> 02:27.870
+So the thing to notice here is that we're doing this Rag pipeline ourself without Lang chain.
+
+02:28.350 --> 02:30.510
+And it's actually not that hard.
+
+02:30.600 --> 02:35.040
+Lang chain gave us a nice little abstraction on top with with a few simple objects.
+
+02:35.040 --> 02:39.060
+And I remember going on about how it was just like one line of code or something to do it, but it's
+
+02:39.060 --> 02:40.890
+not that much more just to do it ourselves.
+
+02:40.890 --> 02:45.900
+Particularly now that you understand what's going on under the hood and you know how to call llms and
+
+02:45.900 --> 02:49.230
+you know how to look up similar objects and so on.
+
+02:49.350 --> 02:52.830
+Um, it becomes relatively straightforward.
+
+02:53.010 --> 03:01.260
+Uh, so, um, hopefully this is not going to be too, uh, um, difficult, but let's keep going.
+
+03:01.290 --> 03:04.020
+Um, so we're going to, um.
+
+03:06.060 --> 03:07.830
+Collect our chroma.
+
+03:08.610 --> 03:10.740
+Um, and once more, I've done this again, haven't I?
+
+03:10.770 --> 03:13.920
+I deleted the cell where I defined the DB variable.
+
+03:13.920 --> 03:17.050
+It should be products Underscore.
+
+03:18.460 --> 03:19.780
+Vector store.
+
+03:22.690 --> 03:23.860
+Vector store.
+
+03:23.890 --> 03:25.930
+Some possibly hard word to spell.
+
+03:25.930 --> 03:26.560
+There we go.
+
+03:26.560 --> 03:27.700
+And now run that again.
+
+03:27.700 --> 03:28.450
+Fine.
+
+03:28.450 --> 03:33.700
+So we've now we're looking in the products collection in our vector data store.
+
+03:34.510 --> 03:35.950
+Um okay.
+
+03:35.950 --> 03:38.980
+And so we're now getting to the meat of the whole thing.
+
+03:38.980 --> 03:46.150
+So we're going to have a method, a function description that's going to take an item.
+
+03:46.150 --> 03:49.990
+And it's going to strip out from that item the stuff that we don't care about.
+
+03:49.990 --> 03:53.950
+So basically we'll take the prompt and we're going to take out this.
+
+03:53.950 --> 03:55.810
+How much does it cost to the nearest dollar.
+
+03:55.810 --> 04:00.910
+And we're going to then uh, ignore everything that comes after price is dollars.
+
+04:00.940 --> 04:03.430
+Let me show you exactly what's going on here.
+
+04:03.610 --> 04:08.380
+Uh, so if I have a quick look at my first training data point.
+
+04:09.430 --> 04:09.910
+Oops.
+
+04:09.940 --> 04:10.390
+Sorry.
+
+04:10.420 --> 04:10.870
+What have I done?
+
+04:10.900 --> 04:12.250
+Test the first test data point.
+
+04:12.250 --> 04:13.780
+We're not looking at training data anymore.
+
+04:13.810 --> 04:19.600
+The first test data point is this the repair kit for Ford, blah blah, blah, blah, blah with a price
+
+04:19.600 --> 04:20.230
+on it.
+
+04:20.560 --> 04:27.180
+Uh, if we look at its prompt, you'll see that that that's got all of this gubbins in there with the
+
+04:27.180 --> 04:29.040
+price and the question at the top.
+
+04:29.040 --> 04:36.390
+But what I can do is I can just say describe description of test zero.
+
+04:36.390 --> 04:41.670
+And what we should now get is this just the blurb without the price.
+
+04:41.670 --> 04:44.130
+So that should be clear.
+
+04:44.400 --> 04:44.910
+All right.
+
+04:44.940 --> 04:50.340
+Now we're going to load the model that is the sentence transformer from hugging face.
+
+04:50.340 --> 04:53.070
+That gives us our simple vector encodings.
+
+04:53.070 --> 04:54.720
+It is our vectorizer.
+
+04:54.840 --> 04:59.430
+And so this method here, this is in fact our Vectorizer function.
+
+04:59.430 --> 05:00.840
+It takes an item.
+
+05:00.840 --> 05:04.890
+It it calls description on that item to turn it into text.
+
+05:04.890 --> 05:09.420
+And it then puts it in a list and calls model dot encode.
+
+05:09.840 --> 05:11.850
+Simple as that.
+
+05:12.690 --> 05:17.790
+And now and now we get to a function find similars.
+
+05:17.790 --> 05:22.950
+It will be given an item and it will return similar items.
+
+05:22.980 --> 05:28.840
+And this, this is the some of the hardest part that Lang was doing for us before, but it's not that
+
+05:28.840 --> 05:29.470
+hard.
+
+05:29.590 --> 05:36.490
+You can see what we do is we say to our collection, our chroma DB collection, I want to query this.
+
+05:36.520 --> 05:38.140
+These are the query embeddings.
+
+05:38.140 --> 05:42.880
+This is it's going to be based on this, uh, the vector that we will pass in.
+
+05:42.880 --> 05:46.120
+We do have to turn that into a floating point number from being a numpy array.
+
+05:46.150 --> 05:50.140
+That's uh, from being a numpy float 32.
+
+05:50.200 --> 05:53.440
+You have to turn them into floats, and then we have to turn it into a list instead of being a numpy
+
+05:53.470 --> 05:54.010
+array.
+
+05:54.010 --> 05:59.380
+And then you just simply say, uh, number of results and that's how many you want back.
+
+05:59.380 --> 06:04.210
+So you can pass in a vector as your query embedding and get back five results.
+
+06:04.210 --> 06:05.740
+That's all there is to it.
+
+06:05.740 --> 06:11.560
+And what we'll get back is uh, is some similars, uh, so let's just run this.
+
+06:11.680 --> 06:18.040
+So now what we can do is we can look at test number one and let's look at test number one's prompt.
+
+06:18.040 --> 06:19.840
+So this is its prompt.
+
+06:19.930 --> 06:21.700
+Um how much does it cost to the nearest dollar.
+
+06:21.700 --> 06:24.160
+It's a fan clutch package.
+
+06:24.490 --> 06:26.860
+Uh, from, um motorcraft.
+
+06:26.860 --> 06:28.210
+So anyway, you get a sense.
+
+06:28.210 --> 06:32.020
+So we can now say documents and prices are fine.
+
+06:32.020 --> 06:34.020
+Find Similares from test one.
+
+06:34.020 --> 06:39.030
+We're going to call this function right here to find five similar results.
+
+06:39.060 --> 06:40.440
+Let's do that.
+
+06:41.100 --> 06:42.630
+And now it's thinking.
+
+06:42.630 --> 06:44.190
+And now let's print that.
+
+06:44.550 --> 06:51.390
+And here you will find five related results are potentially related products.
+
+06:51.390 --> 06:54.600
+And they are all potentially related product.
+
+06:54.630 --> 06:59.640
+They are all sort of fan clutchy kind of things that have various prices.
+
+06:59.730 --> 07:04.080
+Uh, and they do appear to be similar products at first blush.
+
+07:04.260 --> 07:09.540
+Uh, so you should convince yourself, do some more testing and make sure you're comfortable that indeed
+
+07:09.540 --> 07:15.840
+we can call this find similar function, which is simply calling query on our Cromer collection.
+
+07:15.840 --> 07:21.720
+And we will be able to collect similar products from our Cromer database.
+
+07:21.720 --> 07:23.490
+It's as simple as that.
+
+07:23.790 --> 07:31.350
+Uh, and once we've done that, we will then be able to put the final touches on our Rag data flow on
+
+07:31.350 --> 07:36.030
+our Rag pipeline and then use that to call GPT four zero.
+
+07:36.030 --> 07:38.610
+And we will do that in the next video.

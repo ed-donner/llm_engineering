@@ -1,0 +1,136 @@
+WEBVTT
+
+00:01.490 --> 00:08.780
+So before we try our new model and one more recap on the models so far and keep notes of this so we
+
+00:08.780 --> 00:09.980
+can see how we do.
+
+00:09.980 --> 00:14.930
+And your excitement can be there while we run our fine tuned model.
+
+00:15.140 --> 00:18.230
+We started with a constant model.
+
+00:18.230 --> 00:21.320
+We actually started with a random model, but I think we can put that one to bed.
+
+00:21.350 --> 00:23.150
+That's that was that was silly.
+
+00:23.300 --> 00:29.450
+So a constant model which just guesses the average from the training data set ends up with an error
+
+00:29.450 --> 00:31.070
+of 146.
+
+00:31.280 --> 00:35.930
+Uh, and we certainly hope that we can do better than 146.
+
+00:35.960 --> 00:38.900
+Otherwise, we might as well stick with a constant.
+
+00:38.930 --> 00:44.630
+When we used a very simplistic traditional machine learning with basic features, we got 139.
+
+00:44.660 --> 00:45.170
+Remember that?
+
+00:45.170 --> 00:50.840
+Well, I hope random forest, a more sophisticated algorithm that also that looked at the language,
+
+00:50.840 --> 00:53.900
+the words um, got down to 97.
+
+00:54.710 --> 00:58.520
+This human did a poor job at 127.
+
+00:58.910 --> 01:00.500
+Uh, GPT four.
+
+01:00.530 --> 01:03.940
+Oh, the big guy did very nicely indeed.
+
+01:03.940 --> 01:18.430
+At 76 and the Bass Llama 3.1, untrained, quantized down to four bits, did an appalling $396 of error.
+
+01:18.460 --> 01:23.710
+A much better off just sticking with the constant than using an untrained llama.
+
+01:23.800 --> 01:26.560
+The poor thing did not do particularly well at all.
+
+01:26.740 --> 01:31.000
+So I go through this one more time so that you have this nicely framed.
+
+01:31.030 --> 01:37.060
+The question is, remember, GPT four is a model that has trillions of weights.
+
+01:37.120 --> 01:40.390
+GPT four had 1.76 trillion GPT four.
+
+01:40.630 --> 01:44.380
+It's not known, but it's considered to be much more than that.
+
+01:44.380 --> 01:46.600
+So a huge number of weights.
+
+01:46.630 --> 01:53.530
+Llama 3.1 base has 8 billion weights, and we have reduced them down to four bits.
+
+01:53.530 --> 01:57.130
+And then we have used our color.
+
+01:57.340 --> 01:57.580
+Sorry.
+
+01:57.610 --> 02:04.900
+Our Lora adapters like 109MB worth of them to to put some extra weights that we can use to adapt.
+
+02:04.930 --> 02:11.900
+Llama lemma 3.1 base, but these are still small numbers, and obviously this is an open source model,
+
+02:11.900 --> 02:13.670
+which means it's free to run.
+
+02:13.670 --> 02:20.480
+So I'm saying all this to set expectations that obviously it's a lot to ask to try and compete with
+
+02:20.480 --> 02:22.610
+some of these models at the frontier.
+
+02:22.820 --> 02:27.110
+The thing that you need to be looking out for is, can we do better than traditional machine learning?
+
+02:27.350 --> 02:28.910
+Can we do better than a human can?
+
+02:28.940 --> 02:29.150
+Certainly.
+
+02:29.150 --> 02:30.470
+Can we do better than constant?
+
+02:30.470 --> 02:35.090
+And how do we stack up when we compare ourselves to GPT four?
+
+02:35.210 --> 02:42.590
+So the leading frontier model, and we can also compare it to GPT four or mini, um, as well, uh,
+
+02:42.590 --> 02:43.580
+afterwards.
+
+02:43.880 --> 02:45.800
+So that gives you the context.
+
+02:45.830 --> 02:46.910
+I hope you have this in your mind.
+
+02:46.910 --> 02:50.060
+Maybe write down the numbers so you're ready for for what's to come.
+
+02:50.060 --> 03:00.500
+And it is time for us to head to Colab and to run inference on the the best, strongest checkpoint from
+
+03:00.500 --> 03:08.380
+from the the training of our own verticalized specialized, uh, open source model.

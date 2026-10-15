@@ -1,0 +1,334 @@
+WEBVTT
+
+00:00.050 --> 00:02.540
+I'm now going to talk for a bit about models.
+
+00:02.570 --> 00:10.190
+A term you often hear is the term frontier models, which refers to the llms that are pioneering what
+
+00:10.190 --> 00:13.760
+is possible today, the largest possible models.
+
+00:13.760 --> 00:18.830
+And often when people say frontier models, they're referring to the closed source models, the paid
+
+00:18.830 --> 00:21.230
+models like GPT and Claude.
+
+00:21.260 --> 00:26.420
+Actually, sometimes people also say frontier models when they're referring to the biggest, strongest
+
+00:26.420 --> 00:28.160
+open source models as well.
+
+00:28.160 --> 00:30.770
+So depending on the context, it could mean either thing.
+
+00:30.770 --> 00:35.300
+But let's first talk about the closed source frontier models.
+
+00:35.780 --> 00:38.450
+And these are also sometimes called the super scalers.
+
+00:38.480 --> 00:42.140
+They are the largest, highest scale of the models.
+
+00:42.140 --> 00:47.120
+So first of all, the one that needs no introduction I'm sure is GPT from OpenAI.
+
+00:47.210 --> 00:54.020
+When ChatGPT came out in late 2022, it caught us all off guard with its power.
+
+00:54.350 --> 00:56.210
+And I'm sure you're familiar with it.
+
+00:56.240 --> 00:58.370
+Claude from anthropic.
+
+00:58.490 --> 01:01.700
+Anthropic is the competitor to OpenAI.
+
+01:01.730 --> 01:02.840
+That's that's very well known.
+
+01:02.840 --> 01:06.530
+And Claude is the one that's that's usually favored by data scientists.
+
+01:06.560 --> 01:12.230
+but Claude and GPT are often considered neck and neck right now in the leaderboards.
+
+01:12.260 --> 01:14.060
+Claude has the slight edge.
+
+01:14.150 --> 01:17.090
+Gemini is Google's entrant.
+
+01:17.330 --> 01:21.800
+You probably remember from when we looked at llama that they also Google also has Gemma.
+
+01:21.830 --> 01:23.900
+The the open source variant as well.
+
+01:23.900 --> 01:28.370
+And command R is one that you may or may not have come across from cohere.
+
+01:28.400 --> 01:29.750
+Canadian AI company.
+
+01:29.750 --> 01:36.440
+And then perplexity is a search engine which actually can use one of the other models, but also has
+
+01:36.440 --> 01:37.700
+a model itself.
+
+01:37.730 --> 01:41.210
+So these are some of the big frontier models.
+
+01:41.420 --> 01:44.780
+And let's talk about some of the open source models.
+
+01:44.780 --> 01:52.610
+So llama uh, after which llama is named llama from meta is of course the most famous of the open source
+
+01:52.610 --> 01:59.420
+models because meta paved the way in the field of open source LMS by open sourcing the original llama
+
+01:59.420 --> 02:00.080
+one.
+
+02:00.200 --> 02:05.270
+Uh, there's one called Mistral from, uh, French company Mistral, which is a model, which is what
+
+02:05.270 --> 02:07.010
+they call a mixture of experts.
+
+02:07.010 --> 02:09.770
+It contains multiple smaller models.
+
+02:10.160 --> 02:14.210
+Quen is a model that I mentioned back when we were playing with Obama.
+
+02:14.210 --> 02:16.010
+It is a powerhouse model.
+
+02:16.010 --> 02:23.390
+It's really super impressive from Alibaba Cloud, and we will use Quan from time to time because it's
+
+02:23.390 --> 02:26.750
+it's as I say, it's very powerful for its size.
+
+02:26.780 --> 02:34.490
+Gemma I mentioned is Google's smaller model and Fi is Microsoft's smaller open source model.
+
+02:35.510 --> 02:38.990
+So this is confusing and it's super important.
+
+02:38.990 --> 02:43.820
+And it's something which some of you may already know, but but it might be something that's been nagging
+
+02:43.820 --> 02:45.470
+as well at a few of you.
+
+02:45.470 --> 02:47.840
+And I want to be really clear on this.
+
+02:47.840 --> 02:54.020
+There are different ways that you can use models that are in completely different approaches, and it's
+
+02:54.020 --> 02:58.430
+important to understand the differences between them and when you come across them, being used in those
+
+02:58.430 --> 02:59.180
+different ways.
+
+02:59.180 --> 03:01.730
+Have in your mind what's going on here.
+
+03:01.730 --> 03:09.170
+So first of all, there are chat interfaces to using models, obviously like ChatGPT, which is a web
+
+03:09.170 --> 03:15.170
+front end where you are chatting and you are calling something that's running in the cloud, and that
+
+03:15.170 --> 03:21.530
+the whole process of interacting with the LLM LM is being handled by OpenAI on their cloud.
+
+03:21.530 --> 03:26.900
+In the case of ChatGPT, there's also, of course, a Cloud and Gemini Advance and others.
+
+03:27.560 --> 03:29.960
+There are cloud APIs.
+
+03:29.960 --> 03:35.780
+And this is where again, you are calling something that's running on the cloud, but you're doing it
+
+03:35.780 --> 03:38.270
+with code, not through a user interface.
+
+03:38.270 --> 03:45.950
+And what we did in the summarization Jupyter notebook, Jupyter Lab was calling OpenAI's API.
+
+03:45.980 --> 03:52.310
+We were connecting to OpenAI, calling their API, and with the chat interfaces you typically it's it's
+
+03:52.310 --> 03:58.040
+either free for a free tier, or you're paying a monthly subscription fee to use the user interface
+
+03:58.040 --> 04:00.380
+chat almost as much as you want.
+
+04:00.410 --> 04:01.820
+There are some limits there.
+
+04:02.360 --> 04:04.280
+It's different with the APIs.
+
+04:04.280 --> 04:10.100
+With the APIs, there's no subscription, there's no monthly charge, but rather you pay for every API
+
+04:10.100 --> 04:10.910
+request you make.
+
+04:10.940 --> 04:12.260
+If it's a paid API.
+
+04:12.290 --> 04:17.900
+There are also open source free APIs too, so you can call the APIs directly.
+
+04:17.900 --> 04:23.990
+There are also libraries like Lang Chain, which give you a kind of abstraction layer, and you can
+
+04:23.990 --> 04:24.820
+use Lang chain.
+
+04:24.820 --> 04:27.130
+And then within it you can call the different APIs.
+
+04:27.130 --> 04:31.210
+And it presents you with one API that is unified across them.
+
+04:31.210 --> 04:34.210
+And so there are some of these frameworks like Lang chain.
+
+04:34.210 --> 04:39.460
+And if you see someone using Lang chain, it's really just using the lm API under the covers.
+
+04:39.460 --> 04:45.850
+It's just giving you a nicer user, nicer API interface, more consistent, uh, on top of it.
+
+04:46.360 --> 04:51.250
+And then there's another type of API which is a bit of a different take, which is using something called
+
+04:51.250 --> 04:58.540
+a managed AI cloud service, which is where you are connecting with a provider like Amazon, Google
+
+04:58.540 --> 05:00.160
+or Microsoft Azure.
+
+05:00.370 --> 05:07.390
+And they are running the models on their cloud, and they're presenting you with a common interface
+
+05:07.390 --> 05:09.550
+so that you can run behind the scenes.
+
+05:09.550 --> 05:11.680
+It could be open source, it could be closed source.
+
+05:11.680 --> 05:13.510
+And you'll hear of Amazon Bedrock.
+
+05:13.540 --> 05:14.650
+That's Amazon's offering.
+
+05:14.650 --> 05:18.820
+Google vertex AI is Google's and Azure ML.
+
+05:18.850 --> 05:21.850
+It goes by some other names too is Microsoft's offering.
+
+05:21.850 --> 05:26.230
+So these are the managed AI cloud services.
+
+05:26.230 --> 05:30.220
+But what all of these have in common is that you are writing code Locally.
+
+05:30.220 --> 05:35.860
+That then makes a call to an LM running in the cloud, and that is the cloud API.
+
+05:35.980 --> 05:43.660
+And then there's a third approach, and that is when you get the code and the weights for an LM yourself
+
+05:43.660 --> 05:52.210
+and you run it yourself, uh, on your box or potentially by remoting into a remote box.
+
+05:52.210 --> 05:56.650
+And here again, there's two different ways that we will be doing it on this course.
+
+05:56.650 --> 05:58.930
+And it's important to understand the differences between them.
+
+05:58.930 --> 06:05.440
+One of them is using hugging face, where we will be able to get access to like the Python code and
+
+06:05.440 --> 06:09.250
+the PyTorch code, which has that model in it.
+
+06:09.250 --> 06:14.770
+And we'll be able to then work in a fairly granular way with that model, will be able to use it to
+
+06:14.770 --> 06:20.890
+do things like tokenized text, and then call the model with the tokens, and you'll be actually operating
+
+06:20.890 --> 06:21.520
+the model.
+
+06:21.520 --> 06:26.980
+And we'll typically do that using something like Google Colab, where we can be running it on a very
+
+06:26.980 --> 06:33.610
+high powered box in the cloud, because typically one's local box isn't powerful enough to run that
+
+06:33.610 --> 06:37.210
+kind of, uh, that level of processing.
+
+06:37.630 --> 06:45.730
+And as an alternative to that, people have taken this code and they've optimized it into high performance
+
+06:45.760 --> 06:51.460
+C plus plus code and compiled it so that you can run it locally on your box.
+
+06:51.460 --> 06:53.890
+And that is what Olama is.
+
+06:54.070 --> 06:58.900
+It uses something called llama CPW behind the scenes as the C plus plus code.
+
+06:58.930 --> 07:01.420
+Now that means that you can run it locally.
+
+07:01.420 --> 07:08.410
+You're running the models in inference and execution mode on your box, but you don't have as much ability
+
+07:08.410 --> 07:12.550
+to control what's going on because it's just fully compiled code.
+
+07:12.550 --> 07:14.650
+So that gives you hopefully some insight.
+
+07:14.650 --> 07:19.510
+I'm glossing over some of the details, but hopefully shows you the landscape of the three different
+
+07:19.510 --> 07:24.670
+ways that you can work with models, and then some of the sort of sub sub techniques under that.
+
+07:25.210 --> 07:27.430
+With all of that, what are we going to do now?
+
+07:27.430 --> 07:32.080
+We're going to do an exercise, and it's going to be a useful exercise, and one that you'll be able
+
+07:32.080 --> 07:36.610
+to continue using throughout the course, because it's going to involve olama.
+
+07:36.850 --> 07:42.520
+And without further ado, I'm going to flip over to JupyterLab to explain the exercise.

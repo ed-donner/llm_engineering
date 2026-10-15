@@ -1,0 +1,325 @@
+WEBVTT
+
+00:00.050 --> 00:02.180
+Congratulations are definitely in order.
+
+00:02.210 --> 00:06.380
+Yesterday was a mammoth first day on this course and you got through it.
+
+00:06.380 --> 00:09.560
+You set up your environment and we're off to the races.
+
+00:09.560 --> 00:14.840
+So as I recap, what you can now do is use a llama to run models locally.
+
+00:14.840 --> 00:18.410
+You can call OpenAI's API to run a frontier model.
+
+00:18.410 --> 00:22.130
+You understand, at least at a high level, the difference between a system and a user prompt.
+
+00:22.130 --> 00:28.730
+And you've built a summarization use case, which is an important commercial application.
+
+00:29.120 --> 00:35.270
+Today we're going to talk a bit about what are the steps to get to being an LLM engineer, set you up
+
+00:35.270 --> 00:39.110
+for success, and then talk more about frontier models.
+
+00:39.110 --> 00:41.030
+That is the plan.
+
+00:41.060 --> 00:47.750
+Now, let me start by just emphasizing that this course, this eight week course is a practical course.
+
+00:47.750 --> 00:50.480
+First and foremost we're going to cover theory.
+
+00:50.510 --> 00:53.420
+We're going to cover the foundational information that you need.
+
+00:53.420 --> 00:56.600
+But we're always going to do it in a practical context.
+
+00:56.630 --> 00:59.810
+I'm a big believer in the best way to learn is by doing.
+
+00:59.810 --> 01:01.640
+And that's what we'll be actually doing.
+
+01:01.820 --> 01:03.620
+And we're going to be putting it to good use.
+
+01:03.620 --> 01:06.620
+We're going to be building commercial projects as we go.
+
+01:06.620 --> 01:11.390
+And I'll often be asking you to try and think about how you could apply what you've learned to your
+
+01:11.390 --> 01:15.710
+day job and try and build little prototypes to bring that to life.
+
+01:15.710 --> 01:18.470
+So that is the flavour of the course.
+
+01:18.950 --> 01:24.740
+There are three different aspects to LM engineering that you'll be picking up as we go.
+
+01:24.770 --> 01:29.960
+The first of them is just understanding the models that are out there, the wide range of different
+
+01:29.990 --> 01:34.610
+types of LM and what they're capable of, whether we're talking about open source versions, the closed
+
+01:34.610 --> 01:40.220
+source paid versions, ones that are multi-modal, that can generate images or audio, the different
+
+01:40.220 --> 01:45.920
+architectures of LMS, and importantly, how you pick which LM you should be working with in the first
+
+01:45.920 --> 01:46.610
+place.
+
+01:46.610 --> 01:53.270
+We'll be looking at all of the tools of the trade, things like the ubiquitous hugging face, the super
+
+01:53.270 --> 01:58.490
+impressive glue code in Lange chain, the fabulous gradio that you will see.
+
+01:58.520 --> 02:01.130
+I'm a big fan of weights and biases.
+
+02:01.130 --> 02:05.270
+Super helpful and then modal for deploying it to production.
+
+02:05.270 --> 02:10.790
+And we'll be looking at techniques different ways that you can apply this.
+
+02:10.880 --> 02:18.590
+The field of AI to solve business problems from using API's Rag which is such a hot topic, fine tuning
+
+02:18.590 --> 02:23.360
+and then at the end a full Agentic AI solution.
+
+02:24.830 --> 02:30.170
+The idea of this course is that I've planned it so that it will apply almost no matter what your level
+
+02:30.170 --> 02:31.400
+of experience.
+
+02:31.640 --> 02:36.350
+You may find initially that some of the first few weeks are too simplistic for you, or the first few
+
+02:36.350 --> 02:37.130
+days at least.
+
+02:37.130 --> 02:42.980
+And there I would say hang in there, use it as a way to just sort of reinforce some of the of the foundational
+
+02:42.980 --> 02:47.570
+information that we'll talk a bit more detail about things like tokens than you've done before, perhaps.
+
+02:47.570 --> 02:52.400
+So there'll be stuff to pick up, but you can go through it quickly and then make the projects your
+
+02:52.400 --> 02:52.730
+own.
+
+02:52.730 --> 02:59.600
+So use it as a way to build deeper versions of what we do and then prepare for harder, fun projects
+
+02:59.600 --> 03:00.980
+coming up later.
+
+03:01.190 --> 03:05.510
+If it feels too challenging, then please, please don't worry.
+
+03:05.540 --> 03:07.910
+Take your time with the practicals.
+
+03:07.940 --> 03:09.860
+Take your time with the exercises.
+
+03:09.860 --> 03:11.210
+Work your way through them.
+
+03:11.210 --> 03:15.650
+There are some extra guides that I'll talk about in week one that would help give you a sort of firmer
+
+03:15.650 --> 03:16.790
+footing if you need it.
+
+03:16.790 --> 03:19.550
+And please, please, please ask for help.
+
+03:19.550 --> 03:21.620
+I am here, I respond quickly.
+
+03:21.620 --> 03:27.290
+You can always reach out to me, either as I say on the platform or through email or through LinkedIn.
+
+03:27.320 --> 03:29.180
+Details are in the GitHub repo.
+
+03:29.180 --> 03:30.290
+Reach out to me.
+
+03:30.320 --> 03:31.130
+Get help.
+
+03:31.130 --> 03:32.600
+That is what I'm here for.
+
+03:32.900 --> 03:35.810
+And then if it feels just right, then excellent.
+
+03:35.810 --> 03:36.770
+Keep going.
+
+03:37.580 --> 03:43.880
+So the prerequisite is beginner to intermediate level Python.
+
+03:43.880 --> 03:49.370
+And if you have intermediate level Python you're going to find it easiest and you'll get the most out
+
+03:49.370 --> 03:50.060
+of it.
+
+03:50.180 --> 03:55.280
+And if you look for example at this line of code right here, which is just a random line from within
+
+03:55.280 --> 03:55.910
+a function.
+
+03:55.910 --> 04:01.280
+If you basically know what that's probably doing, then you're in great shape if you know exactly what
+
+04:01.280 --> 04:07.250
+it's doing and if you know in fact why, it's not perhaps the most optimal way of doing it, then you're
+
+04:07.250 --> 04:12.260
+more than more than, well set that you're advanced, and that's great if you don't know what this does
+
+04:12.290 --> 04:19.910
+and you're not familiar with a world with a word like yield or set or the dot get, then there is a
+
+04:19.910 --> 04:27.890
+special notebook, a special Jupyter Lab in week one for you, which is a guide to to Python at this
+
+04:27.890 --> 04:28.490
+level.
+
+04:28.490 --> 04:33.890
+And as you go through that notebook, I will take you through each of the stepping stones until we get
+
+04:33.890 --> 04:36.620
+to a point where a line like this should make sense.
+
+04:36.620 --> 04:40.550
+And of course, you can also use ChatGPT and Claude.
+
+04:40.580 --> 04:45.320
+The the the genies are really good at explaining code.
+
+04:45.320 --> 04:49.310
+And indeed, if you put something like this in there, they would tell you exactly what it does and
+
+04:49.310 --> 04:50.780
+why and step you through it too.
+
+04:50.780 --> 04:54.200
+And they're probably just as good as, as my, my notebook.
+
+04:54.200 --> 04:57.050
+So either way, that should give you what you need to do.
+
+04:57.050 --> 05:01.640
+And at any point, if you don't understand some code, you can always use ChatGPT.
+
+05:03.230 --> 05:08.630
+So to get the most out of this course, there are a few things that I would ask you.
+
+05:08.660 --> 05:12.410
+First of all, follow along as I do my coding.
+
+05:12.410 --> 05:16.640
+So when I'm when I'm going through in the labs and I'm executing cells, then either at the same time
+
+05:16.670 --> 05:18.890
+or afterwards go through and do it yourself.
+
+05:18.890 --> 05:25.100
+And if you hit snafus, which you might do for various reasons, then have a crack at trying to to sort
+
+05:25.130 --> 05:25.640
+out why.
+
+05:25.670 --> 05:26.540
+Do some debugging.
+
+05:26.540 --> 05:33.380
+That's a great way to learn and complete the exercises, and then put your code examples up on GitHub.
+
+05:33.380 --> 05:34.670
+It's actually a great way as well.
+
+05:34.670 --> 05:39.770
+If you're new to this space, and you're trying to build up something of a kind of resume to show that
+
+05:39.770 --> 05:45.290
+you've built some of this experience, the best kind of resume you can have is a GitHub repo, because
+
+05:45.290 --> 05:48.380
+people will look at it and will see the sorts of things you've worked on.
+
+05:48.380 --> 05:51.170
+And of course, you don't want to put exactly the projects we do.
+
+05:51.200 --> 05:52.910
+You want to make them your own.
+
+05:52.910 --> 05:57.800
+You want to figure out, okay, how can I apply this to my business area or to a personal project that
+
+05:57.800 --> 06:01.160
+I'm working on to make it something that's similar, slightly different?
+
+06:01.190 --> 06:03.950
+Take on it for new business value.
+
+06:04.010 --> 06:10.760
+That is a great way to get the most out of this course, and then look to share your code.
+
+06:10.760 --> 06:13.130
+If you're happy with it and you and you're okay with that.
+
+06:13.130 --> 06:18.140
+I've got instructions about how you can submit a pull request, which means that I can see your code.
+
+06:18.170 --> 06:23.660
+I can give you feedback on it if you'd like, and I can also then republish it so that other students
+
+06:23.660 --> 06:27.590
+taking the course will see your examples and we can all share in it together.
+
+06:27.590 --> 06:29.540
+And of course stick at it.
+
+06:29.570 --> 06:30.950
+Hang on in there.
+
+06:30.980 --> 06:34.550
+This course gets better and better and better, I assure you.
+
+06:34.550 --> 06:39.440
+And I you know, there's there's going to be so many projects, so much commercial application.
+
+06:39.440 --> 06:43.550
+And I definitely encourage you to stay the course.
+
+06:43.580 --> 06:48.410
+And the thing I didn't put down here one more time is that getting the most out of the course.
+
+06:48.410 --> 06:52.220
+Also, please reach out to me if I can help at any point.

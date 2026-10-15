@@ -1,0 +1,64 @@
+WEBVTT
+
+00:00.920 --> 00:03.530
+Well, another congratulations moment.
+
+00:03.530 --> 00:13.010
+You have 40% on the way to being an LM engineer at a high level of proficiency at this point, in addition
+
+00:13.010 --> 00:19.340
+to the stuff that you you know very well about frontier models and open source models, you can also
+
+00:19.340 --> 00:28.160
+now use the Hugging Face open LM leaderboard to compare different models against a number of hard metrics,
+
+00:28.160 --> 00:34.010
+and you've got a great understanding of the difference between these metrics, what they score and why,
+
+00:34.010 --> 00:36.620
+and the limitations of the metrics as well.
+
+00:36.650 --> 00:42.860
+Hopefully you spent some quality time yourself now with the LM leaderboard, getting familiar with the
+
+00:42.860 --> 00:44.060
+different models.
+
+00:44.270 --> 00:47.480
+Next week there is some more on leaderboards to do.
+
+00:47.480 --> 00:51.050
+I hope you're not bored of leaderboards yet, because we're going to look at a bunch of others that
+
+00:51.050 --> 00:57.560
+are used to compare more specialized things about models, and we're also going to look at ones that
+
+00:57.560 --> 01:01.910
+bring together open source and closed source, which will be very interesting.
+
+01:02.330 --> 01:08.390
+We are going to talk about real world use cases of LM solving commercial problems.
+
+01:08.390 --> 01:16.220
+I imagine everyone has experienced this in your workplace and in just using products all the time.
+
+01:16.220 --> 01:22.430
+But I want to go through a few examples and have you think about other places where Llms have been applied
+
+01:22.460 --> 01:29.300
+to solve hard commercial problems beyond the obvious, and that should equip you to be able to confidently
+
+01:29.300 --> 01:36.530
+choose the right LM for your task at hand, so that you know when you're facing a commercial project,
+
+01:36.560 --> 01:43.670
+how do you go about navigating the huge number of possible models and select the right couple to build
+
+01:43.670 --> 01:44.690
+a prototype for?
+
+01:44.690 --> 01:47.060
+So with that, I will see you next time.
+
+01:47.060 --> 01:48.110
+We've got lots to do.

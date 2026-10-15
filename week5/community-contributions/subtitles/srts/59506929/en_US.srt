@@ -1,0 +1,256 @@
+WEBVTT
+
+00:00.890 --> 00:04.820
+And we return to the hugging face open LLM leaderboard.
+
+00:04.820 --> 00:09.650
+The first place you go when selecting your base model for your training.
+
+00:09.650 --> 00:17.690
+So first thing I'm going to do is I'm going to focus in on models with a parameter size at most, let's
+
+00:17.690 --> 00:18.740
+say nine.
+
+00:18.740 --> 00:26.000
+And we can we can afford to go down a bit and let's filter out everything but the base models to start
+
+00:26.000 --> 00:26.690
+with.
+
+00:26.810 --> 00:30.950
+Um, and let's have it show the number of parameters as well.
+
+00:30.950 --> 00:34.190
+Here we go in this table down below.
+
+00:34.280 --> 00:39.890
+So this is the results of the strongest models according to these various metrics.
+
+00:39.950 --> 00:48.890
+And you will see that powerhouse clan that I mentioned many times, including this 2.52.5 is very new.
+
+00:48.890 --> 00:51.710
+Uh 7 billion variant.
+
+00:51.710 --> 00:56.600
+Uh is uh the highest scorer of this lot.
+
+00:56.840 --> 01:02.760
+Um, and you'll see that Gemma is a 9 billion parameter variant of Gemma.
+
+01:02.790 --> 01:07.650
+That's right up there to, uh, Mistral up here.
+
+01:07.950 --> 01:12.780
+Uh, and the one that we like to talk about a lot.
+
+01:12.810 --> 01:17.010
+Um, there was phi2, by the way, from Microsoft.
+
+01:17.010 --> 01:20.700
+Uh, llama 3.1 is a little bit further down.
+
+01:20.850 --> 01:26.340
+Uh, now it's worth mentioning that the numbers are all reasonably close at the top, although there's
+
+01:26.340 --> 01:28.380
+somewhat something of a margin here.
+
+01:28.500 --> 01:33.030
+Uh, so it might concern you that llama 3.1 that you happen to know is the one we're going to end up
+
+01:33.030 --> 01:36.510
+picking because you've seen it in the code is further down.
+
+01:36.660 --> 01:39.570
+Um, but there is there is something of a reason for that.
+
+01:39.630 --> 01:45.960
+Uh, when you're looking at these different scores, really you do need to, to also bring in the,
+
+01:45.960 --> 01:49.170
+the versions that have been trained.
+
+01:49.260 --> 01:56.850
+Um, the what's called the instruct variants, which are the same models but then given uh, more trained
+
+01:56.920 --> 02:03.880
+using various reinforcement learning techniques to to respond to that particular chat instruct style.
+
+02:03.880 --> 02:10.210
+And when it's uh, given that kind of framework, it's more likely to be able to perform against these
+
+02:10.210 --> 02:16.840
+various tests because it will respond to the instruction that's being given rather than being expected
+
+02:16.840 --> 02:19.870
+to be trained to, to adapt to a different task.
+
+02:20.050 --> 02:26.080
+Um, so really, you're getting a more realistic view of the capability, even of the base model, if
+
+02:26.080 --> 02:31.720
+you look at how it performs with benchmarks, when you look at the instruct variation, if that makes
+
+02:31.720 --> 02:32.170
+sense.
+
+02:32.170 --> 02:38.590
+And when we do that, we see that llama 3.18 billion really is in the top grouping here.
+
+02:38.620 --> 02:42.880
+Uh, we've got uh, Phi three is up there as well.
+
+02:42.880 --> 02:43.870
+Uh, jammer.
+
+02:43.870 --> 02:48.040
+And then um, the Meta Llama 3.1.
+
+02:48.040 --> 02:52.030
+So it's doing it's doing very well when you look at the instruct variant.
+
+02:52.060 --> 02:58.160
+And as I said, uh, somewhat perversely, I'm not suggesting that we actually use the instruct variant.
+
+02:58.160 --> 03:03.320
+I'm suggesting that we stick with the the base version of it because we don't want it.
+
+03:03.350 --> 03:08.600
+We don't want it necessarily to have used up lots of its thought process, lots of its sort of training
+
+03:08.600 --> 03:12.620
+power, learning about things like system prompts and user prompts and so on.
+
+03:12.620 --> 03:16.940
+I'm just saying that once you have been through that exercise, you can see it performs well in all
+
+03:16.970 --> 03:17.900
+of these scores.
+
+03:17.900 --> 03:24.290
+And that gives us a good sense that the base model is good at adapting to be able to address these different
+
+03:24.290 --> 03:25.160
+benchmarks.
+
+03:25.160 --> 03:29.570
+So that's a more nuanced way to interpret the results of the leaderboard.
+
+03:29.570 --> 03:34.580
+You can look at the instruct variant and see how that performs, and it still gives you a good indication
+
+03:34.580 --> 03:37.400
+of how the base model will perform as well.
+
+03:38.030 --> 03:46.010
+Now, there is one other slightly subtle reason that that I'm picking llama, even though you might
+
+03:46.010 --> 03:54.740
+say that either five three, Gemma or indeed Gwen would look like they are scoring higher in many fronts.
+
+03:54.740 --> 03:57.350
+There is a convenience to llama.
+
+03:57.350 --> 03:57.980
+That's just.
+
+03:58.010 --> 04:03.350
+It only makes a small difference to everything, but it does make our code a bit simpler and it makes
+
+04:03.350 --> 04:10.040
+the task a bit easier for llama, which is that when you look at the tokenizer for llama, you'll see
+
+04:10.040 --> 04:19.760
+that for llama, every number between 0 and 999, every three digit number gets mapped to one token.
+
+04:19.790 --> 04:25.280
+The same is actually not true for 3 or 4, or for Quan.
+
+04:25.460 --> 04:30.950
+In all three of those other models, they have basically a kind of you can think of it as like a token
+
+04:30.980 --> 04:31.670
+per digit.
+
+04:31.670 --> 04:36.110
+So the number 999 ends up as three separate tokens.
+
+04:36.140 --> 04:40.940
+Now, you might ask me, what difference does that make that it shouldn't make any difference at all.
+
+04:41.210 --> 04:50.150
+So it's going to turn out that when we're doing training we are we're using a model to generate tokens
+
+04:50.150 --> 04:54.990
+and we're trying to make it think in terms of more of a regression model.
+
+04:54.990 --> 05:00.660
+We want it to be trying to solve for getting better and better at predicting the next token, and that
+
+05:00.660 --> 05:02.610
+that should map to the price.
+
+05:02.610 --> 05:04.830
+So it simplifies the problem.
+
+05:04.830 --> 05:10.740
+If the price is reflected exactly in one token that the model has to generate.
+
+05:10.740 --> 05:16.980
+So just in this particular situation, for the particular problem we're trying to solve, the tokenization
+
+05:16.980 --> 05:25.950
+strategy for Lambda 3.1 works very well because the the, the single next token that it generates will
+
+05:25.950 --> 05:28.950
+in itself reflect everything about the price.
+
+05:29.130 --> 05:35.460
+So that, uh, it's not the case that it might predict that the next token should be nine, and that
+
+05:35.460 --> 05:39.660
+could be $9 or $99 or $999.
+
+05:39.660 --> 05:42.000
+And that will only transpire when it does the token.
+
+05:42.000 --> 05:42.690
+After that.
+
+05:42.720 --> 05:49.710
+No, it's going to be the case that the single token that it projects as the next token in its answer
+
+05:49.720 --> 05:53.890
+will reflect the full price of the product in one token.
+
+05:54.340 --> 06:02.290
+So it's a nuance, but it's a reason why we lean towards selecting llama 3.1 in this case.
+
+06:02.650 --> 06:07.690
+But by all means, we will have the ability to choose other models and see how they perform.
+
+06:07.690 --> 06:13.510
+But llama gets a bit of an edge because of this convenience with the way that it tokenizes.
+
+06:13.900 --> 06:19.360
+So that gives you some color on some of the thought process that goes behind selecting a model, looking
+
+06:19.360 --> 06:23.770
+at the leaderboards, looking a little bit more deeply at leaderboards, thinking about instruct variants
+
+06:23.800 --> 06:29.920
+versus the base model's parameter sizes, and then also some nuances about things like the way that
+
+06:29.920 --> 06:31.420
+the tokenization works.
+
+06:31.420 --> 06:38.810
+And all of that together has allowed us to come to the decision that we are going to select llama 3.18
+
+06:38.810 --> 06:42.190
+billion as the base model for our project.
+
+06:42.280 --> 06:48.640
+And now with that, let's go to the Colab and give that base model a try.

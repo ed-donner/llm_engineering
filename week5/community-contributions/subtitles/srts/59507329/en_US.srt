@@ -1,0 +1,274 @@
+WEBVTT
+
+00:00.800 --> 00:01.490
+Okay.
+
+00:01.490 --> 00:02.900
+It's moment of truth time.
+
+00:02.900 --> 00:06.620
+I have just taken our class tester.
+
+00:06.620 --> 00:07.940
+You remember this class?
+
+00:08.090 --> 00:15.140
+Uh, it's the class that runs the evaluation across the full, uh, 250 data points from our test data
+
+00:15.170 --> 00:15.560
+set.
+
+00:15.590 --> 00:17.450
+It's slightly different.
+
+00:17.450 --> 00:22.610
+Uh, if you if you go through this, you'll notice there's some very subtle differences, because we're
+
+00:22.610 --> 00:24.380
+not taking an item object.
+
+00:24.380 --> 00:27.980
+We're taking a data set, a data point from our data set.
+
+00:27.980 --> 00:29.990
+So there's a couple of small differences.
+
+00:29.990 --> 00:35.900
+But otherwise this tester is basically exactly the same, um, in terms of what it does.
+
+00:36.050 --> 00:40.760
+And it ends of course with this single line tester test.
+
+00:40.790 --> 00:47.630
+The model predict is the function that we just wrote that tries out our model against 250 points, and
+
+00:47.630 --> 00:49.130
+we pass in the test data set.
+
+00:49.130 --> 00:52.670
+And of course I've already run it and let me scroll through the results.
+
+00:52.670 --> 00:56.240
+So you get a sense it's right up at the there we go.
+
+00:56.270 --> 00:57.560
+We'll take it to the top.
+
+00:57.560 --> 01:04.610
+So you'll see there, of course, that first red item is where it predicted $1,800 for something that
+
+01:04.610 --> 01:05.930
+costs 374.
+
+01:05.960 --> 01:08.330
+There's some more reds, there's some greens.
+
+01:08.510 --> 01:12.200
+Um, and it certainly gives you a sense that it's not like we're getting that.
+
+01:12.230 --> 01:15.500
+It's the model understands the task for this one.
+
+01:15.500 --> 01:19.070
+For example, it guest $89.99.
+
+01:19.070 --> 01:22.040
+And the truth was 101 79.
+
+01:22.040 --> 01:25.310
+It's interesting that it's not sticking to the nearest whole dollar.
+
+01:25.310 --> 01:28.400
+It's it's still creating things with $0.99.
+
+01:28.820 --> 01:34.400
+Um, and you'll see that, uh, yeah, there's some there's some other problematic ones here, but there's
+
+01:34.430 --> 01:39.980
+a greens and reds, greens and reds, but quite a few reds, quite a few reds.
+
+01:39.980 --> 01:44.090
+So I will put us out of our misery and go straight to the charts.
+
+01:44.090 --> 01:45.140
+Here it comes.
+
+01:45.170 --> 01:46.550
+Oh my goodness.
+
+01:46.580 --> 01:52.730
+It is a horrible, horrible result of 395.
+
+01:52.760 --> 02:02.300
+In terms of the error, 395 uh, which you will remember, uh, is considerably worse than taking a
+
+02:02.300 --> 02:03.380
+random guess.
+
+02:03.380 --> 02:07.940
+I think it's certainly worse than just taking the average number of the training data set.
+
+02:07.970 --> 02:10.070
+Not that it knew the training data set.
+
+02:10.310 --> 02:15.800
+Uh, and, uh, yeah, it's, uh, it's generally a horrible result.
+
+02:16.070 --> 02:19.210
+Um, Perhaps not massively surprising.
+
+02:19.210 --> 02:20.890
+It's a tiny model.
+
+02:20.980 --> 02:26.110
+It's been hugely quantized as well, and you can see visually what it's doing.
+
+02:26.500 --> 02:35.290
+You can see that it has, um, had a few different levels that it's been most comfortable guessing at,
+
+02:35.290 --> 02:38.710
+and it's guessed most often at one of these three levels.
+
+02:38.710 --> 02:41.950
+And unfortunately one of them is far too high.
+
+02:42.070 --> 02:44.710
+We've never told the model not to go above $1,000.
+
+02:44.710 --> 02:46.210
+It's not like that's a requirement.
+
+02:46.210 --> 02:48.670
+It can guess whatever it wants, as could GPT four.
+
+02:48.910 --> 02:57.310
+We've, uh um, not not given it that that, uh, that intelligence to to know that, um, and so it's
+
+02:57.310 --> 02:59.830
+gone too high far too much of the time.
+
+02:59.890 --> 03:02.230
+Uh, and it's really ruined the results.
+
+03:02.230 --> 03:05.650
+So a poor performance from our base model.
+
+03:05.650 --> 03:09.160
+Not that surprising given the small number of parameters.
+
+03:09.160 --> 03:16.720
+And of course, the challenge on our hands now is going to be, can we take this poor performing model
+
+03:16.720 --> 03:22.780
+and use fine tuning, use a training data set to make it stronger?
+
+03:22.780 --> 03:28.990
+And can we get close to what a trillion parameter model can achieve.
+
+03:28.990 --> 03:32.650
+So this is an 8 billion parameter model and it's been quantized.
+
+03:32.650 --> 03:41.080
+Can we get close to the the trillion plus model parameters in a major frontier model.
+
+03:41.110 --> 03:43.540
+Because this is open source, it's free.
+
+03:43.540 --> 03:44.890
+There's no API cost.
+
+03:44.920 --> 03:51.250
+Wouldn't it be amazing if we could perform at that level, um, or at least beat a human?
+
+03:51.250 --> 03:55.030
+Right now the human beings are winning over an untrained llama.
+
+03:55.090 --> 03:59.380
+At least this human is one final thought to leave you with.
+
+03:59.410 --> 04:03.400
+You remember that this is quantized down to four bits.
+
+04:03.400 --> 04:07.480
+You might be asking yourself, how would it look if we quantized just to eight bits?
+
+04:07.480 --> 04:13.330
+If we kept the eight bit version and ran it through, it would be interesting to see whether the how
+
+04:13.330 --> 04:18.490
+much the performance was impacting by going all the way down to the double quantized four bit.
+
+04:18.490 --> 04:20.020
+And indeed you can do that, of course.
+
+04:20.050 --> 04:25.120
+And this framework gives us a lovely way to to in a very simple, tangible way.
+
+04:25.150 --> 04:26.260
+See the difference.
+
+04:26.260 --> 04:29.680
+So remember 395 is how far this is wrong.
+
+04:29.680 --> 04:37.920
+So in this other tab I have just run it with the only quantized to two eight bits.
+
+04:38.040 --> 04:44.880
+So if I go up to the top, you can see that I've got up here four bits set to false and otherwise it's
+
+04:44.880 --> 04:46.050
+exactly the same.
+
+04:46.410 --> 04:47.310
+Notebook.
+
+04:47.310 --> 04:51.060
+Let's scroll all the way down and go straight to the results.
+
+04:51.450 --> 04:54.180
+It looks like it's in here.
+
+04:56.070 --> 04:57.030
+Hold on.
+
+04:57.030 --> 04:58.200
+Build the tension.
+
+04:58.200 --> 04:59.670
+And here we go.
+
+04:59.670 --> 05:03.030
+So it's also pretty horrible performance.
+
+05:03.030 --> 05:06.690
+But it is better 395 became 301.
+
+05:06.990 --> 05:08.520
+And that's not surprising at all.
+
+05:08.550 --> 05:12.690
+You know it's got a twice the amount of information.
+
+05:12.870 --> 05:20.370
+Um so you know again quantizing did have an impact on accuracy, but perhaps we would have expected
+
+05:20.490 --> 05:23.130
+the eight bit model to have done even better.
+
+05:23.130 --> 05:27.540
+So so it wasn't there wasn't such a great difference between them.
+
+05:28.230 --> 05:33.540
+Uh, but it does show you, of course, that the bigger model is able to do a better job.
+
+05:34.470 --> 05:35.340
+All right.
+
+05:35.340 --> 05:37.920
+With that, that's been pretty interesting.
+
+05:37.920 --> 05:38.970
+Pretty revealing.
+
+05:38.970 --> 05:42.360
+Let's go back to the slides to wrap up and summarize.

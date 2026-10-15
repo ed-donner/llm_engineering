@@ -1,0 +1,259 @@
+WEBVTT
+
+00:00.110 --> 00:04.970
+We're going to spend a little bit more time with GPT just to try out a few more interesting things.
+
+00:04.970 --> 00:09.470
+I want to start with a question that used to be asked of an earlier version of GPT.
+
+00:09.500 --> 00:15.170
+I think it was GPT two to show its limitations, and we'll see whether it still has a problem with it.
+
+00:15.170 --> 00:18.830
+The famous question was how many rainbows?
+
+00:20.840 --> 00:21.530
+Sounding interesting?
+
+00:21.530 --> 00:29.960
+How many rainbows does it take to leap from Hawaii to 17?
+
+00:30.110 --> 00:31.610
+An interesting question.
+
+00:31.610 --> 00:37.550
+And GPT two, I think it was, responded very firmly that it takes three rainbows to leap from Hawaii
+
+00:37.550 --> 00:41.360
+to 17, clearly missing the nuance of the question.
+
+00:41.660 --> 00:45.200
+Uh, but GPT four has no such problem.
+
+00:45.200 --> 00:45.590
+You'll see.
+
+00:45.590 --> 00:53.150
+It gives back a witty and fun response, and it even includes a rainbow emoji in its response.
+
+00:53.390 --> 00:54.710
+It's astonishing.
+
+00:55.070 --> 01:00.680
+So there you have it, a very easy to deal with this kind of trickery and in fact, because GPT four
+
+01:00.710 --> 01:04.520
+O, the O stands for Omni, representing that it is multimodal.
+
+01:04.520 --> 01:09.560
+We can of course say please generate an image of this.
+
+01:11.420 --> 01:16.790
+And it's you know, I know everyone has seen this sort of thing before, but it's funny to think that
+
+01:16.790 --> 01:22.970
+just a few years ago, people were debating whether it would ever be possible to have an LLM that would
+
+01:22.970 --> 01:29.090
+be able to show some kind of imagination or creativity, and now it's almost a foregone conclusion that
+
+01:29.090 --> 01:36.380
+this, this kind of thing can be generated, this astonishing picture of Hawaii, the number 17 and
+
+01:36.380 --> 01:38.360
+leaps of rainbows getting there.
+
+01:38.390 --> 01:41.750
+I mean, it's honestly it's just amazing.
+
+01:41.780 --> 01:43.190
+Absolutely amazing.
+
+01:43.400 --> 01:47.390
+Uh, so and it even explains itself and it's, uh.
+
+01:47.390 --> 01:52.100
+Yeah, it's so very effective at this kind of creative challenge.
+
+01:52.490 --> 01:57.920
+All right, on a different note, let's try out GPT four with canvas.
+
+01:58.100 --> 02:00.920
+Another of the newer features that we have from GPT.
+
+02:01.400 --> 02:07.100
+Um, and this allows you to work very collaboratively with, uh, with OpenAI.
+
+02:07.190 --> 02:13.080
+Um, and let's let's look back to the Python question that I had asked you a while ago.
+
+02:13.080 --> 02:23.820
+Let's say, um, please use canvas to work with me with this code.
+
+02:25.410 --> 02:25.680
+Uh.
+
+02:25.680 --> 02:26.160
+Let's see.
+
+02:26.190 --> 02:26.760
+Yield.
+
+02:26.760 --> 02:30.570
+From now, I'll do something that's maybe not.
+
+02:30.600 --> 02:31.920
+I'll change it a little bit.
+
+02:31.950 --> 02:42.780
+Yield from, uh, book get author for book in books, uh, using a list comprehension.
+
+02:42.780 --> 02:46.410
+And I'm not telling it what books are or what this means.
+
+02:46.410 --> 02:50.070
+I'm just giving it this line of code and seeing what it makes of it.
+
+02:50.070 --> 02:51.870
+So let's see what happens now.
+
+02:51.870 --> 02:57.540
+So first of all, it opens up this canvas that you'll see on the right hand side, which gives us an
+
+02:57.540 --> 03:00.210
+ability to iterate with it on this code.
+
+03:00.480 --> 03:01.740
+Uh, okay.
+
+03:01.770 --> 03:02.910
+And there it has it.
+
+03:03.060 --> 03:05.730
+Um, uh, it's showing the code.
+
+03:05.760 --> 03:17.420
+Please, uh, extend this to show an example of this being used And what we'll see now is you'll see
+
+03:17.420 --> 03:24.560
+a sort of cursor going through, and it's going to rewrite and embellish, enrich what we had there.
+
+03:24.560 --> 03:27.920
+And so now that piece of code has been turned into a generator.
+
+03:27.920 --> 03:30.140
+It's got some data that gives an example.
+
+03:30.140 --> 03:36.260
+And it's understood that there are books with a title and an author, and it's got like a little test
+
+03:36.380 --> 03:37.370
+example of it.
+
+03:37.370 --> 03:41.120
+So effective the way you saw it coming through and rewriting.
+
+03:41.120 --> 03:57.380
+So now let's say please modify this code so that the generator excludes books with a missing or empty
+
+03:57.410 --> 03:58.430
+author.
+
+04:00.410 --> 04:04.220
+And you can imagine this might be like a business requirement that comes through.
+
+04:04.340 --> 04:10.310
+Uh, and what you'll see there is something that looks really similar to the code I had there.
+
+04:10.310 --> 04:16.820
+It went through it, gave some more examples with an empty and a missing book, and then it rewrote
+
+04:16.820 --> 04:17.810
+this line.
+
+04:17.810 --> 04:24.220
+It's so, so good the way that it that it's able to sort of interactively add to what we've done before.
+
+04:24.250 --> 04:36.220
+And so now let's say please update this so that it only yields unique authors.
+
+04:36.250 --> 04:38.380
+I'm being sort of loose with my language.
+
+04:38.380 --> 04:42.100
+I'm not saying even what what I want it to to to update.
+
+04:42.100 --> 04:47.470
+And now through it goes and it's done the job it's gone through.
+
+04:47.500 --> 04:53.770
+It's added in another example with the same author, and it's updated this code so that it uses a set
+
+04:53.800 --> 04:59.350
+to keep track of what it's seen and only yield unique cases.
+
+04:59.380 --> 05:03.490
+Now, this is in fact, I think, a better solution than the one liner that I had.
+
+05:03.490 --> 05:05.020
+But it is lengthier.
+
+05:05.140 --> 05:09.190
+But there are various reasons why it's probably better to do it that way, but let's still see if I
+
+05:09.190 --> 05:10.720
+can't get it.
+
+05:10.720 --> 05:22.360
+To rewrite this in a simpler way, let's just say is it possible to rewrite the Yield authors generator?
+
+05:22.780 --> 05:24.310
+Let's just say to simplify.
+
+05:25.030 --> 05:31.050
+To simplify the let's let it have a shot at that.
+
+05:31.140 --> 05:32.100
+Through it goes.
+
+05:32.100 --> 05:34.200
+It's not changing that.
+
+05:34.200 --> 05:36.330
+And there we go.
+
+05:38.220 --> 05:46.080
+And it has indeed done exactly basically, again, slightly better than the code that I had left you
+
+05:46.110 --> 05:47.310
+with on a previous slide.
+
+05:47.310 --> 05:50.310
+It uses the curly braces to represent the set.
+
+05:50.400 --> 05:54.750
+Uh, it could have just said yield from that line, but it's chosen to do it this way, and it looks
+
+05:54.750 --> 05:56.190
+very effective to me.
+
+05:56.190 --> 06:03.270
+So I am staggered by the whole experience of working with GPT in this way, and the way that you're
+
+06:03.270 --> 06:08.760
+able to be so interactive, the way it will do things like build example data and it will update things
+
+06:08.760 --> 06:10.110
+and show you what happens.
+
+06:10.110 --> 06:16.350
+So yeah, extremely powerful and something which I really encourage you to use as we're going through
+
+06:16.350 --> 06:20.490
+this course and you get things that you're stuck with, the trick if it doesn't bring up the canvas,
+
+06:20.520 --> 06:27.240
+is to use the words use canvas, and then it will come up and use this as a tool at your disposal to
+
+06:27.270 --> 06:30.960
+help explain and work through problems and ideas.

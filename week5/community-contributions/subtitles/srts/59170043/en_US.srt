@@ -1,0 +1,412 @@
+WEBVTT
+
+00:01.490 --> 00:08.720
+Let me enthusiastically welcome you all back to week three of our LLM engineering journey.
+
+00:08.750 --> 00:15.140
+If you enjoyed last week when we got deep into building user interfaces using the fabulous Gradio framework,
+
+00:15.170 --> 00:21.290
+then you're going to love this week even more, because now it's time to get into open source and start
+
+00:21.320 --> 00:24.500
+using the wonderful world of Huggingface.
+
+00:24.830 --> 00:28.340
+But first, a quick recap as always on what you can already do.
+
+00:28.370 --> 00:33.260
+You can describe Transformers and you are fluent in the key terminology.
+
+00:33.290 --> 00:38.750
+You can talk about context windows until the cows come home and all of that.
+
+00:38.780 --> 00:44.210
+You can confidently code whether it's with Gemini or Claude or with OpenAI.
+
+00:44.240 --> 00:45.680
+You know the APIs.
+
+00:45.680 --> 00:49.820
+You know how to stream, you know about markdown, you know about JSON responses.
+
+00:49.940 --> 00:53.330
+And you can also build an AI assistant, a chatbot.
+
+00:53.360 --> 00:55.190
+You can make it use tools.
+
+00:55.190 --> 01:00.260
+You can make it use different agents, and you can make it multimodal.
+
+01:00.380 --> 01:02.330
+And we've built one ourselves.
+
+01:02.330 --> 01:04.400
+And hopefully you've extended it to.
+
+01:04.400 --> 01:04.400
+too.
+
+01:05.060 --> 01:06.590
+So what's happening today?
+
+01:06.620 --> 01:09.080
+Today we're going to get into hugging face.
+
+01:09.080 --> 01:14.630
+And to start with, you're just going to be able to describe what it is and the scope and scale of hugging
+
+01:14.630 --> 01:14.930
+face.
+
+01:14.930 --> 01:18.260
+One of the most remarkable things about hugging face is its breadth.
+
+01:18.260 --> 01:24.140
+All the different things that it offers to the open source data science community, and you'll have
+
+01:24.140 --> 01:26.990
+a good appreciation for that shortly.
+
+01:27.320 --> 01:33.650
+Uh, we're going to look at models, data sets and spaces in hugging face, and you'll also have a good
+
+01:33.650 --> 01:35.510
+understanding of Google Colab.
+
+01:35.510 --> 01:39.410
+You may already have an understanding of Google Colab, in which case it'll be a quick revision point.
+
+01:39.410 --> 01:41.840
+But for those that don't, we're going to go into it.
+
+01:41.870 --> 01:47.810
+You're going to see how you can run code on a box with a good GPU, and you'll have a sense of the different
+
+01:47.840 --> 01:50.270
+offerings out there and which ones we'll be using for the class.
+
+01:50.270 --> 01:51.980
+So we'll get you set up.
+
+01:51.980 --> 01:55.550
+So prepare for some open source stuff.
+
+01:55.550 --> 02:02.900
+But first, as always, a quick recap on what's been going on, where we are and what's left to do.
+
+02:02.930 --> 02:09.510
+We started on the left with uh, at the beginning, no LM engineering knowledge, we will end up on
+
+02:09.510 --> 02:12.750
+the right as proficient LM engineers.
+
+02:12.750 --> 02:16.980
+In week one, we got immersed in all things frontier.
+
+02:16.980 --> 02:18.060
+In week two.
+
+02:18.090 --> 02:20.250
+Last week we built UIs.
+
+02:20.250 --> 02:26.070
+We used all of the APIs for the top three and we experimented with tools.
+
+02:26.100 --> 02:31.500
+Agent ization Multi-modality this week, all about open source, all about hugging face.
+
+02:31.530 --> 02:37.500
+Next week we talk about selecting the right LM for the problem and generating code.
+
+02:37.530 --> 02:39.480
+After that is Rag week.
+
+02:39.510 --> 02:47.040
+Then we fine tune a frontier model, then we fine tune an open source model, and then in the finale
+
+02:47.040 --> 02:48.450
+we bring it all home.
+
+02:49.830 --> 02:54.150
+So without further ado, let's talk hugging face.
+
+02:54.540 --> 02:56.670
+So as I say, it's ubiquitous.
+
+02:56.700 --> 02:59.280
+It's it's used across the community.
+
+02:59.310 --> 03:01.770
+It is a fabulous resource.
+
+03:01.980 --> 03:09.780
+And amongst many things, it offers us three the hugging face platform, the the what you get to if
+
+03:09.780 --> 03:12.900
+you go to Hugging Face Co and you've signed up with an account.
+
+03:12.900 --> 03:16.890
+You have access to three categories of things.
+
+03:16.890 --> 03:25.860
+First of all, you have models over 800,000 open source models that can do a bunch of different types
+
+03:25.860 --> 03:31.080
+of tasks, many of which we will experiment with in this week's lectures.
+
+03:31.080 --> 03:35.010
+And in future weeks, there are data sets.
+
+03:35.010 --> 03:41.880
+It is a treasure trove, over 200,000 data sets covering almost any problem that you can think of.
+
+03:41.910 --> 03:44.070
+You can try searching and see what you find.
+
+03:44.100 --> 03:49.470
+We're going to be using one particularly amazing data set later in this course.
+
+03:49.500 --> 03:54.030
+But but you will find lots of data to to solve your problems.
+
+03:54.270 --> 04:00.150
+Um, it's similar to to the platform Kaggle which is much more focused on the data side of things.
+
+04:00.150 --> 04:05.550
+But you have such a huge resource of that data within hugging face.
+
+04:06.000 --> 04:13.050
+And then hugging face also has something called spaces, which is where you can write an app and expose
+
+04:13.050 --> 04:13.560
+that app.
+
+04:13.590 --> 04:20.680
+Have it running on hugging face cloud hardware and and available for other people to use.
+
+04:20.680 --> 04:26.530
+As long as you're you're happy for your code to be open source, because that is the the you know,
+
+04:26.560 --> 04:28.360
+that's what Hugging Face is all about.
+
+04:28.630 --> 04:35.110
+Uh, so spaces are many of the spaces apps are written built in Gradio.
+
+04:35.110 --> 04:36.910
+So they are gradio apps.
+
+04:37.060 --> 04:38.890
+Um, there are things that are not gradio apps.
+
+04:38.890 --> 04:43.660
+There's something called Streamlit, which is another way to build apps that is also quite magical.
+
+04:43.660 --> 04:45.670
+Different to Gradio, quite magical.
+
+04:45.730 --> 04:48.640
+Um, and there are some other ways that you can publish apps as well.
+
+04:48.700 --> 04:51.520
+Uh, but I'd say Gradio is probably the most common that's there.
+
+04:51.520 --> 04:59.230
+And there's in particular things called leaderboards, which are gradio apps whose job it is to evaluate
+
+04:59.230 --> 05:02.650
+different llms and rank them and show them in a kind of scorecard.
+
+05:02.680 --> 05:07.300
+We're going to be using leaderboards a lot when we look at comparing different llms and, but we'll
+
+05:07.330 --> 05:11.590
+be seeing some of them today as well as we look at huggingface spaces.
+
+05:12.190 --> 05:18.610
+So that's the Huggingface platform, which is what you get to if you go to Huggingface Co and log in
+
+05:18.610 --> 05:20.230
+and start looking at what's out there.
+
+05:20.260 --> 05:28.240
+Hugging face also offers libraries code, which forms the basis of many of our open source projects.
+
+05:28.870 --> 05:35.140
+And the libraries give us this amazing head start in what we want to do.
+
+05:35.170 --> 05:41.230
+It brings time to market much lower, because you can just be off and running very quickly with very
+
+05:41.230 --> 05:42.910
+little boilerplate code.
+
+05:43.180 --> 05:51.970
+It's the very well crafted libraries to reduce the barrier to entry and make people productive quickly.
+
+05:52.420 --> 05:57.880
+The one of the first libraries you'll experience is the Hugging Face Hub, which is a library that allows
+
+05:57.880 --> 06:07.030
+you to log in to hugging face and, uh, both download and upload things like data sets and models from
+
+06:07.030 --> 06:12.430
+the hub, which is what hugging face calls the platform we just talked about.
+
+06:12.850 --> 06:22.000
+Um, data sets is a library that gives us access, immediate access to, uh, the, the the data repositories
+
+06:22.000 --> 06:25.540
+in hugging Huggingface and Transformers.
+
+06:25.570 --> 06:35.860
+This is a central library, which is the wrapper code around Llms that follow the transformer architecture,
+
+06:36.010 --> 06:44.830
+and under the covers it's got either PyTorch or TensorFlow code that actually runs these neural networks.
+
+06:45.160 --> 06:52.480
+But when you create a transformer, you have the actual deep neural network code at your fingertips.
+
+06:52.480 --> 06:59.200
+When we make calls to functions, to methods in transformer code, we're no longer calling out to an
+
+06:59.200 --> 07:04.270
+API running on a cloud somewhere else under OpenAI's umbrella.
+
+07:04.270 --> 07:13.240
+We are executing the code ourselves to to execute to either inference or training against our deep neural
+
+07:13.240 --> 07:14.050
+network.
+
+07:14.860 --> 07:20.800
+So there are three other libraries that I wanted to mention that we're going to come to later in the
+
+07:20.800 --> 07:23.740
+course that are more advanced libraries.
+
+07:24.010 --> 07:29.810
+Um, the first of them, Peft, stands for parameter efficient fine tuning.
+
+07:29.990 --> 07:39.890
+And this is, uh, utilities which allow us to train llms without needing to work with all of the billions
+
+07:39.890 --> 07:42.290
+of parameters in the Llms.
+
+07:42.290 --> 07:43.910
+So it's parameter efficient.
+
+07:43.910 --> 07:49.400
+And the technique in particular that we'll be using is called Laura or Laura is a variation of Laura,
+
+07:49.400 --> 07:52.460
+and there'll be plenty of time to explain that later on.
+
+07:52.460 --> 07:54.710
+But but bear in mind that's what we'll be using.
+
+07:54.710 --> 07:59.750
+And it's part of the Peft library parameter efficient fine tuning.
+
+08:00.140 --> 08:07.550
+Then there's a library called Treal, which stands for Transformer Reinforcement Learning.
+
+08:07.550 --> 08:09.440
+And it includes a few things.
+
+08:09.440 --> 08:13.730
+It's the ability to do things like something called reward modeling.
+
+08:14.060 --> 08:14.630
+Mm.
+
+08:14.630 --> 08:20.630
+And it's also something called proximal policy optimization PPO.
+
+08:20.900 --> 08:24.200
+And you may see mm and PPO mentioned from time to time.
+
+08:24.200 --> 08:32.720
+And this is related to uh, the both this thing called WRF that I mentioned a while ago, and it's the
+
+08:32.990 --> 08:42.320
+successors better ways of doing it, which is how we are able to train LMS so that they are really effective
+
+08:42.320 --> 08:43.100
+at chat.
+
+08:43.100 --> 08:48.620
+And it was the key innovation that resulted in ChatGPT in late 2022.
+
+08:48.650 --> 08:52.130
+So a lot of that code is within TRL.
+
+08:52.160 --> 09:00.290
+Also within TRL is something called supervised fine tuning and SFT, and that is something we will directly
+
+09:00.290 --> 09:02.390
+use ourselves later in the course.
+
+09:02.390 --> 09:10.220
+That is the specific library we will be using to fine tune an open source model, so that it's even
+
+09:10.220 --> 09:14.540
+more effective in our particular domain with a particular problem.
+
+09:14.540 --> 09:20.240
+We will set it so SFT supervised fine tuning part of the TRL library.
+
+09:20.330 --> 09:21.380
+All these acronyms.
+
+09:21.830 --> 09:30.230
+SFT part of TRL uh and the it's a it's an essential framework.
+
+09:30.350 --> 09:32.570
+But this is some of the more advanced stuff we'll get back to.
+
+09:32.600 --> 09:37.020
+So you don't have to remember all that right now, and certainly don't have to remember all these acronyms,
+
+09:37.140 --> 09:42.120
+but just let me plant that seed in you so that when you see it later, it's something that you've heard
+
+09:42.120 --> 09:42.990
+of before.
+
+09:44.160 --> 09:51.240
+The other one is one that is more of a behind the scenes, but you'll often see us importing it and
+
+09:51.330 --> 09:52.590
+making some use of it.
+
+09:52.620 --> 10:01.890
+It's called accelerate, and it's some, uh, advanced huggingface code that allows, uh, that allows
+
+10:01.890 --> 10:05.670
+our transformers to run across any distributed configuration.
+
+10:05.670 --> 10:13.350
+So it allows both training and inference to run at scale in an efficient, adaptable way, potentially
+
+10:13.350 --> 10:14.760
+across multiple GPUs.
+
+10:14.760 --> 10:19.950
+Although in all the experiments we'll be doing, we'll only be using a maximum of one GPU.
+
+10:20.910 --> 10:26.820
+So those are some of the key libraries that sit behind hugging face.
+
+10:27.660 --> 10:28.590
+At this point.
+
+10:28.590 --> 10:31.140
+I think it's time that we get to look at hugging face.
+
+10:31.140 --> 10:38.070
+So let's go in and take some some browsing around, starting with the hugging face platform.

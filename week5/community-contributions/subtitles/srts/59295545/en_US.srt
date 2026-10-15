@@ -1,0 +1,73 @@
+WEBVTT
+
+00:00.350 --> 00:02.270
+I really hope you've enjoyed this week.
+
+00:02.270 --> 00:03.800
+We've got tons done.
+
+00:03.800 --> 00:10.190
+We've experimented with all sorts of new techniques and models, and hopefully you've learned a ton
+
+00:10.190 --> 00:11.120
+through it all.
+
+00:11.270 --> 00:17.660
+Uh, at this point, not only can you code frontier models, including AI assistants, not only can
+
+00:17.660 --> 00:24.770
+you choose the right model for your project backed by metrics from leaderboards arenas, but also you
+
+00:24.770 --> 00:30.980
+can use frontier and open source models to generate code and as an extra little tool to to add to your
+
+00:30.980 --> 00:31.640
+tool belt.
+
+00:31.670 --> 00:41.750
+You are also able to deploy models as inference endpoints using Hugging Face's inference endpoint functionality.
+
+00:41.750 --> 00:45.470
+So congratulations on all of these skills.
+
+00:45.620 --> 00:51.440
+Uh, and uh, perhaps, like me, you're slightly disappointed that open source didn't quite measure
+
+00:51.440 --> 00:54.080
+up, but it did a fine job.
+
+00:54.080 --> 00:55.280
+We had great fun with it.
+
+00:55.280 --> 01:02.690
+And for many tasks of optimizing Python to C plus plus, you would find that Codex would do great.
+
+01:02.750 --> 01:10.250
+Um, but when it comes down to it, uh, putting a 7 billion parameter model up against a much more
+
+01:10.280 --> 01:17.810
+than 1.76 trillion parameter model, that was GPT four and GPT four and Claude 3.5 sonnet are considered
+
+01:17.810 --> 01:19.070
+to be much bigger.
+
+01:19.070 --> 01:22.880
+Uh, so it wasn't a particularly fair match.
+
+01:22.880 --> 01:28.580
+And in the circumstances, I think Codex did very well indeed.
+
+01:28.640 --> 01:34.940
+Next time you're going to be comparing open source and closed source models, performance, talking
+
+01:34.940 --> 01:42.710
+about different commercial use cases for code generation, and being able to build solutions that use
+
+01:42.710 --> 01:46.760
+this kind of code generation technique for all sorts of tasks.
+
+01:46.760 --> 01:47.840
+Uh, looking forward to it.
+
+01:47.840 --> 01:48.710
+I'll see you then.

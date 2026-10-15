@@ -1,0 +1,268 @@
+WEBVTT
+
+00:00.680 --> 00:08.750
+So in a future day, I'm going to be training, fine tuning a model and creating a fine tuned model.
+
+00:08.750 --> 00:15.170
+And what I'm going to do now is load in one of the ones that that I've saved in the future, confusingly,
+
+00:15.170 --> 00:16.160
+if you see what I mean.
+
+00:16.250 --> 00:21.230
+Uh, and that will allow you to see the architecture of it, to get a sense of it.
+
+00:21.320 --> 00:24.380
+And you do that by loading in not a base model.
+
+00:24.440 --> 00:31.910
+Not not one of these, um, uh, auto model for causal LLM from pre-trained, but instead a Peft model,
+
+00:31.910 --> 00:35.630
+a parameter efficient fine tuned model from pre-trained.
+
+00:35.630 --> 00:39.350
+And I tell it the base model, which is the one that we've just got right here.
+
+00:39.350 --> 00:40.760
+And fine tune model.
+
+00:40.760 --> 00:44.570
+This is the name of the model that I saved after I did this.
+
+00:44.570 --> 00:45.950
+Laura fine tuning.
+
+00:45.950 --> 00:48.920
+And I'm doing this just to show you what it looks like.
+
+00:48.950 --> 00:54.440
+Uh, and this is one that that will run very quickly because it's relatively small.
+
+00:54.590 --> 00:56.870
+Uh, let's have a look at the size.
+
+00:56.870 --> 01:02.270
+So the memory footprint of this is Gigabytes.
+
+01:02.270 --> 01:06.170
+And that should be familiar to you because it's very close to this.
+
+01:06.320 --> 01:10.940
+Uh, it is about 100MB difference between them.
+
+01:10.940 --> 01:12.440
+Let's have a look at it.
+
+01:13.250 --> 01:18.470
+So here is the architecture of this thing.
+
+01:18.740 --> 01:22.340
+Uh, and now, yeah, I no longer play that trick.
+
+01:22.370 --> 01:24.530
+This is definitely different to what we saw before.
+
+01:24.530 --> 01:26.360
+And let me tell you what we're seeing.
+
+01:26.360 --> 01:32.480
+So first of all, everything you're seeing up to this point here is the same up to the point where we
+
+01:32.480 --> 01:35.420
+have the 32 Lama decoder layers.
+
+01:35.420 --> 01:48.050
+And now we get to the this attention layer and we have the Q proj the k proj the V and the O uh, proj
+
+01:48.320 --> 01:49.340
+uh layers.
+
+01:49.340 --> 01:53.930
+And what you'll see is that each of these has a base layer.
+
+01:53.930 --> 01:57.410
+And then it has lora A and lora B.
+
+01:57.500 --> 02:05.380
+And these are the A and B matrices that I told you about before, uh which have come in here and you'll
+
+02:05.380 --> 02:07.060
+see this number 32 here.
+
+02:07.060 --> 02:11.260
+That is the R that I mentioned before, the Lora rank.
+
+02:11.290 --> 02:14.050
+They are 32 rank matrices.
+
+02:14.200 --> 02:16.270
+Um, and uh, yeah.
+
+02:16.300 --> 02:24.160
+The, the uh, if, if you're in if you're familiar with the way that these the matrix math works out,
+
+02:24.160 --> 02:32.050
+you can see this is designed so that the 32 dimensions will can be multiplied together in such a way
+
+02:32.050 --> 02:39.130
+as it can be applied to this base layer and be used to make a small shift to that base layer.
+
+02:39.130 --> 02:44.170
+I'm again being a bit hand-wavy because I want to get bogged down in the theory, but the idea is that
+
+02:44.170 --> 02:45.760
+these will be multiplied together.
+
+02:45.790 --> 02:46.720
+Lora A and Lora.
+
+02:46.750 --> 02:53.890
+B together with alpha, the scaling factor, and that will then be used as a delta to apply.
+
+02:53.890 --> 02:59.890
+On top of this base layer, there is also another hyperparameter called dropout.
+
+03:00.010 --> 03:01.870
+And we'll be talking about that later.
+
+03:01.870 --> 03:04.360
+That's not one of the big three that we talked about this week.
+
+03:04.990 --> 03:07.180
+but you'll see that feature a few times here.
+
+03:07.180 --> 03:13.060
+And so if we look at the other, uh, of the of the four target modules, you'll see that they all have
+
+03:13.060 --> 03:20.020
+a Laura A and a Laura B here, where again, we have a Laura A and a Laura B, and finally a Laura A
+
+03:20.020 --> 03:28.660
+and Laura B here, Laura A and Laura B, and so that is where our adapter matrices have been inserted
+
+03:28.660 --> 03:36.430
+into the Lama architecture to adapt the bigger model, but with much fewer dimensions.
+
+03:36.460 --> 03:42.400
+Uh, these, these 32 dimensions as specified by our R hyperparameter.
+
+03:43.510 --> 03:45.220
+Uh, nothing else has been changed.
+
+03:45.220 --> 03:48.880
+The the multi-layer perceptron layer is exactly the same.
+
+03:49.060 --> 03:51.130
+Um, and everything else is the same.
+
+03:52.090 --> 03:58.720
+And so just to mention again, we're trying not to get bogged down in this, but the you could look
+
+03:58.720 --> 04:06.490
+back to convince yourself that this is the number of dimensions in those, those four, uh, Matrices
+
+04:06.760 --> 04:07.720
+there is.
+
+04:07.720 --> 04:14.530
+Each one has a Laura A and a Laura B, and I've just multiplied together the dimensions of that matrix
+
+04:14.530 --> 04:20.890
+to tell you how many dimensions, how many weights in total we have across these adapters.
+
+04:20.890 --> 04:25.210
+And then that means for each layer we sum up these four numbers.
+
+04:25.210 --> 04:31.990
+I multiply that by 32 because there are 32 of these groups of modules.
+
+04:32.800 --> 04:37.120
+And then each of these parameters is a four byte number.
+
+04:37.120 --> 04:38.350
+It's 32 bits.
+
+04:38.350 --> 04:43.570
+And so I calculate the size and divide that by a million to get it in megabytes.
+
+04:43.870 --> 04:48.580
+I'm not sure if you're following all this, but hopefully you get a general idea just to give you a
+
+04:48.580 --> 04:55.600
+sense of perspective, if you add up all of the weights in our Laura adapters, there's a total of 27
+
+04:55.600 --> 05:02.830
+million parameters and the total size is about 109MB.
+
+05:02.830 --> 05:07.190
+So 27 million parameters of size Hundred and nine megabytes.
+
+05:07.190 --> 05:10.730
+That's how large our adapters are.
+
+05:11.030 --> 05:20.090
+And of course, compare that to the fact that llama overall has 8 billion parameters and is 32GB in
+
+05:20.090 --> 05:20.840
+size.
+
+05:20.840 --> 05:26.450
+So it gives you a sense we're doing a lot here, a lot of parameters and a lot to be trained, but it's
+
+05:26.450 --> 05:33.290
+tiny compared to the monstrosity that is llama 3.1, even the small variant.
+
+05:33.290 --> 05:41.360
+So this whilst I realize there's been a fair bit of, uh, of, uh, stuff in here that, uh, you may
+
+05:41.360 --> 05:46.490
+have to go back and check and see what I mean, but hopefully it gives you that intuition, that sense
+
+05:46.490 --> 05:53.840
+that we're able to use these lower dimensional matrices to have an impact on the bigger architecture,
+
+05:53.840 --> 06:00.320
+but with a smaller size, smaller number of weights that has to be adjusted.
+
+06:00.680 --> 06:06.440
+Um, and just to give you just a sort of evidence that this number, this 109MB, is the size of the
+
+06:06.440 --> 06:09.870
+parameters I can actually go into hugging face.
+
+06:09.900 --> 06:17.130
+I'm now in hugging face and I'm looking at where I saved that particular Laura adapter, that fine tuned
+
+06:17.130 --> 06:18.810
+model, and what we'll find.
+
+06:18.810 --> 06:22.320
+When you look at these, you look for something called safe tensors.
+
+06:22.320 --> 06:26.070
+That is the file which stores the parameters themselves.
+
+06:26.310 --> 06:31.530
+Um, and if you look at this for llama 3.1, you'll see that it's 32GB large.
+
+06:31.530 --> 06:40.890
+If I look at it for this, you'll see it's 109MB of parameters, 109MB, which matches this estimate
+
+06:40.890 --> 06:42.540
+here, 109MB.
+
+06:42.540 --> 06:49.830
+That is the size of the parameters that we are fine tuning using this Q Laura technique.
+
+06:50.310 --> 06:55.200
+So I hope at least at the very least, it's given you a decent intuition for what's going on here and
+
+06:55.200 --> 07:01.470
+how we're able to pull this trick of being able to fine tune a model without needing to have gigabytes
+
+07:01.470 --> 07:05.250
+of data that we are optimizing over.
+
+07:06.000 --> 07:09.720
+And so with that, back to the slides for a wrap up.

@@ -1,0 +1,349 @@
+WEBVTT
+
+00:00.920 --> 00:06.650
+So to revisit then the solution that we built in the previous day and talk about the metrics.
+
+00:06.650 --> 00:13.640
+As I say, we've actually got very simple business centric metrics to gauge the performance and evaluate
+
+00:13.640 --> 00:15.020
+the performance of our results.
+
+00:15.020 --> 00:17.180
+It's quite simply the performance of the code.
+
+00:17.180 --> 00:19.100
+How much faster did we make the code?
+
+00:19.100 --> 00:27.500
+And obviously Claude 3.5 sonnet crushed it and and came through as the front runner, as the leader,
+
+00:27.740 --> 00:35.720
+followed by GPT four zero, which sometimes failed with the mission, but also sometimes succeeded and
+
+00:35.750 --> 00:37.670
+with a fairly fast solution.
+
+00:38.030 --> 00:45.320
+And then, unfortunately, Code Kwan did, as I say, a decent effort, but was not able ever to get
+
+00:45.320 --> 00:50.000
+the right results despite some attempts to force it through system prompts.
+
+00:50.030 --> 00:52.610
+Slightly cheating wasn't good enough.
+
+00:52.760 --> 01:00.230
+Uh, so, you know, again, I do just want to point out that Quinn has 7 billion parameters and it's
+
+01:00.230 --> 01:04.370
+closed source rivals way more than a trillion parameters.
+
+01:04.370 --> 01:09.050
+So the very fact that it could do what it could do is incredibly impressive.
+
+01:09.050 --> 01:15.530
+And remember that aside from that, that cost of running it, um, the $0.80, I was paying an hour
+
+01:15.530 --> 01:18.920
+for it to be running as an inference end point.
+
+01:18.920 --> 01:20.540
+Aside from that, it is free.
+
+01:20.540 --> 01:21.800
+It's open source.
+
+01:21.920 --> 01:25.070
+Uh, and so we're not paying API costs.
+
+01:25.070 --> 01:31.190
+And there are ways that you could run it on your local box, um, particularly if you have a GPU, uh,
+
+01:31.190 --> 01:37.790
+in which case, again, there's no cost other than the cost of running your box, the electricity.
+
+01:38.030 --> 01:42.110
+Uh, so it's a very impressive, uh, model.
+
+01:42.110 --> 01:48.350
+It's it's it's frankly extraordinary that an open source model with only 7 billion parameters can do
+
+01:48.350 --> 01:51.380
+things like converting that code to calculate pi.
+
+01:51.440 --> 01:56.060
+So at this point, I want to introduce the challenges for you.
+
+01:56.060 --> 02:01.540
+And this week I've got a number of them and they are quite hard, but they'll be so fulfilling, so
+
+02:01.540 --> 02:05.770
+satisfying, that I want to encourage you more than ever to give this a shot.
+
+02:05.890 --> 02:07.390
+I do hope you have time.
+
+02:07.390 --> 02:12.460
+I've tried to keep this days lectures relatively brief to free up some time so you can do it.
+
+02:12.460 --> 02:16.060
+This will really solidify a lot of what we learned so far.
+
+02:16.090 --> 02:18.010
+A couple of smaller things to tweak.
+
+02:18.010 --> 02:19.690
+The solution we've already got.
+
+02:19.720 --> 02:28.720
+You can add Gemini into the closed source models so that the Gemini is you've got GPT for Claude and
+
+02:28.720 --> 02:33.220
+Gemini, and you can also add in more open source models.
+
+02:33.220 --> 02:40.600
+As I was suggesting, you can add in code Llama and Star Coder, and you could see whether or not you
+
+02:40.600 --> 02:43.390
+can force Code Gemma to work.
+
+02:43.420 --> 02:50.140
+Um, maybe it can be convinced to not rewrite the random number generator by a series of aggressive
+
+02:50.140 --> 02:52.660
+prompts to try and stop that happening.
+
+02:52.660 --> 02:54.580
+Uh, see if you have more luck than me.
+
+02:54.580 --> 02:57.600
+If you do, then please, please push the code.
+
+02:57.660 --> 02:58.680
+Let me see it.
+
+02:58.710 --> 03:00.840
+Let me include it and I'll share it with others.
+
+03:00.840 --> 03:03.390
+And then we can all benefit from it.
+
+03:03.390 --> 03:04.290
+And that would be.
+
+03:04.320 --> 03:04.710
+Yeah.
+
+03:04.740 --> 03:05.940
+Really terrific.
+
+03:05.940 --> 03:09.240
+So give it a try and share your results.
+
+03:09.240 --> 03:10.470
+But then.
+
+03:11.190 --> 03:19.050
+But then I have three thorny challenges for you which is going to take your your abilities to generate
+
+03:19.050 --> 03:19.380
+code.
+
+03:19.380 --> 03:21.030
+It's going to take it to the next level.
+
+03:21.270 --> 03:24.630
+So here's some really great ideas.
+
+03:24.630 --> 03:31.140
+One of them would be to write a coding tool that can automatically add comments or docstrings to your
+
+03:31.140 --> 03:33.900
+code, something that might be really useful.
+
+03:34.080 --> 03:38.490
+I know that there's some products out there that do it already, but it'd be great to do it yourself
+
+03:38.490 --> 03:42.180
+and see it working and see whether code is good enough to do this for you.
+
+03:42.600 --> 03:47.610
+Uh, another would be a tool that can write unit tests.
+
+03:47.610 --> 03:53.340
+Uh, unit testing is something which is the bane of some of our lives.
+
+03:53.400 --> 03:55.620
+Uh, it can be very grueling.
+
+03:55.870 --> 04:02.170
+and sometimes unit tests can be very poorly written if all they're doing is just sort of replicating
+
+04:02.170 --> 04:06.190
+inputs and outputs of a function rather than doing something sensible.
+
+04:06.190 --> 04:15.040
+So see if you can use frontier models and maybe open source models to generate unit test cases for a
+
+04:15.040 --> 04:17.410
+particular Python module.
+
+04:17.620 --> 04:21.220
+And then finally, this is a really fun one.
+
+04:21.220 --> 04:21.940
+And I've done this.
+
+04:21.940 --> 04:26.980
+So I have this myself just just for for entertainment value alone.
+
+04:27.160 --> 04:28.330
+And it's great.
+
+04:28.330 --> 04:29.320
+It's great.
+
+04:29.440 --> 04:37.870
+And you should try it to write a code generator that writes code to make trading decisions for buying
+
+04:37.900 --> 04:41.590
+and selling equities in a simulated environment.
+
+04:41.590 --> 04:43.420
+It's a bigger project, I realize.
+
+04:43.420 --> 04:47.050
+But you could get you could take it baby steps at a time by just having it generate code.
+
+04:47.050 --> 04:49.810
+You don't necessarily need the simulated environment.
+
+04:49.900 --> 04:52.090
+So you provide it with an API.
+
+04:52.120 --> 04:57.460
+You could you could look for some of the common APIs that are available for looking up equity stock
+
+04:57.460 --> 04:58.120
+prices.
+
+04:58.120 --> 05:03.430
+Or you could just invent an API and just provide it in the prompt so that the model knows what methods
+
+05:03.430 --> 05:10.720
+it can call to get the price of a ticker on a particular date, and then have it generate functions
+
+05:10.720 --> 05:14.530
+that will carry out, buy or sell trading decisions.
+
+05:14.530 --> 05:17.710
+And yeah, I had terrific fun with this.
+
+05:17.710 --> 05:25.780
+I was able to build a ton of different trading signals, both using frontier models and open source
+
+05:25.780 --> 05:26.380
+models.
+
+05:26.380 --> 05:31.120
+One thing I will say is please, whatever you do, if you do this, do not actually use it to make trading
+
+05:31.120 --> 05:31.960
+decisions.
+
+05:31.960 --> 05:36.970
+I strongly advise you not to use these sorts of models to make trading decisions.
+
+05:36.970 --> 05:41.770
+In fact, if you try and ask frontier models to generate these methods, they'll do so, but they will
+
+05:41.770 --> 05:47.440
+warn you that it should not be used for real trading decisions under any circumstances.
+
+05:47.440 --> 05:49.720
+So consider that a stern warning.
+
+05:49.930 --> 05:59.050
+Use this purely for your own enjoyment and to to see the capabilities involved, not for actually risking
+
+05:59.080 --> 06:05.950
+fame and fortune on the whim of an LM, whether it's closed or open source.
+
+06:06.250 --> 06:08.530
+But this is a great project.
+
+06:08.530 --> 06:09.820
+I'm sure you'll enjoy it.
+
+06:09.820 --> 06:14.950
+I might share my code if no one else does, but I you know, first of all, I put the challenge to you
+
+06:14.980 --> 06:16.150
+have a shot at doing it.
+
+06:16.180 --> 06:19.420
+If you generate some trading signals, then I challenge you.
+
+06:19.420 --> 06:25.930
+I'll go head to head with you and see in a simulated environment only, of course, which of our different
+
+06:25.930 --> 06:32.980
+generated trading functions are able to make more more money in a fake market?
+
+06:33.070 --> 06:34.030
+There you go.
+
+06:34.030 --> 06:38.500
+That should be a really fun project for you, and I can't wait to see what people come up with.
+
+06:38.530 --> 06:41.050
+And with that, would you believe it?
+
+06:41.080 --> 06:42.490
+Would you believe this?
+
+06:42.520 --> 06:51.680
+We have just reached the 50% point in this journey to to being a proficient LM Engineer.
+
+06:51.710 --> 06:53.510
+You are half way there.
+
+06:53.540 --> 06:57.230
+At least you're halfway there after you've done some of that homework and built some of those projects.
+
+06:57.230 --> 07:01.100
+Because that's, as I say, the most, the best way to learn is by doing.
+
+07:01.130 --> 07:07.490
+And so once you've done that, then you can pat yourself on the back and say you've got 50% of the way
+
+07:07.490 --> 07:08.120
+there.
+
+07:08.480 --> 07:15.860
+And there is so much more to come next time we're going to be talking about rag Super Hot Topic, and
+
+07:15.860 --> 07:19.040
+we're talking about the big idea behind Rag.
+
+07:19.040 --> 07:25.310
+We're going to walk through the high level flow of adding expertise into your queries, and we're going
+
+07:25.310 --> 07:31.340
+to implement a toy version of Rag, a simple version without introducing these things called vector
+
+07:31.340 --> 07:35.900
+databases, which is the big, the big thinking behind Rag.
+
+07:35.900 --> 07:38.480
+So I can't wait to get to all of that.
+
+07:38.480 --> 07:41.300
+Next week is going to be really, really exciting.
+
+07:41.390 --> 07:50.060
+And again, one more time, a massive congratulations for being halfway on your journey to mastering
+
+07:50.090 --> 07:50.990
+Llms.

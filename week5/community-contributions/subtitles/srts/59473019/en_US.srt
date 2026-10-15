@@ -1,0 +1,163 @@
+WEBVTT
+
+00:00.680 --> 00:05.210
+Welcome back to an action packed time of of training.
+
+00:05.210 --> 00:13.880
+So now, after waiting about five minutes when I run this same, uh, list events function, we get
+
+00:13.880 --> 00:16.100
+to see lots of things going on.
+
+00:16.100 --> 00:19.520
+What you see in the last ten events is that training is happening.
+
+00:19.520 --> 00:26.240
+And you can see in this message the step zero, step one, step two, step three out of 500, representing
+
+00:26.240 --> 00:30.380
+the 500 different training data points that it's going to go through.
+
+00:30.380 --> 00:32.750
+And you'll also see here training loss.
+
+00:32.780 --> 00:39.500
+Training loss is something that we want to come down and that will show us, uh, a good outcome, which
+
+00:39.500 --> 00:41.660
+is of course, what we're going for.
+
+00:41.660 --> 00:49.820
+And every time if I rerun this, we'll see now that it's already on step 118 as we go now, it's kind
+
+00:49.820 --> 00:51.440
+of hard to see what's going on here.
+
+00:51.440 --> 00:55.970
+And so this would be this would be a bit challenging if this is what we had to put up with.
+
+00:55.970 --> 01:02.990
+But we don't because we use weights and biases and here, here is our gorgeous weights and biases screen
+
+01:02.990 --> 01:06.440
+which allows us to follow along with the training.
+
+01:06.770 --> 01:12.290
+And what we can see is the the results of training loss and watch what's happening.
+
+01:12.290 --> 01:14.900
+It's just updated because the page was refreshing.
+
+01:15.110 --> 01:18.980
+Um, and we'll get to see and get some insight into what's going on.
+
+01:18.980 --> 01:25.100
+Now, one thing that you'll always see when you're running this kind of training is that the first few
+
+01:25.100 --> 01:28.430
+batch steps will typically show a dramatic drop.
+
+01:28.670 --> 01:33.590
+Um, and that's actually not necessarily something to get too excited about.
+
+01:33.620 --> 01:39.770
+Typically, what's happening there is that the model is very quickly, uh, learning, um, the very
+
+01:39.770 --> 01:44.780
+much the parts of the structure which almost go without saying, like the fact that there's a dollar
+
+01:44.780 --> 01:52.250
+sign, um, and uh, and where to put the decimal point and a few other things that, that, um, I
+
+01:52.250 --> 01:58.400
+think in this case, it realizes that just guessing zero zero for the sense is more likely than, than
+
+01:58.400 --> 02:02.930
+anything else to be the right number of cents, because there's many things that are just a whole number
+
+02:02.930 --> 02:03.590
+of dollars.
+
+02:03.590 --> 02:09.590
+So there's this is that's total speculation, but it's things like that, the kind of obvious stuff
+
+02:09.590 --> 02:16.740
+about the construct that allows training to to come down very quickly for the first few steps to get
+
+02:16.740 --> 02:21.390
+the obvious stuff out of the way, so that it's now following a decent pattern.
+
+02:21.420 --> 02:28.290
+What you're really looking for is continual progress from that point, and you typically, if you've
+
+02:28.290 --> 02:32.430
+got a training set up well and there's no right or wrong answers here.
+
+02:32.430 --> 02:35.250
+So so there's exceptions to everything I'm saying now.
+
+02:35.250 --> 02:38.460
+But but generally speaking you do want to see some variation.
+
+02:38.460 --> 02:45.300
+It's good to see some some batch steps that have greater and lower loss because you are you're trying
+
+02:45.300 --> 02:49.230
+to optimize and you're looking to explore different, different possibilities.
+
+02:49.440 --> 02:57.000
+Um, and what you're trying to what you're looking for is a kind of trend where over time, whilst any
+
+02:57.000 --> 03:04.980
+individual batch step may go up or down, you do expect or hope to see a gradual decrease in loss,
+
+03:05.250 --> 03:14.070
+um, over time and as potentially a slight concern for us that might make us a bit worried, is that
+
+03:14.070 --> 03:18.310
+we're seeing something where this doesn't particularly seem to be coming down.
+
+03:18.310 --> 03:25.300
+It just seems to show a lot of volatility, um, representing the fact that some of the of the data
+
+03:25.300 --> 03:28.840
+points are doing better than others in terms of the the guessing.
+
+03:28.840 --> 03:35.770
+But it's not as if there seems to be much of an improving trend or a trend in any direction yet.
+
+03:36.070 --> 03:39.310
+Um, at least that's what appears to be the case.
+
+03:39.490 --> 03:45.970
+So hopefully you are also running this, and you're going to be watching carefully to see what happens.
+
+03:45.970 --> 03:50.860
+Uh, it's going to take a total, I think, of about 10 or 15 minutes to run all the way through, but
+
+03:50.860 --> 03:53.290
+let's see where it is now in this list.
+
+03:54.910 --> 03:57.130
+We're now about halfway through.
+
+03:57.160 --> 04:02.890
+When it gets to the end, there's going to be a pause while it goes through a step of validating the
+
+04:02.890 --> 04:09.100
+results and and and some, some confirmation checks on the OpenAI side that it that it tells you about
+
+04:09.100 --> 04:10.840
+in the, in the statuses.
+
+04:10.930 --> 04:16.690
+Um, and then you actually get an email to tell you that it's completed at the same time as this run
+
+04:16.690 --> 04:17.260
+completes.
+
+04:17.260 --> 04:20.560
+And when we pick up in the next video, it will have run.
+
+04:20.560 --> 04:21.760
+I will see you there.

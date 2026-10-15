@@ -1,0 +1,190 @@
+WEBVTT
+
+00:00.110 --> 00:05.750
+And we will conclude our expedition into the world of frontier models through their chat interface by
+
+00:05.780 --> 00:08.570
+looking at meta AI and perplexity.
+
+00:08.600 --> 00:15.770
+Meta AI is, of course, the front end version to llama that's running behind the scenes.
+
+00:15.770 --> 00:21.680
+We can ask it the same question about how does it compare itself to other models, and we'll get back
+
+00:21.680 --> 00:25.190
+something that has some strengths and weaknesses.
+
+00:25.190 --> 00:27.440
+It doesn't do a great job.
+
+00:27.440 --> 00:33.530
+It gives some rather old fashioned complimentary llms, but it's it's okay.
+
+00:33.530 --> 00:38.000
+And generally speaking, I think you'd find asking various questions that you'll get answers that are
+
+00:38.000 --> 00:42.200
+okay, but not the same power as some of the others.
+
+00:42.590 --> 00:44.060
+Let's ask the same question.
+
+00:44.060 --> 00:52.370
+You guys are going to be fed up with me for doing this, but how many times does the letter A appear
+
+00:52.370 --> 00:54.650
+in this sentence?
+
+00:54.920 --> 00:58.190
+And let's see what we get from meta AI.
+
+00:58.340 --> 01:04.160
+It appears five times, so meta is also not able to handle that particular question.
+
+01:04.190 --> 01:08.210
+Now, one thing that the meta is able to handle is image generation.
+
+01:08.210 --> 01:17.320
+And we can say please generate an image of a rainbow of rainbows
+
+01:19.270 --> 01:23.830
+leaping from Hawaii to 17.
+
+01:24.100 --> 01:31.450
+Uh, and you'll find that this is the kind of, of challenge that, uh, lama is up for.
+
+01:31.450 --> 01:35.980
+And it very nicely does it with these four possibilities.
+
+01:36.070 --> 01:38.350
+And you get this, uh, this kind of effect.
+
+01:38.350 --> 01:44.260
+And it seems to have, uh, well, Hawaii has appeared, uh, but but some of these are very respectable,
+
+01:44.260 --> 01:49.840
+particularly for the open source model that is, uh, Lama sitting behind the scenes.
+
+01:49.960 --> 01:55.510
+All right, let's flip over to perplexity, which is, of course, a search engine, not an LLM.
+
+01:55.510 --> 01:56.080
+So it doesn't.
+
+01:56.110 --> 02:01.660
+It's the odd one out in this group, although actually, uh, OpenAI also is now in the search space,
+
+02:01.660 --> 02:02.320
+too.
+
+02:02.440 --> 02:08.020
+Um, so really it's looking for, uh, factual questions that it can then research and provide an answer
+
+02:08.020 --> 02:08.380
+for.
+
+02:08.380 --> 02:13.240
+And I'm recording this on November the 6th, the day after the elections in the US.
+
+02:13.240 --> 02:22.940
+So I can say something like, who is the president elect of the United States, and it will do some
+
+02:22.940 --> 02:23.570
+thinking.
+
+02:23.570 --> 02:29.960
+And I would not be surprised at all to see that it's able to summarize back the outcome and give key
+
+02:29.960 --> 02:33.110
+points, reactions and the like.
+
+02:33.170 --> 02:40.280
+Uh, and so it's able to do this and provide a nuanced, well crafted response to current events.
+
+02:40.310 --> 02:46.160
+Actually, if you ask a question like that to, uh, OpenAI to GPT right now, it will also give you
+
+02:46.160 --> 02:50.990
+a good answer, uh, based on current events, despite its knowledge cutoff being last year.
+
+02:51.110 --> 02:53.210
+But if you ask Claude, it won't be able to do that.
+
+02:53.210 --> 02:55.610
+And it will say it will say to to be direct.
+
+02:55.610 --> 03:00.440
+My knowledge cutoff is, uh, you get that very specific answer.
+
+03:00.890 --> 03:04.550
+Uh, let's ask the question, uh, how many?
+
+03:04.580 --> 03:15.350
+Let's start a new, fresh chat and say, how many times does the letter A appear in this sentence?
+
+03:16.130 --> 03:17.960
+It's the last time you have to see this.
+
+03:18.170 --> 03:20.510
+Uh, and it says four times.
+
+03:20.510 --> 03:23.030
+So it is able to count.
+
+03:23.060 --> 03:24.800
+Uh, so it's impressive.
+
+03:24.830 --> 03:28.310
+Uh, don't know whether it's a coincidence, whether it's because other people have written articles
+
+03:28.310 --> 03:32.300
+about this that it's found, but it is able to count for times.
+
+03:32.300 --> 03:39.080
+So perplexity is with the oh one preview version and being able to get this right.
+
+03:39.110 --> 03:41.420
+Congratulations to perplexity.
+
+03:41.630 --> 03:48.290
+Um, and now ask a slightly curious question, which is, ah, uh, question about comparing to other
+
+03:48.290 --> 03:52.910
+models, and you'll see a, um, here's the response.
+
+03:53.000 --> 03:55.340
+Uh, the area is indicated by perplexity.
+
+03:55.340 --> 03:57.260
+I don't have the capabilities.
+
+03:57.260 --> 04:00.440
+So it definitely pushes back firmly on that.
+
+04:00.680 --> 04:04.460
+And that is a wrap on our exploration of frontier models.
+
+04:04.460 --> 04:07.160
+But now I encourage you to do the same.
+
+04:07.160 --> 04:12.560
+Come up with interesting questions, particularly try and find questions which are able to bring to
+
+04:12.590 --> 04:17.960
+the surface the differences between the models, their characters, what they're good at, where they're
+
+04:17.960 --> 04:18.590
+weak.
+
+04:18.620 --> 04:23.420
+And if you find something good, then please share it with me or post it in messages.
+
+04:23.450 --> 04:29.810
+Uh, this is it's really great to find the kinds of prompts that help to surface these differences,
+
+04:29.810 --> 04:32.660
+and also that help to highlight where they are so strong.
+
+04:32.750 --> 04:36.050
+And I will see you in the next video to wrap this up.

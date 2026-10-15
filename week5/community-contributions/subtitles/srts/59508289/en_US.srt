@@ -1,0 +1,673 @@
+WEBVTT
+
+00:00.320 --> 00:07.100
+So here we are now, back in the Colab, in the same one that we kicked off in the previous day.
+
+00:07.100 --> 00:12.170
+It's now somewhat misleadingly named week seven, day three because we are of course on week seven,
+
+00:12.170 --> 00:12.890
+day four.
+
+00:13.190 --> 00:18.170
+But I daren't touch it for fear that I that I, uh, stop it in some way.
+
+00:18.170 --> 00:26.960
+You can see that the GPU Ram continues in its nail, bitingly close to the ceiling level of 38.2 out
+
+00:26.960 --> 00:28.070
+of the 40GB.
+
+00:28.070 --> 00:29.600
+But it's luckily not changing.
+
+00:29.600 --> 00:30.650
+Not going up.
+
+00:30.980 --> 00:36.440
+And you'll see here this is the printout of each of the different batch steps as they happen.
+
+00:36.440 --> 00:40.430
+We're now on batch step 4350.
+
+00:40.640 --> 00:47.600
+Um, and if we zoom all the way up, uh, which again, I'm doing everything very delicately so I don't
+
+00:47.630 --> 00:49.580
+accidentally stop the batch in some way.
+
+00:49.610 --> 00:55.310
+You can see that we're only a little tiny way into this strip that represents all three epochs.
+
+00:55.310 --> 01:01.580
+So one about there perhaps is a complete, uh, run through all of the data.
+
+01:01.820 --> 01:05.180
+Um, and you can see we're at batch step.
+
+01:05.360 --> 01:11.360
+Uh, I can't say the number because it's ticking too fast, but for for ten, uh, there we go.
+
+01:11.510 --> 01:19.310
+Uh, out of this very round number, uh, that you see here of 100,000, uh, and you might wonder why
+
+01:19.310 --> 01:20.690
+it's quite so round.
+
+01:20.720 --> 01:24.290
+Uh, and, uh, it's just something of a coincidence.
+
+01:24.350 --> 01:33.380
+Uh, remember, we have 400,000 data points, and but they're in batches of 16 are in any one step.
+
+01:33.410 --> 01:40.430
+So if I take my calculator here for this trivial maths, take 400 000 and I divide that by 16.
+
+01:40.730 --> 01:45.920
+Uh, and then I multiply that by the number of epochs.
+
+01:46.160 --> 01:51.950
+Um, I thought we had three epochs, but it looks like we have four epochs.
+
+01:51.980 --> 01:54.050
+I left it at four epochs.
+
+01:54.200 --> 01:56.270
+Uh, so, uh, yeah.
+
+01:56.360 --> 01:59.630
+If you then multiply that by four for four epochs.
+
+01:59.820 --> 02:07.890
+Uh, you do end up with, uh, just to give evidence of that, there's the camera, uh, 100,000, uh,
+
+02:07.890 --> 02:10.530
+and it's that that is the 100,000 here.
+
+02:10.530 --> 02:15.120
+It's not just a wild random number, randomly round number.
+
+02:15.120 --> 02:22.230
+It is, in fact, exactly the number of batch steps involved in 400,000 data points, grouped into batches
+
+02:22.230 --> 02:25.830
+of 16, done four times over.
+
+02:26.160 --> 02:29.550
+Uh, so off it ticks.
+
+02:29.550 --> 02:34.470
+And you can see just from looking at these numbers that we started with quite high training loss and
+
+02:34.470 --> 02:37.770
+that that number has come down, uh, quite significantly.
+
+02:37.770 --> 02:43.440
+But it's sort of hard to tell from here exactly what's going on, because the numbers bounce around
+
+02:43.440 --> 02:44.490
+up and down.
+
+02:44.700 --> 02:46.770
+Um, and it's hard to get a sense of the trend.
+
+02:46.770 --> 02:53.100
+If only there were a tool that would allow us to visualize the progress of the batch in a way that could
+
+02:53.100 --> 02:55.500
+allow us to compare between different runs and the like.
+
+02:55.530 --> 02:59.880
+Of course, there is such a tool and it's weights and biases and it's sitting right here.
+
+03:00.090 --> 03:03.060
+Um, and this this is the result of our run.
+
+03:03.060 --> 03:04.830
+This is it happening right now.
+
+03:05.070 --> 03:09.750
+Um, and this is showing us what's going on.
+
+03:09.750 --> 03:10.020
+So.
+
+03:10.020 --> 03:12.930
+So this training loss here is the real the real thing.
+
+03:12.930 --> 03:14.610
+This is what we really want to look at.
+
+03:14.640 --> 03:17.550
+Let me just edit this panel so we get to see it a bit more.
+
+03:17.730 --> 03:24.630
+Um, now this the the y axis here goes all the way down to zero where zero will be zero loss, which
+
+03:24.630 --> 03:26.160
+would mean perfection.
+
+03:26.160 --> 03:33.690
+It would mean that the model is always predicting with 100% confidence the next token and that next
+
+03:33.690 --> 03:37.710
+token that it predicts with 100% confidence is the right next token.
+
+03:37.830 --> 03:40.350
+Um, so that is an unlikely place to get.
+
+03:40.380 --> 03:45.450
+In fact, one would be suspicious if you got much below 1.5.
+
+03:45.480 --> 03:49.950
+Typically this is a bit of a rule of thumb thing, but but generally speaking, that would be like a
+
+03:49.950 --> 03:52.080
+great, uh, loss to have.
+
+03:52.080 --> 03:57.630
+And below that might cause you pause for thought about whether overfitting is going on.
+
+03:57.840 --> 04:03.730
+Um, let me change these axes and make the minimum of the y axis one so that.
+
+04:03.760 --> 04:04.540
+Well, we can make it.
+
+04:04.570 --> 04:05.230
+We can do even better.
+
+04:05.230 --> 04:12.250
+We can make it like 1.4 or something, um, so that we can really see what's going on here.
+
+04:12.430 --> 04:18.340
+Um, and it's a bumpy line, but it is pretty clear even at this early stage, that that is a bumpy
+
+04:18.370 --> 04:20.530
+line that has an improving trend.
+
+04:20.560 --> 04:27.580
+Unlike when we saw this with, uh, GPT and the fine tuning, when it seemed to be bouncing up and down
+
+04:27.580 --> 04:32.530
+but not really showing a trend, I think you can see that this looks like it's improving.
+
+04:32.530 --> 04:36.190
+We can also apply the smoothing thing and see how that looks.
+
+04:36.310 --> 04:37.600
+I mean, that's clearly isn't it.
+
+04:37.600 --> 04:40.450
+That is that is a line that is improving.
+
+04:40.450 --> 04:42.700
+If we apply the smoothing factor.
+
+04:42.730 --> 04:45.820
+Now, why do these bump up and down?
+
+04:45.970 --> 04:47.530
+I mean it depends really.
+
+04:47.530 --> 04:55.270
+It's remember each of these points represents, uh, 16 data points, 16 prompts with a thing for it
+
+04:55.270 --> 05:00.940
+to predict at the end of it shoved into one and it's a random it's been jumbled up.
+
+05:00.940 --> 05:03.190
+So it's a random set of the 16.
+
+05:03.520 --> 05:06.940
+And so who knows which products are shoved into the 16.
+
+05:06.970 --> 05:11.620
+There could be some really expensive products that it's making a wild guess at and getting completely
+
+05:11.620 --> 05:12.070
+wrong.
+
+05:12.070 --> 05:14.410
+So there's plenty of noise.
+
+05:14.500 --> 05:20.530
+Um, because the there's a different makeup of each of these different batch steps, and it's good to
+
+05:20.530 --> 05:27.640
+have a bit of noise because you want to be shaking things up a bit and getting the model to be, um,
+
+05:27.670 --> 05:29.620
+being bounced around.
+
+05:29.710 --> 05:34.510
+Um, in a sense, again, I'm being very hand-wavy, but because you're trying to not get stuck in a
+
+05:34.510 --> 05:39.580
+local minimum, but be trying out different, different possibilities with the idea that the model will
+
+05:39.580 --> 05:47.170
+improve and find a big global minimum, a big valley as it tries to, to, um, find gradients and improve
+
+05:47.170 --> 05:49.600
+its ability to predict the next token.
+
+05:49.960 --> 05:51.730
+Um, it's just moved on a little bit.
+
+05:51.730 --> 05:57.040
+And again, it's very clear that there is visually some improvement happening here.
+
+05:57.370 --> 05:58.990
+Um, so what else can we see?
+
+05:58.990 --> 06:00.940
+So this is the learning rate.
+
+06:00.940 --> 06:06.460
+This is the, uh, the that key hyperparameter about how much of a step it should take.
+
+06:06.460 --> 06:11.590
+And I told you we'd chosen a cosine learning rate, and you might be a bit surprised to see something
+
+06:11.590 --> 06:15.370
+which doesn't look very cosine y at all and doesn't look the way I described it.
+
+06:15.370 --> 06:22.180
+And this what you're seeing here is that thing called warm up, which is the fact that it that it doesn't
+
+06:22.180 --> 06:30.190
+start up at the, the 0.0001, the highest number, it starts at zero and builds up to that point.
+
+06:30.190 --> 06:36.760
+Because you can see the beginning of the batch is quite a dramatic movement from being way off to to
+
+06:36.790 --> 06:38.110
+being in a better position.
+
+06:38.110 --> 06:40.750
+And you don't want the learning rate to be too high then.
+
+06:40.780 --> 06:43.570
+Or it might do, it might overshoot in all sorts of ways.
+
+06:43.570 --> 06:45.820
+So that's the theory behind this warm up.
+
+06:46.000 --> 06:49.180
+Um, uh, part of the process.
+
+06:49.210 --> 06:53.170
+Um, and you can see it really, really coming to, to, to be here.
+
+06:53.470 --> 07:00.860
+Um, and you might wonder why this isn't really showing much in the way of a cosine kind of, uh, shape.
+
+07:00.860 --> 07:02.900
+And that's because it's so early in the training.
+
+07:02.900 --> 07:05.060
+Still, we're still at the very top of this cosine.
+
+07:05.060 --> 07:09.560
+It's about to start curving down, and it's doing that very slowly.
+
+07:09.920 --> 07:18.590
+Um, and, um, yeah, there's also some fun charts here that show us what's going on on the GPU.
+
+07:18.740 --> 07:21.440
+Uh, some of these are more meaningful than others.
+
+07:21.470 --> 07:22.430
+There's some here.
+
+07:22.430 --> 07:24.140
+The, um.
+
+07:24.170 --> 07:29.480
+Yeah, the power usage and the time spent accessing memory is good.
+
+07:29.540 --> 07:30.020
+Uh, it's.
+
+07:30.020 --> 07:32.150
+I want to see the CPU utilization.
+
+07:32.150 --> 07:32.870
+Where is that?
+
+07:33.170 --> 07:35.540
+I mean, the GPU, even the CPU utilization.
+
+07:35.570 --> 07:43.640
+The GPU utilization would be the perhaps one of the most important to make sure that the time that the
+
+07:43.640 --> 07:48.950
+GPU is hard at work, it's not like it's shepherding memory in and out, and that that's what's taking
+
+07:48.950 --> 07:49.460
+the time.
+
+07:49.460 --> 07:52.580
+You want to know that the GPU is being utilized.
+
+07:52.580 --> 07:58.850
+And that's a great sign that we are hammering our are powerful A100 blocks and making the most out of
+
+07:58.850 --> 07:59.090
+it.
+
+07:59.090 --> 08:04.550
+And if you're using the different box, then you've got some different hyperparameters.
+
+08:04.550 --> 08:09.740
+Then come and check out the GPU utilization, make sure it's doing well, make sure it's nice and hot,
+
+08:09.800 --> 08:13.760
+uh, and that you're getting good use out of your GPU.
+
+08:13.790 --> 08:19.070
+Otherwise, you might want to tweak some of the hyperparameters to see if you can't get more juice out
+
+08:19.070 --> 08:23.090
+of it so that it's your training process is more efficient.
+
+08:23.690 --> 08:25.550
+Um, okay.
+
+08:25.550 --> 08:29.390
+So what I'm going to do now is do a bit of a cheat.
+
+08:29.450 --> 08:36.200
+I'm going to do what they do in those cooking classes or like, like cooking videos when they put it
+
+08:36.200 --> 08:41.540
+in the oven and they say, and now here's one that I did earlier, they take it out of the oven and
+
+08:41.540 --> 08:46.670
+it's the thing that they put in, you know, it's like, oh, that's uh, that's just cheating.
+
+08:46.670 --> 08:53.180
+But I have done that and that I did kick this off a while back and it ran with the same hyperparameters.
+
+08:53.180 --> 08:58.080
+So the same thing, um, and, uh, and it's this pink one right here.
+
+08:58.080 --> 09:00.240
+And this I should have explained.
+
+09:00.240 --> 09:00.870
+I'm so sorry.
+
+09:00.870 --> 09:05.640
+This here is showing the four runs that have happened under this project.
+
+09:05.640 --> 09:07.500
+The project which is called Pricer.
+
+09:07.500 --> 09:12.450
+So up at the top here, this navigation, um, it has the Pricer project.
+
+09:12.450 --> 09:15.240
+And down here are the four runs.
+
+09:15.450 --> 09:25.500
+Um, and this run here was when I ran either 3 or 4 epochs, um, of this model with this same data
+
+09:25.530 --> 09:28.650
+set and with the, uh, yeah.
+
+09:28.680 --> 09:30.990
+With otherwise with everything else the same.
+
+09:31.140 --> 09:35.910
+Uh, and so if I show you that, we'll see what happened as a result of that.
+
+09:38.310 --> 09:39.810
+And here we go.
+
+09:39.810 --> 09:43.290
+So this this is, uh, this is the meaty one.
+
+09:43.290 --> 09:48.630
+So let's let's bring this up and we are going to have to change the scale.
+
+09:49.620 --> 09:51.390
+We're going to have to come down.
+
+09:51.990 --> 09:52.650
+There we go.
+
+09:52.650 --> 09:53.640
+Now you can see everything.
+
+09:53.640 --> 09:54.870
+If I leave it at one.
+
+09:55.200 --> 09:57.840
+Okay, so a few things to point out.
+
+09:57.840 --> 10:02.370
+So first of all you're seeing a purple.
+
+10:02.790 --> 10:03.630
+Let me click.
+
+10:03.660 --> 10:06.120
+I think if I do this one here it's going to bring it up.
+
+10:06.120 --> 10:06.870
+There we go.
+
+10:06.960 --> 10:10.320
+So you can see here a blue and a purple line.
+
+10:10.320 --> 10:13.920
+The blue is just here and the purple is here.
+
+10:13.920 --> 10:19.350
+The blue is the current run that is running right now over on this tab.
+
+10:19.650 --> 10:22.950
+It's this this guy that we are running right at the moment.
+
+10:22.950 --> 10:26.610
+The purple is the one that I kicked off a while ago.
+
+10:26.730 --> 10:29.460
+I of course it has the data in there about ten days ago.
+
+10:29.820 --> 10:35.430
+Um, and you can see that the blue is tracking extremely closely to the purple, which is further evidence
+
+10:35.430 --> 10:38.010
+that I'm not I'm not cheating here.
+
+10:38.010 --> 10:43.200
+Uh, it is the case that that blue will continue to follow the same trajectory as the purple.
+
+10:43.200 --> 10:45.960
+The purple has just had its course.
+
+10:46.320 --> 10:53.100
+Uh, now, what you'll see is that the trend indeed improves and improves and improves, which is good
+
+10:53.310 --> 10:54.150
+Ish.
+
+10:54.450 --> 11:00.630
+Um, so first of all, you'll, you'll see that it that it improves and then it takes a little dive
+
+11:00.630 --> 11:05.070
+and then it improves, and then it takes a little dive again and improves and it takes an even bigger
+
+11:05.070 --> 11:05.670
+dive.
+
+11:05.670 --> 11:08.550
+And so you might be wondering what are these dives?
+
+11:08.550 --> 11:12.210
+Well, these dives are the end of each of the epochs.
+
+11:12.210 --> 11:14.130
+So this is an entire epoch.
+
+11:14.160 --> 11:18.240
+That's epoch one, that's epoch two, that's epoch three, and this is epoch four.
+
+11:18.240 --> 11:20.040
+And unfortunately it crashed.
+
+11:20.040 --> 11:25.650
+Uh, or Google reset the instance uh, halfway through uh, epoch four.
+
+11:25.650 --> 11:28.530
+So, uh, we didn't get to see how epoch four ended.
+
+11:28.800 --> 11:31.980
+Um, but as you'll see, that that proves to be unimportant.
+
+11:32.340 --> 11:36.720
+Um, so why does the why is there this sudden drop at the end of each epoch?
+
+11:36.720 --> 11:38.220
+Well, that's a very good question.
+
+11:38.220 --> 11:39.720
+It's extremely important.
+
+11:39.840 --> 11:44.190
+Uh, it's because what's starting to happen is a little bit of overfitting.
+
+11:44.190 --> 11:50.520
+What's happening here is that the model is seeing some of the same data that it already saw in the first
+
+11:50.550 --> 11:51.120
+epoch.
+
+11:51.150 --> 11:53.070
+Now, sure, it's muddled up differently.
+
+11:53.110 --> 12:00.100
+and seeing them in, uh, in batch batches that are different sets of 16 than the ones that got here.
+
+12:00.130 --> 12:01.750
+Hugging face takes care of that for you.
+
+12:01.750 --> 12:06.310
+The SFT trainer automatically reshuffles the batches each time.
+
+12:06.550 --> 12:11.560
+Um, but nonetheless, the models had the benefit of seeing this data before, and it can take advantage
+
+12:11.560 --> 12:12.070
+of that.
+
+12:12.070 --> 12:14.770
+It's learned something despite the dropout.
+
+12:14.950 --> 12:22.600
+Um, despite some some other things we've done to try and regularize, um, it's still has a leg up
+
+12:22.600 --> 12:25.330
+on the fact that it's seen this exact data before.
+
+12:25.810 --> 12:30.760
+Um, but luckily there's only a small step down there, so we don't need to be too concerned that there's
+
+12:30.760 --> 12:32.290
+overfitting happening.
+
+12:32.290 --> 12:38.620
+But then it gets worse here and it gets significantly worse here.
+
+12:38.830 --> 12:41.890
+Uh, and so this is a big sign of overfitting.
+
+12:41.890 --> 12:46.630
+And now, if I had been doing what I told you is a best practice and I should have been doing, which
+
+12:46.630 --> 12:51.910
+was running validation runs at the same time, uh, the chances, first of all, they wouldn't have
+
+12:51.910 --> 12:53.710
+taken these little jump downs.
+
+12:53.710 --> 12:59.560
+But secondly, it would have probably started to go up at this point because we're overfitting.
+
+12:59.560 --> 13:04.360
+And indeed I have savings of the batch at this point.
+
+13:04.720 --> 13:11.650
+And sure enough, it was saved up to the Hugging face hub every 5000 steps so I could test it.
+
+13:11.650 --> 13:19.450
+And sure enough, the results do get worse past the third epoch, so there was no point in going more
+
+13:19.480 --> 13:20.410
+than three epochs.
+
+13:20.410 --> 13:27.010
+So it didn't matter that Google pulled the plug on my instance at this point, because this data was
+
+13:27.010 --> 13:28.660
+actually no longer useful.
+
+13:28.660 --> 13:30.580
+The model was already doing poorly.
+
+13:30.850 --> 13:36.940
+And again, this is a great example of where you can regularly upload to the hub, and then you can
+
+13:36.940 --> 13:40.360
+go back at each of these checkpoints and run your test over them.
+
+13:40.360 --> 13:43.930
+And you can pick the model that performs the best.
+
+13:44.170 --> 13:50.020
+And that's a very powerful technique for so that you don't have to guess how many epochs to run.
+
+13:50.020 --> 13:55.520
+You just run too many and then select the one that has the best results out of your training data.
+
+13:55.550 --> 13:58.220
+Out of sample when you're trying something new.
+
+13:58.610 --> 14:03.950
+Um, so I think it's a really good illustration of of how this works.
+
+14:04.010 --> 14:10.610
+Um, and of the, the, the, the effect of overfitting and the effect of different epochs.
+
+14:10.640 --> 14:16.010
+And, but what we know for sure is that during that first epoch, say, because it was always seeing
+
+14:16.010 --> 14:22.340
+new data, all of this slope downwards is all representing good improvement.
+
+14:22.370 --> 14:26.450
+And I can tell you that the results at the end of here were also distinctly better than here.
+
+14:26.450 --> 14:28.790
+So this was also showing some improvement.
+
+14:28.820 --> 14:32.330
+And but around here it started to get a little bit more dodgy.
+
+14:32.330 --> 14:36.680
+And maybe, maybe coincidentally that is at around the 1.5 level.
+
+14:36.680 --> 14:41.930
+And I mentioned before there was that rule of thumb that less than 1.5 maybe is a time to be raising
+
+14:41.930 --> 14:45.170
+an eyebrow and looking again at your results.
+
+14:46.220 --> 14:51.110
+Uh, so I will pause at this moment, and when we return, we'll talk a little bit more about a couple
+
+14:51.140 --> 14:52.040
+of other things.

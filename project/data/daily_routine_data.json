@@ -1,0 +1,163 @@
+//Day1 - normal
+{"timestamp": 1737806400, "room": "pillbox", "nodeId": 1, "onOff": true} // 6:00 AM: Pillbox opened
+{"timestamp": 1737806460, "room": "bedroom", "nodeId": 2, "onOff": true} // 6:01 AM: Bedroom light turned on
+{"timestamp": 1737806700, "room": "bathroom", "nodeId": 2, "onOff": true} // 6:05 AM: Bathroom light turned on
+{"timestamp": 1737807000, "room": "bathroom", "nodeId": 3, "humidity": 6500} // 6:10 AM: Humidity spike in bathroom (shower)
+{"timestamp": 1737807300, "room": "bathroom", "nodeId": 2, "onOff": false} // 6:15 AM: Bathroom light turned off
+{"timestamp": 1737807600, "room": "kitchen", "nodeId": 2, "onOff": true} // 6:20 AM: Kitchen light turned on
+{"timestamp": 1737807660, "room": "kitchen", "event": "fridge_opened"} // 6:21 AM: Fridge opened (breakfast preparation)
+{"timestamp": 1737808200, "room": "kitchen", "nodeId": 2, "onOff": false} // 6:30 AM: Kitchen light turned off
+{"timestamp": 1737808500, "room": "livingroom", "nodeId": 2, "onOff": true} // 6:35 AM: Living room light turned on
+{"timestamp": 1737808800, "room": "livingroom", "nodeId": 1, "occupancy": 1} // 6:40 AM: Person 1 sits in the living room
+{"timestamp": 1737810000, "room": "livingroom", "nodeId": 2, "onOff": false} // 7:00 AM: Living room light turned off
+{"timestamp": 1737811200, "room": "hall", "nodeId": 1, "occupancy": 1} // 7:20 AM: Person 1 walks through the hall
+{"timestamp": 1737811800, "room": "porch", "nodeId": 1, "occupancy": 1} // 7:30 AM: Person 1 leaves the house (porch occupancy)
+{"timestamp": 1737811860, "room": "hall", "nodeId": 1, "occupancy": 0} // 7:31 AM: Hall occupancy ends
+{"timestamp": 1737828000, "room": "porch", "nodeId": 1, "occupancy": 1} // 12:00 PM: Person 1 returns home (porch occupancy)
+{"timestamp": 1737828060, "room": "hall", "nodeId": 1, "occupancy": 1} // 12:01 PM: Hall occupancy begins
+{"timestamp": 1737828120, "room": "kitchen", "nodeId": 2, "onOff": true} // 12:02 PM: Kitchen light turned on
+{"timestamp": 1737828180, "room": "kitchen", "event": "fridge_opened"} // 12:03 PM: Fridge opened (lunch preparation)
+{"timestamp": 1737829200, "room": "kitchen", "nodeId": 2, "onOff": false} // 12:20 PM: Kitchen light turned off
+{"timestamp": 1737831600, "room": "livingroom", "nodeId": 2, "onOff": true} // 1:00 PM: Living room light turned on
+{"timestamp": 1737831660, "room": "livingroom", "nodeId": 1, "occupancy": 1} // 1:01 PM: Person 1 sits in the living room
+{"timestamp": 1737835200, "room": "livingroom", "nodeId": 2, "onOff": false} // 2:00 PM: Living room light turned off
+{"timestamp": 1737838800, "room": "bedroom", "nodeId": 2, "onOff": true} // 3:00 PM: Bedroom light turned on
+{"timestamp": 1737838860, "room": "pillbox", "nodeId": 1, "onOff": true} // 3:01 PM: Pillbox opened
+{"timestamp": 1737839400, "room": "bedroom", "nodeId": 2, "onOff": false} // 3:10 PM: Bedroom light turned off
+{"timestamp": 1737849600, "room": "kitchen", "nodeId": 2, "onOff": true} // 6:00 PM: Kitchen light turned on
+{"timestamp": 1737849660, "room": "kitchen", "event": "fridge_opened"} // 6:01 PM: Fridge opened (dinner preparation)
+{"timestamp": 1737850800, "room": "kitchen", "nodeId": 2, "onOff": false} // 6:20 PM: Kitchen light turned off
+{"timestamp": 1737852000, "room": "livingroom", "nodeId": 2, "onOff": true} // 6:40 PM: Living room light turned on
+{"timestamp": 1737852060, "room": "livingroom", "nodeId": 1, "occupancy": 1} // 6:41 PM: Person 1 sits in the living room
+{"timestamp": 1737855600, "room": "livingroom", "nodeId": 2, "onOff": false} // 7:40 PM: Living room light turned off
+{"timestamp": 1737859200, "room": "bedroom", "nodeId": 2, "onOff": true} // 8:40 PM: Bedroom light turned on
+{"timestamp": 1737859260, "room": "pillbox", "nodeId": 1, "onOff": true} // 8:41 PM: Pillbox opened
+{"timestamp": 1737859800, "room": "bedroom", "nodeId": 2, "onOff": false} // 8:50 PM: Bedroom light turned off
+//Day2 - normal
+{"timestamp": 1737892800, "room": "pillbox", "nodeId": 1, "onOff": true} // 6:00 AM: Pillbox opened
+{"timestamp": 1737892860, "room": "bedroom", "nodeId": 2, "onOff": true} // 6:01 AM: Bedroom light turned on
+{"timestamp": 1737893100, "room": "bathroom", "nodeId": 2, "onOff": true} // 6:05 AM: Bathroom light turned on
+{"timestamp": 1737893400, "room": "bathroom", "nodeId": 3, "humidity": 6500} // 6:10 AM: Humidity spike in bathroom (shower)
+{"timestamp": 1737893700, "room": "bathroom", "nodeId": 2, "onOff": false} // 6:15 AM: Bathroom light turned off
+{"timestamp": 1737894000, "room": "kitchen", "nodeId": 2, "onOff": true} // 6:20 AM: Kitchen light turned on
+{"timestamp": 1737894060, "room": "kitchen", "event": "fridge_opened"} // 6:21 AM: Fridge opened (breakfast preparation)
+{"timestamp": 1737894600, "room": "kitchen", "nodeId": 2, "onOff": false} // 6:30 AM: Kitchen light turned off
+{"timestamp": 1737894900, "room": "livingroom", "nodeId": 2, "onOff": true} // 6:35 AM: Living room light turned on
+{"timestamp": 1737895200, "room": "livingroom", "nodeId": 1, "occupancy": 1} // 6:40 AM: Person 1 sits in the living room
+{"timestamp": 1737896400, "room": "livingroom", "nodeId": 2, "onOff": false} // 7:00 AM: Living room light turned off
+{"timestamp": 1737897600, "room": "hall", "nodeId": 1, "occupancy": 1} // 7:20 AM: Person 1 walks through the hall
+{"timestamp": 1737898200, "room": "porch", "nodeId": 1, "occupancy": 1} // 7:30 AM: Person 1 leaves the house (porch occupancy)
+{"timestamp": 1737898260, "room": "hall", "nodeId": 1, "occupancy": 0} // 7:31 AM: Hall occupancy ends
+{"timestamp": 1737914400, "room": "porch", "nodeId": 1, "occupancy": 1} // 12:00 PM: Person 1 returns home (porch occupancy)
+{"timestamp": 1737914460, "room": "hall", "nodeId": 1, "occupancy": 1} // 12:01 PM: Hall occupancy begins
+{"timestamp": 1737914520, "room": "kitchen", "nodeId": 2, "onOff": true} // 12:02 PM: Kitchen light turned on
+{"timestamp": 1737914580, "room": "kitchen", "event": "fridge_opened"} // 12:03 PM: Fridge opened (lunch preparation)
+{"timestamp": 1737915600, "room": "kitchen", "nodeId": 2, "onOff": false} // 12:20 PM: Kitchen light turned off
+{"timestamp": 1737918000, "room": "livingroom", "nodeId": 2, "onOff": true} // 1:00 PM: Living room light turned on
+{"timestamp": 1737918060, "room": "livingroom", "nodeId": 1, "occupancy": 1} // 1:01 PM: Person 1 sits in the living room
+{"timestamp": 1737921600, "room": "livingroom", "nodeId": 2, "onOff": false} // 2:00 PM: Living room light turned off
+{"timestamp": 1737925200, "room": "bedroom", "nodeId": 2, "onOff": true} // 3:00 PM: Bedroom light turned on
+{"timestamp": 1737925260, "room": "pillbox", "nodeId": 1, "onOff": true} // 3:01 PM: Pillbox opened
+{"timestamp": 1737925800, "room": "bedroom", "nodeId": 2, "onOff": false} // 3:10 PM: Bedroom light turned off
+{"timestamp": 1737936000, "room": "kitchen", "nodeId": 2, "onOff": true} // 6:00 PM: Kitchen light turned on
+{"timestamp": 1737936060, "room": "kitchen", "event": "fridge_opened"} // 6:01 PM: Fridge opened (dinner preparation)
+{"timestamp": 1737937200, "room": "kitchen", "nodeId": 2, "onOff": false} // 6:20 PM: Kitchen light turned off
+{"timestamp": 1737938400, "room": "livingroom", "nodeId": 2, "onOff": true} // 6:40 PM: Living room light turned on
+{"timestamp": 1737938460, "room": "livingroom", "nodeId": 1, "occupancy": 1} // 6:41 PM: Person 1 sits in the living room
+{"timestamp": 1737942000, "room": "livingroom", "nodeId": 2, "onOff": false} // 7:40 PM: Living room light turned off
+{"timestamp": 1737945600, "room": "bedroom", "nodeId": 2, "onOff": true} // 8:40 PM: Bedroom light turned on
+{"timestamp": 1737945660, "room": "pillbox", "nodeId": 1, "onOff": true} // 8:41 PM: Pillbox opened
+{"timestamp": 1737946200, "room": "bedroom", "nodeId": 2, "onOff": false} // 8:50 PM: Bedroom light turned off
+//Day3 - normal
+{"timestamp": 1737979200, "room": "pillbox", "nodeId": 1, "onOff": true} // 6:00 AM: Pillbox opened
+{"timestamp": 1737979260, "room": "bedroom", "nodeId": 2, "onOff": true} // 6:01 AM: Bedroom light turned on
+{"timestamp": 1737979500, "room": "bathroom", "nodeId": 2, "onOff": true} // 6:05 AM: Bathroom light turned on
+{"timestamp": 1737979800, "room": "bathroom", "nodeId": 3, "humidity": 6500} // 6:10 AM: Humidity spike in bathroom (shower)
+{"timestamp": 1737980100, "room": "bathroom", "nodeId": 2, "onOff": false} // 6:15 AM: Bathroom light turned off
+{"timestamp": 1737980400, "room": "kitchen", "nodeId": 2, "onOff": true} // 6:20 AM: Kitchen light turned on
+{"timestamp": 1737980460, "room": "kitchen", "event": "fridge_opened"} // 6:21 AM: Fridge opened (breakfast preparation)
+{"timestamp": 1737981000, "room": "kitchen", "nodeId": 2, "onOff": false} // 6:30 AM: Kitchen light turned off
+{"timestamp": 1737981300, "room": "livingroom", "nodeId": 2, "onOff": true} // 6:35 AM: Living room light turned on
+{"timestamp": 1737981600, "room": "livingroom", "nodeId": 1, "occupancy": 1} // 6:40 AM: Person 1 sits in the living room
+{"timestamp": 1737982800, "room": "livingroom", "nodeId": 2, "onOff": false} // 7:00 AM: Living room light turned off
+{"timestamp": 1737984000, "room": "hall", "nodeId": 1, "occupancy": 1} // 7:20 AM: Person 1 walks through the hall
+{"timestamp": 1737984600, "room": "porch", "nodeId": 1, "occupancy": 1} // 7:30 AM: Person 1 leaves the house (porch occupancy)
+{"timestamp": 1737984660, "room": "hall", "nodeId": 1, "occupancy": 0} // 7:31 AM: Hall occupancy ends
+{"timestamp": 1738000800, "room": "porch", "nodeId": 1, "occupancy": 1} // 12:00 PM: Person 1 returns home (porch occupancy)
+{"timestamp": 1738000860, "room": "hall", "nodeId": 1, "occupancy": 1} // 12:01 PM: Hall occupancy begins
+{"timestamp": 1738000920, "room": "kitchen", "nodeId": 2, "onOff": true} // 12:02 PM: Kitchen light turned on
+{"timestamp": 1738000980, "room": "kitchen", "event": "fridge_opened"} // 12:03 PM: Fridge opened (lunch preparation)
+{"timestamp": 1738002000, "room": "kitchen", "nodeId": 2, "onOff": false} // 12:20 PM: Kitchen light turned off
+{"timestamp": 1738004400, "room": "livingroom", "nodeId": 2, "onOff": true} // 1:00 PM: Living room light turned on
+{"timestamp": 1738004460, "room": "livingroom", "nodeId": 1, "occupancy": 1} // 1:01 PM: Person 1 sits in the living room
+{"timestamp": 1738008000, "room": "livingroom", "nodeId": 2, "onOff": false} // 2:00 PM: Living room light turned off
+{"timestamp": 1738011600, "room": "bedroom", "nodeId": 2, "onOff": true} // 3:00 PM: Bedroom light turned on
+{"timestamp": 1738011660, "room": "pillbox", "nodeId": 1, "onOff": true} // 3:01 PM: Pillbox opened
+{"timestamp": 1738012200, "room": "bedroom", "nodeId": 2, "onOff": false} // 3:10 PM: Bedroom light turned off
+{"timestamp": 1738022400, "room": "kitchen", "nodeId": 2, "onOff": true} // 6:00 PM: Kitchen light turned on
+{"timestamp": 1738022460, "room": "kitchen", "event": "fridge_opened"} // 6:01 PM: Fridge opened (dinner preparation)
+{"timestamp": 1738023600, "room": "kitchen", "nodeId": 2, "onOff": false} // 6:20 PM: Kitchen light turned off
+{"timestamp": 1738024800, "room": "livingroom", "nodeId": 2, "onOff": true} // 6:40 PM: Living room light turned on
+{"timestamp": 1738024860, "room": "livingroom", "nodeId": 1, "occupancy": 1} // 6:41 PM: Person 1 sits in the living room
+{"timestamp": 1738028400, "room": "livingroom", "nodeId": 2, "onOff": false} // 7:40 PM: Living room light turned off
+{"timestamp": 1738032000, "room": "bedroom", "nodeId": 2, "onOff": true} // 8:40 PM: Bedroom light turned on
+{"timestamp": 1738032060, "room": "pillbox", "nodeId": 1, "onOff": true} // 8:41 PM: Pillbox opened
+{"timestamp": 1738032600, "room": "bedroom", "nodeId": 2, "onOff": false} // 8:50 PM: Bedroom light turned off
+
+// Normal: Daily routine
+{"timestamp": 1737806400, "room": "pillbox", "nodeId": 1, "onOff": true} // 6:00 AM: Pillbox opened
+{"timestamp": 1737806460, "room": "bedroom", "nodeId": 2, "onOff": true} // 6:01 AM: Bedroom light turned on
+{"timestamp": 1737806700, "room": "bathroom", "nodeId": 2, "onOff": true} // 6:05 AM: Bathroom light turned on
+{"timestamp": 1737807000, "room": "bathroom", "nodeId": 3, "humidity": 6500} // 6:10 AM: Humidity spike in bathroom (shower)
+{"timestamp": 1737807300, "room": "bathroom", "nodeId": 2, "onOff": false} // 6:15 AM: Bathroom light turned off
+{"timestamp": 1737807600, "room": "kitchen", "nodeId": 2, "onOff": true} // 6:20 AM: Kitchen light turned on
+{"timestamp": 1737807660, "room": "kitchen", "event": "fridge_opened"} // 6:21 AM: Fridge opened (breakfast preparation)
+{"timestamp": 1737808200, "room": "kitchen", "nodeId": 2, "onOff": false} // 6:30 AM: Kitchen light turned off
+{"timestamp": 1737808500, "room": "livingroom", "nodeId": 2, "onOff": true} // 6:35 AM: Living room light turned on
+{"timestamp": 1737808800, "room": "livingroom", "nodeId": 1, "occupancy": 1} // 6:40 AM: Person 1 sits in the living room
+{"timestamp": 1737810000, "room": "livingroom", "nodeId": 2, "onOff": false} // 7:00 AM: Living room light turned off
+{"timestamp": 1737811200, "room": "hall", "nodeId": 1, "occupancy": 1} // 7:20 AM: Person 1 walks through the hall
+{"timestamp": 1737811800, "room": "porch", "nodeId": 1, "occupancy": 1} // 7:30 AM: Person 1 leaves the house (porch occupancy)
+{"timestamp": 1737811860, "room": "hall", "nodeId": 1, "occupancy": 0} // 7:31 AM: Hall occupancy ends
+
+// Anomalous: No fridge activity for 6 hours
+{"timestamp": 1737828000, "room": "porch", "nodeId": 1, "occupancy": 1} // 12:00 PM: Person 1 returns home (porch occupancy)
+{"timestamp": 1737828060, "room": "hall", "nodeId": 1, "occupancy": 1} // 12:01 PM: Hall occupancy begins
+{"timestamp": 1737828120, "room": "kitchen", "nodeId": 2, "onOff": true} // 12:02 PM: Kitchen light turned on
+{"timestamp": 1737828180, "room": "kitchen", "event": "fridge_opened"} // 12:03 PM: Fridge opened (lunch preparation)
+{"timestamp": 1737829200, "room": "kitchen", "nodeId": 2, "onOff": false} // 12:20 PM: Kitchen light turned off
+
+// Anomalous: Excessive pillbox usage
+{"timestamp": 1737831600, "room": "pillbox", "nodeId": 1, "onOff": true} // 1:00 PM: Pillbox opened
+{"timestamp": 1737831660, "room": "pillbox", "nodeId": 1, "onOff": false} // 1:01 PM: Pillbox closed
+{"timestamp": 1737831720, "room": "pillbox", "nodeId": 1, "onOff": true} // 1:02 PM: Pillbox opened
+{"timestamp": 1737831780, "room": "pillbox", "nodeId": 1, "onOff": false} // 1:03 PM: Pillbox closed
+{"timestamp": 1737831840, "room": "pillbox", "nodeId": 1, "onOff": true} // 1:04 PM: Pillbox opened
+{"timestamp": 1737831900, "room": "pillbox", "nodeId": 1, "onOff": false} // 1:05 PM: Pillbox closed
+
+// Anomalous: No movement in the living room during typical active hours
+{"timestamp": 1737835200, "room": "livingroom", "nodeId": 2, "onOff": false} // 2:00 PM: Living room light remains off
+{"timestamp": 1737838800, "room": "bedroom", "nodeId": 2, "onOff": true} // 3:00 PM: Bedroom light turned on
+{"timestamp": 1737838860, "room": "pillbox", "nodeId": 1, "onOff": true} // 3:01 PM: Pillbox opened
+{"timestamp": 1737839400, "room": "bedroom", "nodeId": 2, "onOff": false} // 3:10 PM: Bedroom light turned off
+
+// Anomalous: Unusual bathroom activity (occupied for 2 hours)
+{"timestamp": 1737849600, "room": "bathroom", "nodeId": 2, "onOff": true} // 6:00 PM: Bathroom light turned on
+{"timestamp": 1737849660, "room": "bathroom", "nodeId": 3, "humidity": 6500} // 6:01 PM: Humidity spike in bathroom
+{"timestamp": 1737850800, "room": "bathroom", "nodeId": 2, "onOff": false} // 6:20 PM: Bathroom light turned off
+
+// Anomalous: Irregular transitions (person leaves and does not return for 12 hours)
+{"timestamp": 1737852000, "room": "hall", "nodeId": 1, "occupancy": 1} // 6:40 PM: Person 1 walks through the hall
+{"timestamp": 1737852600, "room": "porch", "nodeId": 1, "occupancy": 1} // 6:50 PM: Person 1 leaves the house (porch occupancy)
+{"timestamp": 1737852660, "room": "hall", "nodeId": 1, "occupancy": 0} // 6:51 PM: Hall occupancy ends
+
+// Anomalous: No fridge activity for 12 hours
+{"timestamp": 1737859200, "room": "kitchen", "nodeId": 2, "onOff": true} // 8:40 PM: Kitchen light turned on
+{"timestamp": 1737859260, "room": "kitchen", "event": "fridge_opened"} // 8:41 PM: Fridge opened (dinner preparation)
+{"timestamp": 1737859800, "room": "kitchen", "nodeId": 2, "onOff": false} // 8:50 PM: Kitchen light turned off
+{"timestamp": 1737860400, "room": "livingroom", "nodeId": 2, "onOff": true} // 9:00 PM: Living room light turned on
+{"timestamp": 1737860460, "room": "livingroom", "nodeId": 1, "occupancy": 1} // 9:01 PM: Person 1 sits in the living room
+{"timestamp": 1737864000, "room": "livingroom", "nodeId": 2, "onOff": false} // 10:00 PM: Living room light turned off
+{"timestamp": 1737867600, "room": "bedroom", "nodeId": 2, "onOff": true} // 11:00 PM: Bedroom light turned on
+{"timestamp": 1737867660, "room": "pillbox", "nodeId": 1, "onOff": true} // 11:01 PM: Pillbox opened
+{"timestamp": 1737868200, "room": "bedroom", "nodeId": 2, "onOff": false} // 11:10 PM: Bedroom light turned off

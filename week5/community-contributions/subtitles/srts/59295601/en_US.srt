@@ -1,0 +1,352 @@
+WEBVTT
+
+00:00.380 --> 00:07.730
+So it's time to continue our journey into the world of open source and understand which models we should
+
+00:07.730 --> 00:13.460
+pick to investigate the ability to generate open source code.
+
+00:13.460 --> 00:14.420
+Where do we begin?
+
+00:14.420 --> 00:17.780
+We begin, of course, with the big code models leaderboard.
+
+00:17.780 --> 00:23.300
+This is the leaderboard running as a hugging face space that we looked at before, and it's the one
+
+00:23.300 --> 00:28.820
+that compares the performance of open source models in code generation tasks.
+
+00:29.270 --> 00:34.370
+You remember we started by just looking at base models, and we can see some of the base models that
+
+00:34.370 --> 00:39.530
+are doing really well, including including Code Llama, Code Kwan and Deep Sikh Coder.
+
+00:39.770 --> 00:44.540
+Um, but we're going to look at all models because we're interested in models that have been fine tuned
+
+00:44.690 --> 00:51.110
+because they really do perform much, much better than some of the base models when they've been trained
+
+00:51.140 --> 00:55.370
+specifically for, uh, for tasks such as C plus plus code.
+
+00:55.520 --> 01:01.820
+Um, and we're going to be looking at Python and C plus plus test ability because that is, after all,
+
+01:01.820 --> 01:03.080
+what we're going to be doing.
+
+01:03.440 --> 01:09.770
+And when we look at these, one thing to note is that the ones that say exit here, their benchmark,
+
+01:09.890 --> 01:12.350
+some of their scoring has happened externally.
+
+01:12.350 --> 01:17.720
+So I'm personally going to tend to lean towards ones that don't have that symbol, that are the ones
+
+01:17.720 --> 01:25.790
+that have been benchmarked as part of the hugging face, uh, spaces platform and the the one that is
+
+01:25.790 --> 01:33.050
+top of the list here is code Kwan 1.57 billion, right up at the top.
+
+01:33.050 --> 01:35.090
+The code variant of Kwan.
+
+01:35.090 --> 01:40.850
+It's been trained for chat, which means that you can interact with it rather than just, for example,
+
+01:40.850 --> 01:43.670
+giving it some Python code and expecting it to complete.
+
+01:43.670 --> 01:50.510
+You can have a chat with it, such as saying, hey, could you convert this Python code to highly optimized
+
+01:50.510 --> 01:50.870
+C plus?
+
+01:50.870 --> 01:51.500
+Plus?
+
+01:51.500 --> 01:53.150
+Let's go in and have a look.
+
+01:53.630 --> 02:00.710
+We're now looking at the code Kwan 1.57 billion chat the top model.
+
+02:00.740 --> 02:04.250
+And you can see here it describes some of what it can do.
+
+02:04.400 --> 02:07.310
+Um and some of how you can interact with it.
+
+02:07.340 --> 02:11.270
+Like you can say, write a quicksort algorithm in Python.
+
+02:11.450 --> 02:18.080
+Um, and you can see that you can construct messages in much the way that we are used to, and then
+
+02:18.110 --> 02:25.070
+use the tokenizer apply chat template to convert that in tokens and run that through the model.
+
+02:25.070 --> 02:31.580
+So this is all very consistent with the way that we ran a number of models for other simple activities,
+
+02:31.580 --> 02:34.040
+text generation activities in the past.
+
+02:34.310 --> 02:42.950
+If we look at Codeclan we can see that it scores really very well indeed in Python coding and in C plus
+
+02:42.950 --> 02:43.760
+plus coding.
+
+02:43.760 --> 02:51.380
+It is only beaten by this one here, which is the externally run one which only fractionally does better.
+
+02:51.380 --> 02:56.780
+And if you look, this model itself is in fact a fine tune of Quinn itself.
+
+02:56.780 --> 03:01.040
+So I think frankly, we're doing pretty well by sticking with code.
+
+03:01.040 --> 03:01.610
+Quinn.
+
+03:01.640 --> 03:04.250
+There's a big drop off after that.
+
+03:04.250 --> 03:10.640
+The other one that I was interested in showing you was I wanted to also show you Code Gemma down here,
+
+03:10.640 --> 03:13.550
+which I thought would be great to try a different one and see Google.
+
+03:13.610 --> 03:15.590
+But as it happens, when I try to use code.
+
+03:15.620 --> 03:22.400
+Gemma uh, it was able to to answer very simple tasks, but it crashed whenever it was given harder
+
+03:22.400 --> 03:23.000
+tasks.
+
+03:23.000 --> 03:25.730
+You may want to try and see as an exercise whether you can get code.
+
+03:25.730 --> 03:31.010
+Gemma to work, but I wasn't able to for this particular problem, at least not for any complicated,
+
+03:31.010 --> 03:35.000
+uh, translation or reimplementation of Python in C plus plus.
+
+03:35.000 --> 03:40.040
+But certainly an exercise for you will be to try out other models, because we have so many to choose
+
+03:40.040 --> 03:42.470
+from and see what you find.
+
+03:42.470 --> 03:46.820
+So we've picked, uh, Code Quan.
+
+03:46.850 --> 03:48.560
+Let's go into it one more time.
+
+03:48.680 --> 03:52.970
+Uh, the next thing to do is to figure out, okay, how are we going to run this various ways?
+
+03:52.970 --> 03:53.450
+We could do it.
+
+03:53.450 --> 03:54.770
+You already know of one of them.
+
+03:54.770 --> 04:01.460
+We could go onto Google Colab and write the code to use the Hugging Face Transformers library to directly
+
+04:01.460 --> 04:07.280
+access Codex code, load it in and run it in inference time.
+
+04:07.610 --> 04:08.810
+And that would work great.
+
+04:08.810 --> 04:14.810
+The thing is, I want to execute the compiled code on my box, so it would be a bit inconvenient.
+
+04:14.840 --> 04:20.810
+We'd have to run that in Jupyter, in in Google Colab, and then copy and paste the code over to my
+
+04:20.810 --> 04:21.500
+box.
+
+04:21.650 --> 04:25.250
+And I was hoping to be able to do it all in one nice user interface.
+
+04:25.250 --> 04:30.230
+And so basically I want to be able to run this model as it is, but from my box.
+
+04:30.260 --> 04:34.370
+Now there are a few ways of doing that, and I'm not going to go into all of them, but there's one
+
+04:34.370 --> 04:40.550
+that's super convenient, and it's actually going to show us a way that you can deploy models in production
+
+04:40.550 --> 04:41.990
+for production purposes.
+
+04:41.990 --> 04:50.000
+And that is to ask hugging face to run this model for you and to give you an endpoint which you can
+
+04:50.000 --> 04:53.540
+use to call the model remotely from your code.
+
+04:53.540 --> 04:59.690
+So it's a sort of hosting solution for running a model like this model, or any open source model you
+
+04:59.690 --> 05:02.810
+want, and give you an endpoint to run it yourself.
+
+05:02.840 --> 05:04.790
+And that sounds super advanced.
+
+05:04.880 --> 05:07.340
+You may think that there's going to be a lot to it to do this.
+
+05:07.430 --> 05:09.680
+It turns out it's not difficult at all.
+
+05:09.680 --> 05:12.740
+All you have to do is go to this deploy button right here.
+
+05:12.740 --> 05:19.130
+And the first option here is inference endpoints dedicated inference deployments for production.
+
+05:19.130 --> 05:24.380
+And it's saying this is a way you can have your own deployment of this model.
+
+05:24.380 --> 05:30.350
+And you'll be able to call it yourself from anywhere and use this model on your own.
+
+05:30.350 --> 05:32.900
+Now of course you'll have to pay for that.
+
+05:33.230 --> 05:37.310
+It doesn't come for free, but it's not massively expensive.
+
+05:37.310 --> 05:39.260
+But this is one that is, it costs a little bit more.
+
+05:39.290 --> 05:41.480
+It's something certainly to be aware of.
+
+05:41.630 --> 05:48.890
+Um, so when you, when you come in to, to use one of these inference endpoints, you choose whether
+
+05:48.890 --> 05:53.450
+you want to run on AWS or Azure or GCP, Google Cloud.
+
+05:53.660 --> 05:57.440
+And you can also choose whether you want a CPU box or a GPU box.
+
+05:57.440 --> 06:05.690
+In the case of this model, we would need to have a GPU box, and we would need to have at least an
+
+06:05.690 --> 06:07.100
+Nvidia L4.
+
+06:07.130 --> 06:13.820
+At least that is what it is recommending to us, which has 24GB of Ram on the GPU.
+
+06:14.210 --> 06:22.100
+Uh, so we'd simply select this and then we would go ahead and, uh, fill in some of these things and
+
+06:22.100 --> 06:23.870
+click Create Endpoint.
+
+06:23.870 --> 06:25.190
+And it's as easy as that.
+
+06:25.190 --> 06:32.270
+We would have our own dedicated endpoint for for your personal use running with hugging face paying
+
+06:32.300 --> 06:34.070
+$0.80 an hour.
+
+06:34.070 --> 06:36.860
+If you're in the US, you may see different pricing there.
+
+06:36.860 --> 06:41.360
+So you know it's not super cheap, but you can turn it off and on whenever you want.
+
+06:41.390 --> 06:46.070
+So for doing an experiment, if this is just going to take you an hour or two, uh, it's something
+
+06:46.070 --> 06:53.180
+that's that's great fun to do, I recommend it, uh, if your budget allows for these things, but if
+
+06:53.180 --> 06:55.340
+not, never fear, I've done it for you.
+
+06:55.370 --> 06:57.560
+You can watch along and see what it's like.
+
+06:57.680 --> 07:01.700
+I'm going to go to my dedicated endpoints using this menu right here.
+
+07:01.700 --> 07:05.780
+And you'll see that I've got two dedicated endpoints that I've set up.
+
+07:05.780 --> 07:09.110
+One of them is indeed Codeclan, the one we've just been looking at.
+
+07:09.110 --> 07:15.560
+I basically followed through that screen and it's running on that box that was recommended, the L four.
+
+07:15.590 --> 07:21.410
+So I am currently spending $0.80 an hour for the pleasure of running this endpoint.
+
+07:21.440 --> 07:23.390
+Don't let it be said I don't do anything for you.
+
+07:23.930 --> 07:27.740
+And I also, as I say, I tried code Gemma.
+
+07:28.070 --> 07:29.690
+I tried it on an alpha box.
+
+07:29.690 --> 07:31.310
+I was not able to get this to run.
+
+07:31.310 --> 07:35.960
+It would do simple, simple stuff, but anything too complicated it would crash.
+
+07:36.200 --> 07:39.950
+But I love this to be an exercise for you to come in and try this.
+
+07:39.950 --> 07:46.040
+Try getting code Gemma to work, and then I'd be interested to see how it matches up with code.
+
+07:46.490 --> 07:52.100
+But I think you'll find that just as we saw from the leaderboard, there will be very little doubt that
+
+07:52.100 --> 07:59.450
+Codeclan is hugely superior and very, very capable of these kinds of tasks.
+
+07:59.540 --> 08:05.210
+So at this point, you have hopefully followed this through.
+
+08:05.240 --> 08:10.550
+You have to wait five minutes, go and get a coffee for for the codeclan endpoint to come up and running,
+
+08:10.550 --> 08:17.630
+and then we'll be ready to get back to JupyterLab running on our box to call this endpoint and to try
+
+08:17.630 --> 08:19.190
+out some code generation.
+
+08:19.190 --> 08:20.360
+I will see you in a minute.

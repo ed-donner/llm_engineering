@@ -1,0 +1,328 @@
+WEBVTT
+
+00:00.020 --> 00:04.280
+In this video, we're going to set up a full data science environment for Mac users.
+
+00:04.280 --> 00:06.110
+In the next video, we'll do PC users.
+
+00:06.110 --> 00:09.080
+So if you're a PC person, please skip to the next.
+
+00:09.080 --> 00:12.200
+You can you can listen in here if you wish, but otherwise I will see you next time.
+
+00:12.290 --> 00:16.310
+Okay, so my Mac people now I'm a mac person myself.
+
+00:16.310 --> 00:19.520
+I've always owned Macs, so you are my home crowd.
+
+00:19.580 --> 00:21.740
+You are definitely my favorites.
+
+00:21.770 --> 00:24.050
+It's not like I'm going to say the same thing to the other guys.
+
+00:24.080 --> 00:24.950
+Or maybe I am.
+
+00:24.950 --> 00:33.830
+Anyways, this is looking right now in a Chrome browser at the repo LM engineering in GitHub, and this
+
+00:33.830 --> 00:39.440
+link should hopefully be plastered all over the place, including in the lecture notes for this lecture.
+
+00:39.530 --> 00:45.170
+Uh, but please come here and look at the GitHub repo, uh, to see the code that we have.
+
+00:45.170 --> 00:49.520
+Uh, what you'll also see if you scroll down is the contents of the Readme file, which is where I have
+
+00:49.520 --> 00:51.890
+laid out what needs to be done to set up your environment.
+
+00:51.890 --> 00:57.500
+And I hope that I've done a decent job here of laying things out step by step and being clear on what
+
+00:57.530 --> 00:59.750
+action to take, if anything is to go wrong.
+
+00:59.790 --> 01:04.200
+so hopefully it's good, but if you have any corrections to make to it.
+
+01:04.410 --> 01:09.360
+As some people already have, for which I'm very grateful, please do let me know and I'll do that.
+
+01:09.390 --> 01:09.960
+Okay.
+
+01:09.960 --> 01:13.470
+But for now, what you're going to do is press this green button here code.
+
+01:13.470 --> 01:16.230
+And then you can pick either of these two.
+
+01:16.260 --> 01:21.990
+But you're going to pick this copy button here, which is going to copy the URL that identifies this
+
+01:21.990 --> 01:23.520
+repo into the clipboard.
+
+01:23.520 --> 01:24.990
+And that is done.
+
+01:25.020 --> 01:25.680
+All right.
+
+01:25.710 --> 01:28.500
+We're now going to bring up a terminal window where we're going to go next.
+
+01:28.500 --> 01:33.030
+Now this some of this you can do using the max finder windows if you prefer that.
+
+01:33.120 --> 01:36.930
+But I'm more comfortable in terminals and I imagine many of you are too.
+
+01:37.170 --> 01:39.300
+So I'm now in my home directory.
+
+01:39.330 --> 01:45.150
+Many of you will have a projects directory set up, which is where you manage your your projects.
+
+01:45.180 --> 01:46.860
+At the moment I don't have one set up.
+
+01:46.860 --> 01:48.810
+If I do CD projects, there's nothing there.
+
+01:48.810 --> 01:53.220
+So I'm going to make a directory projects and go into it.
+
+01:53.640 --> 01:54.750
+Here we go.
+
+01:55.050 --> 01:59.330
+And then the next thing I'm going to do when I'm inside the projects folder is I'm going to type git
+
+01:59.330 --> 02:05.540
+clone, I want to clone a repo and paste in the name of the repo right there, and when I press enter,
+
+02:05.540 --> 02:06.770
+it does its thing.
+
+02:06.770 --> 02:10.670
+And I now have locally an LM engineering folder.
+
+02:10.700 --> 02:14.000
+I'm going to go into it and there is all of our code.
+
+02:14.150 --> 02:19.580
+It's worth pointing out that where we are right now in the LM engineering folder is what people sometimes
+
+02:19.580 --> 02:22.850
+call being in the project root directory.
+
+02:22.970 --> 02:25.940
+That's, that's the name for for where we are right now for this project.
+
+02:25.970 --> 02:28.610
+The project root directory LM engineering.
+
+02:28.670 --> 02:29.540
+All right.
+
+02:29.540 --> 02:33.890
+So the next thing to do is for us to look at installing Anaconda.
+
+02:33.890 --> 02:35.630
+If you haven't installed it before.
+
+02:35.630 --> 02:42.350
+And the Readme has a direct link to the installation page at anaconda.com, which will allow you to
+
+02:42.380 --> 02:44.420
+set it up for Mac OS.
+
+02:44.540 --> 02:48.530
+There's a simple set of screens that will go through and configure it.
+
+02:48.530 --> 02:50.270
+I'm not going to do it because I've already done it for me.
+
+02:50.270 --> 02:54.680
+But but it is very clearly step by step as you will see it here.
+
+02:54.680 --> 03:01.010
+And before you know it, you'll have Anaconda on your box when you have anaconda on your box.
+
+03:01.010 --> 03:02.750
+Back to the terminal window.
+
+03:02.750 --> 03:03.560
+Here we are.
+
+03:03.590 --> 03:09.650
+We simply call a command that tells Anaconda to do everything to build a whole data science environment
+
+03:09.650 --> 03:18.080
+for us, and that command is conda env for environment create minus f, which means we're going to specify
+
+03:18.080 --> 03:21.260
+a file which has the full description of the environment.
+
+03:21.260 --> 03:26.630
+And that name of that file is environment.yml which you can see right here.
+
+03:26.630 --> 03:29.630
+That is the file that defines this environment.
+
+03:29.630 --> 03:32.210
+And when you've done that you press enter.
+
+03:32.690 --> 03:40.220
+Now what's going to happen now is that Anaconda is going to connect to its server, find out everything
+
+03:40.220 --> 03:41.090
+that we need to do.
+
+03:41.090 --> 03:46.610
+And it does what it's called solving environment, which means it figures out what versions of each
+
+03:46.610 --> 03:52.970
+of the different packages we need are going to be the right versions, that we need to have a fully
+
+03:52.970 --> 03:55.400
+compatible, full specked environment.
+
+03:55.400 --> 03:58.780
+And what you saw it just doing there with all of that stuff going on.
+
+03:58.780 --> 04:05.590
+Uh, was it, uh, feverishly creating the various, downloading the various packages and building them?
+
+04:05.620 --> 04:09.400
+Now, that might take a fair bit longer for you, because it's fast for me, because I've already done
+
+04:09.400 --> 04:13.000
+it and it's cached locally the first time it needs to download it.
+
+04:13.000 --> 04:16.300
+For me, I have a pretty good internet connection, and it took about five minutes.
+
+04:16.300 --> 04:21.760
+The first time I did this, someone reported that it was taking more than 20 minutes for them.
+
+04:21.760 --> 04:25.510
+Uh, which is of course, uh, yeah, a lot of time to wait.
+
+04:25.510 --> 04:30.940
+So if it's taking that long, then that might be if you have a slower internet connection that might
+
+04:30.940 --> 04:31.690
+be expected.
+
+04:31.690 --> 04:36.370
+But if it takes much longer than 20 minutes and you have a good internet connection, then something's
+
+04:36.370 --> 04:37.660
+not working with Anaconda.
+
+04:37.660 --> 04:43.900
+And I would cancel it with command C, and instead we'll use the other approach, the virtual environment
+
+04:43.900 --> 04:45.280
+approach instead.
+
+04:45.550 --> 04:52.540
+So right now, Anaconda is busy doing what it calls executing the transaction, which is essentially
+
+04:52.660 --> 04:58.090
+after it's figured out what versions of what we need, It's building that that whole environment.
+
+04:58.090 --> 05:02.560
+And then at the end, for those that know about this, there are also some packages that I pip install
+
+05:02.590 --> 05:05.980
+because they're not they don't yet have conda versions.
+
+05:06.130 --> 05:09.940
+So there are some packages that get pip installed at the end of it.
+
+05:09.940 --> 05:14.500
+But when you see installing pip install you are near the very end and it's done.
+
+05:14.500 --> 05:15.550
+So I didn't lie.
+
+05:15.550 --> 05:17.500
+It doesn't need to take a long amount of time.
+
+05:17.530 --> 05:21.340
+It's pretty fast and all of that is done.
+
+05:21.490 --> 05:28.600
+We need to activate our new environment, which means we need to say we want that to be the live environment
+
+05:28.600 --> 05:30.190
+that's currently being used.
+
+05:30.220 --> 05:35.470
+If you look at my my cursor right now, you'll see the word base is to the left here.
+
+05:35.470 --> 05:40.810
+And that means that we're not currently running in an in an anaconda environment right at the moment.
+
+05:40.810 --> 05:48.010
+In order to use our LM environment, we the name of the environment is LMS and we're going to type conda
+
+05:48.130 --> 05:51.460
+activate LMS.
+
+05:51.460 --> 05:57.790
+And that is all it takes to tell Anaconda we want to be running in this environment with the same version
+
+05:57.790 --> 06:01.150
+of Python, the same version of all of these packages?
+
+06:01.150 --> 06:03.580
+That means that we are completely consistent.
+
+06:03.580 --> 06:07.600
+That happened immediately, and you'll see that LMS is now written on the left.
+
+06:07.600 --> 06:13.540
+And if you're seeing that, that is your clue that it's worked and that you are now running the right
+
+06:13.540 --> 06:14.950
+version of Anaconda.
+
+06:16.180 --> 06:20.800
+And as a final step here, I type in this command JupyterLab.
+
+06:20.800 --> 06:26.620
+And JupyterLab is the command that says, I want to launch this data science environment called JupyterLab,
+
+06:26.620 --> 06:29.830
+which allows me to work very interactively with code.
+
+06:29.830 --> 06:35.710
+And when I run that, it thinks for hopefully just a moment while it considers the task at hand.
+
+06:35.710 --> 06:39.550
+And then it will launch JupyterLab in a new screen.
+
+06:39.550 --> 06:42.850
+And what you will probably see is something a bit like this.
+
+06:43.270 --> 06:43.930
+All right.
+
+06:43.930 --> 06:47.380
+With that, I'm now going to pause for you guys.
+
+06:47.380 --> 06:53.710
+I'm going to record a video for the PC users, and I'll meet you back in two videos time.
+
+06:53.740 --> 06:54.610
+See you there.

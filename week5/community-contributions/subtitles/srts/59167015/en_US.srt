@@ -1,0 +1,424 @@
+WEBVTT
+
+00:00.800 --> 00:05.960
+Welcome back to Jupyter Lab and welcome to Day Five's Lab.
+
+00:05.960 --> 00:12.020
+And this is going to be lots of creativity and hopefully lots of entertainment.
+
+00:12.020 --> 00:16.910
+So to start with I have copied the day four Jupyter Lab.
+
+00:17.030 --> 00:19.370
+And I've duplicated that.
+
+00:19.370 --> 00:20.420
+And then I've extended it.
+
+00:20.420 --> 00:23.570
+So everything above where I am now is just a repeat of day four.
+
+00:23.600 --> 00:31.670
+Creates the AI assistant for our airline called flight flight AI, something like that, and arms it
+
+00:31.670 --> 00:33.590
+with a tool to be able to get ticket prices.
+
+00:33.590 --> 00:39.140
+All of that is already there and I've executed it ready for our showtime today.
+
+00:39.140 --> 00:40.820
+We're going to go multi-modal.
+
+00:40.820 --> 00:46.250
+We're going to use Dall-E three, which is the image generation model that sits behind GPT four.
+
+00:46.760 --> 00:48.800
+We're going to use it to make some images.
+
+00:48.800 --> 00:52.790
+And let's start by putting it into a function called artist.
+
+00:52.790 --> 00:57.770
+Before that, there are two, uh, service announcements I should make.
+
+00:57.950 --> 01:03.830
+Uh, first of all, I should point out that the price associated with generating an image is not tiny.
+
+01:03.880 --> 01:10.150
+Everything that we've done so far, I hope, has had a de minimis price in the fractions of a cent.
+
+01:10.300 --> 01:16.090
+Unless you've been generating tons of lengthy brochures, you have not racked up a significant bill
+
+01:16.090 --> 01:17.830
+from running this course so far.
+
+01:17.950 --> 01:21.880
+But now we are doing something that's slightly more on the radar.
+
+01:21.910 --> 01:25.420
+Each image that we generate will cost $0.04.
+
+01:25.450 --> 01:30.700
+Now, I put it to you that when you see these images, you will agree that they are well worth $0.04
+
+01:30.730 --> 01:31.360
+each.
+
+01:31.570 --> 01:34.720
+And they are super creative and high value.
+
+01:34.720 --> 01:35.590
+And I love them.
+
+01:35.590 --> 01:37.630
+So I think it is money well spent.
+
+01:37.630 --> 01:41.650
+But I do want to inform you of that so that you can decide whether you want to spend your $0.04 each
+
+01:41.650 --> 01:42.310
+time.
+
+01:42.700 --> 01:49.120
+Uh, the other thing to mention is that there is a little bit of, uh, um, uh, there's there's a
+
+01:49.120 --> 01:56.770
+there's a point about whether or not one should use the term LM when referring to image generation and
+
+01:56.770 --> 01:58.270
+audio generation and the like.
+
+01:58.300 --> 01:59.290
+Text to audio.
+
+01:59.320 --> 02:03.400
+Because of course, these are not large language models sitting behind the scenes.
+
+02:03.430 --> 02:10.090
+Now, what tends to happen these days is that people use LM as a bit of a general term for the models
+
+02:10.090 --> 02:12.280
+that sit behind gen AI systems.
+
+02:12.280 --> 02:19.450
+So actually, in practice, I think this very much is part of the skill set and toolkit of an LM engineer.
+
+02:19.450 --> 02:23.800
+But I should mention that, of course, strictly speaking, these aren't language models.
+
+02:23.800 --> 02:30.730
+These are image models and audio models that we'll be playing with right now as we add them to our agent
+
+02:30.730 --> 02:31.630
+framework.
+
+02:31.750 --> 02:34.720
+Anyways, with that preamble, let's get on with it.
+
+02:34.720 --> 02:39.220
+So we start by importing some useful image libraries.
+
+02:39.220 --> 02:40.420
+Well, the first one isn't.
+
+02:40.570 --> 02:44.260
+First two aren't image libraries, but some, some, uh, utilities.
+
+02:44.260 --> 02:51.520
+And then the Python image library is going to be very useful for us, a very handy common library.
+
+02:51.760 --> 03:00.820
+Uh, so the next thing we do is we're going to write a function called artist and artist calls OpenAI
+
+03:00.850 --> 03:03.520
+dot images dot generate.
+
+03:03.520 --> 03:09.460
+So it's a very consistent style that you're used to OpenAI images generate.
+
+03:09.460 --> 03:11.520
+We pass in the name of a model.
+
+03:11.520 --> 03:13.860
+In this case, the model is Dall-E three.
+
+03:13.890 --> 03:16.650
+You could also try Dall-E two, its predecessor.
+
+03:16.680 --> 03:18.480
+The images are less awesome.
+
+03:18.480 --> 03:19.440
+It's a bit cheaper.
+
+03:19.440 --> 03:24.450
+I seem to remember it's about $0.02 rather than $0.04, so it's not massively cheaper and in my opinion
+
+03:24.450 --> 03:26.160
+well worth the extra $0.02.
+
+03:26.190 --> 03:27.750
+Stick with Dall-E three.
+
+03:27.780 --> 03:32.400
+We give it a prompt and this isn't now a clever list of dictionaries.
+
+03:32.400 --> 03:33.360
+It's just text.
+
+03:33.360 --> 03:39.240
+And in this case, the prompt I'm suggesting here is, we say, an image representing a vacation in
+
+03:39.240 --> 03:46.980
+city, showing tourist spots and everything unique about city in a vibrant pop art style.
+
+03:46.980 --> 03:50.250
+We give it a size that is the smallest size.
+
+03:50.250 --> 03:53.070
+Dall-E three will do, Dall-E two will go much smaller.
+
+03:53.250 --> 03:58.680
+Um and Dall-E three also does two larger sizes in a portrait and landscape format.
+
+03:58.740 --> 04:00.870
+Just google it if you'd like to know those dimensions.
+
+04:00.870 --> 04:02.400
+If you'd like to try those images.
+
+04:02.430 --> 04:04.260
+We just want one image back.
+
+04:04.260 --> 04:06.210
+We say we want this format.
+
+04:06.450 --> 04:12.840
+Back comes something in the, uh, this um, uh, base64 encoded format.
+
+04:12.840 --> 04:20.040
+We then decode that into bytes, and then we then create a bytes IO object on those bytes, which we
+
+04:20.040 --> 04:26.850
+can then pass in to the image dot open function, and that will return an image for us.
+
+04:26.850 --> 04:28.320
+Let's execute that.
+
+04:28.320 --> 04:30.300
+And now let's give it a try.
+
+04:30.330 --> 04:35.040
+So I'm going to say image equals artist.
+
+04:36.870 --> 04:38.940
+And what shall we say New York City.
+
+04:42.660 --> 04:50.520
+And then display image is the Jupiter way of then getting that to show.
+
+04:50.550 --> 04:53.400
+Let's run that or you're seeing one I ran already there.
+
+04:53.400 --> 04:56.790
+Sorry it's not that quick, but look how amazing that is.
+
+04:56.940 --> 04:58.380
+Uh, you're already getting.
+
+04:58.380 --> 05:00.750
+I'm spoiling you by showing you one right away.
+
+05:00.750 --> 05:01.950
+This is what it looks like.
+
+05:01.950 --> 05:07.710
+It's generating a second one above you get to see the Statue of Liberty, a few different Empire State
+
+05:07.710 --> 05:16.200
+buildings, some planes in the sky, and then a sort of image to Times Square with lots of signs and
+
+05:16.200 --> 05:18.510
+with New York, spelled out their taxi.
+
+05:18.540 --> 05:19.140
+Look at that.
+
+05:19.170 --> 05:20.610
+A yellow New York taxi.
+
+05:20.640 --> 05:21.690
+And Coca-Cola.
+
+05:21.690 --> 05:23.040
+And a hot dog.
+
+05:23.070 --> 05:25.050
+A very New York iconic thing.
+
+05:25.080 --> 05:26.550
+Fantastic.
+
+05:26.580 --> 05:29.190
+Meanwhile, it's built another image for us here.
+
+05:29.190 --> 05:29.670
+And.
+
+05:29.670 --> 05:31.020
+Wow, look at this one.
+
+05:31.020 --> 05:32.340
+It's different.
+
+05:32.340 --> 05:33.120
+It's great.
+
+05:33.120 --> 05:35.430
+It's got a big jet over here.
+
+05:35.430 --> 05:40.620
+It's got the Empire State Building, of course, multiple Empire State buildings, Statue of Liberty's.
+
+05:40.620 --> 05:47.280
+And it's got again the sort of thriving shops and taxi in the foreground like that, an iconic New York
+
+05:47.310 --> 05:48.870
+taxi and a hot dog again.
+
+05:49.080 --> 05:54.330
+Uh, so the thing to mention is that these images, they're so creative and they're so different, we've
+
+05:54.330 --> 05:59.790
+got two now that we can see the one I did a moment ago and this one here, uh, and you can see how
+
+05:59.790 --> 06:01.470
+great they look.
+
+06:02.430 --> 06:03.060
+All right.
+
+06:03.060 --> 06:05.220
+Well, I hope that you were entertained by that.
+
+06:05.220 --> 06:10.920
+And by all means, can I suggest spend some $0.04, generate a few images for yourself.
+
+06:10.920 --> 06:12.180
+They're great.
+
+06:12.690 --> 06:14.940
+All right, let's add one more function.
+
+06:14.940 --> 06:20.450
+We're going to make a function that uses OpenAI's speech to generate some audio.
+
+06:20.450 --> 06:25.670
+So we're going to use a couple of utility stuff here with a library called Pi Dub.
+
+06:25.670 --> 06:26.630
+That's very useful.
+
+06:26.840 --> 06:29.300
+We're going to write a function called talker.
+
+06:29.300 --> 06:33.860
+And talker is going to call OpenAI dot audio dot speech dot create.
+
+06:33.860 --> 06:39.470
+So if we look back up the image generation was OpenAI images generate.
+
+06:39.470 --> 06:46.760
+And for audio it's a case of uh OpenAI audio dot speech dot create.
+
+06:46.760 --> 06:48.500
+We pass in a model.
+
+06:48.740 --> 06:56.300
+Um, and this is the model we're using, TTS one TTS stands for text to speech and is, uh, the, the
+
+06:56.330 --> 07:00.080
+this kind of model that we're going for, we supply a voice.
+
+07:00.080 --> 07:01.880
+In this case we're going to try the voice.
+
+07:01.910 --> 07:02.750
+Onyx.
+
+07:02.750 --> 07:04.880
+There's something like eight different voices to try again.
+
+07:04.910 --> 07:06.800
+You can you can Google to see what they are.
+
+07:06.800 --> 07:10.310
+And we pass in the thing that this function was called.
+
+07:10.310 --> 07:16.520
+With what comes back, we again create a bytes IO object to represent those bytes.
+
+07:16.520 --> 07:25.330
+And then we use this to this audio segment, uh creating it from a file and the audio stream and get
+
+07:25.330 --> 07:27.250
+it to play that audio.
+
+07:27.250 --> 07:31.180
+So let's create that function and then let's say talker.
+
+07:33.070 --> 07:35.470
+Well hi there.
+
+07:40.150 --> 07:41.110
+Well hi there.
+
+07:42.430 --> 07:43.240
+There we go.
+
+07:43.270 --> 07:44.500
+As simple as that.
+
+07:44.830 --> 07:47.410
+Uh, let's see how another voice sounds.
+
+07:47.410 --> 07:50.320
+Let's see how alloy sounds.
+
+07:50.470 --> 07:52.270
+Let's put alloy in there.
+
+07:55.000 --> 07:55.930
+Well hi there.
+
+07:56.860 --> 07:58.630
+And that was alloy.
+
+07:58.660 --> 08:01.180
+I think we'll stick with onyx.
+
+08:01.180 --> 08:03.070
+But you can try either.
+
+08:03.070 --> 08:09.580
+And you can also put in some more there that you can experiment with and pick your favorite.
+
+08:09.910 --> 08:10.810
+All right.
+
+08:10.810 --> 08:13.510
+Well that's what we'll go with.
+
+08:14.710 --> 08:20.920
+Uh and now let's talk about the agent framework.
+
+08:20.950 --> 08:23.650
+I think we will break for the next video.
+
+08:23.650 --> 08:26.200
+And that's where we'll take on our full agent framework.
+
+08:26.230 --> 08:27.280
+See you then.
