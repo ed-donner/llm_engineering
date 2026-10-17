@@ -1,0 +1,38 @@
+schemaVersion: "1"
+kind: sandbox
+
+name: pi
+displayName: Pi
+description: "Minimal terminal coding agent with extensible tools, skills, and TUI"
+
+sandbox:
+  image: "docker/sandbox-templates:shell-docker"
+  aiFilename: AGENTS.md
+  entrypoint:
+    run: [pi]
+
+network:
+  serviceDomains:
+    openrouter.ai: openrouter
+  serviceAuth:
+    openrouter:
+      headerName: Authorization
+      valueFormat: "Bearer %s"
+  allowedDomains:
+    - registry.npmjs.org
+
+credentials:
+  sources:
+    openrouter:
+      env:
+        - OPENROUTER_API_KEY
+
+environment:
+  proxyManaged:
+    - OPENROUTER_API_KEY
+
+commands:
+  install:
+    - command: "npm config set proxy $HTTP_PROXY && npm config set https-proxy $HTTP_PROXY && i=0; while [ $i -lt 5 ]; do npm install -g --maxsockets=1 --fetch-timeout=600000 @earendil-works/pi-coding-agent && break; i=$((i+1)); echo \"Retrying ($i/5)...\"; done"
+      user: "1000"
+      description: "Configure npm proxy and install pi coding agent globally (with retries)"
