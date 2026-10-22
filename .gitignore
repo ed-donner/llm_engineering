@@ -213,3 +213,7 @@ week6/*/*.jsonl
 week6/*.pth
 week6/*.joblib
 week8/*.pth
+
+# Editor swap files, which can hold a copy of .env
+*.swp
+*.swo

@@ -142,7 +142,10 @@ def explore_search(query, top_k):
             if file_type == "python" or (file_type == "notebook" and meta.get("cell_type") == "code"):
                 md_output += f"```python\n{content}\n```\n\n"
             else:
-                md_output += f"> {content.replace('\n', '\n> ')}\n\n"
+                # Build the blockquote separately: a backslash inside an f-string
+                # expression is only legal on Python 3.12+, and this repo supports 3.11.
+                quoted = content.replace("\n", "\n> ")
+                md_output += f"> {quoted}\n\n"
             md_output += "---\n\n"
             
         return md_output
