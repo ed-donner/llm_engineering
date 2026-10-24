@@ -15,7 +15,7 @@ By Emmanuel Wachira ([wachira7](https://github.com/wachira7)).
 
 ## Results
 
-Average absolute error on the same 200 test wines (median price \$33).
+Average absolute error on the same 200 test wines (median price \$28).
 
 | Model | Error |
 |---|---|
@@ -33,6 +33,21 @@ Average absolute error on the same 200 test wines (median price \$33).
 | GPT-5.1 with RAG | \$8.87 |
 | Claude Sonnet 5 with RAG | \$8.25 |
 | **Ensemble** (0.8 RAG, 0.1 fine-tuned, 0.1 neural network) | **\$7.96** |
+
+## Serving cost and latency
+
+Measured on the deployed system in `week8_serving_costs.ipynb`:
+
+| Measure | Result |
+|---|---|
+| Modal cold start (T4, load the 4-bit model and adapter) | 120 s |
+| Warm call to the fine-tuned model | 1.3 s |
+| One ensemble estimate: models called in turn / in parallel | 2.9 s / 1.7 s |
+| Claude Sonnet 5 with RAG, per estimate | \$0.0024 |
+| T4 time per hourly scan of 5 deals (scale to zero) | 246 s, busy 3% of it |
+| Ensemble error with / without the fine-tuned model | \$7.89 / \$7.96 |
+
+Inside the ensemble, the fine-tuned model's contribution is within the noise, while it brings all of the GPU time and the 2-minute cold start. For the hourly scan it could be left out (`EnsembleAgent(client, use_specialist=False)`). On its own it is still the best model with no API bill (\$9.82).
 
 ## The agent system
 
@@ -68,7 +83,7 @@ MessagingAgent -> Telegram bot
 |---|---|
 | 6 | `day1` to `day4` notebooks, `pricer/` |
 | 7 | `week7_day2.ipynb` (prompts, local), `week7_colab_1` to `3` (base model, training, evaluation; run on Colab) |
-| 8 | `week8_day1` to `day5`, `week8_day4_langgraph.ipynb`, `agents/`, `pricer_service.py`, `deal_agent_framework.py`, `pour_is_right.py` |
+| 8 | `week8_day1` to `day5`, `week8_day4_langgraph.ipynb`, `week8_serving_costs.ipynb`, `agents/`, `pricer_service.py`, `deal_agent_framework.py`, `pour_is_right.py` |
 
 ## Running it
 
