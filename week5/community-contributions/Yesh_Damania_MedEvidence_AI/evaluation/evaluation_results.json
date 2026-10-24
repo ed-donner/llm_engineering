@@ -1,0 +1,27 @@
+{
+    "retrieval": {
+        "hit_rate_5": 1.0,
+        "mrr_5": 0.9,
+        "ndcg_5": 0.9261859507142916,
+        "questions_evaluated": 5
+    },
+    "answer_quality": {
+        "accuracy": 5,
+        "completeness": 5,
+        "relevance": 5,
+        "questions_evaluated": 1
+    },
+    "retrieval_comparison": {
+        "semantic_search": {
+            "hit_rate_5": 1.0,
+            "mrr_5": 0.9,
+            "ndcg_5": 0.9262
+        },
+        "llm_reranking": {
+            "hit_rate_5": 1.0,
+            "mrr_5": 1.0,
+            "ndcg_5": 1.0
+        },
+        "questions_evaluated": 5
+    }
+}
