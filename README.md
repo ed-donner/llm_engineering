@@ -38,7 +38,7 @@ https://edwarddonner.com/avatar/
 ### Important note: see my warning about Llama3.3 below - it's too large for home computers! Stick with llama3.2 - several students have missed this warning...
 
 We will start the course by installing Ollama so you can see results immediately!
-1. Download and install Ollama from https://ollama.com noting that on a PC you might need to have administrator permissions for the install to work properly
+1. Download and install Ollama from https://ollama.com noting that on a PC you might need to have administrator permissions for the install to work properly. On a Mac, the current release of Ollama requires MacOS 14.0 or later; for older Macs please check the [Ollama releases](https://github.com/ollama/ollama/releases) page for a version compatible with your Mac.
 2. On a PC, start a Command prompt / Powershell (Press Win + R, type `cmd`, and press Enter). On a Mac, start a Terminal (Applications > Utilities > Terminal).
 3. Run `ollama run llama3.2` or for smaller machines try `ollama run llama3.2:1b` - **please note** steer clear of Meta's latest model llama3.3 because at 70B parameters that's way too large for most home computers!  
 4. If this doesn't work: you may need to run `ollama serve` in another Powershell (Windows) or Terminal (Mac), and try step 3 again. On a PC, you may need to be running in an Admin instance of Powershell.  
@@ -90,8 +90,8 @@ The colab links are in the folders for Week 3 and Week 7 - if you open up the la
 You can keep your API spend very low throughout this course; you can monitor spend at the dashboards: [here](https://platform.openai.com/usage) for OpenAI, [here](https://console.anthropic.com/settings/cost) for Anthropic.
 
 The charges for the exercises in this course should always be quite low, but if you'd prefer to keep them minimal, then be sure to always choose the cheapest versions of models:
-1. For OpenAI: Always use model `gpt-4.1-nano` in the code
-2. For Anthropic: Always use model `claude-3-haiku-20240307` in the code instead of the other Claude models
+1. For OpenAI: Always use model `gpt-6-luna` in the code
+2. For Anthropic: Always use model `claude-haiku-5-5` in the code instead of the other Claude models
 3. During week 7, look out for my instructions for using the cheaper dataset
 
 Please do message me or email me at ed@edwarddonner.com if this doesn't work or if I can help with anything. I can't wait to hear how you get on.

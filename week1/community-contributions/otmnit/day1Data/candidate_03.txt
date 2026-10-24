@@ -1,0 +1,45 @@
+CURRICULUM VITAE
+
+Name: Daniel Rossi
+Location: Vancouver, BC, Canada
+Email: daniel.rossi@example.com
+Phone: +1 604-555-0119
+
+PROFESSIONAL SUMMARY
+Backend Software Engineer with 7 years of experience, including more than 5 years working extensively with Python. Specialized in scalable APIs, cloud applications, automation, and distributed backend systems. Strong background in FastAPI, Django, PostgreSQL, AWS, Terraform, and observability.
+
+EXPERIENCE
+
+Backend Software Engineer — CloudPeak
+Vancouver, BC | 2021–Present
+- Designed and implemented Python/FastAPI services for a SaaS platform.
+- Developed authentication, authorization, and API integrations.
+- Improved system reliability through structured logging, metrics, and automated testing.
+- Built AWS infrastructure using Terraform and Docker.
+- Mentored junior developers and reviewed Python code.
+- Investigated performance bottlenecks and production incidents.
+
+Software Engineer — Vertex Labs
+Vancouver, BC | 2019–2021
+- Developed Django applications and REST APIs in Python.
+- Implemented background processing with Celery and Redis.
+- Designed PostgreSQL database structures and optimized queries.
+- Automated operational workflows with Python scripts.
+- Maintained Linux-based development and production environments.
+
+Junior Developer — BrightCode
+Vancouver, BC | 2017–2019
+- Developed Python automation scripts and internal tools.
+- Added features to existing Django applications.
+- Created unit tests and assisted with debugging production issues.
+
+EDUCATION
+B.Sc. Computer Science — University of British Columbia, 2017
+
+TECHNICAL SKILLS
+Python, FastAPI, Django, Flask, PostgreSQL, Redis, Celery, REST APIs, AWS, Docker, Terraform, Linux, Git, pytest, SQL, CI/CD, Kubernetes
+
+LANGUAGES
+English: Fluent
+Italian: Fluent
+French: Basic
