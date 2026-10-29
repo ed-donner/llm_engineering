@@ -22,8 +22,9 @@ class TokenPredictor:
         """
         response = self.client.chat.completions.create(
             model=self.model_name,
+            reasoning_effort="none",
             messages=[{"role": "user", "content": prompt}],
-            max_tokens=max_tokens,
+            max_completion_tokens=max_tokens,
             temperature=0,  # Use temperature 0 for deterministic output
             logprobs=True,
             seed=42,
@@ -99,6 +100,7 @@ def create_token_graph(model_name: str, predictions: List[Dict]) -> nx.DiGraph:
             G.add_edge(parent_token, alt_id)
             last_id = parent_token
 
+    last_id = f"t{len(predictions) - 1}" if predictions else "START"
     G.add_node("END", token="END", prob="100%", color="red", size=6000)
     G.add_edge(last_id, "END")
 

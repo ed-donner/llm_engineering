@@ -1,0 +1,17 @@
+[project]
+name = "ponderinva-flight-cancellations"
+version = "0.1.0"
+description = "FlightAware cancellation table extraction and summary notebook"
+requires-python = ">=3.12"
+dependencies = [
+    "ipykernel",
+    "ipython",
+    "lxml",
+    "openai",
+    "pandas",
+    "playwright",
+    "python-dotenv",
+]
+
+[tool.uv]
+package = false
