@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1120" height="510" viewBox="0 0 1120 510" role="img" aria-label="MedEvidence AI architecture: PubMed ingestion to ChromaDB, semantic retrieval, optional reranking, context assembly, LLM response and source metadata">
+<rect width="1120" height="510" fill="#ffffff"/>
+<style>text{font-family:Arial,Helvetica,sans-serif;fill:#252238}.title{font-size:22px;font-weight:700}.sub{font-size:14px;fill:#655e76}.label{font-size:15px;font-weight:600}.detail{font-size:12px;fill:#655e76}.node{fill:#faf9fd;stroke:#d8d1e6;stroke-width:1.5}.emph{fill:#f0eafd;stroke:#a58bcf;stroke-width:1.6}.line{stroke:#8b80a5;stroke-width:2;fill:none}.small{font-size:12px;fill:#756b88}</style>
+<text x="42" y="46" class="title">System architecture</text><text x="42" y="72" class="sub">Retrieval-augmented medical literature exploration · current prototype</text>
+<rect class="node" x="44" y="125" width="194" height="84" rx="9"/><text x="141" y="158" text-anchor="middle" class="label">PubMed API</text><text x="141" y="181" text-anchor="middle" class="detail">50 research articles</text>
+<path class="line" d="M238 167 H281"/><path d="M281 167 l-8 -5 v10 z" fill="#8b80a5"/>
+<rect class="node" x="283" y="125" width="194" height="84" rx="9"/><text x="380" y="157" text-anchor="middle" class="label">Chunk &amp; embed</text><text x="380" y="180" text-anchor="middle" class="detail">162 chunks · 1,536 dimensions</text>
+<path class="line" d="M477 167 H520"/><path d="M520 167 l-8 -5 v10 z" fill="#8b80a5"/>
+<rect class="emph" x="522" y="125" width="194" height="84" rx="9"/><text x="619" y="157" text-anchor="middle" class="label">ChromaDB</text><text x="619" y="180" text-anchor="middle" class="detail">Local vector index</text>
+<path class="line" d="M619 209 V257"/><path d="M619 257 l-5 -8 h10 z" fill="#8b80a5"/>
+<rect class="node" x="44" y="274" width="194" height="84" rx="9"/><text x="141" y="306" text-anchor="middle" class="label">Research question</text><text x="141" y="329" text-anchor="middle" class="detail">Gradio application</text>
+<path class="line" d="M238 316 H281"/><path d="M281 316 l-8 -5 v10 z" fill="#8b80a5"/>
+<rect class="emph" x="283" y="274" width="194" height="84" rx="9"/><text x="380" y="306" text-anchor="middle" class="label">Semantic retrieval</text><text x="380" y="329" text-anchor="middle" class="detail">8 candidate chunks</text>
+<path class="line" d="M477 316 H520"/><path d="M520 316 l-8 -5 v10 z" fill="#8b80a5"/>
+<rect class="emph" x="522" y="274" width="194" height="84" rx="9"/><text x="619" y="306" text-anchor="middle" class="label">LLM reranking</text><text x="619" y="329" text-anchor="middle" class="detail">Top 5 selected chunks</text>
+<path class="line" d="M716 316 H759"/><path d="M759 316 l-8 -5 v10 z" fill="#8b80a5"/>
+<rect class="node" x="761" y="274" width="150" height="84" rx="9"/><text x="836" y="306" text-anchor="middle" class="label">Context + LLM</text><text x="836" y="329" text-anchor="middle" class="detail">Grounded generation</text>
+<path class="line" d="M911 316 H954"/><path d="M954 316 l-8 -5 v10 z" fill="#8b80a5"/>
+<rect class="emph" x="956" y="274" width="124" height="84" rx="9"/><text x="1018" y="305" text-anchor="middle" class="label">Answer</text><text x="1018" y="326" text-anchor="middle" class="detail">+ PubMed</text><text x="1018" y="341" text-anchor="middle" class="detail">references</text>
+<path class="line" d="M619 257 V232 H380 V274" stroke-dasharray="5 5"/><text x="499" y="243" class="small">vector search</text>
+<text x="44" y="423" class="sub">Semantic-search mode bypasses the reranker; the comparison evaluates both retrieval strategies.</text>
+<rect x="44" y="449" width="1036" height="1" fill="#e7e2ee"/><text x="44" y="476" class="small">Design note: schematic of implemented components, not a production infrastructure or clinical workflow diagram.</text>
+</svg>
