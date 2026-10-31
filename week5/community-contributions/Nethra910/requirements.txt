@@ -1,0 +1,24 @@
+# LangChain
+langchain
+langchain-community
+langchain-core
+langchain-huggingface
+langchain-chroma
+
+# PDF loading
+pypdf
+
+# Vector database
+chromadb
+
+# Embeddings
+sentence-transformers
+
+# LLM
+langchain-groq
+
+# Environment variables
+python-dotenv
+
+# UI
+gradio
