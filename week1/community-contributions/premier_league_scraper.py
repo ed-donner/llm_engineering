@@ -69,7 +69,7 @@ Provide responses in prettified visual format with the logos of the teams. Make 
 
 user_prompt = """
     Here is the Premier League website. Look out for the latest Premier League table and summarize. 
-    Highlight Cheslea's position and tell me about the next upcoming game for Chelsea.
+    Highlight Cheslea's position and tell me about the next upcoming game for Chelsea. Make sure there are no mistakes in the formatting of the table and that the output is clean.
 """
 
 premier_league = fetch_website_contents("https://www.premierleague.com/en/tables/premier-league/2026-27")
