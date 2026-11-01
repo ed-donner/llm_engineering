@@ -67,8 +67,9 @@ Visit https://cursor.com
 
 Click Download for Windows. Then run the installer. Accept and pick defaults for everything..
 
-Then go to Start menu, enter cursor. Cursor will come up, and you might need to answer questions. Then you should see the 'new window' screen where you can click "Open Project". If not, go to File menu >> New Window. Then click "Open Project". **IMPORTANT NOTE:** Recent versions of Cursor open with a new "Agents" screen instead of the normal window. To open a New Window, press Ctrl+Shift+N (Windows PC) or Cmd+Shift+N (Mac) and the click "Open Project".
+Then go to Start menu, enter cursor. Cursor will come up, and you might need to answer questions. Then you should see the 'new window' screen where you can click "Open Project". If not, go to File menu >> New Window. Then click "Open Project".
 
+[IMPORTANT: Does your Cursor look different to mine? Solution here (bypass new splash screen)](https://edwarddonner.com/avatar?q=54)  
 
 Find your llm_engineering directory within your projects directory. Double click on llm_engineering so you're looking at the contents of llm_engineering. Then click Open or Open Folder.
 
@@ -108,6 +109,8 @@ Visit https://cursor.com
 Click Download for Mac OS. Or Linux. Then run the installer. Accept and pick defaults for everything..
 
 Then go to Start menu, enter cursor. Cursor will come up, and you might need to answer questions. Then you should see the 'new window' screen where you can click "Open Project". If not, go to File menu >> New Window. Then click "Open Project".
+
+[IMPORTANT: Does your Cursor look different to mine? Solution here (bypass new splash screen)](https://edwarddonner.com/avatar?q=54)  
 
 Find your llm_engineering directory within your projects directory. Double click on llm_engineering so you're looking at the contents of llm_engineering. Then click Open.
 

@@ -1,0 +1,30 @@
+# Byte-compiled / cache files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Distribution / packaging
+*.egg-info/
+build/
+dist/
+
+# Environment variables
+.env
+.env.*
+
+# Virtual environments (project uses the shared week1/llm_engineering .venv)
+.venv/
+venv/
+env/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Editors / IDEs
+.vscode/
+.idea/
+*.swp
+
+# OS files
+.DS_Store
+Thumbs.db

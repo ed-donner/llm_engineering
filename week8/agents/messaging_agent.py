@@ -10,7 +10,7 @@ pushover_url = "https://api.pushover.net/1/messages.json"
 class MessagingAgent(Agent):
     name = "Messaging Agent"
     color = Agent.WHITE
-    MODEL = "claude-sonnet-4-5"
+    MODEL = "anthropic/claude-haiku-5-5"
 
     def __init__(self):
         """

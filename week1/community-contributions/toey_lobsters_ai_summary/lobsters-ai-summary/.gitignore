@@ -1,0 +1,20 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Environment variables (keep secrets out of git)
+.env
+
+# Generated output
+lobsters_summary.md
+
+# OS / editor
+.DS_Store
+.vscode/
+.idea/

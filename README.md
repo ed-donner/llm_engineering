@@ -2,13 +2,22 @@
 
 ## Your 8 week journey to proficiency starts today
 
-![Voyage](assets/voyage.jpg)
+![Voyage](assets/core.jpg)
 
 _If you're looking at this in Cursor, please right click on the filename in the Explorer on the left, and select "Open preview", to view the formatted version._
 
 I'm so happy you're joining me on this path. We'll be building immensely satisfying projects in the coming weeks. Some will be easy, some will be challenging, many will ASTOUND you! The projects build on each other so you develop deeper and deeper expertise each week. One thing's for sure: you're going to have a lot of fun along the way.
 
 Any questions, please ask me on Udemy or at ed@edwarddonner.com. More details at the top of the course resources [here](https://edwarddonner.com/2024/11/13/llm-engineering-resources/).
+
+### Answers to the most common questions
+
+[My Cursor looks different to yours (new splash screen)](https://edwarddonner.com/avatar?q=54)  
+[Can I use Gemini or free models instead of OpenAI Yes!](https://edwarddonner.com/avatar?q=8)  
+[Where are the course resources](https://edwarddonner.com/2024/11/13/llm-engineering-resources/)   
+[How does this course fit in with your others?](https://edwarddonner.com/curriculum)  
+[Can I take this course with no programming background?](https://edwarddonner.com/avatar?q=2)  
+[What job can I get after taking this course?](https://edwarddonner.com/avatar?q=3)  
 
 ### Before you begin
 
@@ -29,7 +38,7 @@ https://edwarddonner.com/avatar/
 ### Important note: see my warning about Llama3.3 below - it's too large for home computers! Stick with llama3.2 - several students have missed this warning...
 
 We will start the course by installing Ollama so you can see results immediately!
-1. Download and install Ollama from https://ollama.com noting that on a PC you might need to have administrator permissions for the install to work properly
+1. Download and install Ollama from https://ollama.com noting that on a PC you might need to have administrator permissions for the install to work properly. On a Mac, the current release of Ollama requires MacOS 14.0 or later; for older Macs please check the [Ollama releases](https://github.com/ollama/ollama/releases) page for a version compatible with your Mac.
 2. On a PC, start a Command prompt / Powershell (Press Win + R, type `cmd`, and press Enter). On a Mac, start a Terminal (Applications > Utilities > Terminal).
 3. Run `ollama run llama3.2` or for smaller machines try `ollama run llama3.2:1b` - **please note** steer clear of Meta's latest model llama3.3 because at 70B parameters that's way too large for most home computers!  
 4. If this doesn't work: you may need to run `ollama serve` in another Powershell (Windows) or Terminal (Mac), and try step 3 again. On a PC, you may need to be running in an Admin instance of Powershell.  
@@ -80,9 +89,9 @@ The colab links are in the folders for Week 3 and Week 7 - if you open up the la
 
 You can keep your API spend very low throughout this course; you can monitor spend at the dashboards: [here](https://platform.openai.com/usage) for OpenAI, [here](https://console.anthropic.com/settings/cost) for Anthropic.
 
-The charges for the exercsies in this course should always be quite low, but if you'd prefer to keep them minimal, then be sure to always choose the cheapest versions of models:
-1. For OpenAI: Always use model `gpt-4.1-nano` in the code
-2. For Anthropic: Always use model `claude-3-haiku-20240307` in the code instead of the other Claude models
+The charges for the exercises in this course should always be quite low, but if you'd prefer to keep them minimal, then be sure to always choose the cheapest versions of models:
+1. For OpenAI: Always use model `gpt-6-luna` in the code
+2. For Anthropic: Always use model `claude-haiku-5-5` in the code instead of the other Claude models
 3. During week 7, look out for my instructions for using the cheaper dataset
 
 Please do message me or email me at ed@edwarddonner.com if this doesn't work or if I can help with anything. I can't wait to hear how you get on.
