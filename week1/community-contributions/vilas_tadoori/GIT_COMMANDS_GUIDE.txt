@@ -1,0 +1,196 @@
+================================================================================
+LLM Engineering — Git Commands Guide (Vilas Tadoori)
+================================================================================
+Project folder (always run git/uv from here unless noted):
+  /Users/vilastadoori/LLMEngineering/projects/llm_engineering
+
+Your personal solutions folder:
+  week1/community-contributions/vilas_tadoori/
+
+Your GitHub fork:
+  https://github.com/vilastadoori77/llm_engineering
+
+Course (upstream) repo:
+  https://github.com/ed-donner/llm_engineering
+
+Pull requests submitted:
+  Day 1: https://github.com/ed-donner/llm_engineering/pull/3975
+  Day 2: https://github.com/ed-donner/llm_engineering/pull/4045
+
+Branches used:
+  vilas/lab1-solution  — Day 1 PR only
+  vilas/solutions      — ongoing branch for later labs (Day 2+)
+
+================================================================================
+PART A — ONE-TIME SETUP (clone and open the project)
+================================================================================
+
+# Clone YOUR fork (not Ed’s repo directly)
+git clone https://github.com/vilastadoori77/llm_engineering.git
+cd llm_engineering
+
+# Check remotes and current branch
+git remote -v
+git branch
+git status
+
+# Optional: add Ed’s repo as upstream (to pull course updates later)
+git remote add upstream https://github.com/ed-donner/llm_engineering.git
+git fetch upstream
+
+# If uv is "command not found" in a terminal, fix PATH for that session:
+export PATH="$HOME/.local/bin:$PATH"
+uv --version
+
+# Or call uv by full path:
+# ~/.local/bin/uv --version
+
+================================================================================
+PART B — DAY 1 (what we did)
+================================================================================
+
+# 1) Check state
+git status
+git branch
+git log --oneline -3
+
+# 2) Create branch and move work into community-contributions
+git switch -c vilas/lab1-solution
+mkdir -p week1/community-contributions/vilas_tadoori
+cp week1/day1.ipynb week1/community-contributions/vilas_tadoori/day1.ipynb
+
+# Put course files back to original (do NOT PR course file edits)
+git checkout origin/main -- week1/day1.ipynb uv.lock
+
+# 3) Stage and commit (we used --amend after fixing an earlier bad commit)
+git add week1/community-contributions/vilas_tadoori
+git commit --amend -m "Add Vilas's lab 1 solution"
+
+# 4) Push to your fork
+git push -u origin vilas/lab1-solution
+
+# If push is rejected after amend (non-fast-forward), use:
+git push --force-with-lease -u origin vilas/lab1-solution
+
+# 5) Clear notebook outputs (required for course PRs)
+export PATH="$HOME/.local/bin:$PATH"
+uv run --with nbconvert jupyter nbconvert --clear-output --inplace week1/community-contributions/vilas_tadoori/day1.ipynb
+
+git add week1/community-contributions/vilas_tadoori/day1.ipynb
+git commit -m "Clear notebook outputs"
+git push
+
+# 6) Open Pull Request on GitHub
+#    Base repository: ed-donner/llm_engineering
+#    Base branch: main
+#    Compare branch: vilas/lab1-solution (from your fork)
+#    Result: PR #3975
+
+# 7) Clean up local main after PR
+git restore uv.lock
+git switch main
+git reset --hard origin/main
+
+================================================================================
+PART C — ONE SHARED BRANCH FOR ALL LATER LABS
+================================================================================
+
+# You preferred NOT creating a new branch per lab.
+git switch main
+git switch -c vilas/solutions
+git push -u origin vilas/solutions
+
+# Optional: copy day1 onto this branch for local reference
+git checkout vilas/lab1-solution -- week1/community-contributions/vilas_tadoori/day1.ipynb
+
+================================================================================
+PART D — DAY 2 (what we did)
+================================================================================
+
+# Always start in project root
+cd /Users/vilastadoori/LLMEngineering/projects/llm_engineering
+pwd
+# Expected:
+# /Users/vilastadoori/LLMEngineering/projects/llm_engineering
+
+git switch vilas/solutions
+
+# Copy course notebook into YOUR folder and work there
+cp week1/day2.ipynb week1/community-contributions/vilas_tadoori/day2.ipynb
+# (If you edited week1/day2.ipynb by mistake, copy THAT finished file into vilas_tadoori)
+
+# Clear outputs
+export PATH="$HOME/.local/bin:$PATH"
+uv run --with nbconvert jupyter nbconvert --clear-output --inplace week1/community-contributions/vilas_tadoori/day2.ipynb
+
+# Restore course files; commit ONLY day2 (day1 already in PR #3975)
+git restore week1/day2.ipynb uv.lock
+git restore --staged week1/community-contributions/vilas_tadoori/day1.ipynb
+git add week1/community-contributions/vilas_tadoori/day2.ipynb
+git status
+git commit -m "Add Vilas's day 2 solution"
+git push
+
+# Open Pull Request on GitHub
+#    Base: ed-donner/llm_engineering / main
+#    Compare: vilas/solutions
+#    Result: PR #4045
+
+================================================================================
+PART E — RECIPE FOR FUTURE LABS (on vilas/solutions)
+================================================================================
+
+cd /Users/vilastadoori/LLMEngineering/projects/llm_engineering
+git switch vilas/solutions
+
+# Replace dayN with the real day number / filename
+cp week1/dayN.ipynb week1/community-contributions/vilas_tadoori/dayN.ipynb
+# ... do the lab in YOUR copy only ...
+
+export PATH="$HOME/.local/bin:$PATH"
+uv run --with nbconvert jupyter nbconvert --clear-output --inplace week1/community-contributions/vilas_tadoori/dayN.ipynb
+
+git restore week1/dayN.ipynb uv.lock
+git add week1/community-contributions/vilas_tadoori/dayN.ipynb
+git commit -m "Add Vilas's day N solution"
+git push
+
+# Then on GitHub: Compare & pull request
+# Base must be ed-donner/llm_engineering / main
+
+================================================================================
+COMMAND CHEAT SHEET
+================================================================================
+
+git clone <url>              Download a repo to your Mac
+git status                   See changed / staged files
+git branch                   List branches (* = current)
+git switch -c name           Create and switch to a new branch
+git switch name              Switch to an existing branch
+git add <path>               Stage specific files (prefer this over git add .)
+git commit -m "message"      Save a local snapshot
+git push -u origin branch    First push of a branch to your fork
+git push                     Later pushes (after -u)
+git restore <file>           Discard local edits to a file
+git restore --staged <file>  Unstage a file but keep the file on disk
+git reset --hard origin/main Make local main match GitHub main
+git checkout branch -- file  Copy a file from another branch
+git log --oneline -3         Show recent commits
+pwd                          Show current terminal folder
+export PATH="$HOME/.local/bin:$PATH"
+                             Fix "uv: command not found" in that terminal
+
+IMPORTANT RULES FOR THIS COURSE
+--------------------------------------------------------------------------------
+1. Put your work under community-contributions/vilas_tadoori/ only.
+2. Do not commit changes to the course notebooks (week1/day1.ipynb, etc.).
+3. Clear notebook outputs before committing.
+4. Prefer: git add week1/community-contributions/vilas_tadoori/...
+   Avoid: git add .   (can accidentally include uv.lock)
+5. If uv.lock is modified, ignore it or: git restore uv.lock
+6. PR base must be ed-donner/llm_engineering / main.
+7. Do not click "Close pull request" unless you intend to withdraw it.
+
+================================================================================
+End of guide
+================================================================================
