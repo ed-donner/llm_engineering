@@ -1,0 +1,11 @@
+batches/
+output/
+batches.pkl
+.env
+wines_lite_backup.jsonl
+*.pth
+human_in.csv
+human_out.csv
+jsonl/
+wines_vectorstore/
+memory.json
