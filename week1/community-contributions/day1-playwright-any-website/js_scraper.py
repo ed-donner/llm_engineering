@@ -228,7 +228,7 @@ def fetch_page(url, mode="auto", verbose=False):
     """
     Fetch a page and return a Page.
     mode="auto": static first, headless browser only if needed (default)
-    mode="static": same behaviour as scraper.py (no browser)
+    mode="static": requests only, no browser (stricter cleaning than scraper.py; raises on HTTP errors)
     mode="browser": always render with the headless browser
     """
     if mode not in {"auto", "static", "browser"}:
@@ -272,7 +272,7 @@ def fetch_page(url, mode="auto", verbose=False):
     deep_text = _dedupe_lines(deep_text)
     if len(deep_text) > 2 * max(len(text), 1):
         text = deep_text
-        notes.append("used shadow-DOM text (web components)")
+        notes.append("used full DOM text including shadow DOM; cleaned text was much shorter")
     page = Page(final_url, title, description, text, links, "browser", notes)
     if static_page is not None and len(static_page.text) > len(page.text):
         page = static_page  # rendering did not add anything
