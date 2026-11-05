@@ -26,7 +26,7 @@ dependencies = [
     "modal>=1.1.4",
     "numpy>=2.3.3",
     "ollama>=0.6.0",
-    "openai>=1.109.1",
+    "openai>=2.8.0",
     "pandas>=2.3.3",
     "plotly>=6.3.0",
     "protobuf==3.20.2",
