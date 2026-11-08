@@ -1,9 +1,0 @@
-fastapi
-uvicorn
-pydantic
-python-dotenv
-httpx
-openai
-dotenv
-bs4
-requests

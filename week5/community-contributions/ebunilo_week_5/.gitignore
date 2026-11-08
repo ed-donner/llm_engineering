@@ -1,6 +1,0 @@
-.env
-.venv
-vector_db
-knowledge-base
-preprocessed_db
-__pycache__
