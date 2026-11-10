@@ -1,0 +1,36 @@
+CURRICULUM VITAE
+
+Name: Alex Martin
+Location: Montreal, QC, Canada
+Email: alex.martin@example.com
+Phone: +1 514-555-0142
+
+PROFESSIONAL SUMMARY
+Software Engineer with 5 years of experience building backend services and automation tools with Python. Strong experience with FastAPI, Django, PostgreSQL, Docker, REST APIs, and AWS. Comfortable working in Agile teams and maintaining production systems.
+
+EXPERIENCE
+
+Senior Software Engineer — Northstar Technologies
+Montreal, QC | 2023–Present
+- Developed Python/FastAPI microservices supporting internal and customer-facing applications.
+- Designed REST APIs and PostgreSQL data models.
+- Containerized services with Docker and improved CI/CD pipelines using GitHub Actions.
+- Added automated unit and integration testing with pytest.
+- Participated in code reviews, architecture discussions, and production troubleshooting.
+
+Software Engineer — DataForge
+Montreal, QC | 2021–2023
+- Built Django-based backend applications and internal automation tools.
+- Integrated third-party APIs and asynchronous processing workflows.
+- Improved API response times through database query optimization and caching.
+- Maintained AWS services including EC2, S3, RDS, and CloudWatch.
+
+EDUCATION
+B.Sc. Computer Science — Concordia University, 2021
+
+TECHNICAL SKILLS
+Python, FastAPI, Django, Flask, PostgreSQL, Redis, REST APIs, Docker, Git, GitHub Actions, AWS, Linux, pytest, SQL, asyncio
+
+LANGUAGES
+English: Fluent
+French: Professional
