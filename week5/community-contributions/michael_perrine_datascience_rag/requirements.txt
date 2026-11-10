@@ -1,0 +1,8 @@
+# Runtime dependencies for app.py + rag.py only (ingestion, eval and notebook tools are not needed).
+# Pinned to the versions tested locally on Python 3.12 (uv pip freeze, 2026-11-10).
+streamlit==1.60.0
+langchain-core==1.0.4
+langchain-openai==1.0.2
+supabase==2.33.0
+pydantic==2.11.10
+python-dotenv==1.2.1
