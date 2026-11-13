@@ -1,0 +1,20 @@
+# API keys and environment variables
+.env
+.env.*
+!.env.example
+
+# Python environments
+.venv/
+venv/
+__pycache__/
+*.pyc
+
+# Jupyter temporary files
+.ipynb_checkpoints/
+
+# Local vector database
+chroma_db/
+
+# Temporary files
+.DS_Store
+Thumbs.db

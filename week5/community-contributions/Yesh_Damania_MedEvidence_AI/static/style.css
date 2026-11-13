@@ -1,0 +1,554 @@
+
+/* ============================================
+   MEDEVIDENCE AI 
+   ============================================ */
+
+   :root {
+    --page: #101010;
+    --surface: #242424;
+    --surface-hover: #303030;
+    --border: #383838;
+    --text: #f3f3f3;
+    --muted: #a1a1a1;
+}
+
+/* ---------- PAGE ---------- */
+
+html,
+body,
+.gradio-container {
+    background: var(--page) !important;
+    color: var(--text) !important;
+}
+
+.gradio-container {
+    width: 100% !important;
+    max-width: none !important;
+    min-height: 100vh !important;
+    padding: 28px clamp(20px, 5vw, 90px) !important;
+    box-sizing: border-box !important;
+    font-family: Inter, Arial, sans-serif !important;
+}
+
+/* ---------- HEADER ---------- */
+
+#app-header {
+    padding: 8px 0 26px;
+    border-bottom: 1px solid #303030;
+}
+
+#app-header h2 {
+    color: var(--text);
+    font-size: 26px;
+    font-weight: 650;
+    margin: 0 0 6px;
+}
+
+#app-header p {
+    color: var(--muted);
+    font-size: 15px;
+    margin: 0;
+}
+
+/* ---------- RESEARCH WORKSPACE ---------- */
+
+#research-workspace {
+    width: 100% !important;
+    max-width: 920px !important;
+    margin: 80px auto 50px !important;
+    gap: 22px !important;
+}
+
+#welcome-section {
+    text-align: center;
+    margin-bottom: 32px;
+}
+
+#welcome-section h1 {
+    font-size: clamp(30px, 4vw, 46px);
+    font-weight: 650;
+    line-height: 1.2;
+    letter-spacing: -0.8px;
+    color: var(--text);
+    margin: 0 0 16px;
+}
+
+#welcome-section p {
+    font-size: 17px;
+    line-height: 1.6;
+    color: var(--muted);
+    margin: 0;
+}
+
+/* ============================================
+   SINGLE CHAT COMPOSER
+   ============================================ */
+
+/* The ONLY visible rounded box */
+#research-input {
+    width: 100% !important;
+    min-width: 0 !important;
+    gap: 6px !important;
+
+    padding: 12px 16px !important;
+    margin: 0 !important;
+
+    background: var(--surface) !important;
+    border: 1px solid var(--border) !important;
+    border-radius: 24px !important;
+    box-shadow: none !important;
+}
+
+/* Remove all inner textbox surfaces */
+#research-input #question-input,
+#research-input #question-input > div,
+#research-input #question-input .wrap,
+#research-input #question-input .form,
+#research-input #question-input .input-container,
+#research-input #question-input textarea {
+    background: transparent !important;
+    background-color: transparent !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    outline: none !important;
+}
+
+/* Textbox wrapper */
+#question-input {
+    width: 100% !important;
+    min-height: 0 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+/* Text area */
+#question-input textarea {
+    display: block !important;
+    width: 100% !important;
+
+    min-height: 28px !important;
+    max-height: 180px !important;
+
+    padding: 2px 0 !important;
+    margin: 0 !important;
+
+    color: var(--text) !important;
+    font-size: 16px !important;
+    line-height: 1.5 !important;
+
+    resize: none !important;
+    overflow-y: auto !important;
+    caret-color: #ffffff !important;
+}
+
+#question-input textarea::placeholder {
+    color: var(--muted) !important;
+    opacity: 1 !important;
+}
+
+/* Remove focus borders */
+#question-input:focus-within,
+#question-input textarea:focus,
+#question-input textarea:focus-visible {
+    outline: none !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+/* ---------- BOTTOM TOOLBAR ---------- */
+
+#input-toolbar {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: flex-end !important;
+    flex-wrap: nowrap !important;
+
+    width: 100% !important;
+    min-height: 36px !important;
+    gap: 10px !important;
+
+    padding: 0 !important;
+    margin: 0 !important;
+
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+/* Remove Gradio toolbar backgrounds */
+#input-toolbar > div {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+/* ---------- RETRIEVAL DROPDOWN ---------- */
+
+#retrieval-dropdown {
+    flex: 0 0 190px !important;
+    width: 190px !important;
+    min-width: 190px !important;
+    max-width: 190px !important;
+
+    padding: 0 !important;
+    margin: 0 !important;
+
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+/* Dropdown pill */
+#retrieval-dropdown .wrap,
+#retrieval-dropdown .secondary-wrap,
+#retrieval-dropdown .input-container {
+    background: var(--surface-hover) !important;
+    border: none !important;
+    border-radius: 22px !important;
+    box-shadow: none !important;
+}
+
+/* Dropdown text */
+#retrieval-dropdown input {
+    color: var(--text) !important;
+    font-size: 14px !important;
+
+    padding-left: 14px !important;
+    padding-right: 34px !important;
+
+    text-overflow: ellipsis !important;
+}
+
+/* ---------- SEND BUTTON ---------- */
+
+#send-button {
+    flex: 0 0 36px !important;
+
+    width: 36px !important;
+    min-width: 36px !important;
+    max-width: 36px !important;
+
+    height: 36px !important;
+    min-height: 36px !important;
+    max-height: 36px !important;
+
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+
+    padding: 0 !important;
+    margin: 0 !important;
+
+    background: #f3f3f3 !important;
+    color: #101010 !important;
+
+    border: none !important;
+    border-radius: 50% !important;
+    box-shadow: none !important;
+
+    font-size: 19px !important;
+    font-weight: 500 !important;
+    line-height: 1 !important;
+
+    cursor: pointer !important;
+}
+
+#send-button:hover {
+    background: #d8d8d8 !important;
+}
+
+/* ---------- EXAMPLE QUESTIONS ---------- */
+
+#example-questions {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    flex-wrap: wrap !important;
+
+    gap: 12px !important;
+    margin: 12px auto 0 !important;
+    width: 100% !important;
+}
+
+#example-questions .example-button {
+    flex: 0 1 auto !important;
+    width: auto !important;
+    min-width: 0 !important;
+
+    padding: 10px 18px !important;
+
+    background: #1e1e1e !important;
+    color: #e5e5e5 !important;
+
+    border: 1px solid #363636 !important;
+    border-radius: 999px !important;
+
+    font-size: 14px !important;
+    font-weight: 500 !important;
+
+    white-space: normal !important;
+    box-shadow: none !important;
+}
+
+#example-questions .example-button:hover {
+    background: #303030 !important;
+    border-color: #505050 !important;
+}
+
+/* ============================================
+   RESEARCH RESULTS
+   ============================================ */
+
+#results-section {
+    width: 100% !important;
+    max-width: 1100px !important;
+    margin: 55px auto 70px !important;
+    padding: 0 !important;
+    gap: 18px !important;
+
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+/* ---------- EVIDENCE SUMMARY ---------- */
+
+#answer-heading,
+#sources-heading {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+#answer-heading h3,
+#sources-heading h3 {
+    color: var(--text);
+    font-size: 25px;
+    font-weight: 650;
+    line-height: 1.3;
+    margin: 0;
+}
+
+/* Answer text aligned with heading */
+#answer-output {
+    width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+#answer-output .prose,
+#answer-output p {
+    color: #e5e5e5 !important;
+    font-size: 17px !important;
+    line-height: 1.8 !important;
+    text-align: justify !important;
+    margin: 0 0 18px !important;
+    overflow-wrap: anywhere;
+}
+
+#answer-output ul,
+#answer-output ol {
+    color: #e5e5e5 !important;
+    font-size: 17px !important;
+    line-height: 1.8 !important;
+}
+
+/* ---------- SUPPORTING RESEARCH ---------- */
+
+#sources-header {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    gap: 16px !important;
+    margin-bottom: 10px !important;
+}
+
+#source-count {
+    flex: 0 0 auto !important;
+    width: auto !important;
+    min-width: 0 !important;
+
+    color: var(--muted) !important;
+    font-size: 14px !important;
+    text-align: right !important;
+}
+
+#source-count p {
+    margin: 0 !important;
+}
+
+#results-section a {
+    color: #d8d8d8 !important;
+    text-decoration: none !important;
+}
+
+#results-section a:hover {
+    color: #ffffff !important;
+    text-decoration: underline !important;
+}
+
+/* ---------- FOOTER ---------- */
+
+#app-footer {
+    width: 100%;
+    max-width: 1100px;
+    margin: 60px auto 20px;
+    padding: 24px 0;
+
+    border-top: 1px solid #303030;
+
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.6;
+    text-align: center;
+}
+
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+
+@media (max-width: 768px) {
+
+    .gradio-container {
+        padding: 18px 16px !important;
+    }
+
+    #research-workspace {
+        margin: 45px auto 30px !important;
+    }
+
+    #welcome-section h1 {
+        font-size: 30px;
+    }
+
+    #welcome-section p {
+        font-size: 15px;
+    }
+
+    #research-input {
+        padding: 10px 12px !important;
+        border-radius: 20px !important;
+    }
+
+    #retrieval-dropdown {
+        flex-basis: 165px !important;
+        width: 165px !important;
+        min-width: 165px !important;
+        max-width: 165px !important;
+    }
+
+    #example-questions {
+        gap: 8px !important;
+    }
+
+    #example-questions .example-button {
+        font-size: 13px !important;
+        padding: 9px 12px !important;
+    }
+
+    #results-section {
+        margin-top: 35px !important;
+    }
+
+    #answer-heading h3,
+    #sources-heading h3 {
+        font-size: 22px;
+    }
+
+    #answer-output p {
+        font-size: 16px !important;
+        line-height: 1.7 !important;
+        text-align: left !important;
+    }
+}
+
+/* ============================================
+   SUPPORTING RESEARCH — TYPOGRAPHY UPDATE
+   ============================================ */
+
+/* Remove divider lines between research articles */
+.research-item,
+.research-item:first-child,
+.research-item:last-child {
+    border: none !important;
+    border-bottom: none !important;
+    background: transparent !important;
+    padding: 0 !important;
+    margin: 0 0 32px !important;
+}
+
+/* Match Evidence Summary font size and line spacing */
+.research-title {
+    color: #e5e5e5 !important;
+    font-size: 17px !important;
+    font-weight: 400 !important;
+    line-height: 1.8 !important;
+    letter-spacing: normal !important;
+    margin: 0 0 10px !important;
+    padding: 0 !important;
+}
+
+/* PMID and PubMed link on the same row */
+.research-bottom {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: 16px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    background: transparent !important;
+}
+
+/* PMID text */
+.research-pmid {
+    color: #a1a1a1 !important;
+    font-size: 15px !important;
+    line-height: 1.6 !important;
+}
+
+/* PubMed link */
+#results-section .research-link {
+    color: #e5e5e5 !important;
+    font-size: 15px !important;
+    font-weight: 400 !important;
+    line-height: 1.6 !important;
+    text-decoration: none !important;
+    white-space: nowrap !important;
+}
+
+#results-section .research-link:hover {
+    color: #ffffff !important;
+    text-decoration: underline !important;
+}
+
+/* Remove extra spacing from the sources wrapper */
+#sources-output,
+.research-list {
+    background: transparent !important;
+    border: none !important;
+    padding: 0 !important;
+}
+
+/* Mobile readability */
+@media (max-width: 768px) {
+    .research-title {
+        font-size: 16px !important;
+        line-height: 1.7 !important;
+    }
+
+    .research-item {
+        margin-bottom: 26px !important;
+    }
+
+    .research-pmid,
+    #results-section .research-link {
+        font-size: 14px !important;
+    }
+}
+
