@@ -21,23 +21,22 @@ The dashboard provides two separate actions:
   suite, generation time, token usage, and evaluation results without saving
   over the frozen suite.
 
-From this project folder, install the locked dependencies:
+From this project folder, install the dependencies with Python 3.12 or newer:
 
 ```sh
-rtk proxy uv sync --locked
+uv sync
 ```
 
-`sync` installs the dependencies into the project's `.venv` environment;
-`--locked` uses `uv.lock` and fails if it does not match `pyproject.toml`, rather
-than silently changing it. This includes Gradio 6.30.0, the stable version checked
-on 21 October 2026. The dependency range stays within Gradio 6; the lockfile
-records the exact installed version. This command installs software but does not
-call OpenAI or change the implementation/tests.
+`sync` installs dependencies from `pyproject.toml` into the project's `.venv`
+environment and creates a local `uv.lock`. Keep that generated lockfile out of
+the course contribution. The dependency range stays within Gradio 6; exact
+installed versions can vary. This command installs software but does not call
+OpenAI or change the implementation/tests.
 
 Launch the dashboard from the same folder:
 
 ```sh
-rtk proxy uv run python app.py
+uv run python app.py
 ```
 
 Open the local URL printed in the terminal, normally
@@ -145,8 +144,7 @@ evaluator reports an error instead of silently testing an unchanged implementati
 
 ## Run through uv
 
-Run these commands from this project folder. `rtk proxy` follows the local command
-convention and forwards the command without filtering. `uv run` uses the project's
+Run these commands from this project folder. `uv run` uses the project's
 Python environment; it may install the dependencies listed in `pyproject.toml` if
 they are not present. Gradio is the only new direct dependency for the dashboard;
 the command-line pipeline remains available.
@@ -154,7 +152,7 @@ the command-line pipeline remains available.
 **Generate and evaluate a new suite:**
 
 ```sh
-rtk proxy uv run python benchmark.py --model gpt-6-luna --reasoning-effort low
+uv run python benchmark.py --model gpt-6-luna --reasoning-effort low
 ```
 
 `--model` chooses the OpenAI model and `--reasoning-effort` sets its reasoning
@@ -167,12 +165,12 @@ the returned object; this command does not save over the frozen suite.
 **Evaluate the frozen suite without an API request:**
 
 ```sh
-rtk proxy uv run python benchmark.py --tests test_generated.py
+uv run python benchmark.py --tests test_generated.py
 ```
 
 `--tests` reads an existing suite and bypasses generation. Expect `20 passed` for
 the reference and `5/5 = 100.0%`. The evaluator can also run directly with
-`rtk proxy uv run python evaluate_mutants.py`.
+`uv run python evaluate_mutants.py`.
 
 Both commands accept `--timeout 30`, the time limit in seconds for each pytest
 subprocess. The benchmark additionally accepts `--json`, which prints generated
@@ -183,7 +181,7 @@ Surviving mutants alone do not make the command fail.
 **Run regression and infrastructure checks:**
 
 ```sh
-rtk proxy uv run python -m pytest -q
+uv run python -m pytest -q
 ```
 
 `-m pytest` runs pytest through the project interpreter, and `-q` requests concise
