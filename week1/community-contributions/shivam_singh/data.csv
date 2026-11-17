@@ -1,0 +1,21 @@
+customer_id,name,email,age,city,signup_date,purchase_amount
+1,Aarav Mehta,aarav.mehta@example.com,28,Mumbai,2025-01-12,1200.50
+2,Priya Nair,priya.nair@example.com,34,Pune,2025-01-15,850.00
+3,Rohan Das,rohan.das@example.com,,Kolkata,2025-02-03,430.25
+4,Sneha Iyer,sneha.iyer@example.com,29,Chennai,2025-02-10,
+5,Vikram Singh,,41,Delhi,2025-02-18,2300.00
+2,Priya Nair,priya.nair@example.com,34,Pune,2025-01-15,850.00
+6,Ananya Rao,ananya.rao@example.com,26,,2025-03-01,670.75
+7,Karan Patel,karan.patel@example.com,38,Ahmedabad,,1500.00
+8,Neha Gupta,neha.gupta@example.com,31,Jaipur,2025-03-14,920.40
+9,Arjun Reddy,arjun.reddy@example.com,45,Hyderabad,2025-03-20,3100.00
+5,Vikram Singh,,41,Delhi,2025-02-18,2300.00
+10,Meera Joshi,meera.joshi@example.com,,Nagpur,2025-04-02,
+11,Rahul Verma,rahul.verma@example.com,36,Lucknow,2025-04-09,780.00
+12,Isha Kapoor,isha.kapoor@example.com,27,Chandigarh,2025-04-15,1340.90
+8,Neha Gupta,neha.gupta@example.com,31,Jaipur,2025-03-14,920.40
+13,Sanjay Kumar,sanjay.kumar@example.com,52,Patna,2025-05-01,2050.00
+14,Divya Menon,divya.menon@example.com,30,Kochi,2025-05-06,560.30
+15,Aditya Bose,aditya.bose@example.com,,Kolkata,,
+9,Arjun Reddy ,arjun.reddy@example.com,45,Hyderabad,2025-03-20,3100.00
+16,Pooja Shah,pooja.shah@example.com,33,Surat,2025-05-22,990.00
