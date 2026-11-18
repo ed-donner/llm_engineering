@@ -9,6 +9,7 @@ Works in plain Python scripts and Jupyter notebooks (including on Windows).
 from __future__ import annotations
 
 import asyncio
+import html as html_lib
 import sys
 import threading
 
@@ -33,7 +34,7 @@ CHAR_LIMIT = 2_000
 def _clean_text_from_soup(soup: BeautifulSoup) -> tuple[str, str]:
     title = soup.title.string.strip() if soup.title and soup.title.string else "No title found"
     if soup.body:
-        for irrelevant in soup.body(["script", "style", "img", "input"]):
+        for irrelevant in soup.body(["script", "style", "img", "input", "noscript"]):
             irrelevant.decompose()
         text = soup.body.get_text(separator="\n", strip=True)
     else:
@@ -47,20 +48,58 @@ def _fetch_with_requests(url: str, timeout: int = 15) -> BeautifulSoup:
     return BeautifulSoup(response.content, "html.parser")
 
 
-async def _fetch_with_playwright_async(url: str, timeout_ms: int = 60_000) -> BeautifulSoup:
+async def _dismiss_cookie_banner(page) -> None:
+    """Best-effort click on common cookie consent buttons."""
+    selectors = [
+        'button:has-text("Accept All")',
+        'button:has-text("Accept all")',
+        'button:has-text("Reject All")',
+        'button:has-text("Reject all")',
+        'button:has-text("Agree")',
+        "#onetrust-accept-btn-handler",
+    ]
+    for selector in selectors:
+        try:
+            locator = page.locator(selector)
+            if await locator.count() == 0:
+                continue
+            await locator.first.click(timeout=3000, force=True)
+            await page.wait_for_timeout(2000)
+            return
+        except Exception:
+            continue
+
+
+async def _fetch_with_playwright_async(url: str, timeout_ms: int = 45_000) -> BeautifulSoup:
     async with async_playwright() as playwright:
         browser = await playwright.chromium.launch(headless=True)
         page = await browser.new_page(user_agent=HEADERS["User-Agent"])
         try:
-            await page.goto(url, wait_until="networkidle", timeout=timeout_ms)
+            # Prefer domcontentloaded over networkidle — SPAs often never go idle.
+            await page.goto(url, wait_until="domcontentloaded", timeout=timeout_ms)
+            try:
+                await page.wait_for_load_state("networkidle", timeout=10_000)
+            except Exception:
+                pass
             await page.wait_for_timeout(1500)
-            html = await page.content()
-            return BeautifulSoup(html, "html.parser")
+            await _dismiss_cookie_banner(page)
+            # Prefer visible text after consent dismiss; fall back to raw HTML
+            try:
+                title = await page.title()
+                text = await page.inner_text("body")
+                fake_html = (
+                    f"<html><head><title>{html_lib.escape(title)}</title></head>"
+                    f"<body><pre>{html_lib.escape(text)}</pre></body></html>"
+                )
+                return BeautifulSoup(fake_html, "html.parser")
+            except Exception:
+                raw_html = await page.content()
+                return BeautifulSoup(raw_html, "html.parser")
         finally:
             await browser.close()
 
 
-def _fetch_with_playwright(url: str, timeout_ms: int = 60_000) -> BeautifulSoup:
+def _fetch_with_playwright(url: str, timeout_ms: int = 45_000) -> BeautifulSoup:
     try:
         asyncio.get_running_loop()
         loop_running = True
@@ -70,10 +109,13 @@ def _fetch_with_playwright(url: str, timeout_ms: int = 60_000) -> BeautifulSoup:
     if not loop_running:
         return asyncio.run(_fetch_with_playwright_async(url, timeout_ms))
 
+    # Jupyter already has a running loop — run Playwright in a fresh thread/loop.
     result: dict[str, BeautifulSoup] = {}
     error: dict[str, Exception] = {}
 
     def _runner() -> None:
+        if sys.platform.startswith("win"):
+            asyncio.set_event_loop_policy(asyncio.WindowsProactorEventLoopPolicy())
         try:
             result["soup"] = asyncio.run(_fetch_with_playwright_async(url, timeout_ms))
         except Exception as exc:
@@ -81,10 +123,12 @@ def _fetch_with_playwright(url: str, timeout_ms: int = 60_000) -> BeautifulSoup:
 
     thread = threading.Thread(target=_runner, daemon=True)
     thread.start()
-    thread.join()
+    thread.join(timeout=(timeout_ms / 1000) + 30)
 
     if "exc" in error:
         raise error["exc"]
+    if "soup" not in result:
+        raise TimeoutError(f"Playwright scrape timed out for {url}")
     return result["soup"]
 
 
@@ -95,6 +139,7 @@ def fetch_website_contents(url: str) -> str:
     Truncates to 2,000 characters.
     """
     title, text = "Unable to fetch page", ""
+    last_error: Exception | None = None
 
     try:
         soup = _fetch_with_requests(url)
@@ -102,14 +147,20 @@ def fetch_website_contents(url: str) -> str:
         if len(text) < MIN_TEXT_LENGTH:
             soup = _fetch_with_playwright(url)
             title, text = _clean_text_from_soup(soup)
-    except Exception:
+    except Exception as exc:
+        last_error = exc
         try:
             soup = _fetch_with_playwright(url)
             title, text = _clean_text_from_soup(soup)
-        except Exception:
-            pass
+            last_error = None
+        except Exception as exc2:
+            last_error = exc2
 
-    return (title + "\n\n" + text)[:CHAR_LIMIT]
+    content = (title + "\n\n" + text)[:CHAR_LIMIT]
+    if last_error and len(content.strip()) < MIN_TEXT_LENGTH:
+        # Surface the real failure instead of returning a near-empty title stub.
+        raise RuntimeError(f"Failed to scrape {url}: {last_error}") from last_error
+    return content
 
 
 def fetch_website_links(url: str) -> list[str]:

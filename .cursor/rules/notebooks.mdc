@@ -1,0 +1,14 @@
+---
+description: Conventions for Jupyter notebooks in this course
+globs: "**/*.ipynb"
+alwaysApply: false
+---
+
+# Notebook Conventions
+
+- Run cells top-to-bottom; imports and env loading come first.
+- Reuse course helpers: `fetch_website_contents`, `load_dotenv`, `OpenAI()`.
+- Default models in course: `gpt-4.1-mini`, `gpt-4.1-nano`, `gpt-5-nano`.
+- Use `display(Markdown(...))` for rendered LLM output.
+- Clear outputs before git commit unless the user asks to keep them.
+- Exercise notebooks belong in `community-contributions/slavapa/`, not in core `day*.ipynb` files.

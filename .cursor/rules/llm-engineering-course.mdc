@@ -1,0 +1,53 @@
+---
+description: LLM Engineering course context, git workflow, and exercise conventions
+alwaysApply: true
+---
+
+# LLM Engineering Course
+
+## Repository layout
+
+- **Upstream (course author):** `https://github.com/ed-donner/llm_engineering`
+- **Your fork (origin):** `https://github.com/slavapa/llm_engineering`
+- **Local clone:** this workspace
+
+## Git workflow
+
+1. Keep `origin` pointing at your fork (`slavapa/llm_engineering`).
+2. Add upstream once: `git remote add upstream https://github.com/ed-donner/llm_engineering.git`
+3. Sync course updates: `git fetch upstream && git merge upstream/main` (resolve conflicts in course files only).
+4. Push your work: `git push origin main`.
+5. Optional PR to upstream: put **shareable** solutions in `weekN/community-contributions/slavapa/` only.
+
+## Personal vs shareable work
+
+- **`weekN/slavapa/`** — personal course exercises; commit to your fork only, **never** upstream PR.
+- **`weekN/community-contributions/slavapa/`** — polished contributions you may submit upstream (e.g. Playwright scraper).
+
+## Exercise sites
+
+Use these sites for exercises unless the user specifies otherwise:
+
+- https://kabbalahmedia.info/en/
+- https://www.michaellaitman.com/
+- https://kabuconnect.com/
+
+## Where to put your work
+
+- **Do not modify** core course notebooks (`weekN/day*.ipynb`) unless explicitly asked.
+- Personal exercises → `weekN/slavapa/` (fork only).
+- Shareable contributions → `weekN/community-contributions/slavapa/` (optional upstream PR).
+- Keep notebook outputs cleared before commits.
+- Never commit `.env`, API keys, or the `temp/` folder.
+
+## Environment
+
+- Python venv: `.venv` — select `.venv (Python 3.12.x)` as the Jupyter kernel.
+- API keys live in `.env` (already gitignored).
+- Free alternative: Ollama — see `guides/09_ai_apis_and_ollama.ipynb`.
+
+## Agent behavior
+
+- Help understand code before writing solutions.
+- Match existing course patterns (OpenAI SDK, `scraper.py` helpers, markdown summaries).
+- Prefer minimal, focused diffs in community-contributions.

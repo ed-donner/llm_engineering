@@ -1,0 +1,11 @@
+{
+  "extraPaths": [
+    "week1/community-contributions/slavapa"
+  ],
+  "executionEnvironments": [
+    {
+      "root": "week1/slavapa",
+      "extraPaths": ["../community-contributions/slavapa"]
+    }
+  ]
+}
