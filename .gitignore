@@ -1,5 +1,3 @@
-# Github's default gitignore for Python
-
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
@@ -105,7 +103,7 @@ ipython_config.py
 
 # pdm
 #   Similar to Pipfile.lock, it is generally recommended to include pdm.lock in version control.
-#pdm.lock
+#   #pdm.lock
 #   pdm stores project-wide configurations in .pdm.toml, but it is recommended to not include it
 #   in version control.
 #   https://pdm.fming.dev/#use-with-ide
@@ -157,63 +155,12 @@ dmypy.json
 cython_debug/
 
 # PyCharm
-.idea/
+#  JetBrains specific template is maintained in a separate JetBrains.gitignore that can
+#  be found at https://github.com/github/gitignore/blob/main/Global/JetBrains.gitignore
+#  and can be added to the global gitignore or merged into this file.  For a Python
+#  project, it is usually sufficient to include:
+#  .idea/
 
-# Added this to ignore models downloaded from HF
-model_cache/
-# Ignore finder files
-.DS_Store
-/.DS_Store
-
-# Ignore Chroma vector database
+# Vector DBs & Local Embeddings
 vector_db/
-products_vectorstore/
-
-# And ignore any pickle files made during the course
-*.pkl
-
-# ignore gradio private files
-.gradio
-/.gradio
-
-# ignore diagnostics reports
-**/report.txt
-
-# ignore optimized C++ code from being checked into repo
-week4/optimized
-week4/simple
-*.env.save
-.virtual_documents/
-WingIDE_Projekti/
-nohup.out
-*.png
-
-scraper_cache/
-challenge/
-
-# WandB local sync data.
-wandb/
-
-week2/**/prices.db
-week4/main.cpp
-week4/main
-week4/main.exe
-week4/main.rs
-
-week5/preprocessed_db/
-week5/vector_db/
-
-
-local/
-
-week6/full/
-week6/lite/
-week6/*/*.pkl
-week6/*/*.jsonl
-week6/*.pth
-week6/*.joblib
-week8/*.pth
-
-# Editor swap files, which can hold a copy of .env
-*.swp
-*.swo
+chroma.sqlite3
