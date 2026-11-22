@@ -17,6 +17,9 @@ Or: `uv pip install -r requirements.txt && python -m playwright install chromium
 
 - `scraper_playwright.py` — drop-in replacement for `week1/scraper.py` with Playwright fallback
 - `day1_playwright_exercise.ipynb` — summarizer demo using the three exercise sites
+- `week1_ai_tutor.ipynb` — Week 1 exercise: personal technical tutor (OpenAI streaming + Ollama, multi-shot prompts)
+
+For the AI tutor / Day 2 Ollama notebooks: install from [ollama.com](https://ollama.com), run `ollama pull llama3.2`, and confirm [http://localhost:11434/](http://localhost:11434/) shows `Ollama is running`.
 
 ## Usage in a notebook
 
