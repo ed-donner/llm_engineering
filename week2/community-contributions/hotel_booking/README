@@ -1,0 +1,56 @@
+# Hotel Room Assistant
+
+A simple AI chatbot that answers questions about hotel rooms: availability, room types, and pricing. It uses Claude with tool calling to query a local SQLite database, and provides a chat UI built with Gradio.
+
+## Features
+
+- Chat interface powered by [Gradio](https://www.gradio.app/)
+- Claude answers using live data from a SQLite database, not guesses
+- Tool calling for:
+  - Listing available rooms
+  - Listing room types
+  - Checking double-room availability
+  - Checking the price range for a room type
+- Database is created and seeded automatically with 10 sample rooms
+
+## Tech Stack
+
+- Python 3.10+
+- Gradio
+- SQLite (`sqlite3`, built into Python)
+- OpenAI Python SDK, pointed at Anthropic's OpenAI-compatible endpoint
+- python-dotenv
+
+## Example Questions
+
+- "Which rooms are available right now?"
+- "What types of rooms do you have?"
+- "Are any double rooms free?"
+- "What's the price range for a Deluxe room?"
+
+## How It Works
+
+1. The user sends a message through the Gradio chat UI.
+2. The message and the tool definitions are sent to the model.
+3. If the model needs data, it requests a tool call.
+4. The app runs the matching Python function against `hotel.db` and returns the result to the model.
+5. The model writes a natural-language answer for the user.
+
+## Project Structure
+
+```
+.
+├── hotel_assistant.ipynb   # Main notebook (database setup, tools, chat UI)
+├── hotel.db                # SQLite database (auto-generated on first run)
+├── .env                    # API key (not committed)
+└── README.md
+```
+
+## Configuration
+
+| Setting | Where | Description |
+|---|---|---|
+| `ANTHROPIC_API_KEY` | `.env` | Your Anthropic API key |
+| `MODEL` | Notebook | Model name used for chat |
+| `DB` | Notebook | SQLite database file path |
+
